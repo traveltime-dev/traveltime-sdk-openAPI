@@ -1,0 +1,13 @@
+# ResponseTravelTimeStatistics
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**min** | **i32** |  | 
+**max** | **i32** |  | 
+**mean** | **i32** |  | 
+**median** | **i32** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

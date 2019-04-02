@@ -1,0 +1,4 @@
+{
+    "library": "spring-cloud",
+    "artifactId": "petstore-spring-cloud"
+}

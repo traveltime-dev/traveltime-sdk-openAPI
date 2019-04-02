@@ -1,0 +1,12 @@
+type alias {{classname}}
+    = {{dataType}}
+
+
+decoder : Decoder {{classname}}
+decoder =
+    {{vendorExtensions.elmDecoder}}
+
+
+encoder : {{classname}} -> Encode.Value
+encoder =
+    {{vendorExtensions.elmEncoder}}

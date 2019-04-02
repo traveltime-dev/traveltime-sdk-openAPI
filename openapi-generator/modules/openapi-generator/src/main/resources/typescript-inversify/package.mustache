@@ -1,0 +1,30 @@
+{
+  "name": "{{{npmName}}}",
+  "version": "{{{npmVersion}}}",
+  "description": "OpenAPI client for {{{npmName}}}",
+  "author": "OpenAPI-Generator Contributors",
+  "keywords": [
+    "openapi-client",
+    "openapi-generator"
+  ],
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc --outDir dist/",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "inversify": "^4.3.0",
+    "rxjs": "~5.5.7",
+    "whatwg-fetch": "~2.0.1",
+    "reflect-metadata": "0.1.8"
+  },
+  "devDependencies": {
+  }{{#npmRepository}},{{/npmRepository}}
+{{#npmRepository}}
+  "publishConfig": {
+    "registry": "{{{npmRepository}}}"
+  }
+{{/npmRepository}}
+}

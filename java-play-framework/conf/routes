@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /api                        controllers.ApiDocController.api
+
+
+#Functions for Default API
+GET     /v4/geocoding/reverse                     controllers.DefaultApiController.geocodingReverseSearch()
+GET     /v4/geocoding/search                     controllers.DefaultApiController.geocodingSearch()
+GET     /v4/map-info                     controllers.DefaultApiController.mapInfo()
+POST     /v4/routes                     controllers.DefaultApiController.routes()
+POST     /v4/supported-locations                     controllers.DefaultApiController.supportedLocations()
+POST     /v4/time-filter                     controllers.DefaultApiController.timeFilter()
+POST     /v4/time-filter/fast                     controllers.DefaultApiController.timeFilterFast()
+POST     /v4/time-filter/postcode-districts                     controllers.DefaultApiController.timeFilterPostcodeDistricts()
+POST     /v4/time-filter/postcode-sectors                     controllers.DefaultApiController.timeFilterPostcodeSectors()
+POST     /v4/time-filter/postcodes                     controllers.DefaultApiController.timeFilterPostcodes()
+POST     /v4/time-map                     controllers.DefaultApiController.timeMap()
+
+# Map static resources from the /public folder to the /assets URL path
+GET /assets/*file           controllers.Assets.at(file)
+GET /versionedAssets/*file  controllers.Assets.versioned(file)

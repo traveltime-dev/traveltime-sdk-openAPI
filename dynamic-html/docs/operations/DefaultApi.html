@@ -1,0 +1,313 @@
+<div class="main-content">
+  <h2><a name=""></a></h2>
+  <p>This is the  API</p>
+
+  <h2><a name="geocodingReverseSearch"></a>geocodingReverseSearch</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/geocoding/reverse</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseGeocoding"><a href="">ResponseGeocoding</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">focus.lat</span>
+      <span class="param-type">Double</span>
+      
+      <p class="param-description"></p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">focus.lng</span>
+      <span class="param-type">Double</span>
+      
+      <p class="param-description"></p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">within.country</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="geocodingSearch"></a>geocodingSearch</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/geocoding/search</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseGeocoding"><a href="">ResponseGeocoding</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">query</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description"></p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">within.country</span>
+      <span class="param-type">String</span>
+      
+      <p class="param-description"></p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">focus.lat</span>
+      <span class="param-type">Double</span>
+      
+      <p class="param-description"></p>
+	  </li>
+	  <li class="parameter">
+      
+      <span class="param-in">Query: </span>
+      
+      
+      
+      <span class="param-name">focus.lng</span>
+      <span class="param-type">Double</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="mapInfo"></a>mapInfo</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/map-info</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>GET</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseMapInfo"><a href="">ResponseMapInfo</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+  </ul>
+  <h2><a name="routes"></a>routes</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/routes</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseRoutes"><a href="">ResponseRoutes</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestRoutes</span>
+      <span class="param-type">RequestRoutes(RequestRoutes)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="supportedLocations"></a>supportedLocations</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/supported-locations</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseSupportedLocations"><a href="">ResponseSupportedLocations</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestSupportedLocations</span>
+      <span class="param-type">RequestSupportedLocations(RequestSupportedLocations)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeFilter"></a>timeFilter</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-filter</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeFilter"><a href="">ResponseTimeFilter</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeFilter</span>
+      <span class="param-type">RequestTimeFilter(RequestTimeFilter)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeFilterFast"></a>timeFilterFast</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-filter/fast</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeFilterFast"><a href="">ResponseTimeFilterFast</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeFilterFast</span>
+      <span class="param-type">RequestTimeFilterFast(RequestTimeFilterFast)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeFilterPostcodeDistricts"></a>timeFilterPostcodeDistricts</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-filter/postcode-districts</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeFilterPostcodeDistricts"><a href="">ResponseTimeFilterPostcodeDistricts</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeFilterPostcodeDistricts</span>
+      <span class="param-type">RequestTimeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeFilterPostcodeSectors"></a>timeFilterPostcodeSectors</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-filter/postcode-sectors</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeFilterPostcodeSectors"><a href="">ResponseTimeFilterPostcodeSectors</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeFilterPostcodeSectors</span>
+      <span class="param-type">RequestTimeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeFilterPostcodes"></a>timeFilterPostcodes</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-filter/postcodes</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeFilterPostcodes"><a href="">ResponseTimeFilterPostcodes</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeFilterPostcodes</span>
+      <span class="param-type">RequestTimeFilterPostcodes(RequestTimeFilterPostcodes)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+  <h2><a name="timeMap"></a>timeMap</h2>
+  <hr>
+  <p></p>
+  
+  <h3 class="section">URL</h3>
+  <code>https://api.traveltimeapp.com/v4/time-map</code>
+  <h3 class="section">HTTP Method</h3>
+  <code>POST</code>
+  <h3 class="section">Response Type</h3>
+  <div class="model" data-model="ResponseTimeMap"><a href="">ResponseTimeMap</a></div>
+  <h3 class="section">Parameters</h3>
+  <ul>
+	  <li class="parameter">
+      
+      
+      
+      
+      <span class="param-in">Body: </span>
+      <span class="param-name">RequestTimeMap</span>
+      <span class="param-type">RequestTimeMap(RequestTimeMap)</span>
+      
+      <p class="param-description"></p>
+	  </li>
+  </ul>
+</div>

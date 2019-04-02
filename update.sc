@@ -3,7 +3,7 @@ import ammonite.ops._
 val swaggerCodegenVersion = "v3.3.4"
 lazy val codegenDir = pwd/"openapi-generator"
 lazy val sdkOut = codegenDir/"out"
-lazy val defaultSpecLocation = "https://raw.githubusercontent.com/igeolise/traveltime-platform-openapi-specification/v1.1.0/traveltime-spec.yml"
+lazy val defaultSpecLocation = "https://raw.githubusercontent.com/igeolise/traveltime-platform-openapi-specification/v1.1.1/traveltime-spec.yml"
 val languages = List(
   "ada",
   "ada-server",

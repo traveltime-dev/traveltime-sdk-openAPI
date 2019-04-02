@@ -2,7 +2,7 @@
 
 SDKs were generated using:
 * [OpenAPI Generator v3.3.4](https://github.com/OpenAPITools/openapi-generator/tree/v3.3.4)
-* [TravelTime platform OpenAPI Specification v1.1.1](https://github.com/igeolise/traveltime-platform-openapi-specification/blob/v1.1.1/traveltime-spec.yml)
+* [TravelTime platform OpenAPI Specification v1.1.1](https://raw.githubusercontent.com/igeolise/traveltime-platform-openapi-specification/v1.1.1/traveltime-spec.yml)
 
 #### Known issues:
 * Generated SDKs cannot parse error response. You will need to wrap sdk calls and catch exceptions, then parse the [error response](http://docs.traveltimeplatform.com/reference/error-response)

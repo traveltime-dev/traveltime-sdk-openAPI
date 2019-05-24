@@ -15,10 +15,10 @@ import org.openapitools.model.ResponseTransportationMode;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class ResponseRoutePart   {
   
-  private String id = ;
+  private String id;
 
 
   public enum TypeEnum {
@@ -40,21 +40,21 @@ public class ResponseRoutePart   {
     }
   }
 
-  private TypeEnum type = ;
-  private ResponseTransportationMode mode = null;
-  private String directions = ;
-  private Integer distance = ;
-  private Integer travelTime = ;
+  private TypeEnum type;
+  private ResponseTransportationMode mode;
+  private String directions;
+  private Integer distance;
+  private Integer travelTime;
   private List<Coords> coords = new ArrayList<Coords>();
-  private String direction = ;
-  private String road = ;
-  private String turn = ;
-  private String line = ;
-  private String departureStation = ;
-  private String arrivalStation = ;
-  private String departsAt = ;
-  private String arrivesAt = ;
-  private Integer numStops = ;
+  private String direction;
+  private String road;
+  private String turn;
+  private String line;
+  private String departureStation;
+  private String arrivalStation;
+  private String departsAt;
+  private String arrivesAt;
+  private Integer numStops;
 
   /**
    **/

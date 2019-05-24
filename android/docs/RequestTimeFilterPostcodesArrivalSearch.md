@@ -1,7 +1,9 @@
 
+
 # RequestTimeFilterPostcodesArrivalSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -10,6 +12,7 @@ Name | Type | Description | Notes
 **arrivalTime** | [**Date**](Date.md) |  | 
 **properties** | [**List&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
+
 
 
 

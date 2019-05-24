@@ -62,8 +62,8 @@ public class ResponseTimeFilterPostcodesProperties   {
       return false;
     }
     ResponseTimeFilterPostcodesProperties responseTimeFilterPostcodesProperties = (ResponseTimeFilterPostcodesProperties) o;
-    return Objects.equals(travelTime, responseTimeFilterPostcodesProperties.travelTime) &&
-        Objects.equals(distance, responseTimeFilterPostcodesProperties.distance);
+    return Objects.equals(this.travelTime, responseTimeFilterPostcodesProperties.travelTime) &&
+        Objects.equals(this.distance, responseTimeFilterPostcodesProperties.distance);
   }
 
   @Override

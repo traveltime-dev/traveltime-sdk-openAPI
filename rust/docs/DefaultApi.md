@@ -17,11 +17,14 @@ Method | HTTP request | Description
 [**time_map**](DefaultApi.md#time_map) | **Post** /v4/time-map | 
 
 
-# **geocoding_reverse_search**
+
+## geocoding_reverse_search
+
 > ::models::ResponseGeocoding geocoding_reverse_search(ctx, ctx, focus_lat, focus_lng, optional)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -32,6 +35,7 @@ Name | Type | Description  | Notes
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
@@ -50,16 +54,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **geocoding_search**
+
+## geocoding_search
+
 > ::models::ResponseGeocoding geocoding_search(ctx, ctx, query, optional)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -69,6 +76,7 @@ Name | Type | Description  | Notes
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
+
 Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
@@ -88,16 +96,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **map_info**
+
+## map_info
+
 > ::models::ResponseMapInfo map_info(ctx, ctx, )
 
 
 ### Required Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -110,16 +121,19 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **routes**
+
+## routes
+
 > ::models::ResponseRoutes routes(ctx, ctx, request_routes)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -137,16 +151,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **supported_locations**
+
+## supported_locations
+
 > ::models::ResponseSupportedLocations supported_locations(ctx, ctx, request_supported_locations)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -164,16 +181,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_filter**
+
+## time_filter
+
 > ::models::ResponseTimeFilter time_filter(ctx, ctx, request_time_filter)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -191,16 +211,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_filter_fast**
+
+## time_filter_fast
+
 > ::models::ResponseTimeFilterFast time_filter_fast(ctx, ctx, request_time_filter_fast)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -218,16 +241,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_filter_postcode_districts**
+
+## time_filter_postcode_districts
+
 > ::models::ResponseTimeFilterPostcodeDistricts time_filter_postcode_districts(ctx, ctx, request_time_filter_postcode_districts)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -245,16 +271,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_filter_postcode_sectors**
+
+## time_filter_postcode_sectors
+
 > ::models::ResponseTimeFilterPostcodeSectors time_filter_postcode_sectors(ctx, ctx, request_time_filter_postcode_sectors)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -272,16 +301,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_filter_postcodes**
+
+## time_filter_postcodes
+
 > ::models::ResponseTimeFilterPostcodes time_filter_postcodes(ctx, ctx, request_time_filter_postcodes)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -299,16 +331,19 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **time_map**
+
+## time_map
+
 > ::models::ResponseTimeMap time_map(ctx, ctx, request_time_map)
 
 
 ### Required Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -326,8 +361,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

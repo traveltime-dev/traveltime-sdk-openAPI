@@ -119,11 +119,11 @@ public class ResponseError   {
       return false;
     }
     ResponseError responseError = (ResponseError) o;
-    return Objects.equals(httpStatus, responseError.httpStatus) &&
-        Objects.equals(errorCode, responseError.errorCode) &&
-        Objects.equals(description, responseError.description) &&
-        Objects.equals(documentationLink, responseError.documentationLink) &&
-        Objects.equals(additionalInfo, responseError.additionalInfo);
+    return Objects.equals(this.httpStatus, responseError.httpStatus) &&
+        Objects.equals(this.errorCode, responseError.errorCode) &&
+        Objects.equals(this.description, responseError.description) &&
+        Objects.equals(this.documentationLink, responseError.documentationLink) &&
+        Objects.equals(this.additionalInfo, responseError.additionalInfo);
   }
 
   @Override

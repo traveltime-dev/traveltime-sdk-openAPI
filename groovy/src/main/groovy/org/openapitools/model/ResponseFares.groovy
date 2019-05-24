@@ -10,8 +10,8 @@ import org.openapitools.model.ResponseFaresBreakdownItem;
 
 @Canonical
 class ResponseFares {
+    
     List<ResponseFaresBreakdownItem> breakdown = new ArrayList<ResponseFaresBreakdownItem>()
-
+    
     List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>()
-
 }

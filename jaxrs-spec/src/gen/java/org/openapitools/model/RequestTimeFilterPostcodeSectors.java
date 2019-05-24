@@ -66,8 +66,8 @@ public class RequestTimeFilterPostcodeSectors   {
       return false;
     }
     RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors = (RequestTimeFilterPostcodeSectors) o;
-    return Objects.equals(departureSearches, requestTimeFilterPostcodeSectors.departureSearches) &&
-        Objects.equals(arrivalSearches, requestTimeFilterPostcodeSectors.arrivalSearches);
+    return Objects.equals(this.departureSearches, requestTimeFilterPostcodeSectors.departureSearches) &&
+        Objects.equals(this.arrivalSearches, requestTimeFilterPostcodeSectors.arrivalSearches);
   }
 
   @Override

@@ -1,6 +1,7 @@
 # ResponseTimeFilter
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**Vec<::models::ResponseTimeFilterResult>**](ResponseTimeFilterResult.md) |  | 

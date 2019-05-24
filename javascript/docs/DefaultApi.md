@@ -17,44 +17,46 @@ Method | HTTP request | Description
 [**timeMap**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
 
 
-<a name="geocodingReverseSearch"></a>
-# **geocodingReverseSearch**
+
+## geocodingReverseSearch
+
 > ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, opts)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var focusLat = 3.4; // Number | 
-var focusLng = 3.4; // Number | 
-var opts = {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let focusLat = 3.4; // Number | 
+let focusLng = 3.4; // Number | 
+let opts = {
   'withinCountry': "withinCountry_example" // String | 
 };
-var callback = function(error, data, response) {
+apiInstance.geocodingReverseSearch(focusLat, focusLng, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.geocodingReverseSearch(focusLat, focusLng, opts, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -72,48 +74,50 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="geocodingSearch"></a>
-# **geocodingSearch**
+
+## geocodingSearch
+
 > ResponseGeocoding geocodingSearch(query, opts)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var query = "query_example"; // String | 
-var opts = {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let query = "query_example"; // String | 
+let opts = {
   'withinCountry': "withinCountry_example", // String | 
   'focusLat': 3.4, // Number | 
   'focusLng': 3.4 // Number | 
 };
-var callback = function(error, data, response) {
+apiInstance.geocodingSearch(query, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.geocodingSearch(query, opts, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -132,42 +136,44 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="mapInfo"></a>
-# **mapInfo**
+
+## mapInfo
+
 > ResponseMapInfo mapInfo()
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+apiInstance.mapInfo((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.mapInfo(callback);
+});
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -180,43 +186,45 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="routes"></a>
-# **routes**
+
+## routes
+
 > ResponseRoutes routes(requestRoutes)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestRoutes = new TravelTimePlatformApi.RequestRoutes(); // RequestRoutes | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestRoutes = new TravelTimePlatformApi.RequestRoutes(); // RequestRoutes | 
+apiInstance.routes(requestRoutes, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.routes(requestRoutes, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -232,43 +240,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="supportedLocations"></a>
-# **supportedLocations**
+
+## supportedLocations
+
 > ResponseSupportedLocations supportedLocations(requestSupportedLocations)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestSupportedLocations = new TravelTimePlatformApi.RequestSupportedLocations(); // RequestSupportedLocations | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestSupportedLocations = new TravelTimePlatformApi.RequestSupportedLocations(); // RequestSupportedLocations | 
+apiInstance.supportedLocations(requestSupportedLocations, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.supportedLocations(requestSupportedLocations, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -284,43 +294,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilter"></a>
-# **timeFilter**
+
+## timeFilter
+
 > ResponseTimeFilter timeFilter(requestTimeFilter)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeFilter = new TravelTimePlatformApi.RequestTimeFilter(); // RequestTimeFilter | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeFilter = new TravelTimePlatformApi.RequestTimeFilter(); // RequestTimeFilter | 
+apiInstance.timeFilter(requestTimeFilter, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeFilter(requestTimeFilter, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -336,43 +348,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterFast"></a>
-# **timeFilterFast**
+
+## timeFilterFast
+
 > ResponseTimeFilterFast timeFilterFast(requestTimeFilterFast)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeFilterFast = new TravelTimePlatformApi.RequestTimeFilterFast(); // RequestTimeFilterFast | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeFilterFast = new TravelTimePlatformApi.RequestTimeFilterFast(); // RequestTimeFilterFast | 
+apiInstance.timeFilterFast(requestTimeFilterFast, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeFilterFast(requestTimeFilterFast, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -388,43 +402,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodeDistricts"></a>
-# **timeFilterPostcodeDistricts**
+
+## timeFilterPostcodeDistricts
+
 > ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeFilterPostcodeDistricts = new TravelTimePlatformApi.RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeFilterPostcodeDistricts = new TravelTimePlatformApi.RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
+apiInstance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -440,43 +456,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodeSectors"></a>
-# **timeFilterPostcodeSectors**
+
+## timeFilterPostcodeSectors
+
 > ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeFilterPostcodeSectors = new TravelTimePlatformApi.RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeFilterPostcodeSectors = new TravelTimePlatformApi.RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
+apiInstance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -492,43 +510,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodes"></a>
-# **timeFilterPostcodes**
+
+## timeFilterPostcodes
+
 > ResponseTimeFilterPostcodes timeFilterPostcodes(requestTimeFilterPostcodes)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeFilterPostcodes = new TravelTimePlatformApi.RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeFilterPostcodes = new TravelTimePlatformApi.RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
+apiInstance.timeFilterPostcodes(requestTimeFilterPostcodes, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeFilterPostcodes(requestTimeFilterPostcodes, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -544,43 +564,45 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeMap"></a>
-# **timeMap**
+
+## timeMap
+
 > ResponseTimeMap timeMap(requestTimeMap)
 
 
 
 ### Example
+
 ```javascript
-var TravelTimePlatformApi = require('travel_time_platform_api');
-var defaultClient = TravelTimePlatformApi.ApiClient.instance;
+import TravelTimePlatformApi from 'travel_time_platform_api';
+let defaultClient = TravelTimePlatformApi.ApiClient.instance;
 // Configure API key authorization: ApiKey
-var ApiKey = defaultClient.authentications['ApiKey'];
+let ApiKey = defaultClient.authentications['ApiKey'];
 ApiKey.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApiKey.apiKeyPrefix = 'Token';
 // Configure API key authorization: ApplicationId
-var ApplicationId = defaultClient.authentications['ApplicationId'];
+let ApplicationId = defaultClient.authentications['ApplicationId'];
 ApplicationId.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //ApplicationId.apiKeyPrefix = 'Token';
 
-var apiInstance = new TravelTimePlatformApi.DefaultApi();
-var requestTimeMap = new TravelTimePlatformApi.RequestTimeMap(); // RequestTimeMap | 
-var callback = function(error, data, response) {
+let apiInstance = new TravelTimePlatformApi.DefaultApi();
+let requestTimeMap = new TravelTimePlatformApi.RequestTimeMap(); // RequestTimeMap | 
+apiInstance.timeMap(requestTimeMap, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.timeMap(requestTimeMap, callback);
+});
 ```
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -596,6 +618,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 

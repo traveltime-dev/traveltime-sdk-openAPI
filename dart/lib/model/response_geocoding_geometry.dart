@@ -14,15 +14,25 @@ class ResponseGeocodingGeometry {
 
   ResponseGeocodingGeometry.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
-    coordinates = ((json['coordinates'] ?? []) as List).map((item) => item as double).toList();
+    if (json['type'] == null) {
+      type = null;
+    } else {
+          type = json['type'];
+    }
+    if (json['coordinates'] == null) {
+      coordinates = null;
+    } else {
+      coordinates = (json['coordinates'] as List).cast<double>();
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'type': type,
-      'coordinates': coordinates
-    };
+    Map <String, dynamic> json = {};
+    if (type != null)
+      json['type'] = type;
+    if (coordinates != null)
+      json['coordinates'] = coordinates;
+    return json;
   }
 
   static List<ResponseGeocodingGeometry> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseGeocodingGeometry {
 
   static Map<String, ResponseGeocodingGeometry> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseGeocodingGeometry>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseGeocodingGeometry.fromJson(value));
     }
     return map;

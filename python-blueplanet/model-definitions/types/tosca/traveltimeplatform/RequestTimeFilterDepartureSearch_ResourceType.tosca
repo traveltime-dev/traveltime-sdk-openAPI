@@ -1,0 +1,75 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeFilterDepartureSearch"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeFilterDepartureSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = traveltimeplatform.resourceTypes.RequestRangeFull
+  RequestTimeFilterProperty = traveltimeplatform.resourceTypes.RequestTimeFilterProperty
+  RequestTransportation = traveltimeplatform.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterDepartureSearch {
+    title = RequestTimeFilterDepartureSearch
+    description = RequestTimeFilterDepartureSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        departure_location_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        arrival_location_ids {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterDepartureSearch {
+    title = RequestTimeFilterDepartureSearch
+    description = RequestTimeFilterDepartureSearch
+    implements = traveltimeplatform.resourceTypes.RequestTimeFilterDepartureSearch
+
+  }
+}

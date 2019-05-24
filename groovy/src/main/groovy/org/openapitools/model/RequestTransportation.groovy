@@ -6,16 +6,16 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class RequestTransportation {
-    String type = 
-
-    Integer ptChangeDelay = 
-
-    Integer walkingTime = 
-
-    Integer drivingTimeToStation = 
-
-    Integer parkingTime = 
-
-    Integer boardingTime = 
-
+    
+    String type
+    
+    Integer ptChangeDelay
+    
+    Integer walkingTime
+    
+    Integer drivingTimeToStation
+    
+    Integer parkingTime
+    
+    Integer boardingTime
 }

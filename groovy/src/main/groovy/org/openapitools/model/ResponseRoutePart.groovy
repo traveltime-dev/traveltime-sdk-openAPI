@@ -10,36 +10,36 @@ import org.openapitools.model.ResponseTransportationMode;
 
 @Canonical
 class ResponseRoutePart {
-    String id = 
-
-    String type = 
-
-    ResponseTransportationMode mode = null
-
-    String directions = 
-
-    Integer distance = 
-
-    Integer travelTime = 
-
+    
+    String id
+    
+    String type
+    
+    ResponseTransportationMode mode
+    
+    String directions
+    
+    Integer distance
+    
+    Integer travelTime
+    
     List<Coords> coords = new ArrayList<Coords>()
-
-    String direction = 
-
-    String road = 
-
-    String turn = 
-
-    String line = 
-
-    String departureStation = 
-
-    String arrivalStation = 
-
-    String departsAt = 
-
-    String arrivesAt = 
-
-    Integer numStops = 
-
+    
+    String direction
+    
+    String road
+    
+    String turn
+    
+    String line
+    
+    String departureStation
+    
+    String arrivalStation
+    
+    String departsAt
+    
+    String arrivesAt
+    
+    Integer numStops
 }

@@ -18,7 +18,7 @@ import org.threeten.bp.OffsetDateTime;
  * ResponseRoute
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-04-02T12:37:43.845Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
 
 public class ResponseRoute   {
   @JsonProperty("departure_time")

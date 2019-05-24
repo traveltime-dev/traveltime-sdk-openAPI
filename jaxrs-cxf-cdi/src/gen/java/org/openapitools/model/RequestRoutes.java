@@ -18,7 +18,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestRoutes   {
   
   private List<RequestLocation> locations = new ArrayList<RequestLocation>();

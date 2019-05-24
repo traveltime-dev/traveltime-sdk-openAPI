@@ -9,6 +9,6 @@ import org.openapitools.model.RequestLocation;
 
 @Canonical
 class RequestSupportedLocations {
+    
     List<RequestLocation> locations = new ArrayList<RequestLocation>()
-
 }

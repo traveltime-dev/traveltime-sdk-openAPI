@@ -64,8 +64,8 @@ public class ResponseSupportedLocation   {
       return false;
     }
     ResponseSupportedLocation responseSupportedLocation = (ResponseSupportedLocation) o;
-    return Objects.equals(id, responseSupportedLocation.id) &&
-        Objects.equals(mapName, responseSupportedLocation.mapName);
+    return Objects.equals(this.id, responseSupportedLocation.id) &&
+        Objects.equals(this.mapName, responseSupportedLocation.mapName);
   }
 
   @Override

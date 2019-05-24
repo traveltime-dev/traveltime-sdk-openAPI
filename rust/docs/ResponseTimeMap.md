@@ -1,6 +1,7 @@
 # ResponseTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**Vec<::models::ResponseTimeMapResult>**](ResponseTimeMapResult.md) |  | 

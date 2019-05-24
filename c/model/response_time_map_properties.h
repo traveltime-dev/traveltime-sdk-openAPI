@@ -8,26 +8,24 @@
 #define _response_time_map_properties_H_
 
 #include <string.h>
-#include "cJSON.h"
-
-typedef int bool;
-#define true 1
-#define false 0
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 
 
 
 typedef struct response_time_map_properties_t {
-        bool is_only_walking; //boolean
+    int is_only_walking; //boolean
 
 } response_time_map_properties_t;
 
 response_time_map_properties_t *response_time_map_properties_create(
-        bool is_only_walking
+    int is_only_walking
 );
 
 void response_time_map_properties_free(response_time_map_properties_t *response_time_map_properties);
 
-response_time_map_properties_t *response_time_map_properties_parseFromJSON(char *jsonString);
+response_time_map_properties_t *response_time_map_properties_parseFromJSON(cJSON *response_time_map_propertiesJSON);
 
 cJSON *response_time_map_properties_convertToJSON(response_time_map_properties_t *response_time_map_properties);
 

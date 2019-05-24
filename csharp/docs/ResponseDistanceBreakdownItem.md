@@ -1,10 +1,14 @@
+
 # traveltimeplatform.Model.ResponseDistanceBreakdownItem
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mode** | **ResponseTransportationMode** |  | 
+**Mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
 **Distance** | **int?** |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

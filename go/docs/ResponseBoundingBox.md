@@ -1,6 +1,7 @@
 # ResponseBoundingBox
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Envelope** | [**ResponseBox**](ResponseBox.md) |  | 

@@ -1,0 +1,23 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "departure_location_id" },
+      {"model": "arrival_location_ids" },
+      {"model": "transportation" },
+      {"model": "travel_time" },
+      {"model": "arrival_time_period" },
+      {"model": "properties" },
+    ]
+  }]
+}

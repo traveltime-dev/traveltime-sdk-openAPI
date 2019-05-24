@@ -1,6 +1,7 @@
 # ResponseError
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **http_status** | **i32** |  | [optional] 

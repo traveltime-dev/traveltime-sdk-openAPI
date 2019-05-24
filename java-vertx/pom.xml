@@ -4,7 +4,7 @@
     
     <groupId>org.openapitools</groupId>
     <artifactId>openapi-java-vertx-server</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
   
       <name>TravelTime Platform API</name>

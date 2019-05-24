@@ -1,54 +1,49 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "request_arrival_time_period.h"
 
 
-request_arrival_time_period_t *request_arrival_time_period_create(
-    ) {
-	request_arrival_time_period_t *request_arrival_time_period = malloc(sizeof(request_arrival_time_period_t));
-
-	return request_arrival_time_period;
+char* request_arrival_time_period_ToString(request_arrival_time_period_e request_arrival_time_period){
+char *request_arrival_time_periodArray[] =  { "weekday_morning" };
+    return request_arrival_time_periodArray[request_arrival_time_period];
 }
 
-
-void request_arrival_time_period_free(request_arrival_time_period_t *request_arrival_time_period) {
-    listEntry_t *listEntry;
-
-	free(request_arrival_time_period);
-}
-
-cJSON *request_arrival_time_period_convertToJSON(request_arrival_time_period_t *request_arrival_time_period) {
-	cJSON *item = cJSON_CreateObject();
-	return item;
-fail:
-	cJSON_Delete(item);
-	return NULL;
-}
-
-request_arrival_time_period_t *request_arrival_time_period_parseFromJSON(char *jsonString){
-
-    request_arrival_time_period_t *request_arrival_time_period = NULL;
-    cJSON *request_arrival_time_periodJSON = cJSON_Parse(jsonString);
-    if(request_arrival_time_periodJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
+request_arrival_time_period_e request_arrival_time_period_FromString(char* request_arrival_time_period){
+    int stringToReturn = 0;
+    char *request_arrival_time_periodArray[] =  { "weekday_morning" };
+    size_t sizeofArray = sizeof(request_arrival_time_periodArray) / sizeof(request_arrival_time_periodArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(request_arrival_time_period, request_arrival_time_periodArray[stringToReturn]) == 0) {
+            return stringToReturn;
         }
+        stringToReturn++;
     }
-
-
-    request_arrival_time_period = request_arrival_time_period_create (
-        );
- cJSON_Delete(request_arrival_time_periodJSON);
-    return request_arrival_time_period;
-end:
-    cJSON_Delete(request_arrival_time_periodJSON);
-    return NULL;
-
+    return 0;
 }
 
+cJSON *request_arrival_time_period_convertToJSON(request_arrival_time_period_e request_arrival_time_period) {
+cJSON *item = cJSON_CreateObject();
+    if(cJSON_AddStringToObject(item, "request_arrival_time_period", request_arrival_time_period_ToString(request_arrival_time_period)) == NULL) {
+        goto fail;
+    }
+    return item;
+    fail:
+    cJSON_Delete(item);
+    return NULL;
+}
+
+request_arrival_time_period_e request_arrival_time_period_parseFromJSON(cJSON *request_arrival_time_periodJSON){
+
+request_arrival_time_period_e *request_arrival_time_period = NULL;
+
+request_arrival_time_period_e request_arrival_time_periodVariable;
+cJSON *request_arrival_time_periodVar = cJSON_GetObjectItemCaseSensitive(request_arrival_time_periodJSON, "request_arrival_time_period");
+if(!cJSON_IsString(request_arrival_time_periodVar) || (request_arrival_time_periodVar->valuestring == NULL)){
+    goto end;
+}
+request_arrival_time_periodVariable = request_arrival_time_period_FromString(request_arrival_time_periodVar->valuestring);
+return request_arrival_time_periodVariable;
+end:
+return 0;
+}

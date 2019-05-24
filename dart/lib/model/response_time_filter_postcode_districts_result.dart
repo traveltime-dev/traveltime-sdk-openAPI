@@ -14,15 +14,25 @@ class ResponseTimeFilterPostcodeDistrictsResult {
 
   ResponseTimeFilterPostcodeDistrictsResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    searchId = json['search_id'];
-    districts = ResponseTimeFilterPostcodeDistrict.listFromJson(json['districts']);
+    if (json['search_id'] == null) {
+      searchId = null;
+    } else {
+          searchId = json['search_id'];
+    }
+    if (json['districts'] == null) {
+      districts = null;
+    } else {
+      districts = ResponseTimeFilterPostcodeDistrict.listFromJson(json['districts']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'search_id': searchId,
-      'districts': districts
-    };
+    Map <String, dynamic> json = {};
+    if (searchId != null)
+      json['search_id'] = searchId;
+    if (districts != null)
+      json['districts'] = districts;
+    return json;
   }
 
   static List<ResponseTimeFilterPostcodeDistrictsResult> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseTimeFilterPostcodeDistrictsResult {
 
   static Map<String, ResponseTimeFilterPostcodeDistrictsResult> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeFilterPostcodeDistrictsResult>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterPostcodeDistrictsResult.fromJson(value));
     }
     return map;

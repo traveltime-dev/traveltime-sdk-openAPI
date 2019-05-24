@@ -14,15 +14,25 @@ class ResponseShape {
 
   ResponseShape.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    shell = Coords.listFromJson(json['shell']);
-    holes = List.listFromJson(json['holes']);
+    if (json['shell'] == null) {
+      shell = null;
+    } else {
+      shell = Coords.listFromJson(json['shell']);
+    }
+    if (json['holes'] == null) {
+      holes = null;
+    } else {
+      holes = List.listFromJson(json['holes']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'shell': shell,
-      'holes': holes
-    };
+    Map <String, dynamic> json = {};
+    if (shell != null)
+      json['shell'] = shell;
+    if (holes != null)
+      json['holes'] = holes;
+    return json;
   }
 
   static List<ResponseShape> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseShape {
 
   static Map<String, ResponseShape> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseShape>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseShape.fromJson(value));
     }
     return map;

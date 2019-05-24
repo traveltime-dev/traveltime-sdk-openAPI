@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseTimeFilterProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **travelTime** | **Number** |  | [optional] 

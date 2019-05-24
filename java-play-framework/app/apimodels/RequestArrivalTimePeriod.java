@@ -25,13 +25,13 @@ public enum RequestArrivalTimePeriod {
   }
 
   @JsonCreator
-  public static RequestArrivalTimePeriod fromValue(String text) {
+  public static RequestArrivalTimePeriod fromValue(String value) {
     for (RequestArrivalTimePeriod b : RequestArrivalTimePeriod.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

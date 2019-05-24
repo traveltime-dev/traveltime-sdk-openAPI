@@ -33,7 +33,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2019-04-02T12:37:55.966Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2019-05-24T09:07:00.658Z[Etc/UTC]")
 public interface V4ApiService {
       public Response geocodingReverseSearch(Double focusLat, Double focusLng, String withinCountry, SecurityContext securityContext);
       public Response geocodingSearch(String query, String withinCountry, Double focusLat, Double focusLng, SecurityContext securityContext);

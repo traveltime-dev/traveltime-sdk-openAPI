@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTransportation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-04-02T12:37:46.315Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTransportation   {
@@ -51,13 +51,13 @@ public class RequestTransportation   {
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
 

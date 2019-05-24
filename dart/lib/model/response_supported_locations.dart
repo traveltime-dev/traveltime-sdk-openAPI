@@ -14,15 +14,25 @@ class ResponseSupportedLocations {
 
   ResponseSupportedLocations.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    locations = ResponseSupportedLocation.listFromJson(json['locations']);
-    unsupportedLocations = ((json['unsupported_locations'] ?? []) as List).map((item) => item as String).toList();
+    if (json['locations'] == null) {
+      locations = null;
+    } else {
+      locations = ResponseSupportedLocation.listFromJson(json['locations']);
+    }
+    if (json['unsupported_locations'] == null) {
+      unsupportedLocations = null;
+    } else {
+      unsupportedLocations = (json['unsupported_locations'] as List).cast<String>();
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'locations': locations,
-      'unsupported_locations': unsupportedLocations
-    };
+    Map <String, dynamic> json = {};
+    if (locations != null)
+      json['locations'] = locations;
+    if (unsupportedLocations != null)
+      json['unsupported_locations'] = unsupportedLocations;
+    return json;
   }
 
   static List<ResponseSupportedLocations> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseSupportedLocations {
 
   static Map<String, ResponseSupportedLocations> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseSupportedLocations>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseSupportedLocations.fromJson(value));
     }
     return map;

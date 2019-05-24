@@ -29,9 +29,9 @@ public class ResponseFareTicket   {
     }
   }
 
-  private TypeEnum type = ;
-  private Double price = ;
-  private String currency = ;
+  private TypeEnum type;
+  private Double price;
+  private String currency;
 
   public ResponseFareTicket () {
 

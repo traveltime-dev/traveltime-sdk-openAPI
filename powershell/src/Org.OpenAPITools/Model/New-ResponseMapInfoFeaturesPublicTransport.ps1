@@ -4,7 +4,7 @@ function New-ResponseMapInfoFeaturesPublicTransport {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [System.DateTime]
         ${dateUnderscorestart},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [System.DateTime]
         ${dateUnderscoreend}
     )

@@ -11,17 +11,12 @@ import Foundation
 
 public struct ResponseRoutesLocation: Codable {
 
-    public var _id: String
+    public var id: String
     public var properties: [ResponseRoutesProperties]
 
-    public init(_id: String, properties: [ResponseRoutesProperties]) {
-        self._id = _id
+    public init(id: String, properties: [ResponseRoutesProperties]) {
+        self.id = id
         self.properties = properties
-    }
-
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case properties
     }
 
 

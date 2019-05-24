@@ -6,12 +6,12 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseTravelTimeStatistics {
-    Integer min = 
-
-    Integer max = 
-
-    Integer mean = 
-
-    Integer median = 
-
+    
+    Integer min
+    
+    Integer max
+    
+    Integer mean
+    
+    Integer median
 }

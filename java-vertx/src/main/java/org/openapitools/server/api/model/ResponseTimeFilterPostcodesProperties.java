@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeFilterPostcodesProperties   {
   
-  private Integer travelTime = ;
-  private Integer distance = ;
+  private Integer travelTime;
+  private Integer distance;
 
   public ResponseTimeFilterPostcodesProperties () {
 

@@ -18,9 +18,9 @@ type RequestTimeMapArrivalSearch struct {
 
 	Id string `json:"id"`
 
-	Coords *Coords `json:"coords"`
+	Coords Coords `json:"coords"`
 
-	Transportation *RequestTransportation `json:"transportation"`
+	Transportation RequestTransportation `json:"transportation"`
 
 	TravelTime int32 `json:"travel_time"`
 
@@ -28,5 +28,5 @@ type RequestTimeMapArrivalSearch struct {
 
 	Properties []RequestTimeMapProperty `json:"properties,omitempty"`
 
-	Range *RequestRangeNoMaxResults `json:"range,omitempty"`
+	Range RequestRangeNoMaxResults `json:"range,omitempty"`
 }

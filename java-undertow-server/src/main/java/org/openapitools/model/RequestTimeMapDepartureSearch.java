@@ -17,14 +17,14 @@ import org.openapitools.model.RequestTransportation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class RequestTimeMapDepartureSearch   {
   
-  private String id = ;
+  private String id;
   private Coords coords = null;
   private RequestTransportation transportation = null;
-  private Integer travelTime = ;
-  private Date departureTime = ;
+  private Integer travelTime;
+  private Date departureTime;
   private List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
   private RequestRangeNoMaxResults range = null;
 

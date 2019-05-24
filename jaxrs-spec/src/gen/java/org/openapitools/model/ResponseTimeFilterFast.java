@@ -48,7 +48,7 @@ public class ResponseTimeFilterFast   {
       return false;
     }
     ResponseTimeFilterFast responseTimeFilterFast = (ResponseTimeFilterFast) o;
-    return Objects.equals(results, responseTimeFilterFast.results);
+    return Objects.equals(this.results, responseTimeFilterFast.results);
   }
 
   @Override

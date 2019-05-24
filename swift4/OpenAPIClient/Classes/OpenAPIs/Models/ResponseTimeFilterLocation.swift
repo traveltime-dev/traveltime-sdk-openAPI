@@ -11,17 +11,12 @@ import Foundation
 
 public struct ResponseTimeFilterLocation: Codable {
 
-    public var _id: String
+    public var id: String
     public var properties: [ResponseTimeFilterProperties]
 
-    public init(_id: String, properties: [ResponseTimeFilterProperties]) {
-        self._id = _id
+    public init(id: String, properties: [ResponseTimeFilterProperties]) {
+        self.id = id
         self.properties = properties
-    }
-
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case properties
     }
 
 

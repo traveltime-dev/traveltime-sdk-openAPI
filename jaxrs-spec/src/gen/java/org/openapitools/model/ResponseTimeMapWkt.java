@@ -48,7 +48,7 @@ public class ResponseTimeMapWkt   {
       return false;
     }
     ResponseTimeMapWkt responseTimeMapWkt = (ResponseTimeMapWkt) o;
-    return Objects.equals(results, responseTimeMapWkt.results);
+    return Objects.equals(this.results, responseTimeMapWkt.results);
   }
 
   @Override

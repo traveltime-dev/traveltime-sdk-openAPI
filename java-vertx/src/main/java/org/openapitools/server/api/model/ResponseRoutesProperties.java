@@ -9,8 +9,8 @@ import org.openapitools.server.api.model.ResponseRoute;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseRoutesProperties   {
   
-  private Integer travelTime = ;
-  private Integer distance = ;
+  private Integer travelTime;
+  private Integer distance;
   private ResponseFares fares = null;
   private ResponseRoute route = null;
 

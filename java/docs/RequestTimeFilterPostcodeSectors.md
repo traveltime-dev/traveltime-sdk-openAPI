@@ -1,7 +1,9 @@
 
+
 # RequestTimeFilterPostcodeSectors
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departureSearches** | [**List&lt;RequestTimeFilterPostcodeSectorsDepartureSearch&gt;**](RequestTimeFilterPostcodeSectorsDepartureSearch.md) |  |  [optional]

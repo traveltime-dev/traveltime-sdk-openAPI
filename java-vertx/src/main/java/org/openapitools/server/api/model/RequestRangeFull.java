@@ -7,9 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestRangeFull   {
   
-  private Boolean enabled = ;
-  private Integer maxResults = ;
-  private Integer width = ;
+  private Boolean enabled;
+  private Integer maxResults;
+  private Integer width;
 
   public RequestRangeFull () {
 

@@ -8,25 +8,26 @@
 #define _response_supported_location_H_
 
 #include <string.h>
-#include "cJSON.h"
-
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 
 
 
 typedef struct response_supported_location_t {
-        char *id; //no enum string
-        char *map_name; //no enum string
+    char *id; // string
+    char *map_name; // string
 
 } response_supported_location_t;
 
 response_supported_location_t *response_supported_location_create(
-        char *id,
-        char *map_name
+    char *id,
+    char *map_name
 );
 
 void response_supported_location_free(response_supported_location_t *response_supported_location);
 
-response_supported_location_t *response_supported_location_parseFromJSON(char *jsonString);
+response_supported_location_t *response_supported_location_parseFromJSON(cJSON *response_supported_locationJSON);
 
 cJSON *response_supported_location_convertToJSON(response_supported_location_t *response_supported_location);
 

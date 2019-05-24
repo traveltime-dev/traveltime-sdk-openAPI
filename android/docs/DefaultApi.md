@@ -17,13 +17,15 @@ Method | HTTP request | Description
 [**timeMap**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
 
 
-<a name="geocodingReverseSearch"></a>
-# **geocodingReverseSearch**
+
+## geocodingReverseSearch
+
 > ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, withinCountry)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -43,6 +45,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **focusLat** | **Double**|  | [default to null]
@@ -59,16 +62,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="geocodingSearch"></a>
-# **geocodingSearch**
+
+## geocodingSearch
+
 > ResponseGeocoding geocodingSearch(query, withinCountry, focusLat, focusLng)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -89,6 +94,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | [default to null]
@@ -106,16 +112,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="mapInfo"></a>
-# **mapInfo**
+
+## mapInfo
+
 > ResponseMapInfo mapInfo()
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -131,6 +139,7 @@ try {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -143,16 +152,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-<a name="routes"></a>
-# **routes**
+
+## routes
+
 > ResponseRoutes routes(requestRoutes)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -170,6 +181,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestRoutes** | [**RequestRoutes**](RequestRoutes.md)|  |
@@ -184,16 +196,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="supportedLocations"></a>
-# **supportedLocations**
+
+## supportedLocations
+
 > ResponseSupportedLocations supportedLocations(requestSupportedLocations)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -211,6 +225,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestSupportedLocations** | [**RequestSupportedLocations**](RequestSupportedLocations.md)|  |
@@ -225,16 +240,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilter"></a>
-# **timeFilter**
+
+## timeFilter
+
 > ResponseTimeFilter timeFilter(requestTimeFilter)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -252,6 +269,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilter** | [**RequestTimeFilter**](RequestTimeFilter.md)|  |
@@ -266,16 +284,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterFast"></a>
-# **timeFilterFast**
+
+## timeFilterFast
+
 > ResponseTimeFilterFast timeFilterFast(requestTimeFilterFast)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -293,6 +313,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterFast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md)|  |
@@ -307,16 +328,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodeDistricts"></a>
-# **timeFilterPostcodeDistricts**
+
+## timeFilterPostcodeDistricts
+
 > ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -334,6 +357,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md)|  |
@@ -348,16 +372,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodeSectors"></a>
-# **timeFilterPostcodeSectors**
+
+## timeFilterPostcodeSectors
+
 > ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -375,6 +401,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md)|  |
@@ -389,16 +416,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeFilterPostcodes"></a>
-# **timeFilterPostcodes**
+
+## timeFilterPostcodes
+
 > ResponseTimeFilterPostcodes timeFilterPostcodes(requestTimeFilterPostcodes)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -416,6 +445,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md)|  |
@@ -430,16 +460,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-<a name="timeMap"></a>
-# **timeMap**
+
+## timeMap
+
 > ResponseTimeMap timeMap(requestTimeMap)
 
 
 
 ### Example
+
 ```java
 // Import classes:
 //import org.openapitools.client.api.DefaultApi;
@@ -457,6 +489,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeMap** | [**RequestTimeMap**](RequestTimeMap.md)|  |
@@ -471,6 +504,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 

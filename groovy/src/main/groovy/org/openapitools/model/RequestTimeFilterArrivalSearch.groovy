@@ -11,20 +11,20 @@ import org.openapitools.model.RequestTransportation;
 
 @Canonical
 class RequestTimeFilterArrivalSearch {
-    String id = 
-
+    
+    String id
+    
     List<String> departureLocationIds = new ArrayList<String>()
-
-    String arrivalLocationId = 
-
+    
+    String arrivalLocationId
+    
     RequestTransportation transportation = null
-
-    Integer travelTime = 
-
-    Date arrivalTime = 
-
+    
+    Integer travelTime
+    
+    Date arrivalTime
+    
     List<RequestTimeFilterProperty> properties = new ArrayList<RequestTimeFilterProperty>()
-
+    
     RequestRangeFull range = null
-
 }

@@ -91,7 +91,6 @@ func (a *DefaultApiService) GeocodingReverseSearch(ctx context.Context, focusLat
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -104,7 +103,6 @@ func (a *DefaultApiService) GeocodingReverseSearch(ctx context.Context, focusLat
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -234,7 +232,6 @@ func (a *DefaultApiService) GeocodingSearch(ctx context.Context, query string, l
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -247,7 +244,6 @@ func (a *DefaultApiService) GeocodingSearch(ctx context.Context, query string, l
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -355,7 +351,6 @@ func (a *DefaultApiService) MapInfo(ctx context.Context) (ResponseMapInfo, *http
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -368,7 +363,6 @@ func (a *DefaultApiService) MapInfo(ctx context.Context) (ResponseMapInfo, *http
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -479,7 +473,6 @@ func (a *DefaultApiService) Routes(ctx context.Context, requestRoutes RequestRou
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -492,7 +485,6 @@ func (a *DefaultApiService) Routes(ctx context.Context, requestRoutes RequestRou
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -603,7 +595,6 @@ func (a *DefaultApiService) SupportedLocations(ctx context.Context, requestSuppo
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -616,7 +607,6 @@ func (a *DefaultApiService) SupportedLocations(ctx context.Context, requestSuppo
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -727,7 +717,6 @@ func (a *DefaultApiService) TimeFilter(ctx context.Context, requestTimeFilter Re
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -740,7 +729,6 @@ func (a *DefaultApiService) TimeFilter(ctx context.Context, requestTimeFilter Re
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -851,7 +839,6 @@ func (a *DefaultApiService) TimeFilterFast(ctx context.Context, requestTimeFilte
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -864,7 +851,6 @@ func (a *DefaultApiService) TimeFilterFast(ctx context.Context, requestTimeFilte
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -975,7 +961,6 @@ func (a *DefaultApiService) TimeFilterPostcodeDistricts(ctx context.Context, req
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -988,7 +973,6 @@ func (a *DefaultApiService) TimeFilterPostcodeDistricts(ctx context.Context, req
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1099,7 +1083,6 @@ func (a *DefaultApiService) TimeFilterPostcodeSectors(ctx context.Context, reque
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1112,7 +1095,6 @@ func (a *DefaultApiService) TimeFilterPostcodeSectors(ctx context.Context, reque
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1223,7 +1205,6 @@ func (a *DefaultApiService) TimeFilterPostcodes(ctx context.Context, requestTime
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1236,7 +1217,6 @@ func (a *DefaultApiService) TimeFilterPostcodes(ctx context.Context, requestTime
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1347,7 +1327,6 @@ func (a *DefaultApiService) TimeMap(ctx context.Context, requestTimeMap RequestT
 			localVarHeaderParams["X-Api-Key"] = key
 		}
 	}
-
 	if ctx != nil {
 		// API Key Authentication
 		if auth, ok := ctx.Value(ContextAPIKey).(APIKey); ok {
@@ -1360,7 +1339,6 @@ func (a *DefaultApiService) TimeMap(ctx context.Context, requestTimeMap RequestT
 			localVarHeaderParams["X-Application-Id"] = key
 		}
 	}
-
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err

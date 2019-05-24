@@ -1,0 +1,64 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeFilterPostcodesArrivalSearch"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodesArrivalSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = traveltimeplatform.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodesProperty = traveltimeplatform.resourceTypes.RequestTimeFilterPostcodesProperty
+  RequestTransportation = traveltimeplatform.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodesArrivalSearch {
+    title = RequestTimeFilterPostcodesArrivalSearch
+    description = RequestTimeFilterPostcodesArrivalSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        arrival_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodesProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodesArrivalSearch {
+    title = RequestTimeFilterPostcodesArrivalSearch
+    description = RequestTimeFilterPostcodesArrivalSearch
+    implements = traveltimeplatform.resourceTypes.RequestTimeFilterPostcodesArrivalSearch
+
+  }
+}

@@ -11,7 +11,7 @@ import org.openapitools.server.api.model.ResponseTimeMapProperties;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeMapBoundingBoxesResult   {
   
-  private String searchId = ;
+  private String searchId;
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<>();
   private ResponseTimeMapProperties properties = null;
 

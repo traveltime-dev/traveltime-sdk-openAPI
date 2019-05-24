@@ -14,15 +14,25 @@ class ResponseFares {
 
   ResponseFares.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    breakdown = ResponseFaresBreakdownItem.listFromJson(json['breakdown']);
-    ticketsTotal = ResponseFareTicket.listFromJson(json['tickets_total']);
+    if (json['breakdown'] == null) {
+      breakdown = null;
+    } else {
+      breakdown = ResponseFaresBreakdownItem.listFromJson(json['breakdown']);
+    }
+    if (json['tickets_total'] == null) {
+      ticketsTotal = null;
+    } else {
+      ticketsTotal = ResponseFareTicket.listFromJson(json['tickets_total']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'breakdown': breakdown,
-      'tickets_total': ticketsTotal
-    };
+    Map <String, dynamic> json = {};
+    if (breakdown != null)
+      json['breakdown'] = breakdown;
+    if (ticketsTotal != null)
+      json['tickets_total'] = ticketsTotal;
+    return json;
   }
 
   static List<ResponseFares> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseFares {
 
   static Map<String, ResponseFares> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseFares>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseFares.fromJson(value));
     }
     return map;

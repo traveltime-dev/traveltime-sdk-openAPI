@@ -24,25 +24,60 @@ class RequestTimeMapArrivalSearch {
 
   RequestTimeMapArrivalSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    coords = new Coords.fromJson(json['coords']);
-    transportation = new RequestTransportation.fromJson(json['transportation']);
-    travelTime = json['travel_time'];
-    arrivalTime = json['arrival_time'] == null ? null : DateTime.parse(json['arrival_time']);
-    properties = RequestTimeMapProperty.listFromJson(json['properties']);
-    range = new RequestRangeNoMaxResults.fromJson(json['range']);
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['coords'] == null) {
+      coords = null;
+    } else {
+      coords = new Coords.fromJson(json['coords']);
+    }
+    if (json['transportation'] == null) {
+      transportation = null;
+    } else {
+      transportation = new RequestTransportation.fromJson(json['transportation']);
+    }
+    if (json['travel_time'] == null) {
+      travelTime = null;
+    } else {
+          travelTime = json['travel_time'];
+    }
+    if (json['arrival_time'] == null) {
+      arrivalTime = null;
+    } else {
+      arrivalTime = DateTime.parse(json['arrival_time']);
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = RequestTimeMapProperty.listFromJson(json['properties']);
+    }
+    if (json['range'] == null) {
+      range = null;
+    } else {
+      range = new RequestRangeNoMaxResults.fromJson(json['range']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'coords': coords,
-      'transportation': transportation,
-      'travel_time': travelTime,
-      'arrival_time': arrivalTime == null ? '' : arrivalTime.toUtc().toIso8601String(),
-      'properties': properties,
-      'range': range
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (coords != null)
+      json['coords'] = coords;
+    if (transportation != null)
+      json['transportation'] = transportation;
+    if (travelTime != null)
+      json['travel_time'] = travelTime;
+    if (arrivalTime != null)
+      json['arrival_time'] = arrivalTime == null ? null : arrivalTime.toUtc().toIso8601String();
+    if (properties != null)
+      json['properties'] = properties;
+    if (range != null)
+      json['range'] = range;
+    return json;
   }
 
   static List<RequestTimeMapArrivalSearch> listFromJson(List<dynamic> json) {
@@ -51,7 +86,7 @@ class RequestTimeMapArrivalSearch {
 
   static Map<String, RequestTimeMapArrivalSearch> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestTimeMapArrivalSearch>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestTimeMapArrivalSearch.fromJson(value));
     }
     return map;

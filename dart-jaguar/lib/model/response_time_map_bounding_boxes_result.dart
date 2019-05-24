@@ -1,7 +1,10 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_bounding_box.dart';
+
 import 'package:openapi/model/response_time_map_properties.dart';
+
 part 'response_time_map_bounding_boxes_result.jser.dart';
 
 class ResponseTimeMapBoundingBoxesResult {
@@ -17,7 +20,7 @@ class ResponseTimeMapBoundingBoxesResult {
   
 
   ResponseTimeMapBoundingBoxesResult(
-    
+      
 
 {
     
@@ -33,7 +36,8 @@ class ResponseTimeMapBoundingBoxesResult {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeMapBoundingBoxesResultSerializer extends Serializer<ResponseTimeMapBoundingBoxesResult> with _$ResponseTimeMapBoundingBoxesResultSerializer {
 
 }
+

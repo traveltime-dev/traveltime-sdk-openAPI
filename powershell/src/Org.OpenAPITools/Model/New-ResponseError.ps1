@@ -4,16 +4,16 @@ function New-ResponseError {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${httpUnderscorestatus},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${errorUnderscorecode},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${description},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [String]
         ${documentationUnderscorelink},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[{String, String[]}]]
         ${additionalUnderscoreinfo}
     )

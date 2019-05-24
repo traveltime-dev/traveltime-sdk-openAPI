@@ -30,7 +30,7 @@ import org.openapitools.model.ResponseTimeFilterPostcodeSectors;
 import org.openapitools.model.ResponseTimeFilterPostcodes;
 import org.openapitools.model.ResponseTimeMap;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-04-02T12:37:38.864Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
 public class V4Controller  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map

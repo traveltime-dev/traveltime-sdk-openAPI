@@ -1,6 +1,7 @@
 # OpenapiClient::ResponseGeocodingProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
@@ -19,5 +20,28 @@ Name | Type | Description | Notes
 **continent** | **String** |  | [optional] 
 **postcode** | **String** |  | [optional] 
 **features** | [**ResponseMapInfoFeatures**](ResponseMapInfoFeatures.md) |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::ResponseGeocodingProperties.new(name: null,
+                                 label: null,
+                                 score: null,
+                                 house_number: null,
+                                 street: null,
+                                 region: null,
+                                 region_code: null,
+                                 neighbourhood: null,
+                                 county: null,
+                                 macroregion: null,
+                                 city: null,
+                                 country: null,
+                                 country_code: null,
+                                 continent: null,
+                                 postcode: null,
+                                 features: null)
+```
 
 

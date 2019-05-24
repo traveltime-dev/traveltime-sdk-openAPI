@@ -14,15 +14,25 @@ class RequestUnionOnIntersection {
 
   RequestUnionOnIntersection.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    searchIds = ((json['search_ids'] ?? []) as List).map((item) => item as String).toList();
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['search_ids'] == null) {
+      searchIds = null;
+    } else {
+      searchIds = (json['search_ids'] as List).cast<String>();
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'search_ids': searchIds
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (searchIds != null)
+      json['search_ids'] = searchIds;
+    return json;
   }
 
   static List<RequestUnionOnIntersection> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class RequestUnionOnIntersection {
 
   static Map<String, RequestUnionOnIntersection> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestUnionOnIntersection>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestUnionOnIntersection.fromJson(value));
     }
     return map;

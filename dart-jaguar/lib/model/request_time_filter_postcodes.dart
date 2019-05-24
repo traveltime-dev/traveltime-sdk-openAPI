@@ -1,7 +1,10 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_filter_postcodes_departure_search.dart';
+
 import 'package:openapi/model/request_time_filter_postcodes_arrival_search.dart';
+
 part 'request_time_filter_postcodes.jser.dart';
 
 class RequestTimeFilterPostcodes {
@@ -14,7 +17,7 @@ class RequestTimeFilterPostcodes {
   
 
   RequestTimeFilterPostcodes(
-    
+      
 
 {
      this.departureSearches = const [],  
@@ -29,7 +32,8 @@ class RequestTimeFilterPostcodes {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterPostcodesSerializer extends Serializer<RequestTimeFilterPostcodes> with _$RequestTimeFilterPostcodesSerializer {
 
 }
+

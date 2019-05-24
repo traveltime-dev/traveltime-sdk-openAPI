@@ -17,24 +17,30 @@ Method | HTTP request | Description
 [**timeMap**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
 
 
-# **geocodingReverseSearch**
+
+## geocodingReverseSearch
+
 > \OpenAPI\Client\Model\ResponseGeocoding geocodingReverseSearch($focus_lat, $focus_lng, $within_country)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -57,6 +63,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **focus_lat** | **double**|  |
@@ -73,29 +80,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **geocodingSearch**
+
+## geocodingSearch
+
 > \OpenAPI\Client\Model\ResponseGeocoding geocodingSearch($query, $within_country, $focus_lat, $focus_lng)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -119,6 +134,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  |
@@ -136,29 +152,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **mapInfo**
+
+## mapInfo
+
 > \OpenAPI\Client\Model\ResponseMapInfo mapInfo()
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -177,6 +201,7 @@ try {
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -189,29 +214,37 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **routes**
+
+## routes
+
 > \OpenAPI\Client\Model\ResponseRoutes routes($request_routes)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -232,6 +265,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_routes** | [**\OpenAPI\Client\Model\RequestRoutes**](../Model/RequestRoutes.md)|  |
@@ -246,29 +280,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **supportedLocations**
+
+## supportedLocations
+
 > \OpenAPI\Client\Model\ResponseSupportedLocations supportedLocations($request_supported_locations)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -289,6 +331,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_supported_locations** | [**\OpenAPI\Client\Model\RequestSupportedLocations**](../Model/RequestSupportedLocations.md)|  |
@@ -303,29 +346,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeFilter**
+
+## timeFilter
+
 > \OpenAPI\Client\Model\ResponseTimeFilter timeFilter($request_time_filter)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -346,6 +397,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter** | [**\OpenAPI\Client\Model\RequestTimeFilter**](../Model/RequestTimeFilter.md)|  |
@@ -360,29 +412,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeFilterFast**
+
+## timeFilterFast
+
 > \OpenAPI\Client\Model\ResponseTimeFilterFast timeFilterFast($request_time_filter_fast)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -403,6 +463,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_fast** | [**\OpenAPI\Client\Model\RequestTimeFilterFast**](../Model/RequestTimeFilterFast.md)|  |
@@ -417,29 +478,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeFilterPostcodeDistricts**
+
+## timeFilterPostcodeDistricts
+
 > \OpenAPI\Client\Model\ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts($request_time_filter_postcode_districts)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -460,6 +529,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcode_districts** | [**\OpenAPI\Client\Model\RequestTimeFilterPostcodeDistricts**](../Model/RequestTimeFilterPostcodeDistricts.md)|  |
@@ -474,29 +544,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeFilterPostcodeSectors**
+
+## timeFilterPostcodeSectors
+
 > \OpenAPI\Client\Model\ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors($request_time_filter_postcode_sectors)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -517,6 +595,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcode_sectors** | [**\OpenAPI\Client\Model\RequestTimeFilterPostcodeSectors**](../Model/RequestTimeFilterPostcodeSectors.md)|  |
@@ -531,29 +610,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeFilterPostcodes**
+
+## timeFilterPostcodes
+
 > \OpenAPI\Client\Model\ResponseTimeFilterPostcodes timeFilterPostcodes($request_time_filter_postcodes)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -574,6 +661,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcodes** | [**\OpenAPI\Client\Model\RequestTimeFilterPostcodes**](../Model/RequestTimeFilterPostcodes.md)|  |
@@ -588,29 +676,37 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 
-# **timeMap**
+
+## timeMap
+
 > \OpenAPI\Client\Model\ResponseTimeMap timeMap($request_time_map)
 
 
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+
 
 // Configure API key authorization: ApiKey
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Api-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Api-Key', 'Bearer');
+
 // Configure API key authorization: ApplicationId
 $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-Application-Id', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-Application-Id', 'Bearer');
+
 
 $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -631,6 +727,7 @@ try {
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_map** | [**\OpenAPI\Client\Model\RequestTimeMap**](../Model/RequestTimeMap.md)|  |
@@ -645,8 +742,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
 

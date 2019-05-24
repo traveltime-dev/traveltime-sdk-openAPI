@@ -17,13 +17,15 @@ Method | HTTP request | Description
 [**TimeMap**](DefaultApi.md#timemap) | **POST** /v4/time-map | 
 
 
-<a name="geocodingreversesearch"></a>
-# **GeocodingReverseSearch**
+
+## GeocodingReverseSearch
+
 > ResponseGeocoding GeocodingReverseSearch (double? focusLat, double? focusLng, string withinCountry = null)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -67,6 +69,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **focusLat** | **double?**|  | 
@@ -83,18 +86,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="geocodingsearch"></a>
-# **GeocodingSearch**
+
+## GeocodingSearch
+
 > ResponseGeocoding GeocodingSearch (string query, string withinCountry = null, double? focusLat = null, double? focusLng = null)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -139,6 +147,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  | 
@@ -156,18 +165,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="mapinfo"></a>
-# **MapInfo**
+
+## MapInfo
+
 > ResponseMapInfo MapInfo ()
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -207,6 +221,7 @@ namespace Example
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -219,18 +234,23 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="routes"></a>
-# **Routes**
+
+## Routes
+
 > ResponseRoutes Routes (RequestRoutes requestRoutes)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -272,6 +292,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestRoutes** | [**RequestRoutes**](RequestRoutes.md)|  | 
@@ -286,18 +307,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="supportedlocations"></a>
-# **SupportedLocations**
+
+## SupportedLocations
+
 > ResponseSupportedLocations SupportedLocations (RequestSupportedLocations requestSupportedLocations)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -339,6 +365,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestSupportedLocations** | [**RequestSupportedLocations**](RequestSupportedLocations.md)|  | 
@@ -353,18 +380,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timefilter"></a>
-# **TimeFilter**
+
+## TimeFilter
+
 > ResponseTimeFilter TimeFilter (RequestTimeFilter requestTimeFilter)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -406,6 +438,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilter** | [**RequestTimeFilter**](RequestTimeFilter.md)|  | 
@@ -420,18 +453,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timefilterfast"></a>
-# **TimeFilterFast**
+
+## TimeFilterFast
+
 > ResponseTimeFilterFast TimeFilterFast (RequestTimeFilterFast requestTimeFilterFast)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -473,6 +511,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterFast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md)|  | 
@@ -487,18 +526,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timefilterpostcodedistricts"></a>
-# **TimeFilterPostcodeDistricts**
+
+## TimeFilterPostcodeDistricts
+
 > ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts (RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -540,6 +584,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md)|  | 
@@ -554,18 +599,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timefilterpostcodesectors"></a>
-# **TimeFilterPostcodeSectors**
+
+## TimeFilterPostcodeSectors
+
 > ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors (RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -607,6 +657,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md)|  | 
@@ -621,18 +672,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timefilterpostcodes"></a>
-# **TimeFilterPostcodes**
+
+## TimeFilterPostcodes
+
 > ResponseTimeFilterPostcodes TimeFilterPostcodes (RequestTimeFilterPostcodes requestTimeFilterPostcodes)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -674,6 +730,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md)|  | 
@@ -688,18 +745,23 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-<a name="timemap"></a>
-# **TimeMap**
+
+## TimeMap
+
 > ResponseTimeMap TimeMap (RequestTimeMap requestTimeMap)
 
 
 
 ### Example
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -741,6 +803,7 @@ namespace Example
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **requestTimeMap** | [**RequestTimeMap**](RequestTimeMap.md)|  | 
@@ -755,8 +818,11 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 

@@ -18,7 +18,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   
   private String id;
@@ -31,7 +30,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
 
   private Integer travelTime;
 
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();
 

@@ -42,13 +42,13 @@ public enum TypeEnum {
         return String.valueOf(value);
     }
 
-    public static TypeEnum fromValue(String v) {
+    public static TypeEnum fromValue(String value) {
         for (TypeEnum b : TypeEnum.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 
@@ -56,7 +56,7 @@ public enum TypeEnum {
   private TypeEnum type;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseTransportationMode mode = null;
+  private ResponseTransportationMode mode;
 
   @ApiModelProperty(required = true, value = "")
   private String directions;

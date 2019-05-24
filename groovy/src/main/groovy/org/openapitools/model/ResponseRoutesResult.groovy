@@ -9,10 +9,10 @@ import org.openapitools.model.ResponseRoutesLocation;
 
 @Canonical
 class ResponseRoutesResult {
-    String searchId = 
-
+    
+    String searchId
+    
     List<ResponseRoutesLocation> locations = new ArrayList<ResponseRoutesLocation>()
-
+    
     List<String> unreachable = new ArrayList<String>()
-
 }

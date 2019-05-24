@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestRoutesArrivalSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 

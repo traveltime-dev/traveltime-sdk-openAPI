@@ -34,7 +34,7 @@ import org.wso2.msf4j.formparam.FileInfo;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-04-02T12:37:41.410Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
 public class V4ApiServiceImpl extends V4ApiService {
     @Override
     public Response geocodingReverseSearch(Double focusLat

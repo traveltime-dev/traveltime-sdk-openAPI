@@ -10,13 +10,14 @@ import java.util.List;
 import org.openapitools.model.RequestArrivalTimePeriod;
 import org.openapitools.model.RequestTimeFilterFastProperty;
 import org.openapitools.model.RequestTransportationFast;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * RequestTimeFilterFastArrivalManyToOneSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-02T12:39:25.365Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
 
 public class RequestTimeFilterFastArrivalManyToOneSearch   {
   @JsonProperty("id")
@@ -36,7 +37,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   private Integer travelTime;
 
   @JsonProperty("arrival_time_period")
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @JsonProperty("properties")
   @Valid

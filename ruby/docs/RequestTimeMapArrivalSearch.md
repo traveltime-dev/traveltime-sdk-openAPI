@@ -1,6 +1,7 @@
 # OpenapiClient::RequestTimeMapArrivalSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -10,5 +11,19 @@ Name | Type | Description | Notes
 **arrival_time** | **DateTime** |  | 
 **properties** | [**Array&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  | [optional] 
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::RequestTimeMapArrivalSearch.new(id: null,
+                                 coords: null,
+                                 transportation: null,
+                                 travel_time: null,
+                                 arrival_time: null,
+                                 properties: null,
+                                 range: null)
+```
 
 

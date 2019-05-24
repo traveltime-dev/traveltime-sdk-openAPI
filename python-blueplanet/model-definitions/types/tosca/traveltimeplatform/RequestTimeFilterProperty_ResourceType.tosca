@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeFilterProperty"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeFilterProperty"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestTimeFilterProperty {
+    title = RequestTimeFilterProperty
+    description = RequestTimeFilterProperty
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterProperty {
+    title = RequestTimeFilterProperty
+    description = RequestTimeFilterProperty
+    implements = traveltimeplatform.resourceTypes.RequestTimeFilterProperty
+
+  }
+}

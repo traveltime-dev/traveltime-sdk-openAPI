@@ -16,14 +16,14 @@ import org.openapitools.model.RequestTransportation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class RequestRoutesDepartureSearch   {
   
-  private String id = ;
-  private String departureLocationId = ;
+  private String id;
+  private String departureLocationId;
   private List<String> arrivalLocationIds = new ArrayList<String>();
   private RequestTransportation transportation = null;
-  private Date departureTime = ;
+  private Date departureTime;
   private List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
   private RequestRangeFull range = null;
 

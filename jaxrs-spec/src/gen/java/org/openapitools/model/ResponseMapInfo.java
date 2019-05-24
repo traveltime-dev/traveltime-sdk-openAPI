@@ -48,7 +48,7 @@ public class ResponseMapInfo   {
       return false;
     }
     ResponseMapInfo responseMapInfo = (ResponseMapInfo) o;
-    return Objects.equals(maps, responseMapInfo.maps);
+    return Objects.equals(this.maps, responseMapInfo.maps);
   }
 
   @Override

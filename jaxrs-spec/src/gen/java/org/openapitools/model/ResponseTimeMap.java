@@ -48,7 +48,7 @@ public class ResponseTimeMap   {
       return false;
     }
     ResponseTimeMap responseTimeMap = (ResponseTimeMap) o;
-    return Objects.equals(results, responseTimeMap.results);
+    return Objects.equals(this.results, responseTimeMap.results);
   }
 
   @Override

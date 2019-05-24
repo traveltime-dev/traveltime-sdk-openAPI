@@ -4,7 +4,7 @@ function New-ResponseShape {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.Coords[]]
         ${shell},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.Coords[][]]
         ${holes}
     )

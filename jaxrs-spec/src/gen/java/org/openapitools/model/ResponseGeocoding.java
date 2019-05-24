@@ -67,8 +67,8 @@ public class ResponseGeocoding   {
       return false;
     }
     ResponseGeocoding responseGeocoding = (ResponseGeocoding) o;
-    return Objects.equals(type, responseGeocoding.type) &&
-        Objects.equals(features, responseGeocoding.features);
+    return Objects.equals(this.type, responseGeocoding.type) &&
+        Objects.equals(this.features, responseGeocoding.features);
   }
 
   @Override

@@ -11,13 +11,14 @@ import java.util.List;
 import org.openapitools.model.RequestRangeFull;
 import org.openapitools.model.RequestTimeFilterProperty;
 import org.openapitools.model.RequestTransportation;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * RequestTimeFilterDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-02T12:39:25.365Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
 
 public class RequestTimeFilterDepartureSearch   {
   @JsonProperty("id")

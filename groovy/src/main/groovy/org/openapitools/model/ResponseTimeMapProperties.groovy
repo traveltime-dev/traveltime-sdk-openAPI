@@ -6,6 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseTimeMapProperties {
-    Boolean isOnlyWalking = 
-
+    
+    Boolean isOnlyWalking
 }

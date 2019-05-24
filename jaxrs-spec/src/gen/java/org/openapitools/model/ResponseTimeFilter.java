@@ -48,7 +48,7 @@ public class ResponseTimeFilter   {
       return false;
     }
     ResponseTimeFilter responseTimeFilter = (ResponseTimeFilter) o;
-    return Objects.equals(results, responseTimeFilter.results);
+    return Objects.equals(this.results, responseTimeFilter.results);
   }
 
   @Override

@@ -85,9 +85,9 @@ public class ResponseGeocodingGeoJsonFeature   {
       return false;
     }
     ResponseGeocodingGeoJsonFeature responseGeocodingGeoJsonFeature = (ResponseGeocodingGeoJsonFeature) o;
-    return Objects.equals(type, responseGeocodingGeoJsonFeature.type) &&
-        Objects.equals(geometry, responseGeocodingGeoJsonFeature.geometry) &&
-        Objects.equals(properties, responseGeocodingGeoJsonFeature.properties);
+    return Objects.equals(this.type, responseGeocodingGeoJsonFeature.type) &&
+        Objects.equals(this.geometry, responseGeocodingGeoJsonFeature.geometry) &&
+        Objects.equals(this.properties, responseGeocodingGeoJsonFeature.properties);
   }
 
   @Override

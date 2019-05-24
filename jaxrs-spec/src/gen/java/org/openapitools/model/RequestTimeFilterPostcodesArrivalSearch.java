@@ -147,12 +147,12 @@ public class RequestTimeFilterPostcodesArrivalSearch   {
       return false;
     }
     RequestTimeFilterPostcodesArrivalSearch requestTimeFilterPostcodesArrivalSearch = (RequestTimeFilterPostcodesArrivalSearch) o;
-    return Objects.equals(id, requestTimeFilterPostcodesArrivalSearch.id) &&
-        Objects.equals(transportation, requestTimeFilterPostcodesArrivalSearch.transportation) &&
-        Objects.equals(travelTime, requestTimeFilterPostcodesArrivalSearch.travelTime) &&
-        Objects.equals(arrivalTime, requestTimeFilterPostcodesArrivalSearch.arrivalTime) &&
-        Objects.equals(properties, requestTimeFilterPostcodesArrivalSearch.properties) &&
-        Objects.equals(range, requestTimeFilterPostcodesArrivalSearch.range);
+    return Objects.equals(this.id, requestTimeFilterPostcodesArrivalSearch.id) &&
+        Objects.equals(this.transportation, requestTimeFilterPostcodesArrivalSearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeFilterPostcodesArrivalSearch.travelTime) &&
+        Objects.equals(this.arrivalTime, requestTimeFilterPostcodesArrivalSearch.arrivalTime) &&
+        Objects.equals(this.properties, requestTimeFilterPostcodesArrivalSearch.properties) &&
+        Objects.equals(this.range, requestTimeFilterPostcodesArrivalSearch.range);
   }
 
   @Override

@@ -9,8 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-04-02T12:38:03.342Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
 public class RequestRangeNoMaxResults   {
   
 

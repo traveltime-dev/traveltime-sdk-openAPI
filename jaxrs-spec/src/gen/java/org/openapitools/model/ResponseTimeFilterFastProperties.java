@@ -63,8 +63,8 @@ public class ResponseTimeFilterFastProperties   {
       return false;
     }
     ResponseTimeFilterFastProperties responseTimeFilterFastProperties = (ResponseTimeFilterFastProperties) o;
-    return Objects.equals(travelTime, responseTimeFilterFastProperties.travelTime) &&
-        Objects.equals(fares, responseTimeFilterFastProperties.fares);
+    return Objects.equals(this.travelTime, responseTimeFilterFastProperties.travelTime) &&
+        Objects.equals(this.fares, responseTimeFilterFastProperties.fares);
   }
 
   @Override

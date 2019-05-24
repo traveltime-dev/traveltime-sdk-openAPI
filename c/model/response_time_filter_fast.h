@@ -8,25 +8,25 @@
 #define _response_time_filter_fast_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "response_time_filter_fast_result.h"
 
 
 
-
 typedef struct response_time_filter_fast_t {
-        list_t *results; //nonprimitive container
+    list_t *results; //nonprimitive container
 
 } response_time_filter_fast_t;
 
 response_time_filter_fast_t *response_time_filter_fast_create(
-        list_t *results
+    list_t *results
 );
 
 void response_time_filter_fast_free(response_time_filter_fast_t *response_time_filter_fast);
 
-response_time_filter_fast_t *response_time_filter_fast_parseFromJSON(char *jsonString);
+response_time_filter_fast_t *response_time_filter_fast_parseFromJSON(cJSON *response_time_filter_fastJSON);
 
 cJSON *response_time_filter_fast_convertToJSON(response_time_filter_fast_t *response_time_filter_fast);
 

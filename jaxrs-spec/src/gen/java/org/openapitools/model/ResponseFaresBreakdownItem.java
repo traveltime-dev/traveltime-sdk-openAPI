@@ -87,9 +87,9 @@ public class ResponseFaresBreakdownItem   {
       return false;
     }
     ResponseFaresBreakdownItem responseFaresBreakdownItem = (ResponseFaresBreakdownItem) o;
-    return Objects.equals(modes, responseFaresBreakdownItem.modes) &&
-        Objects.equals(routePartIds, responseFaresBreakdownItem.routePartIds) &&
-        Objects.equals(tickets, responseFaresBreakdownItem.tickets);
+    return Objects.equals(this.modes, responseFaresBreakdownItem.modes) &&
+        Objects.equals(this.routePartIds, responseFaresBreakdownItem.routePartIds) &&
+        Objects.equals(this.tickets, responseFaresBreakdownItem.tickets);
   }
 
   @Override

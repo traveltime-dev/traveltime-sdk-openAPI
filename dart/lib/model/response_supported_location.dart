@@ -14,15 +14,25 @@ class ResponseSupportedLocation {
 
   ResponseSupportedLocation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    mapName = json['map_name'];
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['map_name'] == null) {
+      mapName = null;
+    } else {
+          mapName = json['map_name'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'map_name': mapName
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (mapName != null)
+      json['map_name'] = mapName;
+    return json;
   }
 
   static List<ResponseSupportedLocation> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseSupportedLocation {
 
   static Map<String, ResponseSupportedLocation> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseSupportedLocation>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseSupportedLocation.fromJson(value));
     }
     return map;

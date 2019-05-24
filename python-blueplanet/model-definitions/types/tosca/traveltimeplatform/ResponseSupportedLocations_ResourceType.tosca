@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseSupportedLocations"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseSupportedLocations"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseSupportedLocation = traveltimeplatform.resourceTypes.ResponseSupportedLocation
+}
+resourceTypes {
+
+  ResponseSupportedLocations {
+    title = ResponseSupportedLocations
+    description = ResponseSupportedLocations
+    derivedFrom = Root
+    properties {
+        locations {
+          type = array
+          items.type = ResponseSupportedLocation
+          description = ""
+          optional = true
+        }
+        unsupported_locations {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseSupportedLocations {
+    title = ResponseSupportedLocations
+    description = ResponseSupportedLocations
+    implements = traveltimeplatform.resourceTypes.ResponseSupportedLocations
+
+  }
+}

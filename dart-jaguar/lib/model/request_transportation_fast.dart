@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_transportation_fast.jser.dart';
 
 class RequestTransportationFast {
@@ -9,7 +10,7 @@ class RequestTransportationFast {
   //enum typeEnum {  public_transport,  driving,  driving+public_transport,  };
 
   RequestTransportationFast(
-    
+      
 
 {
     
@@ -23,7 +24,8 @@ class RequestTransportationFast {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTransportationFastSerializer extends Serializer<RequestTransportationFast> with _$RequestTransportationFastSerializer {
 
 }
+

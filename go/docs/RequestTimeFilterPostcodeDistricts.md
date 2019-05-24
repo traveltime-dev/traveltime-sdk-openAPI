@@ -1,6 +1,7 @@
 # RequestTimeFilterPostcodeDistricts
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DepartureSearches** | [**[]RequestTimeFilterPostcodeDistrictsDepartureSearch**](RequestTimeFilterPostcodeDistrictsDepartureSearch.md) |  | [optional] 

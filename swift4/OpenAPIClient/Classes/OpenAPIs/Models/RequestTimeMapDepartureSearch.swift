@@ -11,7 +11,7 @@ import Foundation
 
 public struct RequestTimeMapDepartureSearch: Codable {
 
-    public var _id: String
+    public var id: String
     public var coords: Coords
     public var transportation: RequestTransportation
     public var travelTime: Int
@@ -19,8 +19,8 @@ public struct RequestTimeMapDepartureSearch: Codable {
     public var properties: [RequestTimeMapProperty]?
     public var range: RequestRangeNoMaxResults?
 
-    public init(_id: String, coords: Coords, transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeMapProperty]?, range: RequestRangeNoMaxResults?) {
-        self._id = _id
+    public init(id: String, coords: Coords, transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeMapProperty]?, range: RequestRangeNoMaxResults?) {
+        self.id = id
         self.coords = coords
         self.transportation = transportation
         self.travelTime = travelTime
@@ -30,7 +30,7 @@ public struct RequestTimeMapDepartureSearch: Codable {
     }
 
     public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
+        case id
         case coords
         case transportation
         case travelTime = "travel_time"

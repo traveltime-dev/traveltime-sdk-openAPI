@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseSupportedLocation {
-    String id = 
-
-    String mapName = 
-
+    
+    String id
+    
+    String mapName
 }

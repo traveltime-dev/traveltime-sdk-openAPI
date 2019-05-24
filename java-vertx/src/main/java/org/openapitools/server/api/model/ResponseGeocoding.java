@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseGeocodingGeoJsonFeature;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseGeocoding   {
   
-  private String type = ;
+  private String type;
   private List<ResponseGeocodingGeoJsonFeature> features = new ArrayList<>();
 
   public ResponseGeocoding () {

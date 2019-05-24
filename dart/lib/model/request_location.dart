@@ -14,15 +14,25 @@ class RequestLocation {
 
   RequestLocation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    coords = new Coords.fromJson(json['coords']);
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['coords'] == null) {
+      coords = null;
+    } else {
+      coords = new Coords.fromJson(json['coords']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'coords': coords
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (coords != null)
+      json['coords'] = coords;
+    return json;
   }
 
   static List<RequestLocation> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class RequestLocation {
 
   static Map<String, RequestLocation> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestLocation>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestLocation.fromJson(value));
     }
     return map;

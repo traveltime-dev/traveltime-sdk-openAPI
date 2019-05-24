@@ -8,12 +8,12 @@ import org.openapitools.model.ResponseRoute;
 
 @Canonical
 class ResponseRoutesProperties {
-    Integer travelTime = 
-
-    Integer distance = 
-
+    
+    Integer travelTime
+    
+    Integer distance
+    
     ResponseFares fares = null
-
+    
     ResponseRoute route = null
-
 }

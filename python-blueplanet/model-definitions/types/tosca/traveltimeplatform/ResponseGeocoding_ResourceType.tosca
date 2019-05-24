@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseGeocoding"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseGeocoding"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseGeocodingGeoJsonFeature = traveltimeplatform.resourceTypes.ResponseGeocodingGeoJsonFeature
+}
+resourceTypes {
+
+  ResponseGeocoding {
+    title = ResponseGeocoding
+    description = ResponseGeocoding
+    derivedFrom = Root
+    properties {
+        type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        features {
+          type = array
+          items.type = ResponseGeocodingGeoJsonFeature
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseGeocoding {
+    title = ResponseGeocoding
+    description = ResponseGeocoding
+    implements = traveltimeplatform.resourceTypes.ResponseGeocoding
+
+  }
+}

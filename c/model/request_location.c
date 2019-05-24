@@ -1,97 +1,101 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "request_location.h"
-#include "coords.h"
+
 
 
 request_location_t *request_location_create(
     char *id,
     coords_t *coords
     ) {
-	request_location_t *request_location = malloc(sizeof(request_location_t));
-	request_location->id = id;
-	request_location->coords = coords;
+	request_location_t *request_location_local_var = malloc(sizeof(request_location_t));
+    if (!request_location_local_var) {
+        return NULL;
+    }
+	request_location_local_var->id = id;
+	request_location_local_var->coords = coords;
 
-	return request_location;
+	return request_location_local_var;
 }
 
 
 void request_location_free(request_location_t *request_location) {
     listEntry_t *listEntry;
     free(request_location->id);
-	coords_free(request_location->coords);
-
+    coords_free(request_location->coords);
 	free(request_location);
 }
 
 cJSON *request_location_convertToJSON(request_location_t *request_location) {
 	cJSON *item = cJSON_CreateObject();
+
 	// request_location->id
+    if (!request_location->id) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "id", request_location->id) == NULL) {
     goto fail; //String
     }
 
+
 	// request_location->coords
-	cJSON *coords = coords_convertToJSON(request_location->coords);
-	if(coords == NULL) {
-		goto fail; //nonprimitive
-	}
-	cJSON_AddItemToObject(item, "coords", coords);
-	if(item->child == NULL) {
-		goto fail;
-	}
+    if (!request_location->coords) {
+        goto fail;
+    }
+    
+    cJSON *coords_local_JSON = coords_convertToJSON(request_location->coords);
+    if(coords_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "coords", coords_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-request_location_t *request_location_parseFromJSON(char *jsonString){
+request_location_t *request_location_parseFromJSON(cJSON *request_locationJSON){
 
-    request_location_t *request_location = NULL;
-    cJSON *request_locationJSON = cJSON_Parse(jsonString);
-    if(request_locationJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    request_location_t *request_location_local_var = NULL;
 
     // request_location->id
     cJSON *id = cJSON_GetObjectItemCaseSensitive(request_locationJSON, "id");
-    if(!cJSON_IsString(id) || (id->valuestring == NULL)){
+    if (!id) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(id))
+    {
     goto end; //String
     }
 
     // request_location->coords
-    coords_t *coords;
-    cJSON *coordsJSON = cJSON_GetObjectItemCaseSensitive(request_locationJSON, "coords");
-    if(request_locationJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL)
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-        goto end; //nonprimitive
+    cJSON *coords = cJSON_GetObjectItemCaseSensitive(request_locationJSON, "coords");
+    if (!coords) {
+        goto end;
     }
-    char *coordsJSONData = cJSON_Print(coordsJSON);
-    coords = coords_parseFromJSON(coordsJSONData);
+
+    coords_t *coords_local_nonprim = NULL;
+    
+    coords_local_nonprim = coords_parseFromJSON(coords); //nonprimitive
 
 
-    request_location = request_location_create (
+    request_location_local_var = request_location_create (
         strdup(id->valuestring),
-        coords
+        coords_local_nonprim
         );
-        free(coordsJSONData);
- cJSON_Delete(request_locationJSON);
-    return request_location;
+
+    return request_location_local_var;
 end:
-    cJSON_Delete(request_locationJSON);
     return NULL;
 
 }
-

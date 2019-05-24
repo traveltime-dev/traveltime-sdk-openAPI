@@ -12,7 +12,7 @@ package traveltimeplatform
 
 type ResponseDistanceBreakdownItem struct {
 
-	Mode *ResponseTransportationMode `json:"mode"`
+	Mode ResponseTransportationMode `json:"mode"`
 
 	Distance int32 `json:"distance"`
 }

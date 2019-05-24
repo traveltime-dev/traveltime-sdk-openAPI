@@ -22,23 +22,53 @@ class RequestTimeFilterPostcodesDepartureSearch {
 
   RequestTimeFilterPostcodesDepartureSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    transportation = new RequestTransportation.fromJson(json['transportation']);
-    travelTime = json['travel_time'];
-    departureTime = json['departure_time'] == null ? null : DateTime.parse(json['departure_time']);
-    properties = RequestTimeFilterPostcodesProperty.listFromJson(json['properties']);
-    range = new RequestRangeFull.fromJson(json['range']);
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['transportation'] == null) {
+      transportation = null;
+    } else {
+      transportation = new RequestTransportation.fromJson(json['transportation']);
+    }
+    if (json['travel_time'] == null) {
+      travelTime = null;
+    } else {
+          travelTime = json['travel_time'];
+    }
+    if (json['departure_time'] == null) {
+      departureTime = null;
+    } else {
+      departureTime = DateTime.parse(json['departure_time']);
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = RequestTimeFilterPostcodesProperty.listFromJson(json['properties']);
+    }
+    if (json['range'] == null) {
+      range = null;
+    } else {
+      range = new RequestRangeFull.fromJson(json['range']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'transportation': transportation,
-      'travel_time': travelTime,
-      'departure_time': departureTime == null ? '' : departureTime.toUtc().toIso8601String(),
-      'properties': properties,
-      'range': range
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (transportation != null)
+      json['transportation'] = transportation;
+    if (travelTime != null)
+      json['travel_time'] = travelTime;
+    if (departureTime != null)
+      json['departure_time'] = departureTime == null ? null : departureTime.toUtc().toIso8601String();
+    if (properties != null)
+      json['properties'] = properties;
+    if (range != null)
+      json['range'] = range;
+    return json;
   }
 
   static List<RequestTimeFilterPostcodesDepartureSearch> listFromJson(List<dynamic> json) {
@@ -47,7 +77,7 @@ class RequestTimeFilterPostcodesDepartureSearch {
 
   static Map<String, RequestTimeFilterPostcodesDepartureSearch> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestTimeFilterPostcodesDepartureSearch>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterPostcodesDepartureSearch.fromJson(value));
     }
     return map;

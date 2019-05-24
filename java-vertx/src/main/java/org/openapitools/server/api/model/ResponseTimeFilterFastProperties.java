@@ -8,7 +8,7 @@ import org.openapitools.server.api.model.ResponseFaresFast;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeFilterFastProperties   {
   
-  private Integer travelTime = ;
+  private Integer travelTime;
   private ResponseFaresFast fares = null;
 
   public ResponseTimeFilterFastProperties () {

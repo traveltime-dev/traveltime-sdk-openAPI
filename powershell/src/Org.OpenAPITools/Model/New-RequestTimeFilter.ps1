@@ -4,10 +4,10 @@ function New-RequestTimeFilter {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.RequestLocation[]]
         ${locations},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterDepartureSearch[]]]
         ${departureUnderscoresearches},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterArrivalSearch[]]]
         ${arrivalUnderscoresearches}
     )

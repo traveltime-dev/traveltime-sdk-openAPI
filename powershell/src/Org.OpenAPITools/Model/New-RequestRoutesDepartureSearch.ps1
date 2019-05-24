@@ -4,22 +4,22 @@ function New-RequestRoutesDepartureSearch {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${id},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${departureUnderscorelocationUnderscoreid},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[]]
         ${arrivalUnderscorelocationUnderscoreids},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.RequestTransportation]
         ${transportation},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [System.DateTime]
         ${departureUnderscoretime},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.RequestRoutesProperty[]]
         ${properties},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestRangeFull]]
         ${range}
     )

@@ -11,4 +11,4 @@
 
 traveltimeplatform_request_routes_property() ->
   elements([<<"travel_time">>, <<"distance">>, <<"fares">>, <<"route">>]).
-  
+

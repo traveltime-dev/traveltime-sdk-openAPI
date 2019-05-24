@@ -1,6 +1,7 @@
 # ResponseSupportedLocations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Locations** | [**[]ResponseSupportedLocation**](ResponseSupportedLocation.md) |  | 

@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_transportation.jser.dart';
 
 class RequestTransportation {
@@ -24,7 +25,7 @@ class RequestTransportation {
   
 
   RequestTransportation(
-    
+      
 
 {
     
@@ -43,7 +44,8 @@ class RequestTransportation {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTransportationSerializer extends Serializer<RequestTransportation> with _$RequestTransportationSerializer {
 
 }
+

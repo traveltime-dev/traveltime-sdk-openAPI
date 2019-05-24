@@ -11,18 +11,18 @@ import org.openapitools.model.RequestTransportation;
 
 @Canonical
 class RequestTimeFilterPostcodeDistrictsDepartureSearch {
-    String id = 
-
+    
+    String id
+    
     RequestTransportation transportation = null
-
-    Integer travelTime = 
-
-    Date departureTime = 
-
-    Double reachablePostcodesThreshold = 
-
+    
+    Integer travelTime
+    
+    Date departureTime
+    
+    Double reachablePostcodesThreshold
+    
     List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<RequestTimeFilterPostcodeDistrictsProperty>()
-
+    
     RequestRangeFull range = null
-
 }

@@ -8,8 +8,8 @@ import org.openapitools.server.api.model.ResponseTransportationMode;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseDistanceBreakdownItem   {
   
-  private ResponseTransportationMode mode = null;
-  private Integer distance = ;
+  private ResponseTransportationMode mode;
+  private Integer distance;
 
   public ResponseDistanceBreakdownItem () {
 

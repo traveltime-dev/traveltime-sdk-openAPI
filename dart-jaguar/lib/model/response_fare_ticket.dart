@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_fare_ticket.jser.dart';
 
 class ResponseFareTicket {
@@ -15,7 +16,7 @@ class ResponseFareTicket {
   
 
   ResponseFareTicket(
-    
+      
 
 {
     
@@ -31,7 +32,8 @@ class ResponseFareTicket {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseFareTicketSerializer extends Serializer<ResponseFareTicket> with _$ResponseFareTicketSerializer {
 
 }
+

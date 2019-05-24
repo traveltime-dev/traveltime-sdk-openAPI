@@ -14,5 +14,5 @@ type ResponseMapInfoMap struct {
 
 	Name string `json:"name"`
 
-	Features *ResponseMapInfoFeatures `json:"features"`
+	Features ResponseMapInfoFeatures `json:"features"`
 }

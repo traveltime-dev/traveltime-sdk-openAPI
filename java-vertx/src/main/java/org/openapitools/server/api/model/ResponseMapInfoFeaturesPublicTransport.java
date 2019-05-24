@@ -8,8 +8,8 @@ import java.time.OffsetDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseMapInfoFeaturesPublicTransport   {
   
-  private OffsetDateTime dateStart = ;
-  private OffsetDateTime dateEnd = ;
+  private OffsetDateTime dateStart;
+  private OffsetDateTime dateEnd;
 
   public ResponseMapInfoFeaturesPublicTransport () {
 

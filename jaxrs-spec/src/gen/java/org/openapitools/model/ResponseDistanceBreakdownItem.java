@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public class ResponseDistanceBreakdownItem   {
   
-  private @Valid ResponseTransportationMode mode = null;
+  private @Valid ResponseTransportationMode mode;
   private @Valid Integer distance;
 
   /**
@@ -65,8 +65,8 @@ public class ResponseDistanceBreakdownItem   {
       return false;
     }
     ResponseDistanceBreakdownItem responseDistanceBreakdownItem = (ResponseDistanceBreakdownItem) o;
-    return Objects.equals(mode, responseDistanceBreakdownItem.mode) &&
-        Objects.equals(distance, responseDistanceBreakdownItem.distance);
+    return Objects.equals(this.mode, responseDistanceBreakdownItem.mode) &&
+        Objects.equals(this.distance, responseDistanceBreakdownItem.distance);
   }
 
   @Override

@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_union_on_intersection.jser.dart';
 
 class RequestUnionOnIntersection {
@@ -12,7 +13,7 @@ class RequestUnionOnIntersection {
   
 
   RequestUnionOnIntersection(
-    
+      
 
 {
     
@@ -27,7 +28,8 @@ class RequestUnionOnIntersection {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestUnionOnIntersectionSerializer extends Serializer<RequestUnionOnIntersection> with _$RequestUnionOnIntersectionSerializer {
 
 }
+

@@ -16,6 +16,7 @@
   {:base-url        "https://api.traveltimeapp.com"
    :date-format     "yyyy-MM-dd"
    :datetime-format "yyyy-MM-dd'T'HH:mm:ss.SSSXXX"
+   :decode-models   false
    :debug           false
    :auths           {"ApiKey" nil
                      "ApplicationId" nil}})

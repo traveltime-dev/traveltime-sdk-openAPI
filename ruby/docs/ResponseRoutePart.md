@@ -1,6 +1,7 @@
 # OpenapiClient::ResponseRoutePart
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -19,5 +20,28 @@ Name | Type | Description | Notes
 **departs_at** | **String** |  | [optional] 
 **arrives_at** | **String** |  | [optional] 
 **num_stops** | **Integer** |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::ResponseRoutePart.new(id: null,
+                                 type: null,
+                                 mode: null,
+                                 directions: null,
+                                 distance: null,
+                                 travel_time: null,
+                                 coords: null,
+                                 direction: null,
+                                 road: null,
+                                 turn: null,
+                                 line: null,
+                                 departure_station: null,
+                                 arrival_station: null,
+                                 departs_at: null,
+                                 arrives_at: null,
+                                 num_stops: null)
+```
 
 

@@ -1,7 +1,9 @@
 
+
 # RequestTimeFilterFastArrivalOneToManySearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -11,6 +13,7 @@ Name | Type | Description | Notes
 **travelTime** | **Integer** |  | 
 **arrivalTimePeriod** | [**RequestArrivalTimePeriod**](RequestArrivalTimePeriod.md) |  | 
 **properties** | [**List&lt;RequestTimeFilterFastProperty&gt;**](RequestTimeFilterFastProperty.md) |  | 
+
 
 
 

@@ -1,28 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
-#include "apiClient.h"
-#include "cJSON.h"
-#include "keyValuePair.h"
-#include "request_routes.h"
-#include "request_supported_locations.h"
-#include "request_time_filter.h"
-#include "request_time_filter_fast.h"
-#include "request_time_filter_postcode_districts.h"
-#include "request_time_filter_postcode_sectors.h"
-#include "request_time_filter_postcodes.h"
-#include "request_time_map.h"
-#include "response_error.h"
-#include "response_geocoding.h"
-#include "response_map_info.h"
-#include "response_routes.h"
-#include "response_supported_locations.h"
-#include "response_time_filter.h"
-#include "response_time_filter_fast.h"
-#include "response_time_filter_postcode_districts.h"
-#include "response_time_filter_postcode_sectors.h"
-#include "response_time_filter_postcodes.h"
-#include "response_time_map.h"
+#include "DefaultAPI.h"
+
 
 #define MAX_BUFFER_LENGTH 4096
 #define intToStr(dst, src) \
@@ -32,7 +12,8 @@
 }while(0)
 
 response_geocoding_t*
-DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double focus.lat, double focus.lng, char* within.country) {
+DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double focus.lat ,double focus.lng ,char * within.country)
+{
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -46,17 +27,18 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double focus.lat, doub
     snprintf(localVarPath, sizeOfPath, "/v4/geocoding/reverse");
 
 
+
+
     // query parameters
     char *keyQuery_focus.lat;
     double valueQuery_focus.lat;
     keyValuePair_t *keyPairQuery_focus.lat = 0;
     if (focus.lat)
     {
-    //not string
-    keyQuery_focus.lat = strdup("focus.lat");
-    valueQuery_focus.lat = focus.lat;
-    keyPairQuery_focus.lat = keyValuePair_create(keyQuery_focus.lat, &valueQuery_focus.lat);
-    list_addElement(localVarQueryParameters,keyPairQuery_focus.lat);
+        keyQuery_focus.lat = strdup("focus.lat");
+        valueQuery_focus.lat = (focus.lat);
+        keyPairQuery_focus.lat = keyValuePair_create(keyQuery_focus.lat, &valueQuery_focus.lat);
+        list_addElement(localVarQueryParameters,keyPairQuery_focus.lat);
     }
 
     // query parameters
@@ -65,24 +47,22 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double focus.lat, doub
     keyValuePair_t *keyPairQuery_focus.lng = 0;
     if (focus.lng)
     {
-    //not string
-    keyQuery_focus.lng = strdup("focus.lng");
-    valueQuery_focus.lng = focus.lng;
-    keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
-    list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
+        keyQuery_focus.lng = strdup("focus.lng");
+        valueQuery_focus.lng = (focus.lng);
+        keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
+        list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
     }
 
     // query parameters
     char *keyQuery_within.country;
-    char *valueQuery_within.country;
+    char * valueQuery_within.country;
     keyValuePair_t *keyPairQuery_within.country = 0;
     if (within.country)
     {
-    //string
-    keyQuery_within.country = strdup("within.country");
-    valueQuery_within.country = strdup(within.country);
-    keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
-    list_addElement(localVarQueryParameters,keyPairQuery_within.country);
+        keyQuery_within.country = strdup("within.country");
+        valueQuery_within.country = strdup((within.country));
+        keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
+        list_addElement(localVarQueryParameters,keyPairQuery_within.country);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -102,13 +82,17 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double focus.lat, doub
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_geocoding_t *elementToReturn = response_geocoding_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_geocoding_t *elementToReturn = response_geocoding_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     list_free(localVarQueryParameters);
     
     
@@ -129,7 +113,8 @@ end:
 }
 
 response_geocoding_t*
-DefaultAPI_geocodingSearch(apiClient_t *apiClient, char* query, char* within.country, double focus.lat, double focus.lng) {
+DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.country ,double focus.lat ,double focus.lng)
+{
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -143,30 +128,30 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char* query, char* within.cou
     snprintf(localVarPath, sizeOfPath, "/v4/geocoding/search");
 
 
+
+
     // query parameters
     char *keyQuery_query;
-    char *valueQuery_query;
+    char * valueQuery_query;
     keyValuePair_t *keyPairQuery_query = 0;
     if (query)
     {
-    //string
-    keyQuery_query = strdup("query");
-    valueQuery_query = strdup(query);
-    keyPairQuery_query = keyValuePair_create(keyQuery_query, valueQuery_query);
-    list_addElement(localVarQueryParameters,keyPairQuery_query);
+        keyQuery_query = strdup("query");
+        valueQuery_query = strdup((query));
+        keyPairQuery_query = keyValuePair_create(keyQuery_query, valueQuery_query);
+        list_addElement(localVarQueryParameters,keyPairQuery_query);
     }
 
     // query parameters
     char *keyQuery_within.country;
-    char *valueQuery_within.country;
+    char * valueQuery_within.country;
     keyValuePair_t *keyPairQuery_within.country = 0;
     if (within.country)
     {
-    //string
-    keyQuery_within.country = strdup("within.country");
-    valueQuery_within.country = strdup(within.country);
-    keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
-    list_addElement(localVarQueryParameters,keyPairQuery_within.country);
+        keyQuery_within.country = strdup("within.country");
+        valueQuery_within.country = strdup((within.country));
+        keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
+        list_addElement(localVarQueryParameters,keyPairQuery_within.country);
     }
 
     // query parameters
@@ -175,11 +160,10 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char* query, char* within.cou
     keyValuePair_t *keyPairQuery_focus.lat = 0;
     if (focus.lat)
     {
-    //not string
-    keyQuery_focus.lat = strdup("focus.lat");
-    valueQuery_focus.lat = focus.lat;
-    keyPairQuery_focus.lat = keyValuePair_create(keyQuery_focus.lat, &valueQuery_focus.lat);
-    list_addElement(localVarQueryParameters,keyPairQuery_focus.lat);
+        keyQuery_focus.lat = strdup("focus.lat");
+        valueQuery_focus.lat = (focus.lat);
+        keyPairQuery_focus.lat = keyValuePair_create(keyQuery_focus.lat, &valueQuery_focus.lat);
+        list_addElement(localVarQueryParameters,keyPairQuery_focus.lat);
     }
 
     // query parameters
@@ -188,11 +172,10 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char* query, char* within.cou
     keyValuePair_t *keyPairQuery_focus.lng = 0;
     if (focus.lng)
     {
-    //not string
-    keyQuery_focus.lng = strdup("focus.lng");
-    valueQuery_focus.lng = focus.lng;
-    keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
-    list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
+        keyQuery_focus.lng = strdup("focus.lng");
+        valueQuery_focus.lng = (focus.lng);
+        keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
+        list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -212,13 +195,17 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char* query, char* within.cou
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_geocoding_t *elementToReturn = response_geocoding_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_geocoding_t *elementToReturn = response_geocoding_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     list_free(localVarQueryParameters);
     
     
@@ -242,7 +229,8 @@ end:
 }
 
 response_map_info_t*
-DefaultAPI_mapInfo(apiClient_t *apiClient) {
+DefaultAPI_mapInfo(apiClient_t *apiClient)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -254,6 +242,8 @@ DefaultAPI_mapInfo(apiClient_t *apiClient) {
     long sizeOfPath = strlen("/v4/map-info")+1;
     char *localVarPath = malloc(sizeOfPath);
     snprintf(localVarPath, sizeOfPath, "/v4/map-info");
+
+
 
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -273,13 +263,17 @@ DefaultAPI_mapInfo(apiClient_t *apiClient) {
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_map_info_t *elementToReturn = response_map_info_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_map_info_t *elementToReturn = response_map_info_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -293,7 +287,8 @@ end:
 }
 
 response_routes_t*
-DefaultAPI_routes(apiClient_t *apiClient, request_routes_t* request_routes) {
+DefaultAPI_routes(apiClient_t *apiClient ,request_routes_t * request_routes)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -307,9 +302,12 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t* request_routes) {
     snprintf(localVarPath, sizeOfPath, "/v4/routes");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_routes;
-    if (request_routes != NULL) {
+    if (request_routes != NULL)
+    {
         //string
         localVarSingleItemJSON_request_routes = request_routes_convertToJSON(request_routes);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_routes);
@@ -333,13 +331,17 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t* request_routes) {
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_routes_t *elementToReturn = response_routes_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_routes_t *elementToReturn = response_routes_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -355,7 +357,8 @@ end:
 }
 
 response_supported_locations_t*
-DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_locations_t* request_supported_locations) {
+DefaultAPI_supportedLocations(apiClient_t *apiClient ,request_supported_locations_t * request_supported_locations)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -369,9 +372,12 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
     snprintf(localVarPath, sizeOfPath, "/v4/supported-locations");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_supported_locations;
-    if (request_supported_locations != NULL) {
+    if (request_supported_locations != NULL)
+    {
         //string
         localVarSingleItemJSON_request_supported_locations = request_supported_locations_convertToJSON(request_supported_locations);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_supported_locations);
@@ -395,13 +401,17 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_supported_locations_t *elementToReturn = response_supported_locations_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_supported_locations_t *elementToReturn = response_supported_locations_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -417,7 +427,8 @@ end:
 }
 
 response_time_filter_t*
-DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t* request_time_filter) {
+DefaultAPI_timeFilter(apiClient_t *apiClient ,request_time_filter_t * request_time_filter)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -431,9 +442,12 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t* request_tim
     snprintf(localVarPath, sizeOfPath, "/v4/time-filter");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_filter;
-    if (request_time_filter != NULL) {
+    if (request_time_filter != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_filter = request_time_filter_convertToJSON(request_time_filter);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_filter);
@@ -457,13 +471,17 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t* request_tim
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_filter_t *elementToReturn = response_time_filter_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_filter_t *elementToReturn = response_time_filter_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -479,7 +497,8 @@ end:
 }
 
 response_time_filter_fast_t*
-DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t* request_time_filter_fast) {
+DefaultAPI_timeFilterFast(apiClient_t *apiClient ,request_time_filter_fast_t * request_time_filter_fast)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -493,9 +512,12 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t* re
     snprintf(localVarPath, sizeOfPath, "/v4/time-filter/fast");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_filter_fast;
-    if (request_time_filter_fast != NULL) {
+    if (request_time_filter_fast != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_filter_fast = request_time_filter_fast_convertToJSON(request_time_filter_fast);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_filter_fast);
@@ -519,13 +541,17 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t* re
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_filter_fast_t *elementToReturn = response_time_filter_fast_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_filter_fast_t *elementToReturn = response_time_filter_fast_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -541,7 +567,8 @@ end:
 }
 
 response_time_filter_postcode_districts_t*
-DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filter_postcode_districts_t* request_time_filter_postcode_districts) {
+DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient ,request_time_filter_postcode_districts_t * request_time_filter_postcode_districts)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -555,9 +582,12 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
     snprintf(localVarPath, sizeOfPath, "/v4/time-filter/postcode-districts");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_filter_postcode_districts;
-    if (request_time_filter_postcode_districts != NULL) {
+    if (request_time_filter_postcode_districts != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_filter_postcode_districts = request_time_filter_postcode_districts_convertToJSON(request_time_filter_postcode_districts);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_filter_postcode_districts);
@@ -581,13 +611,17 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_filter_postcode_districts_t *elementToReturn = response_time_filter_postcode_districts_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_filter_postcode_districts_t *elementToReturn = response_time_filter_postcode_districts_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -603,7 +637,8 @@ end:
 }
 
 response_time_filter_postcode_sectors_t*
-DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter_postcode_sectors_t* request_time_filter_postcode_sectors) {
+DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient ,request_time_filter_postcode_sectors_t * request_time_filter_postcode_sectors)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -617,9 +652,12 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
     snprintf(localVarPath, sizeOfPath, "/v4/time-filter/postcode-sectors");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_filter_postcode_sectors;
-    if (request_time_filter_postcode_sectors != NULL) {
+    if (request_time_filter_postcode_sectors != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_filter_postcode_sectors = request_time_filter_postcode_sectors_convertToJSON(request_time_filter_postcode_sectors);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_filter_postcode_sectors);
@@ -643,13 +681,17 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_filter_postcode_sectors_t *elementToReturn = response_time_filter_postcode_sectors_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_filter_postcode_sectors_t *elementToReturn = response_time_filter_postcode_sectors_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -665,7 +707,8 @@ end:
 }
 
 response_time_filter_postcodes_t*
-DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postcodes_t* request_time_filter_postcodes) {
+DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient ,request_time_filter_postcodes_t * request_time_filter_postcodes)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -679,9 +722,12 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
     snprintf(localVarPath, sizeOfPath, "/v4/time-filter/postcodes");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_filter_postcodes;
-    if (request_time_filter_postcodes != NULL) {
+    if (request_time_filter_postcodes != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_filter_postcodes = request_time_filter_postcodes_convertToJSON(request_time_filter_postcodes);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_filter_postcodes);
@@ -705,13 +751,17 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_filter_postcodes_t *elementToReturn = response_time_filter_postcodes_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_filter_postcodes_t *elementToReturn = response_time_filter_postcodes_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     
@@ -727,7 +777,8 @@ end:
 }
 
 response_time_map_t*
-DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t* request_time_map) {
+DefaultAPI_timeMap(apiClient_t *apiClient ,request_time_map_t * request_time_map)
+{
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
     list_t    *localVarFormParameters = NULL;
@@ -741,9 +792,12 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t* request_time_map)
     snprintf(localVarPath, sizeOfPath, "/v4/time-map");
 
 
+
+
     // Body Param
     cJSON *localVarSingleItemJSON_request_time_map;
-    if (request_time_map != NULL) {
+    if (request_time_map != NULL)
+    {
         //string
         localVarSingleItemJSON_request_time_map = request_time_map_convertToJSON(request_time_map);
         localVarBodyParameters = cJSON_Print(localVarSingleItemJSON_request_time_map);
@@ -770,13 +824,17 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t* request_time_map)
         printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
     }
     //nonprimitive not container
-    response_time_map_t *elementToReturn = response_time_map_parseFromJSON(apiClient->dataReceived);
+    cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
+    response_time_map_t *elementToReturn = response_time_map_parseFromJSON(DefaultAPIlocalVarJSON);
+    cJSON_Delete(DefaultAPIlocalVarJSON);
     if(elementToReturn == NULL) {
         // return 0;
     }
 
     //return type
-    apiClient_free(apiClient);
+    if (apiClient->dataReceived) {
+        free(apiClient->dataReceived);
+    }
     
     
     

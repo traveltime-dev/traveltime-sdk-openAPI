@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTransportationFast;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-04-02T12:37:38.864Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   @JsonProperty("id")
   private String id;
@@ -33,7 +33,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   private Integer travelTime;
 
   @JsonProperty("arrival_time_period")
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @JsonProperty("properties")
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();

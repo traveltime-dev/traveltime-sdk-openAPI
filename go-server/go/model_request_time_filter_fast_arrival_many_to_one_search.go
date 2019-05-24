@@ -18,11 +18,11 @@ type RequestTimeFilterFastArrivalManyToOneSearch struct {
 
 	DepartureLocationIds []string `json:"departure_location_ids"`
 
-	Transportation *RequestTransportationFast `json:"transportation"`
+	Transportation RequestTransportationFast `json:"transportation"`
 
 	TravelTime int32 `json:"travel_time"`
 
-	ArrivalTimePeriod *RequestArrivalTimePeriod `json:"arrival_time_period"`
+	ArrivalTimePeriod RequestArrivalTimePeriod `json:"arrival_time_period"`
 
 	Properties []RequestTimeFilterFastProperty `json:"properties"`
 }

@@ -5,7 +5,7 @@ using System.Text;
 using Sharpility.Extensions;
 using NodaTime;
 
-namespace traveltimeplatform..Models
+namespace traveltimeplatform._.Models
 {
     /// <summary>
     /// RequestTimeFilterFastArrivalOneToManySearch
@@ -40,7 +40,7 @@ namespace traveltimeplatform..Models
         /// <summary>
         /// ArrivalTimePeriod
         /// </summary>
-        public RequestArrivalTimePeriod? ArrivalTimePeriod { get; private set; }
+        public RequestArrivalTimePeriod ArrivalTimePeriod { get; private set; }
 
         /// <summary>
         /// Properties
@@ -57,7 +57,7 @@ namespace traveltimeplatform..Models
         {
         }
 
-        private RequestTimeFilterFastArrivalOneToManySearch(string Id, string DepartureLocationId, List<string> ArrivalLocationIds, RequestTransportationFast Transportation, int? TravelTime, RequestArrivalTimePeriod? ArrivalTimePeriod, List<RequestTimeFilterFastProperty> Properties)
+        private RequestTimeFilterFastArrivalOneToManySearch(string Id, string DepartureLocationId, List<string> ArrivalLocationIds, RequestTransportationFast Transportation, int? TravelTime, RequestArrivalTimePeriod ArrivalTimePeriod, List<RequestTimeFilterFastProperty> Properties)
         {
             
             this.Id = Id;
@@ -154,7 +154,7 @@ namespace traveltimeplatform..Models
             private List<string> _ArrivalLocationIds;
             private RequestTransportationFast _Transportation;
             private int? _TravelTime;
-            private RequestArrivalTimePeriod? _ArrivalTimePeriod;
+            private RequestArrivalTimePeriod _ArrivalTimePeriod;
             private List<RequestTimeFilterFastProperty> _Properties;
 
             internal RequestTimeFilterFastArrivalOneToManySearchBuilder()
@@ -220,7 +220,7 @@ namespace traveltimeplatform..Models
             /// Sets value for RequestTimeFilterFastArrivalOneToManySearch.ArrivalTimePeriod property.
             /// </summary>
             /// <param name="value">ArrivalTimePeriod</param>
-            public RequestTimeFilterFastArrivalOneToManySearchBuilder ArrivalTimePeriod(RequestArrivalTimePeriod? value)
+            public RequestTimeFilterFastArrivalOneToManySearchBuilder ArrivalTimePeriod(RequestArrivalTimePeriod value)
             {
                 _ArrivalTimePeriod = value;
                 return this;
@@ -289,6 +289,5 @@ namespace traveltimeplatform..Models
         }
 
         
-        public enum RequestArrivalTimePeriod { WeekdayMorning };
     }
 }

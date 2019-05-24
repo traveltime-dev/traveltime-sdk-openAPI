@@ -182,6 +182,3 @@ mod response_transportation_mode;
 pub use self::response_transportation_mode::ResponseTransportationMode;
 mod response_travel_time_statistics;
 pub use self::response_travel_time_statistics::ResponseTravelTimeStatistics;
-
-// TODO(farcaller): sort out files
-pub struct File;

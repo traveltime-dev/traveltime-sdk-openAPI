@@ -58,7 +58,7 @@ $Manifest = @{
     Description = 'traveltimeplatform - the PowerShell module for TravelTime Platform API'
 
     RootModule = 'traveltimeplatform.psm1'
-    Guid = '{9DF29CA7-C748-46E9-8FEA-1B2DC1F89495}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{D3AFC33D-A94A-4133-9BAB-A89D7FEF79B3}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '3.0'
 

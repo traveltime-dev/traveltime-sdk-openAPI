@@ -1,10 +1,6 @@
 package org.openapitools.api;
 
-import groovyx.net.http.*
-import static groovyx.net.http.ContentType.*
-import static groovyx.net.http.Method.*
 import org.openapitools.api.ApiUtils
-
 import org.openapitools.model.RequestRoutes
 import org.openapitools.model.RequestSupportedLocations
 import org.openapitools.model.RequestTimeFilter
@@ -25,260 +21,385 @@ import org.openapitools.model.ResponseTimeFilterPostcodeSectors
 import org.openapitools.model.ResponseTimeFilterPostcodes
 import org.openapitools.model.ResponseTimeMap
 
-import java.util.*;
-
-@Mixin(ApiUtils)
 class DefaultApi {
     String basePath = "https://api.traveltimeapp.com"
-    String versionPath = "/api/v1"
+    String versionPath = ""
+    ApiUtils apiUtils = new ApiUtils();
 
     def geocodingReverseSearch ( Double focusLat, Double focusLng, String withinCountry, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/geocoding/reverse"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (focusLat == null) {
             throw new RuntimeException("missing required params focusLat")
         }
-
+        
         // verify required params are set
         if (focusLng == null) {
             throw new RuntimeException("missing required params focusLng")
         }
+        
 
-        if (!"null".equals(String.valueOf(focusLat)))
-            queryParams.put("focus.lat", String.valueOf(focusLat))
+        if (focusLat != null) {
+            queryParams.put("focus.lat", focusLat)
+        }
+        if (focusLng != null) {
+            queryParams.put("focus.lng", focusLng)
+        }
+        if (withinCountry != null) {
+            queryParams.put("within.country", withinCountry)
+        }
 
-        if (!"null".equals(String.valueOf(focusLng)))
-            queryParams.put("focus.lng", String.valueOf(focusLng))
 
-        if (!"null".equals(String.valueOf(withinCountry)))
-            queryParams.put("within.country", String.valueOf(withinCountry))
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
                     ResponseGeocoding.class )
 
     }
 
     def geocodingSearch ( String query, String withinCountry, Double focusLat, Double focusLng, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/geocoding/search"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (query == null) {
             throw new RuntimeException("missing required params query")
         }
+        
 
-        if (!"null".equals(String.valueOf(query)))
-            queryParams.put("query", String.valueOf(query))
+        if (query != null) {
+            queryParams.put("query", query)
+        }
+        if (withinCountry != null) {
+            queryParams.put("within.country", withinCountry)
+        }
+        if (focusLat != null) {
+            queryParams.put("focus.lat", focusLat)
+        }
+        if (focusLng != null) {
+            queryParams.put("focus.lng", focusLng)
+        }
 
-        if (!"null".equals(String.valueOf(withinCountry)))
-            queryParams.put("within.country", String.valueOf(withinCountry))
 
-        if (!"null".equals(String.valueOf(focusLat)))
-            queryParams.put("focus.lat", String.valueOf(focusLat))
 
-        if (!"null".equals(String.valueOf(focusLng)))
-            queryParams.put("focus.lng", String.valueOf(focusLng))
 
-        // TODO: form params, body param not yet support
-
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
                     ResponseGeocoding.class )
 
     }
 
     def mapInfo ( Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/map-info"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
-        // TODO: form params, body param not yet support
+        
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "GET", "",
                     ResponseMapInfo.class )
 
     }
 
     def routes ( RequestRoutes requestRoutes, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/routes"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestRoutes == null) {
             throw new RuntimeException("missing required params requestRoutes")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestRoutes
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestRoutes", requestRoutes)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseRoutes.class )
 
     }
 
     def supportedLocations ( RequestSupportedLocations requestSupportedLocations, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/supported-locations"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestSupportedLocations == null) {
             throw new RuntimeException("missing required params requestSupportedLocations")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestSupportedLocations
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestSupportedLocations", requestSupportedLocations)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseSupportedLocations.class )
 
     }
 
     def timeFilter ( RequestTimeFilter requestTimeFilter, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-filter"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeFilter == null) {
             throw new RuntimeException("missing required params requestTimeFilter")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeFilter
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeFilter", requestTimeFilter)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeFilter.class )
 
     }
 
     def timeFilterFast ( RequestTimeFilterFast requestTimeFilterFast, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-filter/fast"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeFilterFast == null) {
             throw new RuntimeException("missing required params requestTimeFilterFast")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeFilterFast
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeFilterFast", requestTimeFilterFast)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeFilterFast.class )
 
     }
 
     def timeFilterPostcodeDistricts ( RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-filter/postcode-districts"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeFilterPostcodeDistricts == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodeDistricts")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeFilterPostcodeDistricts
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeFilterPostcodeDistricts", requestTimeFilterPostcodeDistricts)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeFilterPostcodeDistricts.class )
 
     }
 
     def timeFilterPostcodeSectors ( RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-filter/postcode-sectors"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeFilterPostcodeSectors == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodeSectors")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeFilterPostcodeSectors
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeFilterPostcodeSectors", requestTimeFilterPostcodeSectors)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeFilterPostcodeSectors.class )
 
     }
 
     def timeFilterPostcodes ( RequestTimeFilterPostcodes requestTimeFilterPostcodes, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-filter/postcodes"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeFilterPostcodes == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodes")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeFilterPostcodes
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeFilterPostcodes", requestTimeFilterPostcodes)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeFilterPostcodes.class )
 
     }
 
     def timeMap ( RequestTimeMap requestTimeMap, Closure onSuccess, Closure onFailure)  {
-        // create path and map path parameters (TODO)
         String resourcePath = "/v4/time-map"
 
-        // query params
+        // params
         def queryParams = [:]
         def headerParams = [:]
+        def bodyParams
+        def contentType
 
+        
         // verify required params are set
         if (requestTimeMap == null) {
             throw new RuntimeException("missing required params requestTimeMap")
         }
+        
 
-        // TODO: form params, body param not yet support
 
-        invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams,
+
+        contentType = 'application/json';
+        // only one body parameter
+        if (1 == 1) {
+            bodyParams = requestTimeMap
+        }
+        // array of body parameters
+        else {
+            bodyParams.put("RequestTimeMap", requestTimeMap)
+        }
+
+
+        apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
                     "POST", "",
                     ResponseTimeMap.class )
 

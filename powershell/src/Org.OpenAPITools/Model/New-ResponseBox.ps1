@@ -4,13 +4,13 @@ function New-ResponseBox {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
         ${minUnderscorelat},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
         ${maxUnderscorelat},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
         ${minUnderscorelng},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
         ${maxUnderscorelng}
     )

@@ -31,13 +31,13 @@ Method | HTTP request | Description
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var focusLat = 1.2; // double | 
@@ -84,13 +84,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var query = query_example; // String | 
@@ -139,13 +139,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 
@@ -184,13 +184,13 @@ This endpoint does not need any parameter.
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestRoutes = new RequestRoutes(); // RequestRoutes | 
@@ -233,13 +233,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestSupportedLocations = new RequestSupportedLocations(); // RequestSupportedLocations | 
@@ -282,13 +282,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeFilter = new RequestTimeFilter(); // RequestTimeFilter | 
@@ -331,13 +331,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeFilterFast = new RequestTimeFilterFast(); // RequestTimeFilterFast | 
@@ -380,13 +380,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeFilterPostcodeDistricts = new RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
@@ -429,13 +429,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeFilterPostcodeSectors = new RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
@@ -478,13 +478,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeFilterPostcodes = new RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
@@ -527,13 +527,13 @@ Name | Type | Description  | Notes
 ```dart
 import 'package:openapi/api.dart';
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var requestTimeMap = new RequestTimeMap(); // RequestTimeMap | 

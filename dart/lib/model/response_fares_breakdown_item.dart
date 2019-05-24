@@ -16,17 +16,32 @@ class ResponseFaresBreakdownItem {
 
   ResponseFaresBreakdownItem.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    modes = ResponseTransportationMode.listFromJson(json['modes']);
-    routePartIds = ((json['route_part_ids'] ?? []) as List).map((item) => item as int).toList();
-    tickets = ResponseFareTicket.listFromJson(json['tickets']);
+    if (json['modes'] == null) {
+      modes = null;
+    } else {
+      modes = ResponseTransportationMode.listFromJson(json['modes']);
+    }
+    if (json['route_part_ids'] == null) {
+      routePartIds = null;
+    } else {
+      routePartIds = (json['route_part_ids'] as List).cast<int>();
+    }
+    if (json['tickets'] == null) {
+      tickets = null;
+    } else {
+      tickets = ResponseFareTicket.listFromJson(json['tickets']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'modes': modes,
-      'route_part_ids': routePartIds,
-      'tickets': tickets
-    };
+    Map <String, dynamic> json = {};
+    if (modes != null)
+      json['modes'] = modes;
+    if (routePartIds != null)
+      json['route_part_ids'] = routePartIds;
+    if (tickets != null)
+      json['tickets'] = tickets;
+    return json;
   }
 
   static List<ResponseFaresBreakdownItem> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class ResponseFaresBreakdownItem {
 
   static Map<String, ResponseFaresBreakdownItem> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseFaresBreakdownItem>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseFaresBreakdownItem.fromJson(value));
     }
     return map;

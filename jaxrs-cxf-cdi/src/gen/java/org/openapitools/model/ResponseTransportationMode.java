@@ -28,13 +28,13 @@ public enum ResponseTransportationMode {
         return String.valueOf(value);
     }
 
-    public static ResponseTransportationMode fromValue(String v) {
+    public static ResponseTransportationMode fromValue(String value) {
         for (ResponseTransportationMode b : ResponseTransportationMode.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 

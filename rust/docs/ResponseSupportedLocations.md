@@ -1,6 +1,7 @@
 # ResponseSupportedLocations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **locations** | [**Vec<::models::ResponseSupportedLocation>**](ResponseSupportedLocation.md) |  | 

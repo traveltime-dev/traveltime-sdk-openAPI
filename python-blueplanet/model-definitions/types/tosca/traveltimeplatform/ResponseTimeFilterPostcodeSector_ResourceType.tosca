@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeFilterPostcodeSector"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeFilterPostcodeSector"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeFilterPostcodeSectorProperties = traveltimeplatform.resourceTypes.ResponseTimeFilterPostcodeSectorProperties
+}
+resourceTypes {
+
+  ResponseTimeFilterPostcodeSector {
+    title = ResponseTimeFilterPostcodeSector
+    description = ResponseTimeFilterPostcodeSector
+    derivedFrom = Root
+    properties {
+        code {
+          type = String
+          description = ""
+          optional = true
+        }
+        properties {
+          type = ResponseTimeFilterPostcodeSectorProperties
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterPostcodeSector {
+    title = ResponseTimeFilterPostcodeSector
+    description = ResponseTimeFilterPostcodeSector
+    implements = traveltimeplatform.resourceTypes.ResponseTimeFilterPostcodeSector
+
+  }
+}

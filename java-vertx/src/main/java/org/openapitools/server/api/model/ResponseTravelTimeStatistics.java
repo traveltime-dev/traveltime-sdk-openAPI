@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTravelTimeStatistics   {
   
-  private Integer min = ;
-  private Integer max = ;
-  private Integer mean = ;
-  private Integer median = ;
+  private Integer min;
+  private Integer max;
+  private Integer mean;
+  private Integer median;
 
   public ResponseTravelTimeStatistics () {
 

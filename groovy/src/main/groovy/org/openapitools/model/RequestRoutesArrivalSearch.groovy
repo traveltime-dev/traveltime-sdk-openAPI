@@ -11,18 +11,18 @@ import org.openapitools.model.RequestTransportation;
 
 @Canonical
 class RequestRoutesArrivalSearch {
-    String id = 
-
+    
+    String id
+    
     List<String> departureLocationIds = new ArrayList<String>()
-
-    String arrivalLocationId = 
-
+    
+    String arrivalLocationId
+    
     RequestTransportation transportation = null
-
-    Date arrivalTime = 
-
+    
+    Date arrivalTime
+    
     List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>()
-
+    
     RequestRangeFull range = null
-
 }

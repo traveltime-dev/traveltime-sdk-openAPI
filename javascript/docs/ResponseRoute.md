@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseRoute
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departureTime** | **Date** |  | 

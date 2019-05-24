@@ -1,0 +1,13 @@
+package {{package}}
+
+{{#imports}}import {{import}}
+{{/imports}}
+
+{{#operations}}
+interface {{classname}}Service {
+{{#operation}}
+
+    fun {{operationId}}({{#allParams}}{{paramName}}: {{>optionalDataType}}{{#hasMore}}, {{/hasMore}}{{/allParams}}): {{>returnTypes}}
+{{/operation}}
+}
+{{/operations}}

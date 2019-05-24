@@ -1,6 +1,7 @@
 # ResponseMapInfoFeatures
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **PublicTransport** | [**ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md) |  | [optional] 

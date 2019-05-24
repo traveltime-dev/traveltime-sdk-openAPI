@@ -1,7 +1,10 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_filter_fast_arrival_searches.dart';
+
 import 'package:openapi/model/request_location.dart';
+
 part 'request_time_filter_fast.jser.dart';
 
 class RequestTimeFilterFast {
@@ -14,7 +17,7 @@ class RequestTimeFilterFast {
   
 
   RequestTimeFilterFast(
-    
+      
 
 {
     
@@ -29,7 +32,8 @@ class RequestTimeFilterFast {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterFastSerializer extends Serializer<RequestTimeFilterFast> with _$RequestTimeFilterFastSerializer {
 
 }
+

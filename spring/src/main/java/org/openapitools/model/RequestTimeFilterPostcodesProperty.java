@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -29,13 +30,13 @@ public enum RequestTimeFilterPostcodesProperty {
   }
 
   @JsonCreator
-  public static RequestTimeFilterPostcodesProperty fromValue(String text) {
+  public static RequestTimeFilterPostcodesProperty fromValue(String value) {
     for (RequestTimeFilterPostcodesProperty b : RequestTimeFilterPostcodesProperty.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

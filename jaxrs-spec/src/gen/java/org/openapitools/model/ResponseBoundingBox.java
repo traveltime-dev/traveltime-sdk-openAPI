@@ -67,8 +67,8 @@ public class ResponseBoundingBox   {
       return false;
     }
     ResponseBoundingBox responseBoundingBox = (ResponseBoundingBox) o;
-    return Objects.equals(envelope, responseBoundingBox.envelope) &&
-        Objects.equals(boxes, responseBoundingBox.boxes);
+    return Objects.equals(this.envelope, responseBoundingBox.envelope) &&
+        Objects.equals(this.boxes, responseBoundingBox.boxes);
   }
 
   @Override

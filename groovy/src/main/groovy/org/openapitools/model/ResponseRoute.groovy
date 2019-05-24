@@ -9,10 +9,10 @@ import org.openapitools.model.ResponseRoutePart;
 
 @Canonical
 class ResponseRoute {
-    Date departureTime = 
-
-    Date arrivalTime = 
-
+    
+    Date departureTime
+    
+    Date arrivalTime
+    
     List<ResponseRoutePart> parts = new ArrayList<ResponseRoutePart>()
-
 }

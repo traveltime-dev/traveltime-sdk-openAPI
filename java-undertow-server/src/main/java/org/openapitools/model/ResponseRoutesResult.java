@@ -13,10 +13,10 @@ import org.openapitools.model.ResponseRoutesLocation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class ResponseRoutesResult   {
   
-  private String searchId = ;
+  private String searchId;
   private List<ResponseRoutesLocation> locations = new ArrayList<ResponseRoutesLocation>();
   private List<String> unreachable = new ArrayList<String>();
 

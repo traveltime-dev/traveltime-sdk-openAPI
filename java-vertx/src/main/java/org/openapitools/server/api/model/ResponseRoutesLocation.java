@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseRoutesProperties;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseRoutesLocation   {
   
-  private String id = ;
+  private String id;
   private List<ResponseRoutesProperties> properties = new ArrayList<>();
 
   public ResponseRoutesLocation () {

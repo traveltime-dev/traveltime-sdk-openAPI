@@ -28,13 +28,13 @@ public enum RequestArrivalTimePeriod {
         return String.valueOf(value);
     }
 
-    public static RequestArrivalTimePeriod fromValue(String v) {
+    public static RequestArrivalTimePeriod fromValue(String value) {
         for (RequestArrivalTimePeriod b : RequestArrivalTimePeriod.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 

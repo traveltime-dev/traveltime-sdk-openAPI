@@ -1,6 +1,7 @@
 # ResponseRoute
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DepartureTime** | [**time.Time**](time.Time.md) |  | 

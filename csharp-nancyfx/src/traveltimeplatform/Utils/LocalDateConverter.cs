@@ -5,7 +5,7 @@ using NodaTime.Text;
 using System;
 using System.Collections.Generic;
 
-namespace traveltimeplatform..Utils
+namespace traveltimeplatform._.Utils
 {
     /// <summary>
     /// (De)serializes a <see cref="NodaTime.LocalDate"/> to a string using 

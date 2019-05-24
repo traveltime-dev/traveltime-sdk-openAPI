@@ -8,28 +8,28 @@
 #define _response_time_filter_postcode_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "response_time_filter_postcodes_properties.h"
 #include "string.h"
 
 
 
-
 typedef struct response_time_filter_postcode_t {
-        char_t *code; //nonprimitive
-        list_t *properties; //nonprimitive container
+    char_t *code; //model
+    list_t *properties; //nonprimitive container
 
 } response_time_filter_postcode_t;
 
 response_time_filter_postcode_t *response_time_filter_postcode_create(
-        char_t *code,
-        list_t *properties
+    char_t *code,
+    list_t *properties
 );
 
 void response_time_filter_postcode_free(response_time_filter_postcode_t *response_time_filter_postcode);
 
-response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(char *jsonString);
+response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJSON *response_time_filter_postcodeJSON);
 
 cJSON *response_time_filter_postcode_convertToJSON(response_time_filter_postcode_t *response_time_filter_postcode);
 

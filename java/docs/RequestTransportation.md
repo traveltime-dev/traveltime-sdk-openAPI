@@ -1,7 +1,9 @@
 
+
 # RequestTransportation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**TypeEnum**](#TypeEnum) |  | 
@@ -12,8 +14,9 @@ Name | Type | Description | Notes
 **boardingTime** | **Integer** |  |  [optional]
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 CYCLING | &quot;cycling&quot;

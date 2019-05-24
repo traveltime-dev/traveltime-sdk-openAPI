@@ -1,11 +1,13 @@
+
 # traveltimeplatform.Model.ResponseRoutePart
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **string** |  | 
-**Mode** | **ResponseTransportationMode** |  | 
+**Mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
 **Directions** | **string** |  | 
 **Distance** | **int?** |  | 
 **TravelTime** | **int?** |  | 
@@ -20,5 +22,7 @@ Name | Type | Description | Notes
 **ArrivesAt** | **string** |  | [optional] 
 **NumStops** | **int?** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

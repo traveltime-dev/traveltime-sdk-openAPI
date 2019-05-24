@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_route_part.dart';
+
 part 'response_route.jser.dart';
 
 class ResponseRoute {
@@ -16,7 +18,7 @@ class ResponseRoute {
   
 
   ResponseRoute(
-    
+      
 
 {
     
@@ -32,7 +34,8 @@ class ResponseRoute {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseRouteSerializer extends Serializer<ResponseRoute> with _$ResponseRouteSerializer {
 
 }
+

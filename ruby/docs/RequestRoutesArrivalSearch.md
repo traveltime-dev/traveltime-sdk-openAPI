@@ -1,6 +1,7 @@
 # OpenapiClient::RequestRoutesArrivalSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -10,5 +11,19 @@ Name | Type | Description | Notes
 **arrival_time** | **DateTime** |  | 
 **properties** | [**Array&lt;RequestRoutesProperty&gt;**](RequestRoutesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
+
+## Code Sample
+
+```ruby
+require 'OpenapiClient'
+
+instance = OpenapiClient::RequestRoutesArrivalSearch.new(id: null,
+                                 departure_location_ids: null,
+                                 arrival_location_id: null,
+                                 transportation: null,
+                                 arrival_time: null,
+                                 properties: null,
+                                 range: null)
+```
 
 

@@ -1,6 +1,7 @@
 # ResponseBoundingBox
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **envelope** | [***::models::ResponseBox**](ResponseBox.md) |  | 

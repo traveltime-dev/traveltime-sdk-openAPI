@@ -10,8 +10,8 @@ import org.openapitools.model.RequestTimeFilterFastArrivalSearches;
 
 @Canonical
 class RequestTimeFilterFast {
+    
     List<RequestLocation> locations = new ArrayList<RequestLocation>()
-
+    
     RequestTimeFilterFastArrivalSearches arrivalSearches = null
-
 }

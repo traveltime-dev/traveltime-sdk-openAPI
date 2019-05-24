@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseTimeMapBoundingBoxes   {
   
   private List<ResponseTimeMapBoundingBoxesResult> results = new ArrayList<ResponseTimeMapBoundingBoxesResult>();

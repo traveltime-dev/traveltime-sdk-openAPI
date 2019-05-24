@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_transportation_mode.jser.dart';
 
 @Entity()

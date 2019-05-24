@@ -166,13 +166,13 @@ public class RequestTimeFilterPostcodeSectorsArrivalSearch   {
       return false;
     }
     RequestTimeFilterPostcodeSectorsArrivalSearch requestTimeFilterPostcodeSectorsArrivalSearch = (RequestTimeFilterPostcodeSectorsArrivalSearch) o;
-    return Objects.equals(id, requestTimeFilterPostcodeSectorsArrivalSearch.id) &&
-        Objects.equals(transportation, requestTimeFilterPostcodeSectorsArrivalSearch.transportation) &&
-        Objects.equals(travelTime, requestTimeFilterPostcodeSectorsArrivalSearch.travelTime) &&
-        Objects.equals(arrivalTime, requestTimeFilterPostcodeSectorsArrivalSearch.arrivalTime) &&
-        Objects.equals(reachablePostcodesThreshold, requestTimeFilterPostcodeSectorsArrivalSearch.reachablePostcodesThreshold) &&
-        Objects.equals(properties, requestTimeFilterPostcodeSectorsArrivalSearch.properties) &&
-        Objects.equals(range, requestTimeFilterPostcodeSectorsArrivalSearch.range);
+    return Objects.equals(this.id, requestTimeFilterPostcodeSectorsArrivalSearch.id) &&
+        Objects.equals(this.transportation, requestTimeFilterPostcodeSectorsArrivalSearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeFilterPostcodeSectorsArrivalSearch.travelTime) &&
+        Objects.equals(this.arrivalTime, requestTimeFilterPostcodeSectorsArrivalSearch.arrivalTime) &&
+        Objects.equals(this.reachablePostcodesThreshold, requestTimeFilterPostcodeSectorsArrivalSearch.reachablePostcodesThreshold) &&
+        Objects.equals(this.properties, requestTimeFilterPostcodeSectorsArrivalSearch.properties) &&
+        Objects.equals(this.range, requestTimeFilterPostcodeSectorsArrivalSearch.range);
   }
 
   @Override

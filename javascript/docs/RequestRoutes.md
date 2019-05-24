@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestRoutes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **locations** | [**[RequestLocation]**](RequestLocation.md) |  | 

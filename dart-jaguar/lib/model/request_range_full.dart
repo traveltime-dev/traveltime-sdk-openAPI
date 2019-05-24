@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_range_full.jser.dart';
 
 class RequestRangeFull {
@@ -15,7 +16,7 @@ class RequestRangeFull {
   
 
   RequestRangeFull(
-    
+      
 
 {
     
@@ -31,7 +32,8 @@ class RequestRangeFull {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestRangeFullSerializer extends Serializer<RequestRangeFull> with _$RequestRangeFullSerializer {
 
 }
+

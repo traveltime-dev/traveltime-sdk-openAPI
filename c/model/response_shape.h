@@ -8,27 +8,27 @@
 #define _response_shape_H_
 
 #include <string.h>
-#include "cJSON.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "coords.h"
-#include "list.h"
-
 
 
 
 typedef struct response_shape_t {
-        list_t *shell; //nonprimitive container
-        list_t *holes; //nonprimitive container
+    list_t *shell; //nonprimitive container
+    list_t *holes; //primitive container
 
 } response_shape_t;
 
 response_shape_t *response_shape_create(
-        list_t *shell,
-        list_t *holes
+    list_t *shell,
+    list_t *holes
 );
 
 void response_shape_free(response_shape_t *response_shape);
 
-response_shape_t *response_shape_parseFromJSON(char *jsonString);
+response_shape_t *response_shape_parseFromJSON(cJSON *response_shapeJSON);
 
 cJSON *response_shape_convertToJSON(response_shape_t *response_shape);
 

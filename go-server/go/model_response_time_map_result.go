@@ -16,5 +16,5 @@ type ResponseTimeMapResult struct {
 
 	Shapes []ResponseShape `json:"shapes"`
 
-	Properties *ResponseTimeMapProperties `json:"properties"`
+	Properties ResponseTimeMapProperties `json:"properties"`
 }

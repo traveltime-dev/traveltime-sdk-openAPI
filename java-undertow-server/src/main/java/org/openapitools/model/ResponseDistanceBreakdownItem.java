@@ -11,11 +11,11 @@ import org.openapitools.model.ResponseTransportationMode;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class ResponseDistanceBreakdownItem   {
   
-  private ResponseTransportationMode mode = null;
-  private Integer distance = ;
+  private ResponseTransportationMode mode;
+  private Integer distance;
 
   /**
    **/

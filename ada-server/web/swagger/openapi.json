@@ -475,8 +475,8 @@
           }
         },
         "example" : {
-          "lng" : 3.61607674925191080461672754609026014804840087890625,
-          "lat" : 9.301444243932575517419536481611430644989013671875
+          "lng" : 3.616076749251911,
+          "lat" : 9.301444243932576
         }
       },
       "RequestSearchId" : {
@@ -488,8 +488,7 @@
       "RequestTravelTime" : {
         "maximum" : 14400,
         "minimum" : 60,
-        "type" : "integer",
-        "format" : "int32"
+        "type" : "integer"
       },
       "RequestDepartureArrivalTime" : {
         "type" : "string",
@@ -512,8 +511,7 @@
       "RequestRangeWidth" : {
         "maximum" : 43200,
         "minimum" : 1,
-        "type" : "integer",
-        "format" : "int32"
+        "type" : "integer"
       },
       "RequestRangeFull" : {
         "required" : [ "enabled", "max_results", "width" ],
@@ -525,14 +523,12 @@
           "max_results" : {
             "maximum" : 5,
             "minimum" : 1,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "width" : {
             "maximum" : 43200,
             "minimum" : 1,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         }
       },
@@ -546,8 +542,7 @@
           "width" : {
             "maximum" : 43200,
             "minimum" : 1,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         }
       },
@@ -584,8 +579,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "departure_time" : {
             "type" : "string",
@@ -619,8 +613,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time" : {
             "type" : "string",
@@ -654,8 +647,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "departure_time" : {
             "type" : "string",
@@ -689,8 +681,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time" : {
             "type" : "string",
@@ -724,8 +715,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "departure_time" : {
             "type" : "string",
@@ -755,8 +745,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time" : {
             "type" : "string",
@@ -797,8 +786,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "departure_time" : {
             "type" : "string",
@@ -839,8 +827,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time" : {
             "type" : "string",
@@ -889,8 +876,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time_period" : {
             "$ref" : "#/components/schemas/RequestArrivalTimePeriod"
@@ -927,8 +913,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time_period" : {
             "$ref" : "#/components/schemas/RequestArrivalTimePeriod"
@@ -1204,8 +1189,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "departure_time" : {
             "type" : "string",
@@ -1238,8 +1222,7 @@
           "travel_time" : {
             "maximum" : 14400,
             "minimum" : 60,
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "arrival_time" : {
             "type" : "string",
@@ -1296,12 +1279,10 @@
         "type" : "string"
       },
       "ResponseTravelTime" : {
-        "type" : "integer",
-        "format" : "int32"
+        "type" : "integer"
       },
       "ResponseDistance" : {
-        "type" : "integer",
-        "format" : "int32"
+        "type" : "integer"
       },
       "ResponseTransportationMode" : {
         "type" : "string",
@@ -1315,8 +1296,7 @@
             "$ref" : "#/components/schemas/ResponseTransportationMode"
           },
           "distance" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         },
         "example" : {
@@ -1340,7 +1320,7 @@
           }
         },
         "example" : {
-          "price" : 5.63737665663332876420099637471139430999755859375,
+          "price" : 5.637376656633329,
           "currency" : "currency",
           "type" : "single"
         }
@@ -1358,8 +1338,7 @@
           "route_part_ids" : {
             "type" : "array",
             "items" : {
-              "type" : "integer",
-              "format" : "int32"
+              "type" : "integer"
             }
           },
           "tickets" : {
@@ -1372,11 +1351,11 @@
         "example" : {
           "modes" : [ null, null ],
           "tickets" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ],
@@ -1404,11 +1383,11 @@
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1416,22 +1395,22 @@
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1450,11 +1429,11 @@
         },
         "example" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1478,12 +1457,10 @@
             "type" : "string"
           },
           "distance" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "travel_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "coords" : {
             "type" : "array",
@@ -1516,8 +1493,7 @@
             "type" : "string"
           },
           "num_stops" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         },
         "example" : {
@@ -1535,11 +1511,11 @@
           "id" : "id",
           "arrival_station" : "arrival_station",
           "coords" : [ {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           }, {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           } ],
           "direction" : "direction"
         }
@@ -1580,11 +1556,11 @@
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1602,11 +1578,11 @@
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1617,12 +1593,10 @@
         "type" : "object",
         "properties" : {
           "travel_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "distance" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "distance_breakdown" : {
             "type" : "array",
@@ -1660,11 +1634,11 @@
               "id" : "id",
               "arrival_station" : "arrival_station",
               "coords" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "direction" : "direction"
             }, {
@@ -1682,11 +1656,11 @@
               "id" : "id",
               "arrival_station" : "arrival_station",
               "coords" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "direction" : "direction"
             } ],
@@ -1698,11 +1672,11 @@
             "breakdown" : [ {
               "modes" : [ null, null ],
               "tickets" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ],
@@ -1710,22 +1684,22 @@
             }, {
               "modes" : [ null, null ],
               "tickets" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ],
               "route_part_ids" : [ 5, 5 ]
             } ],
             "tickets_total" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ]
@@ -1737,20 +1711,16 @@
         "type" : "object",
         "properties" : {
           "min" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "max" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "mean" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "median" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         },
         "example" : {
@@ -1764,12 +1734,10 @@
         "type" : "object",
         "properties" : {
           "travel_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "distance" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         },
         "example" : {
@@ -1792,7 +1760,7 @@
           }
         },
         "example" : {
-          "coverage" : 5.63737665663332876420099637471139430999755859375,
+          "coverage" : 5.637376656633329,
           "travel_time_all" : {
             "min" : 0,
             "median" : 5,
@@ -1822,7 +1790,7 @@
           }
         },
         "example" : {
-          "coverage" : 0.80082819046101150206595775671303272247314453125,
+          "coverage" : 0.8008281904610115,
           "travel_time_all" : {
             "min" : 0,
             "median" : 5,
@@ -1841,8 +1809,7 @@
         "type" : "object",
         "properties" : {
           "travel_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "fares" : {
             "$ref" : "#/components/schemas/ResponseFaresFast"
@@ -1852,11 +1819,11 @@
           "travel_time" : 0,
           "fares" : {
             "tickets_total" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ]
@@ -1867,12 +1834,10 @@
         "type" : "object",
         "properties" : {
           "travel_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "distance" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "fares" : {
             "$ref" : "#/components/schemas/ResponseFares"
@@ -1899,11 +1864,11 @@
               "id" : "id",
               "arrival_station" : "arrival_station",
               "coords" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "direction" : "direction"
             }, {
@@ -1921,11 +1886,11 @@
               "id" : "id",
               "arrival_station" : "arrival_station",
               "coords" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "direction" : "direction"
             } ],
@@ -1937,11 +1902,11 @@
             "breakdown" : [ {
               "modes" : [ null, null ],
               "tickets" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ],
@@ -1949,22 +1914,22 @@
             }, {
               "modes" : [ null, null ],
               "tickets" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ],
               "route_part_ids" : [ 5, 5 ]
             } ],
             "tickets_total" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ]
@@ -2010,11 +1975,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               }, {
@@ -2032,11 +1997,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               } ],
@@ -2048,11 +2013,11 @@
               "breakdown" : [ {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
@@ -2060,22 +2025,22 @@
               }, {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
                 "route_part_ids" : [ 5, 5 ]
               } ],
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2103,11 +2068,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               }, {
@@ -2125,11 +2090,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               } ],
@@ -2141,11 +2106,11 @@
               "breakdown" : [ {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
@@ -2153,22 +2118,22 @@
               }, {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
                 "route_part_ids" : [ 5, 5 ]
               } ],
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2196,11 +2161,11 @@
             "travel_time" : 0,
             "fares" : {
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2209,11 +2174,11 @@
             "travel_time" : 0,
             "fares" : {
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2255,11 +2220,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               }, {
@@ -2277,11 +2242,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               } ],
@@ -2293,11 +2258,11 @@
               "breakdown" : [ {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
@@ -2305,22 +2270,22 @@
               }, {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
                 "route_part_ids" : [ 5, 5 ]
               } ],
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2343,11 +2308,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               }, {
@@ -2365,11 +2330,11 @@
                 "id" : "id",
                 "arrival_station" : "arrival_station",
                 "coords" : [ {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 }, {
-                  "lng" : 3.61607674925191080461672754609026014804840087890625,
-                  "lat" : 9.301444243932575517419536481611430644989013671875
+                  "lng" : 3.616076749251911,
+                  "lat" : 9.301444243932576
                 } ],
                 "direction" : "direction"
               } ],
@@ -2381,11 +2346,11 @@
               "breakdown" : [ {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
@@ -2393,22 +2358,22 @@
               }, {
                 "modes" : [ null, null ],
                 "tickets" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ],
                 "route_part_ids" : [ 5, 5 ]
               } ],
               "tickets_total" : [ {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               }, {
-                "price" : 5.63737665663332876420099637471139430999755859375,
+                "price" : 5.637376656633329,
                 "currency" : "currency",
                 "type" : "single"
               } ]
@@ -2455,7 +2420,7 @@
         "example" : {
           "code" : "",
           "properties" : {
-            "coverage" : 5.63737665663332876420099637471139430999755859375,
+            "coverage" : 5.637376656633329,
             "travel_time_all" : {
               "min" : 0,
               "median" : 5,
@@ -2485,7 +2450,7 @@
         "example" : {
           "code" : "",
           "properties" : {
-            "coverage" : 0.80082819046101150206595775671303272247314453125,
+            "coverage" : 0.8008281904610115,
             "travel_time_all" : {
               "min" : 0,
               "median" : 5,
@@ -2548,11 +2513,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -2570,11 +2535,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -2586,11 +2551,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -2598,22 +2563,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -2641,11 +2606,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -2663,11 +2628,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -2679,11 +2644,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -2691,22 +2656,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -2737,11 +2702,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -2759,11 +2724,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -2775,11 +2740,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -2787,22 +2752,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -2830,11 +2795,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -2852,11 +2817,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -2868,11 +2833,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -2880,22 +2845,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -2960,7 +2925,7 @@
           "districts" : [ {
             "code" : "",
             "properties" : {
-              "coverage" : 5.63737665663332876420099637471139430999755859375,
+              "coverage" : 5.637376656633329,
               "travel_time_all" : {
                 "min" : 0,
                 "median" : 5,
@@ -2977,7 +2942,7 @@
           }, {
             "code" : "",
             "properties" : {
-              "coverage" : 5.63737665663332876420099637471139430999755859375,
+              "coverage" : 5.637376656633329,
               "travel_time_all" : {
                 "min" : 0,
                 "median" : 5,
@@ -3013,7 +2978,7 @@
           "sectors" : [ {
             "code" : "",
             "properties" : {
-              "coverage" : 0.80082819046101150206595775671303272247314453125,
+              "coverage" : 0.8008281904610115,
               "travel_time_all" : {
                 "min" : 0,
                 "median" : 5,
@@ -3030,7 +2995,7 @@
           }, {
             "code" : "",
             "properties" : {
-              "coverage" : 0.80082819046101150206595775671303272247314453125,
+              "coverage" : 0.8008281904610115,
               "travel_time_all" : {
                 "min" : 0,
                 "median" : 5,
@@ -3076,11 +3041,11 @@
               "travel_time" : 0,
               "fares" : {
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3089,11 +3054,11 @@
               "travel_time" : 0,
               "fares" : {
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3105,11 +3070,11 @@
               "travel_time" : 0,
               "fares" : {
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3118,11 +3083,11 @@
               "travel_time" : 0,
               "fares" : {
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3174,11 +3139,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -3196,11 +3161,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -3212,11 +3177,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -3224,22 +3189,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3262,11 +3227,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -3284,11 +3249,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -3300,11 +3265,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -3312,22 +3277,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3353,11 +3318,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -3375,11 +3340,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -3391,11 +3356,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -3403,22 +3368,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3441,11 +3406,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 }, {
@@ -3463,11 +3428,11 @@
                   "id" : "id",
                   "arrival_station" : "arrival_station",
                   "coords" : [ {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   }, {
-                    "lng" : 3.61607674925191080461672754609026014804840087890625,
-                    "lat" : 9.301444243932575517419536481611430644989013671875
+                    "lng" : 3.616076749251911,
+                    "lat" : 9.301444243932576
                   } ],
                   "direction" : "direction"
                 } ],
@@ -3479,11 +3444,11 @@
                 "breakdown" : [ {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
@@ -3491,22 +3456,22 @@
                 }, {
                   "modes" : [ null, null ],
                   "tickets" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ],
                   "route_part_ids" : [ 5, 5 ]
                 } ],
                 "tickets_total" : [ {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 }, {
-                  "price" : 5.63737665663332876420099637471139430999755859375,
+                  "price" : 5.637376656633329,
                   "currency" : "currency",
                   "type" : "single"
                 } ]
@@ -3555,11 +3520,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -3577,11 +3542,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -3593,11 +3558,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -3605,22 +3570,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -3648,11 +3613,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -3670,11 +3635,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -3686,11 +3651,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -3698,22 +3663,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -3744,11 +3709,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -3766,11 +3731,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -3782,11 +3747,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -3794,22 +3759,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -3837,11 +3802,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -3859,11 +3824,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -3875,11 +3840,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -3887,22 +3852,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -3937,11 +3902,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -3959,11 +3924,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -3975,11 +3940,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -3987,22 +3952,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4030,11 +3995,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4052,11 +4017,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4068,11 +4033,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4080,22 +4045,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4126,11 +4091,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4148,11 +4113,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4164,11 +4129,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4176,22 +4141,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4219,11 +4184,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4241,11 +4206,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4257,11 +4222,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4269,22 +4234,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4368,7 +4333,7 @@
             "districts" : [ {
               "code" : "",
               "properties" : {
-                "coverage" : 5.63737665663332876420099637471139430999755859375,
+                "coverage" : 5.637376656633329,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4385,7 +4350,7 @@
             }, {
               "code" : "",
               "properties" : {
-                "coverage" : 5.63737665663332876420099637471139430999755859375,
+                "coverage" : 5.637376656633329,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4405,7 +4370,7 @@
             "districts" : [ {
               "code" : "",
               "properties" : {
-                "coverage" : 5.63737665663332876420099637471139430999755859375,
+                "coverage" : 5.637376656633329,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4422,7 +4387,7 @@
             }, {
               "code" : "",
               "properties" : {
-                "coverage" : 5.63737665663332876420099637471139430999755859375,
+                "coverage" : 5.637376656633329,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4457,7 +4422,7 @@
             "sectors" : [ {
               "code" : "",
               "properties" : {
-                "coverage" : 0.80082819046101150206595775671303272247314453125,
+                "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4474,7 +4439,7 @@
             }, {
               "code" : "",
               "properties" : {
-                "coverage" : 0.80082819046101150206595775671303272247314453125,
+                "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4494,7 +4459,7 @@
             "sectors" : [ {
               "code" : "",
               "properties" : {
-                "coverage" : 0.80082819046101150206595775671303272247314453125,
+                "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4511,7 +4476,7 @@
             }, {
               "code" : "",
               "properties" : {
-                "coverage" : 0.80082819046101150206595775671303272247314453125,
+                "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
                   "min" : 0,
                   "median" : 5,
@@ -4550,11 +4515,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4563,11 +4528,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4579,11 +4544,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4592,11 +4557,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4612,11 +4577,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4625,11 +4590,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4641,11 +4606,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4654,11 +4619,11 @@
                 "travel_time" : 0,
                 "fares" : {
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4703,11 +4668,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4725,11 +4690,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4741,11 +4706,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4753,22 +4718,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4791,11 +4756,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4813,11 +4778,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4829,11 +4794,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4841,22 +4806,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4882,11 +4847,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4904,11 +4869,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -4920,11 +4885,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -4932,22 +4897,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -4970,11 +4935,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -4992,11 +4957,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -5008,11 +4973,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -5020,22 +4985,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -5065,11 +5030,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -5087,11 +5052,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -5103,11 +5068,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -5115,22 +5080,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -5153,11 +5118,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -5175,11 +5140,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -5191,11 +5156,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -5203,22 +5168,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -5244,11 +5209,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -5266,11 +5231,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -5282,11 +5247,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -5294,22 +5259,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -5332,11 +5297,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   }, {
@@ -5354,11 +5319,11 @@
                     "id" : "id",
                     "arrival_station" : "arrival_station",
                     "coords" : [ {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     }, {
-                      "lng" : 3.61607674925191080461672754609026014804840087890625,
-                      "lat" : 9.301444243932575517419536481611430644989013671875
+                      "lng" : 3.616076749251911,
+                      "lat" : 9.301444243932576
                     } ],
                     "direction" : "direction"
                   } ],
@@ -5370,11 +5335,11 @@
                   "breakdown" : [ {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
@@ -5382,22 +5347,22 @@
                   }, {
                     "modes" : [ null, null ],
                     "tickets" : [ {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     }, {
-                      "price" : 5.63737665663332876420099637471139430999755859375,
+                      "price" : 5.637376656633329,
                       "currency" : "currency",
                       "type" : "single"
                     } ],
                     "route_part_ids" : [ 5, 5 ]
                   } ],
                   "tickets_total" : [ {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   }, {
-                    "price" : 5.63737665663332876420099637471139430999755859375,
+                    "price" : 5.637376656633329,
                     "currency" : "currency",
                     "type" : "single"
                   } ]
@@ -5430,24 +5395,24 @@
         },
         "example" : {
           "shell" : [ {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           }, {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           } ],
           "holes" : [ [ {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           }, {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           } ], [ {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           }, {
-            "lng" : 3.61607674925191080461672754609026014804840087890625,
-            "lat" : 9.301444243932575517419536481611430644989013671875
+            "lng" : 3.616076749251911,
+            "lat" : 9.301444243932576
           } ] ]
         }
       },
@@ -5522,45 +5487,45 @@
         "example" : {
           "shapes" : [ {
             "shell" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "holes" : [ [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ], [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ] ]
           }, {
             "shell" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "holes" : [ [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ], [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ] ]
           } ],
           "properties" : {
@@ -5584,45 +5549,45 @@
           "results" : [ {
             "shapes" : [ {
               "shell" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "holes" : [ [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ], [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ] ]
             }, {
               "shell" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "holes" : [ [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ], [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ] ]
             } ],
             "properties" : {
@@ -5632,45 +5597,45 @@
           }, {
             "shapes" : [ {
               "shell" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "holes" : [ [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ], [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ] ]
             }, {
               "shell" : [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ],
               "holes" : [ [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ], [ {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               }, {
-                "lng" : 3.61607674925191080461672754609026014804840087890625,
-                "lat" : 9.301444243932575517419536481611430644989013671875
+                "lng" : 3.616076749251911,
+                "lat" : 9.301444243932576
               } ] ]
             } ],
             "properties" : {
@@ -5746,24 +5711,19 @@
             "enum" : [ "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" ]
           },
           "pt_change_delay" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "walking_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "driving_time_to_station" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "parking_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "boarding_time" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           }
         }
       },
@@ -5843,12 +5803,10 @@
         "type" : "object",
         "properties" : {
           "http_status" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "error_code" : {
-            "type" : "integer",
-            "format" : "int32"
+            "type" : "integer"
           },
           "description" : {
             "type" : "string"
@@ -5886,7 +5844,7 @@
           }
         },
         "example" : {
-          "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+          "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
           "type" : "type"
         }
       },
@@ -5994,7 +5952,7 @@
           "house_number" : "house_number",
           "label" : "label",
           "macroregion" : "macroregion",
-          "score" : 6.02745618307040320615897144307382404804229736328125,
+          "score" : 6.027456183070403,
           "country_code" : "country_code",
           "features" : {
             "public_transport" : {
@@ -6027,7 +5985,7 @@
         },
         "example" : {
           "geometry" : {
-            "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+            "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
             "type" : "type"
           },
           "type" : "type",
@@ -6040,7 +5998,7 @@
             "house_number" : "house_number",
             "label" : "label",
             "macroregion" : "macroregion",
-            "score" : 6.02745618307040320615897144307382404804229736328125,
+            "score" : 6.027456183070403,
             "country_code" : "country_code",
             "features" : {
               "public_transport" : {
@@ -6075,7 +6033,7 @@
         "example" : {
           "features" : [ {
             "geometry" : {
-              "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+              "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
               "type" : "type"
             },
             "type" : "type",
@@ -6088,7 +6046,7 @@
               "house_number" : "house_number",
               "label" : "label",
               "macroregion" : "macroregion",
-              "score" : 6.02745618307040320615897144307382404804229736328125,
+              "score" : 6.027456183070403,
               "country_code" : "country_code",
               "features" : {
                 "public_transport" : {
@@ -6106,7 +6064,7 @@
             }
           }, {
             "geometry" : {
-              "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+              "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
               "type" : "type"
             },
             "type" : "type",
@@ -6119,7 +6077,7 @@
               "house_number" : "house_number",
               "label" : "label",
               "macroregion" : "macroregion",
-              "score" : 6.02745618307040320615897144307382404804229736328125,
+              "score" : 6.027456183070403,
               "country_code" : "country_code",
               "features" : {
                 "public_transport" : {

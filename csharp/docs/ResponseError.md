@@ -1,4 +1,6 @@
+
 # traveltimeplatform.Model.ResponseError
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,5 +11,7 @@ Name | Type | Description | Notes
 **DocumentationLink** | **string** |  | [optional] 
 **AdditionalInfo** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

@@ -18,7 +18,7 @@ type ResponseTimeFilterProperties struct {
 
 	DistanceBreakdown []ResponseDistanceBreakdownItem `json:"distance_breakdown,omitempty"`
 
-	Fares *ResponseFares `json:"fares,omitempty"`
+	Fares ResponseFares `json:"fares,omitempty"`
 
-	Route *ResponseRoute `json:"route,omitempty"`
+	Route ResponseRoute `json:"route,omitempty"`
 }

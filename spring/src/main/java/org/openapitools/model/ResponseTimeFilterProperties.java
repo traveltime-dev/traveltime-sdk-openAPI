@@ -10,13 +10,14 @@ import java.util.List;
 import org.openapitools.model.ResponseDistanceBreakdownItem;
 import org.openapitools.model.ResponseFares;
 import org.openapitools.model.ResponseRoute;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-02T12:39:25.365Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
 
 public class ResponseTimeFilterProperties   {
   @JsonProperty("travel_time")

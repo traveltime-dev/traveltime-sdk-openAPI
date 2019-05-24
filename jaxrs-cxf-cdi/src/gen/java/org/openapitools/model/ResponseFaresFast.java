@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseFaresFast   {
   
   private List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>();

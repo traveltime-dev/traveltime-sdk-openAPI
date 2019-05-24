@@ -6,13 +6,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * RequestTransportationFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-02T12:39:25.365Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
 
 public class RequestTransportationFast   {
   /**
@@ -38,13 +39,13 @@ public class RequestTransportationFast   {
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String text) {
+    public static TypeEnum fromValue(String value) {
       for (TypeEnum b : TypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(value)) {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + text + "'");
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
   }
 

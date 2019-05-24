@@ -38,7 +38,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @ApiModelProperty(required = true, value = "")
   @Valid

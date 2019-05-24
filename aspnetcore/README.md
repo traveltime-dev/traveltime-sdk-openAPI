@@ -15,11 +15,10 @@ Windows:
 ```
 build.bat
 ```
-
 ## Run in Docker
 
 ```
 cd src/traveltimeplatform
 docker build -t traveltimeplatform .
-docker run -p 5000:5000 traveltimeplatform
+docker run -p 5000:8080 traveltimeplatform
 ```

@@ -4,7 +4,7 @@ function New-RequestTimeFilterFastArrivalSearches {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterFastArrivalManyToOneSearch[]]]
         ${manyUnderscoretoUnderscoreone},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterFastArrivalOneToManySearch[]]]
         ${oneUnderscoretoUnderscoremany}
     )

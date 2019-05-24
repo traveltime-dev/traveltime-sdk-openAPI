@@ -65,8 +65,8 @@ public class RequestLocation   {
       return false;
     }
     RequestLocation requestLocation = (RequestLocation) o;
-    return Objects.equals(id, requestLocation.id) &&
-        Objects.equals(coords, requestLocation.coords);
+    return Objects.equals(this.id, requestLocation.id) &&
+        Objects.equals(this.coords, requestLocation.coords);
   }
 
   @Override

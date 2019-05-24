@@ -14,15 +14,25 @@ class ResponseRoutesLocation {
 
   ResponseRoutesLocation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    properties = ResponseRoutesProperties.listFromJson(json['properties']);
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = ResponseRoutesProperties.listFromJson(json['properties']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'properties': properties
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (properties != null)
+      json['properties'] = properties;
+    return json;
   }
 
   static List<ResponseRoutesLocation> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseRoutesLocation {
 
   static Map<String, ResponseRoutesLocation> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseRoutesLocation>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseRoutesLocation.fromJson(value));
     }
     return map;

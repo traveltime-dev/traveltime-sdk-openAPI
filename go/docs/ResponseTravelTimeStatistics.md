@@ -1,6 +1,7 @@
 # ResponseTravelTimeStatistics
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Min** | **int32** |  | 

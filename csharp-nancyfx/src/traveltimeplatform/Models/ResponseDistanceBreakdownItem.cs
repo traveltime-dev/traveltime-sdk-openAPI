@@ -5,7 +5,7 @@ using System.Text;
 using Sharpility.Extensions;
 using NodaTime;
 
-namespace traveltimeplatform..Models
+namespace traveltimeplatform._.Models
 {
     /// <summary>
     /// ResponseDistanceBreakdownItem
@@ -15,7 +15,7 @@ namespace traveltimeplatform..Models
         /// <summary>
         /// Mode
         /// </summary>
-        public ResponseTransportationMode? Mode { get; private set; }
+        public ResponseTransportationMode Mode { get; private set; }
 
         /// <summary>
         /// Distance
@@ -32,7 +32,7 @@ namespace traveltimeplatform..Models
         {
         }
 
-        private ResponseDistanceBreakdownItem(ResponseTransportationMode? Mode, int? Distance)
+        private ResponseDistanceBreakdownItem(ResponseTransportationMode Mode, int? Distance)
         {
             
             this.Mode = Mode;
@@ -109,7 +109,7 @@ namespace traveltimeplatform..Models
         /// </summary>
         public sealed class ResponseDistanceBreakdownItemBuilder
         {
-            private ResponseTransportationMode? _Mode;
+            private ResponseTransportationMode _Mode;
             private int? _Distance;
 
             internal ResponseDistanceBreakdownItemBuilder()
@@ -125,7 +125,7 @@ namespace traveltimeplatform..Models
             /// Sets value for ResponseDistanceBreakdownItem.Mode property.
             /// </summary>
             /// <param name="value">Mode</param>
-            public ResponseDistanceBreakdownItemBuilder Mode(ResponseTransportationMode? value)
+            public ResponseDistanceBreakdownItemBuilder Mode(ResponseTransportationMode value)
             {
                 _Mode = value;
                 return this;
@@ -169,6 +169,5 @@ namespace traveltimeplatform..Models
         }
 
         
-        public enum ResponseTransportationMode { Car, Parking, Boarding, Walk, Bike, Train, RailNational, RailOverground, RailUnderground, RailDlr, Bus, CableCar, Plane, Ferry, Coach };
     }
 }

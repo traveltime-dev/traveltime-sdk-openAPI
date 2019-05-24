@@ -11,10 +11,10 @@ import org.openapitools.model.RequestRoutesDepartureSearch;
 
 @Canonical
 class RequestRoutes {
+    
     List<RequestLocation> locations = new ArrayList<RequestLocation>()
-
+    
     List<RequestRoutesDepartureSearch> departureSearches = new ArrayList<RequestRoutesDepartureSearch>()
-
+    
     List<RequestRoutesArrivalSearch> arrivalSearches = new ArrayList<RequestRoutesArrivalSearch>()
-
 }

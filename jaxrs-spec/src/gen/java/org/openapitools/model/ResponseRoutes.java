@@ -48,7 +48,7 @@ public class ResponseRoutes   {
       return false;
     }
     ResponseRoutes responseRoutes = (ResponseRoutes) o;
-    return Objects.equals(results, responseRoutes.results);
+    return Objects.equals(this.results, responseRoutes.results);
   }
 
   @Override

@@ -1,6 +1,7 @@
 # Coords
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lat** | **f64** |  | 

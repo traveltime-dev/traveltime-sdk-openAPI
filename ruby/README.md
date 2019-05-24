@@ -25,6 +25,7 @@ Then either install the gem locally:
 ```shell
 gem install ./openapi_client-1.0.0.gem
 ```
+
 (for development, run `gem install --dev ./openapi_client-1.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
@@ -50,6 +51,7 @@ ruby -Ilib script.rb
 ## Getting Started
 
 Please follow the [installation](#installation) procedure and then run the following code:
+
 ```ruby
 # Load the gem
 require 'openapi_client'
@@ -203,11 +205,13 @@ Class | Method | HTTP request | Description
 
 ### ApiKey
 
+
 - **Type**: API key
 - **API key parameter name**: X-Api-Key
 - **Location**: HTTP header
 
 ### ApplicationId
+
 
 - **Type**: API key
 - **API key parameter name**: X-Application-Id

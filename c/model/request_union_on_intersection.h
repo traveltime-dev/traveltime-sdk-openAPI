@@ -8,26 +8,26 @@
 #define _request_union_on_intersection_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
-
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 
 
 
 typedef struct request_union_on_intersection_t {
-        char *id; //no enum string
-        list_t *search_ids; //primitive container
+    char *id; // string
+    list_t *search_ids; //primitive container
 
 } request_union_on_intersection_t;
 
 request_union_on_intersection_t *request_union_on_intersection_create(
-        char *id,
-        list_t *search_ids
+    char *id,
+    list_t *search_ids
 );
 
 void request_union_on_intersection_free(request_union_on_intersection_t *request_union_on_intersection);
 
-request_union_on_intersection_t *request_union_on_intersection_parseFromJSON(char *jsonString);
+request_union_on_intersection_t *request_union_on_intersection_parseFromJSON(cJSON *request_union_on_intersectionJSON);
 
 cJSON *request_union_on_intersection_convertToJSON(request_union_on_intersection_t *request_union_on_intersection);
 

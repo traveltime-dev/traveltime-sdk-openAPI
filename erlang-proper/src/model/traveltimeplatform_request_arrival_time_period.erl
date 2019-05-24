@@ -11,4 +11,4 @@
 
 traveltimeplatform_request_arrival_time_period() ->
   elements([<<"weekday_morning">>]).
-  
+

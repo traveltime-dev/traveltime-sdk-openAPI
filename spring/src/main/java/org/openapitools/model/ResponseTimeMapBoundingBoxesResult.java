@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseBoundingBox;
 import org.openapitools.model.ResponseTimeMapProperties;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 /**
  * ResponseTimeMapBoundingBoxesResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-04-02T12:39:25.365Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
 
 public class ResponseTimeMapBoundingBoxesResult   {
   @JsonProperty("search_id")

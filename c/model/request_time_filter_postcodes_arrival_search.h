@@ -8,37 +8,37 @@
 #define _request_time_filter_postcodes_arrival_search_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "request_range_full.h"
 #include "request_time_filter_postcodes_property.h"
 #include "request_transportation.h"
 
 
 
-
 typedef struct request_time_filter_postcodes_arrival_search_t {
-        char *id; //no enum string
-        request_transportation_t *transportation; //nonprimitive
-        int travel_time; //numeric
-        char *arrival_time; //date time string
-        list_t *properties; //nonprimitive container
-        request_range_full_t *range; //nonprimitive
+    char *id; // string
+    request_transportation_t *transportation; //model
+    int travel_time; //numeric
+    char *arrival_time; //date time
+    list_t *properties; //nonprimitive container
+    request_range_full_t *range; //model
 
 } request_time_filter_postcodes_arrival_search_t;
 
 request_time_filter_postcodes_arrival_search_t *request_time_filter_postcodes_arrival_search_create(
-        char *id,
-        request_transportation_t *transportation,
-        int travel_time,
-        char *arrival_time,
-        list_t *properties,
-        request_range_full_t *range
+    char *id,
+    request_transportation_t *transportation,
+    int travel_time,
+    char *arrival_time,
+    list_t *properties,
+    request_range_full_t *range
 );
 
 void request_time_filter_postcodes_arrival_search_free(request_time_filter_postcodes_arrival_search_t *request_time_filter_postcodes_arrival_search);
 
-request_time_filter_postcodes_arrival_search_t *request_time_filter_postcodes_arrival_search_parseFromJSON(char *jsonString);
+request_time_filter_postcodes_arrival_search_t *request_time_filter_postcodes_arrival_search_parseFromJSON(cJSON *request_time_filter_postcodes_arrival_searchJSON);
 
 cJSON *request_time_filter_postcodes_arrival_search_convertToJSON(request_time_filter_postcodes_arrival_search_t *request_time_filter_postcodes_arrival_search);
 

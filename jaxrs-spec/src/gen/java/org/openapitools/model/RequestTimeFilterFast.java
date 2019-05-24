@@ -68,8 +68,8 @@ public class RequestTimeFilterFast   {
       return false;
     }
     RequestTimeFilterFast requestTimeFilterFast = (RequestTimeFilterFast) o;
-    return Objects.equals(locations, requestTimeFilterFast.locations) &&
-        Objects.equals(arrivalSearches, requestTimeFilterFast.arrivalSearches);
+    return Objects.equals(this.locations, requestTimeFilterFast.locations) &&
+        Objects.equals(this.arrivalSearches, requestTimeFilterFast.arrivalSearches);
   }
 
   @Override

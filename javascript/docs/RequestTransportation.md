@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestTransportation
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | 
@@ -11,7 +12,7 @@ Name | Type | Description | Notes
 **boardingTime** | **Number** |  | [optional] 
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
 
 

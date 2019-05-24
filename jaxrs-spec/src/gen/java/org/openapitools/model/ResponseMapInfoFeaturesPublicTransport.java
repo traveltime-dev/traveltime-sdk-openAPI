@@ -65,8 +65,8 @@ public class ResponseMapInfoFeaturesPublicTransport   {
       return false;
     }
     ResponseMapInfoFeaturesPublicTransport responseMapInfoFeaturesPublicTransport = (ResponseMapInfoFeaturesPublicTransport) o;
-    return Objects.equals(dateStart, responseMapInfoFeaturesPublicTransport.dateStart) &&
-        Objects.equals(dateEnd, responseMapInfoFeaturesPublicTransport.dateEnd);
+    return Objects.equals(this.dateStart, responseMapInfoFeaturesPublicTransport.dateStart) &&
+        Objects.equals(this.dateEnd, responseMapInfoFeaturesPublicTransport.dateEnd);
   }
 
   @Override

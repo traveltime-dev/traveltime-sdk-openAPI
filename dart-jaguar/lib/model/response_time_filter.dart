@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_time_filter_result.dart';
+
 part 'response_time_filter.jser.dart';
 
 class ResponseTimeFilter {
@@ -10,7 +12,7 @@ class ResponseTimeFilter {
   
 
   ResponseTimeFilter(
-    
+      
 
 {
     
@@ -24,7 +26,8 @@ class ResponseTimeFilter {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeFilterSerializer extends Serializer<ResponseTimeFilter> with _$ResponseTimeFilterSerializer {
 
 }
+

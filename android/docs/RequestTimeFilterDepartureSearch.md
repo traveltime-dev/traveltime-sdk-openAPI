@@ -1,7 +1,9 @@
 
+
 # RequestTimeFilterDepartureSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -12,6 +14,7 @@ Name | Type | Description | Notes
 **departureTime** | [**Date**](Date.md) |  | 
 **properties** | [**List&lt;RequestTimeFilterProperty&gt;**](RequestTimeFilterProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
+
 
 
 

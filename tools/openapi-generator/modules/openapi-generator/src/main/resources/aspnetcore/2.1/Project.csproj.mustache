@@ -1,0 +1,24 @@
+<Project Sdk="{{projectSdk}}">
+  <PropertyGroup>
+    <Description>{{packageName}}</Description>
+    <Copyright>{{packageName}}</Copyright>
+    <TargetFramework>netcoreapp{{aspnetCoreVersion}}</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+{{#isLibrary}}
+    <OutputType>Library</OutputType>
+{{/isLibrary}}
+    <AssemblyName>{{packageName}}</AssemblyName>
+    <PackageId>{{packageName}}</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+{{#useSwashbuckle}}
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="3.0.0" />
+{{/useSwashbuckle}}
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+</Project>

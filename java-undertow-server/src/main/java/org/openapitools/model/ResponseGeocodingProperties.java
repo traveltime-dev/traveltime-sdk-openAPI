@@ -11,24 +11,24 @@ import org.openapitools.model.ResponseMapInfoFeatures;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-04-02T12:37:48.798Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaUndertowServerCodegen", date = "2019-05-24T09:06:54.068Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
   
-  private String name = ;
-  private String label = ;
-  private Double score = ;
-  private String houseNumber = ;
-  private String street = ;
-  private String region = ;
-  private String regionCode = ;
-  private String neighbourhood = ;
-  private String county = ;
-  private String macroregion = ;
-  private String city = ;
-  private String country = ;
-  private String countryCode = ;
-  private String continent = ;
-  private String postcode = ;
+  private String name;
+  private String label;
+  private Double score;
+  private String houseNumber;
+  private String street;
+  private String region;
+  private String regionCode;
+  private String neighbourhood;
+  private String county;
+  private String macroregion;
+  private String city;
+  private String country;
+  private String countryCode;
+  private String continent;
+  private String postcode;
   private ResponseMapInfoFeatures features = null;
 
   /**

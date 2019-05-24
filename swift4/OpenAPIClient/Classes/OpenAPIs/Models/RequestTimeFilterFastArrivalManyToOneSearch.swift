@@ -11,7 +11,7 @@ import Foundation
 
 public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable {
 
-    public var _id: String
+    public var id: String
     public var arrivalLocationId: String
     public var departureLocationIds: [String]
     public var transportation: RequestTransportationFast
@@ -19,8 +19,8 @@ public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable {
     public var arrivalTimePeriod: RequestArrivalTimePeriod
     public var properties: [RequestTimeFilterFastProperty]
 
-    public init(_id: String, arrivalLocationId: String, departureLocationIds: [String], transportation: RequestTransportationFast, travelTime: Int, arrivalTimePeriod: RequestArrivalTimePeriod, properties: [RequestTimeFilterFastProperty]) {
-        self._id = _id
+    public init(id: String, arrivalLocationId: String, departureLocationIds: [String], transportation: RequestTransportationFast, travelTime: Int, arrivalTimePeriod: RequestArrivalTimePeriod, properties: [RequestTimeFilterFastProperty]) {
+        self.id = id
         self.arrivalLocationId = arrivalLocationId
         self.departureLocationIds = departureLocationIds
         self.transportation = transportation
@@ -30,7 +30,7 @@ public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable {
     }
 
     public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
+        case id
         case arrivalLocationId = "arrival_location_id"
         case departureLocationIds = "departure_location_ids"
         case transportation

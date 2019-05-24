@@ -1,6 +1,7 @@
-# RequestTimeMap
+# # RequestTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departure_searches** | [**\OpenAPI\Client\Model\RequestTimeMapDepartureSearch[]**](RequestTimeMapDepartureSearch.md) |  | [optional] 
@@ -8,6 +9,6 @@ Name | Type | Description | Notes
 **unions** | [**\OpenAPI\Client\Model\RequestUnionOnIntersection[]**](RequestUnionOnIntersection.md) |  | [optional] 
 **intersections** | [**\OpenAPI\Client\Model\RequestUnionOnIntersection[]**](RequestUnionOnIntersection.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

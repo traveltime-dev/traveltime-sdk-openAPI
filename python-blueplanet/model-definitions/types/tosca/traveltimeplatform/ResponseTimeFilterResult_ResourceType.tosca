@@ -1,0 +1,48 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeFilterResult"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeFilterResult"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeFilterLocation = traveltimeplatform.resourceTypes.ResponseTimeFilterLocation
+}
+resourceTypes {
+
+  ResponseTimeFilterResult {
+    title = ResponseTimeFilterResult
+    description = ResponseTimeFilterResult
+    derivedFrom = Root
+    properties {
+        search_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        locations {
+          type = array
+          items.type = ResponseTimeFilterLocation
+          description = ""
+          optional = true
+        }
+        unreachable {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterResult {
+    title = ResponseTimeFilterResult
+    description = ResponseTimeFilterResult
+    implements = traveltimeplatform.resourceTypes.ResponseTimeFilterResult
+
+  }
+}

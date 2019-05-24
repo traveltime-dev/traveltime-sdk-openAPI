@@ -32,11 +32,16 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.context.request.NativeWebRequest
-import org.springframework.web.multipart.MultipartFile
 import org.springframework.beans.factory.annotation.Autowired
 
 import javax.validation.Valid
-import javax.validation.constraints.*
+import javax.validation.constraints.DecimalMax
+import javax.validation.constraints.DecimalMin
+import javax.validation.constraints.Max
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Pattern
+import javax.validation.constraints.Size
 
 import kotlin.collections.List
 import kotlin.collections.Map
@@ -51,7 +56,10 @@ class DefaultApiController() {
             value = ["/v4/geocoding/reverse"],
             produces = ["application/json"], 
             method = [RequestMethod.GET])
-    fun geocodingReverseSearch(@NotNull  @RequestParam(value = "focus.lat", required = true, defaultValue="null") focusLat: Double,@NotNull  @RequestParam(value = "focus.lng", required = true, defaultValue="null") focusLng: Double, @RequestParam(value = "within.country", required = false, defaultValue="null") withinCountry: String): ResponseEntity<ResponseGeocoding> {
+    fun geocodingReverseSearch(@NotNull  @RequestParam(value = "focus.lat", required = true) focusPeriodLat: Double
+,@NotNull  @RequestParam(value = "focus.lng", required = true) focusPeriodLng: Double
+, @RequestParam(value = "within.country", required = false) withinPeriodCountry: String?
+): ResponseEntity<ResponseGeocoding> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -60,7 +68,11 @@ class DefaultApiController() {
             value = ["/v4/geocoding/search"],
             produces = ["application/json"], 
             method = [RequestMethod.GET])
-    fun geocodingSearch(@NotNull  @RequestParam(value = "query", required = true, defaultValue="null") query: String, @RequestParam(value = "within.country", required = false, defaultValue="null") withinCountry: String, @RequestParam(value = "focus.lat", required = false, defaultValue="null") focusLat: Double, @RequestParam(value = "focus.lng", required = false, defaultValue="null") focusLng: Double): ResponseEntity<ResponseGeocoding> {
+    fun geocodingSearch(@NotNull  @RequestParam(value = "query", required = true) query: String
+, @RequestParam(value = "within.country", required = false) withinPeriodCountry: String?
+, @RequestParam(value = "focus.lat", required = false) focusPeriodLat: Double?
+, @RequestParam(value = "focus.lng", required = false) focusPeriodLng: Double?
+): ResponseEntity<ResponseGeocoding> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -79,7 +91,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun routes( @Valid @RequestBody requestRoutes: RequestRoutes): ResponseEntity<ResponseRoutes> {
+    fun routes( @Valid @RequestBody requestRoutes: RequestRoutes
+): ResponseEntity<ResponseRoutes> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -89,7 +102,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun supportedLocations( @Valid @RequestBody requestSupportedLocations: RequestSupportedLocations): ResponseEntity<ResponseSupportedLocations> {
+    fun supportedLocations( @Valid @RequestBody requestSupportedLocations: RequestSupportedLocations
+): ResponseEntity<ResponseSupportedLocations> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -99,7 +113,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeFilter( @Valid @RequestBody requestTimeFilter: RequestTimeFilter): ResponseEntity<ResponseTimeFilter> {
+    fun timeFilter( @Valid @RequestBody requestTimeFilter: RequestTimeFilter
+): ResponseEntity<ResponseTimeFilter> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -109,7 +124,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeFilterFast( @Valid @RequestBody requestTimeFilterFast: RequestTimeFilterFast): ResponseEntity<ResponseTimeFilterFast> {
+    fun timeFilterFast( @Valid @RequestBody requestTimeFilterFast: RequestTimeFilterFast
+): ResponseEntity<ResponseTimeFilterFast> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -119,7 +135,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeFilterPostcodeDistricts( @Valid @RequestBody requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts): ResponseEntity<ResponseTimeFilterPostcodeDistricts> {
+    fun timeFilterPostcodeDistricts( @Valid @RequestBody requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts
+): ResponseEntity<ResponseTimeFilterPostcodeDistricts> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -129,7 +146,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeFilterPostcodeSectors( @Valid @RequestBody requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors): ResponseEntity<ResponseTimeFilterPostcodeSectors> {
+    fun timeFilterPostcodeSectors( @Valid @RequestBody requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors
+): ResponseEntity<ResponseTimeFilterPostcodeSectors> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -139,7 +157,8 @@ class DefaultApiController() {
             produces = ["application/json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeFilterPostcodes( @Valid @RequestBody requestTimeFilterPostcodes: RequestTimeFilterPostcodes): ResponseEntity<ResponseTimeFilterPostcodes> {
+    fun timeFilterPostcodes( @Valid @RequestBody requestTimeFilterPostcodes: RequestTimeFilterPostcodes
+): ResponseEntity<ResponseTimeFilterPostcodes> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 
@@ -149,7 +168,8 @@ class DefaultApiController() {
             produces = ["application/json", "application/vnd.wkt+json", "application/vnd.wkt-no-holes+json", "application/vnd.bounding-boxes+json"], 
             consumes = ["application/json"],
             method = [RequestMethod.POST])
-    fun timeMap( @Valid @RequestBody requestTimeMap: RequestTimeMap): ResponseEntity<ResponseTimeMap> {
+    fun timeMap( @Valid @RequestBody requestTimeMap: RequestTimeMap
+): ResponseEntity<ResponseTimeMap> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }

@@ -14,7 +14,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseTimeFilterPostcodeSector   {
   
   private String code = null;

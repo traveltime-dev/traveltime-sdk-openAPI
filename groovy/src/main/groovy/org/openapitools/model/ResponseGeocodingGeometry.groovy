@@ -8,8 +8,8 @@ import java.util.List;
 
 @Canonical
 class ResponseGeocodingGeometry {
-    String type = 
-
+    
+    String type
+    
     List<Double> coordinates = new ArrayList<Double>()
-
 }

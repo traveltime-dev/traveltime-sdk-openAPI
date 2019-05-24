@@ -15,7 +15,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestUnionOnIntersection   {
   
   private String id;

@@ -3,10 +3,10 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{3CCECD80-7501-4097-901E-4FA15A5A64EE}</ProjectGuid>
+        <ProjectGuid>{F961153F-21D0-4E8E-9B31-B78996389BDC}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>traveltimeplatform.</RootNamespace>
+        <RootNamespace>traveltimeplatform._</RootNamespace>
         <AssemblyName>traveltimeplatform</AssemblyName>
             <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>

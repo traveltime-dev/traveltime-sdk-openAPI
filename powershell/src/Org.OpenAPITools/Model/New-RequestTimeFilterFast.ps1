@@ -4,7 +4,7 @@ function New-RequestTimeFilterFast {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.RequestLocation[]]
         ${locations},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.RequestTimeFilterFastArrivalSearches]
         ${arrivalUnderscoresearches}
     )

@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_fare_ticket.dart';
+
 part 'response_fares_fast.jser.dart';
 
 class ResponseFaresFast {
@@ -10,7 +12,7 @@ class ResponseFaresFast {
   
 
   ResponseFaresFast(
-    
+      
 
 {
     
@@ -24,7 +26,8 @@ class ResponseFaresFast {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseFaresFastSerializer extends Serializer<ResponseFaresFast> with _$ResponseFaresFastSerializer {
 
 }
+

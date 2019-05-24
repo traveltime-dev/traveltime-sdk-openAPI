@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseMapInfoMap;
 
 @Canonical
 class ResponseMapInfo {
+    
     List<ResponseMapInfoMap> maps = new ArrayList<ResponseMapInfoMap>()
-
 }

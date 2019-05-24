@@ -4,13 +4,13 @@ function New-RequestTimeMap {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeMapDepartureSearch[]]]
         ${departureUnderscoresearches},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeMapArrivalSearch[]]]
         ${arrivalUnderscoresearches},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestUnionOnIntersection[]]]
         ${unions},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestUnionOnIntersection[]]]
         ${intersections}
     )

@@ -36,12 +36,12 @@ public class RequestTransportation   {
     }
   }
 
-  private TypeEnum type = ;
-  private Integer ptChangeDelay = ;
-  private Integer walkingTime = ;
-  private Integer drivingTimeToStation = ;
-  private Integer parkingTime = ;
-  private Integer boardingTime = ;
+  private TypeEnum type;
+  private Integer ptChangeDelay;
+  private Integer walkingTime;
+  private Integer drivingTimeToStation;
+  private Integer parkingTime;
+  private Integer boardingTime;
 
   public RequestTransportation () {
 

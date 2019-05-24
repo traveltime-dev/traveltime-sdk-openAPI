@@ -4,7 +4,7 @@ function New-ResponseDistanceBreakdownItem {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.ResponseTransportationMode]
         ${mode},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
         ${distance}
     )

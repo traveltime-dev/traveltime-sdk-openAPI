@@ -102,10 +102,10 @@ public class ResponseBox   {
       return false;
     }
     ResponseBox responseBox = (ResponseBox) o;
-    return Objects.equals(minLat, responseBox.minLat) &&
-        Objects.equals(maxLat, responseBox.maxLat) &&
-        Objects.equals(minLng, responseBox.minLng) &&
-        Objects.equals(maxLng, responseBox.maxLng);
+    return Objects.equals(this.minLat, responseBox.minLat) &&
+        Objects.equals(this.maxLat, responseBox.maxLat) &&
+        Objects.equals(this.minLng, responseBox.minLng) &&
+        Objects.equals(this.maxLng, responseBox.maxLng);
   }
 
   @Override

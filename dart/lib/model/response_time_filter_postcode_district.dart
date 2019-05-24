@@ -14,15 +14,25 @@ class ResponseTimeFilterPostcodeDistrict {
 
   ResponseTimeFilterPostcodeDistrict.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    code = json['code'];
-    properties = new ResponseTimeFilterPostcodeDistrictProperties.fromJson(json['properties']);
+    if (json['code'] == null) {
+      code = null;
+    } else {
+          code = json['code'];
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = new ResponseTimeFilterPostcodeDistrictProperties.fromJson(json['properties']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'code': code,
-      'properties': properties
-    };
+    Map <String, dynamic> json = {};
+    if (code != null)
+      json['code'] = code;
+    if (properties != null)
+      json['properties'] = properties;
+    return json;
   }
 
   static List<ResponseTimeFilterPostcodeDistrict> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseTimeFilterPostcodeDistrict {
 
   static Map<String, ResponseTimeFilterPostcodeDistrict> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeFilterPostcodeDistrict>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterPostcodeDistrict.fromJson(value));
     }
     return map;

@@ -68,8 +68,8 @@ public class ResponseFares   {
       return false;
     }
     ResponseFares responseFares = (ResponseFares) o;
-    return Objects.equals(breakdown, responseFares.breakdown) &&
-        Objects.equals(ticketsTotal, responseFares.ticketsTotal);
+    return Objects.equals(this.breakdown, responseFares.breakdown) &&
+        Objects.equals(this.ticketsTotal, responseFares.ticketsTotal);
   }
 
   @Override

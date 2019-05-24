@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseTimeFilterFast   {
   
   private List<ResponseTimeFilterFastResult> results = new ArrayList<ResponseTimeFilterFastResult>();

@@ -1,12 +1,13 @@
 {
   "name": "travel_time_platform_api",
   "version": "1.0.0",
-  "description": "swagger client for travel_time_platform_api",
-  "author": "Swagger Codegen Contributors",
+  "description": "OpenAPI Client for travel_time_platform_api",
+  "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "fetch",
     "flow",
-    "swagger-client",
+    "openapi",
+    "openapi-generator",
     "travel_time_platform_api"
   ],
   "license": "Unlicense",

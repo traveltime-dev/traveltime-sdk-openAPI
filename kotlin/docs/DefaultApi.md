@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="geocodingReverseSearch"></a>
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(focusPeriodLat, focusPeriodLng, withinPeriodCountry)
 
 
 
@@ -30,11 +30,11 @@ Method | HTTP request | Description
 //import traveltimeplatform.models.*
 
 val apiInstance = DefaultApi()
-val focusLat : kotlin.Double = 1.2 // kotlin.Double | 
-val focusLng : kotlin.Double = 1.2 // kotlin.Double | 
-val withinCountry : kotlin.String = withinCountry_example // kotlin.String | 
+val focusPeriodLat : kotlin.Double = 1.2 // kotlin.Double | 
+val focusPeriodLng : kotlin.Double = 1.2 // kotlin.Double | 
+val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(focusLat, focusLng, withinCountry)
+    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(focusPeriodLat, focusPeriodLng, withinPeriodCountry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingReverseSearch")
@@ -49,9 +49,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **kotlin.Double**|  | [default to null]
- **focusLng** | **kotlin.Double**|  | [default to null]
- **withinCountry** | **kotlin.String**|  | [optional] [default to null]
+ **focusPeriodLat** | **kotlin.Double**|  |
+ **focusPeriodLng** | **kotlin.Double**|  |
+ **withinPeriodCountry** | **kotlin.String**|  | [optional]
 
 ### Return type
 
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 <a name="geocodingSearch"></a>
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, withinCountry, focusLat, focusLng)
+> ResponseGeocoding geocodingSearch(query, withinPeriodCountry, focusPeriodLat, focusPeriodLng)
 
 
 
@@ -80,11 +80,11 @@ Name | Type | Description  | Notes
 
 val apiInstance = DefaultApi()
 val query : kotlin.String = query_example // kotlin.String | 
-val withinCountry : kotlin.String = withinCountry_example // kotlin.String | 
-val focusLat : kotlin.Double = 1.2 // kotlin.Double | 
-val focusLng : kotlin.Double = 1.2 // kotlin.Double | 
+val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
+val focusPeriodLat : kotlin.Double = 1.2 // kotlin.Double | 
+val focusPeriodLng : kotlin.Double = 1.2 // kotlin.Double | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, withinCountry, focusLat, focusLng)
+    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, withinPeriodCountry, focusPeriodLat, focusPeriodLng)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingSearch")
@@ -99,10 +99,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **kotlin.String**|  | [default to null]
- **withinCountry** | **kotlin.String**|  | [optional] [default to null]
- **focusLat** | **kotlin.Double**|  | [optional] [default to null]
- **focusLng** | **kotlin.Double**|  | [optional] [default to null]
+ **query** | **kotlin.String**|  |
+ **withinPeriodCountry** | **kotlin.String**|  | [optional]
+ **focusPeriodLat** | **kotlin.Double**|  | [optional]
+ **focusPeriodLng** | **kotlin.Double**|  | [optional]
 
 ### Return type
 

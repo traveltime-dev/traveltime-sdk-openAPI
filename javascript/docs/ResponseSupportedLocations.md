@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseSupportedLocations
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **locations** | [**[ResponseSupportedLocation]**](ResponseSupportedLocation.md) |  | 

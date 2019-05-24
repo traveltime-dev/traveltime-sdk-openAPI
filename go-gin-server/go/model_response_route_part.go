@@ -16,7 +16,7 @@ type ResponseRoutePart struct {
 
 	Type string `json:"type"`
 
-	Mode *ResponseTransportationMode `json:"mode"`
+	Mode ResponseTransportationMode `json:"mode"`
 
 	Directions string `json:"directions"`
 

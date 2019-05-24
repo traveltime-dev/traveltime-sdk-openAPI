@@ -4,7 +4,7 @@ function New-ResponseTimeFilterPostcodeDistrict {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${code},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.ResponseTimeFilterPostcodeDistrictProperties]
         ${properties}
     )

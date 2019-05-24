@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseFaresFast"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseFaresFast"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseFareTicket = traveltimeplatform.resourceTypes.ResponseFareTicket
+}
+resourceTypes {
+
+  ResponseFaresFast {
+    title = ResponseFaresFast
+    description = ResponseFaresFast
+    derivedFrom = Root
+    properties {
+        tickets_total {
+          type = array
+          items.type = ResponseFareTicket
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseFaresFast {
+    title = ResponseFaresFast
+    description = ResponseFaresFast
+    implements = traveltimeplatform.resourceTypes.ResponseFaresFast
+
+  }
+}

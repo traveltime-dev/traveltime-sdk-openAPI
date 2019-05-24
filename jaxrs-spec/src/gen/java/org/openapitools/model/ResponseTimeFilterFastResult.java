@@ -86,9 +86,9 @@ public class ResponseTimeFilterFastResult   {
       return false;
     }
     ResponseTimeFilterFastResult responseTimeFilterFastResult = (ResponseTimeFilterFastResult) o;
-    return Objects.equals(searchId, responseTimeFilterFastResult.searchId) &&
-        Objects.equals(locations, responseTimeFilterFastResult.locations) &&
-        Objects.equals(unreachable, responseTimeFilterFastResult.unreachable);
+    return Objects.equals(this.searchId, responseTimeFilterFastResult.searchId) &&
+        Objects.equals(this.locations, responseTimeFilterFastResult.locations) &&
+        Objects.equals(this.unreachable, responseTimeFilterFastResult.unreachable);
   }
 
   @Override

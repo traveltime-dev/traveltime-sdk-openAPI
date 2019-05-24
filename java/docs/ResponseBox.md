@@ -1,7 +1,9 @@
 
+
 # ResponseBox
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **minLat** | **Double** |  | 

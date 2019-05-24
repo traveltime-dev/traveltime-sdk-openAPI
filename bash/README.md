@@ -1,6 +1,7 @@
 # TravelTime Platform API Bash client
 
 ## Overview
+
 This is a Bash client script for accessing TravelTime Platform API service.
 
 The script uses cURL underneath for making all REST calls.
@@ -43,6 +44,7 @@ $  --host http://<hostname>:<port> --dry-run <operationid>
 ```
 
 ## Docker image
+
 You can easily create a Docker image containing a preconfigured environment
 for using the REST Bash client including working autocompletion and short
 welcome message with basic instructions, using the generated Dockerfile:
@@ -59,6 +61,7 @@ is also available.
 ## Shell completion
 
 ### Bash
+
 The generated bash-completion script can be either directly loaded to the current Bash session using:
 
 ```shell
@@ -72,10 +75,13 @@ sudo cp .bash-completion /etc/bash-completion.d/
 ```
 
 #### OS X
+
 On OSX you might need to install bash-completion using Homebrew:
+
 ```shell
 brew install bash-completion
 ```
+
 and add the following to the `~/.bashrc`:
 
 ```shell
@@ -85,8 +91,8 @@ fi
 ```
 
 ### Zsh
-In Zsh, the generated `_` Zsh completion file must be copied to one of the folders under `$FPATH` variable.
 
+In Zsh, the generated `_` Zsh completion file must be copied to one of the folders under `$FPATH` variable.
 
 ## Documentation for API Endpoints
 
@@ -208,11 +214,13 @@ Class | Method | HTTP request | Description
 
 ## ApiKey
 
+
 - **Type**: API key
 - **API key parameter name**: X-Api-Key
 - **Location**: HTTP header
 
 ## ApplicationId
+
 
 - **Type**: API key
 - **API key parameter name**: X-Application-Id

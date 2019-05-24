@@ -16,17 +16,32 @@ class ResponseTimeMapWktResult {
 
   ResponseTimeMapWktResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    searchId = json['search_id'];
-    shape = json['shape'];
-    properties = new ResponseTimeMapProperties.fromJson(json['properties']);
+    if (json['search_id'] == null) {
+      searchId = null;
+    } else {
+          searchId = json['search_id'];
+    }
+    if (json['shape'] == null) {
+      shape = null;
+    } else {
+          shape = json['shape'];
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = new ResponseTimeMapProperties.fromJson(json['properties']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'search_id': searchId,
-      'shape': shape,
-      'properties': properties
-    };
+    Map <String, dynamic> json = {};
+    if (searchId != null)
+      json['search_id'] = searchId;
+    if (shape != null)
+      json['shape'] = shape;
+    if (properties != null)
+      json['properties'] = properties;
+    return json;
   }
 
   static List<ResponseTimeMapWktResult> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class ResponseTimeMapWktResult {
 
   static Map<String, ResponseTimeMapWktResult> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeMapWktResult>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapWktResult.fromJson(value));
     }
     return map;

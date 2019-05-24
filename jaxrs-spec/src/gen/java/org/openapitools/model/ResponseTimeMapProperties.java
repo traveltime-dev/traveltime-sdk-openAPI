@@ -44,7 +44,7 @@ public class ResponseTimeMapProperties   {
       return false;
     }
     ResponseTimeMapProperties responseTimeMapProperties = (ResponseTimeMapProperties) o;
-    return Objects.equals(isOnlyWalking, responseTimeMapProperties.isOnlyWalking);
+    return Objects.equals(this.isOnlyWalking, responseTimeMapProperties.isOnlyWalking);
   }
 
   @Override

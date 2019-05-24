@@ -1,6 +1,7 @@
-# ResponseRoutePart
+# # ResponseRoutePart
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  | 
@@ -20,6 +21,6 @@ Name | Type | Description | Notes
 **arrives_at** | **string** |  | [optional] 
 **num_stops** | **int** |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 
 

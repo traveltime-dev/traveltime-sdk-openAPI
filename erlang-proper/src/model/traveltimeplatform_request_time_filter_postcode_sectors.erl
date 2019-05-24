@@ -4,6 +4,8 @@
 
 -export([traveltimeplatform_request_time_filter_postcode_sectors/0]).
 
+-export([traveltimeplatform_request_time_filter_postcode_sectors/1]).
+
 -export_type([traveltimeplatform_request_time_filter_postcode_sectors/0]).
 
 -type traveltimeplatform_request_time_filter_postcode_sectors() ::
@@ -11,7 +13,13 @@
   | {'arrival_searches', list(traveltimeplatform_request_time_filter_postcode_sectors_arrival_search:traveltimeplatform_request_time_filter_postcode_sectors_arrival_search()) }
   ].
 
+
 traveltimeplatform_request_time_filter_postcode_sectors() ->
-  [ {'departure_searches', list(traveltimeplatform_request_time_filter_postcode_sectors_departure_search:traveltimeplatform_request_time_filter_postcode_sectors_departure_search()) }
-  , {'arrival_searches', list(traveltimeplatform_request_time_filter_postcode_sectors_arrival_search:traveltimeplatform_request_time_filter_postcode_sectors_arrival_search()) }
-  ].
+    traveltimeplatform_request_time_filter_postcode_sectors([]).
+
+traveltimeplatform_request_time_filter_postcode_sectors(Fields) ->
+  Default = [ {'departure_searches', list(traveltimeplatform_request_time_filter_postcode_sectors_departure_search:traveltimeplatform_request_time_filter_postcode_sectors_departure_search()) }
+            , {'arrival_searches', list(traveltimeplatform_request_time_filter_postcode_sectors_arrival_search:traveltimeplatform_request_time_filter_postcode_sectors_arrival_search()) }
+            ],
+  lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
+

@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_routes_location.dart';
+
 part 'response_routes_result.jser.dart';
 
 class ResponseRoutesResult {
@@ -16,7 +18,7 @@ class ResponseRoutesResult {
   
 
   ResponseRoutesResult(
-    
+      
 
 {
     
@@ -32,7 +34,8 @@ class ResponseRoutesResult {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseRoutesResultSerializer extends Serializer<ResponseRoutesResult> with _$ResponseRoutesResultSerializer {
 
 }
+

@@ -11,8 +11,8 @@ defmodule TravelTimePlatformAPI.Connection do
 
   # Add any middleware here (authentication)
   plug Tesla.Middleware.BaseUrl, "https://api.traveltimeapp.com"
-  plug Tesla.Middleware.Headers, %{"User-Agent" => "Elixir"}
-  plug Tesla.Middleware.EncodeJson
+  plug Tesla.Middleware.Headers, [{"user-agent", "Elixir"}]
+  plug Tesla.Middleware.EncodeJson, engine: Poison
 
   @doc """
   Configure an authless client connection
@@ -23,6 +23,6 @@ defmodule TravelTimePlatformAPI.Connection do
   """
   @spec new() :: Tesla.Env.client
   def new do
-    Tesla.build_client([])
+    Tesla.client([])
   end
 end

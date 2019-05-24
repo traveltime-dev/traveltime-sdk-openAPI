@@ -1,62 +1,71 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "coords.h"
+
 
 
 coords_t *coords_create(
     double lat,
     double lng
     ) {
-	coords_t *coords = malloc(sizeof(coords_t));
-	coords->lat = lat;
-	coords->lng = lng;
+	coords_t *coords_local_var = malloc(sizeof(coords_t));
+    if (!coords_local_var) {
+        return NULL;
+    }
+	coords_local_var->lat = lat;
+	coords_local_var->lng = lng;
 
-	return coords;
+	return coords_local_var;
 }
 
 
 void coords_free(coords_t *coords) {
     listEntry_t *listEntry;
-
 	free(coords);
 }
 
 cJSON *coords_convertToJSON(coords_t *coords) {
 	cJSON *item = cJSON_CreateObject();
+
 	// coords->lat
+    if (!coords->lat) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "lat", coords->lat) == NULL) {
     goto fail; //Numeric
     }
 
+
 	// coords->lng
+    if (!coords->lng) {
+        goto fail;
+    }
+    
     if(cJSON_AddNumberToObject(item, "lng", coords->lng) == NULL) {
     goto fail; //Numeric
     }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-coords_t *coords_parseFromJSON(char *jsonString){
+coords_t *coords_parseFromJSON(cJSON *coordsJSON){
 
-    coords_t *coords = NULL;
-    cJSON *coordsJSON = cJSON_Parse(jsonString);
-    if(coordsJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    coords_t *coords_local_var = NULL;
 
     // coords->lat
     cJSON *lat = cJSON_GetObjectItemCaseSensitive(coordsJSON, "lat");
+    if (!lat) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(lat))
     {
     goto end; //Numeric
@@ -64,21 +73,24 @@ coords_t *coords_parseFromJSON(char *jsonString){
 
     // coords->lng
     cJSON *lng = cJSON_GetObjectItemCaseSensitive(coordsJSON, "lng");
+    if (!lng) {
+        goto end;
+    }
+
+    
     if(!cJSON_IsNumber(lng))
     {
     goto end; //Numeric
     }
 
 
-    coords = coords_create (
+    coords_local_var = coords_create (
         lat->valuedouble,
         lng->valuedouble
         );
- cJSON_Delete(coordsJSON);
-    return coords;
+
+    return coords_local_var;
 end:
-    cJSON_Delete(coordsJSON);
     return NULL;
 
 }
-

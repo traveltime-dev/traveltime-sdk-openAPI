@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_arrival_time_period.jser.dart';
 
 @Entity()

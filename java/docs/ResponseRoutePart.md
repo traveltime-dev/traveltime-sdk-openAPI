@@ -1,7 +1,9 @@
 
+
 # ResponseRoutePart
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -22,8 +24,9 @@ Name | Type | Description | Notes
 **numStops** | **Integer** |  |  [optional]
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
 BASIC | &quot;basic&quot;

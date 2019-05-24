@@ -18,7 +18,7 @@ public class ResponseDistanceBreakdownItem  {
   
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseTransportationMode mode = null;
+  private ResponseTransportationMode mode;
 
   @ApiModelProperty(required = true, value = "")
   private Integer distance;

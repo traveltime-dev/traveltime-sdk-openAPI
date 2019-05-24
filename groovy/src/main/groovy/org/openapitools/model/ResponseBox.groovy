@@ -6,12 +6,12 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseBox {
-    Double minLat = 
-
-    Double maxLat = 
-
-    Double minLng = 
-
-    Double maxLng = 
-
+    
+    Double minLat
+    
+    Double maxLat
+    
+    Double minLng
+    
+    Double maxLng
 }

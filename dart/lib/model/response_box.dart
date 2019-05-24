@@ -18,19 +18,39 @@ class ResponseBox {
 
   ResponseBox.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    minLat = json['min_lat'];
-    maxLat = json['max_lat'];
-    minLng = json['min_lng'];
-    maxLng = json['max_lng'];
+    if (json['min_lat'] == null) {
+      minLat = null;
+    } else {
+          minLat = json['min_lat'];
+    }
+    if (json['max_lat'] == null) {
+      maxLat = null;
+    } else {
+          maxLat = json['max_lat'];
+    }
+    if (json['min_lng'] == null) {
+      minLng = null;
+    } else {
+          minLng = json['min_lng'];
+    }
+    if (json['max_lng'] == null) {
+      maxLng = null;
+    } else {
+          maxLng = json['max_lng'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'min_lat': minLat,
-      'max_lat': maxLat,
-      'min_lng': minLng,
-      'max_lng': maxLng
-    };
+    Map <String, dynamic> json = {};
+    if (minLat != null)
+      json['min_lat'] = minLat;
+    if (maxLat != null)
+      json['max_lat'] = maxLat;
+    if (minLng != null)
+      json['min_lng'] = minLng;
+    if (maxLng != null)
+      json['max_lng'] = maxLng;
+    return json;
   }
 
   static List<ResponseBox> listFromJson(List<dynamic> json) {
@@ -39,7 +59,7 @@ class ResponseBox {
 
   static Map<String, ResponseBox> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseBox>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseBox.fromJson(value));
     }
     return map;

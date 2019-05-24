@@ -65,8 +65,8 @@ public class ResponseMapInfoMap   {
       return false;
     }
     ResponseMapInfoMap responseMapInfoMap = (ResponseMapInfoMap) o;
-    return Objects.equals(name, responseMapInfoMap.name) &&
-        Objects.equals(features, responseMapInfoMap.features);
+    return Objects.equals(this.name, responseMapInfoMap.name) &&
+        Objects.equals(this.features, responseMapInfoMap.features);
   }
 
   @Override

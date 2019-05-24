@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_fares.dart';
+
 import 'package:openapi/model/response_distance_breakdown_item.dart';
+
 import 'package:openapi/model/response_route.dart';
+
 part 'response_time_filter_properties.jser.dart';
 
 class ResponseTimeFilterProperties {
@@ -24,7 +28,7 @@ class ResponseTimeFilterProperties {
   
 
   ResponseTimeFilterProperties(
-    
+      
 
 {
      this.travelTime = null,  
@@ -42,7 +46,8 @@ class ResponseTimeFilterProperties {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeFilterPropertiesSerializer extends Serializer<ResponseTimeFilterProperties> with _$ResponseTimeFilterPropertiesSerializer {
 
 }
+

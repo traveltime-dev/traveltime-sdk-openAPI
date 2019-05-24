@@ -8,25 +8,25 @@
 #define _response_map_info_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "response_map_info_map.h"
 
 
 
-
 typedef struct response_map_info_t {
-        list_t *maps; //nonprimitive container
+    list_t *maps; //nonprimitive container
 
 } response_map_info_t;
 
 response_map_info_t *response_map_info_create(
-        list_t *maps
+    list_t *maps
 );
 
 void response_map_info_free(response_map_info_t *response_map_info);
 
-response_map_info_t *response_map_info_parseFromJSON(char *jsonString);
+response_map_info_t *response_map_info_parseFromJSON(cJSON *response_map_infoJSON);
 
 cJSON *response_map_info_convertToJSON(response_map_info_t *response_map_info);
 

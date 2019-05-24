@@ -7,8 +7,8 @@ import org.openapitools.model.Coords;
 
 @Canonical
 class RequestLocation {
-    String id = 
-
+    
+    String id
+    
     Coords coords = null
-
 }

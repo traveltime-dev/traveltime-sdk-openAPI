@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseFares
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **breakdown** | [**[ResponseFaresBreakdownItem]**](ResponseFaresBreakdownItem.md) |  | 

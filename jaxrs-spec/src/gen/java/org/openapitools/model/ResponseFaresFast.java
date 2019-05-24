@@ -48,7 +48,7 @@ public class ResponseFaresFast   {
       return false;
     }
     ResponseFaresFast responseFaresFast = (ResponseFaresFast) o;
-    return Objects.equals(ticketsTotal, responseFaresFast.ticketsTotal);
+    return Objects.equals(this.ticketsTotal, responseFaresFast.ticketsTotal);
   }
 
   @Override

@@ -166,13 +166,13 @@ public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
       return false;
     }
     RequestTimeFilterPostcodeDistrictsDepartureSearch requestTimeFilterPostcodeDistrictsDepartureSearch = (RequestTimeFilterPostcodeDistrictsDepartureSearch) o;
-    return Objects.equals(id, requestTimeFilterPostcodeDistrictsDepartureSearch.id) &&
-        Objects.equals(transportation, requestTimeFilterPostcodeDistrictsDepartureSearch.transportation) &&
-        Objects.equals(travelTime, requestTimeFilterPostcodeDistrictsDepartureSearch.travelTime) &&
-        Objects.equals(departureTime, requestTimeFilterPostcodeDistrictsDepartureSearch.departureTime) &&
-        Objects.equals(reachablePostcodesThreshold, requestTimeFilterPostcodeDistrictsDepartureSearch.reachablePostcodesThreshold) &&
-        Objects.equals(properties, requestTimeFilterPostcodeDistrictsDepartureSearch.properties) &&
-        Objects.equals(range, requestTimeFilterPostcodeDistrictsDepartureSearch.range);
+    return Objects.equals(this.id, requestTimeFilterPostcodeDistrictsDepartureSearch.id) &&
+        Objects.equals(this.transportation, requestTimeFilterPostcodeDistrictsDepartureSearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeFilterPostcodeDistrictsDepartureSearch.travelTime) &&
+        Objects.equals(this.departureTime, requestTimeFilterPostcodeDistrictsDepartureSearch.departureTime) &&
+        Objects.equals(this.reachablePostcodesThreshold, requestTimeFilterPostcodeDistrictsDepartureSearch.reachablePostcodesThreshold) &&
+        Objects.equals(this.properties, requestTimeFilterPostcodeDistrictsDepartureSearch.properties) &&
+        Objects.equals(this.range, requestTimeFilterPostcodeDistrictsDepartureSearch.range);
   }
 
   @Override

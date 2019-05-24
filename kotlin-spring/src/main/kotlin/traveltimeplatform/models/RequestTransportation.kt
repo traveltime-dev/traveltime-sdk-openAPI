@@ -3,8 +3,13 @@ package traveltimeplatform.models
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonValue
-import javax.validation.Valid
-import javax.validation.constraints.*
+import javax.validation.constraints.DecimalMax
+import javax.validation.constraints.DecimalMin
+import javax.validation.constraints.Max
+import javax.validation.constraints.Min
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Pattern
+import javax.validation.constraints.Size
 
 /**
  * 
@@ -33,7 +38,7 @@ data class RequestTransportation (
 
     /**
     * 
-    * Values: cycling,driving,drivingPlustrain,publicTransport,walking,coach,bus,train,ferry,drivingPlusferry,cyclingPlusferry
+    * Values: cycling,driving,drivingPlusTrain,publicTransport,walking,coach,bus,train,ferry,drivingPlusFerry,cyclingPlusFerry
     */
     enum class Type(val value: String) {
     
@@ -41,7 +46,7 @@ data class RequestTransportation (
     
         @JsonProperty("driving") driving("driving"),
     
-        @JsonProperty("driving+train") drivingPlustrain("driving+train"),
+        @JsonProperty("driving+train") drivingPlusTrain("driving+train"),
     
         @JsonProperty("public_transport") publicTransport("public_transport"),
     
@@ -55,9 +60,9 @@ data class RequestTransportation (
     
         @JsonProperty("ferry") ferry("ferry"),
     
-        @JsonProperty("driving+ferry") drivingPlusferry("driving+ferry"),
+        @JsonProperty("driving+ferry") drivingPlusFerry("driving+ferry"),
     
-        @JsonProperty("cycling+ferry") cyclingPlusferry("cycling+ferry");
+        @JsonProperty("cycling+ferry") cyclingPlusFerry("cycling+ferry");
     
     }
 

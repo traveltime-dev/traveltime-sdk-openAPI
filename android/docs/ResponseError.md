@@ -1,7 +1,9 @@
 
+
 # ResponseError
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **httpStatus** | **Integer** |  |  [optional]
@@ -9,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **documentationLink** | **String** |  |  [optional]
 **additionalInfo** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) |  |  [optional]
+
 
 
 

@@ -14,7 +14,7 @@ exports.geocodingReverseSearch = function(focusPeriodlat,focusPeriodlng,withinPe
     examples['application/json'] = {
   "features" : [ {
     "geometry" : {
-      "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+      "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
       "type" : "type"
     },
     "type" : "type",
@@ -27,7 +27,7 @@ exports.geocodingReverseSearch = function(focusPeriodlat,focusPeriodlng,withinPe
       "house_number" : "house_number",
       "label" : "label",
       "macroregion" : "macroregion",
-      "score" : 6.02745618307040320615897144307382404804229736328125,
+      "score" : 6.027456183070403,
       "country_code" : "country_code",
       "features" : {
         "public_transport" : {
@@ -45,7 +45,7 @@ exports.geocodingReverseSearch = function(focusPeriodlat,focusPeriodlng,withinPe
     }
   }, {
     "geometry" : {
-      "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+      "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
       "type" : "type"
     },
     "type" : "type",
@@ -58,7 +58,7 @@ exports.geocodingReverseSearch = function(focusPeriodlat,focusPeriodlng,withinPe
       "house_number" : "house_number",
       "label" : "label",
       "macroregion" : "macroregion",
-      "score" : 6.02745618307040320615897144307382404804229736328125,
+      "score" : 6.027456183070403,
       "country_code" : "country_code",
       "features" : {
         "public_transport" : {
@@ -100,7 +100,7 @@ exports.geocodingSearch = function(query,withinPeriodcountry,focusPeriodlat,focu
     examples['application/json'] = {
   "features" : [ {
     "geometry" : {
-      "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+      "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
       "type" : "type"
     },
     "type" : "type",
@@ -113,7 +113,7 @@ exports.geocodingSearch = function(query,withinPeriodcountry,focusPeriodlat,focu
       "house_number" : "house_number",
       "label" : "label",
       "macroregion" : "macroregion",
-      "score" : 6.02745618307040320615897144307382404804229736328125,
+      "score" : 6.027456183070403,
       "country_code" : "country_code",
       "features" : {
         "public_transport" : {
@@ -131,7 +131,7 @@ exports.geocodingSearch = function(query,withinPeriodcountry,focusPeriodlat,focu
     }
   }, {
     "geometry" : {
-      "coordinates" : [ 0.80082819046101150206595775671303272247314453125, 0.80082819046101150206595775671303272247314453125 ],
+      "coordinates" : [ 0.8008281904610115, 0.8008281904610115 ],
       "type" : "type"
     },
     "type" : "type",
@@ -144,7 +144,7 @@ exports.geocodingSearch = function(query,withinPeriodcountry,focusPeriodlat,focu
       "house_number" : "house_number",
       "label" : "label",
       "macroregion" : "macroregion",
-      "score" : 6.02745618307040320615897144307382404804229736328125,
+      "score" : 6.027456183070403,
       "country_code" : "country_code",
       "features" : {
         "public_transport" : {
@@ -242,11 +242,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -264,11 +264,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -280,11 +280,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -292,22 +292,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -330,11 +330,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -352,11 +352,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -368,11 +368,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -380,22 +380,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -421,11 +421,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -443,11 +443,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -459,11 +459,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -471,22 +471,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -509,11 +509,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -531,11 +531,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -547,11 +547,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -559,22 +559,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -604,11 +604,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -626,11 +626,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -642,11 +642,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -654,22 +654,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -692,11 +692,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -714,11 +714,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -730,11 +730,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -742,22 +742,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -783,11 +783,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -805,11 +805,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -821,11 +821,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -833,22 +833,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -871,11 +871,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -893,11 +893,11 @@ exports.routes = function(requestRoutes) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -909,11 +909,11 @@ exports.routes = function(requestRoutes) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -921,22 +921,22 @@ exports.routes = function(requestRoutes) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1018,11 +1018,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1040,11 +1040,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1056,11 +1056,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1068,22 +1068,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1111,11 +1111,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1133,11 +1133,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1149,11 +1149,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1161,22 +1161,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1207,11 +1207,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1229,11 +1229,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1245,11 +1245,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1257,22 +1257,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1300,11 +1300,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1322,11 +1322,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1338,11 +1338,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1350,22 +1350,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1400,11 +1400,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1422,11 +1422,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1438,11 +1438,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1450,22 +1450,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1493,11 +1493,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1515,11 +1515,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1531,11 +1531,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1543,22 +1543,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1589,11 +1589,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1611,11 +1611,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1627,11 +1627,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1639,22 +1639,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1682,11 +1682,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           }, {
@@ -1704,11 +1704,11 @@ exports.timeFilter = function(requestTimeFilter) {
             "id" : "id",
             "arrival_station" : "arrival_station",
             "coords" : [ {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             }, {
-              "lng" : 3.61607674925191080461672754609026014804840087890625,
-              "lat" : 9.301444243932575517419536481611430644989013671875
+              "lng" : 3.616076749251911,
+              "lat" : 9.301444243932576
             } ],
             "direction" : "direction"
           } ],
@@ -1720,11 +1720,11 @@ exports.timeFilter = function(requestTimeFilter) {
           "breakdown" : [ {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
@@ -1732,22 +1732,22 @@ exports.timeFilter = function(requestTimeFilter) {
           }, {
             "modes" : [ null, null ],
             "tickets" : [ {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             }, {
-              "price" : 5.63737665663332876420099637471139430999755859375,
+              "price" : 5.637376656633329,
               "currency" : "currency",
               "type" : "single"
             } ],
             "route_part_ids" : [ 5, 5 ]
           } ],
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1783,11 +1783,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1796,11 +1796,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1812,11 +1812,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1825,11 +1825,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1845,11 +1845,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1858,11 +1858,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1874,11 +1874,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1887,11 +1887,11 @@ exports.timeFilterFast = function(requestTimeFilterFast) {
         "travel_time" : 0,
         "fares" : {
           "tickets_total" : [ {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           }, {
-            "price" : 5.63737665663332876420099637471139430999755859375,
+            "price" : 5.637376656633329,
             "currency" : "currency",
             "type" : "single"
           } ]
@@ -1923,7 +1923,7 @@ exports.timeFilterPostcodeDistricts = function(requestTimeFilterPostcodeDistrict
     "districts" : [ {
       "code" : "",
       "properties" : {
-        "coverage" : 5.63737665663332876420099637471139430999755859375,
+        "coverage" : 5.637376656633329,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -1940,7 +1940,7 @@ exports.timeFilterPostcodeDistricts = function(requestTimeFilterPostcodeDistrict
     }, {
       "code" : "",
       "properties" : {
-        "coverage" : 5.63737665663332876420099637471139430999755859375,
+        "coverage" : 5.637376656633329,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -1960,7 +1960,7 @@ exports.timeFilterPostcodeDistricts = function(requestTimeFilterPostcodeDistrict
     "districts" : [ {
       "code" : "",
       "properties" : {
-        "coverage" : 5.63737665663332876420099637471139430999755859375,
+        "coverage" : 5.637376656633329,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -1977,7 +1977,7 @@ exports.timeFilterPostcodeDistricts = function(requestTimeFilterPostcodeDistrict
     }, {
       "code" : "",
       "properties" : {
-        "coverage" : 5.63737665663332876420099637471139430999755859375,
+        "coverage" : 5.637376656633329,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -2017,7 +2017,7 @@ exports.timeFilterPostcodeSectors = function(requestTimeFilterPostcodeSectors) {
     "sectors" : [ {
       "code" : "",
       "properties" : {
-        "coverage" : 0.80082819046101150206595775671303272247314453125,
+        "coverage" : 0.8008281904610115,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -2034,7 +2034,7 @@ exports.timeFilterPostcodeSectors = function(requestTimeFilterPostcodeSectors) {
     }, {
       "code" : "",
       "properties" : {
-        "coverage" : 0.80082819046101150206595775671303272247314453125,
+        "coverage" : 0.8008281904610115,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -2054,7 +2054,7 @@ exports.timeFilterPostcodeSectors = function(requestTimeFilterPostcodeSectors) {
     "sectors" : [ {
       "code" : "",
       "properties" : {
-        "coverage" : 0.80082819046101150206595775671303272247314453125,
+        "coverage" : 0.8008281904610115,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -2071,7 +2071,7 @@ exports.timeFilterPostcodeSectors = function(requestTimeFilterPostcodeSectors) {
     }, {
       "code" : "",
       "properties" : {
-        "coverage" : 0.80082819046101150206595775671303272247314453125,
+        "coverage" : 0.8008281904610115,
         "travel_time_all" : {
           "min" : 0,
           "median" : 5,
@@ -2172,45 +2172,45 @@ exports.timeMap = function(requestTimeMap) {
   "results" : [ {
     "shapes" : [ {
       "shell" : [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ],
       "holes" : [ [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ], [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ] ]
     }, {
       "shell" : [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ],
       "holes" : [ [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ], [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ] ]
     } ],
     "properties" : {
@@ -2220,45 +2220,45 @@ exports.timeMap = function(requestTimeMap) {
   }, {
     "shapes" : [ {
       "shell" : [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ],
       "holes" : [ [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ], [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ] ]
     }, {
       "shell" : [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ],
       "holes" : [ [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ], [ {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       }, {
-        "lng" : 3.61607674925191080461672754609026014804840087890625,
-        "lat" : 9.301444243932575517419536481611430644989013671875
+        "lng" : 3.616076749251911,
+        "lat" : 9.301444243932576
       } ] ]
     } ],
     "properties" : {

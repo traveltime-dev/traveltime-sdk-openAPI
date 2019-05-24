@@ -103,10 +103,10 @@ public class RequestTimeMap   {
       return false;
     }
     RequestTimeMap requestTimeMap = (RequestTimeMap) o;
-    return Objects.equals(departureSearches, requestTimeMap.departureSearches) &&
-        Objects.equals(arrivalSearches, requestTimeMap.arrivalSearches) &&
-        Objects.equals(unions, requestTimeMap.unions) &&
-        Objects.equals(intersections, requestTimeMap.intersections);
+    return Objects.equals(this.departureSearches, requestTimeMap.departureSearches) &&
+        Objects.equals(this.arrivalSearches, requestTimeMap.arrivalSearches) &&
+        Objects.equals(this.unions, requestTimeMap.unions) &&
+        Objects.equals(this.intersections, requestTimeMap.intersections);
   }
 
   @Override

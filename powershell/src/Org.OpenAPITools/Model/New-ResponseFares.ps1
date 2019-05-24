@@ -4,7 +4,7 @@ function New-ResponseFares {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.ResponseFaresBreakdownItem[]]
         ${breakdown},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.ResponseFareTicket[]]
         ${ticketsUnderscoretotal}
     )

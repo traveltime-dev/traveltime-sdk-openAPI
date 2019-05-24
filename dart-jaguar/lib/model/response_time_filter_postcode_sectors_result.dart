@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_time_filter_postcode_sector.dart';
+
 part 'response_time_filter_postcode_sectors_result.jser.dart';
 
 class ResponseTimeFilterPostcodeSectorsResult {
@@ -13,7 +15,7 @@ class ResponseTimeFilterPostcodeSectorsResult {
   
 
   ResponseTimeFilterPostcodeSectorsResult(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class ResponseTimeFilterPostcodeSectorsResult {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeFilterPostcodeSectorsResultSerializer extends Serializer<ResponseTimeFilterPostcodeSectorsResult> with _$ResponseTimeFilterPostcodeSectorsResultSerializer {
 
 }
+

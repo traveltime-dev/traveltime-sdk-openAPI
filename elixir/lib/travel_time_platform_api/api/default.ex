@@ -38,7 +38,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseGeocoding{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseGeocoding{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -70,7 +73,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseGeocoding{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseGeocoding{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -91,7 +97,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> url("/v4/map-info")
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseMapInfo{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseMapInfo{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -114,7 +123,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_routes)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseRoutes{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseRoutes{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -137,7 +149,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_supported_locations)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseSupportedLocations{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseSupportedLocations{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -160,7 +175,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_filter)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeFilter{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeFilter{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -183,7 +201,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_filter_fast)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeFilterFast{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeFilterFast{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -206,7 +227,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_filter_postcode_districts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodeDistricts{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodeDistricts{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -229,7 +253,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_filter_postcode_sectors)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodeSectors{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodeSectors{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -252,7 +279,10 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_filter_postcodes)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodes{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeFilterPostcodes{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 
   @doc """
@@ -275,6 +305,9 @@ defmodule TravelTimePlatformAPI.Api.Default do
     |> add_param(:body, :body, request_time_map)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
-    |> decode(%TravelTimePlatformAPI.Model.ResponseTimeMap{})
+    |> evaluate_response([
+      { 200, %TravelTimePlatformAPI.Model.ResponseTimeMap{}},
+      { :default, %TravelTimePlatformAPI.Model.ResponseError{}}
+    ])
   end
 end

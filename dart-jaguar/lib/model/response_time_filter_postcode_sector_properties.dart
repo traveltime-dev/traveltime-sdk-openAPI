@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_travel_time_statistics.dart';
+
 part 'response_time_filter_postcode_sector_properties.jser.dart';
 
 class ResponseTimeFilterPostcodeSectorProperties {
@@ -16,7 +18,7 @@ class ResponseTimeFilterPostcodeSectorProperties {
   
 
   ResponseTimeFilterPostcodeSectorProperties(
-    
+      
 
 {
      this.travelTimeReachable = null,  
@@ -32,7 +34,8 @@ class ResponseTimeFilterPostcodeSectorProperties {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeFilterPostcodeSectorPropertiesSerializer extends Serializer<ResponseTimeFilterPostcodeSectorProperties> with _$ResponseTimeFilterPostcodeSectorPropertiesSerializer {
 
 }
+

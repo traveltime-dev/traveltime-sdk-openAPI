@@ -1,6 +1,7 @@
 # ResponseMapInfoFeatures
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **public_transport** | [***::models::ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md) |  | [optional] 

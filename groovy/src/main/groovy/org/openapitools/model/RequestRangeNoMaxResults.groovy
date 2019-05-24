@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class RequestRangeNoMaxResults {
-    Boolean enabled = 
-
-    Integer width = 
-
+    
+    Boolean enabled
+    
+    Integer width
 }

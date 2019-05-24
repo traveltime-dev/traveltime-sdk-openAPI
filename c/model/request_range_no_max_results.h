@@ -8,28 +8,26 @@
 #define _request_range_no_max_results_H_
 
 #include <string.h>
-#include "cJSON.h"
-
-typedef int bool;
-#define true 1
-#define false 0
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 
 
 
 typedef struct request_range_no_max_results_t {
-        bool enabled; //boolean
-        int width; //numeric
+    int enabled; //boolean
+    int width; //numeric
 
 } request_range_no_max_results_t;
 
 request_range_no_max_results_t *request_range_no_max_results_create(
-        bool enabled,
-        int width
+    int enabled,
+    int width
 );
 
 void request_range_no_max_results_free(request_range_no_max_results_t *request_range_no_max_results);
 
-request_range_no_max_results_t *request_range_no_max_results_parseFromJSON(char *jsonString);
+request_range_no_max_results_t *request_range_no_max_results_parseFromJSON(cJSON *request_range_no_max_resultsJSON);
 
 cJSON *request_range_no_max_results_convertToJSON(request_range_no_max_results_t *request_range_no_max_results);
 

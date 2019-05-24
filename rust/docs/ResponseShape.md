@@ -1,6 +1,7 @@
 # ResponseShape
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **shell** | [**Vec<::models::Coords>**](Coords.md) |  | 

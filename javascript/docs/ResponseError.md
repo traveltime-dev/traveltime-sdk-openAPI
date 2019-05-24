@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseError
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **httpStatus** | **Number** |  | [optional] 

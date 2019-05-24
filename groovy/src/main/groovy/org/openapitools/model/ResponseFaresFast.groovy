@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseFareTicket;
 
 @Canonical
 class ResponseFaresFast {
+    
     List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>()
-
 }

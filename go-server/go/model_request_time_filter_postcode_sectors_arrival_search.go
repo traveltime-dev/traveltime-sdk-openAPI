@@ -18,7 +18,7 @@ type RequestTimeFilterPostcodeSectorsArrivalSearch struct {
 
 	Id string `json:"id"`
 
-	Transportation *RequestTransportation `json:"transportation"`
+	Transportation RequestTransportation `json:"transportation"`
 
 	TravelTime int32 `json:"travel_time"`
 
@@ -28,5 +28,5 @@ type RequestTimeFilterPostcodeSectorsArrivalSearch struct {
 
 	Properties []RequestTimeFilterPostcodeSectorsProperty `json:"properties"`
 
-	Range *RequestRangeFull `json:"range,omitempty"`
+	Range RequestRangeFull `json:"range,omitempty"`
 }

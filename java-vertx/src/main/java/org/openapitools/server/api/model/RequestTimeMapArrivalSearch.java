@@ -14,11 +14,11 @@ import org.openapitools.server.api.model.RequestTransportation;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestTimeMapArrivalSearch   {
   
-  private String id = ;
+  private String id;
   private Coords coords = null;
   private RequestTransportation transportation = null;
-  private Integer travelTime = ;
-  private OffsetDateTime arrivalTime = ;
+  private Integer travelTime;
+  private OffsetDateTime arrivalTime;
   private List<RequestTimeMapProperty> properties = new ArrayList<>();
   private RequestRangeNoMaxResults range = null;
 

@@ -18,19 +18,39 @@ class ResponseTravelTimeStatistics {
 
   ResponseTravelTimeStatistics.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    min = json['min'];
-    max = json['max'];
-    mean = json['mean'];
-    median = json['median'];
+    if (json['min'] == null) {
+      min = null;
+    } else {
+          min = json['min'];
+    }
+    if (json['max'] == null) {
+      max = null;
+    } else {
+          max = json['max'];
+    }
+    if (json['mean'] == null) {
+      mean = null;
+    } else {
+          mean = json['mean'];
+    }
+    if (json['median'] == null) {
+      median = null;
+    } else {
+          median = json['median'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'min': min,
-      'max': max,
-      'mean': mean,
-      'median': median
-    };
+    Map <String, dynamic> json = {};
+    if (min != null)
+      json['min'] = min;
+    if (max != null)
+      json['max'] = max;
+    if (mean != null)
+      json['mean'] = mean;
+    if (median != null)
+      json['median'] = median;
+    return json;
   }
 
   static List<ResponseTravelTimeStatistics> listFromJson(List<dynamic> json) {
@@ -39,7 +59,7 @@ class ResponseTravelTimeStatistics {
 
   static Map<String, ResponseTravelTimeStatistics> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTravelTimeStatistics>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTravelTimeStatistics.fromJson(value));
     }
     return map;

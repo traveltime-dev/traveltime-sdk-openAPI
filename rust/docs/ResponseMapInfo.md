@@ -1,6 +1,7 @@
 # ResponseMapInfo
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **maps** | [**Vec<::models::ResponseMapInfoMap>**](ResponseMapInfoMap.md) |  | 

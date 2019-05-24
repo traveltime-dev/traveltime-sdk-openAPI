@@ -9,8 +9,8 @@ import org.openapitools.model.Coords;
 
 @Canonical
 class ResponseShape {
+    
     List<Coords> shell = new ArrayList<Coords>()
-
+    
     List<List<Coords>> holes = new ArrayList<List<Coords>>()
-
 }

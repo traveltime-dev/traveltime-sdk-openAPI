@@ -17,12 +17,15 @@ Method | HTTP request | Description
 [**time_map**](DefaultApi.md#time_map) | **POST** /v4/time-map | 
 
 
-# **geocoding_reverse_search**
+
+## geocoding_reverse_search
+
 > ResponseGeocoding geocoding_reverse_search(focus_lat, focus_lng, opts)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -56,6 +59,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **focus_lat** | **Float**|  | 
@@ -72,17 +76,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## geocoding_search
 
-# **geocoding_search**
 > ResponseGeocoding geocoding_search(query, opts)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -117,6 +122,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | 
@@ -134,17 +140,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## map_info
 
-# **map_info**
 > ResponseMapInfo map_info
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -172,6 +179,7 @@ end
 ```
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -184,17 +192,18 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
+## routes
 
-# **routes**
 > ResponseRoutes routes(request_routes)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -224,6 +233,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_routes** | [**RequestRoutes**](RequestRoutes.md)|  | 
@@ -238,17 +248,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## supported_locations
 
-# **supported_locations**
 > ResponseSupportedLocations supported_locations(request_supported_locations)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -278,6 +289,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_supported_locations** | [**RequestSupportedLocations**](RequestSupportedLocations.md)|  | 
@@ -292,17 +304,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_filter
 
-# **time_filter**
 > ResponseTimeFilter time_filter(request_time_filter)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -332,6 +345,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter** | [**RequestTimeFilter**](RequestTimeFilter.md)|  | 
@@ -346,17 +360,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_filter_fast
 
-# **time_filter_fast**
 > ResponseTimeFilterFast time_filter_fast(request_time_filter_fast)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -386,6 +401,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_fast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md)|  | 
@@ -400,17 +416,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_filter_postcode_districts
 
-# **time_filter_postcode_districts**
 > ResponseTimeFilterPostcodeDistricts time_filter_postcode_districts(request_time_filter_postcode_districts)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -440,6 +457,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcode_districts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md)|  | 
@@ -454,17 +472,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_filter_postcode_sectors
 
-# **time_filter_postcode_sectors**
 > ResponseTimeFilterPostcodeSectors time_filter_postcode_sectors(request_time_filter_postcode_sectors)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -494,6 +513,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcode_sectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md)|  | 
@@ -508,17 +528,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_filter_postcodes
 
-# **time_filter_postcodes**
 > ResponseTimeFilterPostcodes time_filter_postcodes(request_time_filter_postcodes)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -548,6 +569,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_filter_postcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md)|  | 
@@ -562,17 +584,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
+## time_map
 
-# **time_map**
 > ResponseTimeMap time_map(request_time_map)
 
 
 
 ### Example
+
 ```ruby
 # load the gem
 require 'openapi_client'
@@ -602,6 +625,7 @@ end
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **request_time_map** | [**RequestTimeMap**](RequestTimeMap.md)|  | 
@@ -616,8 +640,6 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
-
-
+- **Content-Type**: application/json
+- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 

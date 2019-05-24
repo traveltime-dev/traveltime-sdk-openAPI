@@ -16,17 +16,32 @@ class ResponseMapInfoFeatures {
 
   ResponseMapInfoFeatures.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    publicTransport = new ResponseMapInfoFeaturesPublicTransport.fromJson(json['public_transport']);
-    fares = json['fares'];
-    postcodes = json['postcodes'];
+    if (json['public_transport'] == null) {
+      publicTransport = null;
+    } else {
+      publicTransport = new ResponseMapInfoFeaturesPublicTransport.fromJson(json['public_transport']);
+    }
+    if (json['fares'] == null) {
+      fares = null;
+    } else {
+          fares = json['fares'];
+    }
+    if (json['postcodes'] == null) {
+      postcodes = null;
+    } else {
+          postcodes = json['postcodes'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'public_transport': publicTransport,
-      'fares': fares,
-      'postcodes': postcodes
-    };
+    Map <String, dynamic> json = {};
+    if (publicTransport != null)
+      json['public_transport'] = publicTransport;
+    if (fares != null)
+      json['fares'] = fares;
+    if (postcodes != null)
+      json['postcodes'] = postcodes;
+    return json;
   }
 
   static List<ResponseMapInfoFeatures> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class ResponseMapInfoFeatures {
 
   static Map<String, ResponseMapInfoFeatures> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseMapInfoFeatures>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfoFeatures.fromJson(value));
     }
     return map;

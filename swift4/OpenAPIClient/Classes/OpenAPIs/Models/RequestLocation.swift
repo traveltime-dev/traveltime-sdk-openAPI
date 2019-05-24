@@ -11,17 +11,12 @@ import Foundation
 
 public struct RequestLocation: Codable {
 
-    public var _id: String
+    public var id: String
     public var coords: Coords
 
-    public init(_id: String, coords: Coords) {
-        self._id = _id
+    public init(id: String, coords: Coords) {
+        self.id = id
         self.coords = coords
-    }
-
-    public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
-        case coords
     }
 
 

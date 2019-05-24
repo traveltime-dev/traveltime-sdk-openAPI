@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterPostcodesDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-04-02T12:37:46.315Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterPostcodesDepartureSearch   {

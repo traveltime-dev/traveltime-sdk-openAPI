@@ -23,11 +23,9 @@ geocoding_reverse_search(FocusLat, FocusLng) ->
   Method      = get,
   Host        = application:get_env(traveltimeplatform, host, "http://localhost:8080"),
   Path        = ["/v4/geocoding/reverse"],
-  Body        = [],
-  ContentType = <<"text/plain">>,
   QueryString = [<<"focus.lat=">>, FocusLat, <<"&">>, <<"focus.lng=">>, FocusLng, <<"&">>, <<"within.country=">>, WithinCountry, <<"&">>],
 
-  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path, <<"?">>, QueryString], jsx:encode(Body), ContentType).
+  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path, <<"?">>, QueryString]).
 
 %% @doc 
 %% 
@@ -37,11 +35,9 @@ geocoding_search(Query) ->
   Method      = get,
   Host        = application:get_env(traveltimeplatform, host, "http://localhost:8080"),
   Path        = ["/v4/geocoding/search"],
-  Body        = [],
-  ContentType = <<"text/plain">>,
   QueryString = [<<"query=">>, Query, <<"&">>, <<"within.country=">>, WithinCountry, <<"&">>, <<"focus.lat=">>, FocusLat, <<"&">>, <<"focus.lng=">>, FocusLng, <<"&">>],
 
-  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path, <<"?">>, QueryString], jsx:encode(Body), ContentType).
+  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path, <<"?">>, QueryString]).
 
 %% @doc 
 %% 
@@ -51,10 +47,8 @@ map_info() ->
   Method      = get,
   Host        = application:get_env(traveltimeplatform, host, "http://localhost:8080"),
   Path        = ["/v4/map-info"],
-  Body        = [],
-  ContentType = <<"text/plain">>,
 
-  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path], jsx:encode(Body), ContentType).
+  traveltimeplatform_utils:request(Method, [Host, ?BASE_URL, Path]).
 
 %% @doc 
 %% 

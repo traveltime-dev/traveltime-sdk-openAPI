@@ -9,8 +9,8 @@ import org.openapitools.model.ResponseSupportedLocation;
 
 @Canonical
 class ResponseSupportedLocations {
+    
     List<ResponseSupportedLocation> locations = new ArrayList<ResponseSupportedLocation>()
-
+    
     List<String> unsupportedLocations = new ArrayList<String>()
-
 }

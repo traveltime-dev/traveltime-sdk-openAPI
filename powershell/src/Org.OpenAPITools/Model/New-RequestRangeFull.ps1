@@ -4,10 +4,10 @@ function New-RequestRangeFull {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Boolean]
         ${enabled},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
         ${maxUnderscoreresults},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
         ${width}
     )

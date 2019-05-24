@@ -1,0 +1,80 @@
+# {{classname}}{{#description}}
+{{description}}{{/description}}
+
+All URIs are relative to *{{basePath}}*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+{{#operations}}{{#operation}}[**{{operationId}}**]({{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{summary}}{{/summary}}
+{{/operation}}{{/operations}}
+
+{{#operations}}
+{{#operation}}
+# **{{operationId}}**
+> {{#returnType}}{{returnType}} {{/returnType}}{{operationId}}({{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-first}}{{#requiredParams.0}}, {{/requiredParams.0}}{{/-first}}{{{paramName}}}{{#defaultValue}}={{{.}}}{{/defaultValue}}{{^defaultValue}}=var.{{{paramName}}}{{/defaultValue}}{{^-last}}, {{/-last}}{{/optionalParams}})
+
+{{{summary}}}{{#notes}}
+
+{{{notes}}}{{/notes}}
+
+### Example
+```R
+library({{{packageName}}})
+
+{{#allParams}}
+var.{{{paramName}}} <- {{{vendorExtensions.x-r-example}}} # {{{dataType}}} | {{{description}}}
+{{/allParams}}
+
+{{#summary}}
+#{{{.}}}
+{{/summary}}
+api.instance <- {{{classname}}}$new()
+{{#hasAuthMethods}}
+{{#authMethods}}
+{{#isBasic}}
+# Configure HTTP basic authorization: {{{name}}}
+api.instance$apiClient$username <- 'TODO_YOUR_USERNAME';
+api.instance$apiClient$password <- 'TODO_YOUR_PASSWORD';
+{{/isBasic}}
+{{#isApiKey}}
+# Configure API key authorization: {{{name}}}
+api.instance$apiClient$apiKeys['{{{keyParamName}}}'] <- 'TODO_YOUR_API_KEY';
+{{/isApiKey}}
+{{#isOAuth}}
+# Configure OAuth2 access token for authorization: {{{name}}}
+api.instance$apiClient$accessToken <- 'TODO_YOUR_ACCESS_TOKEN';
+{{/isOAuth}}
+{{/authMethods}}
+{{/hasAuthMethods}}
+{{#returnType}}result <- {{/returnType}}api.instance${{{operationId}}}({{#requiredParams}}var.{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-first}}{{#requiredParams.0}}, {{/requiredParams.0}}{{/-first}}{{{paramName}}}=var.{{{paramName}}}{{^-last}}, {{/-last}}{{/optionalParams}})
+{{#returnType}}
+dput(result)
+{{/returnType}}
+```
+
+### Parameters
+{{^allParams}}This endpoint does not need any parameter.{{/allParams}}{{#allParams}}{{#-last}}
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------{{/-last}}{{/allParams}}
+{{#requiredParams}} **{{paramName}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}[**{{dataType}}**]({{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
+{{/requiredParams}}
+{{#optionalParams}} **{{paramName}}** | {{#isPrimitiveType}}**{{dataType}}**{{/isPrimitiveType}}{{^isPrimitiveType}}{{#isFile}}**{{dataType}}**{{/isFile}}{{^isFile}}[**{{dataType}}**]({{baseType}}.md){{/isFile}}{{/isPrimitiveType}}| {{description}} | {{^required}}[optional] {{/required}}{{#defaultValue}}[default to {{defaultValue}}]{{/defaultValue}}
+{{/optionalParams}}
+
+### Return type
+
+{{#returnType}}{{#returnTypeIsPrimitive}}**{{returnType}}**{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}[**{{returnType}}**]({{returnBaseType}}.md){{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}void (empty response body){{/returnType}}
+
+### Authorization
+
+{{^authMethods}}No authorization required{{/authMethods}}{{#authMethods}}[{{name}}](../README.md#{{name}}){{^-last}}, {{/-last}}{{/authMethods}}
+
+### HTTP request headers
+
+ - **Content-Type**: {{#consumes}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/consumes}}{{^consumes}}Not defined{{/consumes}}
+ - **Accept**: {{#produces}}{{{mediaType}}}{{#hasMore}}, {{/hasMore}}{{/produces}}{{^produces}}Not defined{{/produces}}
+
+
+
+{{/operation}}
+{{/operations}}

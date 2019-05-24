@@ -10,7 +10,7 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
   
   private ResponseTravelTimeStatistics travelTimeReachable = null;
   private ResponseTravelTimeStatistics travelTimeAll = null;
-  private Double coverage = ;
+  private Double coverage;
 
   public ResponseTimeFilterPostcodeDistrictProperties () {
 

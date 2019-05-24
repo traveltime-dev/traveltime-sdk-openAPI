@@ -1,6 +1,7 @@
 # ResponseTimeFilterProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TravelTime** | **int32** |  | [optional] 

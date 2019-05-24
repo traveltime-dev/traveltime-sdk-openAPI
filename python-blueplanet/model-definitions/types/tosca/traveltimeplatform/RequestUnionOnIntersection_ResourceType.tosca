@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestUnionOnIntersection"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestUnionOnIntersection"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestUnionOnIntersection {
+    title = RequestUnionOnIntersection
+    description = RequestUnionOnIntersection
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        search_ids {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestUnionOnIntersection {
+    title = RequestUnionOnIntersection
+    description = RequestUnionOnIntersection
+    implements = traveltimeplatform.resourceTypes.RequestUnionOnIntersection
+
+  }
+}

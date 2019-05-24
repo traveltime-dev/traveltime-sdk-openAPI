@@ -1,6 +1,7 @@
 # ResponseShape
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Shell** | [**[]Coords**](Coords.md) |  | 

@@ -14,7 +14,7 @@ type ResponseGeocodingGeoJsonFeature struct {
 
 	Type string `json:"type"`
 
-	Geometry *ResponseGeocodingGeometry `json:"geometry"`
+	Geometry ResponseGeocodingGeometry `json:"geometry"`
 
-	Properties *ResponseGeocodingProperties `json:"properties"`
+	Properties ResponseGeocodingProperties `json:"properties"`
 }

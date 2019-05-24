@@ -48,7 +48,7 @@ public class RequestSupportedLocations   {
       return false;
     }
     RequestSupportedLocations requestSupportedLocations = (RequestSupportedLocations) o;
-    return Objects.equals(locations, requestSupportedLocations.locations);
+    return Objects.equals(this.locations, requestSupportedLocations.locations);
   }
 
   @Override

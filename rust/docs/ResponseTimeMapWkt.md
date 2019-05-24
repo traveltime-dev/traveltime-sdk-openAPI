@@ -1,6 +1,7 @@
 # ResponseTimeMapWkt
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**Vec<::models::ResponseTimeMapWktResult>**](ResponseTimeMapWktResult.md) |  | 

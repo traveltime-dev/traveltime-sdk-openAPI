@@ -102,10 +102,10 @@ public class ResponseTravelTimeStatistics   {
       return false;
     }
     ResponseTravelTimeStatistics responseTravelTimeStatistics = (ResponseTravelTimeStatistics) o;
-    return Objects.equals(min, responseTravelTimeStatistics.min) &&
-        Objects.equals(max, responseTravelTimeStatistics.max) &&
-        Objects.equals(mean, responseTravelTimeStatistics.mean) &&
-        Objects.equals(median, responseTravelTimeStatistics.median);
+    return Objects.equals(this.min, responseTravelTimeStatistics.min) &&
+        Objects.equals(this.max, responseTravelTimeStatistics.max) &&
+        Objects.equals(this.mean, responseTravelTimeStatistics.mean) &&
+        Objects.equals(this.median, responseTravelTimeStatistics.median);
   }
 
   @Override

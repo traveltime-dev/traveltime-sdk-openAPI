@@ -12,9 +12,9 @@ package traveltimeplatform
 
 type ResponseTimeFilterPostcodeDistrictProperties struct {
 
-	TravelTimeReachable *ResponseTravelTimeStatistics `json:"travel_time_reachable,omitempty"`
+	TravelTimeReachable ResponseTravelTimeStatistics `json:"travel_time_reachable,omitempty"`
 
-	TravelTimeAll *ResponseTravelTimeStatistics `json:"travel_time_all,omitempty"`
+	TravelTimeAll ResponseTravelTimeStatistics `json:"travel_time_all,omitempty"`
 
 	Coverage float64 `json:"coverage,omitempty"`
 }

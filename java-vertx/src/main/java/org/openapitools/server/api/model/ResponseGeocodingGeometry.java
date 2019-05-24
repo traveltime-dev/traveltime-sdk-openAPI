@@ -9,7 +9,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseGeocodingGeometry   {
   
-  private String type = ;
+  private String type;
   private List<Double> coordinates = new ArrayList<>();
 
   public ResponseGeocodingGeometry () {

@@ -74,7 +74,7 @@ val languages = List(
   "java-msf4j",
   "java-pkmst",
   "java-play-framework",
-  "java-undertow-server",
+//  "java-undertow-server", commenting this out until vulnerability is fixed - jackson-databind version updated to 2.9.9 or later
   "java-vertx",
   "jaxrs-cxf",
   "jaxrs-cxf-cdi",

@@ -7,10 +7,10 @@ import org.openapitools.model.ResponseTimeMapProperties;
 
 @Canonical
 class ResponseTimeMapWktResult {
-    String searchId = 
-
-    String shape = 
-
+    
+    String searchId
+    
+    String shape
+    
     ResponseTimeMapProperties properties = null
-
 }

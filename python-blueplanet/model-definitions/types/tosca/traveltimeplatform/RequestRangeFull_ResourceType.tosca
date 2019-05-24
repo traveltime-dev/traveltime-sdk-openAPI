@@ -1,0 +1,45 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestRangeFull"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestRangeFull"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestRangeFull {
+    title = RequestRangeFull
+    description = RequestRangeFull
+    derivedFrom = Root
+    properties {
+        enabled {
+          type =  boolean
+          description = ""
+          optional = true
+        }
+        max_results {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        width {
+          type =  integer
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestRangeFull {
+    title = RequestRangeFull
+    description = RequestRangeFull
+    implements = traveltimeplatform.resourceTypes.RequestRangeFull
+
+  }
+}

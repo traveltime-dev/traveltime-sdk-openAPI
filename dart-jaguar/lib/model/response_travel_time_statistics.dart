@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_travel_time_statistics.jser.dart';
 
 class ResponseTravelTimeStatistics {
@@ -18,7 +19,7 @@ class ResponseTravelTimeStatistics {
   
 
   ResponseTravelTimeStatistics(
-    
+      
 
 {
     
@@ -35,7 +36,8 @@ class ResponseTravelTimeStatistics {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTravelTimeStatisticsSerializer extends Serializer<ResponseTravelTimeStatistics> with _$ResponseTravelTimeStatisticsSerializer {
 
 }
+

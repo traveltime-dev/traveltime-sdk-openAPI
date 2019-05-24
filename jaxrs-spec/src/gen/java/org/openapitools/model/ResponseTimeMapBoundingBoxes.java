@@ -48,7 +48,7 @@ public class ResponseTimeMapBoundingBoxes   {
       return false;
     }
     ResponseTimeMapBoundingBoxes responseTimeMapBoundingBoxes = (ResponseTimeMapBoundingBoxes) o;
-    return Objects.equals(results, responseTimeMapBoundingBoxes.results);
+    return Objects.equals(this.results, responseTimeMapBoundingBoxes.results);
   }
 
   @Override

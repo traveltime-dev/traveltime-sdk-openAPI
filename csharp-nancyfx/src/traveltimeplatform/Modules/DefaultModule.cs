@@ -3,11 +3,11 @@ using Nancy;
 using Nancy.ModelBinding;
 using System.Collections.Generic;
 using Sharpility.Base;
-using traveltimeplatform..Models;
-using traveltimeplatform..Utils;
+using traveltimeplatform._.Models;
+using traveltimeplatform._.Utils;
 using NodaTime;
 
-namespace traveltimeplatform..Modules
+namespace traveltimeplatform._.Modules
 { 
 
     /// <summary>

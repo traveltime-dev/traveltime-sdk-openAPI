@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class Coords {
-    Double lat = 
-
-    Double lng = 
-
+    
+    Double lat
+    
+    Double lng
 }

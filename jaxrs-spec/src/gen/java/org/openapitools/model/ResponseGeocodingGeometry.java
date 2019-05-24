@@ -66,8 +66,8 @@ public class ResponseGeocodingGeometry   {
       return false;
     }
     ResponseGeocodingGeometry responseGeocodingGeometry = (ResponseGeocodingGeometry) o;
-    return Objects.equals(type, responseGeocodingGeometry.type) &&
-        Objects.equals(coordinates, responseGeocodingGeometry.coordinates);
+    return Objects.equals(this.type, responseGeocodingGeometry.type) &&
+        Objects.equals(this.coordinates, responseGeocodingGeometry.coordinates);
   }
 
   @Override

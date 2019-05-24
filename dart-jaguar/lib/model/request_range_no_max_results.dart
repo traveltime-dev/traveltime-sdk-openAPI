@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_range_no_max_results.jser.dart';
 
 class RequestRangeNoMaxResults {
@@ -12,7 +13,7 @@ class RequestRangeNoMaxResults {
   
 
   RequestRangeNoMaxResults(
-    
+      
 
 {
     
@@ -27,7 +28,8 @@ class RequestRangeNoMaxResults {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestRangeNoMaxResultsSerializer extends Serializer<RequestRangeNoMaxResults> with _$RequestRangeNoMaxResultsSerializer {
 
 }
+

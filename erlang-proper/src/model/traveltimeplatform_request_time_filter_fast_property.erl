@@ -11,4 +11,4 @@
 
 traveltimeplatform_request_time_filter_fast_property() ->
   elements([<<"travel_time">>, <<"fares">>]).
-  
+

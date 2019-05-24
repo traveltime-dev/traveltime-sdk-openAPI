@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeFilterPostcodesProperty"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodesProperty"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodesProperty {
+    title = RequestTimeFilterPostcodesProperty
+    description = RequestTimeFilterPostcodesProperty
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodesProperty {
+    title = RequestTimeFilterPostcodesProperty
+    description = RequestTimeFilterPostcodesProperty
+    implements = traveltimeplatform.resourceTypes.RequestTimeFilterPostcodesProperty
+
+  }
+}

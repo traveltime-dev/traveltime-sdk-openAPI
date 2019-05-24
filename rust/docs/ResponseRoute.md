@@ -1,6 +1,7 @@
 # ResponseRoute
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departure_time** | **String** |  | 

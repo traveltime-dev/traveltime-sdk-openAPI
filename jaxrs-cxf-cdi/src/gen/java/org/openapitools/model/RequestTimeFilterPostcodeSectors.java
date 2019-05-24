@@ -17,7 +17,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestTimeFilterPostcodeSectors   {
   
   private List<RequestTimeFilterPostcodeSectorsDepartureSearch> departureSearches = null;

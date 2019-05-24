@@ -34,7 +34,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch  {
   private Integer travelTime;
 
   @ApiModelProperty(required = true, value = "")
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @ApiModelProperty(required = true, value = "")
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();

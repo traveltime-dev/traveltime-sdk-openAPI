@@ -44,13 +44,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import 'package:openapi/api.dart';
 
 // TODO Configure API key authorization: ApiKey
-//openapi.api.Configuration.apiKey{'X-Api-Key'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Api-Key'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApiKey').apiKeyPrefix = 'Bearer';
 // TODO Configure API key authorization: ApplicationId
-//openapi.api.Configuration.apiKey{'X-Application-Id'} = 'YOUR_API_KEY';
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKey = 'YOUR_API_KEY';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-//openapi.api.Configuration.apiKeyPrefix{'X-Application-Id'} = "Bearer";
+//defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
 var api_instance = new DefaultApi();
 var focusLat = 1.2; // double | 

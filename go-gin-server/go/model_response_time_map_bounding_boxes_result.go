@@ -16,5 +16,5 @@ type ResponseTimeMapBoundingBoxesResult struct {
 
 	BoundingBoxes []ResponseBoundingBox `json:"bounding_boxes"`
 
-	Properties *ResponseTimeMapProperties `json:"properties"`
+	Properties ResponseTimeMapProperties `json:"properties"`
 }

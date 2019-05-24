@@ -42,5 +42,5 @@ type ResponseGeocodingProperties struct {
 
 	Postcode string `json:"postcode,omitempty"`
 
-	Features *ResponseMapInfoFeatures `json:"features,omitempty"`
+	Features ResponseMapInfoFeatures `json:"features,omitempty"`
 }

@@ -16,17 +16,32 @@ class RequestTimeFilter {
 
   RequestTimeFilter.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    locations = RequestLocation.listFromJson(json['locations']);
-    departureSearches = RequestTimeFilterDepartureSearch.listFromJson(json['departure_searches']);
-    arrivalSearches = RequestTimeFilterArrivalSearch.listFromJson(json['arrival_searches']);
+    if (json['locations'] == null) {
+      locations = null;
+    } else {
+      locations = RequestLocation.listFromJson(json['locations']);
+    }
+    if (json['departure_searches'] == null) {
+      departureSearches = null;
+    } else {
+      departureSearches = RequestTimeFilterDepartureSearch.listFromJson(json['departure_searches']);
+    }
+    if (json['arrival_searches'] == null) {
+      arrivalSearches = null;
+    } else {
+      arrivalSearches = RequestTimeFilterArrivalSearch.listFromJson(json['arrival_searches']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'locations': locations,
-      'departure_searches': departureSearches,
-      'arrival_searches': arrivalSearches
-    };
+    Map <String, dynamic> json = {};
+    if (locations != null)
+      json['locations'] = locations;
+    if (departureSearches != null)
+      json['departure_searches'] = departureSearches;
+    if (arrivalSearches != null)
+      json['arrival_searches'] = arrivalSearches;
+    return json;
   }
 
   static List<RequestTimeFilter> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class RequestTimeFilter {
 
   static Map<String, RequestTimeFilter> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestTimeFilter>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilter.fromJson(value));
     }
     return map;

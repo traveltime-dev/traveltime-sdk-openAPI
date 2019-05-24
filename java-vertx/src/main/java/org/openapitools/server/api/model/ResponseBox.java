@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseBox   {
   
-  private Double minLat = ;
-  private Double maxLat = ;
-  private Double minLng = ;
-  private Double maxLng = ;
+  private Double minLat;
+  private Double maxLat;
+  private Double minLng;
+  private Double maxLng;
 
   public ResponseBox () {
 

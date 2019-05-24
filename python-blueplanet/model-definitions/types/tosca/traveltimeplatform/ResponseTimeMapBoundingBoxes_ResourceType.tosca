@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeMapBoundingBoxes"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeMapBoundingBoxes"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeMapBoundingBoxesResult = traveltimeplatform.resourceTypes.ResponseTimeMapBoundingBoxesResult
+}
+resourceTypes {
+
+  ResponseTimeMapBoundingBoxes {
+    title = ResponseTimeMapBoundingBoxes
+    description = ResponseTimeMapBoundingBoxes
+    derivedFrom = Root
+    properties {
+        results {
+          type = array
+          items.type = ResponseTimeMapBoundingBoxesResult
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeMapBoundingBoxes {
+    title = ResponseTimeMapBoundingBoxes
+    description = ResponseTimeMapBoundingBoxes
+    implements = traveltimeplatform.resourceTypes.ResponseTimeMapBoundingBoxes
+
+  }
+}

@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseSupportedLocation   {
   
-  private String id = ;
-  private String mapName = ;
+  private String id;
+  private String mapName;
 
   public ResponseSupportedLocation () {
 

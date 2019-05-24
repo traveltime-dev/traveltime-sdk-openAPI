@@ -10,8 +10,8 @@ import org.openapitools.model.RequestTimeFilterPostcodesDepartureSearch;
 
 @Canonical
 class RequestTimeFilterPostcodes {
+    
     List<RequestTimeFilterPostcodesDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterPostcodesDepartureSearch>()
-
+    
     List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterPostcodesArrivalSearch>()
-
 }

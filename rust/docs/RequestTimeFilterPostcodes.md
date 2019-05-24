@@ -1,6 +1,7 @@
 # RequestTimeFilterPostcodes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departure_searches** | [**Vec<::models::RequestTimeFilterPostcodesDepartureSearch>**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] 

@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_supported_location.dart';
+
 part 'response_supported_locations.jser.dart';
 
 class ResponseSupportedLocations {
@@ -13,7 +15,7 @@ class ResponseSupportedLocations {
   
 
   ResponseSupportedLocations(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class ResponseSupportedLocations {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseSupportedLocationsSerializer extends Serializer<ResponseSupportedLocations> with _$ResponseSupportedLocationsSerializer {
 
 }
+

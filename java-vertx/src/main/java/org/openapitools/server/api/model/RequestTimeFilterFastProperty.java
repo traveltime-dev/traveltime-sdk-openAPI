@@ -30,12 +30,12 @@ public enum RequestTimeFilterFastProperty {
     return String.valueOf(value);
   }
 
-  public static RequestTimeFilterFastProperty fromValue(String text) {
+  public static RequestTimeFilterFastProperty fromValue(String value) {
     for (RequestTimeFilterFastProperty b : RequestTimeFilterFastProperty.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }

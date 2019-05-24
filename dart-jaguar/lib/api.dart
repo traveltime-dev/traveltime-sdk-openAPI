@@ -1,11 +1,12 @@
 library openapi.api;
 
-import 'package:http/http.dart';
+import 'package:http/io_client.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:jaguar_retrofit/jaguar_retrofit.dart';
 import 'package:openapi/auth/api_key_auth.dart';
 import 'package:openapi/auth/basic_auth.dart';
 import 'package:openapi/auth/oauth.dart';
+import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 
 import 'package:openapi/api/default_api.dart';
 
@@ -103,7 +104,8 @@ import 'package:openapi/model/response_transportation_mode.dart';
 import 'package:openapi/model/response_travel_time_statistics.dart';
 
 
-final jsonJaguarRepo = JsonRepo()
+
+final _jsonJaguarRepo = JsonRepo()
 ..add(CoordsSerializer())
 ..add(RequestArrivalTimePeriodSerializer())
 ..add(RequestLocationSerializer())
@@ -197,6 +199,11 @@ final jsonJaguarRepo = JsonRepo()
 ..add(ResponseTransportationModeSerializer())
 ..add(ResponseTravelTimeStatisticsSerializer())
 ;
+final Map<String, CodecRepo> _converters = {
+    MimeTypes.json: _jsonJaguarRepo,
+};
+
+
 
 final _defaultInterceptors = [OAuthInterceptor(), BasicAuthInterceptor(), ApiKeyAuthInterceptor()];
 
@@ -204,11 +211,12 @@ class JaguarApiGen {
     List<Interceptor> interceptors;
     String basePath = "https://api.traveltimeapp.com";
     Route _baseRoute;
+    final Duration timeout;
 
     /**
     * Add custom global interceptors, put overrideInterceptors to true to set your interceptors only (auth interceptors will not be added)
     */
-    JaguarApiGen({List<Interceptor> interceptors, bool overrideInterceptors = false, String baseUrl}) {
+    JaguarApiGen({List<Interceptor> interceptors, bool overrideInterceptors = false, String baseUrl, this.timeout = const Duration(minutes: 2)}) {
         _baseRoute = Route(baseUrl ?? basePath).withClient(globalClient ?? IOClient());
         if(interceptors == null) {
             this.interceptors = _defaultInterceptors;
@@ -243,14 +251,14 @@ class JaguarApiGen {
     * Get DefaultApi instance, base route and serializer can be overridden by a given but be careful,
     * by doing that all interceptors will not be executed
     */
-    DefaultApi getDefaultApi({Route base, SerializerRepo serializers}) {
+    DefaultApi getDefaultApi({Route base, Map<String, CodecRepo> converters}) {
         if(base == null) {
             base = _baseRoute;
         }
-        if(serializers == null) {
-            serializers = jsonJaguarRepo;
+        if(converters == null) {
+            converters = _converters;
         }
-        return DefaultApi(base: base, serializers: serializers);
+        return DefaultApi(base: base, converters: converters, timeout: timeout);
     }
 
     

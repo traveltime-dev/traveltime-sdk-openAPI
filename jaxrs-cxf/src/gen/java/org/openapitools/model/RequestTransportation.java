@@ -37,13 +37,13 @@ public enum TypeEnum {
         return String.valueOf(value);
     }
 
-    public static TypeEnum fromValue(String v) {
+    public static TypeEnum fromValue(String value) {
         for (TypeEnum b : TypeEnum.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 

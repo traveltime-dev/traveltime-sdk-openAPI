@@ -16,5 +16,5 @@ type ResponseTimeMapWktResult struct {
 
 	Shape string `json:"shape"`
 
-	Properties *ResponseTimeMapProperties `json:"properties"`
+	Properties ResponseTimeMapProperties `json:"properties"`
 }

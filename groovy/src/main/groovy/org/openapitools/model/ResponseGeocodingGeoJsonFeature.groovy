@@ -8,10 +8,10 @@ import org.openapitools.model.ResponseGeocodingProperties;
 
 @Canonical
 class ResponseGeocodingGeoJsonFeature {
-    String type = 
-
+    
+    String type
+    
     ResponseGeocodingGeometry geometry = null
-
+    
     ResponseGeocodingProperties properties = null
-
 }

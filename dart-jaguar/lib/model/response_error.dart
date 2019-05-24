@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_error.jser.dart';
 
 class ResponseError {
@@ -21,7 +22,7 @@ class ResponseError {
   
 
   ResponseError(
-    
+      
 
 {
      this.httpStatus = null,  
@@ -39,7 +40,8 @@ class ResponseError {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseErrorSerializer extends Serializer<ResponseError> with _$ResponseErrorSerializer {
 
 }
+

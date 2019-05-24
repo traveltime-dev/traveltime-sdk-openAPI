@@ -1,0 +1,21 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "http_status" },
+      {"model": "error_code" },
+      {"model": "description" },
+      {"model": "documentation_link" },
+      {"model": "additional_info" },
+    ]
+  }]
+}

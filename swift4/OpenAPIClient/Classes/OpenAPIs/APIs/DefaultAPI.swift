@@ -24,7 +24,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - GET /v4/geocoding/reverse
      - API Key:
@@ -73,7 +72,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - GET /v4/geocoding/search
      - API Key:
@@ -120,7 +118,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - GET /v4/map-info
      - API Key:
@@ -157,7 +154,6 @@ open class DefaultAPI {
             completion(response?.body, error)
         }
     }
-
 
     /**
      - POST /v4/routes
@@ -197,7 +193,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - POST /v4/supported-locations
      - API Key:
@@ -235,7 +230,6 @@ open class DefaultAPI {
             completion(response?.body, error)
         }
     }
-
 
     /**
      - POST /v4/time-filter
@@ -275,7 +269,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - POST /v4/time-filter/fast
      - API Key:
@@ -313,7 +306,6 @@ open class DefaultAPI {
             completion(response?.body, error)
         }
     }
-
 
     /**
      - POST /v4/time-filter/postcode-districts
@@ -353,7 +345,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - POST /v4/time-filter/postcode-sectors
      - API Key:
@@ -392,7 +383,6 @@ open class DefaultAPI {
         }
     }
 
-
     /**
      - POST /v4/time-filter/postcodes
      - API Key:
@@ -430,7 +420,6 @@ open class DefaultAPI {
             completion(response?.body, error)
         }
     }
-
 
     /**
      - POST /v4/time-map

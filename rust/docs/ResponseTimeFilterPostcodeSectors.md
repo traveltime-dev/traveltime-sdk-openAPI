@@ -1,6 +1,7 @@
 # ResponseTimeFilterPostcodeSectors
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**Vec<::models::ResponseTimeFilterPostcodeSectorsResult>**](ResponseTimeFilterPostcodeSectorsResult.md) |  | 

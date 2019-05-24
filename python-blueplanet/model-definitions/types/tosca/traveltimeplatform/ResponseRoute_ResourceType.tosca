@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseRoute"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseRoute"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseRoutePart = traveltimeplatform.resourceTypes.ResponseRoutePart
+}
+resourceTypes {
+
+  ResponseRoute {
+    title = ResponseRoute
+    description = ResponseRoute
+    derivedFrom = Root
+    properties {
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        arrival_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        parts {
+          type = array
+          items.type = ResponseRoutePart
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseRoute {
+    title = ResponseRoute
+    description = ResponseRoute
+    implements = traveltimeplatform.resourceTypes.ResponseRoute
+
+  }
+}

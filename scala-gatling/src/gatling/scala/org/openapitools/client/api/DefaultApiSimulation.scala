@@ -82,8 +82,8 @@ class DefaultApiSimulation extends Simulation {
         .exec(http("geocodingReverseSearch")
         .httpRequest("GET","/v4/geocoding/reverse")
         .queryParam("focus.lat","${focus.lat}")
-        .queryParam("focus.lng","${focus.lng}")
         .queryParam("within.country","${within.country}")
+        .queryParam("focus.lng","${focus.lng}")
 )
 
     // Run scngeocodingReverseSearch with warm up and reach a constant rate for entire duration
@@ -98,10 +98,10 @@ class DefaultApiSimulation extends Simulation {
         .feed(geocodingSearchQUERYFeeder)
         .exec(http("geocodingSearch")
         .httpRequest("GET","/v4/geocoding/search")
-        .queryParam("focus.lng","${focus.lng}")
-        .queryParam("focus.lat","${focus.lat}")
         .queryParam("within.country","${within.country}")
+        .queryParam("focus.lng","${focus.lng}")
         .queryParam("query","${query}")
+        .queryParam("focus.lat","${focus.lat}")
 )
 
     // Run scngeocodingSearch with warm up and reach a constant rate for entire duration

@@ -317,22 +317,22 @@ public class ResponseGeocodingProperties   {
       return false;
     }
     ResponseGeocodingProperties responseGeocodingProperties = (ResponseGeocodingProperties) o;
-    return Objects.equals(name, responseGeocodingProperties.name) &&
-        Objects.equals(label, responseGeocodingProperties.label) &&
-        Objects.equals(score, responseGeocodingProperties.score) &&
-        Objects.equals(houseNumber, responseGeocodingProperties.houseNumber) &&
-        Objects.equals(street, responseGeocodingProperties.street) &&
-        Objects.equals(region, responseGeocodingProperties.region) &&
-        Objects.equals(regionCode, responseGeocodingProperties.regionCode) &&
-        Objects.equals(neighbourhood, responseGeocodingProperties.neighbourhood) &&
-        Objects.equals(county, responseGeocodingProperties.county) &&
-        Objects.equals(macroregion, responseGeocodingProperties.macroregion) &&
-        Objects.equals(city, responseGeocodingProperties.city) &&
-        Objects.equals(country, responseGeocodingProperties.country) &&
-        Objects.equals(countryCode, responseGeocodingProperties.countryCode) &&
-        Objects.equals(continent, responseGeocodingProperties.continent) &&
-        Objects.equals(postcode, responseGeocodingProperties.postcode) &&
-        Objects.equals(features, responseGeocodingProperties.features);
+    return Objects.equals(this.name, responseGeocodingProperties.name) &&
+        Objects.equals(this.label, responseGeocodingProperties.label) &&
+        Objects.equals(this.score, responseGeocodingProperties.score) &&
+        Objects.equals(this.houseNumber, responseGeocodingProperties.houseNumber) &&
+        Objects.equals(this.street, responseGeocodingProperties.street) &&
+        Objects.equals(this.region, responseGeocodingProperties.region) &&
+        Objects.equals(this.regionCode, responseGeocodingProperties.regionCode) &&
+        Objects.equals(this.neighbourhood, responseGeocodingProperties.neighbourhood) &&
+        Objects.equals(this.county, responseGeocodingProperties.county) &&
+        Objects.equals(this.macroregion, responseGeocodingProperties.macroregion) &&
+        Objects.equals(this.city, responseGeocodingProperties.city) &&
+        Objects.equals(this.country, responseGeocodingProperties.country) &&
+        Objects.equals(this.countryCode, responseGeocodingProperties.countryCode) &&
+        Objects.equals(this.continent, responseGeocodingProperties.continent) &&
+        Objects.equals(this.postcode, responseGeocodingProperties.postcode) &&
+        Objects.equals(this.features, responseGeocodingProperties.features);
   }
 
   @Override

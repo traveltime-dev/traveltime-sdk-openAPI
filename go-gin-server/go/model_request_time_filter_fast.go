@@ -14,5 +14,5 @@ type RequestTimeFilterFast struct {
 
 	Locations []RequestLocation `json:"locations"`
 
-	ArrivalSearches *RequestTimeFilterFastArrivalSearches `json:"arrival_searches"`
+	ArrivalSearches RequestTimeFilterFastArrivalSearches `json:"arrival_searches"`
 }

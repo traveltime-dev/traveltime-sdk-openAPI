@@ -1,6 +1,7 @@
 # ResponseDistanceBreakdownItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **mode** | [***::models::ResponseTransportationMode**](ResponseTransportationMode.md) |  | 

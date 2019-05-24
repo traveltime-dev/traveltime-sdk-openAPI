@@ -87,9 +87,9 @@ public class ResponseTimeMapBoundingBoxesResult   {
       return false;
     }
     ResponseTimeMapBoundingBoxesResult responseTimeMapBoundingBoxesResult = (ResponseTimeMapBoundingBoxesResult) o;
-    return Objects.equals(searchId, responseTimeMapBoundingBoxesResult.searchId) &&
-        Objects.equals(boundingBoxes, responseTimeMapBoundingBoxesResult.boundingBoxes) &&
-        Objects.equals(properties, responseTimeMapBoundingBoxesResult.properties);
+    return Objects.equals(this.searchId, responseTimeMapBoundingBoxesResult.searchId) &&
+        Objects.equals(this.boundingBoxes, responseTimeMapBoundingBoxesResult.boundingBoxes) &&
+        Objects.equals(this.properties, responseTimeMapBoundingBoxesResult.properties);
   }
 
   @Override

@@ -9,8 +9,8 @@ import org.openapitools.model.ResponseTimeFilterPostcodeSector;
 
 @Canonical
 class ResponseTimeFilterPostcodeSectorsResult {
-    String searchId = 
-
+    
+    String searchId
+    
     List<ResponseTimeFilterPostcodeSector> sectors = new ArrayList<ResponseTimeFilterPostcodeSector>()
-
 }

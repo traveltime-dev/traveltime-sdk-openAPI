@@ -11,16 +11,16 @@ import org.openapitools.model.RequestTransportation;
 
 @Canonical
 class RequestTimeFilterPostcodesArrivalSearch {
-    String id = 
-
+    
+    String id
+    
     RequestTransportation transportation = null
-
-    Integer travelTime = 
-
-    Date arrivalTime = 
-
+    
+    Integer travelTime
+    
+    Date arrivalTime
+    
     List<RequestTimeFilterPostcodesProperty> properties = new ArrayList<RequestTimeFilterPostcodesProperty>()
-
+    
     RequestRangeFull range = null
-
 }

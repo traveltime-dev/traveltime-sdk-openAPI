@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestRangeNoMaxResults   {
   
-  private Boolean enabled = ;
-  private Integer width = ;
+  private Boolean enabled;
+  private Integer width;
 
   public RequestRangeNoMaxResults () {
 

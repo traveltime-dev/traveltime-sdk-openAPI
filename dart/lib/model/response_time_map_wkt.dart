@@ -12,13 +12,18 @@ class ResponseTimeMapWkt {
 
   ResponseTimeMapWkt.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    results = ResponseTimeMapWktResult.listFromJson(json['results']);
+    if (json['results'] == null) {
+      results = null;
+    } else {
+      results = ResponseTimeMapWktResult.listFromJson(json['results']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'results': results
-    };
+    Map <String, dynamic> json = {};
+    if (results != null)
+      json['results'] = results;
+    return json;
   }
 
   static List<ResponseTimeMapWkt> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseTimeMapWkt {
 
   static Map<String, ResponseTimeMapWkt> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeMapWkt>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapWkt.fromJson(value));
     }
     return map;

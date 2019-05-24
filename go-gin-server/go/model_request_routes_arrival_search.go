@@ -22,11 +22,11 @@ type RequestRoutesArrivalSearch struct {
 
 	ArrivalLocationId string `json:"arrival_location_id"`
 
-	Transportation *RequestTransportation `json:"transportation"`
+	Transportation RequestTransportation `json:"transportation"`
 
 	ArrivalTime time.Time `json:"arrival_time"`
 
 	Properties []RequestRoutesProperty `json:"properties"`
 
-	Range *RequestRangeFull `json:"range,omitempty"`
+	Range RequestRangeFull `json:"range,omitempty"`
 }

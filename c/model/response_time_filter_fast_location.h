@@ -8,27 +8,27 @@
 #define _response_time_filter_fast_location_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "response_time_filter_fast_properties.h"
 
 
 
-
 typedef struct response_time_filter_fast_location_t {
-        char *id; //no enum string
-        list_t *properties; //nonprimitive container
+    char *id; // string
+    list_t *properties; //nonprimitive container
 
 } response_time_filter_fast_location_t;
 
 response_time_filter_fast_location_t *response_time_filter_fast_location_create(
-        char *id,
-        list_t *properties
+    char *id,
+    list_t *properties
 );
 
 void response_time_filter_fast_location_free(response_time_filter_fast_location_t *response_time_filter_fast_location);
 
-response_time_filter_fast_location_t *response_time_filter_fast_location_parseFromJSON(char *jsonString);
+response_time_filter_fast_location_t *response_time_filter_fast_location_parseFromJSON(cJSON *response_time_filter_fast_locationJSON);
 
 cJSON *response_time_filter_fast_location_convertToJSON(response_time_filter_fast_location_t *response_time_filter_fast_location);
 

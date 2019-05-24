@@ -7,8 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class Coords   {
   
-  private Double lat = ;
-  private Double lng = ;
+  private Double lat;
+  private Double lng;
 
   public Coords () {
 

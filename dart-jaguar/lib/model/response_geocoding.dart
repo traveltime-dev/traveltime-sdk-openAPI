@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_geocoding_geo_json_feature.dart';
+
 part 'response_geocoding.jser.dart';
 
 class ResponseGeocoding {
@@ -13,7 +15,7 @@ class ResponseGeocoding {
   
 
   ResponseGeocoding(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class ResponseGeocoding {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseGeocodingSerializer extends Serializer<ResponseGeocoding> with _$ResponseGeocodingSerializer {
 
 }
+

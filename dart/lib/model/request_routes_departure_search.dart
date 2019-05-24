@@ -24,25 +24,60 @@ class RequestRoutesDepartureSearch {
 
   RequestRoutesDepartureSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    id = json['id'];
-    departureLocationId = json['departure_location_id'];
-    arrivalLocationIds = ((json['arrival_location_ids'] ?? []) as List).map((item) => item as String).toList();
-    transportation = new RequestTransportation.fromJson(json['transportation']);
-    departureTime = json['departure_time'] == null ? null : DateTime.parse(json['departure_time']);
-    properties = RequestRoutesProperty.listFromJson(json['properties']);
-    range = new RequestRangeFull.fromJson(json['range']);
+    if (json['id'] == null) {
+      id = null;
+    } else {
+          id = json['id'];
+    }
+    if (json['departure_location_id'] == null) {
+      departureLocationId = null;
+    } else {
+          departureLocationId = json['departure_location_id'];
+    }
+    if (json['arrival_location_ids'] == null) {
+      arrivalLocationIds = null;
+    } else {
+      arrivalLocationIds = (json['arrival_location_ids'] as List).cast<String>();
+    }
+    if (json['transportation'] == null) {
+      transportation = null;
+    } else {
+      transportation = new RequestTransportation.fromJson(json['transportation']);
+    }
+    if (json['departure_time'] == null) {
+      departureTime = null;
+    } else {
+      departureTime = DateTime.parse(json['departure_time']);
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = RequestRoutesProperty.listFromJson(json['properties']);
+    }
+    if (json['range'] == null) {
+      range = null;
+    } else {
+      range = new RequestRangeFull.fromJson(json['range']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'departure_location_id': departureLocationId,
-      'arrival_location_ids': arrivalLocationIds,
-      'transportation': transportation,
-      'departure_time': departureTime == null ? '' : departureTime.toUtc().toIso8601String(),
-      'properties': properties,
-      'range': range
-    };
+    Map <String, dynamic> json = {};
+    if (id != null)
+      json['id'] = id;
+    if (departureLocationId != null)
+      json['departure_location_id'] = departureLocationId;
+    if (arrivalLocationIds != null)
+      json['arrival_location_ids'] = arrivalLocationIds;
+    if (transportation != null)
+      json['transportation'] = transportation;
+    if (departureTime != null)
+      json['departure_time'] = departureTime == null ? null : departureTime.toUtc().toIso8601String();
+    if (properties != null)
+      json['properties'] = properties;
+    if (range != null)
+      json['range'] = range;
+    return json;
   }
 
   static List<RequestRoutesDepartureSearch> listFromJson(List<dynamic> json) {
@@ -51,7 +86,7 @@ class RequestRoutesDepartureSearch {
 
   static Map<String, RequestRoutesDepartureSearch> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestRoutesDepartureSearch>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestRoutesDepartureSearch.fromJson(value));
     }
     return map;

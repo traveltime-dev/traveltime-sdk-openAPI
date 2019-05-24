@@ -5,7 +5,7 @@ using System.Text;
 using Sharpility.Extensions;
 using NodaTime;
 
-namespace traveltimeplatform..Models
+namespace traveltimeplatform._.Models
 {
     /// <summary>
     /// ResponseRoutePart
@@ -25,7 +25,7 @@ namespace traveltimeplatform..Models
         /// <summary>
         /// Mode
         /// </summary>
-        public ResponseTransportationMode? Mode { get; private set; }
+        public ResponseTransportationMode Mode { get; private set; }
 
         /// <summary>
         /// Directions
@@ -102,7 +102,7 @@ namespace traveltimeplatform..Models
         {
         }
 
-        private ResponseRoutePart(string Id, TypeEnum? Type, ResponseTransportationMode? Mode, string Directions, int? Distance, int? TravelTime, List<Coords> Coords, string Direction, string Road, string Turn, string Line, string DepartureStation, string ArrivalStation, string DepartsAt, string ArrivesAt, int? NumStops)
+        private ResponseRoutePart(string Id, TypeEnum? Type, ResponseTransportationMode Mode, string Directions, int? Distance, int? TravelTime, List<Coords> Coords, string Direction, string Road, string Turn, string Line, string DepartureStation, string ArrivalStation, string DepartsAt, string ArrivesAt, int? NumStops)
         {
             
             this.Id = Id;
@@ -223,7 +223,7 @@ namespace traveltimeplatform..Models
         {
             private string _Id;
             private TypeEnum? _Type;
-            private ResponseTransportationMode? _Mode;
+            private ResponseTransportationMode _Mode;
             private string _Directions;
             private int? _Distance;
             private int? _TravelTime;
@@ -271,7 +271,7 @@ namespace traveltimeplatform..Models
             /// Sets value for ResponseRoutePart.Mode property.
             /// </summary>
             /// <param name="value">Mode</param>
-            public ResponseRoutePartBuilder Mode(ResponseTransportationMode? value)
+            public ResponseRoutePartBuilder Mode(ResponseTransportationMode value)
             {
                 _Mode = value;
                 return this;
@@ -470,6 +470,5 @@ namespace traveltimeplatform..Models
 
         
         public enum TypeEnum { Basic, StartEnd, Road, PublicTransport };
-        public enum ResponseTransportationMode { Car, Parking, Boarding, Walk, Bike, Train, RailNational, RailOverground, RailUnderground, RailDlr, Bus, CableCar, Plane, Ferry, Coach };
     }
 }

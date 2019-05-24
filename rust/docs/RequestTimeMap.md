@@ -1,6 +1,7 @@
 # RequestTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departure_searches** | [**Vec<::models::RequestTimeMapDepartureSearch>**](RequestTimeMapDepartureSearch.md) |  | [optional] 

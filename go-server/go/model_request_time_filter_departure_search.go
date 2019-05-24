@@ -22,7 +22,7 @@ type RequestTimeFilterDepartureSearch struct {
 
 	ArrivalLocationIds []string `json:"arrival_location_ids"`
 
-	Transportation *RequestTransportation `json:"transportation"`
+	Transportation RequestTransportation `json:"transportation"`
 
 	TravelTime int32 `json:"travel_time"`
 
@@ -30,5 +30,5 @@ type RequestTimeFilterDepartureSearch struct {
 
 	Properties []RequestTimeFilterProperty `json:"properties"`
 
-	Range *RequestRangeFull `json:"range,omitempty"`
+	Range RequestRangeFull `json:"range,omitempty"`
 }

@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_routes_property.dart';
+
 import 'package:openapi/model/request_transportation.dart';
+
 import 'package:openapi/model/request_range_full.dart';
+
 part 'request_routes_arrival_search.jser.dart';
 
 class RequestRoutesArrivalSearch {
@@ -30,7 +34,7 @@ class RequestRoutesArrivalSearch {
   
 
   RequestRoutesArrivalSearch(
-    
+      
 
 {
     
@@ -50,7 +54,8 @@ class RequestRoutesArrivalSearch {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestRoutesArrivalSearchSerializer extends Serializer<RequestRoutesArrivalSearch> with _$RequestRoutesArrivalSearchSerializer {
 
 }
+

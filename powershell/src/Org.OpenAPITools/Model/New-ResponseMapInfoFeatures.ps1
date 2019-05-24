@@ -4,10 +4,10 @@ function New-ResponseMapInfoFeatures {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.ResponseMapInfoFeaturesPublicTransport]]
         ${publicUnderscoretransport},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Boolean]
         ${fares},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Boolean]
         ${postcodes}
     )

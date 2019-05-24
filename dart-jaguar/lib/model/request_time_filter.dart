@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_filter_arrival_search.dart';
+
 import 'package:openapi/model/request_time_filter_departure_search.dart';
+
 import 'package:openapi/model/request_location.dart';
+
 part 'request_time_filter.jser.dart';
 
 class RequestTimeFilter {
@@ -18,7 +22,7 @@ class RequestTimeFilter {
   
 
   RequestTimeFilter(
-    
+      
 
 {
     
@@ -34,7 +38,8 @@ class RequestTimeFilter {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterSerializer extends Serializer<RequestTimeFilter> with _$RequestTimeFilterSerializer {
 
 }
+

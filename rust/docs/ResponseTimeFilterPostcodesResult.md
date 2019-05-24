@@ -1,6 +1,7 @@
 # ResponseTimeFilterPostcodesResult
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_id** | **String** |  | 

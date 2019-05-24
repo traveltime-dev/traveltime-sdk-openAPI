@@ -11,10 +11,10 @@ import org.openapitools.model.RequestTimeFilterDepartureSearch;
 
 @Canonical
 class RequestTimeFilter {
+    
     List<RequestLocation> locations = new ArrayList<RequestLocation>()
-
+    
     List<RequestTimeFilterDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterDepartureSearch>()
-
+    
     List<RequestTimeFilterArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterArrivalSearch>()
-
 }

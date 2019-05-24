@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseTimeMapWktResult;
 
 @Canonical
 class ResponseTimeMapWkt {
+    
     List<ResponseTimeMapWktResult> results = new ArrayList<ResponseTimeMapWktResult>()
-
 }

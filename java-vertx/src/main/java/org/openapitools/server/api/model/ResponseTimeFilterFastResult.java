@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseTimeFilterFastLocation;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeFilterFastResult   {
   
-  private String searchId = ;
+  private String searchId;
   private List<ResponseTimeFilterFastLocation> locations = new ArrayList<>();
   private List<String> unreachable = new ArrayList<>();
 

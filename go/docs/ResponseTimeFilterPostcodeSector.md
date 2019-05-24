@@ -1,6 +1,7 @@
 # ResponseTimeFilterPostcodeSector
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | [**String**](String.md) |  | 

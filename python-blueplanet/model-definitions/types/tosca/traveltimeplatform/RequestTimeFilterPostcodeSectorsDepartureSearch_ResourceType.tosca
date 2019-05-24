@@ -1,0 +1,69 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeFilterPostcodeSectorsDepartureSearch"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodeSectorsDepartureSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = traveltimeplatform.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodeSectorsProperty = traveltimeplatform.resourceTypes.RequestTimeFilterPostcodeSectorsProperty
+  RequestTransportation = traveltimeplatform.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodeSectorsDepartureSearch {
+    title = RequestTimeFilterPostcodeSectorsDepartureSearch
+    description = RequestTimeFilterPostcodeSectorsDepartureSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        reachable_postcodes_threshold {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodeSectorsProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodeSectorsDepartureSearch {
+    title = RequestTimeFilterPostcodeSectorsDepartureSearch
+    description = RequestTimeFilterPostcodeSectorsDepartureSearch
+    implements = traveltimeplatform.resourceTypes.RequestTimeFilterPostcodeSectorsDepartureSearch
+
+  }
+}

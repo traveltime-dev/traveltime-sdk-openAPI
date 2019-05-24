@@ -28,13 +28,13 @@ public enum RequestTimeFilterPostcodesProperty {
   }
 
   @JsonCreator
-  public static RequestTimeFilterPostcodesProperty fromValue(String text) {
+  public static RequestTimeFilterPostcodesProperty fromValue(String value) {
     for (RequestTimeFilterPostcodesProperty b : RequestTimeFilterPostcodesProperty.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

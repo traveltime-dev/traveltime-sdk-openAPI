@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseRoutesLocation;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseRoutesResult   {
   
-  private String searchId = ;
+  private String searchId;
   private List<ResponseRoutesLocation> locations = new ArrayList<>();
   private List<String> unreachable = new ArrayList<>();
 

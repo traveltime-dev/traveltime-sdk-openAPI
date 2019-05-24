@@ -4,7 +4,7 @@ function New-ResponseTimeFilterFastProperties {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Int32]]
         ${travelUnderscoretime},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.ResponseFaresFast]]
         ${fares}
     )

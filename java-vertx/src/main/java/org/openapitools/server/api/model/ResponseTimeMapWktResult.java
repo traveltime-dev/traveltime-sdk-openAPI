@@ -8,8 +8,8 @@ import org.openapitools.server.api.model.ResponseTimeMapProperties;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeMapWktResult   {
   
-  private String searchId = ;
-  private String shape = ;
+  private String searchId;
+  private String shape;
   private ResponseTimeMapProperties properties = null;
 
   public ResponseTimeMapWktResult () {

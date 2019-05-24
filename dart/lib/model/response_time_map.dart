@@ -12,13 +12,18 @@ class ResponseTimeMap {
 
   ResponseTimeMap.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    results = ResponseTimeMapResult.listFromJson(json['results']);
+    if (json['results'] == null) {
+      results = null;
+    } else {
+      results = ResponseTimeMapResult.listFromJson(json['results']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'results': results
-    };
+    Map <String, dynamic> json = {};
+    if (results != null)
+      json['results'] = results;
+    return json;
   }
 
   static List<ResponseTimeMap> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseTimeMap {
 
   static Map<String, ResponseTimeMap> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeMap>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMap.fromJson(value));
     }
     return map;

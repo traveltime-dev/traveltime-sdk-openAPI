@@ -6,10 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class RequestRangeFull {
-    Boolean enabled = 
-
-    Integer maxResults = 
-
-    Integer width = 
-
+    
+    Boolean enabled
+    
+    Integer maxResults
+    
+    Integer width
 }

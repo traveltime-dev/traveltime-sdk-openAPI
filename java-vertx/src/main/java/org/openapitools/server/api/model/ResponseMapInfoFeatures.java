@@ -9,8 +9,8 @@ import org.openapitools.server.api.model.ResponseMapInfoFeaturesPublicTransport;
 public class ResponseMapInfoFeatures   {
   
   private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
-  private Boolean fares = ;
-  private Boolean postcodes = ;
+  private Boolean fares;
+  private Boolean postcodes;
 
   public ResponseMapInfoFeatures () {
 

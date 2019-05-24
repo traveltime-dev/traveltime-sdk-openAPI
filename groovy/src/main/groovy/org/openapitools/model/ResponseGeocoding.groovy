@@ -9,8 +9,8 @@ import org.openapitools.model.ResponseGeocodingGeoJsonFeature;
 
 @Canonical
 class ResponseGeocoding {
-    String type = 
-
+    
+    String type
+    
     List<ResponseGeocodingGeoJsonFeature> features = new ArrayList<ResponseGeocodingGeoJsonFeature>()
-
 }

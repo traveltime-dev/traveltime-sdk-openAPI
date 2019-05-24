@@ -1,0 +1,111 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseGeocodingProperties"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseGeocodingProperties"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseMapInfoFeatures = traveltimeplatform.resourceTypes.ResponseMapInfoFeatures
+}
+resourceTypes {
+
+  ResponseGeocodingProperties {
+    title = ResponseGeocodingProperties
+    description = ResponseGeocodingProperties
+    derivedFrom = Root
+    properties {
+        name {
+          type =  string
+          description = ""
+          optional = true
+        }
+        label {
+          type =  string
+          description = ""
+          optional = true
+        }
+        score {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        house_number {
+          type =  string
+          description = ""
+          optional = false
+        }
+        street {
+          type =  string
+          description = ""
+          optional = false
+        }
+        region {
+          type =  string
+          description = ""
+          optional = false
+        }
+        region_code {
+          type =  string
+          description = ""
+          optional = false
+        }
+        neighbourhood {
+          type =  string
+          description = ""
+          optional = false
+        }
+        county {
+          type =  string
+          description = ""
+          optional = false
+        }
+        macroregion {
+          type =  string
+          description = ""
+          optional = false
+        }
+        city {
+          type =  string
+          description = ""
+          optional = false
+        }
+        country {
+          type =  string
+          description = ""
+          optional = false
+        }
+        country_code {
+          type =  string
+          description = ""
+          optional = false
+        }
+        continent {
+          type =  string
+          description = ""
+          optional = false
+        }
+        postcode {
+          type =  string
+          description = ""
+          optional = false
+        }
+        features {
+          type = ResponseMapInfoFeatures
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseGeocodingProperties {
+    title = ResponseGeocodingProperties
+    description = ResponseGeocodingProperties
+    implements = traveltimeplatform.resourceTypes.ResponseGeocodingProperties
+
+  }
+}

@@ -7,8 +7,8 @@ import org.openapitools.model.ResponseFaresFast;
 
 @Canonical
 class ResponseTimeFilterFastProperties {
-    Integer travelTime = 
-
+    
+    Integer travelTime
+    
     ResponseFaresFast fares = null
-
 }

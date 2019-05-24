@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'coords.jser.dart';
 
 class Coords {
@@ -12,7 +13,7 @@ class Coords {
   
 
   Coords(
-    
+      
 
 {
     
@@ -27,7 +28,8 @@ class Coords {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class CoordsSerializer extends Serializer<Coords> with _$CoordsSerializer {
 
 }
+

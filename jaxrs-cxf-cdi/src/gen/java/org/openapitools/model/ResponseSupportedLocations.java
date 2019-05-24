@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseSupportedLocations   {
   
   private List<ResponseSupportedLocation> locations = new ArrayList<ResponseSupportedLocation>();

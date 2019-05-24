@@ -1,7 +1,9 @@
 
+
 # RequestRoutesDepartureSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -11,6 +13,7 @@ Name | Type | Description | Notes
 **departureTime** | [**Date**](Date.md) |  | 
 **properties** | [**List&lt;RequestRoutesProperty&gt;**](RequestRoutesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
+
 
 
 

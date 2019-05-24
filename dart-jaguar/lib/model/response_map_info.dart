@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_map_info_map.dart';
+
 part 'response_map_info.jser.dart';
 
 class ResponseMapInfo {
@@ -10,7 +12,7 @@ class ResponseMapInfo {
   
 
   ResponseMapInfo(
-    
+      
 
 {
     
@@ -24,7 +26,8 @@ class ResponseMapInfo {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseMapInfoSerializer extends Serializer<ResponseMapInfo> with _$ResponseMapInfoSerializer {
 
 }
+

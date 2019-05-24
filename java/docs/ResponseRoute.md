@@ -1,7 +1,9 @@
 
+
 # ResponseRoute
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departureTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 

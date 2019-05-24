@@ -12,13 +12,18 @@ class ResponseRoutes {
 
   ResponseRoutes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    results = ResponseRoutesResult.listFromJson(json['results']);
+    if (json['results'] == null) {
+      results = null;
+    } else {
+      results = ResponseRoutesResult.listFromJson(json['results']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'results': results
-    };
+    Map <String, dynamic> json = {};
+    if (results != null)
+      json['results'] = results;
+    return json;
   }
 
   static List<ResponseRoutes> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseRoutes {
 
   static Map<String, ResponseRoutes> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseRoutes>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseRoutes.fromJson(value));
     }
     return map;

@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestSupportedLocations   {
   
   private List<RequestLocation> locations = new ArrayList<RequestLocation>();

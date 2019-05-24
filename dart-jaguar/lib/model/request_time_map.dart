@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_map_arrival_search.dart';
+
 import 'package:openapi/model/request_time_map_departure_search.dart';
+
 import 'package:openapi/model/request_union_on_intersection.dart';
+
 part 'request_time_map.jser.dart';
 
 class RequestTimeMap {
@@ -21,7 +25,7 @@ class RequestTimeMap {
   
 
   RequestTimeMap(
-    
+      
 
 {
      this.departureSearches = const [],  
@@ -38,7 +42,8 @@ class RequestTimeMap {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeMapSerializer extends Serializer<RequestTimeMap> with _$RequestTimeMapSerializer {
 
 }
+

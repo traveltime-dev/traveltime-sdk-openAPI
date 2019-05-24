@@ -13,13 +13,18 @@ class RequestTransportationFast {
 
   RequestTransportationFast.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
+    if (json['type'] == null) {
+      type = null;
+    } else {
+          type = json['type'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'type': type
-    };
+    Map <String, dynamic> json = {};
+    if (type != null)
+      json['type'] = type;
+    return json;
   }
 
   static List<RequestTransportationFast> listFromJson(List<dynamic> json) {
@@ -28,7 +33,7 @@ class RequestTransportationFast {
 
   static Map<String, RequestTransportationFast> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestTransportationFast>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestTransportationFast.fromJson(value));
     }
     return map;

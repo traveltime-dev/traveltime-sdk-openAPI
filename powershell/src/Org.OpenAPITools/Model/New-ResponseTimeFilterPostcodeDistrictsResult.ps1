@@ -4,7 +4,7 @@ function New-ResponseTimeFilterPostcodeDistrictsResult {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
         ${searchUnderscoreid},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [traveltimeplatform.Model.ResponseTimeFilterPostcodeDistrict[]]
         ${districts}
     )

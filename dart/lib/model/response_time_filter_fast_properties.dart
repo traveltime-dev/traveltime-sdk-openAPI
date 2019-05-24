@@ -14,15 +14,25 @@ class ResponseTimeFilterFastProperties {
 
   ResponseTimeFilterFastProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    travelTime = json['travel_time'];
-    fares = new ResponseFaresFast.fromJson(json['fares']);
+    if (json['travel_time'] == null) {
+      travelTime = null;
+    } else {
+          travelTime = json['travel_time'];
+    }
+    if (json['fares'] == null) {
+      fares = null;
+    } else {
+      fares = new ResponseFaresFast.fromJson(json['fares']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'travel_time': travelTime,
-      'fares': fares
-    };
+    Map <String, dynamic> json = {};
+    if (travelTime != null)
+      json['travel_time'] = travelTime;
+    if (fares != null)
+      json['fares'] = fares;
+    return json;
   }
 
   static List<ResponseTimeFilterFastProperties> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseTimeFilterFastProperties {
 
   static Map<String, ResponseTimeFilterFastProperties> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeFilterFastProperties>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterFastProperties.fromJson(value));
     }
     return map;

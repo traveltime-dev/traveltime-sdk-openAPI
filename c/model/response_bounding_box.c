@@ -1,126 +1,129 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "response_bounding_box.h"
-#include "list.h"
-#include "response_box.h"
+
 
 
 response_bounding_box_t *response_bounding_box_create(
     response_box_t *envelope,
     list_t *boxes
     ) {
-	response_bounding_box_t *response_bounding_box = malloc(sizeof(response_bounding_box_t));
-	response_bounding_box->envelope = envelope;
-	response_bounding_box->boxes = boxes;
+	response_bounding_box_t *response_bounding_box_local_var = malloc(sizeof(response_bounding_box_t));
+    if (!response_bounding_box_local_var) {
+        return NULL;
+    }
+	response_bounding_box_local_var->envelope = envelope;
+	response_bounding_box_local_var->boxes = boxes;
 
-	return response_bounding_box;
+	return response_bounding_box_local_var;
 }
 
 
 void response_bounding_box_free(response_bounding_box_t *response_bounding_box) {
     listEntry_t *listEntry;
-	response_box_free(response_bounding_box->envelope);
-		list_ForEach(listEntry, response_bounding_box->boxes) {
+    response_box_free(response_bounding_box->envelope);
+	list_ForEach(listEntry, response_bounding_box->boxes) {
 		response_box_free(listEntry->data);
 	}
 	list_free(response_bounding_box->boxes);
-
 	free(response_bounding_box);
 }
 
 cJSON *response_bounding_box_convertToJSON(response_bounding_box_t *response_bounding_box) {
 	cJSON *item = cJSON_CreateObject();
+
 	// response_bounding_box->envelope
-	cJSON *envelope = response_box_convertToJSON(response_bounding_box->envelope);
-	if(envelope == NULL) {
-		goto fail; //nonprimitive
-	}
-	cJSON_AddItemToObject(item, "envelope", envelope);
-	if(item->child == NULL) {
-		goto fail;
-	}
+    if (!response_bounding_box->envelope) {
+        goto fail;
+    }
+    
+    cJSON *envelope_local_JSON = response_box_convertToJSON(response_bounding_box->envelope);
+    if(envelope_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "envelope", envelope_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+
 
 	// response_bounding_box->boxes
+    if (!response_bounding_box->boxes) {
+        goto fail;
+    }
+    
     cJSON *boxes = cJSON_AddArrayToObject(item, "boxes");
-	if(boxes == NULL) {
-		goto fail; //nonprimitive container
-	}
+    if(boxes == NULL) {
+    goto fail; //nonprimitive container
+    }
 
-	listEntry_t *boxesListEntry;
-	list_ForEach(boxesListEntry, response_bounding_box->boxes) {
-		cJSON *item = response_box_convertToJSON(boxesListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(boxes, item);
-	}
+    listEntry_t *boxesListEntry;
+    if (response_bounding_box->boxes) {
+    list_ForEach(boxesListEntry, response_bounding_box->boxes) {
+    cJSON *itemLocal = response_box_convertToJSON(boxesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(boxes, itemLocal);
+    }
+    }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-response_bounding_box_t *response_bounding_box_parseFromJSON(char *jsonString){
+response_bounding_box_t *response_bounding_box_parseFromJSON(cJSON *response_bounding_boxJSON){
 
-    response_bounding_box_t *response_bounding_box = NULL;
-    cJSON *response_bounding_boxJSON = cJSON_Parse(jsonString);
-    if(response_bounding_boxJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    response_bounding_box_t *response_bounding_box_local_var = NULL;
 
     // response_bounding_box->envelope
-    response_box_t *envelope;
-    cJSON *envelopeJSON = cJSON_GetObjectItemCaseSensitive(response_bounding_boxJSON, "envelope");
-    if(response_bounding_boxJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL)
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-        goto end; //nonprimitive
+    cJSON *envelope = cJSON_GetObjectItemCaseSensitive(response_bounding_boxJSON, "envelope");
+    if (!envelope) {
+        goto end;
     }
-    char *envelopeJSONData = cJSON_Print(envelopeJSON);
-    envelope = response_box_parseFromJSON(envelopeJSONData);
+
+    response_box_t *envelope_local_nonprim = NULL;
+    
+    envelope_local_nonprim = response_box_parseFromJSON(envelope); //nonprimitive
 
     // response_bounding_box->boxes
-    cJSON *boxes;
-    cJSON *boxesJSON = cJSON_GetObjectItemCaseSensitive(response_bounding_boxJSON,"boxes");
-    if(!cJSON_IsArray(boxesJSON)){
+    cJSON *boxes = cJSON_GetObjectItemCaseSensitive(response_bounding_boxJSON, "boxes");
+    if (!boxes) {
+        goto end;
+    }
+
+    list_t *boxesList;
+    
+    cJSON *boxes_local_nonprimitive;
+    if(!cJSON_IsArray(boxes)){
         goto end; //nonprimitive container
     }
 
-    list_t *boxesList = list_create();
+    boxesList = list_create();
 
-    cJSON_ArrayForEach(boxes,boxesJSON )
+    cJSON_ArrayForEach(boxes_local_nonprimitive,boxes )
     {
-        if(!cJSON_IsObject(boxes)){
+        if(!cJSON_IsObject(boxes_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(boxes);
-        response_box_t *boxesItem = response_box_parseFromJSON(JSONData);
+        response_box_t *boxesItem = response_box_parseFromJSON(boxes_local_nonprimitive);
 
         list_addElement(boxesList, boxesItem);
-        free(JSONData);
     }
 
 
-    response_bounding_box = response_bounding_box_create (
-        envelope,
+    response_bounding_box_local_var = response_bounding_box_create (
+        envelope_local_nonprim,
         boxesList
         );
-        free(envelopeJSONData);
- cJSON_Delete(response_bounding_boxJSON);
-    return response_bounding_box;
+
+    return response_bounding_box_local_var;
 end:
-    cJSON_Delete(response_bounding_boxJSON);
     return NULL;
 
 }
-

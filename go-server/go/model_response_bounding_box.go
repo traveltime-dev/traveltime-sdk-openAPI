@@ -12,7 +12,7 @@ package traveltimeplatform
 
 type ResponseBoundingBox struct {
 
-	Envelope *ResponseBox `json:"envelope"`
+	Envelope ResponseBox `json:"envelope"`
 
 	Boxes []ResponseBox `json:"boxes"`
 }

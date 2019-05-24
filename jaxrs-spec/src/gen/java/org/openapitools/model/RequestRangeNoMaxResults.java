@@ -66,8 +66,8 @@ public class RequestRangeNoMaxResults   {
       return false;
     }
     RequestRangeNoMaxResults requestRangeNoMaxResults = (RequestRangeNoMaxResults) o;
-    return Objects.equals(enabled, requestRangeNoMaxResults.enabled) &&
-        Objects.equals(width, requestRangeNoMaxResults.width);
+    return Objects.equals(this.enabled, requestRangeNoMaxResults.enabled) &&
+        Objects.equals(this.width, requestRangeNoMaxResults.width);
   }
 
   @Override

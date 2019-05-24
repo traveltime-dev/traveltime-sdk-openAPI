@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseTimeFilterResult;
 
 @Canonical
 class ResponseTimeFilter {
+    
     List<ResponseTimeFilterResult> results = new ArrayList<ResponseTimeFilterResult>()
-
 }

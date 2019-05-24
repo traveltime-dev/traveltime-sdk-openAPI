@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'request_time_filter_postcodes_property.jser.dart';
 
 @Entity()

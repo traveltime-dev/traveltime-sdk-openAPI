@@ -16,17 +16,32 @@ class RequestRoutes {
 
   RequestRoutes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    locations = RequestLocation.listFromJson(json['locations']);
-    departureSearches = RequestRoutesDepartureSearch.listFromJson(json['departure_searches']);
-    arrivalSearches = RequestRoutesArrivalSearch.listFromJson(json['arrival_searches']);
+    if (json['locations'] == null) {
+      locations = null;
+    } else {
+      locations = RequestLocation.listFromJson(json['locations']);
+    }
+    if (json['departure_searches'] == null) {
+      departureSearches = null;
+    } else {
+      departureSearches = RequestRoutesDepartureSearch.listFromJson(json['departure_searches']);
+    }
+    if (json['arrival_searches'] == null) {
+      arrivalSearches = null;
+    } else {
+      arrivalSearches = RequestRoutesArrivalSearch.listFromJson(json['arrival_searches']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'locations': locations,
-      'departure_searches': departureSearches,
-      'arrival_searches': arrivalSearches
-    };
+    Map <String, dynamic> json = {};
+    if (locations != null)
+      json['locations'] = locations;
+    if (departureSearches != null)
+      json['departure_searches'] = departureSearches;
+    if (arrivalSearches != null)
+      json['arrival_searches'] = arrivalSearches;
+    return json;
   }
 
   static List<RequestRoutes> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class RequestRoutes {
 
   static Map<String, RequestRoutes> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestRoutes>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestRoutes.fromJson(value));
     }
     return map;

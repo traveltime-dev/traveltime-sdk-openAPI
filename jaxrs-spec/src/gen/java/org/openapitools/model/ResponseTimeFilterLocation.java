@@ -67,8 +67,8 @@ public class ResponseTimeFilterLocation   {
       return false;
     }
     ResponseTimeFilterLocation responseTimeFilterLocation = (ResponseTimeFilterLocation) o;
-    return Objects.equals(id, responseTimeFilterLocation.id) &&
-        Objects.equals(properties, responseTimeFilterLocation.properties);
+    return Objects.equals(this.id, responseTimeFilterLocation.id) &&
+        Objects.equals(this.properties, responseTimeFilterLocation.properties);
   }
 
   @Override

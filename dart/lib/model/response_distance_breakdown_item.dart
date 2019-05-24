@@ -3,6 +3,7 @@ part of openapi.api;
 class ResponseDistanceBreakdownItem {
   
   ResponseTransportationMode mode = null;
+  //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };{
   
   int distance = null;
   ResponseDistanceBreakdownItem();
@@ -14,15 +15,25 @@ class ResponseDistanceBreakdownItem {
 
   ResponseDistanceBreakdownItem.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    mode = new ResponseTransportationMode.fromJson(json['mode']);
-    distance = json['distance'];
+    if (json['mode'] == null) {
+      mode = null;
+    } else {
+      mode = new ResponseTransportationMode.fromJson(json['mode']);
+    }
+    if (json['distance'] == null) {
+      distance = null;
+    } else {
+          distance = json['distance'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'mode': mode,
-      'distance': distance
-    };
+    Map <String, dynamic> json = {};
+    if (mode != null)
+      json['mode'] = mode;
+    if (distance != null)
+      json['distance'] = distance;
+    return json;
   }
 
   static List<ResponseDistanceBreakdownItem> listFromJson(List<dynamic> json) {
@@ -31,7 +42,7 @@ class ResponseDistanceBreakdownItem {
 
   static Map<String, ResponseDistanceBreakdownItem> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseDistanceBreakdownItem>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseDistanceBreakdownItem.fromJson(value));
     }
     return map;

@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseTimeFilterPostcodeDistrictProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **travelTimeReachable** | [**ResponseTravelTimeStatistics**](ResponseTravelTimeStatistics.md) |  | [optional] 

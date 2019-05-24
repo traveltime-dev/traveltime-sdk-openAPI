@@ -64,8 +64,8 @@ public class Coords   {
       return false;
     }
     Coords coords = (Coords) o;
-    return Objects.equals(lat, coords.lat) &&
-        Objects.equals(lng, coords.lng);
+    return Objects.equals(this.lat, coords.lat) &&
+        Objects.equals(this.lng, coords.lng);
   }
 
   @Override

@@ -11,4 +11,4 @@
 
 traveltimeplatform_request_time_filter_postcode_sectors_property() ->
   elements([<<"travel_time_reachable">>, <<"travel_time_all">>, <<"coverage">>]).
-  
+

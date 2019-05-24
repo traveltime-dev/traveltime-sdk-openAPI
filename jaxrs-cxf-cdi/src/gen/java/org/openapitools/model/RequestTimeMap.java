@@ -18,7 +18,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class RequestTimeMap   {
   
   private List<RequestTimeMapDepartureSearch> departureSearches = null;

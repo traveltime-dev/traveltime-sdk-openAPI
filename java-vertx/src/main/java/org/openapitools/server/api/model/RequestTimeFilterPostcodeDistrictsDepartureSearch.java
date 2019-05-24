@@ -13,11 +13,11 @@ import org.openapitools.server.api.model.RequestTransportation;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
   
-  private String id = ;
+  private String id;
   private RequestTransportation transportation = null;
-  private Integer travelTime = ;
-  private OffsetDateTime departureTime = ;
-  private Double reachablePostcodesThreshold = ;
+  private Integer travelTime;
+  private OffsetDateTime departureTime;
+  private Double reachablePostcodesThreshold;
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<>();
   private RequestRangeFull range = null;
 

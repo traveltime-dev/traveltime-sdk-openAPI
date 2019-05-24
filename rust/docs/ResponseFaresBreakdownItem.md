@@ -1,6 +1,7 @@
 # ResponseFaresBreakdownItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **modes** | [**Vec<::models::ResponseTransportationMode>**](ResponseTransportationMode.md) |  | 

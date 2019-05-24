@@ -10,8 +10,8 @@ import org.openapitools.model.RequestTimeFilterFastArrivalOneToManySearch;
 
 @Canonical
 class RequestTimeFilterFastArrivalSearches {
+    
     List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = new ArrayList<RequestTimeFilterFastArrivalManyToOneSearch>()
-
+    
     List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = new ArrayList<RequestTimeFilterFastArrivalOneToManySearch>()
-
 }

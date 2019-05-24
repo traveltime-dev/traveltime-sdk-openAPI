@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_filter_postcode_districts_property.dart';
+
 import 'package:openapi/model/request_transportation.dart';
+
 import 'package:openapi/model/request_range_full.dart';
+
 part 'request_time_filter_postcode_districts_departure_search.jser.dart';
 
 class RequestTimeFilterPostcodeDistrictsDepartureSearch {
@@ -30,7 +34,7 @@ class RequestTimeFilterPostcodeDistrictsDepartureSearch {
   
 
   RequestTimeFilterPostcodeDistrictsDepartureSearch(
-    
+      
 
 {
     
@@ -50,7 +54,8 @@ class RequestTimeFilterPostcodeDistrictsDepartureSearch {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterPostcodeDistrictsDepartureSearchSerializer extends Serializer<RequestTimeFilterPostcodeDistrictsDepartureSearch> with _$RequestTimeFilterPostcodeDistrictsDepartureSearchSerializer {
 
 }
+

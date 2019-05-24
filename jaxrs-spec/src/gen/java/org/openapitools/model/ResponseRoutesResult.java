@@ -86,9 +86,9 @@ public class ResponseRoutesResult   {
       return false;
     }
     ResponseRoutesResult responseRoutesResult = (ResponseRoutesResult) o;
-    return Objects.equals(searchId, responseRoutesResult.searchId) &&
-        Objects.equals(locations, responseRoutesResult.locations) &&
-        Objects.equals(unreachable, responseRoutesResult.unreachable);
+    return Objects.equals(this.searchId, responseRoutesResult.searchId) &&
+        Objects.equals(this.locations, responseRoutesResult.locations) &&
+        Objects.equals(this.unreachable, responseRoutesResult.unreachable);
   }
 
   @Override

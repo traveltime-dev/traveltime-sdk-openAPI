@@ -1,7 +1,9 @@
 
+
 # ResponseTravelTimeStatistics
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **min** | **Integer** |  | 

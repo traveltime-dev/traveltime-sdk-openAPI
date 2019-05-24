@@ -1,7 +1,9 @@
 
+
 # ResponseGeocodingProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **String** |  | 
@@ -20,6 +22,7 @@ Name | Type | Description | Notes
 **continent** | **String** |  |  [optional]
 **postcode** | **String** |  |  [optional]
 **features** | [**ResponseMapInfoFeatures**](ResponseMapInfoFeatures.md) |  |  [optional]
+
 
 
 

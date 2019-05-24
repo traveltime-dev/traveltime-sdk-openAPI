@@ -1,8 +1,12 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_arrival_time_period.dart';
+
 import 'package:openapi/model/request_time_filter_fast_property.dart';
+
 import 'package:openapi/model/request_transportation_fast.dart';
+
 part 'request_time_filter_fast_arrival_one_to_many_search.jser.dart';
 
 class RequestTimeFilterFastArrivalOneToManySearch {
@@ -24,13 +28,13 @@ class RequestTimeFilterFastArrivalOneToManySearch {
   
   @Alias('arrival_time_period')
   final RequestArrivalTimePeriod arrivalTimePeriod;
-  
+  //enum arrivalTimePeriodEnum {  weekday_morning,  };
   @Alias('properties')
   final List<RequestTimeFilterFastProperty> properties;
   
 
   RequestTimeFilterFastArrivalOneToManySearch(
-    
+      
 
 {
     
@@ -50,7 +54,8 @@ class RequestTimeFilterFastArrivalOneToManySearch {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterFastArrivalOneToManySearchSerializer extends Serializer<RequestTimeFilterFastArrivalOneToManySearch> with _$RequestTimeFilterFastArrivalOneToManySearchSerializer {
 
 }
+

@@ -1,0 +1,20 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "min_lat" },
+      {"model": "max_lat" },
+      {"model": "min_lng" },
+      {"model": "max_lng" },
+    ]
+  }]
+}

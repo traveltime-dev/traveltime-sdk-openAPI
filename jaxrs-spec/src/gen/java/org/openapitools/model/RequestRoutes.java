@@ -86,9 +86,9 @@ public class RequestRoutes   {
       return false;
     }
     RequestRoutes requestRoutes = (RequestRoutes) o;
-    return Objects.equals(locations, requestRoutes.locations) &&
-        Objects.equals(departureSearches, requestRoutes.departureSearches) &&
-        Objects.equals(arrivalSearches, requestRoutes.arrivalSearches);
+    return Objects.equals(this.locations, requestRoutes.locations) &&
+        Objects.equals(this.departureSearches, requestRoutes.departureSearches) &&
+        Objects.equals(this.arrivalSearches, requestRoutes.arrivalSearches);
   }
 
   @Override

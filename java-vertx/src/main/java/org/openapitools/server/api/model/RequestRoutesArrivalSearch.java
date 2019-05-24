@@ -13,11 +13,11 @@ import org.openapitools.server.api.model.RequestTransportation;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestRoutesArrivalSearch   {
   
-  private String id = ;
+  private String id;
   private List<String> departureLocationIds = new ArrayList<>();
-  private String arrivalLocationId = ;
+  private String arrivalLocationId;
   private RequestTransportation transportation = null;
-  private OffsetDateTime arrivalTime = ;
+  private OffsetDateTime arrivalTime;
   private List<RequestRoutesProperty> properties = new ArrayList<>();
   private RequestRangeFull range = null;
 

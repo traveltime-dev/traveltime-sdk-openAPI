@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseMapInfoFeaturesPublicTransport {
-    Date dateStart = 
-
-    Date dateEnd = 
-
+    
+    Date dateStart
+    
+    Date dateEnd
 }

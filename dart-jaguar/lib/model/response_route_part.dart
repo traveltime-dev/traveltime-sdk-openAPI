@@ -1,7 +1,10 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_transportation_mode.dart';
+
 import 'package:openapi/model/coords.dart';
+
 part 'response_route_part.jser.dart';
 
 class ResponseRoutePart {
@@ -14,7 +17,7 @@ class ResponseRoutePart {
   //enum typeEnum {  basic,  start_end,  road,  public_transport,  };
   @Alias('mode')
   final ResponseTransportationMode mode;
-  
+  //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };
   @Alias('directions')
   final String directions;
   
@@ -56,7 +59,7 @@ class ResponseRoutePart {
   
 
   ResponseRoutePart(
-    
+      
 
 {
     
@@ -85,7 +88,8 @@ class ResponseRoutePart {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseRoutePartSerializer extends Serializer<ResponseRoutePart> with _$ResponseRoutePartSerializer {
 
 }
+

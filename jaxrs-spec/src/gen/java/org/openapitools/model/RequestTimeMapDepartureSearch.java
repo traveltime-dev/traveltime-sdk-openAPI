@@ -166,13 +166,13 @@ public class RequestTimeMapDepartureSearch   {
       return false;
     }
     RequestTimeMapDepartureSearch requestTimeMapDepartureSearch = (RequestTimeMapDepartureSearch) o;
-    return Objects.equals(id, requestTimeMapDepartureSearch.id) &&
-        Objects.equals(coords, requestTimeMapDepartureSearch.coords) &&
-        Objects.equals(transportation, requestTimeMapDepartureSearch.transportation) &&
-        Objects.equals(travelTime, requestTimeMapDepartureSearch.travelTime) &&
-        Objects.equals(departureTime, requestTimeMapDepartureSearch.departureTime) &&
-        Objects.equals(properties, requestTimeMapDepartureSearch.properties) &&
-        Objects.equals(range, requestTimeMapDepartureSearch.range);
+    return Objects.equals(this.id, requestTimeMapDepartureSearch.id) &&
+        Objects.equals(this.coords, requestTimeMapDepartureSearch.coords) &&
+        Objects.equals(this.transportation, requestTimeMapDepartureSearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeMapDepartureSearch.travelTime) &&
+        Objects.equals(this.departureTime, requestTimeMapDepartureSearch.departureTime) &&
+        Objects.equals(this.properties, requestTimeMapDepartureSearch.properties) &&
+        Objects.equals(this.range, requestTimeMapDepartureSearch.range);
   }
 
   @Override

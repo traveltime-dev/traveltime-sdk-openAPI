@@ -8,31 +8,31 @@
 #define _request_routes_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "request_location.h"
 #include "request_routes_arrival_search.h"
 #include "request_routes_departure_search.h"
 
 
 
-
 typedef struct request_routes_t {
-        list_t *locations; //nonprimitive container
-        list_t *departure_searches; //nonprimitive container
-        list_t *arrival_searches; //nonprimitive container
+    list_t *locations; //nonprimitive container
+    list_t *departure_searches; //nonprimitive container
+    list_t *arrival_searches; //nonprimitive container
 
 } request_routes_t;
 
 request_routes_t *request_routes_create(
-        list_t *locations,
-        list_t *departure_searches,
-        list_t *arrival_searches
+    list_t *locations,
+    list_t *departure_searches,
+    list_t *arrival_searches
 );
 
 void request_routes_free(request_routes_t *request_routes);
 
-request_routes_t *request_routes_parseFromJSON(char *jsonString);
+request_routes_t *request_routes_parseFromJSON(cJSON *request_routesJSON);
 
 cJSON *request_routes_convertToJSON(request_routes_t *request_routes);
 

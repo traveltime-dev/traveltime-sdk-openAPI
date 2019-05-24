@@ -10,10 +10,10 @@ import org.openapitools.model.ResponseTimeMapProperties;
 
 @Canonical
 class ResponseTimeMapBoundingBoxesResult {
-    String searchId = 
-
+    
+    String searchId
+    
     List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>()
-
+    
     ResponseTimeMapProperties properties = null
-
 }

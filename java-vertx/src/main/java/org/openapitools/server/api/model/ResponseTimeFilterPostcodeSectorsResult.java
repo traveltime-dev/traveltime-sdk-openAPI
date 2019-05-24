@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseTimeFilterPostcodeSector;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeFilterPostcodeSectorsResult   {
   
-  private String searchId = ;
+  private String searchId;
   private List<ResponseTimeFilterPostcodeSector> sectors = new ArrayList<>();
 
   public ResponseTimeFilterPostcodeSectorsResult () {

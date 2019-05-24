@@ -11,12 +11,12 @@ import org.openapitools.model.RequestUnionOnIntersection;
 
 @Canonical
 class RequestTimeMap {
+    
     List<RequestTimeMapDepartureSearch> departureSearches = new ArrayList<RequestTimeMapDepartureSearch>()
-
+    
     List<RequestTimeMapArrivalSearch> arrivalSearches = new ArrayList<RequestTimeMapArrivalSearch>()
-
+    
     List<RequestUnionOnIntersection> unions = new ArrayList<RequestUnionOnIntersection>()
-
+    
     List<RequestUnionOnIntersection> intersections = new ArrayList<RequestUnionOnIntersection>()
-
 }

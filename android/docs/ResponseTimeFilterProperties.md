@@ -1,7 +1,9 @@
 
+
 # ResponseTimeFilterProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **travelTime** | **Integer** |  |  [optional]
@@ -9,6 +11,7 @@ Name | Type | Description | Notes
 **distanceBreakdown** | [**List&lt;ResponseDistanceBreakdownItem&gt;**](ResponseDistanceBreakdownItem.md) |  |  [optional]
 **fares** | [**ResponseFares**](ResponseFares.md) |  |  [optional]
 **route** | [**ResponseRoute**](ResponseRoute.md) |  |  [optional]
+
 
 
 

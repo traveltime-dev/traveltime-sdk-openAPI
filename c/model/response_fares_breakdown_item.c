@@ -1,13 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "response_fares_breakdown_item.h"
-#include "list.h"
-#include "response_fare_ticket.h"
-#include "response_transportation_mode.h"
+
 
 
 response_fares_breakdown_item_t *response_fares_breakdown_item_create(
@@ -15,18 +10,21 @@ response_fares_breakdown_item_t *response_fares_breakdown_item_create(
     list_t *route_part_ids,
     list_t *tickets
     ) {
-	response_fares_breakdown_item_t *response_fares_breakdown_item = malloc(sizeof(response_fares_breakdown_item_t));
-	response_fares_breakdown_item->modes = modes;
-	response_fares_breakdown_item->route_part_ids = route_part_ids;
-	response_fares_breakdown_item->tickets = tickets;
+	response_fares_breakdown_item_t *response_fares_breakdown_item_local_var = malloc(sizeof(response_fares_breakdown_item_t));
+    if (!response_fares_breakdown_item_local_var) {
+        return NULL;
+    }
+	response_fares_breakdown_item_local_var->modes = modes;
+	response_fares_breakdown_item_local_var->route_part_ids = route_part_ids;
+	response_fares_breakdown_item_local_var->tickets = tickets;
 
-	return response_fares_breakdown_item;
+	return response_fares_breakdown_item_local_var;
 }
 
 
 void response_fares_breakdown_item_free(response_fares_breakdown_item_t *response_fares_breakdown_item) {
     listEntry_t *listEntry;
-		list_ForEach(listEntry, response_fares_breakdown_item->modes) {
+	list_ForEach(listEntry, response_fares_breakdown_item->modes) {
 		response_transportation_mode_free(listEntry->data);
 	}
 	list_free(response_fares_breakdown_item->modes);
@@ -34,32 +32,40 @@ void response_fares_breakdown_item_free(response_fares_breakdown_item_t *respons
 		free(listEntry->data);
 	}
 	list_free(response_fares_breakdown_item->route_part_ids);
-		list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
+	list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
 		response_fare_ticket_free(listEntry->data);
 	}
 	list_free(response_fares_breakdown_item->tickets);
-
 	free(response_fares_breakdown_item);
 }
 
 cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item_t *response_fares_breakdown_item) {
 	cJSON *item = cJSON_CreateObject();
-	// response_fares_breakdown_item->modes
-    cJSON *modes = cJSON_AddArrayToObject(item, "modes");
-	if(modes == NULL) {
-		goto fail; //nonprimitive container
-	}
 
-	listEntry_t *modesListEntry;
-	list_ForEach(modesListEntry, response_fares_breakdown_item->modes) {
-		cJSON *item = response_transportation_mode_convertToJSON(modesListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(modes, item);
-	}
+	// response_fares_breakdown_item->modes
+    
+    cJSON *modes = cJSON_AddArrayToObject(item, "modes");
+    if(modes == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *modesListEntry;
+    if (response_fares_breakdown_item->modes) {
+    list_ForEach(modesListEntry, response_fares_breakdown_item->modes) {
+    cJSON *itemLocal = response_transportation_mode_convertToJSON((response_transportation_mode_e)modesListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(modes, itemLocal);
+    }
+    }
+
 
 	// response_fares_breakdown_item->route_part_ids
+    if (!response_fares_breakdown_item->route_part_ids) {
+        goto fail;
+    }
+    
 	cJSON *route_part_ids = cJSON_AddArrayToObject(item, "route_part_ids");
 	if(route_part_ids == NULL) {
 		goto fail; //primitive container
@@ -67,116 +73,128 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
 
 	listEntry_t *route_part_idsListEntry;
     list_ForEach(route_part_idsListEntry, response_fares_breakdown_item->route_part_ids) {
-        if(cJSON_AddNumberToObject(route_part_ids, "", *(double *)route_part_idsListEntry->data) == NULL)
-        {
-            goto fail;
-        }
+    if(cJSON_AddNumberToObject(route_part_ids, "", *(double *)route_part_idsListEntry->data) == NULL)
+    {
+        goto fail;
+    }
     }
 
-	// response_fares_breakdown_item->tickets
-    cJSON *tickets = cJSON_AddArrayToObject(item, "tickets");
-	if(tickets == NULL) {
-		goto fail; //nonprimitive container
-	}
 
-	listEntry_t *ticketsListEntry;
-	list_ForEach(ticketsListEntry, response_fares_breakdown_item->tickets) {
-		cJSON *item = response_fare_ticket_convertToJSON(ticketsListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(tickets, item);
-	}
+	// response_fares_breakdown_item->tickets
+    if (!response_fares_breakdown_item->tickets) {
+        goto fail;
+    }
+    
+    cJSON *tickets = cJSON_AddArrayToObject(item, "tickets");
+    if(tickets == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *ticketsListEntry;
+    if (response_fares_breakdown_item->tickets) {
+    list_ForEach(ticketsListEntry, response_fares_breakdown_item->tickets) {
+    cJSON *itemLocal = response_fare_ticket_convertToJSON(ticketsListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(tickets, itemLocal);
+    }
+    }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-response_fares_breakdown_item_t *response_fares_breakdown_item_parseFromJSON(char *jsonString){
+response_fares_breakdown_item_t *response_fares_breakdown_item_parseFromJSON(cJSON *response_fares_breakdown_itemJSON){
 
-    response_fares_breakdown_item_t *response_fares_breakdown_item = NULL;
-    cJSON *response_fares_breakdown_itemJSON = cJSON_Parse(jsonString);
-    if(response_fares_breakdown_itemJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    response_fares_breakdown_item_t *response_fares_breakdown_item_local_var = NULL;
 
     // response_fares_breakdown_item->modes
-    cJSON *modes;
-    cJSON *modesJSON = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON,"modes");
-    if(!cJSON_IsArray(modesJSON)){
+    cJSON *modes = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON, "modes");
+    if (!modes) {
+        goto end;
+    }
+
+    list_t *modesList;
+    
+    cJSON *modes_local_nonprimitive;
+    if(!cJSON_IsArray(modes)){
         goto end; //nonprimitive container
     }
 
-    list_t *modesList = list_create();
+    modesList = list_create();
 
-    cJSON_ArrayForEach(modes,modesJSON )
+    cJSON_ArrayForEach(modes_local_nonprimitive,modes )
     {
-        if(!cJSON_IsObject(modes)){
+        if(!cJSON_IsObject(modes_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(modes);
-        response_transportation_mode_t *modesItem = response_transportation_mode_parseFromJSON(JSONData);
+        response_transportation_mode_e modesItem = response_transportation_mode_parseFromJSON(modes_local_nonprimitive);
 
-        list_addElement(modesList, modesItem);
-        free(JSONData);
+        list_addElement(modesList, (void *)modesItem);
     }
 
     // response_fares_breakdown_item->route_part_ids
-    cJSON *route_part_ids;
-    cJSON *route_part_idsJSON = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON, "route_part_ids");
-    if(!cJSON_IsArray(route_part_idsJSON)) {
+    cJSON *route_part_ids = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON, "route_part_ids");
+    if (!route_part_ids) {
+        goto end;
+    }
+
+    list_t *route_part_idsList;
+    
+    cJSON *route_part_ids_local;
+    if(!cJSON_IsArray(route_part_ids)) {
         goto end;//primitive container
     }
-    list_t *route_part_idsList = list_create();
+    route_part_idsList = list_create();
 
-    cJSON_ArrayForEach(route_part_ids, route_part_idsJSON)
+    cJSON_ArrayForEach(route_part_ids_local, route_part_ids)
     {
-        if(!cJSON_IsNumber(route_part_ids))
+        if(!cJSON_IsNumber(route_part_ids_local))
         {
             goto end;
         }
-        list_addElement(route_part_idsList , &route_part_ids->valuedouble);
-
+        list_addElement(route_part_idsList , &route_part_ids_local->valuedouble);
     }
 
     // response_fares_breakdown_item->tickets
-    cJSON *tickets;
-    cJSON *ticketsJSON = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON,"tickets");
-    if(!cJSON_IsArray(ticketsJSON)){
+    cJSON *tickets = cJSON_GetObjectItemCaseSensitive(response_fares_breakdown_itemJSON, "tickets");
+    if (!tickets) {
+        goto end;
+    }
+
+    list_t *ticketsList;
+    
+    cJSON *tickets_local_nonprimitive;
+    if(!cJSON_IsArray(tickets)){
         goto end; //nonprimitive container
     }
 
-    list_t *ticketsList = list_create();
+    ticketsList = list_create();
 
-    cJSON_ArrayForEach(tickets,ticketsJSON )
+    cJSON_ArrayForEach(tickets_local_nonprimitive,tickets )
     {
-        if(!cJSON_IsObject(tickets)){
+        if(!cJSON_IsObject(tickets_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(tickets);
-        response_fare_ticket_t *ticketsItem = response_fare_ticket_parseFromJSON(JSONData);
+        response_fare_ticket_t *ticketsItem = response_fare_ticket_parseFromJSON(tickets_local_nonprimitive);
 
         list_addElement(ticketsList, ticketsItem);
-        free(JSONData);
     }
 
 
-    response_fares_breakdown_item = response_fares_breakdown_item_create (
+    response_fares_breakdown_item_local_var = response_fares_breakdown_item_create (
         modesList,
         route_part_idsList,
         ticketsList
         );
- cJSON_Delete(response_fares_breakdown_itemJSON);
-    return response_fares_breakdown_item;
+
+    return response_fares_breakdown_item_local_var;
 end:
-    cJSON_Delete(response_fares_breakdown_itemJSON);
     return NULL;
 
 }
-

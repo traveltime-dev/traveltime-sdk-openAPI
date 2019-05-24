@@ -25,7 +25,7 @@ services:
     acme.my_bundle.api.default:
         class: Acme\MyBundle\Api\DefaultApi
         tags:
-            - { name: "open_apiserver.api", api: "default" }
+            - { name: "open_api_server.api", api: "default" }
     # ...
 ```
 

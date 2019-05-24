@@ -1,0 +1,22 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "type" },
+      {"model": "pt_change_delay" },
+      {"model": "walking_time" },
+      {"model": "driving_time_to_station" },
+      {"model": "parking_time" },
+      {"model": "boarding_time" },
+    ]
+  }]
+}

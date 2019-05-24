@@ -1,6 +1,7 @@
 # ResponseTimeMapProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IsOnlyWalking** | **bool** |  | [optional] 

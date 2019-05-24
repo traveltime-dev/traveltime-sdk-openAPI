@@ -84,9 +84,9 @@ public class ResponseTimeMapWktResult   {
       return false;
     }
     ResponseTimeMapWktResult responseTimeMapWktResult = (ResponseTimeMapWktResult) o;
-    return Objects.equals(searchId, responseTimeMapWktResult.searchId) &&
-        Objects.equals(shape, responseTimeMapWktResult.shape) &&
-        Objects.equals(properties, responseTimeMapWktResult.properties);
+    return Objects.equals(this.searchId, responseTimeMapWktResult.searchId) &&
+        Objects.equals(this.shape, responseTimeMapWktResult.shape) &&
+        Objects.equals(this.properties, responseTimeMapWktResult.properties);
   }
 
   @Override

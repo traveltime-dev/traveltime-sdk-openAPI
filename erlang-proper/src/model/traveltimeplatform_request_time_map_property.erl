@@ -11,4 +11,4 @@
 
 traveltimeplatform_request_time_map_property() ->
   elements([<<"is_only_walking">>]).
-  
+

@@ -12,7 +12,7 @@ package traveltimeplatform
 
 type ResponseTimeFilterPostcodeSector struct {
 
-	Code *String `json:"code"`
+	Code String `json:"code"`
 
-	Properties *ResponseTimeFilterPostcodeSectorProperties `json:"properties"`
+	Properties ResponseTimeFilterPostcodeSectorProperties `json:"properties"`
 }

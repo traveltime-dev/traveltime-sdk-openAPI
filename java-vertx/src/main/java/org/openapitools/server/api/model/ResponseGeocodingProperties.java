@@ -8,21 +8,21 @@ import org.openapitools.server.api.model.ResponseMapInfoFeatures;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseGeocodingProperties   {
   
-  private String name = ;
-  private String label = ;
-  private Double score = ;
-  private String houseNumber = ;
-  private String street = ;
-  private String region = ;
-  private String regionCode = ;
-  private String neighbourhood = ;
-  private String county = ;
-  private String macroregion = ;
-  private String city = ;
-  private String country = ;
-  private String countryCode = ;
-  private String continent = ;
-  private String postcode = ;
+  private String name;
+  private String label;
+  private Double score;
+  private String houseNumber;
+  private String street;
+  private String region;
+  private String regionCode;
+  private String neighbourhood;
+  private String county;
+  private String macroregion;
+  private String city;
+  private String country;
+  private String countryCode;
+  private String continent;
+  private String postcode;
   private ResponseMapInfoFeatures features = null;
 
   public ResponseGeocodingProperties () {

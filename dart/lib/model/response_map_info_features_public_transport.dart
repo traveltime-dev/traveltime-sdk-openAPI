@@ -14,15 +14,25 @@ class ResponseMapInfoFeaturesPublicTransport {
 
   ResponseMapInfoFeaturesPublicTransport.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    dateStart = json['date_start'] == null ? null : DateTime.parse(json['date_start']);
-    dateEnd = json['date_end'] == null ? null : DateTime.parse(json['date_end']);
+    if (json['date_start'] == null) {
+      dateStart = null;
+    } else {
+      dateStart = DateTime.parse(json['date_start']);
+    }
+    if (json['date_end'] == null) {
+      dateEnd = null;
+    } else {
+      dateEnd = DateTime.parse(json['date_end']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'date_start': dateStart == null ? '' : dateStart.toUtc().toIso8601String(),
-      'date_end': dateEnd == null ? '' : dateEnd.toUtc().toIso8601String()
-    };
+    Map <String, dynamic> json = {};
+    if (dateStart != null)
+      json['date_start'] = dateStart == null ? null : dateStart.toUtc().toIso8601String();
+    if (dateEnd != null)
+      json['date_end'] = dateEnd == null ? null : dateEnd.toUtc().toIso8601String();
+    return json;
   }
 
   static List<ResponseMapInfoFeaturesPublicTransport> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseMapInfoFeaturesPublicTransport {
 
   static Map<String, ResponseMapInfoFeaturesPublicTransport> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseMapInfoFeaturesPublicTransport>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfoFeaturesPublicTransport.fromJson(value));
     }
     return map;

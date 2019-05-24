@@ -83,9 +83,9 @@ public class ResponseMapInfoFeatures   {
       return false;
     }
     ResponseMapInfoFeatures responseMapInfoFeatures = (ResponseMapInfoFeatures) o;
-    return Objects.equals(publicTransport, responseMapInfoFeatures.publicTransport) &&
-        Objects.equals(fares, responseMapInfoFeatures.fares) &&
-        Objects.equals(postcodes, responseMapInfoFeatures.postcodes);
+    return Objects.equals(this.publicTransport, responseMapInfoFeatures.publicTransport) &&
+        Objects.equals(this.fares, responseMapInfoFeatures.fares) &&
+        Objects.equals(this.postcodes, responseMapInfoFeatures.postcodes);
   }
 
   @Override

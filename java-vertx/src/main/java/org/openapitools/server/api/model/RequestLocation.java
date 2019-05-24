@@ -8,7 +8,7 @@ import org.openapitools.server.api.model.Coords;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestLocation   {
   
-  private String id = ;
+  private String id;
   private Coords coords = null;
 
   public RequestLocation () {

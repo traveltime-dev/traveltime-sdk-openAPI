@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeFilterFastProperties"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeFilterFastProperties"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseFaresFast = traveltimeplatform.resourceTypes.ResponseFaresFast
+}
+resourceTypes {
+
+  ResponseTimeFilterFastProperties {
+    title = ResponseTimeFilterFastProperties
+    description = ResponseTimeFilterFastProperties
+    derivedFrom = Root
+    properties {
+        travel_time {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        fares {
+          type = ResponseFaresFast
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterFastProperties {
+    title = ResponseTimeFilterFastProperties
+    description = ResponseTimeFilterFastProperties
+    implements = traveltimeplatform.resourceTypes.ResponseTimeFilterFastProperties
+
+  }
+}

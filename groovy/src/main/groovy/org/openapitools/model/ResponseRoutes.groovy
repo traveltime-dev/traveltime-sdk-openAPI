@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseRoutesResult;
 
 @Canonical
 class ResponseRoutes {
+    
     List<ResponseRoutesResult> results = new ArrayList<ResponseRoutesResult>()
-
 }

@@ -1,0 +1,40 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestRangeNoMaxResults"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestRangeNoMaxResults"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestRangeNoMaxResults {
+    title = RequestRangeNoMaxResults
+    description = RequestRangeNoMaxResults
+    derivedFrom = Root
+    properties {
+        enabled {
+          type =  boolean
+          description = ""
+          optional = true
+        }
+        width {
+          type =  integer
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestRangeNoMaxResults {
+    title = RequestRangeNoMaxResults
+    description = RequestRangeNoMaxResults
+    implements = traveltimeplatform.resourceTypes.RequestRangeNoMaxResults
+
+  }
+}

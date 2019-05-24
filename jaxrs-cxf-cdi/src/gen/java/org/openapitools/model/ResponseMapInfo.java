@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseMapInfo   {
   
   private List<ResponseMapInfoMap> maps = new ArrayList<ResponseMapInfoMap>();

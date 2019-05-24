@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_box.jser.dart';
 
 class ResponseBox {
@@ -18,7 +19,7 @@ class ResponseBox {
   
 
   ResponseBox(
-    
+      
 
 {
     
@@ -35,7 +36,8 @@ class ResponseBox {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseBoxSerializer extends Serializer<ResponseBox> with _$ResponseBoxSerializer {
 
 }
+

@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_time_map_properties.dart';
+
 part 'response_time_map_wkt_result.jser.dart';
 
 class ResponseTimeMapWktResult {
@@ -16,7 +18,7 @@ class ResponseTimeMapWktResult {
   
 
   ResponseTimeMapWktResult(
-    
+      
 
 {
     
@@ -32,7 +34,8 @@ class ResponseTimeMapWktResult {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeMapWktResultSerializer extends Serializer<ResponseTimeMapWktResult> with _$ResponseTimeMapWktResultSerializer {
 
 }
+

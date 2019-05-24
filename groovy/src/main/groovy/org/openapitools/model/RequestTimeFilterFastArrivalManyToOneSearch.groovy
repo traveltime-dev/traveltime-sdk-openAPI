@@ -11,18 +11,18 @@ import org.openapitools.model.RequestTransportationFast;
 
 @Canonical
 class RequestTimeFilterFastArrivalManyToOneSearch {
-    String id = 
-
-    String arrivalLocationId = 
-
+    
+    String id
+    
+    String arrivalLocationId
+    
     List<String> departureLocationIds = new ArrayList<String>()
-
+    
     RequestTransportationFast transportation = null
-
-    Integer travelTime = 
-
-    RequestArrivalTimePeriod arrivalTimePeriod = null
-
+    
+    Integer travelTime
+    
+    RequestArrivalTimePeriod arrivalTimePeriod
+    
     List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>()
-
 }

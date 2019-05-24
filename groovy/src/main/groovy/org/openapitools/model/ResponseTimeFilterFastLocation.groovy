@@ -9,8 +9,8 @@ import org.openapitools.model.ResponseTimeFilterFastProperties;
 
 @Canonical
 class ResponseTimeFilterFastLocation {
-    String id = 
-
+    
+    String id
+    
     List<ResponseTimeFilterFastProperties> properties = new ArrayList<ResponseTimeFilterFastProperties>()
-
 }

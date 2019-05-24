@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFastArrivalManyToOneSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-04-02T12:37:46.315Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterFastArrivalManyToOneSearch   {
@@ -33,7 +33,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   private Integer travelTime;
 
   @JsonProperty("arrival_time_period")
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @JsonProperty("properties")
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<>();

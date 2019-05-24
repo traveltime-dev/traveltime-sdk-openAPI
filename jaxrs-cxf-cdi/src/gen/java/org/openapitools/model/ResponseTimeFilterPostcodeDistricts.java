@@ -16,7 +16,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseTimeFilterPostcodeDistricts   {
   
   private List<ResponseTimeFilterPostcodeDistrictsResult> results = new ArrayList<ResponseTimeFilterPostcodeDistrictsResult>();

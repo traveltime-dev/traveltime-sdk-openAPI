@@ -185,14 +185,14 @@ public class RequestTimeFilterDepartureSearch   {
       return false;
     }
     RequestTimeFilterDepartureSearch requestTimeFilterDepartureSearch = (RequestTimeFilterDepartureSearch) o;
-    return Objects.equals(id, requestTimeFilterDepartureSearch.id) &&
-        Objects.equals(departureLocationId, requestTimeFilterDepartureSearch.departureLocationId) &&
-        Objects.equals(arrivalLocationIds, requestTimeFilterDepartureSearch.arrivalLocationIds) &&
-        Objects.equals(transportation, requestTimeFilterDepartureSearch.transportation) &&
-        Objects.equals(travelTime, requestTimeFilterDepartureSearch.travelTime) &&
-        Objects.equals(departureTime, requestTimeFilterDepartureSearch.departureTime) &&
-        Objects.equals(properties, requestTimeFilterDepartureSearch.properties) &&
-        Objects.equals(range, requestTimeFilterDepartureSearch.range);
+    return Objects.equals(this.id, requestTimeFilterDepartureSearch.id) &&
+        Objects.equals(this.departureLocationId, requestTimeFilterDepartureSearch.departureLocationId) &&
+        Objects.equals(this.arrivalLocationIds, requestTimeFilterDepartureSearch.arrivalLocationIds) &&
+        Objects.equals(this.transportation, requestTimeFilterDepartureSearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeFilterDepartureSearch.travelTime) &&
+        Objects.equals(this.departureTime, requestTimeFilterDepartureSearch.departureTime) &&
+        Objects.equals(this.properties, requestTimeFilterDepartureSearch.properties) &&
+        Objects.equals(this.range, requestTimeFilterDepartureSearch.range);
   }
 
   @Override

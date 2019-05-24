@@ -12,13 +12,18 @@ class ResponseFaresFast {
 
   ResponseFaresFast.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    ticketsTotal = ResponseFareTicket.listFromJson(json['tickets_total']);
+    if (json['tickets_total'] == null) {
+      ticketsTotal = null;
+    } else {
+      ticketsTotal = ResponseFareTicket.listFromJson(json['tickets_total']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'tickets_total': ticketsTotal
-    };
+    Map <String, dynamic> json = {};
+    if (ticketsTotal != null)
+      json['tickets_total'] = ticketsTotal;
+    return json;
   }
 
   static List<ResponseFaresFast> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseFaresFast {
 
   static Map<String, ResponseFaresFast> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseFaresFast>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseFaresFast.fromJson(value));
     }
     return map;

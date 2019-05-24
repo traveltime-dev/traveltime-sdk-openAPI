@@ -2,12 +2,13 @@
 extern crate chrono;
 extern crate uuid;
 
-
 use serde::ser::Serializer;
 
 use std::collections::HashMap;
 use models;
 use swagger;
+use std::string::ParseError;
+
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -28,6 +29,7 @@ impl Coords {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -58,6 +60,7 @@ impl ::std::str::FromStr for RequestArrivalTimePeriod {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestDepartureArrivalLocationOne(String);
@@ -65,6 +68,13 @@ pub struct RequestDepartureArrivalLocationOne(String);
 impl ::std::convert::From<String> for RequestDepartureArrivalLocationOne {
     fn from(x: String) -> Self {
         RequestDepartureArrivalLocationOne(x)
+    }
+}
+
+impl std::str::FromStr for RequestDepartureArrivalLocationOne {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(RequestDepartureArrivalLocationOne(x.to_string()))
     }
 }
 
@@ -88,6 +98,7 @@ impl ::std::ops::DerefMut for RequestDepartureArrivalLocationOne {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestDepartureArrivalTime(chrono::DateTime<chrono::Utc>);
@@ -97,6 +108,7 @@ impl ::std::convert::From<chrono::DateTime<chrono::Utc>> for RequestDepartureArr
         RequestDepartureArrivalTime(x)
     }
 }
+
 
 impl ::std::convert::From<RequestDepartureArrivalTime> for chrono::DateTime<chrono::Utc> {
     fn from(x: RequestDepartureArrivalTime) -> Self {
@@ -118,6 +130,7 @@ impl ::std::ops::DerefMut for RequestDepartureArrivalTime {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestLocation {
     #[serde(rename = "id")]
@@ -137,6 +150,7 @@ impl RequestLocation {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestLocationId(String);
@@ -144,6 +158,13 @@ pub struct RequestLocationId(String);
 impl ::std::convert::From<String> for RequestLocationId {
     fn from(x: String) -> Self {
         RequestLocationId(x)
+    }
+}
+
+impl std::str::FromStr for RequestLocationId {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(RequestLocationId(x.to_string()))
     }
 }
 
@@ -167,6 +188,7 @@ impl ::std::ops::DerefMut for RequestLocationId {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestRangeEnabled(bool);
@@ -176,6 +198,7 @@ impl ::std::convert::From<bool> for RequestRangeEnabled {
         RequestRangeEnabled(x)
     }
 }
+
 
 impl ::std::convert::From<RequestRangeEnabled> for bool {
     fn from(x: RequestRangeEnabled) -> Self {
@@ -197,21 +220,22 @@ impl ::std::ops::DerefMut for RequestRangeEnabled {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestRangeFull {
     #[serde(rename = "enabled")]
     pub enabled: bool,
 
     #[serde(rename = "max_results")]
-    pub max_results: u32,
+    pub max_results: u8,
 
     #[serde(rename = "width")]
-    pub width: u32,
+    pub width: u16,
 
 }
 
 impl RequestRangeFull {
-    pub fn new(enabled: bool, max_results: u32, width: u32, ) -> RequestRangeFull {
+    pub fn new(enabled: bool, max_results: u8, width: u16, ) -> RequestRangeFull {
         RequestRangeFull {
             enabled: enabled,
             max_results: max_results,
@@ -220,24 +244,26 @@ impl RequestRangeFull {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestRangeNoMaxResults {
     #[serde(rename = "enabled")]
     pub enabled: bool,
 
     #[serde(rename = "width")]
-    pub width: u32,
+    pub width: u16,
 
 }
 
 impl RequestRangeNoMaxResults {
-    pub fn new(enabled: bool, width: u32, ) -> RequestRangeNoMaxResults {
+    pub fn new(enabled: bool, width: u16, ) -> RequestRangeNoMaxResults {
         RequestRangeNoMaxResults {
             enabled: enabled,
             width: width,
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
@@ -248,6 +274,7 @@ impl ::std::convert::From<i32> for RequestRangeWidth {
         RequestRangeWidth(x)
     }
 }
+
 
 impl ::std::convert::From<RequestRangeWidth> for i32 {
     fn from(x: RequestRangeWidth) -> Self {
@@ -267,6 +294,7 @@ impl ::std::ops::DerefMut for RequestRangeWidth {
         &mut self.0
     }
 }
+
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -293,6 +321,7 @@ impl RequestRoutes {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestRoutesArrivalSearch {
@@ -334,6 +363,7 @@ impl RequestRoutesArrivalSearch {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestRoutesDepartureSearch {
     #[serde(rename = "id")]
@@ -373,6 +403,7 @@ impl RequestRoutesDepartureSearch {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -415,6 +446,7 @@ impl ::std::str::FromStr for RequestRoutesProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestSearchId(String);
@@ -422,6 +454,13 @@ pub struct RequestSearchId(String);
 impl ::std::convert::From<String> for RequestSearchId {
     fn from(x: String) -> Self {
         RequestSearchId(x)
+    }
+}
+
+impl std::str::FromStr for RequestSearchId {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(RequestSearchId(x.to_string()))
     }
 }
 
@@ -445,6 +484,7 @@ impl ::std::ops::DerefMut for RequestSearchId {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestSupportedLocations {
     #[serde(rename = "locations")]
@@ -459,6 +499,7 @@ impl RequestSupportedLocations {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilter {
@@ -485,6 +526,7 @@ impl RequestTimeFilter {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterArrivalSearch {
     #[serde(rename = "id")]
@@ -500,7 +542,7 @@ pub struct RequestTimeFilterArrivalSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time")]
     pub arrival_time: chrono::DateTime<chrono::Utc>,
@@ -515,7 +557,7 @@ pub struct RequestTimeFilterArrivalSearch {
 }
 
 impl RequestTimeFilterArrivalSearch {
-    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: models::RequestTransportation, travel_time: u32, arrival_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterProperty>, ) -> RequestTimeFilterArrivalSearch {
+    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: models::RequestTransportation, travel_time: u16, arrival_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterProperty>, ) -> RequestTimeFilterArrivalSearch {
         RequestTimeFilterArrivalSearch {
             id: id,
             departure_location_ids: departure_location_ids,
@@ -528,6 +570,7 @@ impl RequestTimeFilterArrivalSearch {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterDepartureSearch {
@@ -544,7 +587,7 @@ pub struct RequestTimeFilterDepartureSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -559,7 +602,7 @@ pub struct RequestTimeFilterDepartureSearch {
 }
 
 impl RequestTimeFilterDepartureSearch {
-    pub fn new(id: String, departure_location_id: String, arrival_location_ids: Vec<String>, transportation: models::RequestTransportation, travel_time: u32, departure_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterProperty>, ) -> RequestTimeFilterDepartureSearch {
+    pub fn new(id: String, departure_location_id: String, arrival_location_ids: Vec<String>, transportation: models::RequestTransportation, travel_time: u16, departure_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterProperty>, ) -> RequestTimeFilterDepartureSearch {
         RequestTimeFilterDepartureSearch {
             id: id,
             departure_location_id: departure_location_id,
@@ -572,6 +615,7 @@ impl RequestTimeFilterDepartureSearch {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFast {
@@ -592,6 +636,7 @@ impl RequestTimeFilterFast {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFastArrivalManyToOneSearch {
     #[serde(rename = "id")]
@@ -607,7 +652,7 @@ pub struct RequestTimeFilterFastArrivalManyToOneSearch {
     pub transportation: models::RequestTransportationFast,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time_period")]
     pub arrival_time_period: models::RequestArrivalTimePeriod,
@@ -618,7 +663,7 @@ pub struct RequestTimeFilterFastArrivalManyToOneSearch {
 }
 
 impl RequestTimeFilterFastArrivalManyToOneSearch {
-    pub fn new(id: String, arrival_location_id: String, departure_location_ids: Vec<String>, transportation: models::RequestTransportationFast, travel_time: u32, arrival_time_period: models::RequestArrivalTimePeriod, properties: Vec<models::RequestTimeFilterFastProperty>, ) -> RequestTimeFilterFastArrivalManyToOneSearch {
+    pub fn new(id: String, arrival_location_id: String, departure_location_ids: Vec<String>, transportation: models::RequestTransportationFast, travel_time: u16, arrival_time_period: models::RequestArrivalTimePeriod, properties: Vec<models::RequestTimeFilterFastProperty>, ) -> RequestTimeFilterFastArrivalManyToOneSearch {
         RequestTimeFilterFastArrivalManyToOneSearch {
             id: id,
             arrival_location_id: arrival_location_id,
@@ -630,6 +675,7 @@ impl RequestTimeFilterFastArrivalManyToOneSearch {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFastArrivalOneToManySearch {
@@ -646,7 +692,7 @@ pub struct RequestTimeFilterFastArrivalOneToManySearch {
     pub transportation: models::RequestTransportationFast,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time_period")]
     pub arrival_time_period: models::RequestArrivalTimePeriod,
@@ -657,7 +703,7 @@ pub struct RequestTimeFilterFastArrivalOneToManySearch {
 }
 
 impl RequestTimeFilterFastArrivalOneToManySearch {
-    pub fn new(id: String, departure_location_id: String, arrival_location_ids: Vec<String>, transportation: models::RequestTransportationFast, travel_time: u32, arrival_time_period: models::RequestArrivalTimePeriod, properties: Vec<models::RequestTimeFilterFastProperty>, ) -> RequestTimeFilterFastArrivalOneToManySearch {
+    pub fn new(id: String, departure_location_id: String, arrival_location_ids: Vec<String>, transportation: models::RequestTransportationFast, travel_time: u16, arrival_time_period: models::RequestArrivalTimePeriod, properties: Vec<models::RequestTimeFilterFastProperty>, ) -> RequestTimeFilterFastArrivalOneToManySearch {
         RequestTimeFilterFastArrivalOneToManySearch {
             id: id,
             departure_location_id: departure_location_id,
@@ -669,6 +715,7 @@ impl RequestTimeFilterFastArrivalOneToManySearch {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFastArrivalSearches {
@@ -690,6 +737,7 @@ impl RequestTimeFilterFastArrivalSearches {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -724,6 +772,7 @@ impl ::std::str::FromStr for RequestTimeFilterFastProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeDistricts {
     #[serde(rename = "departure_searches")]
@@ -745,6 +794,7 @@ impl RequestTimeFilterPostcodeDistricts {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeDistrictsArrivalSearch {
     #[serde(rename = "id")]
@@ -754,7 +804,7 @@ pub struct RequestTimeFilterPostcodeDistrictsArrivalSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time")]
     pub arrival_time: chrono::DateTime<chrono::Utc>,
@@ -772,7 +822,7 @@ pub struct RequestTimeFilterPostcodeDistrictsArrivalSearch {
 }
 
 impl RequestTimeFilterPostcodeDistrictsArrivalSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, arrival_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeDistrictsProperty>, ) -> RequestTimeFilterPostcodeDistrictsArrivalSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, arrival_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeDistrictsProperty>, ) -> RequestTimeFilterPostcodeDistrictsArrivalSearch {
         RequestTimeFilterPostcodeDistrictsArrivalSearch {
             id: id,
             transportation: transportation,
@@ -785,6 +835,7 @@ impl RequestTimeFilterPostcodeDistrictsArrivalSearch {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeDistrictsDepartureSearch {
     #[serde(rename = "id")]
@@ -794,7 +845,7 @@ pub struct RequestTimeFilterPostcodeDistrictsDepartureSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -812,7 +863,7 @@ pub struct RequestTimeFilterPostcodeDistrictsDepartureSearch {
 }
 
 impl RequestTimeFilterPostcodeDistrictsDepartureSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, departure_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeDistrictsProperty>, ) -> RequestTimeFilterPostcodeDistrictsDepartureSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, departure_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeDistrictsProperty>, ) -> RequestTimeFilterPostcodeDistrictsDepartureSearch {
         RequestTimeFilterPostcodeDistrictsDepartureSearch {
             id: id,
             transportation: transportation,
@@ -824,6 +875,7 @@ impl RequestTimeFilterPostcodeDistrictsDepartureSearch {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -862,6 +914,7 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodeDistrictsProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold(f64);
@@ -871,6 +924,7 @@ impl ::std::convert::From<f64> for RequestTimeFilterPostcodeDistrictsReachablePo
         RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold(x)
     }
 }
+
 
 impl ::std::convert::From<RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold> for f64 {
     fn from(x: RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold) -> Self {
@@ -890,6 +944,7 @@ impl ::std::ops::DerefMut for RequestTimeFilterPostcodeDistrictsReachablePostcod
         &mut self.0
     }
 }
+
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -913,6 +968,7 @@ impl RequestTimeFilterPostcodeSectors {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeSectorsArrivalSearch {
     #[serde(rename = "id")]
@@ -922,7 +978,7 @@ pub struct RequestTimeFilterPostcodeSectorsArrivalSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time")]
     pub arrival_time: chrono::DateTime<chrono::Utc>,
@@ -940,7 +996,7 @@ pub struct RequestTimeFilterPostcodeSectorsArrivalSearch {
 }
 
 impl RequestTimeFilterPostcodeSectorsArrivalSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, arrival_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeSectorsProperty>, ) -> RequestTimeFilterPostcodeSectorsArrivalSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, arrival_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeSectorsProperty>, ) -> RequestTimeFilterPostcodeSectorsArrivalSearch {
         RequestTimeFilterPostcodeSectorsArrivalSearch {
             id: id,
             transportation: transportation,
@@ -953,6 +1009,7 @@ impl RequestTimeFilterPostcodeSectorsArrivalSearch {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeSectorsDepartureSearch {
     #[serde(rename = "id")]
@@ -962,7 +1019,7 @@ pub struct RequestTimeFilterPostcodeSectorsDepartureSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -980,7 +1037,7 @@ pub struct RequestTimeFilterPostcodeSectorsDepartureSearch {
 }
 
 impl RequestTimeFilterPostcodeSectorsDepartureSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, departure_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeSectorsProperty>, ) -> RequestTimeFilterPostcodeSectorsDepartureSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, departure_time: chrono::DateTime<chrono::Utc>, reachable_postcodes_threshold: f64, properties: Vec<models::RequestTimeFilterPostcodeSectorsProperty>, ) -> RequestTimeFilterPostcodeSectorsDepartureSearch {
         RequestTimeFilterPostcodeSectorsDepartureSearch {
             id: id,
             transportation: transportation,
@@ -992,6 +1049,7 @@ impl RequestTimeFilterPostcodeSectorsDepartureSearch {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -1030,6 +1088,7 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodeSectorsProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold(f64);
@@ -1039,6 +1098,7 @@ impl ::std::convert::From<f64> for RequestTimeFilterPostcodeSectorsReachablePost
         RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold(x)
     }
 }
+
 
 impl ::std::convert::From<RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold> for f64 {
     fn from(x: RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold) -> Self {
@@ -1058,6 +1118,7 @@ impl ::std::ops::DerefMut for RequestTimeFilterPostcodeSectorsReachablePostcodes
         &mut self.0
     }
 }
+
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1081,6 +1142,7 @@ impl RequestTimeFilterPostcodes {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodesArrivalSearch {
     #[serde(rename = "id")]
@@ -1090,7 +1152,7 @@ pub struct RequestTimeFilterPostcodesArrivalSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time")]
     pub arrival_time: chrono::DateTime<chrono::Utc>,
@@ -1105,7 +1167,7 @@ pub struct RequestTimeFilterPostcodesArrivalSearch {
 }
 
 impl RequestTimeFilterPostcodesArrivalSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, arrival_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterPostcodesProperty>, ) -> RequestTimeFilterPostcodesArrivalSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, arrival_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterPostcodesProperty>, ) -> RequestTimeFilterPostcodesArrivalSearch {
         RequestTimeFilterPostcodesArrivalSearch {
             id: id,
             transportation: transportation,
@@ -1117,6 +1179,7 @@ impl RequestTimeFilterPostcodesArrivalSearch {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodesDepartureSearch {
     #[serde(rename = "id")]
@@ -1126,7 +1189,7 @@ pub struct RequestTimeFilterPostcodesDepartureSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -1141,7 +1204,7 @@ pub struct RequestTimeFilterPostcodesDepartureSearch {
 }
 
 impl RequestTimeFilterPostcodesDepartureSearch {
-    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u32, departure_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterPostcodesProperty>, ) -> RequestTimeFilterPostcodesDepartureSearch {
+    pub fn new(id: String, transportation: models::RequestTransportation, travel_time: u16, departure_time: chrono::DateTime<chrono::Utc>, properties: Vec<models::RequestTimeFilterPostcodesProperty>, ) -> RequestTimeFilterPostcodesDepartureSearch {
         RequestTimeFilterPostcodesDepartureSearch {
             id: id,
             transportation: transportation,
@@ -1152,6 +1215,7 @@ impl RequestTimeFilterPostcodesDepartureSearch {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -1185,6 +1249,7 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodesProperty {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -1231,6 +1296,7 @@ impl ::std::str::FromStr for RequestTimeFilterProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeMap {
     #[serde(rename = "departure_searches")]
@@ -1262,6 +1328,7 @@ impl RequestTimeMap {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeMapArrivalSearch {
     #[serde(rename = "id")]
@@ -1274,7 +1341,7 @@ pub struct RequestTimeMapArrivalSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "arrival_time")]
     pub arrival_time: chrono::DateTime<chrono::Utc>,
@@ -1290,7 +1357,7 @@ pub struct RequestTimeMapArrivalSearch {
 }
 
 impl RequestTimeMapArrivalSearch {
-    pub fn new(id: String, coords: models::Coords, transportation: models::RequestTransportation, travel_time: u32, arrival_time: chrono::DateTime<chrono::Utc>, ) -> RequestTimeMapArrivalSearch {
+    pub fn new(id: String, coords: models::Coords, transportation: models::RequestTransportation, travel_time: u16, arrival_time: chrono::DateTime<chrono::Utc>, ) -> RequestTimeMapArrivalSearch {
         RequestTimeMapArrivalSearch {
             id: id,
             coords: coords,
@@ -1302,6 +1369,7 @@ impl RequestTimeMapArrivalSearch {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeMapDepartureSearch {
@@ -1315,7 +1383,7 @@ pub struct RequestTimeMapDepartureSearch {
     pub transportation: models::RequestTransportation,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: u32,
+    pub travel_time: u16,
 
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -1331,7 +1399,7 @@ pub struct RequestTimeMapDepartureSearch {
 }
 
 impl RequestTimeMapDepartureSearch {
-    pub fn new(id: String, coords: models::Coords, transportation: models::RequestTransportation, travel_time: u32, departure_time: chrono::DateTime<chrono::Utc>, ) -> RequestTimeMapDepartureSearch {
+    pub fn new(id: String, coords: models::Coords, transportation: models::RequestTransportation, travel_time: u16, departure_time: chrono::DateTime<chrono::Utc>, ) -> RequestTimeMapDepartureSearch {
         RequestTimeMapDepartureSearch {
             id: id,
             coords: coords,
@@ -1343,6 +1411,7 @@ impl RequestTimeMapDepartureSearch {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -1373,6 +1442,7 @@ impl ::std::str::FromStr for RequestTimeMapProperty {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTransportation {
     // Note: inline enums are not fully supported by openapi-generator
@@ -1381,23 +1451,23 @@ pub struct RequestTransportation {
 
     #[serde(rename = "pt_change_delay")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub pt_change_delay: Option<i32>,
+    pub pt_change_delay: Option<isize>,
 
     #[serde(rename = "walking_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub walking_time: Option<i32>,
+    pub walking_time: Option<isize>,
 
     #[serde(rename = "driving_time_to_station")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub driving_time_to_station: Option<i32>,
+    pub driving_time_to_station: Option<isize>,
 
     #[serde(rename = "parking_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub parking_time: Option<i32>,
+    pub parking_time: Option<isize>,
 
     #[serde(rename = "boarding_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub boarding_time: Option<i32>,
+    pub boarding_time: Option<isize>,
 
 }
 
@@ -1413,6 +1483,7 @@ impl RequestTransportation {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestTransportationFast {
@@ -1430,6 +1501,7 @@ impl RequestTransportationFast {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct RequestTravelTime(i32);
@@ -1439,6 +1511,7 @@ impl ::std::convert::From<i32> for RequestTravelTime {
         RequestTravelTime(x)
     }
 }
+
 
 impl ::std::convert::From<RequestTravelTime> for i32 {
     fn from(x: RequestTravelTime) -> Self {
@@ -1460,6 +1533,7 @@ impl ::std::ops::DerefMut for RequestTravelTime {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RequestUnionOnIntersection {
     #[serde(rename = "id")]
@@ -1479,6 +1553,7 @@ impl RequestUnionOnIntersection {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseBoundingBox {
     #[serde(rename = "envelope")]
@@ -1497,6 +1572,7 @@ impl ResponseBoundingBox {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseBox {
@@ -1525,6 +1601,7 @@ impl ResponseBox {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseDistance(i32);
@@ -1534,6 +1611,7 @@ impl ::std::convert::From<i32> for ResponseDistance {
         ResponseDistance(x)
     }
 }
+
 
 impl ::std::convert::From<ResponseDistance> for i32 {
     fn from(x: ResponseDistance) -> Self {
@@ -1555,18 +1633,19 @@ impl ::std::ops::DerefMut for ResponseDistance {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseDistanceBreakdownItem {
     #[serde(rename = "mode")]
     pub mode: models::ResponseTransportationMode,
 
     #[serde(rename = "distance")]
-    pub distance: i32,
+    pub distance: isize,
 
 }
 
 impl ResponseDistanceBreakdownItem {
-    pub fn new(mode: models::ResponseTransportationMode, distance: i32, ) -> ResponseDistanceBreakdownItem {
+    pub fn new(mode: models::ResponseTransportationMode, distance: isize, ) -> ResponseDistanceBreakdownItem {
         ResponseDistanceBreakdownItem {
             mode: mode,
             distance: distance,
@@ -1574,15 +1653,16 @@ impl ResponseDistanceBreakdownItem {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseError {
     #[serde(rename = "http_status")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub http_status: Option<i32>,
+    pub http_status: Option<isize>,
 
     #[serde(rename = "error_code")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub error_code: Option<i32>,
+    pub error_code: Option<isize>,
 
     #[serde(rename = "description")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -1610,6 +1690,7 @@ impl ResponseError {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFareTicket {
     // Note: inline enums are not fully supported by openapi-generator
@@ -1634,6 +1715,7 @@ impl ResponseFareTicket {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFares {
     #[serde(rename = "breakdown")]
@@ -1652,6 +1734,7 @@ impl ResponseFares {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFaresBreakdownItem {
@@ -1676,6 +1759,7 @@ impl ResponseFaresBreakdownItem {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFaresFast {
     #[serde(rename = "tickets_total")]
@@ -1690,6 +1774,7 @@ impl ResponseFaresFast {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocoding {
@@ -1709,6 +1794,7 @@ impl ResponseGeocoding {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocodingGeoJsonFeature {
@@ -1733,6 +1819,7 @@ impl ResponseGeocodingGeoJsonFeature {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocodingGeometry {
     #[serde(rename = "type")]
@@ -1751,6 +1838,7 @@ impl ResponseGeocodingGeometry {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocodingProperties {
@@ -1841,6 +1929,7 @@ impl ResponseGeocodingProperties {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseLocalTime(String);
@@ -1848,6 +1937,13 @@ pub struct ResponseLocalTime(String);
 impl ::std::convert::From<String> for ResponseLocalTime {
     fn from(x: String) -> Self {
         ResponseLocalTime(x)
+    }
+}
+
+impl std::str::FromStr for ResponseLocalTime {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(ResponseLocalTime(x.to_string()))
     }
 }
 
@@ -1871,6 +1967,7 @@ impl ::std::ops::DerefMut for ResponseLocalTime {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseLocationId(String);
@@ -1878,6 +1975,13 @@ pub struct ResponseLocationId(String);
 impl ::std::convert::From<String> for ResponseLocationId {
     fn from(x: String) -> Self {
         ResponseLocationId(x)
+    }
+}
+
+impl std::str::FromStr for ResponseLocationId {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(ResponseLocationId(x.to_string()))
     }
 }
 
@@ -1901,6 +2005,7 @@ impl ::std::ops::DerefMut for ResponseLocationId {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfo {
     #[serde(rename = "maps")]
@@ -1915,6 +2020,7 @@ impl ResponseMapInfo {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoFeatures {
@@ -1940,6 +2046,7 @@ impl ResponseMapInfoFeatures {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoFeaturesPublicTransport {
     #[serde(rename = "date_start")]
@@ -1959,6 +2066,7 @@ impl ResponseMapInfoFeaturesPublicTransport {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoMap {
     #[serde(rename = "name")]
@@ -1977,6 +2085,7 @@ impl ResponseMapInfoMap {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoute {
@@ -2001,6 +2110,7 @@ impl ResponseRoute {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutePart {
     #[serde(rename = "id")]
@@ -2017,10 +2127,10 @@ pub struct ResponseRoutePart {
     pub directions: String,
 
     #[serde(rename = "distance")]
-    pub distance: i32,
+    pub distance: isize,
 
     #[serde(rename = "travel_time")]
-    pub travel_time: i32,
+    pub travel_time: isize,
 
     #[serde(rename = "coords")]
     pub coords: Vec<models::Coords>,
@@ -2059,12 +2169,12 @@ pub struct ResponseRoutePart {
 
     #[serde(rename = "num_stops")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub num_stops: Option<i32>,
+    pub num_stops: Option<isize>,
 
 }
 
 impl ResponseRoutePart {
-    pub fn new(id: String, _type: String, mode: models::ResponseTransportationMode, directions: String, distance: i32, travel_time: i32, coords: Vec<models::Coords>, ) -> ResponseRoutePart {
+    pub fn new(id: String, _type: String, mode: models::ResponseTransportationMode, directions: String, distance: isize, travel_time: isize, coords: Vec<models::Coords>, ) -> ResponseRoutePart {
         ResponseRoutePart {
             id: id,
             _type: _type,
@@ -2086,6 +2196,7 @@ impl ResponseRoutePart {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutes {
     #[serde(rename = "results")]
@@ -2100,6 +2211,7 @@ impl ResponseRoutes {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesLocation {
@@ -2120,15 +2232,16 @@ impl ResponseRoutesLocation {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub travel_time: Option<i32>,
+    pub travel_time: Option<isize>,
 
     #[serde(rename = "distance")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub distance: Option<i32>,
+    pub distance: Option<isize>,
 
     #[serde(rename = "fares")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2150,6 +2263,7 @@ impl ResponseRoutesProperties {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesResult {
@@ -2174,6 +2288,7 @@ impl ResponseRoutesResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseSearchId(String);
@@ -2181,6 +2296,13 @@ pub struct ResponseSearchId(String);
 impl ::std::convert::From<String> for ResponseSearchId {
     fn from(x: String) -> Self {
         ResponseSearchId(x)
+    }
+}
+
+impl std::str::FromStr for ResponseSearchId {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(ResponseSearchId(x.to_string()))
     }
 }
 
@@ -2204,6 +2326,7 @@ impl ::std::ops::DerefMut for ResponseSearchId {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseShape {
     #[serde(rename = "shell")]
@@ -2222,6 +2345,7 @@ impl ResponseShape {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseSupportedLocation {
@@ -2242,6 +2366,7 @@ impl ResponseSupportedLocation {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseSupportedLocations {
     #[serde(rename = "locations")]
@@ -2261,6 +2386,7 @@ impl ResponseSupportedLocations {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilter {
     #[serde(rename = "results")]
@@ -2276,6 +2402,7 @@ impl ResponseTimeFilter {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterFast {
     #[serde(rename = "results")]
@@ -2290,6 +2417,7 @@ impl ResponseTimeFilterFast {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterFastLocation {
@@ -2310,11 +2438,12 @@ impl ResponseTimeFilterFastLocation {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterFastProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub travel_time: Option<i32>,
+    pub travel_time: Option<isize>,
 
     #[serde(rename = "fares")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2330,6 +2459,7 @@ impl ResponseTimeFilterFastProperties {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterFastResult {
@@ -2354,6 +2484,7 @@ impl ResponseTimeFilterFastResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterLocation {
     #[serde(rename = "id")]
@@ -2372,6 +2503,7 @@ impl ResponseTimeFilterLocation {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcode {
@@ -2392,6 +2524,7 @@ impl ResponseTimeFilterPostcode {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeDistrict {
     #[serde(rename = "code")]
@@ -2410,6 +2543,7 @@ impl ResponseTimeFilterPostcodeDistrict {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeDistrictProperties {
@@ -2437,6 +2571,7 @@ impl ResponseTimeFilterPostcodeDistrictProperties {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeDistricts {
     #[serde(rename = "results")]
@@ -2451,6 +2586,7 @@ impl ResponseTimeFilterPostcodeDistricts {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeDistrictsResult {
@@ -2471,6 +2607,7 @@ impl ResponseTimeFilterPostcodeDistrictsResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSector {
     #[serde(rename = "code")]
@@ -2489,6 +2626,7 @@ impl ResponseTimeFilterPostcodeSector {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSectorProperties {
@@ -2516,6 +2654,7 @@ impl ResponseTimeFilterPostcodeSectorProperties {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSectors {
     #[serde(rename = "results")]
@@ -2530,6 +2669,7 @@ impl ResponseTimeFilterPostcodeSectors {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSectorsResult {
@@ -2550,6 +2690,7 @@ impl ResponseTimeFilterPostcodeSectorsResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodes {
     #[serde(rename = "results")]
@@ -2565,15 +2706,16 @@ impl ResponseTimeFilterPostcodes {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodesProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub travel_time: Option<i32>,
+    pub travel_time: Option<isize>,
 
     #[serde(rename = "distance")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub distance: Option<i32>,
+    pub distance: Option<isize>,
 
 }
 
@@ -2585,6 +2727,7 @@ impl ResponseTimeFilterPostcodesProperties {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodesResult {
@@ -2605,15 +2748,16 @@ impl ResponseTimeFilterPostcodesResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub travel_time: Option<i32>,
+    pub travel_time: Option<isize>,
 
     #[serde(rename = "distance")]
     #[serde(skip_serializing_if="Option::is_none")]
-    pub distance: Option<i32>,
+    pub distance: Option<isize>,
 
     #[serde(rename = "distance_breakdown")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2641,6 +2785,7 @@ impl ResponseTimeFilterProperties {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterResult {
     #[serde(rename = "search_id")]
@@ -2664,6 +2809,7 @@ impl ResponseTimeFilterResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMap {
     #[serde(rename = "results")]
@@ -2679,6 +2825,7 @@ impl ResponseTimeMap {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapBoundingBoxes {
     #[serde(rename = "results")]
@@ -2693,6 +2840,7 @@ impl ResponseTimeMapBoundingBoxes {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapBoundingBoxesResult {
@@ -2717,6 +2865,7 @@ impl ResponseTimeMapBoundingBoxesResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapProperties {
     #[serde(rename = "is_only_walking")]
@@ -2732,6 +2881,7 @@ impl ResponseTimeMapProperties {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapResult {
@@ -2756,6 +2906,7 @@ impl ResponseTimeMapResult {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapWkt {
     #[serde(rename = "results")]
@@ -2770,6 +2921,7 @@ impl ResponseTimeMapWkt {
         }
     }
 }
+
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapWktResult {
@@ -2793,6 +2945,7 @@ impl ResponseTimeMapWktResult {
         }
     }
 }
+
 
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
@@ -2879,6 +3032,7 @@ impl ::std::str::FromStr for ResponseTransportationMode {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseTravelTime(i32);
@@ -2888,6 +3042,7 @@ impl ::std::convert::From<i32> for ResponseTravelTime {
         ResponseTravelTime(x)
     }
 }
+
 
 impl ::std::convert::From<ResponseTravelTime> for i32 {
     fn from(x: ResponseTravelTime) -> Self {
@@ -2909,24 +3064,25 @@ impl ::std::ops::DerefMut for ResponseTravelTime {
 }
 
 
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTravelTimeStatistics {
     #[serde(rename = "min")]
-    pub min: i32,
+    pub min: isize,
 
     #[serde(rename = "max")]
-    pub max: i32,
+    pub max: isize,
 
     #[serde(rename = "mean")]
-    pub mean: i32,
+    pub mean: isize,
 
     #[serde(rename = "median")]
-    pub median: i32,
+    pub median: isize,
 
 }
 
 impl ResponseTravelTimeStatistics {
-    pub fn new(min: i32, max: i32, mean: i32, median: i32, ) -> ResponseTravelTimeStatistics {
+    pub fn new(min: isize, max: isize, mean: isize, median: isize, ) -> ResponseTravelTimeStatistics {
         ResponseTravelTimeStatistics {
             min: min,
             max: max,
@@ -2936,6 +3092,7 @@ impl ResponseTravelTimeStatistics {
     }
 }
 
+
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
 
 pub struct ResponseWktShape(String);
@@ -2943,6 +3100,13 @@ pub struct ResponseWktShape(String);
 impl ::std::convert::From<String> for ResponseWktShape {
     fn from(x: String) -> Self {
         ResponseWktShape(x)
+    }
+}
+
+impl std::str::FromStr for ResponseWktShape {
+    type Err = ParseError;
+    fn from_str(x: &str) -> Result<Self, Self::Err> {
+        Ok(ResponseWktShape(x.to_string()))
     }
 }
 
@@ -2964,4 +3128,5 @@ impl ::std::ops::DerefMut for ResponseWktShape {
         &mut self.0
     }
 }
+
 

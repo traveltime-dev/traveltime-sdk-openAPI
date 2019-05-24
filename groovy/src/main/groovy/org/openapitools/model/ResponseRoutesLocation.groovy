@@ -9,8 +9,8 @@ import org.openapitools.model.ResponseRoutesProperties;
 
 @Canonical
 class ResponseRoutesLocation {
-    String id = 
-
+    
+    String id
+    
     List<ResponseRoutesProperties> properties = new ArrayList<ResponseRoutesProperties>()
-
 }

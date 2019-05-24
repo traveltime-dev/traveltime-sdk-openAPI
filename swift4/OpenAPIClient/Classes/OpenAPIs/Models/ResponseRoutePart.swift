@@ -17,7 +17,7 @@ public struct ResponseRoutePart: Codable {
         case road = "road"
         case publicTransport = "public_transport"
     }
-    public var _id: String
+    public var id: String
     public var type: ModelType
     public var mode: ResponseTransportationMode
     public var directions: String
@@ -34,8 +34,8 @@ public struct ResponseRoutePart: Codable {
     public var arrivesAt: String?
     public var numStops: Int?
 
-    public init(_id: String, type: ModelType, mode: ResponseTransportationMode, directions: String, distance: Int, travelTime: Int, coords: [Coords], direction: String?, road: String?, turn: String?, line: String?, departureStation: String?, arrivalStation: String?, departsAt: String?, arrivesAt: String?, numStops: Int?) {
-        self._id = _id
+    public init(id: String, type: ModelType, mode: ResponseTransportationMode, directions: String, distance: Int, travelTime: Int, coords: [Coords], direction: String?, road: String?, turn: String?, line: String?, departureStation: String?, arrivalStation: String?, departsAt: String?, arrivesAt: String?, numStops: Int?) {
+        self.id = id
         self.type = type
         self.mode = mode
         self.directions = directions
@@ -54,7 +54,7 @@ public struct ResponseRoutePart: Codable {
     }
 
     public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
+        case id
         case type
         case mode
         case directions

@@ -9,7 +9,7 @@ using Sharpility.Base;
 using Sharpility.Extensions;
 using Sharpility.Util;
 
-namespace traveltimeplatform..Utils
+namespace traveltimeplatform._.Utils
 {
     internal static class Parameters
     {

@@ -6,6 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class RequestTransportationFast {
-    String type = 
-
+    
+    String type
 }

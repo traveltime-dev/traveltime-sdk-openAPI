@@ -27,7 +27,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilter'
-          description: Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
+          description: Given origin and destination points filter out points that
+            cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
         default:
           content:
             application/json:
@@ -47,7 +48,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodes'
-          description: Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
+          description: Find reachable postcodes from origin and get statistics about
+            such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
         default:
           content:
             application/json:
@@ -67,7 +69,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistricts'
-          description: Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
+          description: Find districts that have a certain coverage from origin and
+            get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
         default:
           content:
             application/json:
@@ -87,7 +90,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectors'
-          description: Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
+          description: Find sectors that have a certain coverage from origin and get
+            statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
         default:
           content:
             application/json:
@@ -136,7 +140,8 @@ paths:
             application/vnd.bounding-boxes+json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeMapBoundingBoxes'
-          description: Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
+          description: Given origin coordinates, find shapes of zones reachable within
+            corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
         default:
           content:
             application/json:
@@ -156,7 +161,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseRoutes'
-          description: Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)
+          description: Returns routing information between source and destinations.
+            [Docs link](http://docs.traveltimeplatform.com/reference/routes/)
         default:
           content:
             application/json:
@@ -265,7 +271,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseMapInfo'
-          description: Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)
+          description: Returns information about currently supported countries. [Docs
+            link](http://docs.traveltimeplatform.com/reference/map-info/)
         default:
           content:
             application/json:
@@ -407,25 +414,29 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilter'
-      description: Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
+      description: Given origin and destination points filter out points that cannot
+        be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
     TimeFilterPostcodes:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodes'
-      description: Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
+      description: Find reachable postcodes from origin and get statistics about such
+        postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
     TimeFilterPostcodeDistricts:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistricts'
-      description: Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
+      description: Find districts that have a certain coverage from origin and get
+        statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
     TimeFilterPostcodeSectors:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectors'
-      description: Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
+      description: Find sectors that have a certain coverage from origin and get statistics
+        about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
     TimeFilterFast:
       content:
         application/json:
@@ -437,7 +448,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseRoutes'
-      description: Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)
+      description: Returns routing information between source and destinations. [Docs
+        link](http://docs.traveltimeplatform.com/reference/routes/)
     Geocoding:
       content:
         application/json:
@@ -458,13 +470,15 @@ components:
         application/vnd.bounding-boxes+json:
           schema:
             $ref: '#/components/schemas/ResponseTimeMapBoundingBoxes'
-      description: Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
+      description: Given origin coordinates, find shapes of zones reachable within
+        corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
     MapInfo:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseMapInfo'
-      description: Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)
+      description: Returns information about currently supported countries. [Docs
+        link](http://docs.traveltimeplatform.com/reference/map-info/)
     SupportedLocations:
       content:
         application/json:
@@ -474,8 +488,8 @@ components:
   schemas:
     Coords:
       example:
-        lng: 3.61607674925191080461672754609026014804840087890625
-        lat: 9.301444243932575517419536481611430644989013671875
+        lng: 3.616076749251911
+        lat: 9.301444243932576
       properties:
         lat:
           format: double
@@ -492,7 +506,6 @@ components:
     RequestDepartureArrivalLocationOne:
       type: string
     RequestTravelTime:
-      format: int32
       maximum: 14400
       minimum: 60
       type: integer
@@ -519,21 +532,22 @@ components:
     RequestRangeEnabled:
       type: boolean
     RequestRangeWidth:
-      format: int32
       maximum: 43200
       minimum: 1
       type: integer
     RequestRangeFull:
+      example:
+        width: 40182
+        max_results: 3
+        enabled: true
       properties:
         enabled:
           type: boolean
         max_results:
-          format: int32
           maximum: 5
           minimum: 1
           type: integer
         width:
-          format: int32
           maximum: 43200
           minimum: 1
           type: integer
@@ -543,11 +557,13 @@ components:
       - width
       type: object
     RequestRangeNoMaxResults:
+      example:
+        width: 26039
+        enabled: true
       properties:
         enabled:
           type: boolean
         width:
-          format: int32
           maximum: 43200
           minimum: 1
           type: integer
@@ -579,13 +595,31 @@ components:
       - coverage
       type: string
     RequestTimeFilterPostcodeSectorsDepartureSearch:
+      example:
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 1208
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        reachable_postcodes_threshold: 6.027456183070403
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -611,13 +645,31 @@ components:
       - travel_time
       type: object
     RequestTimeFilterPostcodeSectorsArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 2161
+        reachable_postcodes_threshold: 5.962133916683182
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -643,13 +695,31 @@ components:
       - travel_time
       type: object
     RequestTimeFilterPostcodeDistrictsDepartureSearch:
+      example:
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 1208
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        reachable_postcodes_threshold: 6.027456183070403
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -675,13 +745,31 @@ components:
       - travel_time
       type: object
     RequestTimeFilterPostcodeDistrictsArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 2161
+        reachable_postcodes_threshold: 5.962133916683182
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -707,13 +795,30 @@ components:
       - travel_time
       type: object
     RequestTimeFilterPostcodesDepartureSearch:
+      example:
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 1208
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -735,13 +840,30 @@ components:
       - travel_time
       type: object
     RequestTimeFilterPostcodesArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 8703
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -763,6 +885,31 @@ components:
       - travel_time
       type: object
     RequestTimeFilterDepartureSearch:
+      example:
+        arrival_location_ids:
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        departure_location_id: departure_location_id
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 3361
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -777,7 +924,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -800,6 +946,31 @@ components:
       - travel_time
       type: object
     RequestTimeFilterArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        departure_location_ids:
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        arrival_location_id: arrival_location_id
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        travel_time: 5245
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -814,7 +985,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -846,6 +1016,21 @@ components:
       - fares
       type: string
     RequestTimeFilterFastArrivalManyToOneSearch:
+      example:
+        departure_location_ids:
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        - departure_location_ids
+        arrival_location_id: arrival_location_id
+        id: id
+        travel_time: 1208
+        properties:
+        - null
+        - null
+        transportation:
+          type: public_transport
       properties:
         id:
           type: string
@@ -860,7 +1045,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportationFast'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -880,6 +1064,21 @@ components:
       - travel_time
       type: object
     RequestTimeFilterFastArrivalOneToManySearch:
+      example:
+        arrival_location_ids:
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        - arrival_location_ids
+        departure_location_id: departure_location_id
+        id: id
+        travel_time: 8703
+        properties:
+        - null
+        - null
+        transportation:
+          type: public_transport
       properties:
         id:
           type: string
@@ -894,7 +1093,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportationFast'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -914,6 +1112,8 @@ components:
       - travel_time
       type: object
     RequestTransportationFast:
+      example:
+        type: public_transport
       properties:
         type:
           enum:
@@ -925,6 +1125,27 @@ components:
       - type
       type: object
     RequestRoutesDepartureSearch:
+      example:
+        arrival_location_ids:
+        - arrival_location_ids
+        - arrival_location_ids
+        departure_location_id: departure_location_id
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -956,6 +1177,27 @@ components:
       - transportation
       type: object
     RequestRoutesArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        departure_location_ids:
+        - departure_location_ids
+        - departure_location_ids
+        arrival_location_id: arrival_location_id
+        range:
+          width: 40182
+          max_results: 3
+          enabled: true
+        id: id
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -987,6 +1229,258 @@ components:
       - transportation
       type: object
     RequestTimeFilter:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 5245
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 5245
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 5245
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 5245
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 5245
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        departure_searches:
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 3361
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 3361
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 3361
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 3361
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 3361
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        locations:
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
       properties:
         locations:
           items:
@@ -1007,6 +1501,179 @@ components:
       - locations
       type: object
     RequestTimeFilterPostcodes:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        departure_searches:
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
       properties:
         departure_searches:
           items:
@@ -1020,6 +1687,189 @@ components:
           type: array
       type: object
     RequestTimeFilterPostcodeDistricts:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        departure_searches:
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
       properties:
         departure_searches:
           items:
@@ -1033,6 +1883,189 @@ components:
           type: array
       type: object
     RequestTimeFilterPostcodeSectors:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 2161
+          reachable_postcodes_threshold: 5.962133916683182
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        departure_searches:
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          reachable_postcodes_threshold: 6.027456183070403
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
       properties:
         departure_searches:
           items:
@@ -1046,6 +2079,149 @@ components:
           type: array
       type: object
     RequestTimeFilterFastArrivalSearches:
+      example:
+        many_to_one:
+        - departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          id: id
+          travel_time: 1208
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          id: id
+          travel_time: 1208
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          id: id
+          travel_time: 1208
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          id: id
+          travel_time: 1208
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          id: id
+          travel_time: 1208
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        one_to_many:
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          id: id
+          travel_time: 8703
+          properties:
+          - null
+          - null
+          transportation:
+            type: public_transport
       properties:
         many_to_one:
           items:
@@ -1059,6 +2235,159 @@ components:
           type: array
       type: object
     RequestTimeFilterFast:
+      example:
+        arrival_searches:
+          many_to_one:
+          - departure_location_ids:
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            arrival_location_id: arrival_location_id
+            id: id
+            travel_time: 1208
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - departure_location_ids:
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            arrival_location_id: arrival_location_id
+            id: id
+            travel_time: 1208
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - departure_location_ids:
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            arrival_location_id: arrival_location_id
+            id: id
+            travel_time: 1208
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - departure_location_ids:
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            arrival_location_id: arrival_location_id
+            id: id
+            travel_time: 1208
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - departure_location_ids:
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            - departure_location_ids
+            arrival_location_id: arrival_location_id
+            id: id
+            travel_time: 1208
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          one_to_many:
+          - arrival_location_ids:
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            departure_location_id: departure_location_id
+            id: id
+            travel_time: 8703
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - arrival_location_ids:
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            departure_location_id: departure_location_id
+            id: id
+            travel_time: 8703
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - arrival_location_ids:
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            departure_location_id: departure_location_id
+            id: id
+            travel_time: 8703
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - arrival_location_ids:
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            departure_location_id: departure_location_id
+            id: id
+            travel_time: 8703
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+          - arrival_location_ids:
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            - arrival_location_ids
+            departure_location_id: departure_location_id
+            id: id
+            travel_time: 8703
+            properties:
+            - null
+            - null
+            transportation:
+              type: public_transport
+        locations:
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
       properties:
         locations:
           items:
@@ -1072,6 +2401,218 @@ components:
       - locations
       type: object
     RequestRoutes:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          departure_location_ids:
+          - departure_location_ids
+          - departure_location_ids
+          arrival_location_id: arrival_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        departure_searches:
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_location_ids:
+          - arrival_location_ids
+          - arrival_location_ids
+          departure_location_id: departure_location_id
+          range:
+            width: 40182
+            max_results: 3
+            enabled: true
+          id: id
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        locations:
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
       properties:
         locations:
           items:
@@ -1096,6 +2637,11 @@ components:
       - is_only_walking
       type: string
     RequestUnionOnIntersection:
+      example:
+        id: id
+        search_ids:
+        - search_ids
+        - search_ids
       properties:
         id:
           type: string
@@ -1108,6 +2654,26 @@ components:
       - search_ids
       type: object
     RequestTimeMapDepartureSearch:
+      example:
+        range:
+          width: 26039
+          enabled: true
+        id: id
+        travel_time: 1208
+        departure_time: 2000-01-23T04:56:07.000+00:00
+        coords:
+          lng: 3.616076749251911
+          lat: 9.301444243932576
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -1116,7 +2682,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -1137,6 +2702,26 @@ components:
       - travel_time
       type: object
     RequestTimeMapArrivalSearch:
+      example:
+        arrival_time: 2000-01-23T04:56:07.000+00:00
+        range:
+          width: 26039
+          enabled: true
+        id: id
+        travel_time: 2161
+        coords:
+          lng: 3.616076749251911
+          lat: 9.301444243932576
+        properties:
+        - null
+        - null
+        transportation:
+          pt_change_delay: 0
+          boarding_time: 5
+          driving_time_to_station: 1
+          type: cycling
+          walking_time: 6
+          parking_time: 5
       properties:
         id:
           type: string
@@ -1145,7 +2730,6 @@ components:
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
-          format: int32
           maximum: 14400
           minimum: 60
           type: integer
@@ -1166,6 +2750,241 @@ components:
       - travel_time
       type: object
     RequestTimeMap:
+      example:
+        arrival_searches:
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 2161
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 2161
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 2161
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 2161
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - arrival_time: 2000-01-23T04:56:07.000+00:00
+          range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 2161
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        unions:
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        departure_searches:
+        - range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        - range:
+            width: 26039
+            enabled: true
+          id: id
+          travel_time: 1208
+          departure_time: 2000-01-23T04:56:07.000+00:00
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+          properties:
+          - null
+          - null
+          transportation:
+            pt_change_delay: 0
+            boarding_time: 5
+            driving_time_to_station: 1
+            type: cycling
+            walking_time: 6
+            parking_time: 5
+        intersections:
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
+        - id: id
+          search_ids:
+          - search_ids
+          - search_ids
       properties:
         departure_searches:
           items:
@@ -1193,10 +3012,8 @@ components:
     ResponseLocationId:
       type: string
     ResponseTravelTime:
-      format: int32
       type: integer
     ResponseDistance:
-      format: int32
       type: integer
     ResponseTransportationMode:
       enum:
@@ -1223,7 +3040,6 @@ components:
         mode:
           $ref: '#/components/schemas/ResponseTransportationMode'
         distance:
-          format: int32
           type: integer
       required:
       - distance
@@ -1231,7 +3047,7 @@ components:
       type: object
     ResponseFareTicket:
       example:
-        price: 5.63737665663332876420099637471139430999755859375
+        price: 5.637376656633329
         currency: currency
         type: single
       properties:
@@ -1258,10 +3074,10 @@ components:
         - null
         - null
         tickets:
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
         route_part_ids:
@@ -1274,7 +3090,6 @@ components:
           type: array
         route_part_ids:
           items:
-            format: int32
             type: integer
           type: array
         tickets:
@@ -1293,10 +3108,10 @@ components:
           - null
           - null
           tickets:
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
           route_part_ids:
@@ -1306,20 +3121,20 @@ components:
           - null
           - null
           tickets:
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
           route_part_ids:
           - 5
           - 5
         tickets_total:
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
       properties:
@@ -1338,10 +3153,10 @@ components:
     ResponseFaresFast:
       example:
         tickets_total:
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
-        - price: 5.63737665663332876420099637471139430999755859375
+        - price: 5.637376656633329
           currency: currency
           type: single
       properties:
@@ -1368,10 +3183,10 @@ components:
         id: id
         arrival_station: arrival_station
         coords:
-        - lng: 3.61607674925191080461672754609026014804840087890625
-          lat: 9.301444243932575517419536481611430644989013671875
-        - lng: 3.61607674925191080461672754609026014804840087890625
-          lat: 9.301444243932575517419536481611430644989013671875
+        - lng: 3.616076749251911
+          lat: 9.301444243932576
+        - lng: 3.616076749251911
+          lat: 9.301444243932576
         direction: direction
       properties:
         id:
@@ -1388,10 +3203,8 @@ components:
         directions:
           type: string
         distance:
-          format: int32
           type: integer
         travel_time:
-          format: int32
           type: integer
         coords:
           items:
@@ -1414,7 +3227,6 @@ components:
         arrives_at:
           type: string
         num_stops:
-          format: int32
           type: integer
       required:
       - coords
@@ -1443,10 +3255,10 @@ components:
           id: id
           arrival_station: arrival_station
           coords:
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
           direction: direction
         - departs_at: departs_at
           distance: 2
@@ -1462,10 +3274,10 @@ components:
           id: id
           arrival_station: arrival_station
           coords:
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
           direction: direction
         departure_time: 2000-01-23T04:56:07.000+00:00
       properties:
@@ -1506,10 +3318,10 @@ components:
             id: id
             arrival_station: arrival_station
             coords:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             direction: direction
           - departs_at: departs_at
             distance: 2
@@ -1525,10 +3337,10 @@ components:
             id: id
             arrival_station: arrival_station
             coords:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             direction: direction
           departure_time: 2000-01-23T04:56:07.000+00:00
         distance: 6
@@ -1539,10 +3351,10 @@ components:
             - null
             - null
             tickets:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
             route_part_ids:
@@ -1552,28 +3364,26 @@ components:
             - null
             - null
             tickets:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
             route_part_ids:
             - 5
             - 5
           tickets_total:
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
       properties:
         travel_time:
-          format: int32
           type: integer
         distance:
-          format: int32
           type: integer
         distance_breakdown:
           items:
@@ -1592,16 +3402,12 @@ components:
         mean: 1
       properties:
         min:
-          format: int32
           type: integer
         max:
-          format: int32
           type: integer
         mean:
-          format: int32
           type: integer
         median:
-          format: int32
           type: integer
       required:
       - max
@@ -1615,15 +3421,13 @@ components:
         travel_time: 0
       properties:
         travel_time:
-          format: int32
           type: integer
         distance:
-          format: int32
           type: integer
       type: object
     ResponseTimeFilterPostcodeDistrictProperties:
       example:
-        coverage: 5.63737665663332876420099637471139430999755859375
+        coverage: 5.637376656633329
         travel_time_all:
           min: 0
           median: 5
@@ -1645,7 +3449,7 @@ components:
       type: object
     ResponseTimeFilterPostcodeSectorProperties:
       example:
-        coverage: 0.80082819046101150206595775671303272247314453125
+        coverage: 0.8008281904610115
         travel_time_all:
           min: 0
           median: 5
@@ -1670,15 +3474,14 @@ components:
         travel_time: 0
         fares:
           tickets_total:
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
       properties:
         travel_time:
-          format: int32
           type: integer
         fares:
           $ref: '#/components/schemas/ResponseFaresFast'
@@ -1702,10 +3505,10 @@ components:
             id: id
             arrival_station: arrival_station
             coords:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             direction: direction
           - departs_at: departs_at
             distance: 2
@@ -1721,10 +3524,10 @@ components:
             id: id
             arrival_station: arrival_station
             coords:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             direction: direction
           departure_time: 2000-01-23T04:56:07.000+00:00
         distance: 6
@@ -1735,10 +3538,10 @@ components:
             - null
             - null
             tickets:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
             route_part_ids:
@@ -1748,28 +3551,26 @@ components:
             - null
             - null
             tickets:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
             route_part_ids:
             - 5
             - 5
           tickets_total:
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
-          - price: 5.63737665663332876420099637471139430999755859375
+          - price: 5.637376656633329
             currency: currency
             type: single
       properties:
         travel_time:
-          format: int32
           type: integer
         distance:
-          format: int32
           type: integer
         fares:
           $ref: '#/components/schemas/ResponseFares'
@@ -1800,10 +3601,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             - departs_at: departs_at
               distance: 2
@@ -1819,10 +3620,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             departure_time: 2000-01-23T04:56:07.000+00:00
           distance: 6
@@ -1833,10 +3634,10 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
@@ -1846,20 +3647,20 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
               - 5
               - 5
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
         - distance_breakdown:
@@ -1882,10 +3683,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             - departs_at: departs_at
               distance: 2
@@ -1901,10 +3702,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             departure_time: 2000-01-23T04:56:07.000+00:00
           distance: 6
@@ -1915,10 +3716,10 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
@@ -1928,20 +3729,20 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
               - 5
               - 5
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
       properties:
@@ -1962,19 +3763,19 @@ components:
         - travel_time: 0
           fares:
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
         - travel_time: 0
           fares:
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
       properties:
@@ -2009,10 +3810,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             - departs_at: departs_at
               distance: 2
@@ -2028,10 +3829,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             departure_time: 2000-01-23T04:56:07.000+00:00
           distance: 6
@@ -2042,10 +3843,10 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
@@ -2055,20 +3856,20 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
               - 5
               - 5
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
         - route:
@@ -2088,10 +3889,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             - departs_at: departs_at
               distance: 2
@@ -2107,10 +3908,10 @@ components:
               id: id
               arrival_station: arrival_station
               coords:
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
               direction: direction
             departure_time: 2000-01-23T04:56:07.000+00:00
           distance: 6
@@ -2121,10 +3922,10 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
@@ -2134,20 +3935,20 @@ components:
               - null
               - null
               tickets:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
               route_part_ids:
               - 5
               - 5
             tickets_total:
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
-            - price: 5.63737665663332876420099637471139430999755859375
+            - price: 5.637376656633329
               currency: currency
               type: single
       properties:
@@ -2184,7 +3985,7 @@ components:
       example:
         code: ""
         properties:
-          coverage: 5.63737665663332876420099637471139430999755859375
+          coverage: 5.637376656633329
           travel_time_all:
             min: 0
             median: 5
@@ -2208,7 +4009,7 @@ components:
       example:
         code: ""
         properties:
-          coverage: 0.80082819046101150206595775671303272247314453125
+          coverage: 0.8008281904610115
           travel_time_all:
             min: 0
             median: 5
@@ -2256,10 +4057,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2275,10 +4076,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2289,10 +4090,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2302,20 +4103,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - distance_breakdown:
@@ -2338,10 +4139,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2357,10 +4158,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2371,10 +4172,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2384,20 +4185,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         - id: id
@@ -2422,10 +4223,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2441,10 +4242,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2455,10 +4256,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2468,20 +4269,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - distance_breakdown:
@@ -2504,10 +4305,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2523,10 +4324,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2537,10 +4338,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2550,20 +4351,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         search_id: search_id
@@ -2615,7 +4416,7 @@ components:
         districts:
         - code: ""
           properties:
-            coverage: 5.63737665663332876420099637471139430999755859375
+            coverage: 5.637376656633329
             travel_time_all:
               min: 0
               median: 5
@@ -2628,7 +4429,7 @@ components:
               mean: 1
         - code: ""
           properties:
-            coverage: 5.63737665663332876420099637471139430999755859375
+            coverage: 5.637376656633329
             travel_time_all:
               min: 0
               median: 5
@@ -2656,7 +4457,7 @@ components:
         sectors:
         - code: ""
           properties:
-            coverage: 0.80082819046101150206595775671303272247314453125
+            coverage: 0.8008281904610115
             travel_time_all:
               min: 0
               median: 5
@@ -2669,7 +4470,7 @@ components:
               mean: 1
         - code: ""
           properties:
-            coverage: 0.80082819046101150206595775671303272247314453125
+            coverage: 0.8008281904610115
             travel_time_all:
               min: 0
               median: 5
@@ -2703,19 +4504,19 @@ components:
           - travel_time: 0
             fares:
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - travel_time: 0
             fares:
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         - id: id
@@ -2723,19 +4524,19 @@ components:
           - travel_time: 0
             fares:
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - travel_time: 0
             fares:
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         search_id: search_id
@@ -2780,10 +4581,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2799,10 +4600,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2813,10 +4614,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2826,20 +4627,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - route:
@@ -2859,10 +4660,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2878,10 +4679,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2892,10 +4693,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2905,20 +4706,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         - id: id
@@ -2940,10 +4741,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -2959,10 +4760,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -2973,10 +4774,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -2986,20 +4787,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
           - route:
@@ -3019,10 +4820,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               - departs_at: departs_at
                 distance: 2
@@ -3038,10 +4839,10 @@ components:
                 id: id
                 arrival_station: arrival_station
                 coords:
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
-                - lng: 3.61607674925191080461672754609026014804840087890625
-                  lat: 9.301444243932575517419536481611430644989013671875
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
+                - lng: 3.616076749251911
+                  lat: 9.301444243932576
                 direction: direction
               departure_time: 2000-01-23T04:56:07.000+00:00
             distance: 6
@@ -3052,10 +4853,10 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
@@ -3065,20 +4866,20 @@ components:
                 - null
                 - null
                 tickets:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
                 route_part_ids:
                 - 5
                 - 5
               tickets_total:
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
-              - price: 5.63737665663332876420099637471139430999755859375
+              - price: 5.637376656633329
                 currency: currency
                 type: single
         search_id: search_id
@@ -3127,10 +4928,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3146,10 +4947,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3160,10 +4961,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3173,20 +4974,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - distance_breakdown:
@@ -3209,10 +5010,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3228,10 +5029,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3242,10 +5043,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3255,20 +5056,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -3293,10 +5094,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3312,10 +5113,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3326,10 +5127,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3339,20 +5140,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - distance_breakdown:
@@ -3375,10 +5176,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3394,10 +5195,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3408,10 +5209,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3421,20 +5222,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -3464,10 +5265,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3483,10 +5284,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3497,10 +5298,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3510,20 +5311,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - distance_breakdown:
@@ -3546,10 +5347,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3565,10 +5366,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3579,10 +5380,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3592,20 +5393,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -3630,10 +5431,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3649,10 +5450,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3663,10 +5464,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3676,20 +5477,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - distance_breakdown:
@@ -3712,10 +5513,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -3731,10 +5532,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -3745,10 +5546,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -3758,20 +5559,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -3828,7 +5629,7 @@ components:
         - districts:
           - code: ""
             properties:
-              coverage: 5.63737665663332876420099637471139430999755859375
+              coverage: 5.637376656633329
               travel_time_all:
                 min: 0
                 median: 5
@@ -3841,7 +5642,7 @@ components:
                 mean: 1
           - code: ""
             properties:
-              coverage: 5.63737665663332876420099637471139430999755859375
+              coverage: 5.637376656633329
               travel_time_all:
                 min: 0
                 median: 5
@@ -3856,7 +5657,7 @@ components:
         - districts:
           - code: ""
             properties:
-              coverage: 5.63737665663332876420099637471139430999755859375
+              coverage: 5.637376656633329
               travel_time_all:
                 min: 0
                 median: 5
@@ -3869,7 +5670,7 @@ components:
                 mean: 1
           - code: ""
             properties:
-              coverage: 5.63737665663332876420099637471139430999755859375
+              coverage: 5.637376656633329
               travel_time_all:
                 min: 0
                 median: 5
@@ -3895,7 +5696,7 @@ components:
         - sectors:
           - code: ""
             properties:
-              coverage: 0.80082819046101150206595775671303272247314453125
+              coverage: 0.8008281904610115
               travel_time_all:
                 min: 0
                 median: 5
@@ -3908,7 +5709,7 @@ components:
                 mean: 1
           - code: ""
             properties:
-              coverage: 0.80082819046101150206595775671303272247314453125
+              coverage: 0.8008281904610115
               travel_time_all:
                 min: 0
                 median: 5
@@ -3923,7 +5724,7 @@ components:
         - sectors:
           - code: ""
             properties:
-              coverage: 0.80082819046101150206595775671303272247314453125
+              coverage: 0.8008281904610115
               travel_time_all:
                 min: 0
                 median: 5
@@ -3936,7 +5737,7 @@ components:
                 mean: 1
           - code: ""
             properties:
-              coverage: 0.80082819046101150206595775671303272247314453125
+              coverage: 0.8008281904610115
               travel_time_all:
                 min: 0
                 median: 5
@@ -3968,19 +5769,19 @@ components:
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -3988,19 +5789,19 @@ components:
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -4013,19 +5814,19 @@ components:
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -4033,19 +5834,19 @@ components:
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - travel_time: 0
               fares:
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -4083,10 +5884,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4102,10 +5903,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4116,10 +5917,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4129,20 +5930,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - route:
@@ -4162,10 +5963,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4181,10 +5982,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4195,10 +5996,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4208,20 +6009,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -4243,10 +6044,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4262,10 +6063,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4276,10 +6077,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4289,20 +6090,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - route:
@@ -4322,10 +6123,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4341,10 +6142,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4355,10 +6156,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4368,20 +6169,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -4408,10 +6209,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4427,10 +6228,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4441,10 +6242,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4454,20 +6255,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - route:
@@ -4487,10 +6288,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4506,10 +6307,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4520,10 +6321,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4533,20 +6334,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           - id: id
@@ -4568,10 +6369,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4587,10 +6388,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4601,10 +6402,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4614,20 +6415,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
             - route:
@@ -4647,10 +6448,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 - departs_at: departs_at
                   distance: 2
@@ -4666,10 +6467,10 @@ components:
                   id: id
                   arrival_station: arrival_station
                   coords:
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
-                  - lng: 3.61607674925191080461672754609026014804840087890625
-                    lat: 9.301444243932575517419536481611430644989013671875
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
+                  - lng: 3.616076749251911
+                    lat: 9.301444243932576
                   direction: direction
                 departure_time: 2000-01-23T04:56:07.000+00:00
               distance: 6
@@ -4680,10 +6481,10 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
@@ -4693,20 +6494,20 @@ components:
                   - null
                   - null
                   tickets:
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
-                  - price: 5.63737665663332876420099637471139430999755859375
+                  - price: 5.637376656633329
                     currency: currency
                     type: single
                   route_part_ids:
                   - 5
                   - 5
                 tickets_total:
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
-                - price: 5.63737665663332876420099637471139430999755859375
+                - price: 5.637376656633329
                   currency: currency
                   type: single
           search_id: search_id
@@ -4721,19 +6522,19 @@ components:
     ResponseShape:
       example:
         shell:
-        - lng: 3.61607674925191080461672754609026014804840087890625
-          lat: 9.301444243932575517419536481611430644989013671875
-        - lng: 3.61607674925191080461672754609026014804840087890625
-          lat: 9.301444243932575517419536481611430644989013671875
+        - lng: 3.616076749251911
+          lat: 9.301444243932576
+        - lng: 3.616076749251911
+          lat: 9.301444243932576
         holes:
-        - - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-        - - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
+        - - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
+        - - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
       properties:
         shell:
           items:
@@ -4794,33 +6595,33 @@ components:
       example:
         shapes:
         - shell:
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
           holes:
-          - - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-          - - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+          - - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+          - - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
         - shell:
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
-          - lng: 3.61607674925191080461672754609026014804840087890625
-            lat: 9.301444243932575517419536481611430644989013671875
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
+          - lng: 3.616076749251911
+            lat: 9.301444243932576
           holes:
-          - - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-          - - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+          - - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+          - - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
         properties:
           is_only_walking: true
         search_id: search_id
@@ -4843,65 +6644,65 @@ components:
         results:
         - shapes:
           - shell:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             holes:
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
           - shell:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             holes:
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
           properties:
             is_only_walking: true
           search_id: search_id
         - shapes:
           - shell:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             holes:
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
           - shell:
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
-            - lng: 3.61607674925191080461672754609026014804840087890625
-              lat: 9.301444243932575517419536481611430644989013671875
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
+            - lng: 3.616076749251911
+              lat: 9.301444243932576
             holes:
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-            - - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
-              - lng: 3.61607674925191080461672754609026014804840087890625
-                lat: 9.301444243932575517419536481611430644989013671875
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
+            - - lng: 3.616076749251911
+                lat: 9.301444243932576
+              - lng: 3.616076749251911
+                lat: 9.301444243932576
           properties:
             is_only_walking: true
           search_id: search_id
@@ -4960,6 +6761,13 @@ components:
       - results
       type: object
     RequestTransportation:
+      example:
+        pt_change_delay: 0
+        boarding_time: 5
+        driving_time_to_station: 1
+        type: cycling
+        walking_time: 6
+        parking_time: 5
       properties:
         type:
           enum:
@@ -4976,19 +6784,14 @@ components:
           - cycling+ferry
           type: string
         pt_change_delay:
-          format: int32
           type: integer
         walking_time:
-          format: int32
           type: integer
         driving_time_to_station:
-          format: int32
           type: integer
         parking_time:
-          format: int32
           type: integer
         boarding_time:
-          format: int32
           type: integer
       required:
       - type
@@ -5032,6 +6835,16 @@ components:
       - unsupported_locations
       type: object
     RequestSupportedLocations:
+      example:
+        locations:
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
+        - id: id
+          coords:
+            lng: 3.616076749251911
+            lat: 9.301444243932576
       properties:
         locations:
           items:
@@ -5042,6 +6855,11 @@ components:
       - locations
       type: object
     RequestLocation:
+      example:
+        id: id
+        coords:
+          lng: 3.616076749251911
+          lat: 9.301444243932576
       properties:
         id:
           type: string
@@ -5056,10 +6874,8 @@ components:
         url: http://docs.traveltimeplatform.com/reference/error-response
       properties:
         http_status:
-          format: int32
           type: integer
         error_code:
-          format: int32
           type: integer
         description:
           type: string
@@ -5075,8 +6891,8 @@ components:
     ResponseGeocodingGeometry:
       example:
         coordinates:
-        - 0.80082819046101150206595775671303272247314453125
-        - 0.80082819046101150206595775671303272247314453125
+        - 0.8008281904610115
+        - 0.8008281904610115
         type: type
       properties:
         type:
@@ -5133,7 +6949,7 @@ components:
         house_number: house_number
         label: label
         macroregion: macroregion
-        score: 6.02745618307040320615897144307382404804229736328125
+        score: 6.027456183070403
         country_code: country_code
         features:
           public_transport:
@@ -5188,8 +7004,8 @@ components:
       example:
         geometry:
           coordinates:
-          - 0.80082819046101150206595775671303272247314453125
-          - 0.80082819046101150206595775671303272247314453125
+          - 0.8008281904610115
+          - 0.8008281904610115
           type: type
         type: type
         properties:
@@ -5201,7 +7017,7 @@ components:
           house_number: house_number
           label: label
           macroregion: macroregion
-          score: 6.02745618307040320615897144307382404804229736328125
+          score: 6.027456183070403
           country_code: country_code
           features:
             public_transport:
@@ -5231,8 +7047,8 @@ components:
         features:
         - geometry:
             coordinates:
-            - 0.80082819046101150206595775671303272247314453125
-            - 0.80082819046101150206595775671303272247314453125
+            - 0.8008281904610115
+            - 0.8008281904610115
             type: type
           type: type
           properties:
@@ -5244,7 +7060,7 @@ components:
             house_number: house_number
             label: label
             macroregion: macroregion
-            score: 6.02745618307040320615897144307382404804229736328125
+            score: 6.027456183070403
             country_code: country_code
             features:
               public_transport:
@@ -5259,8 +7075,8 @@ components:
             region_code: region_code
         - geometry:
             coordinates:
-            - 0.80082819046101150206595775671303272247314453125
-            - 0.80082819046101150206595775671303272247314453125
+            - 0.8008281904610115
+            - 0.8008281904610115
             type: type
           type: type
           properties:
@@ -5272,7 +7088,7 @@ components:
             house_number: house_number
             label: label
             macroregion: macroregion
-            score: 6.02745618307040320615897144307382404804229736328125
+            score: 6.027456183070403
             country_code: country_code
             features:
               public_transport:

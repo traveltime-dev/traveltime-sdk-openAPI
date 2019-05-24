@@ -164,13 +164,13 @@ public class RequestRoutesArrivalSearch   {
       return false;
     }
     RequestRoutesArrivalSearch requestRoutesArrivalSearch = (RequestRoutesArrivalSearch) o;
-    return Objects.equals(id, requestRoutesArrivalSearch.id) &&
-        Objects.equals(departureLocationIds, requestRoutesArrivalSearch.departureLocationIds) &&
-        Objects.equals(arrivalLocationId, requestRoutesArrivalSearch.arrivalLocationId) &&
-        Objects.equals(transportation, requestRoutesArrivalSearch.transportation) &&
-        Objects.equals(arrivalTime, requestRoutesArrivalSearch.arrivalTime) &&
-        Objects.equals(properties, requestRoutesArrivalSearch.properties) &&
-        Objects.equals(range, requestRoutesArrivalSearch.range);
+    return Objects.equals(this.id, requestRoutesArrivalSearch.id) &&
+        Objects.equals(this.departureLocationIds, requestRoutesArrivalSearch.departureLocationIds) &&
+        Objects.equals(this.arrivalLocationId, requestRoutesArrivalSearch.arrivalLocationId) &&
+        Objects.equals(this.transportation, requestRoutesArrivalSearch.transportation) &&
+        Objects.equals(this.arrivalTime, requestRoutesArrivalSearch.arrivalTime) &&
+        Objects.equals(this.properties, requestRoutesArrivalSearch.properties) &&
+        Objects.equals(this.range, requestRoutesArrivalSearch.range);
   }
 
   @Override

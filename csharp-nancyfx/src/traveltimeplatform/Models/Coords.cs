@@ -5,7 +5,7 @@ using System.Text;
 using Sharpility.Extensions;
 using NodaTime;
 
-namespace traveltimeplatform..Models
+namespace traveltimeplatform._.Models
 {
     /// <summary>
     /// Coords

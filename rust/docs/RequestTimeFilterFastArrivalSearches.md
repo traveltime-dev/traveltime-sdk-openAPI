@@ -1,6 +1,7 @@
 # RequestTimeFilterFastArrivalSearches
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **many_to_one** | [**Vec<::models::RequestTimeFilterFastArrivalManyToOneSearch>**](RequestTimeFilterFastArrivalManyToOneSearch.md) |  | [optional] 

@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestTimeFilterPostcodes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departureSearches** | [**[RequestTimeFilterPostcodesDepartureSearch]**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] 

@@ -1,6 +1,7 @@
 # ResponseTimeMapBoundingBoxes
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **results** | [**Vec<::models::ResponseTimeMapBoundingBoxesResult>**](ResponseTimeMapBoundingBoxesResult.md) |  | 

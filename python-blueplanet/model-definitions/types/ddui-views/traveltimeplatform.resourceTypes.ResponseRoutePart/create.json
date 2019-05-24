@@ -1,0 +1,32 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "type" },
+      {"model": "mode" },
+      {"model": "directions" },
+      {"model": "distance" },
+      {"model": "travel_time" },
+      {"model": "coords" },
+      {"model": "direction" },
+      {"model": "road" },
+      {"model": "turn" },
+      {"model": "line" },
+      {"model": "departure_station" },
+      {"model": "arrival_station" },
+      {"model": "departs_at" },
+      {"model": "arrives_at" },
+      {"model": "num_stops" },
+    ]
+  }]
+}

@@ -12,13 +12,18 @@ class ResponseTimeMapProperties {
 
   ResponseTimeMapProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    isOnlyWalking = json['is_only_walking'];
+    if (json['is_only_walking'] == null) {
+      isOnlyWalking = null;
+    } else {
+          isOnlyWalking = json['is_only_walking'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'is_only_walking': isOnlyWalking
-    };
+    Map <String, dynamic> json = {};
+    if (isOnlyWalking != null)
+      json['is_only_walking'] = isOnlyWalking;
+    return json;
   }
 
   static List<ResponseTimeMapProperties> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseTimeMapProperties {
 
   static Map<String, ResponseTimeMapProperties> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeMapProperties>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapProperties.fromJson(value));
     }
     return map;

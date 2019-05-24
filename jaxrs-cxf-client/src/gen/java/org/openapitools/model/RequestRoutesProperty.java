@@ -26,13 +26,13 @@ public enum RequestRoutesProperty {
     return String.valueOf(value);
   }
 
-  public static RequestRoutesProperty fromValue(String text) {
+  public static RequestRoutesProperty fromValue(String value) {
     for (RequestRoutesProperty b : RequestRoutesProperty.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
   
 }

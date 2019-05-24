@@ -1,6 +1,7 @@
 # ResponseTimeFilterPostcodeDistricts
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Results** | [**[]ResponseTimeFilterPostcodeDistrictsResult**](ResponseTimeFilterPostcodeDistrictsResult.md) |  | 

@@ -16,17 +16,32 @@ class ResponseRoute {
 
   ResponseRoute.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    departureTime = json['departure_time'] == null ? null : DateTime.parse(json['departure_time']);
-    arrivalTime = json['arrival_time'] == null ? null : DateTime.parse(json['arrival_time']);
-    parts = ResponseRoutePart.listFromJson(json['parts']);
+    if (json['departure_time'] == null) {
+      departureTime = null;
+    } else {
+      departureTime = DateTime.parse(json['departure_time']);
+    }
+    if (json['arrival_time'] == null) {
+      arrivalTime = null;
+    } else {
+      arrivalTime = DateTime.parse(json['arrival_time']);
+    }
+    if (json['parts'] == null) {
+      parts = null;
+    } else {
+      parts = ResponseRoutePart.listFromJson(json['parts']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'departure_time': departureTime == null ? '' : departureTime.toUtc().toIso8601String(),
-      'arrival_time': arrivalTime == null ? '' : arrivalTime.toUtc().toIso8601String(),
-      'parts': parts
-    };
+    Map <String, dynamic> json = {};
+    if (departureTime != null)
+      json['departure_time'] = departureTime == null ? null : departureTime.toUtc().toIso8601String();
+    if (arrivalTime != null)
+      json['arrival_time'] = arrivalTime == null ? null : arrivalTime.toUtc().toIso8601String();
+    if (parts != null)
+      json['parts'] = parts;
+    return json;
   }
 
   static List<ResponseRoute> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class ResponseRoute {
 
   static Map<String, ResponseRoute> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseRoute>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseRoute.fromJson(value));
     }
     return map;

@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/coords.dart';
+
 part 'request_location.jser.dart';
 
 class RequestLocation {
@@ -13,7 +15,7 @@ class RequestLocation {
   
 
   RequestLocation(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class RequestLocation {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestLocationSerializer extends Serializer<RequestLocation> with _$RequestLocationSerializer {
 
 }
+

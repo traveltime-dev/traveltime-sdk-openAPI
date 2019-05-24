@@ -1,7 +1,9 @@
 
+
 # RequestTimeFilterPostcodeDistrictsArrivalSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
@@ -11,6 +13,7 @@ Name | Type | Description | Notes
 **reachablePostcodesThreshold** | **Double** |  | 
 **properties** | [**List&lt;RequestTimeFilterPostcodeDistrictsProperty&gt;**](RequestTimeFilterPostcodeDistrictsProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
+
 
 
 

@@ -1,6 +1,7 @@
 # ResponseTimeFilterFastProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **travel_time** | **i32** |  | [optional] 

@@ -11,15 +11,15 @@ import Foundation
 
 public struct RequestTimeFilterPostcodesArrivalSearch: Codable {
 
-    public var _id: String
+    public var id: String
     public var transportation: RequestTransportation
     public var travelTime: Int
     public var arrivalTime: Date
     public var properties: [RequestTimeFilterPostcodesProperty]
     public var range: RequestRangeFull?
 
-    public init(_id: String, transportation: RequestTransportation, travelTime: Int, arrivalTime: Date, properties: [RequestTimeFilterPostcodesProperty], range: RequestRangeFull?) {
-        self._id = _id
+    public init(id: String, transportation: RequestTransportation, travelTime: Int, arrivalTime: Date, properties: [RequestTimeFilterPostcodesProperty], range: RequestRangeFull?) {
+        self.id = id
         self.transportation = transportation
         self.travelTime = travelTime
         self.arrivalTime = arrivalTime
@@ -28,7 +28,7 @@ public struct RequestTimeFilterPostcodesArrivalSearch: Codable {
     }
 
     public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
+        case id
         case transportation
         case travelTime = "travel_time"
         case arrivalTime = "arrival_time"

@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.ResponseFareTicket
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **String** |  | 
@@ -8,7 +9,7 @@ Name | Type | Description | Notes
 **currency** | **String** |  | 
 
 
-<a name="TypeEnum"></a>
+
 ## Enum: TypeEnum
 
 

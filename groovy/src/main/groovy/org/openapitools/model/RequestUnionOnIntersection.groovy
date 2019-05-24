@@ -8,8 +8,8 @@ import java.util.List;
 
 @Canonical
 class RequestUnionOnIntersection {
-    String id = 
-
+    
+    String id
+    
     List<String> searchIds = new ArrayList<String>()
-
 }

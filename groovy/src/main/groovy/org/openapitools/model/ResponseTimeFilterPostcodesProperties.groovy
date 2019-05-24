@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 @Canonical
 class ResponseTimeFilterPostcodesProperties {
-    Integer travelTime = 
-
-    Integer distance = 
-
+    
+    Integer travelTime
+    
+    Integer distance
 }

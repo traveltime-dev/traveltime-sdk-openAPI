@@ -11,7 +11,7 @@ import Foundation
 
 public struct RequestTimeFilterDepartureSearch: Codable {
 
-    public var _id: String
+    public var id: String
     public var departureLocationId: String
     public var arrivalLocationIds: [String]
     public var transportation: RequestTransportation
@@ -20,8 +20,8 @@ public struct RequestTimeFilterDepartureSearch: Codable {
     public var properties: [RequestTimeFilterProperty]
     public var range: RequestRangeFull?
 
-    public init(_id: String, departureLocationId: String, arrivalLocationIds: [String], transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeFilterProperty], range: RequestRangeFull?) {
-        self._id = _id
+    public init(id: String, departureLocationId: String, arrivalLocationIds: [String], transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeFilterProperty], range: RequestRangeFull?) {
+        self.id = id
         self.departureLocationId = departureLocationId
         self.arrivalLocationIds = arrivalLocationIds
         self.transportation = transportation
@@ -32,7 +32,7 @@ public struct RequestTimeFilterDepartureSearch: Codable {
     }
 
     public enum CodingKeys: String, CodingKey { 
-        case _id = "id"
+        case id
         case departureLocationId = "departure_location_id"
         case arrivalLocationIds = "arrival_location_ids"
         case transportation

@@ -2,6 +2,7 @@ package org.openapitools.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.jackson.nullable.JsonNullable;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
@@ -27,13 +28,13 @@ public enum RequestArrivalTimePeriod {
   }
 
   @JsonCreator
-  public static RequestArrivalTimePeriod fromValue(String text) {
+  public static RequestArrivalTimePeriod fromValue(String value) {
     for (RequestArrivalTimePeriod b : RequestArrivalTimePeriod.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }
 

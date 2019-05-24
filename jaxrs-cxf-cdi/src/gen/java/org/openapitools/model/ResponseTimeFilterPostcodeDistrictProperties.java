@@ -14,7 +14,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   
   private ResponseTravelTimeStatistics travelTimeReachable = null;

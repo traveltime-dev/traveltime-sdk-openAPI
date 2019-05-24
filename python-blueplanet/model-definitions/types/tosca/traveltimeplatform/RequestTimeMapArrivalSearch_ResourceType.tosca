@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTimeMapArrivalSearch"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTimeMapArrivalSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Coords = traveltimeplatform.resourceTypes.Coords
+  RequestRangeNoMaxResults = traveltimeplatform.resourceTypes.RequestRangeNoMaxResults
+  RequestTimeMapProperty = traveltimeplatform.resourceTypes.RequestTimeMapProperty
+  RequestTransportation = traveltimeplatform.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeMapArrivalSearch {
+    title = RequestTimeMapArrivalSearch
+    description = RequestTimeMapArrivalSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        coords {
+          type = Coords
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        arrival_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeMapProperty
+          description = ""
+          optional = false
+        }
+        range {
+          type = RequestRangeNoMaxResults
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeMapArrivalSearch {
+    title = RequestTimeMapArrivalSearch
+    description = RequestTimeMapArrivalSearch
+    implements = traveltimeplatform.resourceTypes.RequestTimeMapArrivalSearch
+
+  }
+}

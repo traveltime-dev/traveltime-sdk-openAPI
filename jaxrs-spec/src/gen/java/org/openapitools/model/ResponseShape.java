@@ -67,8 +67,8 @@ public class ResponseShape   {
       return false;
     }
     ResponseShape responseShape = (ResponseShape) o;
-    return Objects.equals(shell, responseShape.shell) &&
-        Objects.equals(holes, responseShape.holes);
+    return Objects.equals(this.shell, responseShape.shell) &&
+        Objects.equals(this.holes, responseShape.holes);
   }
 
   @Override

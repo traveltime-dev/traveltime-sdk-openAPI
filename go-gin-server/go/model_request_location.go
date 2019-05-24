@@ -14,5 +14,5 @@ type RequestLocation struct {
 
 	Id string `json:"id"`
 
-	Coords *Coords `json:"coords"`
+	Coords Coords `json:"coords"`
 }

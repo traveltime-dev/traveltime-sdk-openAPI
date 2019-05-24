@@ -1,6 +1,7 @@
 # ResponseFares
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Breakdown** | [**[]ResponseFaresBreakdownItem**](ResponseFaresBreakdownItem.md) |  | 

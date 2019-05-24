@@ -1,6 +1,7 @@
 # ResponseFaresFast
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TicketsTotal** | [**[]ResponseFareTicket**](ResponseFareTicket.md) |  | 

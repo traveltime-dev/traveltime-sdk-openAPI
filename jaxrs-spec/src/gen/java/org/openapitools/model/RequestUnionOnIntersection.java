@@ -66,8 +66,8 @@ public class RequestUnionOnIntersection   {
       return false;
     }
     RequestUnionOnIntersection requestUnionOnIntersection = (RequestUnionOnIntersection) o;
-    return Objects.equals(id, requestUnionOnIntersection.id) &&
-        Objects.equals(searchIds, requestUnionOnIntersection.searchIds);
+    return Objects.equals(this.id, requestUnionOnIntersection.id) &&
+        Objects.equals(this.searchIds, requestUnionOnIntersection.searchIds);
   }
 
   @Override

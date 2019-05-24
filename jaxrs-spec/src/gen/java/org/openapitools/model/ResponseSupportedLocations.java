@@ -67,8 +67,8 @@ public class ResponseSupportedLocations   {
       return false;
     }
     ResponseSupportedLocations responseSupportedLocations = (ResponseSupportedLocations) o;
-    return Objects.equals(locations, responseSupportedLocations.locations) &&
-        Objects.equals(unsupportedLocations, responseSupportedLocations.unsupportedLocations);
+    return Objects.equals(this.locations, responseSupportedLocations.locations) &&
+        Objects.equals(this.unsupportedLocations, responseSupportedLocations.unsupportedLocations);
   }
 
   @Override

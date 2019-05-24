@@ -4,7 +4,7 @@ function New-RequestTimeFilterPostcodeSectors {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterPostcodeSectorsDepartureSearch[]]]
         ${departureUnderscoresearches},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.RequestTimeFilterPostcodeSectorsArrivalSearch[]]]
         ${arrivalUnderscoresearches}
     )

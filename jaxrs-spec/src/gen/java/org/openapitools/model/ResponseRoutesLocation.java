@@ -67,8 +67,8 @@ public class ResponseRoutesLocation   {
       return false;
     }
     ResponseRoutesLocation responseRoutesLocation = (ResponseRoutesLocation) o;
-    return Objects.equals(id, responseRoutesLocation.id) &&
-        Objects.equals(properties, responseRoutesLocation.properties);
+    return Objects.equals(this.id, responseRoutesLocation.id) &&
+        Objects.equals(this.properties, responseRoutesLocation.properties);
   }
 
   @Override

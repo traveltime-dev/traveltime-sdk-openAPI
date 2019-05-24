@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/response_box.dart';
+
 part 'response_bounding_box.jser.dart';
 
 class ResponseBoundingBox {
@@ -13,7 +15,7 @@ class ResponseBoundingBox {
   
 
   ResponseBoundingBox(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class ResponseBoundingBox {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseBoundingBoxSerializer extends Serializer<ResponseBoundingBox> with _$ResponseBoundingBoxSerializer {
 
 }
+

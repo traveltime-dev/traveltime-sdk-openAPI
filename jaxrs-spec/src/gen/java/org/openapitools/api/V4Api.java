@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 @Path("/v4")
 @Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-04-02T12:38:05.661Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-05-24T09:07:11.905Z[Etc/UTC]")
 public class V4Api {
 
     @GET

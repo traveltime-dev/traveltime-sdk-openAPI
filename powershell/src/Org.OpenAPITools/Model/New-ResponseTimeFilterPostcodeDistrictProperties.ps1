@@ -4,10 +4,10 @@ function New-ResponseTimeFilterPostcodeDistrictProperties {
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.ResponseTravelTimeStatistics]]
         ${travelUnderscoretimeUnderscorereachable},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[traveltimeplatform.Model.ResponseTravelTimeStatistics]]
         ${travelUnderscoretimeUnderscoreall},
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
+        [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
         ${coverage}
     )

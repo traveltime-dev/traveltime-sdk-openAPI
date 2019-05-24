@@ -12,13 +12,18 @@ class ResponseMapInfo {
 
   ResponseMapInfo.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    maps = ResponseMapInfoMap.listFromJson(json['maps']);
+    if (json['maps'] == null) {
+      maps = null;
+    } else {
+      maps = ResponseMapInfoMap.listFromJson(json['maps']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'maps': maps
-    };
+    Map <String, dynamic> json = {};
+    if (maps != null)
+      json['maps'] = maps;
+    return json;
   }
 
   static List<ResponseMapInfo> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class ResponseMapInfo {
 
   static Map<String, ResponseMapInfo> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseMapInfo>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfo.fromJson(value));
     }
     return map;

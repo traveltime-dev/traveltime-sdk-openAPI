@@ -1,0 +1,35 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeMapProperties"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeMapProperties"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ResponseTimeMapProperties {
+    title = ResponseTimeMapProperties
+    description = ResponseTimeMapProperties
+    derivedFrom = Root
+    properties {
+        is_only_walking {
+          type =  boolean
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeMapProperties {
+    title = ResponseTimeMapProperties
+    description = ResponseTimeMapProperties
+    implements = traveltimeplatform.resourceTypes.ResponseTimeMapProperties
+
+  }
+}

@@ -14,10 +14,9 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class ResponseDistanceBreakdownItem   {
   
-  private ResponseTransportationMode mode = null;
+  private ResponseTransportationMode mode;
 
   private Integer distance;
 

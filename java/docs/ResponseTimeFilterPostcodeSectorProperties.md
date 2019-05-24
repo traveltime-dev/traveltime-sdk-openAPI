@@ -1,7 +1,9 @@
 
+
 # ResponseTimeFilterPostcodeSectorProperties
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **travelTimeReachable** | [**ResponseTravelTimeStatistics**](ResponseTravelTimeStatistics.md) |  |  [optional]

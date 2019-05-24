@@ -10,7 +10,7 @@ import org.openapitools.server.api.model.ResponseTimeFilterProperties;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseTimeFilterLocation   {
   
-  private String id = ;
+  private String id;
   private List<ResponseTimeFilterProperties> properties = new ArrayList<>();
 
   public ResponseTimeFilterLocation () {

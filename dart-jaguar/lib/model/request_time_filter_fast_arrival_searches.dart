@@ -1,7 +1,10 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_time_filter_fast_arrival_one_to_many_search.dart';
+
 import 'package:openapi/model/request_time_filter_fast_arrival_many_to_one_search.dart';
+
 part 'request_time_filter_fast_arrival_searches.jser.dart';
 
 class RequestTimeFilterFastArrivalSearches {
@@ -14,7 +17,7 @@ class RequestTimeFilterFastArrivalSearches {
   
 
   RequestTimeFilterFastArrivalSearches(
-    
+      
 
 {
      this.manyToOne = const [],  
@@ -29,7 +32,8 @@ class RequestTimeFilterFastArrivalSearches {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeFilterFastArrivalSearchesSerializer extends Serializer<RequestTimeFilterFastArrivalSearches> with _$RequestTimeFilterFastArrivalSearchesSerializer {
 
 }
+

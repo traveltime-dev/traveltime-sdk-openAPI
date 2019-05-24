@@ -14,7 +14,7 @@ import org.openapitools.model.ResponseTransportationMode;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-04-02T12:37:38.864Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
 public class ResponseFaresBreakdownItem   {
   @JsonProperty("modes")
   private List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>();

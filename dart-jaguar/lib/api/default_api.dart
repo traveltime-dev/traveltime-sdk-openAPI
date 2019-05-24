@@ -1,7 +1,7 @@
 import 'package:jaguar_retrofit/annotations/annotations.dart';
 import 'package:jaguar_retrofit/jaguar_retrofit.dart';
 import 'package:jaguar_serializer/jaguar_serializer.dart';
-import 'package:jaguar_serializer/src/repo/repo.dart';
+import 'package:jaguar_mimetype/jaguar_mimetype.dart';
 import 'dart:async';
 
 import 'package:openapi/model/response_time_filter_postcodes.dart';
@@ -24,15 +24,15 @@ import 'package:openapi/model/request_time_filter_postcode_sectors.dart';
 import 'package:openapi/model/response_map_info.dart';
 import 'package:openapi/model/request_time_filter.dart';
 
-
 part 'default_api.jretro.dart';
 
 @GenApiClient()
-class DefaultApi extends _$DefaultApiClient implements ApiClient {
+class DefaultApi extends ApiClient with _$DefaultApiClient {
     final Route base;
-    final SerializerRepo serializers;
+    final Map<String, CodecRepo> converters;
+    final Duration timeout;
 
-    DefaultApi({this.base, this.serializers});
+    DefaultApi({this.base, this.converters, this.timeout = const Duration(minutes: 2)});
 
     /// 
     ///
@@ -40,12 +40,22 @@ class DefaultApi extends _$DefaultApiClient implements ApiClient {
     @GetReq(path: "/v4/geocoding/reverse", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseGeocoding> geocodingReverseSearch(
         
-        @QueryParam("focus.lat") double focusLat, 
+            @QueryParam("focus.lat") double focusLat, 
         
-        @QueryParam("focus.lng") double focusLng, 
+            @QueryParam("focus.lng") double focusLng, 
         
-        @QueryParam("within.country") String withinCountry
-    );
+            @QueryParam("within.country") String withinCountry
+        ) {
+        return super.geocodingReverseSearch(
+        
+        focusLat, 
+        
+        focusLng, 
+        
+        withinCountry
+
+        ).timeout(timeout);
+    }
 
     /// 
     ///
@@ -53,93 +63,157 @@ class DefaultApi extends _$DefaultApiClient implements ApiClient {
     @GetReq(path: "/v4/geocoding/search", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseGeocoding> geocodingSearch(
         
-        @QueryParam("query") String query, 
+            @QueryParam("query") String query, 
         
-        @QueryParam("within.country") String withinCountry, 
+            @QueryParam("within.country") String withinCountry, 
         
-        @QueryParam("focus.lat") double focusLat, 
+            @QueryParam("focus.lat") double focusLat, 
         
-        @QueryParam("focus.lng") double focusLng
-    );
+            @QueryParam("focus.lng") double focusLng
+        ) {
+        return super.geocodingSearch(
+        
+        query, 
+        
+        withinCountry, 
+        
+        focusLat, 
+        
+        focusLng
+
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @GetReq(path: "/v4/map-info", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseMapInfo> mapInfo(
-    );
+        ) {
+        return super.mapInfo(
+
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/routes", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseRoutes> routes(
+            
+             @AsJson() RequestRoutes requestRoutes
+        ) {
+        return super.routes(
+
         
-        @AsJson() RequestRoutes requestRoutes
-    );
+        requestRoutes
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/supported-locations", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseSupportedLocations> supportedLocations(
+            
+             @AsJson() RequestSupportedLocations requestSupportedLocations
+        ) {
+        return super.supportedLocations(
+
         
-        @AsJson() RequestSupportedLocations requestSupportedLocations
-    );
+        requestSupportedLocations
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-filter", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeFilter> timeFilter(
+            
+             @AsJson() RequestTimeFilter requestTimeFilter
+        ) {
+        return super.timeFilter(
+
         
-        @AsJson() RequestTimeFilter requestTimeFilter
-    );
+        requestTimeFilter
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-filter/fast", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeFilterFast> timeFilterFast(
+            
+             @AsJson() RequestTimeFilterFast requestTimeFilterFast
+        ) {
+        return super.timeFilterFast(
+
         
-        @AsJson() RequestTimeFilterFast requestTimeFilterFast
-    );
+        requestTimeFilterFast
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-filter/postcode-districts", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(
+            
+             @AsJson() RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts
+        ) {
+        return super.timeFilterPostcodeDistricts(
+
         
-        @AsJson() RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts
-    );
+        requestTimeFilterPostcodeDistricts
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-filter/postcode-sectors", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(
+            
+             @AsJson() RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors
+        ) {
+        return super.timeFilterPostcodeSectors(
+
         
-        @AsJson() RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors
-    );
+        requestTimeFilterPostcodeSectors
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-filter/postcodes", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(
+            
+             @AsJson() RequestTimeFilterPostcodes requestTimeFilterPostcodes
+        ) {
+        return super.timeFilterPostcodes(
+
         
-        @AsJson() RequestTimeFilterPostcodes requestTimeFilterPostcodes
-    );
+        requestTimeFilterPostcodes
+        ).timeout(timeout);
+    }
 
     /// 
     ///
     /// 
     @PostReq(path: "/v4/time-map", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseTimeMap> timeMap(
+            
+             @AsJson() RequestTimeMap requestTimeMap
+        ) {
+        return super.timeMap(
+
         
-        @AsJson() RequestTimeMap requestTimeMap
-    );
+        requestTimeMap
+        ).timeout(timeout);
+    }
 
 
 }

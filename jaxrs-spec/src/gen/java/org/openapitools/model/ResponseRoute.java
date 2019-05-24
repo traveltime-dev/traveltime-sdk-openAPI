@@ -87,9 +87,9 @@ public class ResponseRoute   {
       return false;
     }
     ResponseRoute responseRoute = (ResponseRoute) o;
-    return Objects.equals(departureTime, responseRoute.departureTime) &&
-        Objects.equals(arrivalTime, responseRoute.arrivalTime) &&
-        Objects.equals(parts, responseRoute.parts);
+    return Objects.equals(this.departureTime, responseRoute.departureTime) &&
+        Objects.equals(this.arrivalTime, responseRoute.arrivalTime) &&
+        Objects.equals(this.parts, responseRoute.parts);
   }
 
   @Override

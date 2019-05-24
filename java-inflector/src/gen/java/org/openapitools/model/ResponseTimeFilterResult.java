@@ -13,7 +13,7 @@ import org.openapitools.model.ResponseTimeFilterLocation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-04-02T12:37:38.864Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
 public class ResponseTimeFilterResult   {
   @JsonProperty("search_id")
   private String searchId;

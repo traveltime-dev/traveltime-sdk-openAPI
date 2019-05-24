@@ -32,12 +32,12 @@ public enum RequestTimeFilterPostcodeSectorsProperty {
     return String.valueOf(value);
   }
 
-  public static RequestTimeFilterPostcodeSectorsProperty fromValue(String text) {
+  public static RequestTimeFilterPostcodeSectorsProperty fromValue(String value) {
     for (RequestTimeFilterPostcodeSectorsProperty b : RequestTimeFilterPostcodeSectorsProperty.values()) {
-      if (String.valueOf(b.value).equals(text)) {
+      if (b.value.equals(value)) {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + text + "'");
+    throw new IllegalArgumentException("Unexpected value '" + value + "'");
   }
 }

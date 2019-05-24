@@ -25,7 +25,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   private @Valid List<String> arrivalLocationIds = new ArrayList<String>();
   private @Valid RequestTransportationFast transportation = null;
   private @Valid Integer travelTime;
-  private @Valid RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private @Valid RequestArrivalTimePeriod arrivalTimePeriod;
   private @Valid List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();
 
   /**
@@ -166,13 +166,13 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
       return false;
     }
     RequestTimeFilterFastArrivalOneToManySearch requestTimeFilterFastArrivalOneToManySearch = (RequestTimeFilterFastArrivalOneToManySearch) o;
-    return Objects.equals(id, requestTimeFilterFastArrivalOneToManySearch.id) &&
-        Objects.equals(departureLocationId, requestTimeFilterFastArrivalOneToManySearch.departureLocationId) &&
-        Objects.equals(arrivalLocationIds, requestTimeFilterFastArrivalOneToManySearch.arrivalLocationIds) &&
-        Objects.equals(transportation, requestTimeFilterFastArrivalOneToManySearch.transportation) &&
-        Objects.equals(travelTime, requestTimeFilterFastArrivalOneToManySearch.travelTime) &&
-        Objects.equals(arrivalTimePeriod, requestTimeFilterFastArrivalOneToManySearch.arrivalTimePeriod) &&
-        Objects.equals(properties, requestTimeFilterFastArrivalOneToManySearch.properties);
+    return Objects.equals(this.id, requestTimeFilterFastArrivalOneToManySearch.id) &&
+        Objects.equals(this.departureLocationId, requestTimeFilterFastArrivalOneToManySearch.departureLocationId) &&
+        Objects.equals(this.arrivalLocationIds, requestTimeFilterFastArrivalOneToManySearch.arrivalLocationIds) &&
+        Objects.equals(this.transportation, requestTimeFilterFastArrivalOneToManySearch.transportation) &&
+        Objects.equals(this.travelTime, requestTimeFilterFastArrivalOneToManySearch.travelTime) &&
+        Objects.equals(this.arrivalTimePeriod, requestTimeFilterFastArrivalOneToManySearch.arrivalTimePeriod) &&
+        Objects.equals(this.properties, requestTimeFilterFastArrivalOneToManySearch.properties);
   }
 
   @Override

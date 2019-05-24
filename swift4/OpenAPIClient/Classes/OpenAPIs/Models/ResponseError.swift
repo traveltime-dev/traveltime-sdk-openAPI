@@ -13,14 +13,14 @@ public struct ResponseError: Codable {
 
     public var httpStatus: Int?
     public var errorCode: Int?
-    public var _description: String?
+    public var description: String?
     public var documentationLink: String?
     public var additionalInfo: [String:[String]]?
 
-    public init(httpStatus: Int?, errorCode: Int?, _description: String?, documentationLink: String?, additionalInfo: [String:[String]]?) {
+    public init(httpStatus: Int?, errorCode: Int?, description: String?, documentationLink: String?, additionalInfo: [String:[String]]?) {
         self.httpStatus = httpStatus
         self.errorCode = errorCode
-        self._description = _description
+        self.description = description
         self.documentationLink = documentationLink
         self.additionalInfo = additionalInfo
     }
@@ -28,7 +28,7 @@ public struct ResponseError: Codable {
     public enum CodingKeys: String, CodingKey { 
         case httpStatus = "http_status"
         case errorCode = "error_code"
-        case _description = "description"
+        case description
         case documentationLink = "documentation_link"
         case additionalInfo = "additional_info"
     }

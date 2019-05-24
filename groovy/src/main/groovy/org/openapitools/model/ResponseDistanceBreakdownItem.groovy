@@ -7,8 +7,8 @@ import org.openapitools.model.ResponseTransportationMode;
 
 @Canonical
 class ResponseDistanceBreakdownItem {
-    ResponseTransportationMode mode = null
-
-    Integer distance = 
-
+    
+    ResponseTransportationMode mode
+    
+    Integer distance
 }

@@ -8,23 +8,20 @@
 #define _request_routes_property_H_
 
 #include <string.h>
-#include "cJSON.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 
 
+typedef enum  {  travel_time, distance, fares, route } request_routes_property_e;
 
+char* request_routes_property_ToString(request_routes_property_e request_routes_property);
 
-typedef struct request_routes_property_t {
+request_routes_property_e request_routes_property_FromString(char* request_routes_property);
 
-} request_routes_property_t;
+cJSON *request_routes_property_convertToJSON(request_routes_property_e request_routes_property);
 
-request_routes_property_t *request_routes_property_create(
-);
-
-void request_routes_property_free(request_routes_property_t *request_routes_property);
-
-request_routes_property_t *request_routes_property_parseFromJSON(char *jsonString);
-
-cJSON *request_routes_property_convertToJSON(request_routes_property_t *request_routes_property);
+request_routes_property_e request_routes_property_parseFromJSON(cJSON *request_routes_propertyJSON);
 
 #endif /* _request_routes_property_H_ */
 

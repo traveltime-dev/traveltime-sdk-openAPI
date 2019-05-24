@@ -51,13 +51,13 @@ import traveltimeplatform
 from traveltimeplatform.rest import ApiException
 from pprint import pprint
 
-# Configure API key authorization: ApiKey
 configuration = traveltimeplatform.Configuration()
+# Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-# Configure API key authorization: ApplicationId
 configuration = traveltimeplatform.Configuration()
+# Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
@@ -199,6 +199,7 @@ Class | Method | HTTP request | Description
 - **Type**: API key
 - **API key parameter name**: X-Api-Key
 - **Location**: HTTP header
+
 
 ## ApplicationId
 

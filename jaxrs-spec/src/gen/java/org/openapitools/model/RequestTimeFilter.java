@@ -86,9 +86,9 @@ public class RequestTimeFilter   {
       return false;
     }
     RequestTimeFilter requestTimeFilter = (RequestTimeFilter) o;
-    return Objects.equals(locations, requestTimeFilter.locations) &&
-        Objects.equals(departureSearches, requestTimeFilter.departureSearches) &&
-        Objects.equals(arrivalSearches, requestTimeFilter.arrivalSearches);
+    return Objects.equals(this.locations, requestTimeFilter.locations) &&
+        Objects.equals(this.departureSearches, requestTimeFilter.departureSearches) &&
+        Objects.equals(this.arrivalSearches, requestTimeFilter.arrivalSearches);
   }
 
   @Override

@@ -7,10 +7,10 @@ import org.openapitools.model.ResponseMapInfoFeaturesPublicTransport;
 
 @Canonical
 class ResponseMapInfoFeatures {
+    
     ResponseMapInfoFeaturesPublicTransport publicTransport = null
-
-    Boolean fares = 
-
-    Boolean postcodes = 
-
+    
+    Boolean fares
+    
+    Boolean postcodes
 }

@@ -28,13 +28,13 @@ public enum RequestTimeFilterPostcodeDistrictsProperty {
         return String.valueOf(value);
     }
 
-    public static RequestTimeFilterPostcodeDistrictsProperty fromValue(String v) {
+    public static RequestTimeFilterPostcodeDistrictsProperty fromValue(String value) {
         for (RequestTimeFilterPostcodeDistrictsProperty b : RequestTimeFilterPostcodeDistrictsProperty.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 

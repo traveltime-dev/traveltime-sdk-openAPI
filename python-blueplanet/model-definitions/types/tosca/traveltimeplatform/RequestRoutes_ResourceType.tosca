@@ -1,0 +1,51 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestRoutes"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestRoutes"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestLocation = traveltimeplatform.resourceTypes.RequestLocation
+  RequestRoutesArrivalSearch = traveltimeplatform.resourceTypes.RequestRoutesArrivalSearch
+  RequestRoutesDepartureSearch = traveltimeplatform.resourceTypes.RequestRoutesDepartureSearch
+}
+resourceTypes {
+
+  RequestRoutes {
+    title = RequestRoutes
+    description = RequestRoutes
+    derivedFrom = Root
+    properties {
+        locations {
+          type = array
+          items.type = RequestLocation
+          description = ""
+          optional = true
+        }
+        departure_searches {
+          type = array
+          items.type = RequestRoutesDepartureSearch
+          description = ""
+          optional = false
+        }
+        arrival_searches {
+          type = array
+          items.type = RequestRoutesArrivalSearch
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestRoutes {
+    title = RequestRoutes
+    description = RequestRoutes
+    implements = traveltimeplatform.resourceTypes.RequestRoutes
+
+  }
+}

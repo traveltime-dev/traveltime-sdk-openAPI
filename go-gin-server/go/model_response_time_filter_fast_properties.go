@@ -14,5 +14,5 @@ type ResponseTimeFilterFastProperties struct {
 
 	TravelTime int32 `json:"travel_time,omitempty"`
 
-	Fares *ResponseFaresFast `json:"fares,omitempty"`
+	Fares ResponseFaresFast `json:"fares,omitempty"`
 }

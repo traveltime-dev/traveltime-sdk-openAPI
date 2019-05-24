@@ -13,7 +13,6 @@ import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 
-
 public class Coords   {
   
   private Double lat;

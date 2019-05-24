@@ -79,7 +79,6 @@ data GeocodingReverseSearch
 instance HasOptionalParam GeocodingReverseSearch WithinCountry where
   applyOptionalParam req (WithinCountry xs) =
     req `setQuery` toQuery ("within.country", Just xs)
-
 -- | @application/json@
 instance Produces GeocodingReverseSearch MimeJSON
 
@@ -109,7 +108,6 @@ instance HasOptionalParam GeocodingSearch FocusLat where
 instance HasOptionalParam GeocodingSearch FocusLng where
   applyOptionalParam req (FocusLng xs) =
     req `setQuery` toQuery ("focus.lng", Just xs)
-
 -- | @application/json@
 instance Produces GeocodingSearch MimeJSON
 
@@ -128,7 +126,6 @@ mapInfo =
     `_hasAuthType` (P.Proxy :: P.Proxy AuthApiKeyApplicationId)
 
 data MapInfo  
-
 -- | @application/json@
 instance Produces MapInfo MimeJSON
 

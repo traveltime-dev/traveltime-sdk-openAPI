@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_map_info_features_public_transport.jser.dart';
 
 class ResponseMapInfoFeaturesPublicTransport {
@@ -12,7 +13,7 @@ class ResponseMapInfoFeaturesPublicTransport {
   
 
   ResponseMapInfoFeaturesPublicTransport(
-    
+      
 
 {
     
@@ -27,7 +28,8 @@ class ResponseMapInfoFeaturesPublicTransport {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseMapInfoFeaturesPublicTransportSerializer extends Serializer<ResponseMapInfoFeaturesPublicTransport> with _$ResponseMapInfoFeaturesPublicTransportSerializer {
 
 }
+

@@ -11,8 +11,8 @@ import org.openapitools.server.api.model.ResponseRoutePart;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class ResponseRoute   {
   
-  private OffsetDateTime departureTime = ;
-  private OffsetDateTime arrivalTime = ;
+  private OffsetDateTime departureTime;
+  private OffsetDateTime arrivalTime;
   private List<ResponseRoutePart> parts = new ArrayList<>();
 
   public ResponseRoute () {

@@ -1,6 +1,7 @@
 # ResponseTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Results** | [**[]ResponseTimeMapResult**](ResponseTimeMapResult.md) |  | 

@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseTimeMapBoundingBoxesResult;
 
 @Canonical
 class ResponseTimeMapBoundingBoxes {
+    
     List<ResponseTimeMapBoundingBoxesResult> results = new ArrayList<ResponseTimeMapBoundingBoxesResult>()
-
 }

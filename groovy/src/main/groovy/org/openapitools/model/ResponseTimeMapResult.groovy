@@ -10,10 +10,10 @@ import org.openapitools.model.ResponseTimeMapProperties;
 
 @Canonical
 class ResponseTimeMapResult {
-    String searchId = 
-
+    
+    String searchId
+    
     List<ResponseShape> shapes = new ArrayList<ResponseShape>()
-
+    
     ResponseTimeMapProperties properties = null
-
 }

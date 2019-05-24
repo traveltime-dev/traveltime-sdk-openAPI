@@ -13,8 +13,8 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'focusLat' => Double.getExample(),
-            'focusLng' => Double.getExample(),
+            'focusLat' => '',
+            'focusLng' => '',
             'withinCountry' => 'null'
         };
 
@@ -63,8 +63,8 @@ private class OASDefaultApiTest {
         Map<String, Object> params = new Map<String, Object>{
             'query' => 'null',
             'withinCountry' => 'null',
-            'focusLat' => Double.getExample(),
-            'focusLng' => Double.getExample()
+            'focusLat' => '',
+            'focusLng' => ''
         };
 
         OASClient client;
@@ -152,7 +152,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestRoutes' => OASRequestRoutes.getExample()
+            'oaSRequestRoutes' => ''
         };
 
         OASClient client;
@@ -198,7 +198,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestSupportedLocations' => OASRequestSupportedLocations.getExample()
+            'oaSRequestSupportedLocations' => ''
         };
 
         OASClient client;
@@ -244,7 +244,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeFilter' => OASRequestTimeFilter.getExample()
+            'oaSRequestTimeFilter' => ''
         };
 
         OASClient client;
@@ -290,7 +290,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeFilterFast' => OASRequestTimeFilterFast.getExample()
+            'oaSRequestTimeFilterFast' => ''
         };
 
         OASClient client;
@@ -336,7 +336,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeFilterPostcodeDistrict' => OASRequestTimeFilterPostcodeDistrict.getExample()
+            'oaSRequestTimeFilterPostcodeDistrict' => ''
         };
 
         OASClient client;
@@ -382,7 +382,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeFilterPostcodeSectors' => OASRequestTimeFilterPostcodeSectors.getExample()
+            'oaSRequestTimeFilterPostcodeSectors' => ''
         };
 
         OASClient client;
@@ -428,7 +428,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeFilterPostcodes' => OASRequestTimeFilterPostcodes.getExample()
+            'oaSRequestTimeFilterPostcodes' => ''
         };
 
         OASClient client;
@@ -474,7 +474,7 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'oaSRequestTimeMap' => OASRequestTimeMap.getExample()
+            'oaSRequestTimeMap' => ''
         };
 
         OASClient client;

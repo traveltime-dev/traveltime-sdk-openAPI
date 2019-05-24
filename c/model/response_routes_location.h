@@ -8,27 +8,27 @@
 #define _response_routes_location_H_
 
 #include <string.h>
-#include "cJSON.h"
-#include "list.h"
+#include "../external/cJSON.h"
+#include "../include/list.h"
+#include "../include/keyValuePair.h"
 #include "response_routes_properties.h"
 
 
 
-
 typedef struct response_routes_location_t {
-        char *id; //no enum string
-        list_t *properties; //nonprimitive container
+    char *id; // string
+    list_t *properties; //nonprimitive container
 
 } response_routes_location_t;
 
 response_routes_location_t *response_routes_location_create(
-        char *id,
-        list_t *properties
+    char *id,
+    list_t *properties
 );
 
 void response_routes_location_free(response_routes_location_t *response_routes_location);
 
-response_routes_location_t *response_routes_location_parseFromJSON(char *jsonString);
+response_routes_location_t *response_routes_location_parseFromJSON(cJSON *response_routes_locationJSON);
 
 cJSON *response_routes_location_convertToJSON(response_routes_location_t *response_routes_location);
 

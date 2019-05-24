@@ -1,6 +1,7 @@
 # ResponseFares
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **breakdown** | [**Vec<::models::ResponseFaresBreakdownItem>**](ResponseFaresBreakdownItem.md) |  | 

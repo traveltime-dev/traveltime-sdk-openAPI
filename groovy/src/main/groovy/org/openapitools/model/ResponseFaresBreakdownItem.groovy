@@ -10,10 +10,10 @@ import org.openapitools.model.ResponseTransportationMode;
 
 @Canonical
 class ResponseFaresBreakdownItem {
+    
     List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>()
-
+    
     List<Integer> routePartIds = new ArrayList<Integer>()
-
+    
     List<ResponseFareTicket> tickets = new ArrayList<ResponseFareTicket>()
-
 }

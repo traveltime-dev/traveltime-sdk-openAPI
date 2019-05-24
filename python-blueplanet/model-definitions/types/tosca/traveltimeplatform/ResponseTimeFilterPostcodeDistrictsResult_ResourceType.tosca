@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform ResponseTimeFilterPostcodeDistrictsResult"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a ResponseTimeFilterPostcodeDistrictsResult"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeFilterPostcodeDistrict = traveltimeplatform.resourceTypes.ResponseTimeFilterPostcodeDistrict
+}
+resourceTypes {
+
+  ResponseTimeFilterPostcodeDistrictsResult {
+    title = ResponseTimeFilterPostcodeDistrictsResult
+    description = ResponseTimeFilterPostcodeDistrictsResult
+    derivedFrom = Root
+    properties {
+        search_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        districts {
+          type = array
+          items.type = ResponseTimeFilterPostcodeDistrict
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterPostcodeDistrictsResult {
+    title = ResponseTimeFilterPostcodeDistrictsResult
+    description = ResponseTimeFilterPostcodeDistrictsResult
+    implements = traveltimeplatform.resourceTypes.ResponseTimeFilterPostcodeDistrictsResult
+
+  }
+}

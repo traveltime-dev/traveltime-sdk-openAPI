@@ -1,6 +1,8 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/coords.dart';
+
 part 'response_shape.jser.dart';
 
 class ResponseShape {
@@ -13,7 +15,7 @@ class ResponseShape {
   
 
   ResponseShape(
-    
+      
 
 {
     
@@ -28,7 +30,8 @@ class ResponseShape {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseShapeSerializer extends Serializer<ResponseShape> with _$ResponseShapeSerializer {
 
 }
+

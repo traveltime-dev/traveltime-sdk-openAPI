@@ -1,9 +1,14 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 import 'package:openapi/model/request_range_no_max_results.dart';
+
 import 'package:openapi/model/request_time_map_property.dart';
+
 import 'package:openapi/model/request_transportation.dart';
+
 import 'package:openapi/model/coords.dart';
+
 part 'request_time_map_arrival_search.jser.dart';
 
 class RequestTimeMapArrivalSearch {
@@ -31,7 +36,7 @@ class RequestTimeMapArrivalSearch {
   
 
   RequestTimeMapArrivalSearch(
-    
+      
 
 {
     
@@ -51,7 +56,8 @@ class RequestTimeMapArrivalSearch {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class RequestTimeMapArrivalSearchSerializer extends Serializer<RequestTimeMapArrivalSearch> with _$RequestTimeMapArrivalSearchSerializer {
 
 }
+

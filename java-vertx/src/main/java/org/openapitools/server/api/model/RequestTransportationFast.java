@@ -28,7 +28,7 @@ public class RequestTransportationFast   {
     }
   }
 
-  private TypeEnum type = ;
+  private TypeEnum type;
 
   public RequestTransportationFast () {
 

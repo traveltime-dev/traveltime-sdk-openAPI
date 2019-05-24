@@ -12,7 +12,7 @@ package traveltimeplatform
 
 type ResponseMapInfoFeatures struct {
 
-	PublicTransport *ResponseMapInfoFeaturesPublicTransport `json:"public_transport,omitempty"`
+	PublicTransport ResponseMapInfoFeaturesPublicTransport `json:"public_transport,omitempty"`
 
 	Fares bool `json:"fares"`
 

@@ -1,0 +1,125 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <Description>traveltimeplatform</Description>
+    <Copyright>traveltimeplatform</Copyright>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <DebugType>portable</DebugType>
+    <EnableDefaultContentItems>false</EnableDefaultContentItems>
+    <RunWorkingDirectory>$(MSBuildThisFileDirectory)</RunWorkingDirectory>
+    <AssemblyName>traveltimeplatform</AssemblyName>
+    <PackageId>traveltimeplatform</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" />
+    <PackageReference Include="Giraffe" Version="3.4.*" />
+    <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
+    <PackageReference Include="AspNet.Security.OAuth.GitHub" Version="2.0.1" />
+    <PackageReference Include="AspNet.Security.ApiKey.Providers" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="openapi.yaml"/>
+    <Compile Include="helpers/Helpers.fs" />
+    <Compile Include="model/Coords.fs" />
+    <Compile Include="model/RequestArrivalTimePeriod.fs" />
+    <Compile Include="model/RequestRangeFull.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeSectorsProperty.fs" />
+    <Compile Include="model/ResponseMapInfoFeaturesPublicTransport.fs" />
+    <Compile Include="model/RequestRangeNoMaxResults.fs" />
+    <Compile Include="model/ResponseSupportedLocation.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodesProperty.fs" />
+    <Compile Include="model/RequestTimeFilterProperty.fs" />
+    <Compile Include="model/RequestTimeMapProperty.fs" />
+    <Compile Include="model/RequestTransportation.fs" />
+    <Compile Include="model/RequestTransportationFast.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodesProperties.fs" />
+    <Compile Include="model/RequestUnionOnIntersection.fs" />
+    <Compile Include="model/RequestTimeFilterFastProperty.fs" />
+    <Compile Include="model/ResponseBox.fs" />
+    <Compile Include="model/ResponseTimeMapProperties.fs" />
+    <Compile Include="model/ResponseError.fs" />
+    <Compile Include="model/ResponseFareTicket.fs" />
+    <Compile Include="model/ResponseTransportationMode.fs" />
+    <Compile Include="model/ResponseTravelTimeStatistics.fs" />
+    <Compile Include="model/RequestRoutesProperty.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeDistrictsProperty.fs" />
+    <Compile Include="model/ResponseGeocodingGeometry.fs" />
+    <Compile Include="model/ResponseRoutes.fs" />
+    <Compile Include="model/ResponseRoutePart.fs" />
+    <Compile Include="model/ResponseRoute.fs" />
+    <Compile Include="model/ResponseMapInfoMap.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeSectorsDepartureSearch.fs" />
+    <Compile Include="model/ResponseMapInfoFeatures.fs" />
+    <Compile Include="model/ResponseMapInfo.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeSectorsArrivalSearch.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeSectors.fs" />
+    <Compile Include="model/ResponseGeocodingProperties.fs" />
+    <Compile Include="model/ResponseTimeFilter.fs" />
+    <Compile Include="model/ResponseGeocodingGeoJsonFeature.fs" />
+    <Compile Include="model/ResponseGeocoding.fs" />
+    <Compile Include="model/ResponseFaresFast.fs" />
+    <Compile Include="model/ResponseFaresBreakdownItem.fs" />
+    <Compile Include="model/ResponseFares.fs" />
+    <Compile Include="model/ResponseTimeFilterLocation.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcode.fs" />
+    <Compile Include="model/ResponseDistanceBreakdownItem.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeDistricts.fs" />
+    <Compile Include="model/RequestRoutesArrivalSearch.fs" />
+    <Compile Include="model/ResponseBoundingBox.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodes.fs" />
+    <Compile Include="model/RequestTimeFilterFastArrivalSearches.fs" />
+    <Compile Include="model/RequestRoutes.fs" />
+    <Compile Include="model/RequestTimeFilterFastArrivalOneToManySearch.fs" />
+    <Compile Include="model/RequestTimeFilterFastArrivalManyToOneSearch.fs" />
+    <Compile Include="model/RequestTimeMapDepartureSearch.fs" />
+    <Compile Include="model/RequestTimeMapArrivalSearch.fs" />
+    <Compile Include="model/RequestTimeMap.fs" />
+    <Compile Include="model/ResponseTimeMapBoundingBoxesResult.fs" />
+    <Compile Include="model/RequestTimeFilterDepartureSearch.fs" />
+    <Compile Include="model/ResponseShape.fs" />
+    <Compile Include="model/RequestTimeFilterArrivalSearch.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodes.fs" />
+    <Compile Include="model/RequestTimeFilter.fs" />
+    <Compile Include="model/RequestSupportedLocations.fs" />
+    <Compile Include="model/RequestRoutesDepartureSearch.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodesArrivalSearch.fs" />
+    <Compile Include="model/ResponseTimeMapResult.fs" />
+    <Compile Include="model/ResponseSupportedLocations.fs" />
+    <Compile Include="model/ResponseTimeFilterFast.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeDistrictsDepartureSearch.fs" />
+    <Compile Include="model/ResponseTimeFilterFastResult.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeDistrictProperties.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeDistrictsResult.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeSector.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodesResult.fs" />
+    <Compile Include="model/RequestLocation.fs" />
+    <Compile Include="model/RequestTimeFilterFast.fs" />
+    <Compile Include="model/ResponseTimeMapBoundingBoxes.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeDistricts.fs" />
+    <Compile Include="model/ResponseTimeMapWktResult.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodeDistrictsArrivalSearch.fs" />
+    <Compile Include="model/ResponseRoutesResult.fs" />
+    <Compile Include="model/RequestTimeFilterPostcodesDepartureSearch.fs" />
+    <Compile Include="model/ResponseTimeFilterFastProperties.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeDistrict.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeSectorsResult.fs" />
+    <Compile Include="model/ResponseTimeFilterProperties.fs" />
+    <Compile Include="model/ResponseTimeMap.fs" />
+    <Compile Include="model/ResponseTimeMapWkt.fs" />
+    <Compile Include="model/ResponseRoutesProperties.fs" />
+    <Compile Include="model/ResponseTimeFilterFastLocation.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeSectorProperties.fs" />
+    <Compile Include="model/ResponseTimeFilterResult.fs" />
+    <Compile Include="model/ResponseRoutesLocation.fs" />
+    <Compile Include="model/ResponseTimeFilterPostcodeSectors.fs" />
+    <Compile Include="api/DefaultApiHandlerParams.fs" />
+    <Compile Include="api/DefaultApiServiceInterface.fs" />
+    <Compile Include="impl/DefaultApiService.fs" />
+    <Compile Include="api/DefaultApiHandler.fs" />
+    <Compile Include="impl/CustomHandlers.fs" />
+    <Compile Include="auth/AuthSchemes.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+</Project>

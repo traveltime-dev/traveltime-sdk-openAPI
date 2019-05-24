@@ -12,12 +12,12 @@ import org.openapitools.server.api.model.RequestTransportationFast;
 @JsonInclude(JsonInclude.Include.NON_NULL) 
 public class RequestTimeFilterFastArrivalManyToOneSearch   {
   
-  private String id = ;
-  private String arrivalLocationId = ;
+  private String id;
+  private String arrivalLocationId;
   private List<String> departureLocationIds = new ArrayList<>();
   private RequestTransportationFast transportation = null;
-  private Integer travelTime = ;
-  private RequestArrivalTimePeriod arrivalTimePeriod = null;
+  private Integer travelTime;
+  private RequestArrivalTimePeriod arrivalTimePeriod;
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<>();
 
   public RequestTimeFilterFastArrivalManyToOneSearch () {

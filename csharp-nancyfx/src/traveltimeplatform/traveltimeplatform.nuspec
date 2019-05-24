@@ -9,5 +9,6 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>NancyFx traveltimeplatform API</description>
         <copyright>https://www.traveltimeplatform.com/terms-and-conditions</copyright>
+        <licenseUrl>http://localhost</licenseUrl>
     </metadata>
 </package>

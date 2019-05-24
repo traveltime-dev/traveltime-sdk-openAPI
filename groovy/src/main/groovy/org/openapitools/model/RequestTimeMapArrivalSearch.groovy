@@ -12,18 +12,18 @@ import org.openapitools.model.RequestTransportation;
 
 @Canonical
 class RequestTimeMapArrivalSearch {
-    String id = 
-
+    
+    String id
+    
     Coords coords = null
-
+    
     RequestTransportation transportation = null
-
-    Integer travelTime = 
-
-    Date arrivalTime = 
-
+    
+    Integer travelTime
+    
+    Date arrivalTime
+    
     List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>()
-
+    
     RequestRangeNoMaxResults range = null
-
 }

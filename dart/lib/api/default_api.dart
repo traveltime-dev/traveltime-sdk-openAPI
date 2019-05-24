@@ -36,7 +36,7 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -58,9 +58,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseGeocoding') as ResponseGeocoding;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
     } else {
       return null;
     }
@@ -96,7 +96,7 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -118,9 +118,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseGeocoding') as ResponseGeocoding;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
     } else {
       return null;
     }
@@ -143,7 +143,7 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -165,9 +165,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseMapInfo') as ResponseMapInfo;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseMapInfo') as ResponseMapInfo;
     } else {
       return null;
     }
@@ -193,7 +193,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -215,9 +215,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseRoutes') as ResponseRoutes;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseRoutes') as ResponseRoutes;
     } else {
       return null;
     }
@@ -243,7 +243,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -265,9 +265,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseSupportedLocations') as ResponseSupportedLocations;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseSupportedLocations') as ResponseSupportedLocations;
     } else {
       return null;
     }
@@ -293,7 +293,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -315,9 +315,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeFilter') as ResponseTimeFilter;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilter') as ResponseTimeFilter;
     } else {
       return null;
     }
@@ -343,7 +343,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -365,9 +365,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeFilterFast') as ResponseTimeFilterFast;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterFast') as ResponseTimeFilterFast;
     } else {
       return null;
     }
@@ -393,7 +393,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -415,9 +415,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeFilterPostcodeDistricts') as ResponseTimeFilterPostcodeDistricts;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeDistricts') as ResponseTimeFilterPostcodeDistricts;
     } else {
       return null;
     }
@@ -443,7 +443,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -465,9 +465,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeFilterPostcodeSectors') as ResponseTimeFilterPostcodeSectors;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeSectors') as ResponseTimeFilterPostcodeSectors;
     } else {
       return null;
     }
@@ -493,7 +493,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -515,9 +515,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeFilterPostcodes') as ResponseTimeFilterPostcodes;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodes') as ResponseTimeFilterPostcodes;
     } else {
       return null;
     }
@@ -543,7 +543,7 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
     if(contentType.startsWith("multipart/form-data")) {
@@ -565,9 +565,9 @@ class DefaultApi {
                                              authNames);
 
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, response.body);
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(response.body, 'ResponseTimeMap') as ResponseTimeMap;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeMap') as ResponseTimeMap;
     } else {
       return null;
     }

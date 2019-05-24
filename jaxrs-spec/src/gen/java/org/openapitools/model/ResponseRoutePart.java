@@ -43,18 +43,18 @@ public enum TypeEnum {
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String v) {
+    public static TypeEnum fromValue(String value) {
         for (TypeEnum b : TypeEnum.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 
   private @Valid TypeEnum type;
-  private @Valid ResponseTransportationMode mode = null;
+  private @Valid ResponseTransportationMode mode;
   private @Valid String directions;
   private @Valid Integer distance;
   private @Valid Integer travelTime;
@@ -358,22 +358,22 @@ public enum TypeEnum {
       return false;
     }
     ResponseRoutePart responseRoutePart = (ResponseRoutePart) o;
-    return Objects.equals(id, responseRoutePart.id) &&
-        Objects.equals(type, responseRoutePart.type) &&
-        Objects.equals(mode, responseRoutePart.mode) &&
-        Objects.equals(directions, responseRoutePart.directions) &&
-        Objects.equals(distance, responseRoutePart.distance) &&
-        Objects.equals(travelTime, responseRoutePart.travelTime) &&
-        Objects.equals(coords, responseRoutePart.coords) &&
-        Objects.equals(direction, responseRoutePart.direction) &&
-        Objects.equals(road, responseRoutePart.road) &&
-        Objects.equals(turn, responseRoutePart.turn) &&
-        Objects.equals(line, responseRoutePart.line) &&
-        Objects.equals(departureStation, responseRoutePart.departureStation) &&
-        Objects.equals(arrivalStation, responseRoutePart.arrivalStation) &&
-        Objects.equals(departsAt, responseRoutePart.departsAt) &&
-        Objects.equals(arrivesAt, responseRoutePart.arrivesAt) &&
-        Objects.equals(numStops, responseRoutePart.numStops);
+    return Objects.equals(this.id, responseRoutePart.id) &&
+        Objects.equals(this.type, responseRoutePart.type) &&
+        Objects.equals(this.mode, responseRoutePart.mode) &&
+        Objects.equals(this.directions, responseRoutePart.directions) &&
+        Objects.equals(this.distance, responseRoutePart.distance) &&
+        Objects.equals(this.travelTime, responseRoutePart.travelTime) &&
+        Objects.equals(this.coords, responseRoutePart.coords) &&
+        Objects.equals(this.direction, responseRoutePart.direction) &&
+        Objects.equals(this.road, responseRoutePart.road) &&
+        Objects.equals(this.turn, responseRoutePart.turn) &&
+        Objects.equals(this.line, responseRoutePart.line) &&
+        Objects.equals(this.departureStation, responseRoutePart.departureStation) &&
+        Objects.equals(this.arrivalStation, responseRoutePart.arrivalStation) &&
+        Objects.equals(this.departsAt, responseRoutePart.departsAt) &&
+        Objects.equals(this.arrivesAt, responseRoutePart.arrivesAt) &&
+        Objects.equals(this.numStops, responseRoutePart.numStops);
   }
 
   @Override

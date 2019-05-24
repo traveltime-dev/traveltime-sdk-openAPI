@@ -21,6 +21,7 @@
              nuget.org gallery uses information you add in the portal. -->
         <description>A library generated from a OpenAPI doc</description>
         <copyright>https://www.traveltimeplatform.com/terms-and-conditions</copyright>
+        <licenseUrl>http://localhost</licenseUrl>
 
         <!-- Dependencies are automatically installed when the package is installed -->
         <dependencies>

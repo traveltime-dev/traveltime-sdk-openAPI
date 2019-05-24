@@ -23,23 +23,53 @@ class RequestTransportation {
 
   RequestTransportation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
-    ptChangeDelay = json['pt_change_delay'];
-    walkingTime = json['walking_time'];
-    drivingTimeToStation = json['driving_time_to_station'];
-    parkingTime = json['parking_time'];
-    boardingTime = json['boarding_time'];
+    if (json['type'] == null) {
+      type = null;
+    } else {
+          type = json['type'];
+    }
+    if (json['pt_change_delay'] == null) {
+      ptChangeDelay = null;
+    } else {
+          ptChangeDelay = json['pt_change_delay'];
+    }
+    if (json['walking_time'] == null) {
+      walkingTime = null;
+    } else {
+          walkingTime = json['walking_time'];
+    }
+    if (json['driving_time_to_station'] == null) {
+      drivingTimeToStation = null;
+    } else {
+          drivingTimeToStation = json['driving_time_to_station'];
+    }
+    if (json['parking_time'] == null) {
+      parkingTime = null;
+    } else {
+          parkingTime = json['parking_time'];
+    }
+    if (json['boarding_time'] == null) {
+      boardingTime = null;
+    } else {
+          boardingTime = json['boarding_time'];
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'type': type,
-      'pt_change_delay': ptChangeDelay,
-      'walking_time': walkingTime,
-      'driving_time_to_station': drivingTimeToStation,
-      'parking_time': parkingTime,
-      'boarding_time': boardingTime
-    };
+    Map <String, dynamic> json = {};
+    if (type != null)
+      json['type'] = type;
+    if (ptChangeDelay != null)
+      json['pt_change_delay'] = ptChangeDelay;
+    if (walkingTime != null)
+      json['walking_time'] = walkingTime;
+    if (drivingTimeToStation != null)
+      json['driving_time_to_station'] = drivingTimeToStation;
+    if (parkingTime != null)
+      json['parking_time'] = parkingTime;
+    if (boardingTime != null)
+      json['boarding_time'] = boardingTime;
+    return json;
   }
 
   static List<RequestTransportation> listFromJson(List<dynamic> json) {
@@ -48,7 +78,7 @@ class RequestTransportation {
 
   static Map<String, RequestTransportation> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestTransportation>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestTransportation.fromJson(value));
     }
     return map;

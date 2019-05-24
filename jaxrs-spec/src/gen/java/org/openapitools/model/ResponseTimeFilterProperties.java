@@ -121,11 +121,11 @@ public class ResponseTimeFilterProperties   {
       return false;
     }
     ResponseTimeFilterProperties responseTimeFilterProperties = (ResponseTimeFilterProperties) o;
-    return Objects.equals(travelTime, responseTimeFilterProperties.travelTime) &&
-        Objects.equals(distance, responseTimeFilterProperties.distance) &&
-        Objects.equals(distanceBreakdown, responseTimeFilterProperties.distanceBreakdown) &&
-        Objects.equals(fares, responseTimeFilterProperties.fares) &&
-        Objects.equals(route, responseTimeFilterProperties.route);
+    return Objects.equals(this.travelTime, responseTimeFilterProperties.travelTime) &&
+        Objects.equals(this.distance, responseTimeFilterProperties.distance) &&
+        Objects.equals(this.distanceBreakdown, responseTimeFilterProperties.distanceBreakdown) &&
+        Objects.equals(this.fares, responseTimeFilterProperties.fares) &&
+        Objects.equals(this.route, responseTimeFilterProperties.route);
   }
 
   @Override

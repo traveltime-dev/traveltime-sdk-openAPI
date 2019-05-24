@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departureSearches** | [**[RequestTimeMapDepartureSearch]**](RequestTimeMapDepartureSearch.md) |  | [optional] 

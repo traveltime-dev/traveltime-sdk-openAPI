@@ -1,7 +1,9 @@
 
+
 # ResponseFareTicket
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**TypeEnum**](#TypeEnum) |  | 
@@ -9,10 +11,11 @@ Name | Type | Description | Notes
 **currency** | **String** |  | 
 
 
-<a name="TypeEnum"></a>
 ## Enum: TypeEnum
+
 Name | Value
 ---- | -----
+
 
 
 

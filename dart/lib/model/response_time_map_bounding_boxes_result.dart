@@ -16,17 +16,32 @@ class ResponseTimeMapBoundingBoxesResult {
 
   ResponseTimeMapBoundingBoxesResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    searchId = json['search_id'];
-    boundingBoxes = ResponseBoundingBox.listFromJson(json['bounding_boxes']);
-    properties = new ResponseTimeMapProperties.fromJson(json['properties']);
+    if (json['search_id'] == null) {
+      searchId = null;
+    } else {
+          searchId = json['search_id'];
+    }
+    if (json['bounding_boxes'] == null) {
+      boundingBoxes = null;
+    } else {
+      boundingBoxes = ResponseBoundingBox.listFromJson(json['bounding_boxes']);
+    }
+    if (json['properties'] == null) {
+      properties = null;
+    } else {
+      properties = new ResponseTimeMapProperties.fromJson(json['properties']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'search_id': searchId,
-      'bounding_boxes': boundingBoxes,
-      'properties': properties
-    };
+    Map <String, dynamic> json = {};
+    if (searchId != null)
+      json['search_id'] = searchId;
+    if (boundingBoxes != null)
+      json['bounding_boxes'] = boundingBoxes;
+    if (properties != null)
+      json['properties'] = properties;
+    return json;
   }
 
   static List<ResponseTimeMapBoundingBoxesResult> listFromJson(List<dynamic> json) {
@@ -35,7 +50,7 @@ class ResponseTimeMapBoundingBoxesResult {
 
   static Map<String, ResponseTimeMapBoundingBoxesResult> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseTimeMapBoundingBoxesResult>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapBoundingBoxesResult.fromJson(value));
     }
     return map;

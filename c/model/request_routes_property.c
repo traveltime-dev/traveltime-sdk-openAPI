@@ -1,54 +1,49 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "request_routes_property.h"
 
 
-request_routes_property_t *request_routes_property_create(
-    ) {
-	request_routes_property_t *request_routes_property = malloc(sizeof(request_routes_property_t));
-
-	return request_routes_property;
+char* request_routes_property_ToString(request_routes_property_e request_routes_property){
+char *request_routes_propertyArray[] =  { "travel_time","distance","fares","route" };
+    return request_routes_propertyArray[request_routes_property];
 }
 
-
-void request_routes_property_free(request_routes_property_t *request_routes_property) {
-    listEntry_t *listEntry;
-
-	free(request_routes_property);
-}
-
-cJSON *request_routes_property_convertToJSON(request_routes_property_t *request_routes_property) {
-	cJSON *item = cJSON_CreateObject();
-	return item;
-fail:
-	cJSON_Delete(item);
-	return NULL;
-}
-
-request_routes_property_t *request_routes_property_parseFromJSON(char *jsonString){
-
-    request_routes_property_t *request_routes_property = NULL;
-    cJSON *request_routes_propertyJSON = cJSON_Parse(jsonString);
-    if(request_routes_propertyJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
+request_routes_property_e request_routes_property_FromString(char* request_routes_property){
+    int stringToReturn = 0;
+    char *request_routes_propertyArray[] =  { "travel_time","distance","fares","route" };
+    size_t sizeofArray = sizeof(request_routes_propertyArray) / sizeof(request_routes_propertyArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(request_routes_property, request_routes_propertyArray[stringToReturn]) == 0) {
+            return stringToReturn;
         }
+        stringToReturn++;
     }
-
-
-    request_routes_property = request_routes_property_create (
-        );
- cJSON_Delete(request_routes_propertyJSON);
-    return request_routes_property;
-end:
-    cJSON_Delete(request_routes_propertyJSON);
-    return NULL;
-
+    return 0;
 }
 
+cJSON *request_routes_property_convertToJSON(request_routes_property_e request_routes_property) {
+cJSON *item = cJSON_CreateObject();
+    if(cJSON_AddStringToObject(item, "request_routes_property", request_routes_property_ToString(request_routes_property)) == NULL) {
+        goto fail;
+    }
+    return item;
+    fail:
+    cJSON_Delete(item);
+    return NULL;
+}
+
+request_routes_property_e request_routes_property_parseFromJSON(cJSON *request_routes_propertyJSON){
+
+request_routes_property_e *request_routes_property = NULL;
+
+request_routes_property_e request_routes_propertyVariable;
+cJSON *request_routes_propertyVar = cJSON_GetObjectItemCaseSensitive(request_routes_propertyJSON, "request_routes_property");
+if(!cJSON_IsString(request_routes_propertyVar) || (request_routes_propertyVar->valuestring == NULL)){
+    goto end;
+}
+request_routes_propertyVariable = request_routes_property_FromString(request_routes_propertyVar->valuestring);
+return request_routes_propertyVariable;
+end:
+return 0;
+}

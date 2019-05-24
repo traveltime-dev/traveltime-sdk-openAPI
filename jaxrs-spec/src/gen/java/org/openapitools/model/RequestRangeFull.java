@@ -87,9 +87,9 @@ public class RequestRangeFull   {
       return false;
     }
     RequestRangeFull requestRangeFull = (RequestRangeFull) o;
-    return Objects.equals(enabled, requestRangeFull.enabled) &&
-        Objects.equals(maxResults, requestRangeFull.maxResults) &&
-        Objects.equals(width, requestRangeFull.width);
+    return Objects.equals(this.enabled, requestRangeFull.enabled) &&
+        Objects.equals(this.maxResults, requestRangeFull.maxResults) &&
+        Objects.equals(this.width, requestRangeFull.width);
   }
 
   @Override

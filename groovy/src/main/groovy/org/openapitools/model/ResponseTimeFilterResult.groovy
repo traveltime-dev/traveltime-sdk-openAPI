@@ -9,10 +9,10 @@ import org.openapitools.model.ResponseTimeFilterLocation;
 
 @Canonical
 class ResponseTimeFilterResult {
-    String searchId = 
-
+    
+    String searchId
+    
     List<ResponseTimeFilterLocation> locations = new ArrayList<ResponseTimeFilterLocation>()
-
+    
     List<String> unreachable = new ArrayList<String>()
-
 }

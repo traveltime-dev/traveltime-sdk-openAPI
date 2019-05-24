@@ -1,5 +1,6 @@
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 
+
 part 'response_time_map_properties.jser.dart';
 
 class ResponseTimeMapProperties {
@@ -9,7 +10,7 @@ class ResponseTimeMapProperties {
   
 
   ResponseTimeMapProperties(
-    
+      
 
 {
      this.isOnlyWalking = null 
@@ -23,7 +24,8 @@ class ResponseTimeMapProperties {
   }
 }
 
-@GenSerializer()
+@GenSerializer(nullableFields: true)
 class ResponseTimeMapPropertiesSerializer extends Serializer<ResponseTimeMapProperties> with _$ResponseTimeMapPropertiesSerializer {
 
 }
+

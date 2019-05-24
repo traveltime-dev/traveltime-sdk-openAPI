@@ -1,0 +1,61 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "traveltimeplatform RequestTransportation"
+package     = traveltimeplatform
+version     = "1.0"
+description = "Defines a RequestTransportation"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestTransportation {
+    title = RequestTransportation
+    description = RequestTransportation
+    derivedFrom = Root
+    properties {
+        type {
+          type =  string
+          description = ""
+          enum = ["cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry"]
+          optional = true
+        }
+        pt_change_delay {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        walking_time {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        driving_time_to_station {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        parking_time {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        boarding_time {
+          type =  integer
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTransportation {
+    title = RequestTransportation
+    description = RequestTransportation
+    implements = traveltimeplatform.resourceTypes.RequestTransportation
+
+  }
+}

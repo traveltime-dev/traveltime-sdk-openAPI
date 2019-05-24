@@ -1,6 +1,7 @@
 # RequestTimeMap
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DepartureSearches** | [**[]RequestTimeMapDepartureSearch**](RequestTimeMapDepartureSearch.md) |  | [optional] 

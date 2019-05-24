@@ -1,6 +1,7 @@
 # ResponseFaresBreakdownItem
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Modes** | [**[]ResponseTransportationMode**](ResponseTransportationMode.md) |  | 

@@ -87,9 +87,9 @@ public class ResponseTimeMapResult   {
       return false;
     }
     ResponseTimeMapResult responseTimeMapResult = (ResponseTimeMapResult) o;
-    return Objects.equals(searchId, responseTimeMapResult.searchId) &&
-        Objects.equals(shapes, responseTimeMapResult.shapes) &&
-        Objects.equals(properties, responseTimeMapResult.properties);
+    return Objects.equals(this.searchId, responseTimeMapResult.searchId) &&
+        Objects.equals(this.shapes, responseTimeMapResult.shapes) &&
+        Objects.equals(this.properties, responseTimeMapResult.properties);
   }
 
   @Override

@@ -81,9 +81,9 @@ public class ResponseTimeFilterPostcodeSectorProperties   {
       return false;
     }
     ResponseTimeFilterPostcodeSectorProperties responseTimeFilterPostcodeSectorProperties = (ResponseTimeFilterPostcodeSectorProperties) o;
-    return Objects.equals(travelTimeReachable, responseTimeFilterPostcodeSectorProperties.travelTimeReachable) &&
-        Objects.equals(travelTimeAll, responseTimeFilterPostcodeSectorProperties.travelTimeAll) &&
-        Objects.equals(coverage, responseTimeFilterPostcodeSectorProperties.coverage);
+    return Objects.equals(this.travelTimeReachable, responseTimeFilterPostcodeSectorProperties.travelTimeReachable) &&
+        Objects.equals(this.travelTimeAll, responseTimeFilterPostcodeSectorProperties.travelTimeAll) &&
+        Objects.equals(this.coverage, responseTimeFilterPostcodeSectorProperties.coverage);
   }
 
   @Override

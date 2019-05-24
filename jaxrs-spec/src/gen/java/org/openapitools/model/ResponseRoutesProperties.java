@@ -100,10 +100,10 @@ public class ResponseRoutesProperties   {
       return false;
     }
     ResponseRoutesProperties responseRoutesProperties = (ResponseRoutesProperties) o;
-    return Objects.equals(travelTime, responseRoutesProperties.travelTime) &&
-        Objects.equals(distance, responseRoutesProperties.distance) &&
-        Objects.equals(fares, responseRoutesProperties.fares) &&
-        Objects.equals(route, responseRoutesProperties.route);
+    return Objects.equals(this.travelTime, responseRoutesProperties.travelTime) &&
+        Objects.equals(this.distance, responseRoutesProperties.distance) &&
+        Objects.equals(this.fares, responseRoutesProperties.fares) &&
+        Objects.equals(this.route, responseRoutesProperties.route);
   }
 
   @Override

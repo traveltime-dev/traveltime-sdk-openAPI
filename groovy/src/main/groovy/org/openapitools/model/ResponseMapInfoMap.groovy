@@ -7,8 +7,8 @@ import org.openapitools.model.ResponseMapInfoFeatures;
 
 @Canonical
 class ResponseMapInfoMap {
-    String name = 
-
+    
+    String name
+    
     ResponseMapInfoFeatures features = null
-
 }

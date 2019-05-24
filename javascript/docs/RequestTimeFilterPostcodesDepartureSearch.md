@@ -1,6 +1,7 @@
 # TravelTimePlatformApi.RequestTimeFilterPostcodesDepartureSearch
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 

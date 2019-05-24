@@ -1,0 +1,23 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "id" },
+      {"model": "transportation" },
+      {"model": "travel_time" },
+      {"model": "departure_time" },
+      {"model": "reachable_postcodes_threshold" },
+      {"model": "properties" },
+      {"model": "range" },
+    ]
+  }]
+}

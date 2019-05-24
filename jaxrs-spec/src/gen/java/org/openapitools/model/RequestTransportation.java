@@ -38,13 +38,13 @@ public enum TypeEnum {
     }
 
     @JsonCreator
-    public static TypeEnum fromValue(String v) {
+    public static TypeEnum fromValue(String value) {
         for (TypeEnum b : TypeEnum.values()) {
-            if (String.valueOf(b.value).equals(v)) {
+            if (b.value.equals(value)) {
                 return b;
             }
         }
-        throw new IllegalArgumentException("Unexpected value '" + v + "'");
+        throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 }
 
@@ -168,12 +168,12 @@ public enum TypeEnum {
       return false;
     }
     RequestTransportation requestTransportation = (RequestTransportation) o;
-    return Objects.equals(type, requestTransportation.type) &&
-        Objects.equals(ptChangeDelay, requestTransportation.ptChangeDelay) &&
-        Objects.equals(walkingTime, requestTransportation.walkingTime) &&
-        Objects.equals(drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
-        Objects.equals(parkingTime, requestTransportation.parkingTime) &&
-        Objects.equals(boardingTime, requestTransportation.boardingTime);
+    return Objects.equals(this.type, requestTransportation.type) &&
+        Objects.equals(this.ptChangeDelay, requestTransportation.ptChangeDelay) &&
+        Objects.equals(this.walkingTime, requestTransportation.walkingTime) &&
+        Objects.equals(this.drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
+        Objects.equals(this.parkingTime, requestTransportation.parkingTime) &&
+        Objects.equals(this.boardingTime, requestTransportation.boardingTime);
   }
 
   @Override

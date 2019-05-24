@@ -66,8 +66,8 @@ public class RequestTimeFilterFastArrivalSearches   {
       return false;
     }
     RequestTimeFilterFastArrivalSearches requestTimeFilterFastArrivalSearches = (RequestTimeFilterFastArrivalSearches) o;
-    return Objects.equals(manyToOne, requestTimeFilterFastArrivalSearches.manyToOne) &&
-        Objects.equals(oneToMany, requestTimeFilterFastArrivalSearches.oneToMany);
+    return Objects.equals(this.manyToOne, requestTimeFilterFastArrivalSearches.manyToOne) &&
+        Objects.equals(this.oneToMany, requestTimeFilterFastArrivalSearches.oneToMany);
   }
 
   @Override

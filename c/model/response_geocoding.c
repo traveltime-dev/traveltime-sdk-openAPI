@@ -1,114 +1,126 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "response_geocoding.h"
-#include "list.h"
-#include "response_geocoding_geo_json_feature.h"
+
 
 
 response_geocoding_t *response_geocoding_create(
     char *type,
     list_t *features
     ) {
-	response_geocoding_t *response_geocoding = malloc(sizeof(response_geocoding_t));
-	response_geocoding->type = type;
-	response_geocoding->features = features;
+	response_geocoding_t *response_geocoding_local_var = malloc(sizeof(response_geocoding_t));
+    if (!response_geocoding_local_var) {
+        return NULL;
+    }
+	response_geocoding_local_var->type = type;
+	response_geocoding_local_var->features = features;
 
-	return response_geocoding;
+	return response_geocoding_local_var;
 }
 
 
 void response_geocoding_free(response_geocoding_t *response_geocoding) {
     listEntry_t *listEntry;
     free(response_geocoding->type);
-		list_ForEach(listEntry, response_geocoding->features) {
+	list_ForEach(listEntry, response_geocoding->features) {
 		response_geocoding_geo_json_feature_free(listEntry->data);
 	}
 	list_free(response_geocoding->features);
-
 	free(response_geocoding);
 }
 
 cJSON *response_geocoding_convertToJSON(response_geocoding_t *response_geocoding) {
 	cJSON *item = cJSON_CreateObject();
+
 	// response_geocoding->type
+    if (!response_geocoding->type) {
+        goto fail;
+    }
+    
     if(cJSON_AddStringToObject(item, "type", response_geocoding->type) == NULL) {
     goto fail; //String
     }
 
-	// response_geocoding->features
-    cJSON *features = cJSON_AddArrayToObject(item, "features");
-	if(features == NULL) {
-		goto fail; //nonprimitive container
-	}
 
-	listEntry_t *featuresListEntry;
-	list_ForEach(featuresListEntry, response_geocoding->features) {
-		cJSON *item = response_geocoding_geo_json_feature_convertToJSON(featuresListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(features, item);
-	}
+	// response_geocoding->features
+    if (!response_geocoding->features) {
+        goto fail;
+    }
+    
+    cJSON *features = cJSON_AddArrayToObject(item, "features");
+    if(features == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *featuresListEntry;
+    if (response_geocoding->features) {
+    list_ForEach(featuresListEntry, response_geocoding->features) {
+    cJSON *itemLocal = response_geocoding_geo_json_feature_convertToJSON(featuresListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(features, itemLocal);
+    }
+    }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-response_geocoding_t *response_geocoding_parseFromJSON(char *jsonString){
+response_geocoding_t *response_geocoding_parseFromJSON(cJSON *response_geocodingJSON){
 
-    response_geocoding_t *response_geocoding = NULL;
-    cJSON *response_geocodingJSON = cJSON_Parse(jsonString);
-    if(response_geocodingJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    response_geocoding_t *response_geocoding_local_var = NULL;
 
     // response_geocoding->type
     cJSON *type = cJSON_GetObjectItemCaseSensitive(response_geocodingJSON, "type");
-    if(!cJSON_IsString(type) || (type->valuestring == NULL)){
+    if (!type) {
+        goto end;
+    }
+
+    
+    if(!cJSON_IsString(type))
+    {
     goto end; //String
     }
 
     // response_geocoding->features
-    cJSON *features;
-    cJSON *featuresJSON = cJSON_GetObjectItemCaseSensitive(response_geocodingJSON,"features");
-    if(!cJSON_IsArray(featuresJSON)){
+    cJSON *features = cJSON_GetObjectItemCaseSensitive(response_geocodingJSON, "features");
+    if (!features) {
+        goto end;
+    }
+
+    list_t *featuresList;
+    
+    cJSON *features_local_nonprimitive;
+    if(!cJSON_IsArray(features)){
         goto end; //nonprimitive container
     }
 
-    list_t *featuresList = list_create();
+    featuresList = list_create();
 
-    cJSON_ArrayForEach(features,featuresJSON )
+    cJSON_ArrayForEach(features_local_nonprimitive,features )
     {
-        if(!cJSON_IsObject(features)){
+        if(!cJSON_IsObject(features_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(features);
-        response_geocoding_geo_json_feature_t *featuresItem = response_geocoding_geo_json_feature_parseFromJSON(JSONData);
+        response_geocoding_geo_json_feature_t *featuresItem = response_geocoding_geo_json_feature_parseFromJSON(features_local_nonprimitive);
 
         list_addElement(featuresList, featuresItem);
-        free(JSONData);
     }
 
 
-    response_geocoding = response_geocoding_create (
+    response_geocoding_local_var = response_geocoding_create (
         strdup(type->valuestring),
         featuresList
         );
- cJSON_Delete(response_geocodingJSON);
-    return response_geocoding;
+
+    return response_geocoding_local_var;
 end:
-    cJSON_Delete(response_geocodingJSON);
     return NULL;
 
 }
-

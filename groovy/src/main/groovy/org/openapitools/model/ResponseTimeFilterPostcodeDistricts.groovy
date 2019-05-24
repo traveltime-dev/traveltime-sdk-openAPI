@@ -9,6 +9,6 @@ import org.openapitools.model.ResponseTimeFilterPostcodeDistrictsResult;
 
 @Canonical
 class ResponseTimeFilterPostcodeDistricts {
+    
     List<ResponseTimeFilterPostcodeDistrictsResult> results = new ArrayList<ResponseTimeFilterPostcodeDistrictsResult>()
-
 }

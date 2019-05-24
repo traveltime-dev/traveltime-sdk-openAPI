@@ -14,15 +14,25 @@ class ResponseGeocoding {
 
   ResponseGeocoding.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    type = json['type'];
-    features = ResponseGeocodingGeoJsonFeature.listFromJson(json['features']);
+    if (json['type'] == null) {
+      type = null;
+    } else {
+          type = json['type'];
+    }
+    if (json['features'] == null) {
+      features = null;
+    } else {
+      features = ResponseGeocodingGeoJsonFeature.listFromJson(json['features']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'type': type,
-      'features': features
-    };
+    Map <String, dynamic> json = {};
+    if (type != null)
+      json['type'] = type;
+    if (features != null)
+      json['features'] = features;
+    return json;
   }
 
   static List<ResponseGeocoding> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseGeocoding {
 
   static Map<String, ResponseGeocoding> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseGeocoding>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseGeocoding.fromJson(value));
     }
     return map;

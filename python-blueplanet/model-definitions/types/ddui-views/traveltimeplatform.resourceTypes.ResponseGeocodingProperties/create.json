@@ -1,0 +1,32 @@
+{
+  "type": "form",
+  "version": "2.0",
+  "cells": [{
+    "label": "General",
+    "children": [
+      {"model": "label"},
+      {"model": "description"}
+    ]
+  },{
+    "label": "Details",
+    "model": "properties",
+    "children": [
+      {"model": "name" },
+      {"model": "label" },
+      {"model": "score" },
+      {"model": "house_number" },
+      {"model": "street" },
+      {"model": "region" },
+      {"model": "region_code" },
+      {"model": "neighbourhood" },
+      {"model": "county" },
+      {"model": "macroregion" },
+      {"model": "city" },
+      {"model": "country" },
+      {"model": "country_code" },
+      {"model": "continent" },
+      {"model": "postcode" },
+      {"model": "features" },
+    ]
+  }]
+}

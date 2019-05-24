@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseTimeFilterPostcodeSectorProperties;
 /**
  * ResponseTimeFilterPostcodeSector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-04-02T12:37:41.410Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSector   {
   @JsonProperty("code")
   private String code = null;

@@ -12,13 +12,18 @@ class RequestSupportedLocations {
 
   RequestSupportedLocations.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    locations = RequestLocation.listFromJson(json['locations']);
+    if (json['locations'] == null) {
+      locations = null;
+    } else {
+      locations = RequestLocation.listFromJson(json['locations']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'locations': locations
-    };
+    Map <String, dynamic> json = {};
+    if (locations != null)
+      json['locations'] = locations;
+    return json;
   }
 
   static List<RequestSupportedLocations> listFromJson(List<dynamic> json) {
@@ -27,7 +32,7 @@ class RequestSupportedLocations {
 
   static Map<String, RequestSupportedLocations> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, RequestSupportedLocations>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new RequestSupportedLocations.fromJson(value));
     }
     return map;

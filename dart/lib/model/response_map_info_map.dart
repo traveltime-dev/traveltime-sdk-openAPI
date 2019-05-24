@@ -14,15 +14,25 @@ class ResponseMapInfoMap {
 
   ResponseMapInfoMap.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    name = json['name'];
-    features = new ResponseMapInfoFeatures.fromJson(json['features']);
+    if (json['name'] == null) {
+      name = null;
+    } else {
+          name = json['name'];
+    }
+    if (json['features'] == null) {
+      features = null;
+    } else {
+      features = new ResponseMapInfoFeatures.fromJson(json['features']);
+    }
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'features': features
-    };
+    Map <String, dynamic> json = {};
+    if (name != null)
+      json['name'] = name;
+    if (features != null)
+      json['features'] = features;
+    return json;
   }
 
   static List<ResponseMapInfoMap> listFromJson(List<dynamic> json) {
@@ -31,7 +41,7 @@ class ResponseMapInfoMap {
 
   static Map<String, ResponseMapInfoMap> mapFromJson(Map<String, dynamic> json) {
     var map = new Map<String, ResponseMapInfoMap>();
-    if (json != null && json.length > 0) {
+    if (json != null && json.isNotEmpty) {
       json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfoMap.fromJson(value));
     }
     return map;

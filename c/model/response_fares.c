@@ -1,143 +1,154 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "cJSON.h"
-#include "list.h"
-#include "keyValuePair.h"
 #include "response_fares.h"
-#include "list.h"
-#include "response_fare_ticket.h"
-#include "response_fares_breakdown_item.h"
+
 
 
 response_fares_t *response_fares_create(
     list_t *breakdown,
     list_t *tickets_total
     ) {
-	response_fares_t *response_fares = malloc(sizeof(response_fares_t));
-	response_fares->breakdown = breakdown;
-	response_fares->tickets_total = tickets_total;
+	response_fares_t *response_fares_local_var = malloc(sizeof(response_fares_t));
+    if (!response_fares_local_var) {
+        return NULL;
+    }
+	response_fares_local_var->breakdown = breakdown;
+	response_fares_local_var->tickets_total = tickets_total;
 
-	return response_fares;
+	return response_fares_local_var;
 }
 
 
 void response_fares_free(response_fares_t *response_fares) {
     listEntry_t *listEntry;
-		list_ForEach(listEntry, response_fares->breakdown) {
+	list_ForEach(listEntry, response_fares->breakdown) {
 		response_fares_breakdown_item_free(listEntry->data);
 	}
 	list_free(response_fares->breakdown);
-		list_ForEach(listEntry, response_fares->tickets_total) {
+	list_ForEach(listEntry, response_fares->tickets_total) {
 		response_fare_ticket_free(listEntry->data);
 	}
 	list_free(response_fares->tickets_total);
-
 	free(response_fares);
 }
 
 cJSON *response_fares_convertToJSON(response_fares_t *response_fares) {
 	cJSON *item = cJSON_CreateObject();
-	// response_fares->breakdown
-    cJSON *breakdown = cJSON_AddArrayToObject(item, "breakdown");
-	if(breakdown == NULL) {
-		goto fail; //nonprimitive container
-	}
 
-	listEntry_t *breakdownListEntry;
-	list_ForEach(breakdownListEntry, response_fares->breakdown) {
-		cJSON *item = response_fares_breakdown_item_convertToJSON(breakdownListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(breakdown, item);
-	}
+	// response_fares->breakdown
+    if (!response_fares->breakdown) {
+        goto fail;
+    }
+    
+    cJSON *breakdown = cJSON_AddArrayToObject(item, "breakdown");
+    if(breakdown == NULL) {
+    goto fail; //nonprimitive container
+    }
+
+    listEntry_t *breakdownListEntry;
+    if (response_fares->breakdown) {
+    list_ForEach(breakdownListEntry, response_fares->breakdown) {
+    cJSON *itemLocal = response_fares_breakdown_item_convertToJSON(breakdownListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(breakdown, itemLocal);
+    }
+    }
+
 
 	// response_fares->tickets_total
+    if (!response_fares->tickets_total) {
+        goto fail;
+    }
+    
     cJSON *tickets_total = cJSON_AddArrayToObject(item, "tickets_total");
-	if(tickets_total == NULL) {
-		goto fail; //nonprimitive container
-	}
+    if(tickets_total == NULL) {
+    goto fail; //nonprimitive container
+    }
 
-	listEntry_t *tickets_totalListEntry;
-	list_ForEach(tickets_totalListEntry, response_fares->tickets_total) {
-		cJSON *item = response_fare_ticket_convertToJSON(tickets_totalListEntry->data);
-		if(item == NULL) {
-			goto fail;
-		}
-		cJSON_AddItemToArray(tickets_total, item);
-	}
+    listEntry_t *tickets_totalListEntry;
+    if (response_fares->tickets_total) {
+    list_ForEach(tickets_totalListEntry, response_fares->tickets_total) {
+    cJSON *itemLocal = response_fare_ticket_convertToJSON(tickets_totalListEntry->data);
+    if(itemLocal == NULL) {
+    goto fail;
+    }
+    cJSON_AddItemToArray(tickets_total, itemLocal);
+    }
+    }
 
 	return item;
 fail:
-	cJSON_Delete(item);
+	if (item) {
+        cJSON_Delete(item);
+    }
 	return NULL;
 }
 
-response_fares_t *response_fares_parseFromJSON(char *jsonString){
+response_fares_t *response_fares_parseFromJSON(cJSON *response_faresJSON){
 
-    response_fares_t *response_fares = NULL;
-    cJSON *response_faresJSON = cJSON_Parse(jsonString);
-    if(response_faresJSON == NULL){
-        const char *error_ptr = cJSON_GetErrorPtr();
-        if (error_ptr != NULL) {
-            fprintf(stderr, "Error Before: %s\n", error_ptr);
-            goto end;
-        }
-    }
+    response_fares_t *response_fares_local_var = NULL;
 
     // response_fares->breakdown
-    cJSON *breakdown;
-    cJSON *breakdownJSON = cJSON_GetObjectItemCaseSensitive(response_faresJSON,"breakdown");
-    if(!cJSON_IsArray(breakdownJSON)){
+    cJSON *breakdown = cJSON_GetObjectItemCaseSensitive(response_faresJSON, "breakdown");
+    if (!breakdown) {
+        goto end;
+    }
+
+    list_t *breakdownList;
+    
+    cJSON *breakdown_local_nonprimitive;
+    if(!cJSON_IsArray(breakdown)){
         goto end; //nonprimitive container
     }
 
-    list_t *breakdownList = list_create();
+    breakdownList = list_create();
 
-    cJSON_ArrayForEach(breakdown,breakdownJSON )
+    cJSON_ArrayForEach(breakdown_local_nonprimitive,breakdown )
     {
-        if(!cJSON_IsObject(breakdown)){
+        if(!cJSON_IsObject(breakdown_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(breakdown);
-        response_fares_breakdown_item_t *breakdownItem = response_fares_breakdown_item_parseFromJSON(JSONData);
+        response_fares_breakdown_item_t *breakdownItem = response_fares_breakdown_item_parseFromJSON(breakdown_local_nonprimitive);
 
         list_addElement(breakdownList, breakdownItem);
-        free(JSONData);
     }
 
     // response_fares->tickets_total
-    cJSON *tickets_total;
-    cJSON *tickets_totalJSON = cJSON_GetObjectItemCaseSensitive(response_faresJSON,"tickets_total");
-    if(!cJSON_IsArray(tickets_totalJSON)){
+    cJSON *tickets_total = cJSON_GetObjectItemCaseSensitive(response_faresJSON, "tickets_total");
+    if (!tickets_total) {
+        goto end;
+    }
+
+    list_t *tickets_totalList;
+    
+    cJSON *tickets_total_local_nonprimitive;
+    if(!cJSON_IsArray(tickets_total)){
         goto end; //nonprimitive container
     }
 
-    list_t *tickets_totalList = list_create();
+    tickets_totalList = list_create();
 
-    cJSON_ArrayForEach(tickets_total,tickets_totalJSON )
+    cJSON_ArrayForEach(tickets_total_local_nonprimitive,tickets_total )
     {
-        if(!cJSON_IsObject(tickets_total)){
+        if(!cJSON_IsObject(tickets_total_local_nonprimitive)){
             goto end;
         }
-		char *JSONData = cJSON_Print(tickets_total);
-        response_fare_ticket_t *tickets_totalItem = response_fare_ticket_parseFromJSON(JSONData);
+        response_fare_ticket_t *tickets_totalItem = response_fare_ticket_parseFromJSON(tickets_total_local_nonprimitive);
 
         list_addElement(tickets_totalList, tickets_totalItem);
-        free(JSONData);
     }
 
 
-    response_fares = response_fares_create (
+    response_fares_local_var = response_fares_create (
         breakdownList,
         tickets_totalList
         );
- cJSON_Delete(response_faresJSON);
-    return response_fares;
+
+    return response_fares_local_var;
 end:
-    cJSON_Delete(response_faresJSON);
     return NULL;
 
 }
-

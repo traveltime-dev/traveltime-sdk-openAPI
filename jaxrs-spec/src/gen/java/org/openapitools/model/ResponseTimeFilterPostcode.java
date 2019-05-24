@@ -67,8 +67,8 @@ public class ResponseTimeFilterPostcode   {
       return false;
     }
     ResponseTimeFilterPostcode responseTimeFilterPostcode = (ResponseTimeFilterPostcode) o;
-    return Objects.equals(code, responseTimeFilterPostcode.code) &&
-        Objects.equals(properties, responseTimeFilterPostcode.properties);
+    return Objects.equals(this.code, responseTimeFilterPostcode.code) &&
+        Objects.equals(this.properties, responseTimeFilterPostcode.properties);
   }
 
   @Override

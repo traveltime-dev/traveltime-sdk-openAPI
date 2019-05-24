@@ -1,6 +1,7 @@
 # ResponseMapInfoFeaturesPublicTransport
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DateStart** | [**time.Time**](time.Time.md) |  | 

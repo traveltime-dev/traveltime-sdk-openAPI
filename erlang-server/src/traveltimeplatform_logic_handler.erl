@@ -23,13 +23,13 @@
     Result :: boolean() | {boolean(), context()}.
 
 
--callback handle_request(OperationID :: traveltimeplatform_api:operation_id(), Request :: any(), Context :: context()) ->
+-callback handle_request(OperationID :: traveltimeplatform_api:operation_id(), cowboy_req:req(), Context :: context()) ->
     handler_response().
 
 -spec handle_request(
     Handler :: atom(),
     OperationID :: traveltimeplatform_api:operation_id(),
-    Request :: any(),
+    Request :: cowboy_req:req(),
     Context :: context()
 ) ->
     handler_response().

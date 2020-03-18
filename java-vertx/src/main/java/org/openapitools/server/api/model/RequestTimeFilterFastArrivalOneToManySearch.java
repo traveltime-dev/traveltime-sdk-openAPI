@@ -9,13 +9,13 @@ import org.openapitools.server.api.model.RequestArrivalTimePeriod;
 import org.openapitools.server.api.model.RequestTimeFilterFastProperty;
 import org.openapitools.server.api.model.RequestTransportationFast;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   
   private String id;
   private String departureLocationId;
   private List<String> arrivalLocationIds = new ArrayList<>();
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
   private Integer travelTime;
   private RequestArrivalTimePeriod arrivalTimePeriod;
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<>();

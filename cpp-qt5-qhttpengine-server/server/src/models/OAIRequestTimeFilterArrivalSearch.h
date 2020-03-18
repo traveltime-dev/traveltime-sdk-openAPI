@@ -32,6 +32,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterArrivalSearch: public OAIObject {
@@ -78,7 +79,7 @@ public:
     void setRange(const OAIRequestRangeFull &range);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -120,5 +121,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterArrivalSearch)
 
 #endif // OAIRequestTimeFilterArrivalSearch_H

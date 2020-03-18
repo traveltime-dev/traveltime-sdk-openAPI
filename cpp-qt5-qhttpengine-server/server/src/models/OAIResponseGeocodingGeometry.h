@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseGeocodingGeometry: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setCoordinates(const QList<double> &coordinates);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseGeocodingGeometry)
 
 #endif // OAIResponseGeocodingGeometry_H

@@ -47,15 +47,18 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseTransportationMode>& getModes();
-        /// <summary>
+    void setModes(std::vector<ResponseTransportationMode> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<int32_t>& getRoutePartIds();
-        /// <summary>
+    void setRoutePartIds(std::vector<int32_t> const value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseFareTicket>& getTickets();
-    
+    void setTickets(std::vector<ResponseFareTicket> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseFaresBreakdownItem& o);
     friend void from_json(const nlohmann::json& j, ResponseFaresBreakdownItem& o);
 protected:

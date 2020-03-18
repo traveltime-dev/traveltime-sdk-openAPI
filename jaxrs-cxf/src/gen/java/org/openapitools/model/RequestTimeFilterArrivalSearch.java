@@ -32,7 +32,7 @@ public class RequestTimeFilterArrivalSearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;
@@ -46,7 +46,7 @@ public class RequestTimeFilterArrivalSearch  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
  /**
    * Get id
    * @return id

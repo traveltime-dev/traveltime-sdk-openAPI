@@ -18,7 +18,7 @@ class ResponseTimeFilterProperties {
     
     List<ResponseDistanceBreakdownItem> distanceBreakdown = new ArrayList<ResponseDistanceBreakdownItem>()
     
-    ResponseFares fares = null
+    ResponseFares fares
     
-    ResponseRoute route = null
+    ResponseRoute route
 }

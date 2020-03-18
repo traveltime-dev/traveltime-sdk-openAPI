@@ -8,12 +8,12 @@ import java.util.List;
 import org.openapitools.server.api.model.ResponseBoundingBox;
 import org.openapitools.server.api.model.ResponseTimeMapProperties;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeMapBoundingBoxesResult   {
   
   private String searchId;
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<>();
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapBoundingBoxesResult () {
 

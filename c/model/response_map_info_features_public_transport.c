@@ -9,14 +9,14 @@ response_map_info_features_public_transport_t *response_map_info_features_public
     char *date_start,
     char *date_end
     ) {
-	response_map_info_features_public_transport_t *response_map_info_features_public_transport_local_var = malloc(sizeof(response_map_info_features_public_transport_t));
+    response_map_info_features_public_transport_t *response_map_info_features_public_transport_local_var = malloc(sizeof(response_map_info_features_public_transport_t));
     if (!response_map_info_features_public_transport_local_var) {
         return NULL;
     }
-	response_map_info_features_public_transport_local_var->date_start = date_start;
-	response_map_info_features_public_transport_local_var->date_end = date_end;
+    response_map_info_features_public_transport_local_var->date_start = date_start;
+    response_map_info_features_public_transport_local_var->date_end = date_end;
 
-	return response_map_info_features_public_transport_local_var;
+    return response_map_info_features_public_transport_local_var;
 }
 
 
@@ -24,13 +24,13 @@ void response_map_info_features_public_transport_free(response_map_info_features
     listEntry_t *listEntry;
     free(response_map_info_features_public_transport->date_start);
     free(response_map_info_features_public_transport->date_end);
-	free(response_map_info_features_public_transport);
+    free(response_map_info_features_public_transport);
 }
 
 cJSON *response_map_info_features_public_transport_convertToJSON(response_map_info_features_public_transport_t *response_map_info_features_public_transport) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_map_info_features_public_transport->date_start
+    // response_map_info_features_public_transport->date_start
     if (!response_map_info_features_public_transport->date_start) {
         goto fail;
     }
@@ -40,7 +40,7 @@ cJSON *response_map_info_features_public_transport_convertToJSON(response_map_in
     }
 
 
-	// response_map_info_features_public_transport->date_end
+    // response_map_info_features_public_transport->date_end
     if (!response_map_info_features_public_transport->date_end) {
         goto fail;
     }
@@ -49,12 +49,12 @@ cJSON *response_map_info_features_public_transport_convertToJSON(response_map_in
     goto fail; //Date-Time
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_map_info_features_public_transport_t *response_map_info_features_public_transport_parseFromJSON(cJSON *response_map_info_features_public_transportJSON){

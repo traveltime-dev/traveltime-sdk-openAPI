@@ -1,5 +1,5 @@
 HIDE ?= @
-PACKAGE := traveltimeplatform
+PACKAGE := openapi_server
 RELEASE := 1.0.0
 VENV := env
 PYPI ?= 'https://pypi.blueplanet.com/simple'

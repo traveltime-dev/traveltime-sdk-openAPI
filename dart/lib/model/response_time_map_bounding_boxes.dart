@@ -12,11 +12,9 @@ class ResponseTimeMapBoundingBoxes {
 
   ResponseTimeMapBoundingBoxes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['results'] == null) {
-      results = null;
-    } else {
-      results = ResponseTimeMapBoundingBoxesResult.listFromJson(json['results']);
-    }
+    results = (json['results'] == null) ?
+      null :
+      ResponseTimeMapBoundingBoxesResult.listFromJson(json['results']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseTimeMapBoundingBoxes {
   }
 
   static List<ResponseTimeMapBoundingBoxes> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeMapBoundingBoxes>() : json.map((value) => new ResponseTimeMapBoundingBoxes.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeMapBoundingBoxes>() : json.map((value) => ResponseTimeMapBoundingBoxes.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeMapBoundingBoxes> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeMapBoundingBoxes>();
+    var map = Map<String, ResponseTimeMapBoundingBoxes>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapBoundingBoxes.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeMapBoundingBoxes.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeMapBoundingBoxes-objects as value to a dart map
+  static Map<String, List<ResponseTimeMapBoundingBoxes>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeMapBoundingBoxes>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeMapBoundingBoxes.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -21,15 +21,20 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseFareTicket;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseFaresFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseFaresFast.JSON_PROPERTY_TICKETS_TOTAL
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseFaresFast   {
-  @JsonProperty("tickets_total")
+  public static final String JSON_PROPERTY_TICKETS_TOTAL = "tickets_total";
+  @JsonProperty(JSON_PROPERTY_TICKETS_TOTAL)
   private List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>();
 
   public ResponseFaresFast ticketsTotal(List<ResponseFareTicket> ticketsTotal) {

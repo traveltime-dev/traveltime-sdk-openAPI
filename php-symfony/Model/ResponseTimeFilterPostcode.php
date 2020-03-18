@@ -100,7 +100,7 @@ class ResponseTimeFilterPostcode
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodesProperties[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -112,7 +112,7 @@ class ResponseTimeFilterPostcode
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 

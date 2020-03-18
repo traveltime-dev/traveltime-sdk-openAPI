@@ -29,7 +29,7 @@ import org.openapitools.client.model.ResponseGeocodingProperties;
 /**
  * ResponseGeocodingGeoJsonFeature
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseGeocodingGeoJsonFeature {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -37,13 +37,15 @@ public class ResponseGeocodingGeoJsonFeature {
 
   public static final String SERIALIZED_NAME_GEOMETRY = "geometry";
   @SerializedName(SERIALIZED_NAME_GEOMETRY)
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
+
 
   public ResponseGeocodingGeoJsonFeature type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -53,15 +55,19 @@ public class ResponseGeocodingGeoJsonFeature {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public ResponseGeocodingGeoJsonFeature geometry(ResponseGeocodingGeometry geometry) {
+    
     this.geometry = geometry;
     return this;
   }
@@ -71,15 +77,19 @@ public class ResponseGeocodingGeoJsonFeature {
    * @return geometry
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseGeocodingGeometry getGeometry() {
     return geometry;
   }
+
 
   public void setGeometry(ResponseGeocodingGeometry geometry) {
     this.geometry = geometry;
   }
 
+
   public ResponseGeocodingGeoJsonFeature properties(ResponseGeocodingProperties properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -89,9 +99,11 @@ public class ResponseGeocodingGeoJsonFeature {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseGeocodingProperties getProperties() {
     return properties;
   }
+
 
   public void setProperties(ResponseGeocodingProperties properties) {
     this.properties = properties;

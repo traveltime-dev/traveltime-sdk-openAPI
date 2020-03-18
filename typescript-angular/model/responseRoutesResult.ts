@@ -13,7 +13,7 @@ import { ResponseRoutesLocation } from './responseRoutesLocation';
 
 
 export interface ResponseRoutesResult { 
-    searchId: string;
+    search_id: string;
     locations: Array<ResponseRoutesLocation>;
     unreachable: Array<string>;
 }

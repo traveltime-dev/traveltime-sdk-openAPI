@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseRoutesProperties
+# Org.OpenAPITools.Model.ResponseRoutesProperties
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TravelTime** | **int?** |  | [optional] 
-**Distance** | **int?** |  | [optional] 
+**TravelTime** | **int** |  | [optional] 
+**Distance** | **int** |  | [optional] 
 **Fares** | [**ResponseFares**](ResponseFares.md) |  | [optional] 
 **Route** | [**ResponseRoute**](ResponseRoute.md) |  | [optional] 
 

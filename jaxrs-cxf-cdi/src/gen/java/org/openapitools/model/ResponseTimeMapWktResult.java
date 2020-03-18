@@ -20,7 +20,7 @@ public class ResponseTimeMapWktResult   {
 
   private String shape;
 
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
 
   /**

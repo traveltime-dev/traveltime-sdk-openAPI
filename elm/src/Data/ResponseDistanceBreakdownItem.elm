@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseDistanceBreakdownItem exposing (ResponseDistanceBreakdownItem, decoder, encode)
+module Data.ResponseDistanceBreakdownItem exposing (ResponseDistanceBreakdownItem, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTransportationMode as ResponseTransportationMode exposing (ResponseTransportationMode)
 import Dict exposing (Dict)
@@ -35,11 +35,27 @@ decoder =
 
 
 encode : ResponseDistanceBreakdownItem -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "mode", ResponseTransportationMode.encode model.mode )
-        , ( "distance", Encode.int model.distance )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseDistanceBreakdownItem -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseDistanceBreakdownItem -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "mode", ResponseTransportationMode.encode model.mode )
+    , ( "distance", Encode.int model.distance )
+    ]
+
+
+
+toString : ResponseDistanceBreakdownItem -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseSupportedLocation exposing (ResponseSupportedLocation, decoder, encode)
+module Data.ResponseSupportedLocation exposing (ResponseSupportedLocation, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -34,11 +34,27 @@ decoder =
 
 
 encode : ResponseSupportedLocation -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "map_name", Encode.string model.mapName )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseSupportedLocation -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseSupportedLocation -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "map_name", Encode.string model.mapName )
+    ]
+
+
+
+toString : ResponseSupportedLocation -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

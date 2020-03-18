@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterPostcodeSectors.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,11 +75,11 @@ OAIRequestTimeFilterPostcodeSectors::asJson () const {
 QJsonObject
 OAIRequestTimeFilterPostcodeSectors::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(departure_searches.size() > 0){
         obj.insert(QString("departure_searches"), ::OpenAPI::toJsonValue(departure_searches));
     } 
-	
+    
     if(arrival_searches.size() > 0){
         obj.insert(QString("arrival_searches"), ::OpenAPI::toJsonValue(arrival_searches));
     } 

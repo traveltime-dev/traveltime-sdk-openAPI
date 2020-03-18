@@ -7,13 +7,13 @@ part 'response_route.jser.dart';
 
 class ResponseRoute {
   
-  @Alias('departure_time')
+  @Alias('departure_time', isNullable: false,  )
   final DateTime departureTime;
   
-  @Alias('arrival_time')
+  @Alias('arrival_time', isNullable: false,  )
   final DateTime arrivalTime;
   
-  @Alias('parts')
+  @Alias('parts', isNullable: false,  )
   final List<ResponseRoutePart> parts;
   
 

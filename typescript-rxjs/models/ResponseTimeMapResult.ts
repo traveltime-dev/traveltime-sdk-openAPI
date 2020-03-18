@@ -22,19 +22,16 @@ import {
  */
 export interface ResponseTimeMapResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeMapResult
      */
-    searchId: string;
+    search_id: string;
     /**
-     * 
      * @type {Array<ResponseShape>}
      * @memberof ResponseTimeMapResult
      */
     shapes: Array<ResponseShape>;
     /**
-     * 
      * @type {ResponseTimeMapProperties}
      * @memberof ResponseTimeMapResult
      */

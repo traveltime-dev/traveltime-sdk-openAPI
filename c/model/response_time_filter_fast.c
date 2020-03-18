@@ -8,29 +8,29 @@
 response_time_filter_fast_t *response_time_filter_fast_create(
     list_t *results
     ) {
-	response_time_filter_fast_t *response_time_filter_fast_local_var = malloc(sizeof(response_time_filter_fast_t));
+    response_time_filter_fast_t *response_time_filter_fast_local_var = malloc(sizeof(response_time_filter_fast_t));
     if (!response_time_filter_fast_local_var) {
         return NULL;
     }
-	response_time_filter_fast_local_var->results = results;
+    response_time_filter_fast_local_var->results = results;
 
-	return response_time_filter_fast_local_var;
+    return response_time_filter_fast_local_var;
 }
 
 
 void response_time_filter_fast_free(response_time_filter_fast_t *response_time_filter_fast) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_filter_fast->results) {
-		response_time_filter_fast_result_free(listEntry->data);
-	}
-	list_free(response_time_filter_fast->results);
-	free(response_time_filter_fast);
+    list_ForEach(listEntry, response_time_filter_fast->results) {
+        response_time_filter_fast_result_free(listEntry->data);
+    }
+    list_free(response_time_filter_fast->results);
+    free(response_time_filter_fast);
 }
 
 cJSON *response_time_filter_fast_convertToJSON(response_time_filter_fast_t *response_time_filter_fast) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_fast->results
+    // response_time_filter_fast->results
     if (!response_time_filter_fast->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_time_filter_fast_convertToJSON(response_time_filter_fast_t *resp
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_fast_t *response_time_filter_fast_parseFromJSON(cJSON *response_time_filter_fastJSON){

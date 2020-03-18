@@ -15,15 +15,15 @@ import * as models from './models';
 export interface RequestTimeFilterFastArrivalOneToManySearch {
     id: string;
 
-    departureLocationId: string;
+    departure_location_id: string;
 
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
 
     transportation: models.RequestTransportationFast;
 
-    travelTime: number;
+    travel_time: number;
 
-    arrivalTimePeriod: models.RequestArrivalTimePeriod;
+    arrival_time_period: models.RequestArrivalTimePeriod;
 
     properties: Array<models.RequestTimeFilterFastProperty>;
 

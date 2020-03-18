@@ -13,12 +13,12 @@
 
 #include "OAIResponseTravelTimeStatistics.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -87,16 +87,16 @@ OAIResponseTravelTimeStatistics::asJson () const {
 QJsonObject
 OAIResponseTravelTimeStatistics::asJsonObject() const {
     QJsonObject obj;
-	if(m_min_isSet){
+    if(m_min_isSet){
         obj.insert(QString("min"), ::OpenAPI::toJsonValue(min));
     }
-	if(m_max_isSet){
+    if(m_max_isSet){
         obj.insert(QString("max"), ::OpenAPI::toJsonValue(max));
     }
-	if(m_mean_isSet){
+    if(m_mean_isSet){
         obj.insert(QString("mean"), ::OpenAPI::toJsonValue(mean));
     }
-	if(m_median_isSet){
+    if(m_median_isSet){
         obj.insert(QString("median"), ::OpenAPI::toJsonValue(median));
     }
     return obj;

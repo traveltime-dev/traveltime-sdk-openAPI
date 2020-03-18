@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseBox
+# openapi::ResponseBox
 
 ## Properties
 Name | Type | Description | Notes

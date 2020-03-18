@@ -10,118 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterPostcodesProperties.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterPostcodesProperties::OAIResponseTimeFilterPostcodesProperties(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterPostcodesProperties::OAIResponseTimeFilterPostcodesProperties() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterPostcodesProperties::~OAIResponseTimeFilterPostcodesProperties() {
+OAIResponseTimeFilterPostcodesProperties::~OAIResponseTimeFilterPostcodesProperties() {}
 
-}
+void OAIResponseTimeFilterPostcodesProperties::initializeModel() {
 
-void
-OAIResponseTimeFilterPostcodesProperties::init() {
-    
     m_travel_time_isSet = false;
     m_travel_time_isValid = false;
-    
+
     m_distance_isSet = false;
     m_distance_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterPostcodesProperties::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterPostcodesProperties::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterPostcodesProperties::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseTimeFilterPostcodesProperties::fromJsonObject(QJsonObject json) {
+
     m_travel_time_isValid = ::OpenAPI::fromJsonValue(travel_time, json[QString("travel_time")]);
-    
-    
+    m_travel_time_isSet = !json[QString("travel_time")].isNull() && m_travel_time_isValid;
+
     m_distance_isValid = ::OpenAPI::fromJsonValue(distance, json[QString("distance")]);
-    
-    
+    m_distance_isSet = !json[QString("distance")].isNull() && m_distance_isValid;
 }
 
-QString
-OAIResponseTimeFilterPostcodesProperties::asJson () const {
+QString OAIResponseTimeFilterPostcodesProperties::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterPostcodesProperties::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterPostcodesProperties::asJsonObject() const {
     QJsonObject obj;
-	if(m_travel_time_isSet){
+    if (m_travel_time_isSet) {
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(m_distance_isSet){
+    if (m_distance_isSet) {
         obj.insert(QString("distance"), ::OpenAPI::toJsonValue(distance));
     }
     return obj;
 }
 
-
-qint32
-OAIResponseTimeFilterPostcodesProperties::getTravelTime() const {
+qint32 OAIResponseTimeFilterPostcodesProperties::getTravelTime() const {
     return travel_time;
 }
-void
-OAIResponseTimeFilterPostcodesProperties::setTravelTime(const qint32 &travel_time) {
+void OAIResponseTimeFilterPostcodesProperties::setTravelTime(const qint32 &travel_time) {
     this->travel_time = travel_time;
     this->m_travel_time_isSet = true;
 }
 
-
-qint32
-OAIResponseTimeFilterPostcodesProperties::getDistance() const {
+qint32 OAIResponseTimeFilterPostcodesProperties::getDistance() const {
     return distance;
 }
-void
-OAIResponseTimeFilterPostcodesProperties::setDistance(const qint32 &distance) {
+void OAIResponseTimeFilterPostcodesProperties::setDistance(const qint32 &distance) {
     this->distance = distance;
     this->m_distance_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterPostcodesProperties::isSet() const {
+bool OAIResponseTimeFilterPostcodesProperties::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_travel_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_distance_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_travel_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_distance_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterPostcodesProperties::isValid() const {
+bool OAIResponseTimeFilterPostcodesProperties::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }
 
-}
-
+} // namespace OpenAPI

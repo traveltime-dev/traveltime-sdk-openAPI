@@ -16,21 +16,13 @@ class ResponseTimeMapResult {
 
   ResponseTimeMapResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['search_id'] == null) {
-      searchId = null;
-    } else {
-          searchId = json['search_id'];
-    }
-    if (json['shapes'] == null) {
-      shapes = null;
-    } else {
-      shapes = ResponseShape.listFromJson(json['shapes']);
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = new ResponseTimeMapProperties.fromJson(json['properties']);
-    }
+    searchId = json['search_id'];
+    shapes = (json['shapes'] == null) ?
+      null :
+      ResponseShape.listFromJson(json['shapes']);
+    properties = (json['properties'] == null) ?
+      null :
+      ResponseTimeMapProperties.fromJson(json['properties']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +37,26 @@ class ResponseTimeMapResult {
   }
 
   static List<ResponseTimeMapResult> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeMapResult>() : json.map((value) => new ResponseTimeMapResult.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeMapResult>() : json.map((value) => ResponseTimeMapResult.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeMapResult> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeMapResult>();
+    var map = Map<String, ResponseTimeMapResult>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapResult.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeMapResult.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeMapResult-objects as value to a dart map
+  static Map<String, List<ResponseTimeMapResult>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeMapResult>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeMapResult.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

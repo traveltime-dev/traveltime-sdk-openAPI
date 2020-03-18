@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseGeocodingProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseGeocodingProperties   {
@@ -59,7 +59,7 @@ public class ResponseGeocodingProperties   {
   private String postcode;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties name(String name) {
     this.name = name;

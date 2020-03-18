@@ -47,6 +47,10 @@ std::vector<RequestLocation>& RequestSupportedLocations::getLocations()
 {
     return m_Locations;
 }
+void RequestSupportedLocations::setLocations(std::vector<RequestLocation> const& value)
+{
+    m_Locations = value;
+}
 
 }
 }

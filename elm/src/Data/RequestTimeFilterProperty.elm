@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterProperty exposing (RequestTimeFilterProperty(..), decoder, encode)
+module Data.RequestTimeFilterProperty exposing (RequestTimeFilterProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -72,5 +72,27 @@ encode model =
 
         Route ->
             Encode.string "route"
+
+
+
+
+toString : RequestTimeFilterProperty -> String
+toString model =
+    case model of
+        TravelTime ->
+            "travel_time"
+
+        Distance ->
+            "distance"
+
+        DistanceBreakdown ->
+            "distance_breakdown"
+
+        Fares ->
+            "fares"
+
+        Route ->
+            "route"
+
 
 

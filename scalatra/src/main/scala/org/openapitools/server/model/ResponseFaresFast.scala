@@ -12,6 +12,6 @@
 package org.openapitools.server.model
 
 case class ResponseFaresFast(
-  ticketsUnderscoretotal: List[ResponseFareTicket]
+  ticketsTotal: List[ResponseFareTicket]
 
  )

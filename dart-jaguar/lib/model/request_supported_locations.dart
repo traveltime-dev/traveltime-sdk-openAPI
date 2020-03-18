@@ -7,7 +7,7 @@ part 'request_supported_locations.jser.dart';
 
 class RequestSupportedLocations {
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<RequestLocation> locations;
   
 

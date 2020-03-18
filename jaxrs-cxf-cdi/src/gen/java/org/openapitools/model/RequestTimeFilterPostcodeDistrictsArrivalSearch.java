@@ -22,7 +22,7 @@ public class RequestTimeFilterPostcodeDistrictsArrivalSearch   {
   
   private String id;
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Integer travelTime;
 
@@ -32,7 +32,7 @@ public class RequestTimeFilterPostcodeDistrictsArrivalSearch   {
 
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<RequestTimeFilterPostcodeDistrictsProperty>();
 
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
 
   /**

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseRoutePart exposing (ResponseRoutePart, Type(..), decoder, encode)
+module Data.ResponseRoutePart exposing (ResponseRoutePart, Type(..), decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTransportationMode as ResponseTransportationMode exposing (ResponseTransportationMode)
 import Data.Coords as Coords exposing (Coords)
@@ -72,26 +72,41 @@ decoder =
 
 
 encode : ResponseRoutePart -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "type", encodeType model.type_ )
-        , ( "mode", ResponseTransportationMode.encode model.mode )
-        , ( "directions", Encode.string model.directions )
-        , ( "distance", Encode.int model.distance )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "coords", (Encode.list Coords.encode) model.coords )
-        , ( "direction", Maybe.withDefault Encode.null (Maybe.map Encode.string model.direction) )
-        , ( "road", Maybe.withDefault Encode.null (Maybe.map Encode.string model.road) )
-        , ( "turn", Maybe.withDefault Encode.null (Maybe.map Encode.string model.turn) )
-        , ( "line", Maybe.withDefault Encode.null (Maybe.map Encode.string model.line) )
-        , ( "departure_station", Maybe.withDefault Encode.null (Maybe.map Encode.string model.departureStation) )
-        , ( "arrival_station", Maybe.withDefault Encode.null (Maybe.map Encode.string model.arrivalStation) )
-        , ( "departs_at", Maybe.withDefault Encode.null (Maybe.map Encode.string model.departsAt) )
-        , ( "arrives_at", Maybe.withDefault Encode.null (Maybe.map Encode.string model.arrivesAt) )
-        , ( "num_stops", Maybe.withDefault Encode.null (Maybe.map Encode.int model.numStops) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseRoutePart -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseRoutePart -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "type", encodeType model.type_ )
+    , ( "mode", ResponseTransportationMode.encode model.mode )
+    , ( "directions", Encode.string model.directions )
+    , ( "distance", Encode.int model.distance )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "coords", (Encode.list Coords.encode) model.coords )
+    , ( "direction", Maybe.withDefault Encode.null (Maybe.map Encode.string model.direction) )
+    , ( "road", Maybe.withDefault Encode.null (Maybe.map Encode.string model.road) )
+    , ( "turn", Maybe.withDefault Encode.null (Maybe.map Encode.string model.turn) )
+    , ( "line", Maybe.withDefault Encode.null (Maybe.map Encode.string model.line) )
+    , ( "departure_station", Maybe.withDefault Encode.null (Maybe.map Encode.string model.departureStation) )
+    , ( "arrival_station", Maybe.withDefault Encode.null (Maybe.map Encode.string model.arrivalStation) )
+    , ( "departs_at", Maybe.withDefault Encode.null (Maybe.map Encode.string model.departsAt) )
+    , ( "arrives_at", Maybe.withDefault Encode.null (Maybe.map Encode.string model.arrivesAt) )
+    , ( "num_stops", Maybe.withDefault Encode.null (Maybe.map Encode.int model.numStops) )
+    ]
+
+
+
+toString : ResponseRoutePart -> String
+toString =
+    Encode.encode 0 << encode
+
 
 
 
@@ -133,6 +148,7 @@ encodeType model =
 
         PublicTransport ->
             Encode.string "public_transport"
+
 
 
 

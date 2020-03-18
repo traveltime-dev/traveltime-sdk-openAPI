@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## geocodingReverseSearch
 
-> \OpenAPI\Client\Model\ResponseGeocoding geocodingReverseSearch($focus_lat, $focus_lng, $within_country)
+> \OpenAPI\Client\Model\ResponseGeocoding geocodingReverseSearch($lat, $lng, $within_country)
 
 
 
@@ -48,12 +48,12 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$focus_lat = 3.4; // double | 
-$focus_lng = 3.4; // double | 
+$lat = 3.4; // double | 
+$lng = 3.4; // double | 
 $within_country = 'within_country_example'; // string | 
 
 try {
-    $result = $apiInstance->geocodingReverseSearch($focus_lat, $focus_lng, $within_country);
+    $result = $apiInstance->geocodingReverseSearch($lat, $lng, $within_country);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->geocodingReverseSearch: ', $e->getMessage(), PHP_EOL;
@@ -66,8 +66,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus_lat** | **double**|  |
- **focus_lng** | **double**|  |
+ **lat** | **double**|  |
+ **lng** | **double**|  |
  **within_country** | **string**|  | [optional]
 
 ### Return type
@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 
 ## geocodingSearch
 
-> \OpenAPI\Client\Model\ResponseGeocoding geocodingSearch($query, $within_country, $focus_lat, $focus_lng)
+> \OpenAPI\Client\Model\ResponseGeocoding geocodingSearch($query, $focus_lat, $focus_lng, $within_country)
 
 
 
@@ -119,12 +119,12 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     $config
 );
 $query = 'query_example'; // string | 
-$within_country = 'within_country_example'; // string | 
 $focus_lat = 3.4; // double | 
 $focus_lng = 3.4; // double | 
+$within_country = 'within_country_example'; // string | 
 
 try {
-    $result = $apiInstance->geocodingSearch($query, $within_country, $focus_lat, $focus_lng);
+    $result = $apiInstance->geocodingSearch($query, $focus_lat, $focus_lng, $within_country);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->geocodingSearch: ', $e->getMessage(), PHP_EOL;
@@ -138,9 +138,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  |
- **within_country** | **string**|  | [optional]
  **focus_lat** | **double**|  | [optional]
  **focus_lng** | **double**|  | [optional]
+ **within_country** | **string**|  | [optional]
 
 ### Return type
 

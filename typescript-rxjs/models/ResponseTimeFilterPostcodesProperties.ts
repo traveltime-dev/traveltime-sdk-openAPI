@@ -17,13 +17,11 @@
  */
 export interface ResponseTimeFilterPostcodesProperties {
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterPostcodesProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterPostcodesProperties
      */

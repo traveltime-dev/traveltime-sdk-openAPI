@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct Coords: Codable { 
 
-public struct Coords: Codable {
 
     public var lat: Double
     public var lng: Double
@@ -19,6 +19,4 @@ public struct Coords: Codable {
         self.lng = lng
     }
 
-
 }
-

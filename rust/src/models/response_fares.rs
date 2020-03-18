@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFares {
     #[serde(rename = "breakdown")]
-    pub breakdown: Vec<::models::ResponseFaresBreakdownItem>,
+    pub breakdown: Vec<crate::models::ResponseFaresBreakdownItem>,
     #[serde(rename = "tickets_total")]
-    pub tickets_total: Vec<::models::ResponseFareTicket>,
+    pub tickets_total: Vec<crate::models::ResponseFareTicket>,
 }
 
 impl ResponseFares {
-    pub fn new(breakdown: Vec<::models::ResponseFaresBreakdownItem>, tickets_total: Vec<::models::ResponseFareTicket>) -> ResponseFares {
+    pub fn new(breakdown: Vec<crate::models::ResponseFaresBreakdownItem>, tickets_total: Vec<crate::models::ResponseFareTicket>) -> ResponseFares {
         ResponseFares {
-            breakdown: breakdown,
-            tickets_total: tickets_total,
+            breakdown,
+            tickets_total,
         }
     }
 }
+
+

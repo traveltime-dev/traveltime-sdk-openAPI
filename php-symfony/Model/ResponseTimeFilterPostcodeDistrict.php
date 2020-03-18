@@ -98,7 +98,7 @@ class ResponseTimeFilterPostcodeDistrict
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeDistrictProperties
      */
-    public function getProperties()
+    public function getProperties(): ResponseTimeFilterPostcodeDistrictProperties
     {
         return $this->properties;
     }
@@ -110,7 +110,7 @@ class ResponseTimeFilterPostcodeDistrict
      *
      * @return $this
      */
-    public function setProperties(ResponseTimeFilterPostcodeDistrictProperties $properties)
+    public function setProperties(ResponseTimeFilterPostcodeDistrictProperties $properties): ResponseTimeFilterPostcodeDistrictProperties
     {
         $this->properties = $properties;
 

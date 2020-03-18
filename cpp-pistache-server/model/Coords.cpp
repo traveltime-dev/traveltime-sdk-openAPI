@@ -54,7 +54,6 @@ double Coords::getLat() const
 void Coords::setLat(double const value)
 {
     m_Lat = value;
-    
 }
 double Coords::getLng() const
 {
@@ -63,7 +62,6 @@ double Coords::getLng() const
 void Coords::setLng(double const value)
 {
     m_Lng = value;
-    
 }
 
 }

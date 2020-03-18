@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilter exposing (ResponseTimeFilter, decoder, encode)
+module Data.ResponseTimeFilter exposing (ResponseTimeFilter, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeFilterResult as ResponseTimeFilterResult exposing (ResponseTimeFilterResult)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseTimeFilter -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "results", (Encode.list ResponseTimeFilterResult.encode) model.results )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilter -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilter -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "results", (Encode.list ResponseTimeFilterResult.encode) model.results )
+    ]
+
+
+
+toString : ResponseTimeFilter -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestRoutesDepartureSearch
+# Org.OpenAPITools.Model.RequestRoutesDepartureSearch
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DepartureLocationId** | **string** |  | 
 **ArrivalLocationIds** | **List&lt;string&gt;** |  | 
 **Transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**DepartureTime** | **DateTime?** |  | 
+**DepartureTime** | **DateTime** |  | 
 **Properties** | [**List&lt;RequestRoutesProperty&gt;**](RequestRoutesProperty.md) |  | 
 **Range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 

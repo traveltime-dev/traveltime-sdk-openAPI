@@ -48,24 +48,28 @@ public:
     /// 
     /// </summary>
     std::vector<RequestTimeMapDepartureSearch>& getDepartureSearches();
+    void setDepartureSearches(std::vector<RequestTimeMapDepartureSearch> const& value);
     bool departureSearchesIsSet() const;
     void unsetDeparture_searches();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeMapArrivalSearch>& getArrivalSearches();
+    void setArrivalSearches(std::vector<RequestTimeMapArrivalSearch> const& value);
     bool arrivalSearchesIsSet() const;
     void unsetArrival_searches();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestUnionOnIntersection>& getUnions();
+    void setUnions(std::vector<RequestUnionOnIntersection> const& value);
     bool unionsIsSet() const;
     void unsetUnions();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestUnionOnIntersection>& getIntersections();
+    void setIntersections(std::vector<RequestUnionOnIntersection> const& value);
     bool intersectionsIsSet() const;
     void unsetIntersections();
 

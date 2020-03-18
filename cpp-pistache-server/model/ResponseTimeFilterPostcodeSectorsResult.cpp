@@ -53,11 +53,14 @@ std::string ResponseTimeFilterPostcodeSectorsResult::getSearchId() const
 void ResponseTimeFilterPostcodeSectorsResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::vector<ResponseTimeFilterPostcodeSector>& ResponseTimeFilterPostcodeSectorsResult::getSectors()
 {
     return m_Sectors;
+}
+void ResponseTimeFilterPostcodeSectorsResult::setSectors(std::vector<ResponseTimeFilterPostcodeSector> const& value)
+{
+    m_Sectors = value;
 }
 
 }

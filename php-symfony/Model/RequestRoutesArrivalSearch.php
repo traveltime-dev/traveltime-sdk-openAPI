@@ -151,7 +151,7 @@ class RequestRoutesArrivalSearch
      *
      * @return string[]
      */
-    public function getDepartureLocationIds()
+    public function getDepartureLocationIds(): array
     {
         return $this->departureLocationIds;
     }
@@ -163,7 +163,7 @@ class RequestRoutesArrivalSearch
      *
      * @return $this
      */
-    public function setDepartureLocationIds(array $departureLocationIds)
+    public function setDepartureLocationIds(array $departureLocationIds): array
     {
         $this->departureLocationIds = $departureLocationIds;
 
@@ -199,7 +199,7 @@ class RequestRoutesArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportation
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportation
     {
         return $this->transportation;
     }
@@ -211,7 +211,7 @@ class RequestRoutesArrivalSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportation $transportation)
+    public function setTransportation(RequestTransportation $transportation): RequestTransportation
     {
         $this->transportation = $transportation;
 
@@ -223,7 +223,7 @@ class RequestRoutesArrivalSearch
      *
      * @return \DateTime
      */
-    public function getArrivalTime()
+    public function getArrivalTime(): \DateTime
     {
         return $this->arrivalTime;
     }
@@ -235,7 +235,7 @@ class RequestRoutesArrivalSearch
      *
      * @return $this
      */
-    public function setArrivalTime(\DateTime $arrivalTime)
+    public function setArrivalTime(\DateTime $arrivalTime): \DateTime
     {
         $this->arrivalTime = $arrivalTime;
 
@@ -247,7 +247,7 @@ class RequestRoutesArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestRoutesProperty[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -259,7 +259,7 @@ class RequestRoutesArrivalSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 
@@ -271,7 +271,7 @@ class RequestRoutesArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestRangeFull|null
      */
-    public function getRange()
+    public function getRange(): ?RequestRangeFull
     {
         return $this->range;
     }
@@ -283,7 +283,7 @@ class RequestRoutesArrivalSearch
      *
      * @return $this
      */
-    public function setRange(RequestRangeFull $range = null)
+    public function setRange(RequestRangeFull $range = null): ?RequestRangeFull
     {
         $this->range = $range;
 

@@ -141,7 +141,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportation
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportation
     {
         return $this->transportation;
     }
@@ -153,7 +153,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportation $transportation)
+    public function setTransportation(RequestTransportation $transportation): RequestTransportation
     {
         $this->transportation = $transportation;
 
@@ -189,7 +189,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return \DateTime
      */
-    public function getDepartureTime()
+    public function getDepartureTime(): \DateTime
     {
         return $this->departureTime;
     }
@@ -201,7 +201,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return $this
      */
-    public function setDepartureTime(\DateTime $departureTime)
+    public function setDepartureTime(\DateTime $departureTime): \DateTime
     {
         $this->departureTime = $departureTime;
 
@@ -213,7 +213,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterPostcodesProperty[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -225,7 +225,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 
@@ -237,7 +237,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestRangeFull|null
      */
-    public function getRange()
+    public function getRange(): ?RequestRangeFull
     {
         return $this->range;
     }
@@ -249,7 +249,7 @@ class RequestTimeFilterPostcodesDepartureSearch
      *
      * @return $this
      */
-    public function setRange(RequestRangeFull $range = null)
+    public function setRange(RequestRangeFull $range = null): ?RequestRangeFull
     {
         $this->range = $range;
 

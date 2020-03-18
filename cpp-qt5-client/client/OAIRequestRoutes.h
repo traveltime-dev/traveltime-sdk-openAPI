@@ -21,62 +21,57 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestLocation.h"
 #include "OAIRequestRoutesArrivalSearch.h"
 #include "OAIRequestRoutesDepartureSearch.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestRoutes: public OAIObject {
+class OAIRequestRoutes : public OAIObject {
 public:
     OAIRequestRoutes();
     OAIRequestRoutes(QString json);
     ~OAIRequestRoutes() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIRequestLocation> getLocations() const;
     void setLocations(const QList<OAIRequestLocation> &locations);
 
-    
     QList<OAIRequestRoutesDepartureSearch> getDepartureSearches() const;
     void setDepartureSearches(const QList<OAIRequestRoutesDepartureSearch> &departure_searches);
 
-    
     QList<OAIRequestRoutesArrivalSearch> getArrivalSearches() const;
     void setArrivalSearches(const QList<OAIRequestRoutesArrivalSearch> &arrival_searches);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIRequestLocation> locations;
     bool m_locations_isSet;
     bool m_locations_isValid;
-    
+
     QList<OAIRequestRoutesDepartureSearch> departure_searches;
     bool m_departure_searches_isSet;
     bool m_departure_searches_isValid;
-    
+
     QList<OAIRequestRoutesArrivalSearch> arrival_searches;
     bool m_arrival_searches_isSet;
     bool m_arrival_searches_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRoutes)
 
 #endif // OAIRequestRoutes_H

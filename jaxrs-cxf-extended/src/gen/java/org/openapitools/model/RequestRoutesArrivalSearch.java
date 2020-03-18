@@ -20,6 +20,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class RequestRoutesArrivalSearch  {
   
   @ApiModelProperty(required = true, value = "")
@@ -33,7 +34,7 @@ public class RequestRoutesArrivalSearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'hh:mm:ss.SSSX")
@@ -45,7 +46,7 @@ public class RequestRoutesArrivalSearch  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
  /**
   * Get id
   * @return id

@@ -10,119 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseGeocodingGeometry.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseGeocodingGeometry::OAIResponseGeocodingGeometry(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseGeocodingGeometry::OAIResponseGeocodingGeometry() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseGeocodingGeometry::~OAIResponseGeocodingGeometry() {
+OAIResponseGeocodingGeometry::~OAIResponseGeocodingGeometry() {}
 
-}
+void OAIResponseGeocodingGeometry::initializeModel() {
 
-void
-OAIResponseGeocodingGeometry::init() {
-    
     m_type_isSet = false;
     m_type_isValid = false;
-    
+
     m_coordinates_isSet = false;
     m_coordinates_isValid = false;
-    }
+}
 
-void
-OAIResponseGeocodingGeometry::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseGeocodingGeometry::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseGeocodingGeometry::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseGeocodingGeometry::fromJsonObject(QJsonObject json) {
+
     m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    
-    
-    
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
+
     m_coordinates_isValid = ::OpenAPI::fromJsonValue(coordinates, json[QString("coordinates")]);
-    
+    m_coordinates_isSet = !json[QString("coordinates")].isNull() && m_coordinates_isValid;
 }
 
-QString
-OAIResponseGeocodingGeometry::asJson () const {
+QString OAIResponseGeocodingGeometry::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseGeocodingGeometry::asJsonObject() const {
+QJsonObject OAIResponseGeocodingGeometry::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if (m_type_isSet) {
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	
-    if(coordinates.size() > 0){
+    if (coordinates.size() > 0) {
         obj.insert(QString("coordinates"), ::OpenAPI::toJsonValue(coordinates));
-    } 
+    }
     return obj;
 }
 
-
-QString
-OAIResponseGeocodingGeometry::getType() const {
+QString OAIResponseGeocodingGeometry::getType() const {
     return type;
 }
-void
-OAIResponseGeocodingGeometry::setType(const QString &type) {
+void OAIResponseGeocodingGeometry::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-
-QList<double>
-OAIResponseGeocodingGeometry::getCoordinates() const {
+QList<double> OAIResponseGeocodingGeometry::getCoordinates() const {
     return coordinates;
 }
-void
-OAIResponseGeocodingGeometry::setCoordinates(const QList<double> &coordinates) {
+void OAIResponseGeocodingGeometry::setCoordinates(const QList<double> &coordinates) {
     this->coordinates = coordinates;
     this->m_coordinates_isSet = true;
 }
 
-bool
-OAIResponseGeocodingGeometry::isSet() const {
+bool OAIResponseGeocodingGeometry::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_type_isSet){ isObjectUpdated = true; break;}
-    
-        if(coordinates.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_type_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (coordinates.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseGeocodingGeometry::isValid() const {
+bool OAIResponseGeocodingGeometry::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_type_isValid && m_coordinates_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

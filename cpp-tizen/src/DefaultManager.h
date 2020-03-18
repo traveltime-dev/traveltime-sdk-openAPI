@@ -45,30 +45,30 @@ public:
 /*! \brief . *Synchronous*
  *
  * 
- * \param focusPeriodlat  *Required*
- * \param focusPeriodlng  *Required*
+ * \param lat  *Required*
+ * \param lng  *Required*
  * \param withinPeriodcountry 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool geocodingReverseSearchSync(char * accessToken,
-	double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
+	double lat, double lng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData);
 
 /*! \brief . *Asynchronous*
  *
  * 
- * \param focusPeriodlat  *Required*
- * \param focusPeriodlng  *Required*
+ * \param lat  *Required*
+ * \param lng  *Required*
  * \param withinPeriodcountry 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool geocodingReverseSearchAsync(char * accessToken,
-	double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
+	double lat, double lng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData);
 
@@ -77,15 +77,15 @@ bool geocodingReverseSearchAsync(char * accessToken,
  *
  * 
  * \param query  *Required*
- * \param withinPeriodcountry 
  * \param focusPeriodlat 
  * \param focusPeriodlng 
+ * \param withinPeriodcountry 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool geocodingSearchSync(char * accessToken,
-	std::string query, std::string withinPeriodcountry, double focusPeriodlat, double focusPeriodlng, 
+	std::string query, double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData);
 
@@ -93,15 +93,15 @@ bool geocodingSearchSync(char * accessToken,
  *
  * 
  * \param query  *Required*
- * \param withinPeriodcountry 
  * \param focusPeriodlat 
  * \param focusPeriodlng 
+ * \param withinPeriodcountry 
  * \param handler The callback function to be invoked on completion. *Required*
  * \param accessToken The Authorization token. *Required*
  * \param userData The user data to be passed to the callback function.
  */
 bool geocodingSearchAsync(char * accessToken,
-	std::string query, std::string withinPeriodcountry, double focusPeriodlat, double focusPeriodlng, 
+	std::string query, double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData);
 

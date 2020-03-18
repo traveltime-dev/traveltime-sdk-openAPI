@@ -8,29 +8,29 @@
 response_routes_t *response_routes_create(
     list_t *results
     ) {
-	response_routes_t *response_routes_local_var = malloc(sizeof(response_routes_t));
+    response_routes_t *response_routes_local_var = malloc(sizeof(response_routes_t));
     if (!response_routes_local_var) {
         return NULL;
     }
-	response_routes_local_var->results = results;
+    response_routes_local_var->results = results;
 
-	return response_routes_local_var;
+    return response_routes_local_var;
 }
 
 
 void response_routes_free(response_routes_t *response_routes) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_routes->results) {
-		response_routes_result_free(listEntry->data);
-	}
-	list_free(response_routes->results);
-	free(response_routes);
+    list_ForEach(listEntry, response_routes->results) {
+        response_routes_result_free(listEntry->data);
+    }
+    list_free(response_routes->results);
+    free(response_routes);
 }
 
 cJSON *response_routes_convertToJSON(response_routes_t *response_routes) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_routes->results
+    // response_routes->results
     if (!response_routes->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_routes_convertToJSON(response_routes_t *response_routes) {
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_routes_t *response_routes_parseFromJSON(cJSON *response_routesJSON){

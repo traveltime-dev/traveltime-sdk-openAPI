@@ -23,28 +23,41 @@ import java.util.List;
 import org.openapitools.model.ResponseDistanceBreakdownItem;
 import org.openapitools.model.ResponseFares;
 import org.openapitools.model.ResponseRoute;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterProperties.JSON_PROPERTY_TRAVEL_TIME,
+  ResponseTimeFilterProperties.JSON_PROPERTY_DISTANCE,
+  ResponseTimeFilterProperties.JSON_PROPERTY_DISTANCE_BREAKDOWN,
+  ResponseTimeFilterProperties.JSON_PROPERTY_FARES,
+  ResponseTimeFilterProperties.JSON_PROPERTY_ROUTE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeFilterProperties   {
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("distance")
+  public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
   private Integer distance;
 
-  @JsonProperty("distance_breakdown")
+  public static final String JSON_PROPERTY_DISTANCE_BREAKDOWN = "distance_breakdown";
+  @JsonProperty(JSON_PROPERTY_DISTANCE_BREAKDOWN)
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
-  @JsonProperty("fares")
-  private ResponseFares fares = null;
+  public static final String JSON_PROPERTY_FARES = "fares";
+  @JsonProperty(JSON_PROPERTY_FARES)
+  private ResponseFares fares;
 
-  @JsonProperty("route")
-  private ResponseRoute route = null;
+  public static final String JSON_PROPERTY_ROUTE = "route";
+  @JsonProperty(JSON_PROPERTY_ROUTE)
+  private ResponseRoute route;
 
   public ResponseTimeFilterProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

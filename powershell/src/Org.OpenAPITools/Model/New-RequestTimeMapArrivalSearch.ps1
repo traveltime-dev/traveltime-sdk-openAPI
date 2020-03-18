@@ -5,10 +5,10 @@ function New-RequestTimeMapArrivalSearch {
         [String]
         ${id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.Coords]
+        [Org.OpenAPITools.Model.Coords]
         ${coords},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTransportation]
+        [Org.OpenAPITools.Model.RequestTransportation]
         ${transportation},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
@@ -17,18 +17,18 @@ function New-RequestTimeMapArrivalSearch {
         [System.DateTime]
         ${arrivalUnderscoretime},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestTimeMapProperty[]]]
+        [Org.OpenAPITools.Model.RequestTimeMapProperty[]]
         ${properties},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRangeNoMaxResults]]
+        [Org.OpenAPITools.Model.RequestRangeNoMaxResults]
         ${range}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeMapArrivalSearch' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeMapArrivalSearch' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeMapArrivalSearch -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeMapArrivalSearch -ArgumentList @(
             ${id},
             ${coords},
             ${transportation},

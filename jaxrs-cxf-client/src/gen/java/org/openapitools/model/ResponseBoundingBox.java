@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ResponseBoundingBox  {
   
   @ApiModelProperty(required = true, value = "")
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @ApiModelProperty(required = true, value = "")
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();

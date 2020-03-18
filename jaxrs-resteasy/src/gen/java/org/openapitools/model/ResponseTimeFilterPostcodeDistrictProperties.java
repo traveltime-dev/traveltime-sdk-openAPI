@@ -10,11 +10,11 @@ import org.openapitools.model.ResponseTravelTimeStatistics;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2019-05-24T09:07:07.467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T08:51:06.736Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
+  private ResponseTravelTimeStatistics travelTimeAll;
   private Double coverage;
 
   /**

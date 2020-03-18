@@ -66,7 +66,7 @@ class ResponseTimeMapWkt
      *
      * @return OpenAPI\Server\Model\ResponseTimeMapWktResult[]
      */
-    public function getResults()
+    public function getResults(): array
     {
         return $this->results;
     }
@@ -78,7 +78,7 @@ class ResponseTimeMapWkt
      *
      * @return $this
      */
-    public function setResults(array $results)
+    public function setResults(array $results): array
     {
         $this->results = $results;
 

@@ -10,16 +10,11 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 
-export class RequestRoutesProperty {
-
-    static discriminator: string | undefined = undefined;
-
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return RequestRoutesProperty.attributeTypeMap;
-    }
+export enum RequestRoutesProperty {
+    TravelTime = <any> 'travel_time',
+    Distance = <any> 'distance',
+    Fares = <any> 'fares',
+    Route = <any> 'route'
 }
-

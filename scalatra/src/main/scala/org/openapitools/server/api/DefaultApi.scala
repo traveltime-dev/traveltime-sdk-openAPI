@@ -59,16 +59,16 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
 
   val geocodingReverseSearchOperation = (apiOperation[ResponseGeocoding]("geocodingReverseSearch")
     summary ""
-    parameters(queryParam[Double]("focusPeriodlat").description(""), queryParam[Double]("focusPeriodlng").description(""), queryParam[String]("withinPeriodcountry").description("").optional)
+    parameters(queryParam[Double]("lat").description(""), queryParam[Double]("lng").description(""), queryParam[String]("withinPeriodcountry").description("").optional)
   )
 
   get("/v4/geocoding/reverse", operation(geocodingReverseSearchOperation)) {
-            val focusPeriodlat = params.getAs[Double]("focusPeriodlat")
+            val lat = params.getAs[Double]("lat")
 
-    //println("focusPeriodlat: " + focusPeriodlat)
-            val focusPeriodlng = params.getAs[Double]("focusPeriodlng")
+    //println("lat: " + lat)
+            val lng = params.getAs[Double]("lng")
 
-    //println("focusPeriodlng: " + focusPeriodlng)
+    //println("lng: " + lng)
             val withinPeriodcountry = params.getAs[String]("withinPeriodcountry")
 
     //println("withinPeriodcountry: " + withinPeriodcountry)
@@ -78,22 +78,22 @@ class DefaultApi(implicit val swagger: Swagger) extends ScalatraServlet
 
   val geocodingSearchOperation = (apiOperation[ResponseGeocoding]("geocodingSearch")
     summary ""
-    parameters(queryParam[String]("query").description(""), queryParam[String]("withinPeriodcountry").description("").optional, queryParam[Double]("focusPeriodlat").description("").optional, queryParam[Double]("focusPeriodlng").description("").optional)
+    parameters(queryParam[String]("query").description(""), queryParam[Double]("focusPeriodlat").description("").optional, queryParam[Double]("focusPeriodlng").description("").optional, queryParam[String]("withinPeriodcountry").description("").optional)
   )
 
   get("/v4/geocoding/search", operation(geocodingSearchOperation)) {
             val query = params.getAs[String]("query")
 
     //println("query: " + query)
-            val withinPeriodcountry = params.getAs[String]("withinPeriodcountry")
-
-    //println("withinPeriodcountry: " + withinPeriodcountry)
             val focusPeriodlat = params.getAs[Double]("focusPeriodlat")
 
     //println("focusPeriodlat: " + focusPeriodlat)
             val focusPeriodlng = params.getAs[Double]("focusPeriodlng")
 
     //println("focusPeriodlng: " + focusPeriodlng)
+            val withinPeriodcountry = params.getAs[String]("withinPeriodcountry")
+
+    //println("withinPeriodcountry: " + withinPeriodcountry)
   }
 
   

@@ -9,12 +9,11 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapProperties {
-    #[serde(rename = "is_only_walking")]
+    #[serde(rename = "is_only_walking", skip_serializing_if = "Option::is_none")]
     pub is_only_walking: Option<bool>,
 }
 
@@ -25,3 +24,5 @@ impl ResponseTimeMapProperties {
         }
     }
 }
+
+

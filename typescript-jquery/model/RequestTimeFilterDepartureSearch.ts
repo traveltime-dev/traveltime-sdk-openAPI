@@ -15,15 +15,15 @@ import * as models from './models';
 export interface RequestTimeFilterDepartureSearch {
     id: string;
 
-    departureLocationId: string;
+    departure_location_id: string;
 
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
 
     transportation: models.RequestTransportation;
 
-    travelTime: number;
+    travel_time: number;
 
-    departureTime: Date;
+    departure_time: string;
 
     properties: Array<models.RequestTimeFilterProperty>;
 

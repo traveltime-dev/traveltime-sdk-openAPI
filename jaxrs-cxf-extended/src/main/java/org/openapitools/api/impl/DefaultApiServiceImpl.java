@@ -42,13 +42,13 @@ import io.swagger.annotations.Api;
  */
 public class DefaultApiServiceImpl implements DefaultApi {
     @Override
-    public ResponseGeocoding geocodingReverseSearch(Double focusLat, Double focusLng, String withinCountry) {
+    public ResponseGeocoding geocodingReverseSearch(Double lat, Double lng, String withinCountry) {
         // TODO: Implement...
         return null;
     }
 
     @Override
-    public ResponseGeocoding geocodingSearch(String query, String withinCountry, Double focusLat, Double focusLng) {
+    public ResponseGeocoding geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry) {
         // TODO: Implement...
         return null;
     }

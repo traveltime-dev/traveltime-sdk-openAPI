@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestUnionOnIntersection
+# Org.OpenAPITools.Model.RequestUnionOnIntersection
 
 ## Properties
 

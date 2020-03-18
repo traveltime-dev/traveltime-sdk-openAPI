@@ -33,6 +33,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeMapDepartureSearch: public OAIObject {
@@ -75,7 +76,7 @@ public:
     void setRange(const OAIRequestRangeNoMaxResults &range);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -113,5 +114,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeMapDepartureSearch)
 
 #endif // OAIRequestTimeMapDepartureSearch_H

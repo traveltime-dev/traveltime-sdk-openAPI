@@ -18,17 +18,17 @@ class GeocodingReverseSearchQueryData
      */
     public $within_country;
     /**
-     * @DTA\Data(field="focus.lat")
+     * @DTA\Data(field="lng")
      * @DTA\Strategy(name="QueryParameter", options={"type":"float"})
      * @DTA\Validator(name="QueryParameterType", options={"type":"float"})
      * @var float
      */
-    public $focus_lat;
+    public $lng;
     /**
-     * @DTA\Data(field="focus.lng")
+     * @DTA\Data(field="lat")
      * @DTA\Strategy(name="QueryParameter", options={"type":"float"})
      * @DTA\Validator(name="QueryParameterType", options={"type":"float"})
      * @var float
      */
-    public $focus_lng;
+    public $lat;
 }

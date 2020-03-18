@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeMapWktResult: Codable { 
 
-public struct ResponseTimeMapWktResult: Codable {
 
     public var searchId: String
     public var shape: String
@@ -27,6 +27,4 @@ public struct ResponseTimeMapWktResult: Codable {
         case properties
     }
 
-
 }
-

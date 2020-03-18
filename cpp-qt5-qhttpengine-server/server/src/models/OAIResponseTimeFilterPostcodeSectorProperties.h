@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTimeFilterPostcodeSectorProperties: public OAIObject {
@@ -53,7 +54,7 @@ public:
     void setCoverage(const double &coverage);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -75,5 +76,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterPostcodeSectorProperties)
 
 #endif // OAIResponseTimeFilterPostcodeSectorProperties_H

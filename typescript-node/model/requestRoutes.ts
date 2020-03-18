@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { RequestLocation } from './requestLocation';
 import { RequestRoutesArrivalSearch } from './requestRoutesArrivalSearch';
 import { RequestRoutesDepartureSearch } from './requestRoutesDepartureSearch';

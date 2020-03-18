@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseTimeFilterFastLocation
+# Org.OpenAPITools.Model.ResponseTimeFilterFastLocation
 
 ## Properties
 

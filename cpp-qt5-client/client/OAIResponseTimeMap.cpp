@@ -10,97 +10,84 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeMap.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeMap::OAIResponseTimeMap(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeMap::OAIResponseTimeMap() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeMap::~OAIResponseTimeMap() {
+OAIResponseTimeMap::~OAIResponseTimeMap() {}
 
-}
+void OAIResponseTimeMap::initializeModel() {
 
-void
-OAIResponseTimeMap::init() {
-    
     m_results_isSet = false;
     m_results_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeMap::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeMap::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeMap::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseTimeMap::fromJsonObject(QJsonObject json) {
+
     m_results_isValid = ::OpenAPI::fromJsonValue(results, json[QString("results")]);
-    
+    m_results_isSet = !json[QString("results")].isNull() && m_results_isValid;
 }
 
-QString
-OAIResponseTimeMap::asJson () const {
+QString OAIResponseTimeMap::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeMap::asJsonObject() const {
+QJsonObject OAIResponseTimeMap::asJsonObject() const {
     QJsonObject obj;
-	
-    if(results.size() > 0){
+    if (results.size() > 0) {
         obj.insert(QString("results"), ::OpenAPI::toJsonValue(results));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseTimeMapResult>
-OAIResponseTimeMap::getResults() const {
+QList<OAIResponseTimeMapResult> OAIResponseTimeMap::getResults() const {
     return results;
 }
-void
-OAIResponseTimeMap::setResults(const QList<OAIResponseTimeMapResult> &results) {
+void OAIResponseTimeMap::setResults(const QList<OAIResponseTimeMapResult> &results) {
     this->results = results;
     this->m_results_isSet = true;
 }
 
-bool
-OAIResponseTimeMap::isSet() const {
+bool OAIResponseTimeMap::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(results.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (results.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeMap::isValid() const {
+bool OAIResponseTimeMap::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_results_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

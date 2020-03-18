@@ -9,16 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestRangeFull } from './requestRangeFull';
-import { RequestTimeFilterPostcodesProperty } from './requestTimeFilterPostcodesProperty';
 import { RequestTransportation } from './requestTransportation';
+import { RequestTimeFilterPostcodesProperty } from './requestTimeFilterPostcodesProperty';
+import { RequestRangeFull } from './requestRangeFull';
 
 
 export interface RequestTimeFilterPostcodesArrivalSearch { 
     id: string;
     transportation: RequestTransportation;
-    travelTime: number;
-    arrivalTime: Date;
+    travel_time: number;
+    arrival_time: string;
     properties: Array<RequestTimeFilterPostcodesProperty>;
     range?: RequestRangeFull;
 }

@@ -30,7 +30,7 @@ import org.openapitools.model.ResponseTimeFilterPostcodeSectors;
 import org.openapitools.model.ResponseTimeFilterPostcodes;
 import org.openapitools.model.ResponseTimeMap;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class V4Controller  {
   /** 
    * Uncomment and implement as you see fit.  These operations will map
@@ -39,13 +39,13 @@ public class V4Controller  {
    **/
 
   /*
-    public ResponseContext geocodingReverseSearch(RequestContext request , Double focusLat, Double focusLng, String withinCountry) {
+    public ResponseContext geocodingReverseSearch(RequestContext request , Double lat, Double lng, String withinCountry) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */
 
   /*
-    public ResponseContext geocodingSearch(RequestContext request , String query, String withinCountry, Double focusLat, Double focusLng) {
+    public ResponseContext geocodingSearch(RequestContext request , String query, Double focusLat, Double focusLng, String withinCountry) {
         return new ResponseContext().status(Status.INTERNAL_SERVER_ERROR).entity( "Not implemented" );
     }
   */

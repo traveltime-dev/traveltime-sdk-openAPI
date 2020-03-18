@@ -75,6 +75,7 @@ public:
     /// 
     /// </summary>
     std::map<std::string, std::vector<std::string>>& getAdditionalInfo();
+    void setAdditionalInfo(std::map<std::string, std::vector<std::string>> const& value);
     bool additionalInfoIsSet() const;
     void unsetAdditional_info();
 

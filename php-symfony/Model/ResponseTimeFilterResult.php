@@ -112,7 +112,7 @@ class ResponseTimeFilterResult
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterLocation[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->locations;
     }
@@ -124,7 +124,7 @@ class ResponseTimeFilterResult
      *
      * @return $this
      */
-    public function setLocations(array $locations)
+    public function setLocations(array $locations): array
     {
         $this->locations = $locations;
 
@@ -136,7 +136,7 @@ class ResponseTimeFilterResult
      *
      * @return string[]
      */
-    public function getUnreachable()
+    public function getUnreachable(): array
     {
         return $this->unreachable;
     }
@@ -148,7 +148,7 @@ class ResponseTimeFilterResult
      *
      * @return $this
      */
-    public function setUnreachable(array $unreachable)
+    public function setUnreachable(array $unreachable): array
     {
         $this->unreachable = $unreachable;
 

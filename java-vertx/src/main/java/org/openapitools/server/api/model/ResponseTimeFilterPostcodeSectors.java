@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.server.api.model.ResponseTimeFilterPostcodeSectorsResult;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterPostcodeSectors   {
   
   private List<ResponseTimeFilterPostcodeSectorsResult> results = new ArrayList<>();

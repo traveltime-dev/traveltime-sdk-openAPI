@@ -21,27 +21,40 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseError.JSON_PROPERTY_HTTP_STATUS,
+  ResponseError.JSON_PROPERTY_ERROR_CODE,
+  ResponseError.JSON_PROPERTY_DESCRIPTION,
+  ResponseError.JSON_PROPERTY_DOCUMENTATION_LINK,
+  ResponseError.JSON_PROPERTY_ADDITIONAL_INFO
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseError   {
-  @JsonProperty("http_status")
+  public static final String JSON_PROPERTY_HTTP_STATUS = "http_status";
+  @JsonProperty(JSON_PROPERTY_HTTP_STATUS)
   private Integer httpStatus;
 
-  @JsonProperty("error_code")
+  public static final String JSON_PROPERTY_ERROR_CODE = "error_code";
+  @JsonProperty(JSON_PROPERTY_ERROR_CODE)
   private Integer errorCode;
 
-  @JsonProperty("description")
+  public static final String JSON_PROPERTY_DESCRIPTION = "description";
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   private String description;
 
-  @JsonProperty("documentation_link")
+  public static final String JSON_PROPERTY_DOCUMENTATION_LINK = "documentation_link";
+  @JsonProperty(JSON_PROPERTY_DOCUMENTATION_LINK)
   private String documentationLink;
 
-  @JsonProperty("additional_info")
+  public static final String JSON_PROPERTY_ADDITIONAL_INFO = "additional_info";
+  @JsonProperty(JSON_PROPERTY_ADDITIONAL_INFO)
   private Map<String, List<String>> additionalInfo = null;
 
   public ResponseError httpStatus(Integer httpStatus) {

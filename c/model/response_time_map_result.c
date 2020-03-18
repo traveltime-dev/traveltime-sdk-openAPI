@@ -10,33 +10,33 @@ response_time_map_result_t *response_time_map_result_create(
     list_t *shapes,
     response_time_map_properties_t *properties
     ) {
-	response_time_map_result_t *response_time_map_result_local_var = malloc(sizeof(response_time_map_result_t));
+    response_time_map_result_t *response_time_map_result_local_var = malloc(sizeof(response_time_map_result_t));
     if (!response_time_map_result_local_var) {
         return NULL;
     }
-	response_time_map_result_local_var->search_id = search_id;
-	response_time_map_result_local_var->shapes = shapes;
-	response_time_map_result_local_var->properties = properties;
+    response_time_map_result_local_var->search_id = search_id;
+    response_time_map_result_local_var->shapes = shapes;
+    response_time_map_result_local_var->properties = properties;
 
-	return response_time_map_result_local_var;
+    return response_time_map_result_local_var;
 }
 
 
 void response_time_map_result_free(response_time_map_result_t *response_time_map_result) {
     listEntry_t *listEntry;
     free(response_time_map_result->search_id);
-	list_ForEach(listEntry, response_time_map_result->shapes) {
-		response_shape_free(listEntry->data);
-	}
-	list_free(response_time_map_result->shapes);
+    list_ForEach(listEntry, response_time_map_result->shapes) {
+        response_shape_free(listEntry->data);
+    }
+    list_free(response_time_map_result->shapes);
     response_time_map_properties_free(response_time_map_result->properties);
-	free(response_time_map_result);
+    free(response_time_map_result);
 }
 
 cJSON *response_time_map_result_convertToJSON(response_time_map_result_t *response_time_map_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map_result->search_id
+    // response_time_map_result->search_id
     if (!response_time_map_result->search_id) {
         goto fail;
     }
@@ -46,7 +46,7 @@ cJSON *response_time_map_result_convertToJSON(response_time_map_result_t *respon
     }
 
 
-	// response_time_map_result->shapes
+    // response_time_map_result->shapes
     if (!response_time_map_result->shapes) {
         goto fail;
     }
@@ -68,7 +68,7 @@ cJSON *response_time_map_result_convertToJSON(response_time_map_result_t *respon
     }
 
 
-	// response_time_map_result->properties
+    // response_time_map_result->properties
     if (!response_time_map_result->properties) {
         goto fail;
     }
@@ -82,12 +82,12 @@ cJSON *response_time_map_result_convertToJSON(response_time_map_result_t *respon
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_result_t *response_time_map_result_parseFromJSON(cJSON *response_time_map_resultJSON){

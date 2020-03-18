@@ -23,7 +23,7 @@ public class ResponseTimeMapBoundingBoxesResult   {
 
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
 
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
 
   /**

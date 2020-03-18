@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseDistanceBreakdownItem {
     #[serde(rename = "mode")]
-    pub mode: ::models::ResponseTransportationMode,
+    pub mode: crate::models::ResponseTransportationMode,
     #[serde(rename = "distance")]
     pub distance: i32,
 }
 
 impl ResponseDistanceBreakdownItem {
-    pub fn new(mode: ::models::ResponseTransportationMode, distance: i32) -> ResponseDistanceBreakdownItem {
+    pub fn new(mode: crate::models::ResponseTransportationMode, distance: i32) -> ResponseDistanceBreakdownItem {
         ResponseDistanceBreakdownItem {
-            mode: mode,
-            distance: distance,
+            mode,
+            distance,
         }
     }
 }
+
+

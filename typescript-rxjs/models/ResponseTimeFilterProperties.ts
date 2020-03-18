@@ -23,31 +23,26 @@ import {
  */
 export interface ResponseTimeFilterProperties {
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterProperties
      */
     distance?: number;
     /**
-     * 
      * @type {Array<ResponseDistanceBreakdownItem>}
      * @memberof ResponseTimeFilterProperties
      */
-    distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
     /**
-     * 
      * @type {ResponseFares}
      * @memberof ResponseTimeFilterProperties
      */
     fares?: ResponseFares;
     /**
-     * 
      * @type {ResponseRoute}
      * @memberof ResponseTimeFilterProperties
      */

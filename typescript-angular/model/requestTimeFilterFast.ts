@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestLocation } from './requestLocation';
 import { RequestTimeFilterFastArrivalSearches } from './requestTimeFilterFastArrivalSearches';
+import { RequestLocation } from './requestLocation';
 
 
 export interface RequestTimeFilterFast { 
     locations: Array<RequestLocation>;
-    arrivalSearches: RequestTimeFilterFastArrivalSearches;
+    arrival_searches: RequestTimeFilterFastArrivalSearches;
 }
 

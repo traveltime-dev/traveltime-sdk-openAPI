@@ -26,17 +26,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.FileInputStream;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 public class DefaultApiControllerImp implements DefaultApiControllerImpInterface {
     @Override
-    public ResponseGeocoding geocodingReverseSearch( @NotNull Double focusLat,  @NotNull Double focusLng, String withinCountry) throws Exception {
+    public ResponseGeocoding geocodingReverseSearch( @NotNull Double lat,  @NotNull Double lng, String withinCountry) throws Exception {
         //Do your magic!!!
         return new ResponseGeocoding();
     }
 
     @Override
-    public ResponseGeocoding geocodingSearch( @NotNull String query, String withinCountry, Double focusLat, Double focusLng) throws Exception {
+    public ResponseGeocoding geocodingSearch( @NotNull String query, Double focusLat, Double focusLng, String withinCountry) throws Exception {
         //Do your magic!!!
         return new ResponseGeocoding();
     }

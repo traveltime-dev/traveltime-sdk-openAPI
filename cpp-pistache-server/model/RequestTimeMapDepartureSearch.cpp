@@ -45,7 +45,7 @@ void to_json(nlohmann::json& j, const RequestTimeMapDepartureSearch& o)
     j["transportation"] = o.m_Transportation;
     j["travel_time"] = o.m_Travel_time;
     j["departure_time"] = o.m_Departure_time;
-    if(o.propertiesIsSet())
+    if(o.propertiesIsSet() || !o.m_Properties.empty())
         j["properties"] = o.m_Properties;
     if(o.rangeIsSet())
         j["range"] = o.m_Range;
@@ -58,12 +58,12 @@ void from_json(const nlohmann::json& j, RequestTimeMapDepartureSearch& o)
     j.at("transportation").get_to(o.m_Transportation);
     j.at("travel_time").get_to(o.m_Travel_time);
     j.at("departure_time").get_to(o.m_Departure_time);
-    if(j.contains("properties"))
+    if(j.find("properties") != j.end())
     {
         j.at("properties").get_to(o.m_Properties);
         o.m_PropertiesIsSet = true;
     } 
-    if(j.contains("range"))
+    if(j.find("range") != j.end())
     {
         j.at("range").get_to(o.m_Range);
         o.m_RangeIsSet = true;
@@ -77,7 +77,6 @@ std::string RequestTimeMapDepartureSearch::getId() const
 void RequestTimeMapDepartureSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 Coords RequestTimeMapDepartureSearch::getCoords() const
 {
@@ -86,7 +85,6 @@ Coords RequestTimeMapDepartureSearch::getCoords() const
 void RequestTimeMapDepartureSearch::setCoords(Coords const& value)
 {
     m_Coords = value;
-    
 }
 RequestTransportation RequestTimeMapDepartureSearch::getTransportation() const
 {
@@ -95,7 +93,6 @@ RequestTransportation RequestTimeMapDepartureSearch::getTransportation() const
 void RequestTimeMapDepartureSearch::setTransportation(RequestTransportation const& value)
 {
     m_Transportation = value;
-    
 }
 int32_t RequestTimeMapDepartureSearch::getTravelTime() const
 {
@@ -104,7 +101,6 @@ int32_t RequestTimeMapDepartureSearch::getTravelTime() const
 void RequestTimeMapDepartureSearch::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 std::string RequestTimeMapDepartureSearch::getDepartureTime() const
 {
@@ -113,11 +109,15 @@ std::string RequestTimeMapDepartureSearch::getDepartureTime() const
 void RequestTimeMapDepartureSearch::setDepartureTime(std::string const& value)
 {
     m_Departure_time = value;
-    
 }
 std::vector<RequestTimeMapProperty>& RequestTimeMapDepartureSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestTimeMapDepartureSearch::setProperties(std::vector<RequestTimeMapProperty> const& value)
+{
+    m_Properties = value;
+    m_PropertiesIsSet = true;
 }
 bool RequestTimeMapDepartureSearch::propertiesIsSet() const
 {

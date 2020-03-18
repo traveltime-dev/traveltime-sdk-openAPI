@@ -22,24 +22,22 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestRoutesProperty: public OAIEnum {
+class OAIRequestRoutesProperty : public OAIEnum {
 public:
     OAIRequestRoutesProperty();
     OAIRequestRoutesProperty(QString json);
     ~OAIRequestRoutesProperty() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(QString jsonString) override;
 
-    
     enum class eOAIRequestRoutesProperty {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         TRAVEL_TIME, 
@@ -47,21 +45,21 @@ public:
         FARES, 
         ROUTE
     };
-
     OAIRequestRoutesProperty::eOAIRequestRoutesProperty getValue() const;
     void setValue(const OAIRequestRoutesProperty::eOAIRequestRoutesProperty& value);
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     eOAIRequestRoutesProperty m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRoutesProperty)
 
 #endif // OAIRequestRoutesProperty_H

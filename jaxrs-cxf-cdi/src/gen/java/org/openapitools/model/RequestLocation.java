@@ -18,7 +18,7 @@ public class RequestLocation   {
   
   private String id;
 
-  private Coords coords = null;
+  private Coords coords;
 
 
   /**

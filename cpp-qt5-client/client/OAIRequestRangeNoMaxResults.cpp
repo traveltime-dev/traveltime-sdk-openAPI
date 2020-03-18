@@ -10,118 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestRangeNoMaxResults.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestRangeNoMaxResults::OAIRequestRangeNoMaxResults(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestRangeNoMaxResults::OAIRequestRangeNoMaxResults() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestRangeNoMaxResults::~OAIRequestRangeNoMaxResults() {
+OAIRequestRangeNoMaxResults::~OAIRequestRangeNoMaxResults() {}
 
-}
+void OAIRequestRangeNoMaxResults::initializeModel() {
 
-void
-OAIRequestRangeNoMaxResults::init() {
-    
     m_enabled_isSet = false;
     m_enabled_isValid = false;
-    
+
     m_width_isSet = false;
     m_width_isValid = false;
-    }
+}
 
-void
-OAIRequestRangeNoMaxResults::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestRangeNoMaxResults::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestRangeNoMaxResults::fromJsonObject(QJsonObject json) {
-    
+void OAIRequestRangeNoMaxResults::fromJsonObject(QJsonObject json) {
+
     m_enabled_isValid = ::OpenAPI::fromJsonValue(enabled, json[QString("enabled")]);
-    
-    
+    m_enabled_isSet = !json[QString("enabled")].isNull() && m_enabled_isValid;
+
     m_width_isValid = ::OpenAPI::fromJsonValue(width, json[QString("width")]);
-    
-    
+    m_width_isSet = !json[QString("width")].isNull() && m_width_isValid;
 }
 
-QString
-OAIRequestRangeNoMaxResults::asJson () const {
+QString OAIRequestRangeNoMaxResults::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestRangeNoMaxResults::asJsonObject() const {
+QJsonObject OAIRequestRangeNoMaxResults::asJsonObject() const {
     QJsonObject obj;
-	if(m_enabled_isSet){
+    if (m_enabled_isSet) {
         obj.insert(QString("enabled"), ::OpenAPI::toJsonValue(enabled));
     }
-	if(m_width_isSet){
+    if (m_width_isSet) {
         obj.insert(QString("width"), ::OpenAPI::toJsonValue(width));
     }
     return obj;
 }
 
-
-bool
-OAIRequestRangeNoMaxResults::isEnabled() const {
+bool OAIRequestRangeNoMaxResults::isEnabled() const {
     return enabled;
 }
-void
-OAIRequestRangeNoMaxResults::setEnabled(const bool &enabled) {
+void OAIRequestRangeNoMaxResults::setEnabled(const bool &enabled) {
     this->enabled = enabled;
     this->m_enabled_isSet = true;
 }
 
-
-qint32
-OAIRequestRangeNoMaxResults::getWidth() const {
+qint32 OAIRequestRangeNoMaxResults::getWidth() const {
     return width;
 }
-void
-OAIRequestRangeNoMaxResults::setWidth(const qint32 &width) {
+void OAIRequestRangeNoMaxResults::setWidth(const qint32 &width) {
     this->width = width;
     this->m_width_isSet = true;
 }
 
-bool
-OAIRequestRangeNoMaxResults::isSet() const {
+bool OAIRequestRangeNoMaxResults::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_enabled_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_width_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_enabled_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_width_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestRangeNoMaxResults::isValid() const {
+bool OAIRequestRangeNoMaxResults::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_enabled_isValid && m_width_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

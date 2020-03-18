@@ -4,25 +4,25 @@ import pytest
 import json
 from aiohttp import web
 
-from traveltimeplatform.models.request_routes import RequestRoutes
-from traveltimeplatform.models.request_supported_locations import RequestSupportedLocations
-from traveltimeplatform.models.request_time_filter import RequestTimeFilter
-from traveltimeplatform.models.request_time_filter_fast import RequestTimeFilterFast
-from traveltimeplatform.models.request_time_filter_postcode_districts import RequestTimeFilterPostcodeDistricts
-from traveltimeplatform.models.request_time_filter_postcode_sectors import RequestTimeFilterPostcodeSectors
-from traveltimeplatform.models.request_time_filter_postcodes import RequestTimeFilterPostcodes
-from traveltimeplatform.models.request_time_map import RequestTimeMap
-from traveltimeplatform.models.response_error import ResponseError
-from traveltimeplatform.models.response_geocoding import ResponseGeocoding
-from traveltimeplatform.models.response_map_info import ResponseMapInfo
-from traveltimeplatform.models.response_routes import ResponseRoutes
-from traveltimeplatform.models.response_supported_locations import ResponseSupportedLocations
-from traveltimeplatform.models.response_time_filter import ResponseTimeFilter
-from traveltimeplatform.models.response_time_filter_fast import ResponseTimeFilterFast
-from traveltimeplatform.models.response_time_filter_postcode_districts import ResponseTimeFilterPostcodeDistricts
-from traveltimeplatform.models.response_time_filter_postcode_sectors import ResponseTimeFilterPostcodeSectors
-from traveltimeplatform.models.response_time_filter_postcodes import ResponseTimeFilterPostcodes
-from traveltimeplatform.models.response_time_map import ResponseTimeMap
+from openapi_server.models.request_routes import RequestRoutes
+from openapi_server.models.request_supported_locations import RequestSupportedLocations
+from openapi_server.models.request_time_filter import RequestTimeFilter
+from openapi_server.models.request_time_filter_fast import RequestTimeFilterFast
+from openapi_server.models.request_time_filter_postcode_districts import RequestTimeFilterPostcodeDistricts
+from openapi_server.models.request_time_filter_postcode_sectors import RequestTimeFilterPostcodeSectors
+from openapi_server.models.request_time_filter_postcodes import RequestTimeFilterPostcodes
+from openapi_server.models.request_time_map import RequestTimeMap
+from openapi_server.models.response_error import ResponseError
+from openapi_server.models.response_geocoding import ResponseGeocoding
+from openapi_server.models.response_map_info import ResponseMapInfo
+from openapi_server.models.response_routes import ResponseRoutes
+from openapi_server.models.response_supported_locations import ResponseSupportedLocations
+from openapi_server.models.response_time_filter import ResponseTimeFilter
+from openapi_server.models.response_time_filter_fast import ResponseTimeFilterFast
+from openapi_server.models.response_time_filter_postcode_districts import ResponseTimeFilterPostcodeDistricts
+from openapi_server.models.response_time_filter_postcode_sectors import ResponseTimeFilterPostcodeSectors
+from openapi_server.models.response_time_filter_postcodes import ResponseTimeFilterPostcodes
+from openapi_server.models.response_time_map import ResponseTimeMap
 
 
 async def test_geocoding_reverse_search(client):
@@ -30,8 +30,8 @@ async def test_geocoding_reverse_search(client):
 
     
     """
-    params = [('focus.lat', 3.4),
-                    ('focus.lng', 3.4),
+    params = [('lat', 3.4),
+                    ('lng', 3.4),
                     ('within.country', 'within_country_example')]
     headers = { 
         'Accept': 'application/json',
@@ -53,9 +53,9 @@ async def test_geocoding_search(client):
     
     """
     params = [('query', 'query_example'),
-                    ('within.country', 'within_country_example'),
                     ('focus.lat', 3.4),
-                    ('focus.lng', 3.4)]
+                    ('focus.lng', 3.4),
+                    ('within.country', 'within_country_example')]
     headers = { 
         'Accept': 'application/json',
         'ApiKey': 'special-key',

@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterPostcodesProperty.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,11 +45,11 @@ OAIRequestTimeFilterPostcodesProperty::init() {
 
 void
 OAIRequestTimeFilterPostcodesProperty::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("travel_time", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterPostcodesProperty::TRAVEL_TIME;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("distance", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterPostcodesProperty::DISTANCE;
         m_value_isValid = true;
@@ -72,7 +72,7 @@ OAIRequestTimeFilterPostcodesProperty::asJson () const {
             break;
         case eOAIRequestTimeFilterPostcodesProperty::DISTANCE:
             val = "distance";
-            break; 
+            break;
         default:
             break;
     }

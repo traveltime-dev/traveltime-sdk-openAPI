@@ -15,11 +15,11 @@ import javax.validation.constraints.*;
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class ResponseBoundingBox   {
   @JsonProperty("envelope")
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @JsonProperty("boxes")
   @Valid

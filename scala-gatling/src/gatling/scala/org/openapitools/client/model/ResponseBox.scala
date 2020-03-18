@@ -3,16 +3,16 @@ package org.openapitools.client.model
 
 
 case class ResponseBox (
-    _minUnderscorelat: Double,
-    _maxUnderscorelat: Double,
-    _minUnderscorelng: Double,
-    _maxUnderscorelng: Double
+    _minLat: Double,
+    _maxLat: Double,
+    _minLng: Double,
+    _maxLng: Double
 )
 object ResponseBox {
-    def toStringBody(var_minUnderscorelat: Object, var_maxUnderscorelat: Object, var_minUnderscorelng: Object, var_maxUnderscorelng: Object) =
+    def toStringBody(var_minLat: Object, var_maxLat: Object, var_minLng: Object, var_maxLng: Object) =
         s"""
         | {
-        | "minUnderscorelat":$var_minUnderscorelat,"maxUnderscorelat":$var_maxUnderscorelat,"minUnderscorelng":$var_minUnderscorelng,"maxUnderscorelng":$var_maxUnderscorelng
+        | "minLat":$var_minLat,"maxLat":$var_maxLat,"minLng":$var_minLng,"maxLng":$var_maxLng
         | }
         """.stripMargin
 }

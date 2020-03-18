@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseTimeFilterPostcodeDistrictProperties;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterPostcodeDistrict   {
   
   private String code = null;
-  private ResponseTimeFilterPostcodeDistrictProperties properties = null;
+  private ResponseTimeFilterPostcodeDistrictProperties properties;
 
   public ResponseTimeFilterPostcodeDistrict () {
 

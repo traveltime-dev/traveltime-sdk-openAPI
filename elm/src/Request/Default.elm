@@ -38,6 +38,8 @@ import Json.Decode as Decode
 import Url.Builder as Url
 
 
+
+
 basePath : String
 basePath =
     "https://api.traveltimeapp.com"
@@ -49,16 +51,16 @@ geocodingReverseSearch :
 
 
 
-    , focusPeriodlat : Float    , focusPeriodlng : Float    , withinPeriodcountry : Maybe (String)
+    , lat : Float    , lng : Float    , withinPeriodcountry : Maybe (String)
     }
     -> Cmd msg
 geocodingReverseSearch params =
     Http.request
         { method = "GET"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "geocoding", "reverse"]
-            (List.filterMap identity [Just (Url.string "focus.lat" <| String.fromFloat params.focusPeriodlat), Just (Url.string "focus.lng" <| String.fromFloat params.focusPeriodlng), Maybe.map (Url.string "within.country" ) params.withinPeriodcountry])
+            (List.filterMap identity [(Just << Url.string "lat" << String.fromFloat) params.lat, (Just << Url.string "lng" << String.fromFloat) params.lng, Maybe.map (Url.string "within.country" << identity) params.withinPeriodcountry])
         , body = Http.emptyBody
         , expect = Http.expectJson params.onSend ResponseGeocoding.decoder
         , timeout = Just 30000
@@ -72,16 +74,16 @@ geocodingSearch :
 
 
 
-    , query : String    , withinPeriodcountry : Maybe (String)    , focusPeriodlat : Maybe (Float)    , focusPeriodlng : Maybe (Float)
+    , query : String    , focusPeriodlat : Maybe (Float)    , focusPeriodlng : Maybe (Float)    , withinPeriodcountry : Maybe (String)
     }
     -> Cmd msg
 geocodingSearch params =
     Http.request
         { method = "GET"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "geocoding", "search"]
-            (List.filterMap identity [Just (Url.string "query"  params.query), Maybe.map (Url.string "within.country" ) params.withinPeriodcountry, Maybe.map (Url.string "focus.lat" << String.fromFloat) params.focusPeriodlat, Maybe.map (Url.string "focus.lng" << String.fromFloat) params.focusPeriodlng])
+            (List.filterMap identity [(Just << Url.string "query" << identity) params.query, Maybe.map (Url.string "focus.lat" << String.fromFloat) params.focusPeriodlat, Maybe.map (Url.string "focus.lng" << String.fromFloat) params.focusPeriodlng, Maybe.map (Url.string "within.country" << identity) params.withinPeriodcountry])
         , body = Http.emptyBody
         , expect = Http.expectJson params.onSend ResponseGeocoding.decoder
         , timeout = Just 30000
@@ -101,10 +103,10 @@ mapInfo :
 mapInfo params =
     Http.request
         { method = "GET"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "map-info"]
-            []
+            (List.filterMap identity [])
         , body = Http.emptyBody
         , expect = Http.expectJson params.onSend ResponseMapInfo.decoder
         , timeout = Just 30000
@@ -124,10 +126,10 @@ routes :
 routes params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "routes"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestRoutes.encode params.body
         , expect = Http.expectJson params.onSend ResponseRoutes.decoder
         , timeout = Just 30000
@@ -147,10 +149,10 @@ supportedLocations :
 supportedLocations params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "supported-locations"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestSupportedLocations.encode params.body
         , expect = Http.expectJson params.onSend ResponseSupportedLocations.decoder
         , timeout = Just 30000
@@ -170,10 +172,10 @@ timeFilter :
 timeFilter params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-filter"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeFilter.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeFilter.decoder
         , timeout = Just 30000
@@ -193,10 +195,10 @@ timeFilterFast :
 timeFilterFast params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-filter", "fast"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeFilterFast.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeFilterFast.decoder
         , timeout = Just 30000
@@ -216,10 +218,10 @@ timeFilterPostcodeDistricts :
 timeFilterPostcodeDistricts params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-filter", "postcode-districts"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeFilterPostcodeDistricts.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeFilterPostcodeDistricts.decoder
         , timeout = Just 30000
@@ -239,10 +241,10 @@ timeFilterPostcodeSectors :
 timeFilterPostcodeSectors params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-filter", "postcode-sectors"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeFilterPostcodeSectors.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeFilterPostcodeSectors.decoder
         , timeout = Just 30000
@@ -262,10 +264,10 @@ timeFilterPostcodes :
 timeFilterPostcodes params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-filter", "postcodes"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeFilterPostcodes.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeFilterPostcodes.decoder
         , timeout = Just 30000
@@ -285,10 +287,10 @@ timeMap :
 timeMap params =
     Http.request
         { method = "POST"
-        , headers = []
+        , headers = List.filterMap identity []
         , url = Url.crossOrigin basePath
             ["v4", "time-map"]
-            []
+            (List.filterMap identity [])
         , body = Http.jsonBody <| RequestTimeMap.encode params.body
         , expect = Http.expectJson params.onSend ResponseTimeMap.decoder
         , timeout = Just 30000

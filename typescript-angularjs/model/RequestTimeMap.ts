@@ -13,8 +13,8 @@
 import * as models from './models';
 
 export interface RequestTimeMap {
-    "departureSearches"?: Array<models.RequestTimeMapDepartureSearch>;
-    "arrivalSearches"?: Array<models.RequestTimeMapArrivalSearch>;
+    "departure_searches"?: Array<models.RequestTimeMapDepartureSearch>;
+    "arrival_searches"?: Array<models.RequestTimeMapArrivalSearch>;
     "unions"?: Array<models.RequestUnionOnIntersection>;
     "intersections"?: Array<models.RequestUnionOnIntersection>;
 }

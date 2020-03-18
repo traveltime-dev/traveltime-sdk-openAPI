@@ -21,18 +21,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseBox;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseBoundingBox.JSON_PROPERTY_ENVELOPE,
+  ResponseBoundingBox.JSON_PROPERTY_BOXES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseBoundingBox   {
-  @JsonProperty("envelope")
-  private ResponseBox envelope = null;
+  public static final String JSON_PROPERTY_ENVELOPE = "envelope";
+  @JsonProperty(JSON_PROPERTY_ENVELOPE)
+  private ResponseBox envelope;
 
-  @JsonProperty("boxes")
+  public static final String JSON_PROPERTY_BOXES = "boxes";
+  @JsonProperty(JSON_PROPERTY_BOXES)
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 
   public ResponseBoundingBox envelope(ResponseBox envelope) {

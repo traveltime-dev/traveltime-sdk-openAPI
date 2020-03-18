@@ -9,7 +9,7 @@ import java.util.List;
 import org.openapitools.server.api.model.Coords;
 import org.openapitools.server.api.model.ResponseTransportationMode;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseRoutePart   {
   
   private String id;

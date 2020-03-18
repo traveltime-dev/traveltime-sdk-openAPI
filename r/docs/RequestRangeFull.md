@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestRangeFull
+# openapi::RequestRangeFull
 
 ## Properties
 Name | Type | Description | Notes

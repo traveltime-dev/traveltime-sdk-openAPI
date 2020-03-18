@@ -52,33 +52,33 @@ void to_json(nlohmann::json& j, const ResponseError& o)
         j["description"] = o.m_Description;
     if(o.documentationLinkIsSet())
         j["documentation_link"] = o.m_Documentation_link;
-    if(o.additionalInfoIsSet())
+    if(o.additionalInfoIsSet() || !o.m_Additional_info.empty())
         j["additional_info"] = o.m_Additional_info;
 }
 
 void from_json(const nlohmann::json& j, ResponseError& o)
 {
-    if(j.contains("http_status"))
+    if(j.find("http_status") != j.end())
     {
         j.at("http_status").get_to(o.m_Http_status);
         o.m_Http_statusIsSet = true;
     } 
-    if(j.contains("error_code"))
+    if(j.find("error_code") != j.end())
     {
         j.at("error_code").get_to(o.m_Error_code);
         o.m_Error_codeIsSet = true;
     } 
-    if(j.contains("description"))
+    if(j.find("description") != j.end())
     {
         j.at("description").get_to(o.m_Description);
         o.m_DescriptionIsSet = true;
     } 
-    if(j.contains("documentation_link"))
+    if(j.find("documentation_link") != j.end())
     {
         j.at("documentation_link").get_to(o.m_Documentation_link);
         o.m_Documentation_linkIsSet = true;
     } 
-    if(j.contains("additional_info"))
+    if(j.find("additional_info") != j.end())
     {
         j.at("additional_info").get_to(o.m_Additional_info);
         o.m_Additional_infoIsSet = true;
@@ -156,6 +156,11 @@ void ResponseError::unsetDocumentation_link()
 std::map<std::string, std::vector<std::string>>& ResponseError::getAdditionalInfo()
 {
     return m_Additional_info;
+}
+void ResponseError::setAdditionalInfo(std::map<std::string, std::vector<std::string>> const& value)
+{
+    m_Additional_info = value;
+    m_Additional_infoIsSet = true;
 }
 bool ResponseError::additionalInfoIsSet() const
 {

@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include "OAICoords.h"
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestLocation: public OAIObject {
+class OAIRequestLocation : public OAIObject {
 public:
     OAIRequestLocation();
     OAIRequestLocation(QString json);
     ~OAIRequestLocation() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     OAICoords getCoords() const;
     void setCoords(const OAICoords &coords);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     OAICoords coords;
     bool m_coords_isSet;
     bool m_coords_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestLocation)
 
 #endif // OAIRequestLocation_H

@@ -14,16 +14,12 @@ class Coords {
 
   Coords.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['lat'] == null) {
-      lat = null;
-    } else {
-          lat = json['lat'];
-    }
-    if (json['lng'] == null) {
-      lng = null;
-    } else {
-          lng = json['lng'];
-    }
+    lat = (json['lat'] == null) ?
+      null :
+      json['lat'].toDouble();
+    lng = (json['lng'] == null) ?
+      null :
+      json['lng'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class Coords {
   }
 
   static List<Coords> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Coords>() : json.map((value) => new Coords.fromJson(value)).toList();
+    return json == null ? List<Coords>() : json.map((value) => Coords.fromJson(value)).toList();
   }
 
   static Map<String, Coords> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Coords>();
+    var map = Map<String, Coords>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Coords.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = Coords.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of Coords-objects as value to a dart map
+  static Map<String, List<Coords>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<Coords>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = Coords.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

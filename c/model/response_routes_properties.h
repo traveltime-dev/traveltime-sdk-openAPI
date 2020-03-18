@@ -19,8 +19,8 @@
 typedef struct response_routes_properties_t {
     int travel_time; //numeric
     int distance; //numeric
-    response_fares_t *fares; //model
-    response_route_t *route; //model
+    struct response_fares_t *fares; //model
+    struct response_route_t *route; //model
 
 } response_routes_properties_t;
 

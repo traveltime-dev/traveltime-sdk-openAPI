@@ -15,5 +15,5 @@ class ResponseTimeMapResult {
     
     List<ResponseShape> shapes = new ArrayList<ResponseShape>()
     
-    ResponseTimeMapProperties properties = null
+    ResponseTimeMapProperties properties
 }

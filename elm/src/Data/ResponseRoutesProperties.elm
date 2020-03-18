@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseRoutesProperties exposing (ResponseRoutesProperties, decoder, encode)
+module Data.ResponseRoutesProperties exposing (ResponseRoutesProperties, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseFares as ResponseFares exposing (ResponseFares)
 import Data.ResponseRoute as ResponseRoute exposing (ResponseRoute)
@@ -40,13 +40,29 @@ decoder =
 
 
 encode : ResponseRoutesProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
-        , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
-        , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFares.encode model.fares) )
-        , ( "route", Maybe.withDefault Encode.null (Maybe.map ResponseRoute.encode model.route) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseRoutesProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseRoutesProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
+    , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
+    , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFares.encode model.fares) )
+    , ( "route", Maybe.withDefault Encode.null (Maybe.map ResponseRoute.encode model.route) )
+    ]
+
+
+
+toString : ResponseRoutesProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -49,6 +49,10 @@ std::vector<RequestLocation>& RequestTimeFilterFast::getLocations()
 {
     return m_Locations;
 }
+void RequestTimeFilterFast::setLocations(std::vector<RequestLocation> const& value)
+{
+    m_Locations = value;
+}
 RequestTimeFilterFastArrivalSearches RequestTimeFilterFast::getArrivalSearches() const
 {
     return m_Arrival_searches;
@@ -56,7 +60,6 @@ RequestTimeFilterFastArrivalSearches RequestTimeFilterFast::getArrivalSearches()
 void RequestTimeFilterFast::setArrivalSearches(RequestTimeFilterFastArrivalSearches const& value)
 {
     m_Arrival_searches = value;
-    
 }
 
 }

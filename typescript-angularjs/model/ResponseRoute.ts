@@ -13,8 +13,8 @@
 import * as models from './models';
 
 export interface ResponseRoute {
-    "departureTime": Date;
-    "arrivalTime": Date;
+    "departure_time": string;
+    "arrival_time": string;
     "parts": Array<models.ResponseRoutePart>;
 }
 

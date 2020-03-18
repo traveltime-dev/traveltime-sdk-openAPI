@@ -7,10 +7,10 @@ function New-RequestTransportationFast {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTransportationFast' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTransportationFast' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTransportationFast -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTransportationFast -ArgumentList @(
             ${type}
         )
     }

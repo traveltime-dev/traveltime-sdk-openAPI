@@ -9,17 +9,17 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestRangeFull } from './requestRangeFull';
-import { RequestRoutesProperty } from './requestRoutesProperty';
 import { RequestTransportation } from './requestTransportation';
+import { RequestRoutesProperty } from './requestRoutesProperty';
+import { RequestRangeFull } from './requestRangeFull';
 
 
 export interface RequestRoutesArrivalSearch { 
     id: string;
-    departureLocationIds: Array<string>;
-    arrivalLocationId: string;
+    departure_location_ids: Array<string>;
+    arrival_location_id: string;
     transportation: RequestTransportation;
-    arrivalTime: Date;
+    arrival_time: string;
     properties: Array<RequestRoutesProperty>;
     range?: RequestRangeFull;
 }

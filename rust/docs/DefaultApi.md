@@ -20,33 +20,21 @@ Method | HTTP request | Description
 
 ## geocoding_reverse_search
 
-> ::models::ResponseGeocoding geocoding_reverse_search(ctx, ctx, focus_lat, focus_lng, optional)
+> crate::models::ResponseGeocoding geocoding_reverse_search(lat, lng, within_country)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **focus_lat** | **f64**|  | 
-  **focus_lng** | **f64**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **focus_lat** | **f64**|  | 
- **focus_lng** | **f64**|  | 
- **within_country** | **String**|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**lat** | **f64** |  | [required] |
+**lng** | **f64** |  | [required] |
+**within_country** | Option<**String**> |  |  |
 
 ### Return type
 
-[**::models::ResponseGeocoding**](ResponseGeocoding.md)
+[**crate::models::ResponseGeocoding**](ResponseGeocoding.md)
 
 ### Authorization
 
@@ -62,33 +50,22 @@ Name | Type | Description  | Notes
 
 ## geocoding_search
 
-> ::models::ResponseGeocoding geocoding_search(ctx, ctx, query, optional)
+> crate::models::ResponseGeocoding geocoding_search(query, focus_lat, focus_lng, within_country)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **query** | **String**|  | 
- **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a map[string]interface{}.
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **query** | **String**|  | 
- **within_country** | **String**|  | 
- **focus_lat** | **f64**|  | 
- **focus_lng** | **f64**|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**query** | **String** |  | [required] |
+**focus_lat** | Option<**f64**> |  |  |
+**focus_lng** | Option<**f64**> |  |  |
+**within_country** | Option<**String**> |  |  |
 
 ### Return type
 
-[**::models::ResponseGeocoding**](ResponseGeocoding.md)
+[**crate::models::ResponseGeocoding**](ResponseGeocoding.md)
 
 ### Authorization
 
@@ -104,16 +81,16 @@ Name | Type | Description  | Notes
 
 ## map_info
 
-> ::models::ResponseMapInfo map_info(ctx, ctx, )
+> crate::models::ResponseMapInfo map_info()
 
 
-### Required Parameters
+### Parameters
 
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**::models::ResponseMapInfo**](ResponseMapInfo.md)
+[**crate::models::ResponseMapInfo**](ResponseMapInfo.md)
 
 ### Authorization
 
@@ -129,21 +106,19 @@ This endpoint does not need any parameter.
 
 ## routes
 
-> ::models::ResponseRoutes routes(ctx, ctx, request_routes)
+> crate::models::ResponseRoutes routes(request_routes)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_routes** | [**RequestRoutes**](RequestRoutes.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_routes** | [**RequestRoutes**](RequestRoutes.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseRoutes**](ResponseRoutes.md)
+[**crate::models::ResponseRoutes**](ResponseRoutes.md)
 
 ### Authorization
 
@@ -159,21 +134,19 @@ Name | Type | Description  | Notes
 
 ## supported_locations
 
-> ::models::ResponseSupportedLocations supported_locations(ctx, ctx, request_supported_locations)
+> crate::models::ResponseSupportedLocations supported_locations(request_supported_locations)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_supported_locations** | [**RequestSupportedLocations**](RequestSupportedLocations.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_supported_locations** | [**RequestSupportedLocations**](RequestSupportedLocations.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseSupportedLocations**](ResponseSupportedLocations.md)
+[**crate::models::ResponseSupportedLocations**](ResponseSupportedLocations.md)
 
 ### Authorization
 
@@ -189,21 +162,19 @@ Name | Type | Description  | Notes
 
 ## time_filter
 
-> ::models::ResponseTimeFilter time_filter(ctx, ctx, request_time_filter)
+> crate::models::ResponseTimeFilter time_filter(request_time_filter)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_filter** | [**RequestTimeFilter**](RequestTimeFilter.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_filter** | [**RequestTimeFilter**](RequestTimeFilter.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeFilter**](ResponseTimeFilter.md)
+[**crate::models::ResponseTimeFilter**](ResponseTimeFilter.md)
 
 ### Authorization
 
@@ -219,21 +190,19 @@ Name | Type | Description  | Notes
 
 ## time_filter_fast
 
-> ::models::ResponseTimeFilterFast time_filter_fast(ctx, ctx, request_time_filter_fast)
+> crate::models::ResponseTimeFilterFast time_filter_fast(request_time_filter_fast)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_filter_fast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_filter_fast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeFilterFast**](ResponseTimeFilterFast.md)
+[**crate::models::ResponseTimeFilterFast**](ResponseTimeFilterFast.md)
 
 ### Authorization
 
@@ -249,21 +218,19 @@ Name | Type | Description  | Notes
 
 ## time_filter_postcode_districts
 
-> ::models::ResponseTimeFilterPostcodeDistricts time_filter_postcode_districts(ctx, ctx, request_time_filter_postcode_districts)
+> crate::models::ResponseTimeFilterPostcodeDistricts time_filter_postcode_districts(request_time_filter_postcode_districts)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_filter_postcode_districts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_filter_postcode_districts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeFilterPostcodeDistricts**](ResponseTimeFilterPostcodeDistricts.md)
+[**crate::models::ResponseTimeFilterPostcodeDistricts**](ResponseTimeFilterPostcodeDistricts.md)
 
 ### Authorization
 
@@ -279,21 +246,19 @@ Name | Type | Description  | Notes
 
 ## time_filter_postcode_sectors
 
-> ::models::ResponseTimeFilterPostcodeSectors time_filter_postcode_sectors(ctx, ctx, request_time_filter_postcode_sectors)
+> crate::models::ResponseTimeFilterPostcodeSectors time_filter_postcode_sectors(request_time_filter_postcode_sectors)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_filter_postcode_sectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_filter_postcode_sectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeFilterPostcodeSectors**](ResponseTimeFilterPostcodeSectors.md)
+[**crate::models::ResponseTimeFilterPostcodeSectors**](ResponseTimeFilterPostcodeSectors.md)
 
 ### Authorization
 
@@ -309,21 +274,19 @@ Name | Type | Description  | Notes
 
 ## time_filter_postcodes
 
-> ::models::ResponseTimeFilterPostcodes time_filter_postcodes(ctx, ctx, request_time_filter_postcodes)
+> crate::models::ResponseTimeFilterPostcodes time_filter_postcodes(request_time_filter_postcodes)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_filter_postcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_filter_postcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeFilterPostcodes**](ResponseTimeFilterPostcodes.md)
+[**crate::models::ResponseTimeFilterPostcodes**](ResponseTimeFilterPostcodes.md)
 
 ### Authorization
 
@@ -339,21 +302,19 @@ Name | Type | Description  | Notes
 
 ## time_map
 
-> ::models::ResponseTimeMap time_map(ctx, ctx, request_time_map)
+> crate::models::ResponseTimeMap time_map(request_time_map)
 
 
-### Required Parameters
+### Parameters
 
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
- **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **request_time_map** | [**RequestTimeMap**](RequestTimeMap.md)|  | 
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**request_time_map** | [**RequestTimeMap**](RequestTimeMap.md) |  | [required] |
 
 ### Return type
 
-[**::models::ResponseTimeMap**](ResponseTimeMap.md)
+[**crate::models::ResponseTimeMap**](ResponseTimeMap.md)
 
 ### Authorization
 

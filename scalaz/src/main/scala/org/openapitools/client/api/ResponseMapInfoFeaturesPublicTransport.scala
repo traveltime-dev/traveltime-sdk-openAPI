@@ -7,11 +7,14 @@ import argonaut.DecodeJson._
 import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
+
+import java.time.OffsetDateTime
+
 import ResponseMapInfoFeaturesPublicTransport._
 
 case class ResponseMapInfoFeaturesPublicTransport (
-  dateStart: DateTime,
-dateEnd: DateTime)
+  dateStart: OffsetDateTime,
+dateEnd: OffsetDateTime)
 
 object ResponseMapInfoFeaturesPublicTransport {
   import DateTimeCodecs._

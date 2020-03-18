@@ -14,7 +14,7 @@ import org.openapitools.model.ResponseTimeMapProperties;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class ResponseTimeMapBoundingBoxesResult   {
   @JsonProperty("search_id")
   private String searchId;
@@ -23,7 +23,7 @@ public class ResponseTimeMapBoundingBoxesResult   {
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
 
   @JsonProperty("properties")
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
   /**
    **/

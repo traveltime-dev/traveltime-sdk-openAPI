@@ -53,12 +53,12 @@ public:
     /// </summary>
     bool isFares() const;
     void setFares(bool const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     bool isPostcodes() const;
     void setPostcodes(bool const value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseMapInfoFeatures& o);
     friend void from_json(const nlohmann::json& j, ResponseMapInfoFeatures& o);
 protected:

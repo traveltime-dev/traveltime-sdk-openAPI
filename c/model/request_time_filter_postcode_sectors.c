@@ -9,34 +9,34 @@ request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors_cre
     list_t *departure_searches,
     list_t *arrival_searches
     ) {
-	request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors_local_var = malloc(sizeof(request_time_filter_postcode_sectors_t));
+    request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors_local_var = malloc(sizeof(request_time_filter_postcode_sectors_t));
     if (!request_time_filter_postcode_sectors_local_var) {
         return NULL;
     }
-	request_time_filter_postcode_sectors_local_var->departure_searches = departure_searches;
-	request_time_filter_postcode_sectors_local_var->arrival_searches = arrival_searches;
+    request_time_filter_postcode_sectors_local_var->departure_searches = departure_searches;
+    request_time_filter_postcode_sectors_local_var->arrival_searches = arrival_searches;
 
-	return request_time_filter_postcode_sectors_local_var;
+    return request_time_filter_postcode_sectors_local_var;
 }
 
 
 void request_time_filter_postcode_sectors_free(request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_time_filter_postcode_sectors->departure_searches) {
-		request_time_filter_postcode_sectors_departure_search_free(listEntry->data);
-	}
-	list_free(request_time_filter_postcode_sectors->departure_searches);
-	list_ForEach(listEntry, request_time_filter_postcode_sectors->arrival_searches) {
-		request_time_filter_postcode_sectors_arrival_search_free(listEntry->data);
-	}
-	list_free(request_time_filter_postcode_sectors->arrival_searches);
-	free(request_time_filter_postcode_sectors);
+    list_ForEach(listEntry, request_time_filter_postcode_sectors->departure_searches) {
+        request_time_filter_postcode_sectors_departure_search_free(listEntry->data);
+    }
+    list_free(request_time_filter_postcode_sectors->departure_searches);
+    list_ForEach(listEntry, request_time_filter_postcode_sectors->arrival_searches) {
+        request_time_filter_postcode_sectors_arrival_search_free(listEntry->data);
+    }
+    list_free(request_time_filter_postcode_sectors->arrival_searches);
+    free(request_time_filter_postcode_sectors);
 }
 
 cJSON *request_time_filter_postcode_sectors_convertToJSON(request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_filter_postcode_sectors->departure_searches
+    // request_time_filter_postcode_sectors->departure_searches
     if(request_time_filter_postcode_sectors->departure_searches) { 
     cJSON *departure_searches = cJSON_AddArrayToObject(item, "departure_searches");
     if(departure_searches == NULL) {
@@ -56,7 +56,7 @@ cJSON *request_time_filter_postcode_sectors_convertToJSON(request_time_filter_po
      } 
 
 
-	// request_time_filter_postcode_sectors->arrival_searches
+    // request_time_filter_postcode_sectors->arrival_searches
     if(request_time_filter_postcode_sectors->arrival_searches) { 
     cJSON *arrival_searches = cJSON_AddArrayToObject(item, "arrival_searches");
     if(arrival_searches == NULL) {
@@ -75,12 +75,12 @@ cJSON *request_time_filter_postcode_sectors_convertToJSON(request_time_filter_po
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors_parseFromJSON(cJSON *request_time_filter_postcode_sectorsJSON){

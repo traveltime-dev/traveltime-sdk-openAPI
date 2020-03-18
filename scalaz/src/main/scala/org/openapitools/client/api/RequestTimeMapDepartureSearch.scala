@@ -7,6 +7,9 @@ import argonaut.DecodeJson._
 import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
+
+import java.time.OffsetDateTime
+
 import RequestTimeMapDepartureSearch._
 
 case class RequestTimeMapDepartureSearch (
@@ -14,7 +17,7 @@ case class RequestTimeMapDepartureSearch (
 coords: Coords,
 transportation: RequestTransportation,
 travelTime: Integer,
-departureTime: DateTime,
+departureTime: OffsetDateTime,
 properties: Option[List[RequestTimeMapProperty]],
 range: Option[RequestRangeNoMaxResults])
 

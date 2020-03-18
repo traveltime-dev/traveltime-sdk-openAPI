@@ -20,3 +20,4 @@ export const RequestTimeFilterProperty = {
     Fares: 'fares' as RequestTimeFilterProperty,
     Route: 'route' as RequestTimeFilterProperty
 };
+

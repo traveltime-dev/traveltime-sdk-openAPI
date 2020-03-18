@@ -18,24 +18,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseBox.JSON_PROPERTY_MIN_LAT,
+  ResponseBox.JSON_PROPERTY_MAX_LAT,
+  ResponseBox.JSON_PROPERTY_MIN_LNG,
+  ResponseBox.JSON_PROPERTY_MAX_LNG
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseBox   {
-  @JsonProperty("min_lat")
+  public static final String JSON_PROPERTY_MIN_LAT = "min_lat";
+  @JsonProperty(JSON_PROPERTY_MIN_LAT)
   private Double minLat;
 
-  @JsonProperty("max_lat")
+  public static final String JSON_PROPERTY_MAX_LAT = "max_lat";
+  @JsonProperty(JSON_PROPERTY_MAX_LAT)
   private Double maxLat;
 
-  @JsonProperty("min_lng")
+  public static final String JSON_PROPERTY_MIN_LNG = "min_lng";
+  @JsonProperty(JSON_PROPERTY_MIN_LNG)
   private Double minLng;
 
-  @JsonProperty("max_lng")
+  public static final String JSON_PROPERTY_MAX_LNG = "max_lng";
+  @JsonProperty(JSON_PROPERTY_MAX_LNG)
   private Double maxLng;
 
   public ResponseBox minLat(Double minLat) {

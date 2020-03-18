@@ -1,7 +1,7 @@
 package org.openapitools.apis
 
 import java.io._
-import traveltimeplatform._
+import org.openapitools._
 import org.openapitools.models._
 import org.openapitools.models.RequestRoutes
 import org.openapitools.models.RequestSupportedLocations
@@ -79,8 +79,8 @@ object DefaultApi {
         * @return An endpoint representing a ResponseGeocoding
         */
         private def geocodingReverseSearch(da: DataAccessor): Endpoint[ResponseGeocoding] =
-        get("v4" :: "geocoding" :: "reverse" :: param("focus.lat").map(_.toDouble) :: param("focus.lng").map(_.toDouble) :: paramOption("within.country") :: header("X-Api-Key") :: header("X-Application-Id")) { (focusPeriodlat: Double, focusPeriodlng: Double, withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String) =>
-          da.Default_geocodingReverseSearch(focusPeriodlat, focusPeriodlng, withinPeriodcountry, authParamApiKey, authParamApplicationId) match {
+        get("v4" :: "geocoding" :: "reverse" :: param("lat").map(_.toDouble) :: param("lng").map(_.toDouble) :: paramOption("within.country") :: header("X-Api-Key") :: header("X-Application-Id")) { (lat: Double, lng: Double, withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String) =>
+          da.Default_geocodingReverseSearch(lat, lng, withinPeriodcountry, authParamApiKey, authParamApplicationId) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }
@@ -93,8 +93,8 @@ object DefaultApi {
         * @return An endpoint representing a ResponseGeocoding
         */
         private def geocodingSearch(da: DataAccessor): Endpoint[ResponseGeocoding] =
-        get("v4" :: "geocoding" :: "search" :: param("query") :: paramOption("within.country") :: paramOption("focus.lat").map(_.map(_.toDouble)) :: paramOption("focus.lng").map(_.map(_.toDouble)) :: header("X-Api-Key") :: header("X-Application-Id")) { (query: String, withinPeriodcountry: Option[String], focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], authParamApiKey: String, authParamApplicationId: String) =>
-          da.Default_geocodingSearch(query, withinPeriodcountry, focusPeriodlat, focusPeriodlng, authParamApiKey, authParamApplicationId) match {
+        get("v4" :: "geocoding" :: "search" :: param("query") :: paramOption("focus.lat").map(_.map(_.toDouble)) :: paramOption("focus.lng").map(_.map(_.toDouble)) :: paramOption("within.country") :: header("X-Api-Key") :: header("X-Application-Id")) { (query: String, focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String) =>
+          da.Default_geocodingSearch(query, focusPeriodlat, focusPeriodlng, withinPeriodcountry, authParamApiKey, authParamApplicationId) match {
             case Left(error) => checkError(error)
             case Right(data) => Ok(data)
           }

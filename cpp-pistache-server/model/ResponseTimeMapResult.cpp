@@ -55,11 +55,14 @@ std::string ResponseTimeMapResult::getSearchId() const
 void ResponseTimeMapResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::vector<ResponseShape>& ResponseTimeMapResult::getShapes()
 {
     return m_Shapes;
+}
+void ResponseTimeMapResult::setShapes(std::vector<ResponseShape> const& value)
+{
+    m_Shapes = value;
 }
 ResponseTimeMapProperties ResponseTimeMapResult::getProperties() const
 {
@@ -68,7 +71,6 @@ ResponseTimeMapProperties ResponseTimeMapResult::getProperties() const
 void ResponseTimeMapResult::setProperties(ResponseTimeMapProperties const& value)
 {
     m_Properties = value;
-    
 }
 
 }

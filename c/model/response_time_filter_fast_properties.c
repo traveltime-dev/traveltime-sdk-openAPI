@@ -9,27 +9,27 @@ response_time_filter_fast_properties_t *response_time_filter_fast_properties_cre
     int travel_time,
     response_fares_fast_t *fares
     ) {
-	response_time_filter_fast_properties_t *response_time_filter_fast_properties_local_var = malloc(sizeof(response_time_filter_fast_properties_t));
+    response_time_filter_fast_properties_t *response_time_filter_fast_properties_local_var = malloc(sizeof(response_time_filter_fast_properties_t));
     if (!response_time_filter_fast_properties_local_var) {
         return NULL;
     }
-	response_time_filter_fast_properties_local_var->travel_time = travel_time;
-	response_time_filter_fast_properties_local_var->fares = fares;
+    response_time_filter_fast_properties_local_var->travel_time = travel_time;
+    response_time_filter_fast_properties_local_var->fares = fares;
 
-	return response_time_filter_fast_properties_local_var;
+    return response_time_filter_fast_properties_local_var;
 }
 
 
 void response_time_filter_fast_properties_free(response_time_filter_fast_properties_t *response_time_filter_fast_properties) {
     listEntry_t *listEntry;
     response_fares_fast_free(response_time_filter_fast_properties->fares);
-	free(response_time_filter_fast_properties);
+    free(response_time_filter_fast_properties);
 }
 
 cJSON *response_time_filter_fast_properties_convertToJSON(response_time_filter_fast_properties_t *response_time_filter_fast_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_fast_properties->travel_time
+    // response_time_filter_fast_properties->travel_time
     if(response_time_filter_fast_properties->travel_time) { 
     if(cJSON_AddNumberToObject(item, "travel_time", response_time_filter_fast_properties->travel_time) == NULL) {
     goto fail; //Numeric
@@ -37,7 +37,7 @@ cJSON *response_time_filter_fast_properties_convertToJSON(response_time_filter_f
      } 
 
 
-	// response_time_filter_fast_properties->fares
+    // response_time_filter_fast_properties->fares
     if(response_time_filter_fast_properties->fares) { 
     cJSON *fares_local_JSON = response_fares_fast_convertToJSON(response_time_filter_fast_properties->fares);
     if(fares_local_JSON == NULL) {
@@ -49,12 +49,12 @@ cJSON *response_time_filter_fast_properties_convertToJSON(response_time_filter_f
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_fast_properties_t *response_time_filter_fast_properties_parseFromJSON(cJSON *response_time_filter_fast_propertiesJSON){

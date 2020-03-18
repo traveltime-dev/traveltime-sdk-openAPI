@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeFilterFast: Codable { 
 
-public struct RequestTimeFilterFast: Codable {
 
     public var locations: [RequestLocation]
     public var arrivalSearches: RequestTimeFilterFastArrivalSearches
@@ -24,6 +24,4 @@ public struct RequestTimeFilterFast: Codable {
         case arrivalSearches = "arrival_searches"
     }
 
-
 }
-

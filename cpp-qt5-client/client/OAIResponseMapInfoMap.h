@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseMapInfoFeatures.h"
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseMapInfoMap: public OAIObject {
+class OAIResponseMapInfoMap : public OAIObject {
 public:
     OAIResponseMapInfoMap();
     OAIResponseMapInfoMap(QString json);
     ~OAIResponseMapInfoMap() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getName() const;
     void setName(const QString &name);
 
-    
     OAIResponseMapInfoFeatures getFeatures() const;
     void setFeatures(const OAIResponseMapInfoFeatures &features);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString name;
     bool m_name_isSet;
     bool m_name_isValid;
-    
+
     OAIResponseMapInfoFeatures features;
     bool m_features_isSet;
     bool m_features_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseMapInfoMap)
 
 #endif // OAIResponseMapInfoMap_H

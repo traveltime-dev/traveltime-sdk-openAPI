@@ -38,7 +38,7 @@ import play.Configuration;
 
 import openapitools.OpenAPIUtils.ApiAction;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 public class DefaultApiController extends Controller {
 
@@ -56,19 +56,19 @@ public class DefaultApiController extends Controller {
 
     @ApiAction
     public Result geocodingReverseSearch() throws Exception {
-        String valuefocusLat = request().getQueryString("focus.lat");
-        Double focusLat;
-        if (valuefocusLat != null) {
-            focusLat = Double.parseDouble(valuefocusLat);
+        String valuelat = request().getQueryString("lat");
+        Double lat;
+        if (valuelat != null) {
+            lat = Double.parseDouble(valuelat);
         } else {
-            throw new IllegalArgumentException("'focus.lat' parameter is required");
+            throw new IllegalArgumentException("'lat' parameter is required");
         }
-        String valuefocusLng = request().getQueryString("focus.lng");
-        Double focusLng;
-        if (valuefocusLng != null) {
-            focusLng = Double.parseDouble(valuefocusLng);
+        String valuelng = request().getQueryString("lng");
+        Double lng;
+        if (valuelng != null) {
+            lng = Double.parseDouble(valuelng);
         } else {
-            throw new IllegalArgumentException("'focus.lng' parameter is required");
+            throw new IllegalArgumentException("'lng' parameter is required");
         }
         String valuewithinCountry = request().getQueryString("within.country");
         String withinCountry;
@@ -77,7 +77,7 @@ public class DefaultApiController extends Controller {
         } else {
             withinCountry = null;
         }
-        ResponseGeocoding obj = imp.geocodingReverseSearch(focusLat, focusLng, withinCountry);
+        ResponseGeocoding obj = imp.geocodingReverseSearch(lat, lng, withinCountry);
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
         }
@@ -94,13 +94,6 @@ public class DefaultApiController extends Controller {
         } else {
             throw new IllegalArgumentException("'query' parameter is required");
         }
-        String valuewithinCountry = request().getQueryString("within.country");
-        String withinCountry;
-        if (valuewithinCountry != null) {
-            withinCountry = valuewithinCountry;
-        } else {
-            withinCountry = null;
-        }
         String valuefocusLat = request().getQueryString("focus.lat");
         Double focusLat;
         if (valuefocusLat != null) {
@@ -115,7 +108,14 @@ public class DefaultApiController extends Controller {
         } else {
             focusLng = null;
         }
-        ResponseGeocoding obj = imp.geocodingSearch(query, withinCountry, focusLat, focusLng);
+        String valuewithinCountry = request().getQueryString("within.country");
+        String withinCountry;
+        if (valuewithinCountry != null) {
+            withinCountry = valuewithinCountry;
+        } else {
+            withinCountry = null;
+        }
+        ResponseGeocoding obj = imp.geocodingSearch(query, focusLat, focusLng, withinCountry);
         if (configuration.getBoolean("useOutputBeanValidation")) {
             OpenAPIUtils.validate(obj);
         }

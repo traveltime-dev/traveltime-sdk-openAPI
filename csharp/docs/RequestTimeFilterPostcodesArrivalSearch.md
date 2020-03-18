@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeFilterPostcodesArrivalSearch
+# Org.OpenAPITools.Model.RequestTimeFilterPostcodesArrivalSearch
 
 ## Properties
 
@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**TravelTime** | **int?** |  | 
-**ArrivalTime** | **DateTime?** |  | 
+**TravelTime** | **int** |  | 
+**ArrivalTime** | **DateTime** |  | 
 **Properties** | [**List&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
 **Range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 

@@ -5,7 +5,7 @@ function New-RequestTimeFilterPostcodeDistrictsDepartureSearch {
         [String]
         ${id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTransportation]
+        [Org.OpenAPITools.Model.RequestTransportation]
         ${transportation},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
@@ -17,18 +17,18 @@ function New-RequestTimeFilterPostcodeDistrictsDepartureSearch {
         [Double]
         ${reachableUnderscorepostcodesUnderscorethreshold},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterPostcodeDistrictsProperty[]]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodeDistrictsProperty[]]
         ${properties},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRangeFull]]
+        [Org.OpenAPITools.Model.RequestRangeFull]
         ${range}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilterPostcodeDistrictsDepartureSearch' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilterPostcodeDistrictsDepartureSearch' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilterPostcodeDistrictsDepartureSearch -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilterPostcodeDistrictsDepartureSearch -ArgumentList @(
             ${id},
             ${transportation},
             ${travelUnderscoretime},

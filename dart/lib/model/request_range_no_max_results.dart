@@ -14,16 +14,8 @@ class RequestRangeNoMaxResults {
 
   RequestRangeNoMaxResults.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['enabled'] == null) {
-      enabled = null;
-    } else {
-          enabled = json['enabled'];
-    }
-    if (json['width'] == null) {
-      width = null;
-    } else {
-          width = json['width'];
-    }
+    enabled = json['enabled'];
+    width = json['width'];
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +28,26 @@ class RequestRangeNoMaxResults {
   }
 
   static List<RequestRangeNoMaxResults> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestRangeNoMaxResults>() : json.map((value) => new RequestRangeNoMaxResults.fromJson(value)).toList();
+    return json == null ? List<RequestRangeNoMaxResults>() : json.map((value) => RequestRangeNoMaxResults.fromJson(value)).toList();
   }
 
   static Map<String, RequestRangeNoMaxResults> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestRangeNoMaxResults>();
+    var map = Map<String, RequestRangeNoMaxResults>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestRangeNoMaxResults.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestRangeNoMaxResults.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestRangeNoMaxResults-objects as value to a dart map
+  static Map<String, List<RequestRangeNoMaxResults>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestRangeNoMaxResults>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestRangeNoMaxResults.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

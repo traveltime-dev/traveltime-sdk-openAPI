@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseBoundingBox: Codable { 
 
-public struct ResponseBoundingBox: Codable {
 
     public var envelope: ResponseBox
     public var boxes: [ResponseBox]
@@ -19,6 +19,4 @@ public struct ResponseBoundingBox: Codable {
         self.boxes = boxes
     }
 
-
 }
-

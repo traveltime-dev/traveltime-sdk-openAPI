@@ -13,9 +13,9 @@
 import * as models from './models';
 
 export interface ResponseBox {
-    "minLat": number;
-    "maxLat": number;
-    "minLng": number;
-    "maxLng": number;
+    "min_lat": number;
+    "max_lat": number;
+    "min_lng": number;
+    "max_lng": number;
 }
 

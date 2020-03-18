@@ -38,5 +38,5 @@ class ResponseGeocodingProperties {
     
     String postcode
     
-    ResponseMapInfoFeatures features = null
+    ResponseMapInfoFeatures features
 }

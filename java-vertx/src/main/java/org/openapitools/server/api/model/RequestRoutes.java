@@ -9,7 +9,7 @@ import org.openapitools.server.api.model.RequestLocation;
 import org.openapitools.server.api.model.RequestRoutesArrivalSearch;
 import org.openapitools.server.api.model.RequestRoutesDepartureSearch;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestRoutes   {
   
   private List<RequestLocation> locations = new ArrayList<>();

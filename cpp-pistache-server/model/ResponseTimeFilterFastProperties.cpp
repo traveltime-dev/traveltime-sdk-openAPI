@@ -46,12 +46,12 @@ void to_json(nlohmann::json& j, const ResponseTimeFilterFastProperties& o)
 
 void from_json(const nlohmann::json& j, ResponseTimeFilterFastProperties& o)
 {
-    if(j.contains("travel_time"))
+    if(j.find("travel_time") != j.end())
     {
         j.at("travel_time").get_to(o.m_Travel_time);
         o.m_Travel_timeIsSet = true;
     } 
-    if(j.contains("fares"))
+    if(j.find("fares") != j.end())
     {
         j.at("fares").get_to(o.m_Fares);
         o.m_FaresIsSet = true;

@@ -9,13 +9,13 @@ part 'response_geocoding_geo_json_feature.jser.dart';
 
 class ResponseGeocodingGeoJsonFeature {
   
-  @Alias('type')
+  @Alias('type', isNullable: false,  )
   final String type;
   
-  @Alias('geometry')
+  @Alias('geometry', isNullable: false,  )
   final ResponseGeocodingGeometry geometry;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final ResponseGeocodingProperties properties;
   
 

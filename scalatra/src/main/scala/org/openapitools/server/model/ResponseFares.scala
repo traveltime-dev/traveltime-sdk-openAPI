@@ -14,6 +14,6 @@ package org.openapitools.server.model
 case class ResponseFares(
   breakdown: List[ResponseFaresBreakdownItem],
 
-  ticketsUnderscoretotal: List[ResponseFareTicket]
+  ticketsTotal: List[ResponseFareTicket]
 
  )

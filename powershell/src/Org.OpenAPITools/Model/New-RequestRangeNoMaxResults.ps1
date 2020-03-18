@@ -10,10 +10,10 @@ function New-RequestRangeNoMaxResults {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestRangeNoMaxResults' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestRangeNoMaxResults' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestRangeNoMaxResults -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestRangeNoMaxResults -ArgumentList @(
             ${enabled},
             ${width}
         )

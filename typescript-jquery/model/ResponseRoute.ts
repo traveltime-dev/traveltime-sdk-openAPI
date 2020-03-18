@@ -13,9 +13,9 @@
 import * as models from './models';
 
 export interface ResponseRoute {
-    departureTime: Date;
+    departure_time: string;
 
-    arrivalTime: Date;
+    arrival_time: string;
 
     parts: Array<models.ResponseRoutePart>;
 

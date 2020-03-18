@@ -17,15 +17,13 @@
  */
 export interface ResponseSupportedLocation {
     /**
-     * 
      * @type {string}
      * @memberof ResponseSupportedLocation
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseSupportedLocation
      */
-    mapName: string;
+    map_name: string;
 }

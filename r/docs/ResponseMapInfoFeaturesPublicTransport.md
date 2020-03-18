@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseMapInfoFeaturesPublicTransport
+# openapi::ResponseMapInfoFeaturesPublicTransport
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseFaresFast
+# Org.OpenAPITools.Model.ResponseFaresFast
 
 ## Properties
 

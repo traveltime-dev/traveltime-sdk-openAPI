@@ -66,7 +66,7 @@ class ResponseTimeFilterPostcodes
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodesResult[]
      */
-    public function getResults()
+    public function getResults(): array
     {
         return $this->results;
     }
@@ -78,7 +78,7 @@ class ResponseTimeFilterPostcodes
      *
      * @return $this
      */
-    public function setResults(array $results)
+    public function setResults(array $results): array
     {
         $this->results = $results;
 

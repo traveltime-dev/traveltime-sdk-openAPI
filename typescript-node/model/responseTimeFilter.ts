@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseTimeFilterResult } from './responseTimeFilterResult';
 
 export class ResponseTimeFilter {

@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseGeocodingGeoJsonFeature
+# Org.OpenAPITools.Model.ResponseGeocodingGeoJsonFeature
 
 ## Properties
 

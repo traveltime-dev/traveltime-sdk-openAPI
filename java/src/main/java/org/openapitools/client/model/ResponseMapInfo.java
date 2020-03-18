@@ -30,13 +30,15 @@ import org.openapitools.client.model.ResponseMapInfoMap;
 /**
  * ResponseMapInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseMapInfo {
   public static final String SERIALIZED_NAME_MAPS = "maps";
   @SerializedName(SERIALIZED_NAME_MAPS)
   private List<ResponseMapInfoMap> maps = new ArrayList<ResponseMapInfoMap>();
 
+
   public ResponseMapInfo maps(List<ResponseMapInfoMap> maps) {
+    
     this.maps = maps;
     return this;
   }
@@ -51,9 +53,11 @@ public class ResponseMapInfo {
    * @return maps
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseMapInfoMap> getMaps() {
     return maps;
   }
+
 
   public void setMaps(List<ResponseMapInfoMap> maps) {
     this.maps = maps;

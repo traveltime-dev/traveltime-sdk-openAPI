@@ -22,25 +22,21 @@ import {
  */
 export interface ResponseRoutesProperties {
     /**
-     * 
      * @type {number}
      * @memberof ResponseRoutesProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseRoutesProperties
      */
     distance?: number;
     /**
-     * 
      * @type {ResponseFares}
      * @memberof ResponseRoutesProperties
      */
     fares?: ResponseFares;
     /**
-     * 
      * @type {ResponseRoute}
      * @memberof ResponseRoutesProperties
      */

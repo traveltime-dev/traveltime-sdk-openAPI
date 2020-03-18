@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseFareTicket: Codable { 
 
-public struct ResponseFareTicket: Codable {
 
     public enum ModelType: String, Codable {
         case single = "single"
@@ -27,6 +27,4 @@ public struct ResponseFareTicket: Codable {
         self.currency = currency
     }
 
-
 }
-

@@ -10,5 +10,5 @@ class ResponseTimeFilterFastProperties {
     
     Integer travelTime
     
-    ResponseFaresFast fares = null
+    ResponseFaresFast fares
 }

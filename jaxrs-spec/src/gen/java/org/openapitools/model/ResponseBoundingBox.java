@@ -16,9 +16,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseBoundingBox   {
   
-  private @Valid ResponseBox envelope = null;
+  private @Valid ResponseBox envelope;
   private @Valid List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 
   /**

@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseError
+# openapi::ResponseError
 
 ## Properties
 Name | Type | Description | Notes
@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **error_code** | **integer** |  | [optional] 
 **description** | **character** |  | [optional] 
 **documentation_link** | **character** |  | [optional] 
-**additional_info** | [**character**](array.md) |  | [optional] 
+**additional_info** | [**map(array[character])**](array.md) |  | [optional] 
 
 

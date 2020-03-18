@@ -4,14 +4,14 @@
 #include "response_fare_ticket.h"
 
 
-    char* typeresponse_fare_ticket_ToString(type_e type){
-    char *typeArray[] =  { "single","week","month","year" };
-        return typeArray[type];
-    }
+char* typeresponse_fare_ticket_ToString(traveltime_platform_api_response_fare_ticket_TYPE_e type) {
+    char* typeArray[] =  { "NULL", "single", "week", "month", "year" };
+	return typeArray[type];
+}
 
-    type_e typeresponse_fare_ticket_FromString(char* type){
+traveltime_platform_api_response_fare_ticket_TYPE_e typeresponse_fare_ticket_FromString(char* type){
     int stringToReturn = 0;
-    char *typeArray[] =  { "single","week","month","year" };
+    char *typeArray[] =  { "NULL", "single", "week", "month", "year" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(type, typeArray[stringToReturn]) == 0) {
@@ -20,35 +20,35 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 response_fare_ticket_t *response_fare_ticket_create(
-    type_e type,
+    traveltime_platform_api_response_fare_ticket_TYPE_e type,
     double price,
     char *currency
     ) {
-	response_fare_ticket_t *response_fare_ticket_local_var = malloc(sizeof(response_fare_ticket_t));
+    response_fare_ticket_t *response_fare_ticket_local_var = malloc(sizeof(response_fare_ticket_t));
     if (!response_fare_ticket_local_var) {
         return NULL;
     }
-	response_fare_ticket_local_var->type = type;
-	response_fare_ticket_local_var->price = price;
-	response_fare_ticket_local_var->currency = currency;
+    response_fare_ticket_local_var->type = type;
+    response_fare_ticket_local_var->price = price;
+    response_fare_ticket_local_var->currency = currency;
 
-	return response_fare_ticket_local_var;
+    return response_fare_ticket_local_var;
 }
 
 
 void response_fare_ticket_free(response_fare_ticket_t *response_fare_ticket) {
     listEntry_t *listEntry;
     free(response_fare_ticket->currency);
-	free(response_fare_ticket);
+    free(response_fare_ticket);
 }
 
 cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_ticket) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_fare_ticket->type
+    // response_fare_ticket->type
     
     if(cJSON_AddStringToObject(item, "type", typeresponse_fare_ticket_ToString(response_fare_ticket->type)) == NULL)
     {
@@ -56,7 +56,7 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     }
 
 
-	// response_fare_ticket->price
+    // response_fare_ticket->price
     if (!response_fare_ticket->price) {
         goto fail;
     }
@@ -66,7 +66,7 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     }
 
 
-	// response_fare_ticket->currency
+    // response_fare_ticket->currency
     if (!response_fare_ticket->currency) {
         goto fail;
     }
@@ -75,12 +75,12 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     goto fail; //String
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_fare_ticket_t *response_fare_ticket_parseFromJSON(cJSON *response_fare_ticketJSON){
@@ -93,7 +93,7 @@ response_fare_ticket_t *response_fare_ticket_parseFromJSON(cJSON *response_fare_
         goto end;
     }
 
-    type_e typeVariable;
+    traveltime_platform_api_response_fare_ticket_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

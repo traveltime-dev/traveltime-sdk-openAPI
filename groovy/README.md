@@ -6,7 +6,7 @@ This Groovy package, using the [http-builder-ng library](https://http-builder-ng
 
 - API version: 1.0.0
 - Package version: 1.0.0
-- Build date: 2019-05-24T09:05:09.986Z[Etc/UTC]
+- Build date: 2020-03-18T08:49:03.101Z[Etc/UTC]
 - Build package: org.openapitools.codegen.languages.GroovyClientCodegen
 
 ## Requirements
@@ -33,11 +33,11 @@ Then, run:
 
 ```groovy
 def apiInstance = new DefaultApi()
-def focusLat = 3.4D // Double | 
-def focusLng = 3.4D // Double | 
+def lat = 3.4D // Double | 
+def lng = 3.4D // Double | 
 def withinCountry = "withinCountry_example" // String | 
 
-apiInstance.geocodingReverseSearch(focusLat, focusLng, withinCountry)
+apiInstance.geocodingReverseSearch(lat, lng, withinCountry)
     {
     // on success
     def result = (ResponseGeocoding)it

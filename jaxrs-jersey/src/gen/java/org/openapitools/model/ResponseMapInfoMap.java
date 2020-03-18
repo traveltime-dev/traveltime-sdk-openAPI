@@ -19,19 +19,26 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseMapInfoFeatures;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseMapInfoMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseMapInfoMap.JSON_PROPERTY_NAME,
+  ResponseMapInfoMap.JSON_PROPERTY_FEATURES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseMapInfoMap   {
-  @JsonProperty("name")
+  public static final String JSON_PROPERTY_NAME = "name";
+  @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
 
-  @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  public static final String JSON_PROPERTY_FEATURES = "features";
+  @JsonProperty(JSON_PROPERTY_FEATURES)
+  private ResponseMapInfoFeatures features;
 
   public ResponseMapInfoMap name(String name) {
     this.name = name;

@@ -31,7 +31,7 @@ import org.openapitools.client.model.ResponseFaresBreakdownItem;
 /**
  * ResponseFares
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseFares {
   public static final String SERIALIZED_NAME_BREAKDOWN = "breakdown";
   @SerializedName(SERIALIZED_NAME_BREAKDOWN)
@@ -41,7 +41,9 @@ public class ResponseFares {
   @SerializedName(SERIALIZED_NAME_TICKETS_TOTAL)
   private List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>();
 
+
   public ResponseFares breakdown(List<ResponseFaresBreakdownItem> breakdown) {
+    
     this.breakdown = breakdown;
     return this;
   }
@@ -56,15 +58,19 @@ public class ResponseFares {
    * @return breakdown
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseFaresBreakdownItem> getBreakdown() {
     return breakdown;
   }
+
 
   public void setBreakdown(List<ResponseFaresBreakdownItem> breakdown) {
     this.breakdown = breakdown;
   }
 
+
   public ResponseFares ticketsTotal(List<ResponseFareTicket> ticketsTotal) {
+    
     this.ticketsTotal = ticketsTotal;
     return this;
   }
@@ -79,9 +85,11 @@ public class ResponseFares {
    * @return ticketsTotal
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseFareTicket> getTicketsTotal() {
     return ticketsTotal;
   }
+
 
   public void setTicketsTotal(List<ResponseFareTicket> ticketsTotal) {
     this.ticketsTotal = ticketsTotal;

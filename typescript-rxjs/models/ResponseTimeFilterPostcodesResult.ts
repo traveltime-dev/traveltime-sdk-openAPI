@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseTimeFilterPostcodesResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeFilterPostcodesResult
      */
-    searchId: string;
+    search_id: string;
     /**
-     * 
      * @type {Array<ResponseTimeFilterPostcode>}
      * @memberof ResponseTimeFilterPostcodesResult
      */

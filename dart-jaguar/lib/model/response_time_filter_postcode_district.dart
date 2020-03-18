@@ -7,10 +7,10 @@ part 'response_time_filter_postcode_district.jser.dart';
 
 class ResponseTimeFilterPostcodeDistrict {
   
-  @Alias('code')
+  @Alias('code', isNullable: false,  )
   final String code;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final ResponseTimeFilterPostcodeDistrictProperties properties;
   
 

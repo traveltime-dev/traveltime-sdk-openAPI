@@ -49,9 +49,17 @@ std::vector<ResponseSupportedLocation>& ResponseSupportedLocations::getLocations
 {
     return m_Locations;
 }
+void ResponseSupportedLocations::setLocations(std::vector<ResponseSupportedLocation> const& value)
+{
+    m_Locations = value;
+}
 std::vector<std::string>& ResponseSupportedLocations::getUnsupportedLocations()
 {
     return m_Unsupported_locations;
+}
+void ResponseSupportedLocations::setUnsupportedLocations(std::vector<std::string> const& value)
+{
+    m_Unsupported_locations = value;
 }
 
 }

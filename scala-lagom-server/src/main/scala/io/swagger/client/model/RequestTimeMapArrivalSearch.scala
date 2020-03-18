@@ -12,14 +12,14 @@
 
 package io.swagger.client.model
 import play.api.libs.json._
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeMapArrivalSearch (
                   id: String,
                   coords: Coords,
                   transportation: RequestTransportation,
                   travelTime: Int,
-                  arrivalTime: DateTime,
+                  arrivalTime: OffsetDateTime,
                   properties: Option[Seq[RequestTimeMapProperty]],
                   range: Option[RequestRangeNoMaxResults]
 )

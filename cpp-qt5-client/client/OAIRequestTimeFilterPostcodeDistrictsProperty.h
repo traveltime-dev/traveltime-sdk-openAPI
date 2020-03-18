@@ -22,45 +22,43 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterPostcodeDistrictsProperty: public OAIEnum {
+class OAIRequestTimeFilterPostcodeDistrictsProperty : public OAIEnum {
 public:
     OAIRequestTimeFilterPostcodeDistrictsProperty();
     OAIRequestTimeFilterPostcodeDistrictsProperty(QString json);
     ~OAIRequestTimeFilterPostcodeDistrictsProperty() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(QString jsonString) override;
 
-    
     enum class eOAIRequestTimeFilterPostcodeDistrictsProperty {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         TRAVEL_TIME_REACHABLE, 
         TRAVEL_TIME_ALL, 
         COVERAGE
     };
-
     OAIRequestTimeFilterPostcodeDistrictsProperty::eOAIRequestTimeFilterPostcodeDistrictsProperty getValue() const;
     void setValue(const OAIRequestTimeFilterPostcodeDistrictsProperty::eOAIRequestTimeFilterPostcodeDistrictsProperty& value);
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     eOAIRequestTimeFilterPostcodeDistrictsProperty m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterPostcodeDistrictsProperty)
 
 #endif // OAIRequestTimeFilterPostcodeDistrictsProperty_H

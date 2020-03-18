@@ -62,27 +62,27 @@ void to_json(nlohmann::json& j, const RequestTransportation& o)
 void from_json(const nlohmann::json& j, RequestTransportation& o)
 {
     j.at("type").get_to(o.m_Type);
-    if(j.contains("pt_change_delay"))
+    if(j.find("pt_change_delay") != j.end())
     {
         j.at("pt_change_delay").get_to(o.m_Pt_change_delay);
         o.m_Pt_change_delayIsSet = true;
     } 
-    if(j.contains("walking_time"))
+    if(j.find("walking_time") != j.end())
     {
         j.at("walking_time").get_to(o.m_Walking_time);
         o.m_Walking_timeIsSet = true;
     } 
-    if(j.contains("driving_time_to_station"))
+    if(j.find("driving_time_to_station") != j.end())
     {
         j.at("driving_time_to_station").get_to(o.m_Driving_time_to_station);
         o.m_Driving_time_to_stationIsSet = true;
     } 
-    if(j.contains("parking_time"))
+    if(j.find("parking_time") != j.end())
     {
         j.at("parking_time").get_to(o.m_Parking_time);
         o.m_Parking_timeIsSet = true;
     } 
-    if(j.contains("boarding_time"))
+    if(j.find("boarding_time") != j.end())
     {
         j.at("boarding_time").get_to(o.m_Boarding_time);
         o.m_Boarding_timeIsSet = true;
@@ -96,7 +96,6 @@ std::string RequestTransportation::getType() const
 void RequestTransportation::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 int32_t RequestTransportation::getPtChangeDelay() const
 {

@@ -22,18 +22,25 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.RequestTimeFilterPostcodeDistrictsArrivalSearch;
 import org.openapitools.model.RequestTimeFilterPostcodeDistrictsDepartureSearch;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeFilterPostcodeDistricts
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeFilterPostcodeDistricts.JSON_PROPERTY_DEPARTURE_SEARCHES,
+  RequestTimeFilterPostcodeDistricts.JSON_PROPERTY_ARRIVAL_SEARCHES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeDistricts   {
-  @JsonProperty("departure_searches")
+  public static final String JSON_PROPERTY_DEPARTURE_SEARCHES = "departure_searches";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_SEARCHES)
   private List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches = null;
 
-  @JsonProperty("arrival_searches")
+  public static final String JSON_PROPERTY_ARRIVAL_SEARCHES = "arrival_searches";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_SEARCHES)
   private List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches = null;
 
   public RequestTimeFilterPostcodeDistricts departureSearches(List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches) {

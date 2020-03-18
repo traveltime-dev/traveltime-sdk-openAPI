@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **departureLocationIds** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
 **arrivalLocationId** | **kotlin.String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**arrivalTime** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
+**arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **properties** | [**kotlin.Array&lt;RequestRoutesProperty&gt;**](RequestRoutesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 

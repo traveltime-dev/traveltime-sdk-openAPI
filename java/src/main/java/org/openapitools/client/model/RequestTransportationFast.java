@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RequestTransportationFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTransportationFast {
   /**
    * Gets or Sets type
@@ -72,7 +72,7 @@ public class RequestTransportationFast {
 
       @Override
       public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return TypeEnum.fromValue(value);
       }
     }
@@ -82,7 +82,9 @@ public class RequestTransportationFast {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private TypeEnum type;
 
+
   public RequestTransportationFast type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -92,9 +94,11 @@ public class RequestTransportationFast {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TypeEnum getType() {
     return type;
   }
+
 
   public void setType(TypeEnum type) {
     this.type = type;

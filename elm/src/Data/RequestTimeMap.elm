@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeMap exposing (RequestTimeMap, decoder, encode)
+module Data.RequestTimeMap exposing (RequestTimeMap, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTimeMapDepartureSearch as RequestTimeMapDepartureSearch exposing (RequestTimeMapDepartureSearch)
 import Data.RequestTimeMapArrivalSearch as RequestTimeMapArrivalSearch exposing (RequestTimeMapArrivalSearch)
@@ -42,13 +42,29 @@ decoder =
 
 
 encode : RequestTimeMap -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapDepartureSearch.encode) model.departureSearches) )
-        , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapArrivalSearch.encode) model.arrivalSearches) )
-        , ( "unions", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestUnionOnIntersection.encode) model.unions) )
-        , ( "intersections", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestUnionOnIntersection.encode) model.intersections) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeMap -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeMap -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapDepartureSearch.encode) model.departureSearches) )
+    , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapArrivalSearch.encode) model.arrivalSearches) )
+    , ( "unions", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestUnionOnIntersection.encode) model.unions) )
+    , ( "intersections", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestUnionOnIntersection.encode) model.intersections) )
+    ]
+
+
+
+toString : RequestTimeMap -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

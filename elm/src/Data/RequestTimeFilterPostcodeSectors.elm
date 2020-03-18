@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterPostcodeSectors exposing (RequestTimeFilterPostcodeSectors, decoder, encode)
+module Data.RequestTimeFilterPostcodeSectors exposing (RequestTimeFilterPostcodeSectors, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTimeFilterPostcodeSectorsDepartureSearch as RequestTimeFilterPostcodeSectorsDepartureSearch exposing (RequestTimeFilterPostcodeSectorsDepartureSearch)
 import Data.RequestTimeFilterPostcodeSectorsArrivalSearch as RequestTimeFilterPostcodeSectorsArrivalSearch exposing (RequestTimeFilterPostcodeSectorsArrivalSearch)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : RequestTimeFilterPostcodeSectors -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterPostcodeSectorsDepartureSearch.encode) model.departureSearches) )
-        , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterPostcodeSectorsArrivalSearch.encode) model.arrivalSearches) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterPostcodeSectors -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterPostcodeSectors -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterPostcodeSectorsDepartureSearch.encode) model.departureSearches) )
+    , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterPostcodeSectorsArrivalSearch.encode) model.arrivalSearches) )
+    ]
+
+
+
+toString : RequestTimeFilterPostcodeSectors -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterFast.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,11 +75,11 @@ OAIRequestTimeFilterFast::asJson () const {
 QJsonObject
 OAIRequestTimeFilterFast::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(locations.size() > 0){
         obj.insert(QString("locations"), ::OpenAPI::toJsonValue(locations));
     } 
-	if(arrival_searches.isSet()){
+    if(arrival_searches.isSet()){
         obj.insert(QString("arrival_searches"), ::OpenAPI::toJsonValue(arrival_searches));
     }
     return obj;

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseRoutePart: Codable { 
 
-public struct ResponseRoutePart: Codable {
 
     public enum ModelType: String, Codable {
         case basic = "basic"
@@ -72,6 +72,4 @@ public struct ResponseRoutePart: Codable {
         case numStops = "num_stops"
     }
 
-
 }
-

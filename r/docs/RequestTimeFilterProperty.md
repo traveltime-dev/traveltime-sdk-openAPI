@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestTimeFilterProperty
+# openapi::RequestTimeFilterProperty
 
 ## Properties
 Name | Type | Description | Notes

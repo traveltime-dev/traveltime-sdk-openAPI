@@ -19,18 +19,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseTransportationMode;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseDistanceBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseDistanceBreakdownItem.JSON_PROPERTY_MODE,
+  ResponseDistanceBreakdownItem.JSON_PROPERTY_DISTANCE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseDistanceBreakdownItem   {
-  @JsonProperty("mode")
+  public static final String JSON_PROPERTY_MODE = "mode";
+  @JsonProperty(JSON_PROPERTY_MODE)
   private ResponseTransportationMode mode;
 
-  @JsonProperty("distance")
+  public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
   private Integer distance;
 
   public ResponseDistanceBreakdownItem mode(ResponseTransportationMode mode) {

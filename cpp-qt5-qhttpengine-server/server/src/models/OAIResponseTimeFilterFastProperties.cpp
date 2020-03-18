@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeFilterFastProperties.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseTimeFilterFastProperties::asJson () const {
 QJsonObject
 OAIResponseTimeFilterFastProperties::asJsonObject() const {
     QJsonObject obj;
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(fares.isSet()){
+    if(fares.isSet()){
         obj.insert(QString("fares"), ::OpenAPI::toJsonValue(fares));
     }
     return obj;

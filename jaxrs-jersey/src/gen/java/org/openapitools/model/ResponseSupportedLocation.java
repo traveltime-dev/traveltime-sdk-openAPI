@@ -18,18 +18,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseSupportedLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseSupportedLocation.JSON_PROPERTY_ID,
+  ResponseSupportedLocation.JSON_PROPERTY_MAP_NAME
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseSupportedLocation   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("map_name")
+  public static final String JSON_PROPERTY_MAP_NAME = "map_name";
+  @JsonProperty(JSON_PROPERTY_MAP_NAME)
   private String mapName;
 
   public ResponseSupportedLocation id(String id) {

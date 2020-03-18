@@ -20,15 +20,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class RequestTimeMapArrivalSearch   {
   
   private @Valid String id;
-  private @Valid Coords coords = null;
-  private @Valid RequestTransportation transportation = null;
+  private @Valid Coords coords;
+  private @Valid RequestTransportation transportation;
   private @Valid Integer travelTime;
   private @Valid Date arrivalTime;
   private @Valid List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
-  private @Valid RequestRangeNoMaxResults range = null;
+  private @Valid RequestRangeNoMaxResults range;
 
   /**
    **/

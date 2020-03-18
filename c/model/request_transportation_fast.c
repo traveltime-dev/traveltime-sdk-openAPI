@@ -4,14 +4,14 @@
 #include "request_transportation_fast.h"
 
 
-    char* typerequest_transportation_fast_ToString(type_e type){
-    char *typeArray[] =  { "public_transport","driving","driving+public_transport" };
-        return typeArray[type];
-    }
+char* typerequest_transportation_fast_ToString(traveltime_platform_api_request_transportation_fast_TYPE_e type) {
+    char* typeArray[] =  { "NULL", "public_transport", "driving", "driving+public_transport" };
+	return typeArray[type];
+}
 
-    type_e typerequest_transportation_fast_FromString(char* type){
+traveltime_platform_api_request_transportation_fast_TYPE_e typerequest_transportation_fast_FromString(char* type){
     int stringToReturn = 0;
-    char *typeArray[] =  { "public_transport","driving","driving+public_transport" };
+    char *typeArray[] =  { "NULL", "public_transport", "driving", "driving+public_transport" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(type, typeArray[stringToReturn]) == 0) {
@@ -20,42 +20,42 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 request_transportation_fast_t *request_transportation_fast_create(
-    type_e type
+    traveltime_platform_api_request_transportation_fast_TYPE_e type
     ) {
-	request_transportation_fast_t *request_transportation_fast_local_var = malloc(sizeof(request_transportation_fast_t));
+    request_transportation_fast_t *request_transportation_fast_local_var = malloc(sizeof(request_transportation_fast_t));
     if (!request_transportation_fast_local_var) {
         return NULL;
     }
-	request_transportation_fast_local_var->type = type;
+    request_transportation_fast_local_var->type = type;
 
-	return request_transportation_fast_local_var;
+    return request_transportation_fast_local_var;
 }
 
 
 void request_transportation_fast_free(request_transportation_fast_t *request_transportation_fast) {
     listEntry_t *listEntry;
-	free(request_transportation_fast);
+    free(request_transportation_fast);
 }
 
 cJSON *request_transportation_fast_convertToJSON(request_transportation_fast_t *request_transportation_fast) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_transportation_fast->type
+    // request_transportation_fast->type
     
     if(cJSON_AddStringToObject(item, "type", typerequest_transportation_fast_ToString(request_transportation_fast->type)) == NULL)
     {
     goto fail; //Enum
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_transportation_fast_t *request_transportation_fast_parseFromJSON(cJSON *request_transportation_fastJSON){
@@ -68,7 +68,7 @@ request_transportation_fast_t *request_transportation_fast_parseFromJSON(cJSON *
         goto end;
     }
 
-    type_e typeVariable;
+    traveltime_platform_api_request_transportation_fast_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

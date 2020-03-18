@@ -63,7 +63,7 @@ public class ResponseGeocodingProperties  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
    * Get name
    * @return name

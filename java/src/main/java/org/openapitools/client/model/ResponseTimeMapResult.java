@@ -31,7 +31,7 @@ import org.openapitools.client.model.ResponseTimeMapProperties;
 /**
  * ResponseTimeMapResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeMapResult {
   public static final String SERIALIZED_NAME_SEARCH_ID = "search_id";
   @SerializedName(SERIALIZED_NAME_SEARCH_ID)
@@ -43,9 +43,11 @@ public class ResponseTimeMapResult {
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
+
 
   public ResponseTimeMapResult searchId(String searchId) {
+    
     this.searchId = searchId;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseTimeMapResult {
    * @return searchId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getSearchId() {
     return searchId;
   }
+
 
   public void setSearchId(String searchId) {
     this.searchId = searchId;
   }
 
+
   public ResponseTimeMapResult shapes(List<ResponseShape> shapes) {
+    
     this.shapes = shapes;
     return this;
   }
@@ -78,15 +84,19 @@ public class ResponseTimeMapResult {
    * @return shapes
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseShape> getShapes() {
     return shapes;
   }
+
 
   public void setShapes(List<ResponseShape> shapes) {
     this.shapes = shapes;
   }
 
+
   public ResponseTimeMapResult properties(ResponseTimeMapProperties properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -96,9 +106,11 @@ public class ResponseTimeMapResult {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseTimeMapProperties getProperties() {
     return properties;
   }
+
 
   public void setProperties(ResponseTimeMapProperties properties) {
     this.properties = properties;

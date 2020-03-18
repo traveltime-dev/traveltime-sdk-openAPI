@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseRoutesProperties: public OAIObject {
@@ -58,7 +59,7 @@ public:
     void setRoute(const OAIResponseRoute &route);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -84,5 +85,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseRoutesProperties)
 
 #endif // OAIResponseRoutesProperties_H

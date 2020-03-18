@@ -15,7 +15,7 @@ To run the server, please execute the following from the root directory:
 
 ```
 pip3 install -r requirements.txt
-python3 -m traveltimeplatform
+python3 -m openapi_server
 ```
 
 and open your browser to here:
@@ -42,8 +42,8 @@ To run the server on a Docker container, please execute the following from the r
 
 ```bash
 # building the image
-docker build -t traveltimeplatform .
+docker build -t openapi_server .
 
 # starting up a container
-docker run -p 8080:8080 traveltimeplatform
+docker run -p 8080:8080 openapi_server
 ```

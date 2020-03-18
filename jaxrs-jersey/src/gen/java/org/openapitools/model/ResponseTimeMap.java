@@ -21,15 +21,20 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseTimeMapResult;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeMap.JSON_PROPERTY_RESULTS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeMap   {
-  @JsonProperty("results")
+  public static final String JSON_PROPERTY_RESULTS = "results";
+  @JsonProperty(JSON_PROPERTY_RESULTS)
   private List<ResponseTimeMapResult> results = new ArrayList<ResponseTimeMapResult>();
 
   public ResponseTimeMap results(List<ResponseTimeMapResult> results) {

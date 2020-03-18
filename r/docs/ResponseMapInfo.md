@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseMapInfo
+# openapi::ResponseMapInfo
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**maps** | [**ResponseMapInfoMap**](ResponseMapInfoMap.md) |  | 
+**maps** | [**array[ResponseMapInfoMap]**](ResponseMapInfoMap.md) |  | 
 
 

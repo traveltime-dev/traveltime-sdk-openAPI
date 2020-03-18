@@ -15,8 +15,8 @@ import * as models from './models';
 export interface RequestTimeFilter {
     locations: Array<models.RequestLocation>;
 
-    departureSearches?: Array<models.RequestTimeFilterDepartureSearch>;
+    departure_searches?: Array<models.RequestTimeFilterDepartureSearch>;
 
-    arrivalSearches?: Array<models.RequestTimeFilterArrivalSearch>;
+    arrival_searches?: Array<models.RequestTimeFilterArrivalSearch>;
 
 }

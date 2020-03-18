@@ -21,60 +21,55 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTimeMapProperties.h"
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeMapWktResult: public OAIObject {
+class OAIResponseTimeMapWktResult : public OAIObject {
 public:
     OAIResponseTimeMapWktResult();
     OAIResponseTimeMapWktResult(QString json);
     ~OAIResponseTimeMapWktResult() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getSearchId() const;
     void setSearchId(const QString &search_id);
 
-    
     QString getShape() const;
     void setShape(const QString &shape);
 
-    
     OAIResponseTimeMapProperties getProperties() const;
     void setProperties(const OAIResponseTimeMapProperties &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString search_id;
     bool m_search_id_isSet;
     bool m_search_id_isValid;
-    
+
     QString shape;
     bool m_shape_isSet;
     bool m_shape_isValid;
-    
+
     OAIResponseTimeMapProperties properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapWktResult)
 
 #endif // OAIResponseTimeMapWktResult_H

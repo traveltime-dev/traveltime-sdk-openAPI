@@ -14,10 +14,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseTimeFilterFastProperties   {
   
   private @Valid Integer travelTime;
-  private @Valid ResponseFaresFast fares = null;
+  private @Valid ResponseFaresFast fares;
 
   /**
    **/

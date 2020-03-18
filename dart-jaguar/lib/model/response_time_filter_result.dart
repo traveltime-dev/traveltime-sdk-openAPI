@@ -7,13 +7,13 @@ part 'response_time_filter_result.jser.dart';
 
 class ResponseTimeFilterResult {
   
-  @Alias('search_id')
+  @Alias('search_id', isNullable: false,  )
   final String searchId;
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<ResponseTimeFilterLocation> locations;
   
-  @Alias('unreachable')
+  @Alias('unreachable', isNullable: false,  )
   final List<String> unreachable;
   
 

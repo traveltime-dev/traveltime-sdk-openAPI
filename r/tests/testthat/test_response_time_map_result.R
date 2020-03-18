@@ -13,7 +13,7 @@ test_that("search_id", {
 })
 
 test_that("shapes", {
-  # tests for the property `shapes` (ResponseShape)
+  # tests for the property `shapes` (array[ResponseShape])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`shapes`, "EXPECTED_RESULT")

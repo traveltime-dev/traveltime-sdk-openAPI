@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterPostcodeDistrictsResult: Codable { 
 
-public struct ResponseTimeFilterPostcodeDistrictsResult: Codable {
 
     public var searchId: String
     public var districts: [ResponseTimeFilterPostcodeDistrict]
@@ -24,6 +24,4 @@ public struct ResponseTimeFilterPostcodeDistrictsResult: Codable {
         case districts
     }
 
-
 }
-

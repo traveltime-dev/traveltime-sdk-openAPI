@@ -12,11 +12,9 @@ class ResponseRoutes {
 
   ResponseRoutes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['results'] == null) {
-      results = null;
-    } else {
-      results = ResponseRoutesResult.listFromJson(json['results']);
-    }
+    results = (json['results'] == null) ?
+      null :
+      ResponseRoutesResult.listFromJson(json['results']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseRoutes {
   }
 
   static List<ResponseRoutes> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseRoutes>() : json.map((value) => new ResponseRoutes.fromJson(value)).toList();
+    return json == null ? List<ResponseRoutes>() : json.map((value) => ResponseRoutes.fromJson(value)).toList();
   }
 
   static Map<String, ResponseRoutes> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseRoutes>();
+    var map = Map<String, ResponseRoutes>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseRoutes.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseRoutes.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseRoutes-objects as value to a dart map
+  static Map<String, List<ResponseRoutes>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseRoutes>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseRoutes.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

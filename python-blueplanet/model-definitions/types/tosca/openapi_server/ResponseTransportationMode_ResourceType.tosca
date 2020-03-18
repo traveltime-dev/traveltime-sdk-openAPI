@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTransportationMode"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTransportationMode"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ResponseTransportationMode {
+    title = ResponseTransportationMode
+    description = ResponseTransportationMode
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTransportationMode {
+    title = ResponseTransportationMode
+    description = ResponseTransportationMode
+    implements = openapi_server.resourceTypes.ResponseTransportationMode
+
+  }
+}

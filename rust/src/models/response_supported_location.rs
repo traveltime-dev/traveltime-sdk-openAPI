@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseSupportedLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -23,8 +22,10 @@ pub struct ResponseSupportedLocation {
 impl ResponseSupportedLocation {
     pub fn new(id: String, map_name: String) -> ResponseSupportedLocation {
         ResponseSupportedLocation {
-            id: id,
-            map_name: map_name,
+            id,
+            map_name,
         }
     }
 }
+
+

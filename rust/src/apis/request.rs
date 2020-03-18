@@ -24,6 +24,7 @@ impl ApiKey {
     }
 }
 
+#[allow(dead_code)]
 pub(crate) enum Auth {
     None,
     ApiKey(ApiKey),
@@ -97,7 +98,7 @@ impl Request {
     pub fn execute<'a, C, U>(
         self,
         conf: &configuration::Configuration<C>,
-    ) -> Box<Future<Item = U, Error = Error<serde_json::Value>> + 'a>
+    ) -> Box<dyn Future<Item = U, Error = Error<serde_json::Value>> + 'a>
     where
         C: hyper::client::Connect,
         U: Sized + 'a,

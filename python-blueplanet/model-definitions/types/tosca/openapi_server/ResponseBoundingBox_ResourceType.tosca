@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseBoundingBox"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseBoundingBox"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseBox = openapi_server.resourceTypes.ResponseBox
+}
+resourceTypes {
+
+  ResponseBoundingBox {
+    title = ResponseBoundingBox
+    description = ResponseBoundingBox
+    derivedFrom = Root
+    properties {
+        envelope {
+          type = ResponseBox
+          description = ""
+          optional = true
+        }
+        boxes {
+          type = array
+          items.type = ResponseBox
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseBoundingBox {
+    title = ResponseBoundingBox
+    description = ResponseBoundingBox
+    implements = openapi_server.resourceTypes.ResponseBoundingBox
+
+  }
+}

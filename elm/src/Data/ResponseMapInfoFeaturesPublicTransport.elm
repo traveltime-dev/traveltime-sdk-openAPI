@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseMapInfoFeaturesPublicTransport exposing (ResponseMapInfoFeaturesPublicTransport, decoder, encode)
+module Data.ResponseMapInfoFeaturesPublicTransport exposing (ResponseMapInfoFeaturesPublicTransport, decoder, encode, encodeWithTag, toString)
 
 import DateTime exposing (DateTime)
 import DateTime exposing (DateTime)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : ResponseMapInfoFeaturesPublicTransport -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "date_start", DateTime.encode model.dateStart )
-        , ( "date_end", DateTime.encode model.dateEnd )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseMapInfoFeaturesPublicTransport -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseMapInfoFeaturesPublicTransport -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "date_start", DateTime.encode model.dateStart )
+    , ( "date_end", DateTime.encode model.dateEnd )
+    ]
+
+
+
+toString : ResponseMapInfoFeaturesPublicTransport -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

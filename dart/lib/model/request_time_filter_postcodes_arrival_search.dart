@@ -22,36 +22,20 @@ class RequestTimeFilterPostcodesArrivalSearch {
 
   RequestTimeFilterPostcodesArrivalSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['transportation'] == null) {
-      transportation = null;
-    } else {
-      transportation = new RequestTransportation.fromJson(json['transportation']);
-    }
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['arrival_time'] == null) {
-      arrivalTime = null;
-    } else {
-      arrivalTime = DateTime.parse(json['arrival_time']);
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = RequestTimeFilterPostcodesProperty.listFromJson(json['properties']);
-    }
-    if (json['range'] == null) {
-      range = null;
-    } else {
-      range = new RequestRangeFull.fromJson(json['range']);
-    }
+    id = json['id'];
+    transportation = (json['transportation'] == null) ?
+      null :
+      RequestTransportation.fromJson(json['transportation']);
+    travelTime = json['travel_time'];
+    arrivalTime = (json['arrival_time'] == null) ?
+      null :
+      DateTime.parse(json['arrival_time']);
+    properties = (json['properties'] == null) ?
+      null :
+      RequestTimeFilterPostcodesProperty.listFromJson(json['properties']);
+    range = (json['range'] == null) ?
+      null :
+      RequestRangeFull.fromJson(json['range']);
   }
 
   Map<String, dynamic> toJson() {
@@ -72,15 +56,26 @@ class RequestTimeFilterPostcodesArrivalSearch {
   }
 
   static List<RequestTimeFilterPostcodesArrivalSearch> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterPostcodesArrivalSearch>() : json.map((value) => new RequestTimeFilterPostcodesArrivalSearch.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterPostcodesArrivalSearch>() : json.map((value) => RequestTimeFilterPostcodesArrivalSearch.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterPostcodesArrivalSearch> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterPostcodesArrivalSearch>();
+    var map = Map<String, RequestTimeFilterPostcodesArrivalSearch>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterPostcodesArrivalSearch.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterPostcodesArrivalSearch.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterPostcodesArrivalSearch-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterPostcodesArrivalSearch>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterPostcodesArrivalSearch>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterPostcodesArrivalSearch.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

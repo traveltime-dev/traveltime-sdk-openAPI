@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTimeFilterDepartureSearch;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class RequestTimeFilter   {
   @JsonProperty("locations")
   private List<RequestLocation> locations = new ArrayList<RequestLocation>();

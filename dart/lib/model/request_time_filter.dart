@@ -16,21 +16,15 @@ class RequestTimeFilter {
 
   RequestTimeFilter.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = RequestLocation.listFromJson(json['locations']);
-    }
-    if (json['departure_searches'] == null) {
-      departureSearches = null;
-    } else {
-      departureSearches = RequestTimeFilterDepartureSearch.listFromJson(json['departure_searches']);
-    }
-    if (json['arrival_searches'] == null) {
-      arrivalSearches = null;
-    } else {
-      arrivalSearches = RequestTimeFilterArrivalSearch.listFromJson(json['arrival_searches']);
-    }
+    locations = (json['locations'] == null) ?
+      null :
+      RequestLocation.listFromJson(json['locations']);
+    departureSearches = (json['departure_searches'] == null) ?
+      null :
+      RequestTimeFilterDepartureSearch.listFromJson(json['departure_searches']);
+    arrivalSearches = (json['arrival_searches'] == null) ?
+      null :
+      RequestTimeFilterArrivalSearch.listFromJson(json['arrival_searches']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +39,26 @@ class RequestTimeFilter {
   }
 
   static List<RequestTimeFilter> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilter>() : json.map((value) => new RequestTimeFilter.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilter>() : json.map((value) => RequestTimeFilter.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilter> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilter>();
+    var map = Map<String, RequestTimeFilter>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilter.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilter.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilter-objects as value to a dart map
+  static Map<String, List<RequestTimeFilter>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilter>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilter.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

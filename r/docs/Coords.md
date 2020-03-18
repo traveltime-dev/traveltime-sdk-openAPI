@@ -1,4 +1,4 @@
-# traveltimeplatform::Coords
+# openapi::Coords
 
 ## Properties
 Name | Type | Description | Notes

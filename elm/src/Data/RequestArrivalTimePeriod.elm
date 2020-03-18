@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestArrivalTimePeriod exposing (RequestArrivalTimePeriod(..), decoder, encode)
+module Data.RequestArrivalTimePeriod exposing (RequestArrivalTimePeriod(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -44,5 +44,15 @@ encode model =
     case model of
         WeekdayMorning ->
             Encode.string "weekday_morning"
+
+
+
+
+toString : RequestArrivalTimePeriod -> String
+toString model =
+    case model of
+        WeekdayMorning ->
+            "weekday_morning"
+
 
 

@@ -14,11 +14,11 @@ import * as models from './models';
 
 export interface RequestTimeFilterFastArrivalOneToManySearch {
     "id": string;
-    "departureLocationId": string;
-    "arrivalLocationIds": Array<string>;
+    "departure_location_id": string;
+    "arrival_location_ids": Array<string>;
     "transportation": models.RequestTransportationFast;
-    "travelTime": number;
-    "arrivalTimePeriod": models.RequestArrivalTimePeriod;
+    "travel_time": number;
+    "arrival_time_period": models.RequestArrivalTimePeriod;
     "properties": Array<models.RequestTimeFilterFastProperty>;
 }
 

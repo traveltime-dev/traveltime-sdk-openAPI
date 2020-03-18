@@ -78,7 +78,7 @@ class ResponseShape
      *
      * @return OpenAPI\Server\Model\Coords[]
      */
-    public function getShell()
+    public function getShell(): array
     {
         return $this->shell;
     }
@@ -90,7 +90,7 @@ class ResponseShape
      *
      * @return $this
      */
-    public function setShell(array $shell)
+    public function setShell(array $shell): array
     {
         $this->shell = $shell;
 
@@ -102,7 +102,7 @@ class ResponseShape
      *
      * @return OpenAPI\Server\Model\Coords[]
      */
-    public function getHoles()
+    public function getHoles(): array
     {
         return $this->holes;
     }
@@ -114,7 +114,7 @@ class ResponseShape
      *
      * @return $this
      */
-    public function setHoles(array $holes)
+    public function setHoles(array $holes): array
     {
         $this->holes = $holes;
 

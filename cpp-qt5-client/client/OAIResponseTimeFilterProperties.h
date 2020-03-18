@@ -21,78 +21,71 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseDistanceBreakdownItem.h"
 #include "OAIResponseFares.h"
 #include "OAIResponseRoute.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterProperties: public OAIObject {
+class OAIResponseTimeFilterProperties : public OAIObject {
 public:
     OAIResponseTimeFilterProperties();
     OAIResponseTimeFilterProperties(QString json);
     ~OAIResponseTimeFilterProperties() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     qint32 getTravelTime() const;
     void setTravelTime(const qint32 &travel_time);
 
-    
     qint32 getDistance() const;
     void setDistance(const qint32 &distance);
 
-    
     QList<OAIResponseDistanceBreakdownItem> getDistanceBreakdown() const;
     void setDistanceBreakdown(const QList<OAIResponseDistanceBreakdownItem> &distance_breakdown);
 
-    
     OAIResponseFares getFares() const;
     void setFares(const OAIResponseFares &fares);
 
-    
     OAIResponseRoute getRoute() const;
     void setRoute(const OAIResponseRoute &route);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     qint32 travel_time;
     bool m_travel_time_isSet;
     bool m_travel_time_isValid;
-    
+
     qint32 distance;
     bool m_distance_isSet;
     bool m_distance_isValid;
-    
+
     QList<OAIResponseDistanceBreakdownItem> distance_breakdown;
     bool m_distance_breakdown_isSet;
     bool m_distance_breakdown_isValid;
-    
+
     OAIResponseFares fares;
     bool m_fares_isSet;
     bool m_fares_isValid;
-    
+
     OAIResponseRoute route;
     bool m_route_isSet;
     bool m_route_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterProperties)
 
 #endif // OAIResponseTimeFilterProperties_H

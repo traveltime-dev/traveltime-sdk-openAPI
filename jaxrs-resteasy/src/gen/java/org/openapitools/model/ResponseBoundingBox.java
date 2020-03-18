@@ -12,10 +12,10 @@ import org.openapitools.model.ResponseBox;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2019-05-24T09:07:07.467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T08:51:06.736Z[Etc/UTC]")
 public class ResponseBoundingBox   {
   
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 
   /**

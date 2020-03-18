@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseTravelTimeStatistics;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
+  private ResponseTravelTimeStatistics travelTimeAll;
   private Double coverage;
 
   public ResponseTimeFilterPostcodeDistrictProperties () {

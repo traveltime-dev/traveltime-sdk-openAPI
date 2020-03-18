@@ -7,13 +7,13 @@ part 'response_time_map_wkt_result.jser.dart';
 
 class ResponseTimeMapWktResult {
   
-  @Alias('search_id')
+  @Alias('search_id', isNullable: false,  )
   final String searchId;
   
-  @Alias('shape')
+  @Alias('shape', isNullable: false,  )
   final String shape;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final ResponseTimeMapProperties properties;
   
 

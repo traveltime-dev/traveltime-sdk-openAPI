@@ -132,7 +132,7 @@ class ResponseTimeMapWktResult
      *
      * @return OpenAPI\Server\Model\ResponseTimeMapProperties
      */
-    public function getProperties()
+    public function getProperties(): ResponseTimeMapProperties
     {
         return $this->properties;
     }
@@ -144,7 +144,7 @@ class ResponseTimeMapWktResult
      *
      * @return $this
      */
-    public function setProperties(ResponseTimeMapProperties $properties)
+    public function setProperties(ResponseTimeMapProperties $properties): ResponseTimeMapProperties
     {
         $this->properties = $properties;
 

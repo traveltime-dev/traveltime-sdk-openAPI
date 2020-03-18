@@ -13,14 +13,14 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeSectorProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class ResponseTimeFilterPostcodeSectorProperties   {
   @JsonProperty("travel_time_reachable")
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
   @JsonProperty("travel_time_all")
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeAll;
 
   @JsonProperty("coverage")
   private Double coverage;

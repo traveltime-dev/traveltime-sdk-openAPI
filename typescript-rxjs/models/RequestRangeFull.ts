@@ -17,19 +17,16 @@
  */
 export interface RequestRangeFull {
     /**
-     * 
      * @type {boolean}
      * @memberof RequestRangeFull
      */
     enabled: boolean;
     /**
-     * 
      * @type {number}
      * @memberof RequestRangeFull
      */
-    maxResults: number;
+    max_results: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestRangeFull
      */

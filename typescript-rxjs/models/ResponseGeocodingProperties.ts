@@ -21,97 +21,81 @@ import {
  */
 export interface ResponseGeocodingProperties {
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     name: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     label: string;
     /**
-     * 
      * @type {number}
      * @memberof ResponseGeocodingProperties
      */
     score?: number;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    houseNumber?: string;
+    house_number?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     street?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     region?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    regionCode?: string;
+    region_code?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     neighbourhood?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     county?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     macroregion?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     city?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     country?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    countryCode?: string;
+    country_code?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     continent?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
     postcode?: string;
     /**
-     * 
      * @type {ResponseMapInfoFeatures}
      * @memberof ResponseGeocodingProperties
      */

@@ -60,7 +60,6 @@ double ResponseBox::getMinLat() const
 void ResponseBox::setMinLat(double const value)
 {
     m_Min_lat = value;
-    
 }
 double ResponseBox::getMaxLat() const
 {
@@ -69,7 +68,6 @@ double ResponseBox::getMaxLat() const
 void ResponseBox::setMaxLat(double const value)
 {
     m_Max_lat = value;
-    
 }
 double ResponseBox::getMinLng() const
 {
@@ -78,7 +76,6 @@ double ResponseBox::getMinLng() const
 void ResponseBox::setMinLng(double const value)
 {
     m_Min_lng = value;
-    
 }
 double ResponseBox::getMaxLng() const
 {
@@ -87,7 +84,6 @@ double ResponseBox::getMaxLng() const
 void ResponseBox::setMaxLng(double const value)
 {
     m_Max_lng = value;
-    
 }
 
 }

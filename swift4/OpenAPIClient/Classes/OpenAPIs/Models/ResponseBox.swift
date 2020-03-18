@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseBox: Codable { 
 
-public struct ResponseBox: Codable {
 
     public var minLat: Double
     public var maxLat: Double
@@ -30,6 +30,4 @@ public struct ResponseBox: Codable {
         case maxLng = "max_lng"
     }
 
-
 }
-

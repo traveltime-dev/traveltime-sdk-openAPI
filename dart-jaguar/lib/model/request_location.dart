@@ -7,10 +7,10 @@ part 'request_location.jser.dart';
 
 class RequestLocation {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('coords')
+  @Alias('coords', isNullable: false,  )
   final Coords coords;
   
 

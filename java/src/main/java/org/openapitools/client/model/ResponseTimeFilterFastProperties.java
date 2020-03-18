@@ -28,7 +28,7 @@ import org.openapitools.client.model.ResponseFaresFast;
 /**
  * ResponseTimeFilterFastProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterFastProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -36,9 +36,11 @@ public class ResponseTimeFilterFastProperties {
 
   public static final String SERIALIZED_NAME_FARES = "fares";
   @SerializedName(SERIALIZED_NAME_FARES)
-  private ResponseFaresFast fares = null;
+  private ResponseFaresFast fares;
+
 
   public ResponseTimeFilterFastProperties travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -47,16 +49,21 @@ public class ResponseTimeFilterFastProperties {
    * Get travelTime
    * @return travelTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public ResponseTimeFilterFastProperties fares(ResponseFaresFast fares) {
+    
     this.fares = fares;
     return this;
   }
@@ -65,10 +72,13 @@ public class ResponseTimeFilterFastProperties {
    * Get fares
    * @return fares
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseFaresFast getFares() {
     return fares;
   }
+
 
   public void setFares(ResponseFaresFast fares) {
     this.fares = fares;

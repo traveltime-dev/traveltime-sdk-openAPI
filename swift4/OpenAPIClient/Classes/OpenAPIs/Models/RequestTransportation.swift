@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTransportation: Codable { 
 
-public struct RequestTransportation: Codable {
 
     public enum ModelType: String, Codable {
         case cycling = "cycling"
@@ -49,6 +49,4 @@ public struct RequestTransportation: Codable {
         case boardingTime = "boarding_time"
     }
 
-
 }
-

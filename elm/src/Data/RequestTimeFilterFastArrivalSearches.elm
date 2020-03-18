@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterFastArrivalSearches exposing (RequestTimeFilterFastArrivalSearches, decoder, encode)
+module Data.RequestTimeFilterFastArrivalSearches exposing (RequestTimeFilterFastArrivalSearches, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTimeFilterFastArrivalManyToOneSearch as RequestTimeFilterFastArrivalManyToOneSearch exposing (RequestTimeFilterFastArrivalManyToOneSearch)
 import Data.RequestTimeFilterFastArrivalOneToManySearch as RequestTimeFilterFastArrivalOneToManySearch exposing (RequestTimeFilterFastArrivalOneToManySearch)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : RequestTimeFilterFastArrivalSearches -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "many_to_one", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterFastArrivalManyToOneSearch.encode) model.manyToOne) )
-        , ( "one_to_many", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterFastArrivalOneToManySearch.encode) model.oneToMany) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterFastArrivalSearches -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterFastArrivalSearches -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "many_to_one", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterFastArrivalManyToOneSearch.encode) model.manyToOne) )
+    , ( "one_to_many", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterFastArrivalOneToManySearch.encode) model.oneToMany) )
+    ]
+
+
+
+toString : RequestTimeFilterFastArrivalSearches -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

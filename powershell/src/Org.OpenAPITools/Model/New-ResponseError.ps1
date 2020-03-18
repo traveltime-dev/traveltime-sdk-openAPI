@@ -14,15 +14,15 @@ function New-ResponseError {
         [String]
         ${documentationUnderscorelink},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[{String, String[]}]]
+        [{String, String[]}]
         ${additionalUnderscoreinfo}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseError' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseError' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseError -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseError -ArgumentList @(
             ${httpUnderscorestatus},
             ${errorUnderscorecode},
             ${description},

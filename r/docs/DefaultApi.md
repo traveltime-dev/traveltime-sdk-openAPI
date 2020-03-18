@@ -18,16 +18,16 @@ Method | HTTP request | Description
 
 
 # **GeocodingReverseSearch**
-> ResponseGeocoding GeocodingReverseSearch(focus.lat, focus.lng, within.country=var.within.country)
+> ResponseGeocoding GeocodingReverseSearch(lat, lng, within.country=var.within.country)
 
 
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
-var.focus.lat <- 3.4 # numeric | 
-var.focus.lng <- 3.4 # numeric | 
+var.lat <- 3.4 # numeric | 
+var.lng <- 3.4 # numeric | 
 var.within.country <- 'within.country_example' # character | 
 
 api.instance <- DefaultApi$new()
@@ -35,7 +35,7 @@ api.instance <- DefaultApi$new()
 api.instance$apiClient$apiKeys['X-Api-Key'] <- 'TODO_YOUR_API_KEY';
 # Configure API key authorization: ApplicationId
 api.instance$apiClient$apiKeys['X-Application-Id'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$GeocodingReverseSearch(var.focus.lat, var.focus.lng, within.country=var.within.country)
+result <- api.instance$GeocodingReverseSearch(var.lat, var.lng, within.country=var.within.country)
 dput(result)
 ```
 
@@ -43,8 +43,8 @@ dput(result)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus.lat** | **numeric**|  | 
- **focus.lng** | **numeric**|  | 
+ **lat** | **numeric**|  | 
+ **lng** | **numeric**|  | 
  **within.country** | **character**|  | [optional] 
 
 ### Return type
@@ -60,28 +60,32 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **GeocodingSearch**
-> ResponseGeocoding GeocodingSearch(query, within.country=var.within.country, focus.lat=var.focus.lat, focus.lng=var.focus.lng)
+> ResponseGeocoding GeocodingSearch(query, focus.lat=var.focus.lat, focus.lng=var.focus.lng, within.country=var.within.country)
 
 
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.query <- 'query_example' # character | 
-var.within.country <- 'within.country_example' # character | 
 var.focus.lat <- 3.4 # numeric | 
 var.focus.lng <- 3.4 # numeric | 
+var.within.country <- 'within.country_example' # character | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
 api.instance$apiClient$apiKeys['X-Api-Key'] <- 'TODO_YOUR_API_KEY';
 # Configure API key authorization: ApplicationId
 api.instance$apiClient$apiKeys['X-Application-Id'] <- 'TODO_YOUR_API_KEY';
-result <- api.instance$GeocodingSearch(var.query, within.country=var.within.country, focus.lat=var.focus.lat, focus.lng=var.focus.lng)
+result <- api.instance$GeocodingSearch(var.query, focus.lat=var.focus.lat, focus.lng=var.focus.lng, within.country=var.within.country)
 dput(result)
 ```
 
@@ -90,9 +94,9 @@ dput(result)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **character**|  | 
- **within.country** | **character**|  | [optional] 
  **focus.lat** | **numeric**|  | [optional] 
  **focus.lng** | **numeric**|  | [optional] 
+ **within.country** | **character**|  | [optional] 
 
 ### Return type
 
@@ -107,7 +111,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **MapInfo**
 > ResponseMapInfo MapInfo()
@@ -116,7 +124,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 
 api.instance <- DefaultApi$new()
@@ -144,7 +152,11 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **Routes**
 > ResponseRoutes Routes(request.routes)
@@ -153,7 +165,7 @@ This endpoint does not need any parameter.
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.routes <- RequestRoutes$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestRoutesDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("type_example", 123, 123, 123, 123, 123), "departure_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestRoutesArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), "arrival_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestRoutes | 
 
@@ -185,7 +197,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **SupportedLocations**
 > ResponseSupportedLocations SupportedLocations(request.supported.locations)
@@ -194,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.supported.locations <- RequestSupportedLocations$new(list(RequestLocation$new("id_example", Coords$new(123, 123)))) # RequestSupportedLocations | 
 
@@ -226,7 +242,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeFilter**
 > ResponseTimeFilter TimeFilter(request.time.filter)
@@ -235,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.filter <- RequestTimeFilter$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestTimeFilterDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilter | 
 
@@ -267,7 +287,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeFilterFast**
 > ResponseTimeFilterFast TimeFilterFast(request.time.filter.fast)
@@ -276,7 +300,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.filter.fast <- RequestTimeFilterFast$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), RequestTimeFilterFastArrivalSearches$new(list(RequestTimeFilterFastArrivalManyToOneSearch$new("id_example", "arrival_location_id_example", list("departure_location_ids_example"), RequestTransportationFast$new("type_example"), 123, RequestArrivalTimePeriod$new(), list(RequestTimeFilterFastProperty$new()))), list(RequestTimeFilterFastArrivalOneToManySearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportationFast$new("type_example"), 123, RequestArrivalTimePeriod$new(), list(RequestTimeFilterFastProperty$new()))))) # RequestTimeFilterFast | 
 
@@ -308,7 +332,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodeDistricts**
 > ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts(request.time.filter.postcode.districts)
@@ -317,7 +345,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.filter.postcode.districts <- RequestTimeFilterPostcodeDistricts$new(list(RequestTimeFilterPostcodeDistrictsDepartureSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeDistrictsArrivalSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeDistricts | 
 
@@ -349,7 +377,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodeSectors**
 > ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors(request.time.filter.postcode.sectors)
@@ -358,7 +390,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.filter.postcode.sectors <- RequestTimeFilterPostcodeSectors$new(list(RequestTimeFilterPostcodeSectorsDepartureSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeSectorsArrivalSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeSectors | 
 
@@ -390,7 +422,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodes**
 > ResponseTimeFilterPostcodes TimeFilterPostcodes(request.time.filter.postcodes)
@@ -399,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.filter.postcodes <- RequestTimeFilterPostcodes$new(list(RequestTimeFilterPostcodesDepartureSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodesArrivalSearch$new("id_example", RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodes | 
 
@@ -431,7 +467,11 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 # **TimeMap**
 > ResponseTimeMap TimeMap(request.time.map)
@@ -440,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Example
 ```R
-library(traveltimeplatform)
+library(openapi)
 
 var.request.time.map <- RequestTimeMap$new(list(RequestTimeMapDepartureSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123))), list(RequestTimeMapArrivalSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("type_example", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example"))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example")))) # RequestTimeMap | 
 
@@ -472,5 +512,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
 
-
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 

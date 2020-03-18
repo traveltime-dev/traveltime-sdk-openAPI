@@ -76,7 +76,7 @@ class RequestTimeFilterFastArrivalSearches
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterFastArrivalManyToOneSearch[]|null
      */
-    public function getManyToOne()
+    public function getManyToOne(): ?array
     {
         return $this->manyToOne;
     }
@@ -88,7 +88,7 @@ class RequestTimeFilterFastArrivalSearches
      *
      * @return $this
      */
-    public function setManyToOne(array $manyToOne = null)
+    public function setManyToOne(array $manyToOne = null): ?array
     {
         $this->manyToOne = $manyToOne;
 
@@ -100,7 +100,7 @@ class RequestTimeFilterFastArrivalSearches
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterFastArrivalOneToManySearch[]|null
      */
-    public function getOneToMany()
+    public function getOneToMany(): ?array
     {
         return $this->oneToMany;
     }
@@ -112,7 +112,7 @@ class RequestTimeFilterFastArrivalSearches
      *
      * @return $this
      */
-    public function setOneToMany(array $oneToMany = null)
+    public function setOneToMany(array $oneToMany = null): ?array
     {
         $this->oneToMany = $oneToMany;
 

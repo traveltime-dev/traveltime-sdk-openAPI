@@ -55,7 +55,6 @@ std::string ResponseGeocodingGeoJsonFeature::getType() const
 void ResponseGeocodingGeoJsonFeature::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 ResponseGeocodingGeometry ResponseGeocodingGeoJsonFeature::getGeometry() const
 {
@@ -64,7 +63,6 @@ ResponseGeocodingGeometry ResponseGeocodingGeoJsonFeature::getGeometry() const
 void ResponseGeocodingGeoJsonFeature::setGeometry(ResponseGeocodingGeometry const& value)
 {
     m_Geometry = value;
-    
 }
 ResponseGeocodingProperties ResponseGeocodingGeoJsonFeature::getProperties() const
 {
@@ -73,7 +71,6 @@ ResponseGeocodingProperties ResponseGeocodingGeoJsonFeature::getProperties() con
 void ResponseGeocodingGeoJsonFeature::setProperties(ResponseGeocodingProperties const& value)
 {
     m_Properties = value;
-    
 }
 
 }

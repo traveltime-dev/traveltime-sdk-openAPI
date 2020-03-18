@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseGeocodingGeoJsonFeature } from './responseGeocodingGeoJsonFeature';
 
 export class ResponseGeocoding {

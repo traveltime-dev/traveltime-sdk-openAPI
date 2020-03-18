@@ -54,7 +54,6 @@ bool RequestRangeNoMaxResults::isEnabled() const
 void RequestRangeNoMaxResults::setEnabled(bool const value)
 {
     m_Enabled = value;
-    
 }
 int32_t RequestRangeNoMaxResults::getWidth() const
 {
@@ -63,7 +62,6 @@ int32_t RequestRangeNoMaxResults::getWidth() const
 void RequestRangeNoMaxResults::setWidth(int32_t const value)
 {
     m_Width = value;
-    
 }
 
 }

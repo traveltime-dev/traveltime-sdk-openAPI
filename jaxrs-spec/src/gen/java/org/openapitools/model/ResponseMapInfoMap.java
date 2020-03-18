@@ -14,10 +14,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseMapInfoMap   {
   
   private @Valid String name;
-  private @Valid ResponseMapInfoFeatures features = null;
+  private @Valid ResponseMapInfoFeatures features;
 
   /**
    **/

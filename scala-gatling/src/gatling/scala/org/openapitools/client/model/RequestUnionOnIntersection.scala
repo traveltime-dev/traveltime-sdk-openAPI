@@ -4,13 +4,13 @@ package org.openapitools.client.model
 
 case class RequestUnionOnIntersection (
     _id: String,
-    _searchUnderscoreids: List[String]
+    _searchIds: List[String]
 )
 object RequestUnionOnIntersection {
-    def toStringBody(var_id: Object, var_searchUnderscoreids: Object) =
+    def toStringBody(var_id: Object, var_searchIds: Object) =
         s"""
         | {
-        | "id":$var_id,"searchUnderscoreids":$var_searchUnderscoreids
+        | "id":$var_id,"searchIds":$var_searchIds
         | }
         """.stripMargin
 }

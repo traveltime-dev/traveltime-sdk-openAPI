@@ -18,7 +18,7 @@ import java.util.List;
  * RequestTimeFilterFast
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class RequestTimeFilterFast   {
   @JsonProperty("locations")
@@ -26,7 +26,7 @@ public class RequestTimeFilterFast   {
   private List<RequestLocation> locations = new ArrayList<>();
 
   @JsonProperty("arrival_searches")
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
 
   public RequestTimeFilterFast locations(List<RequestLocation> locations) {
     this.locations = locations;

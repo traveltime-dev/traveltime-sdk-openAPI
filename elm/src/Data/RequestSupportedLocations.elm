@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestSupportedLocations exposing (RequestSupportedLocations, decoder, encode)
+module Data.RequestSupportedLocations exposing (RequestSupportedLocations, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestLocation as RequestLocation exposing (RequestLocation)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : RequestSupportedLocations -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestSupportedLocations -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestSupportedLocations -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
+    ]
+
+
+
+toString : RequestSupportedLocations -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

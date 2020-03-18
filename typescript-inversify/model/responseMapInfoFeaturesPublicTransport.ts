@@ -12,6 +12,6 @@
 
 
 export interface ResponseMapInfoFeaturesPublicTransport { 
-    dateStart: Date;
-    dateEnd: Date;
+    date_start: string;
+    date_end: string;
 }

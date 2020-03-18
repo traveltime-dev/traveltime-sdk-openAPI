@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTimeMapResult: public OAIObject {
@@ -56,7 +57,7 @@ public:
     void setProperties(const OAIResponseTimeMapProperties &properties);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -78,5 +79,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapResult)
 
 #endif // OAIResponseTimeMapResult_H

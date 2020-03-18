@@ -10,16 +10,16 @@ import org.openapitools.server.api.model.RequestRangeFull;
 import org.openapitools.server.api.model.RequestTimeFilterPostcodeDistrictsProperty;
 import org.openapitools.server.api.model.RequestTransportation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterPostcodeDistrictsArrivalSearch   {
   
   private String id;
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
   private Integer travelTime;
   private OffsetDateTime arrivalTime;
   private Double reachablePostcodesThreshold;
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<>();
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterPostcodeDistrictsArrivalSearch () {
 

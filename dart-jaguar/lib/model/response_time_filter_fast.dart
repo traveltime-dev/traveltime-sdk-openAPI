@@ -7,7 +7,7 @@ part 'response_time_filter_fast.jser.dart';
 
 class ResponseTimeFilterFast {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeFilterFastResult> results;
   
 

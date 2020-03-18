@@ -21,51 +21,47 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseFaresFast.h"
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterFastProperties: public OAIObject {
+class OAIResponseTimeFilterFastProperties : public OAIObject {
 public:
     OAIResponseTimeFilterFastProperties();
     OAIResponseTimeFilterFastProperties(QString json);
     ~OAIResponseTimeFilterFastProperties() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     qint32 getTravelTime() const;
     void setTravelTime(const qint32 &travel_time);
 
-    
     OAIResponseFaresFast getFares() const;
     void setFares(const OAIResponseFaresFast &fares);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     qint32 travel_time;
     bool m_travel_time_isSet;
     bool m_travel_time_isValid;
-    
+
     OAIResponseFaresFast fares;
     bool m_fares_isSet;
     bool m_fares_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterFastProperties)
 
 #endif // OAIResponseTimeFilterFastProperties_H

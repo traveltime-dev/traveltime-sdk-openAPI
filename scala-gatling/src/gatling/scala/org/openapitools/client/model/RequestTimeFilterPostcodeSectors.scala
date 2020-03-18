@@ -3,14 +3,14 @@ package org.openapitools.client.model
 
 
 case class RequestTimeFilterPostcodeSectors (
-    _departureUnderscoresearches: Option[List[RequestTimeFilterPostcodeSectorsDepartureSearch]],
-    _arrivalUnderscoresearches: Option[List[RequestTimeFilterPostcodeSectorsArrivalSearch]]
+    _departureSearches: Option[List[RequestTimeFilterPostcodeSectorsDepartureSearch]],
+    _arrivalSearches: Option[List[RequestTimeFilterPostcodeSectorsArrivalSearch]]
 )
 object RequestTimeFilterPostcodeSectors {
-    def toStringBody(var_departureUnderscoresearches: Object, var_arrivalUnderscoresearches: Object) =
+    def toStringBody(var_departureSearches: Object, var_arrivalSearches: Object) =
         s"""
         | {
-        | "departureUnderscoresearches":$var_departureUnderscoresearches,"arrivalUnderscoresearches":$var_arrivalUnderscoresearches
+        | "departureSearches":$var_departureSearches,"arrivalSearches":$var_arrivalSearches
         | }
         """.stripMargin
 }

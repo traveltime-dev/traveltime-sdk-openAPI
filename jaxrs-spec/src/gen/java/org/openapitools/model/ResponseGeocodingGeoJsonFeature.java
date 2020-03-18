@@ -15,11 +15,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseGeocodingGeoJsonFeature   {
   
   private @Valid String type;
-  private @Valid ResponseGeocodingGeometry geometry = null;
-  private @Valid ResponseGeocodingProperties properties = null;
+  private @Valid ResponseGeocodingGeometry geometry;
+  private @Valid ResponseGeocodingProperties properties;
 
   /**
    **/

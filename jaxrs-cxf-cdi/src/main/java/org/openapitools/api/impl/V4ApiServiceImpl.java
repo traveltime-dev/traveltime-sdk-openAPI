@@ -34,15 +34,15 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2019-05-24T09:07:00.658Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2020-03-18T08:50:59.408Z[Etc/UTC]")
 public class V4ApiServiceImpl implements V4ApiService {
       @Override
-      public Response geocodingReverseSearch(Double focusLat, Double focusLng, String withinCountry, SecurityContext securityContext) {
+      public Response geocodingReverseSearch(Double lat, Double lng, String withinCountry, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }
       @Override
-      public Response geocodingSearch(String query, String withinCountry, Double focusLat, Double focusLng, SecurityContext securityContext) {
+      public Response geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry, SecurityContext securityContext) {
       // do some magic!
       return Response.ok().entity("magic!").build();
   }

@@ -12,11 +12,9 @@ class ResponseMapInfo {
 
   ResponseMapInfo.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['maps'] == null) {
-      maps = null;
-    } else {
-      maps = ResponseMapInfoMap.listFromJson(json['maps']);
-    }
+    maps = (json['maps'] == null) ?
+      null :
+      ResponseMapInfoMap.listFromJson(json['maps']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseMapInfo {
   }
 
   static List<ResponseMapInfo> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseMapInfo>() : json.map((value) => new ResponseMapInfo.fromJson(value)).toList();
+    return json == null ? List<ResponseMapInfo>() : json.map((value) => ResponseMapInfo.fromJson(value)).toList();
   }
 
   static Map<String, ResponseMapInfo> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseMapInfo>();
+    var map = Map<String, ResponseMapInfo>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfo.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfo.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseMapInfo-objects as value to a dart map
+  static Map<String, List<ResponseMapInfo>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseMapInfo>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseMapInfo.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

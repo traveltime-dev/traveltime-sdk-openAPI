@@ -10,10 +10,10 @@ function New-ResponseTimeFilterPostcodesProperties {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterPostcodesProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterPostcodesProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterPostcodesProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterPostcodesProperties -ArgumentList @(
             ${travelUnderscoretime},
             ${distance}
         )

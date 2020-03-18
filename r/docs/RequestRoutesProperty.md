@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestRoutesProperty
+# openapi::RequestRoutesProperty
 
 ## Properties
 Name | Type | Description | Notes

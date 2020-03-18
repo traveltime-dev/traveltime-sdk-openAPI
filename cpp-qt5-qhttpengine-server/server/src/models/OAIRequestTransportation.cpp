@@ -13,12 +13,12 @@
 
 #include "OAIRequestTransportation.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -99,22 +99,22 @@ OAIRequestTransportation::asJson () const {
 QJsonObject
 OAIRequestTransportation::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(m_pt_change_delay_isSet){
+    if(m_pt_change_delay_isSet){
         obj.insert(QString("pt_change_delay"), ::OpenAPI::toJsonValue(pt_change_delay));
     }
-	if(m_walking_time_isSet){
+    if(m_walking_time_isSet){
         obj.insert(QString("walking_time"), ::OpenAPI::toJsonValue(walking_time));
     }
-	if(m_driving_time_to_station_isSet){
+    if(m_driving_time_to_station_isSet){
         obj.insert(QString("driving_time_to_station"), ::OpenAPI::toJsonValue(driving_time_to_station));
     }
-	if(m_parking_time_isSet){
+    if(m_parking_time_isSet){
         obj.insert(QString("parking_time"), ::OpenAPI::toJsonValue(parking_time));
     }
-	if(m_boarding_time_isSet){
+    if(m_boarding_time_isSet){
         obj.insert(QString("boarding_time"), ::OpenAPI::toJsonValue(boarding_time));
     }
     return obj;

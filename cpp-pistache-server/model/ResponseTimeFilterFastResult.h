@@ -48,15 +48,17 @@ public:
     /// </summary>
     std::string getSearchId() const;
     void setSearchId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterFastLocation>& getLocations();
-        /// <summary>
+    void setLocations(std::vector<ResponseTimeFilterFastLocation> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<std::string>& getUnreachable();
-    
+    void setUnreachable(std::vector<std::string> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterFastResult& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterFastResult& o);
 protected:

@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFastArrivalOneToManySearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   @JsonProperty("id")
@@ -31,7 +31,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   private List<String> arrivalLocationIds = new ArrayList<>();
 
   @JsonProperty("transportation")
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;

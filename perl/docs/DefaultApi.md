@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **geocoding_reverse_search**
-> ResponseGeocoding geocoding_reverse_search(focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country)
+> ResponseGeocoding geocoding_reverse_search(lat => $lat, lng => $lng, within/country => $within/country)
 
 
 
@@ -43,12 +43,12 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
     #api_key_prefix => {'X-Application-Id' => 'Bearer'},
 );
 
-my $focus/lat = 3.4; # double | 
-my $focus/lng = 3.4; # double | 
+my $lat = 3.4; # double | 
+my $lng = 3.4; # double | 
 my $within/country = "within/country_example"; # string | 
 
 eval { 
-    my $result = $api_instance->geocoding_reverse_search(focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country);
+    my $result = $api_instance->geocoding_reverse_search(lat => $lat, lng => $lng, within/country => $within/country);
     print Dumper($result);
 };
 if ($@) {
@@ -60,8 +60,8 @@ if ($@) {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus/lat** | **double**|  | 
- **focus/lng** | **double**|  | 
+ **lat** | **double**|  | 
+ **lng** | **double**|  | 
  **within/country** | **string**|  | [optional] 
 
 ### Return type
@@ -80,7 +80,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocoding_search**
-> ResponseGeocoding geocoding_search(query => $query, within/country => $within/country, focus/lat => $focus/lat, focus/lng => $focus/lng)
+> ResponseGeocoding geocoding_search(query => $query, focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country)
 
 
 
@@ -101,12 +101,12 @@ my $api_instance = WWW::OpenAPIClient::DefaultApi->new(
 );
 
 my $query = "query_example"; # string | 
-my $within/country = "within/country_example"; # string | 
 my $focus/lat = 3.4; # double | 
 my $focus/lng = 3.4; # double | 
+my $within/country = "within/country_example"; # string | 
 
 eval { 
-    my $result = $api_instance->geocoding_search(query => $query, within/country => $within/country, focus/lat => $focus/lat, focus/lng => $focus/lng);
+    my $result = $api_instance->geocoding_search(query => $query, focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country);
     print Dumper($result);
 };
 if ($@) {
@@ -119,9 +119,9 @@ if ($@) {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  | 
- **within/country** | **string**|  | [optional] 
  **focus/lat** | **double**|  | [optional] 
  **focus/lng** | **double**|  | [optional] 
+ **within/country** | **string**|  | [optional] 
 
 ### Return type
 

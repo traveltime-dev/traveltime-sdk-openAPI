@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseSupportedLocations {
     #[serde(rename = "locations")]
-    pub locations: Vec<::models::ResponseSupportedLocation>,
+    pub locations: Vec<crate::models::ResponseSupportedLocation>,
     #[serde(rename = "unsupported_locations")]
     pub unsupported_locations: Vec<String>,
 }
 
 impl ResponseSupportedLocations {
-    pub fn new(locations: Vec<::models::ResponseSupportedLocation>, unsupported_locations: Vec<String>) -> ResponseSupportedLocations {
+    pub fn new(locations: Vec<crate::models::ResponseSupportedLocation>, unsupported_locations: Vec<String>) -> ResponseSupportedLocations {
         ResponseSupportedLocations {
-            locations: locations,
-            unsupported_locations: unsupported_locations,
+            locations,
+            unsupported_locations,
         }
     }
 }
+
+

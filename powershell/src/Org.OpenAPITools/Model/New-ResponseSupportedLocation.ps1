@@ -10,10 +10,10 @@ function New-ResponseSupportedLocation {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseSupportedLocation' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseSupportedLocation' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseSupportedLocation -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseSupportedLocation -ArgumentList @(
             ${id},
             ${mapUnderscorename}
         )

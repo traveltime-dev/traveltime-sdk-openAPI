@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTravelTimeStatistics {
     #[serde(rename = "min")]
     pub min: i32,
@@ -27,10 +26,12 @@ pub struct ResponseTravelTimeStatistics {
 impl ResponseTravelTimeStatistics {
     pub fn new(min: i32, max: i32, mean: i32, median: i32) -> ResponseTravelTimeStatistics {
         ResponseTravelTimeStatistics {
-            min: min,
-            max: max,
-            mean: mean,
-            median: median,
+            min,
+            max,
+            mean,
+            median,
         }
     }
 }
+
+

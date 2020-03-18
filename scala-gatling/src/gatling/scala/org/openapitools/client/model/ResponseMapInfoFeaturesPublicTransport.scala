@@ -1,17 +1,17 @@
 
 package org.openapitools.client.model
 
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class ResponseMapInfoFeaturesPublicTransport (
-    _dateUnderscorestart: Date,
-    _dateUnderscoreend: Date
+    _dateStart: OffsetDateTime,
+    _dateEnd: OffsetDateTime
 )
 object ResponseMapInfoFeaturesPublicTransport {
-    def toStringBody(var_dateUnderscorestart: Object, var_dateUnderscoreend: Object) =
+    def toStringBody(var_dateStart: Object, var_dateEnd: Object) =
         s"""
         | {
-        | "dateUnderscorestart":$var_dateUnderscorestart,"dateUnderscoreend":$var_dateUnderscoreend
+        | "dateStart":$var_dateStart,"dateEnd":$var_dateEnd
         | }
         """.stripMargin
 }

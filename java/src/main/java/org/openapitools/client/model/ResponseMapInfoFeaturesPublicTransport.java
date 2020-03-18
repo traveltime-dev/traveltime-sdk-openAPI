@@ -28,7 +28,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ResponseMapInfoFeaturesPublicTransport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseMapInfoFeaturesPublicTransport {
   public static final String SERIALIZED_NAME_DATE_START = "date_start";
   @SerializedName(SERIALIZED_NAME_DATE_START)
@@ -38,7 +38,9 @@ public class ResponseMapInfoFeaturesPublicTransport {
   @SerializedName(SERIALIZED_NAME_DATE_END)
   private OffsetDateTime dateEnd;
 
+
   public ResponseMapInfoFeaturesPublicTransport dateStart(OffsetDateTime dateStart) {
+    
     this.dateStart = dateStart;
     return this;
   }
@@ -48,15 +50,19 @@ public class ResponseMapInfoFeaturesPublicTransport {
    * @return dateStart
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDateStart() {
     return dateStart;
   }
+
 
   public void setDateStart(OffsetDateTime dateStart) {
     this.dateStart = dateStart;
   }
 
+
   public ResponseMapInfoFeaturesPublicTransport dateEnd(OffsetDateTime dateEnd) {
+    
     this.dateEnd = dateEnd;
     return this;
   }
@@ -66,9 +72,11 @@ public class ResponseMapInfoFeaturesPublicTransport {
    * @return dateEnd
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDateEnd() {
     return dateEnd;
   }
+
 
   public void setDateEnd(OffsetDateTime dateEnd) {
     this.dateEnd = dateEnd;

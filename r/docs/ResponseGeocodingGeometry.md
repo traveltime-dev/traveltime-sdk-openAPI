@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseGeocodingGeometry
+# openapi::ResponseGeocodingGeometry
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **character** |  | 
-**coordinates** | **numeric** |  | 
+**coordinates** | **array[numeric]** |  | 
 
 

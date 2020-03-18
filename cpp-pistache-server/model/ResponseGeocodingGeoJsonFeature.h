@@ -48,17 +48,17 @@ public:
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     ResponseGeocodingGeometry getGeometry() const;
     void setGeometry(ResponseGeocodingGeometry const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     ResponseGeocodingProperties getProperties() const;
     void setProperties(ResponseGeocodingProperties const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseGeocodingGeoJsonFeature& o);
     friend void from_json(const nlohmann::json& j, ResponseGeocodingGeoJsonFeature& o);
 protected:

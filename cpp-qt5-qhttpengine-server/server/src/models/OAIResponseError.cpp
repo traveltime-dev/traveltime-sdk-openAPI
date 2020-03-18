@@ -13,12 +13,12 @@
 
 #include "OAIResponseError.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -85,7 +85,7 @@ OAIResponseError::fromJsonObject(QJsonObject json) {
         if(varmap.count() > 0){
             for(auto val : varmap.keys()){
                 QList<QString> item;
-    		    auto jval = QJsonValue::fromVariant(varmap.value(val));
+                auto jval = QJsonValue::fromVariant(varmap.value(val));
                 m_additional_info_isValid &= ::OpenAPI::fromJsonValue(item, jval);
                 additional_info.insert(additional_info.end(), val, item);
             }
@@ -105,19 +105,19 @@ OAIResponseError::asJson () const {
 QJsonObject
 OAIResponseError::asJsonObject() const {
     QJsonObject obj;
-	if(m_http_status_isSet){
+    if(m_http_status_isSet){
         obj.insert(QString("http_status"), ::OpenAPI::toJsonValue(http_status));
     }
-	if(m_error_code_isSet){
+    if(m_error_code_isSet){
         obj.insert(QString("error_code"), ::OpenAPI::toJsonValue(error_code));
     }
-	if(m_description_isSet){
+    if(m_description_isSet){
         obj.insert(QString("description"), ::OpenAPI::toJsonValue(description));
     }
-	if(m_documentation_link_isSet){
+    if(m_documentation_link_isSet){
         obj.insert(QString("documentation_link"), ::OpenAPI::toJsonValue(documentation_link));
     }
-	
+    
     if(additional_info.size() > 0){
         
         obj.insert(QString("additional_info"), toJsonValue(additional_info));

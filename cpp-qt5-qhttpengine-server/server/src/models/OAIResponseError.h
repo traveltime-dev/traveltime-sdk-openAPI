@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseError: public OAIObject {
@@ -63,7 +64,7 @@ public:
     void setAdditionalInfo(const QMap<QString, QList<QString>> &additional_info);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -93,5 +94,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseError)
 
 #endif // OAIResponseError_H

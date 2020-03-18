@@ -21,7 +21,7 @@ public class ResponseTimeFilterPostcodeDistrict  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseTimeFilterPostcodeDistrictProperties properties = null;
+  private ResponseTimeFilterPostcodeDistrictProperties properties;
  /**
    * Get code
    * @return code

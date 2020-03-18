@@ -13,6 +13,6 @@
 
 export interface RequestRangeFull { 
     enabled: boolean;
-    maxResults: number;
+    max_results: number;
     width: number;
 }

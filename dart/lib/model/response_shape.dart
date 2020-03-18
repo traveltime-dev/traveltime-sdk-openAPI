@@ -14,16 +14,12 @@ class ResponseShape {
 
   ResponseShape.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['shell'] == null) {
-      shell = null;
-    } else {
-      shell = Coords.listFromJson(json['shell']);
-    }
-    if (json['holes'] == null) {
-      holes = null;
-    } else {
-      holes = List.listFromJson(json['holes']);
-    }
+    shell = (json['shell'] == null) ?
+      null :
+      Coords.listFromJson(json['shell']);
+    holes = (json['holes'] == null) ?
+      null :
+      List.listFromJson(json['holes']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class ResponseShape {
   }
 
   static List<ResponseShape> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseShape>() : json.map((value) => new ResponseShape.fromJson(value)).toList();
+    return json == null ? List<ResponseShape>() : json.map((value) => ResponseShape.fromJson(value)).toList();
   }
 
   static Map<String, ResponseShape> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseShape>();
+    var map = Map<String, ResponseShape>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseShape.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseShape.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseShape-objects as value to a dart map
+  static Map<String, List<ResponseShape>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseShape>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseShape.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

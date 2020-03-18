@@ -2,15 +2,15 @@ function New-RequestSupportedLocations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestLocation[]]
+        [Org.OpenAPITools.Model.RequestLocation[]]
         ${locations}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestSupportedLocations' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestSupportedLocations' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestSupportedLocations -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestSupportedLocations -ArgumentList @(
             ${locations}
         )
     }

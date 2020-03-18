@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterPostcodesArrivalSearch exposing (RequestTimeFilterPostcodesArrivalSearch, decoder, encode)
+module Data.RequestTimeFilterPostcodesArrivalSearch exposing (RequestTimeFilterPostcodesArrivalSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTransportation as RequestTransportation exposing (RequestTransportation)
 import DateTime exposing (DateTime)
@@ -46,15 +46,31 @@ decoder =
 
 
 encode : RequestTimeFilterPostcodesArrivalSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "transportation", RequestTransportation.encode model.transportation )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "arrival_time", DateTime.encode model.arrivalTime )
-        , ( "properties", (Encode.list RequestTimeFilterPostcodesProperty.encode) model.properties )
-        , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterPostcodesArrivalSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterPostcodesArrivalSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "transportation", RequestTransportation.encode model.transportation )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "arrival_time", DateTime.encode model.arrivalTime )
+    , ( "properties", (Encode.list RequestTimeFilterPostcodesProperty.encode) model.properties )
+    , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+    ]
+
+
+
+toString : RequestTimeFilterPostcodesArrivalSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

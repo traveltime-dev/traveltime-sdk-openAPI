@@ -19,13 +19,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTransportation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTransportation.JSON_PROPERTY_TYPE,
+  RequestTransportation.JSON_PROPERTY_PT_CHANGE_DELAY,
+  RequestTransportation.JSON_PROPERTY_WALKING_TIME,
+  RequestTransportation.JSON_PROPERTY_DRIVING_TIME_TO_STATION,
+  RequestTransportation.JSON_PROPERTY_PARKING_TIME,
+  RequestTransportation.JSON_PROPERTY_BOARDING_TIME
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestTransportation   {
   /**
    * Gets or Sets type
@@ -76,22 +85,28 @@ public class RequestTransportation   {
     }
   }
 
-  @JsonProperty("type")
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
 
-  @JsonProperty("pt_change_delay")
+  public static final String JSON_PROPERTY_PT_CHANGE_DELAY = "pt_change_delay";
+  @JsonProperty(JSON_PROPERTY_PT_CHANGE_DELAY)
   private Integer ptChangeDelay;
 
-  @JsonProperty("walking_time")
+  public static final String JSON_PROPERTY_WALKING_TIME = "walking_time";
+  @JsonProperty(JSON_PROPERTY_WALKING_TIME)
   private Integer walkingTime;
 
-  @JsonProperty("driving_time_to_station")
+  public static final String JSON_PROPERTY_DRIVING_TIME_TO_STATION = "driving_time_to_station";
+  @JsonProperty(JSON_PROPERTY_DRIVING_TIME_TO_STATION)
   private Integer drivingTimeToStation;
 
-  @JsonProperty("parking_time")
+  public static final String JSON_PROPERTY_PARKING_TIME = "parking_time";
+  @JsonProperty(JSON_PROPERTY_PARKING_TIME)
   private Integer parkingTime;
 
-  @JsonProperty("boarding_time")
+  public static final String JSON_PROPERTY_BOARDING_TIME = "boarding_time";
+  @JsonProperty(JSON_PROPERTY_BOARDING_TIME)
   private Integer boardingTime;
 
   public RequestTransportation type(TypeEnum type) {

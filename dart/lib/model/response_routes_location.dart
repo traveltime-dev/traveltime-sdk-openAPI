@@ -14,16 +14,10 @@ class ResponseRoutesLocation {
 
   ResponseRoutesLocation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = ResponseRoutesProperties.listFromJson(json['properties']);
-    }
+    id = json['id'];
+    properties = (json['properties'] == null) ?
+      null :
+      ResponseRoutesProperties.listFromJson(json['properties']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +30,26 @@ class ResponseRoutesLocation {
   }
 
   static List<ResponseRoutesLocation> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseRoutesLocation>() : json.map((value) => new ResponseRoutesLocation.fromJson(value)).toList();
+    return json == null ? List<ResponseRoutesLocation>() : json.map((value) => ResponseRoutesLocation.fromJson(value)).toList();
   }
 
   static Map<String, ResponseRoutesLocation> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseRoutesLocation>();
+    var map = Map<String, ResponseRoutesLocation>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseRoutesLocation.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseRoutesLocation.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseRoutesLocation-objects as value to a dart map
+  static Map<String, List<ResponseRoutesLocation>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseRoutesLocation>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseRoutesLocation.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

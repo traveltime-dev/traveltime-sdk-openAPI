@@ -10,36 +10,36 @@ response_time_filter_result_t *response_time_filter_result_create(
     list_t *locations,
     list_t *unreachable
     ) {
-	response_time_filter_result_t *response_time_filter_result_local_var = malloc(sizeof(response_time_filter_result_t));
+    response_time_filter_result_t *response_time_filter_result_local_var = malloc(sizeof(response_time_filter_result_t));
     if (!response_time_filter_result_local_var) {
         return NULL;
     }
-	response_time_filter_result_local_var->search_id = search_id;
-	response_time_filter_result_local_var->locations = locations;
-	response_time_filter_result_local_var->unreachable = unreachable;
+    response_time_filter_result_local_var->search_id = search_id;
+    response_time_filter_result_local_var->locations = locations;
+    response_time_filter_result_local_var->unreachable = unreachable;
 
-	return response_time_filter_result_local_var;
+    return response_time_filter_result_local_var;
 }
 
 
 void response_time_filter_result_free(response_time_filter_result_t *response_time_filter_result) {
     listEntry_t *listEntry;
     free(response_time_filter_result->search_id);
-	list_ForEach(listEntry, response_time_filter_result->locations) {
-		response_time_filter_location_free(listEntry->data);
-	}
-	list_free(response_time_filter_result->locations);
-	list_ForEach(listEntry, response_time_filter_result->unreachable) {
-		free(listEntry->data);
-	}
-	list_free(response_time_filter_result->unreachable);
-	free(response_time_filter_result);
+    list_ForEach(listEntry, response_time_filter_result->locations) {
+        response_time_filter_location_free(listEntry->data);
+    }
+    list_free(response_time_filter_result->locations);
+    list_ForEach(listEntry, response_time_filter_result->unreachable) {
+        free(listEntry->data);
+    }
+    list_free(response_time_filter_result->unreachable);
+    free(response_time_filter_result);
 }
 
 cJSON *response_time_filter_result_convertToJSON(response_time_filter_result_t *response_time_filter_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_result->search_id
+    // response_time_filter_result->search_id
     if (!response_time_filter_result->search_id) {
         goto fail;
     }
@@ -49,7 +49,7 @@ cJSON *response_time_filter_result_convertToJSON(response_time_filter_result_t *
     }
 
 
-	// response_time_filter_result->locations
+    // response_time_filter_result->locations
     if (!response_time_filter_result->locations) {
         goto fail;
     }
@@ -71,17 +71,17 @@ cJSON *response_time_filter_result_convertToJSON(response_time_filter_result_t *
     }
 
 
-	// response_time_filter_result->unreachable
+    // response_time_filter_result->unreachable
     if (!response_time_filter_result->unreachable) {
         goto fail;
     }
     
-	cJSON *unreachable = cJSON_AddArrayToObject(item, "unreachable");
-	if(unreachable == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *unreachable = cJSON_AddArrayToObject(item, "unreachable");
+    if(unreachable == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *unreachableListEntry;
+    listEntry_t *unreachableListEntry;
     list_ForEach(unreachableListEntry, response_time_filter_result->unreachable) {
     if(cJSON_AddStringToObject(unreachable, "", (char*)unreachableListEntry->data) == NULL)
     {
@@ -89,12 +89,12 @@ cJSON *response_time_filter_result_convertToJSON(response_time_filter_result_t *
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_result_t *response_time_filter_result_parseFromJSON(cJSON *response_time_filter_resultJSON){

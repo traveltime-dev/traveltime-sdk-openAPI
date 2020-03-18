@@ -9,15 +9,15 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ResponseDistanceBreakdownItem } from './responseDistanceBreakdownItem';
 import { ResponseFares } from './responseFares';
+import { ResponseDistanceBreakdownItem } from './responseDistanceBreakdownItem';
 import { ResponseRoute } from './responseRoute';
 
 
 export interface ResponseTimeFilterProperties { 
-    travelTime?: number;
+    travel_time?: number;
     distance?: number;
-    distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
     fares?: ResponseFares;
     route?: ResponseRoute;
 }

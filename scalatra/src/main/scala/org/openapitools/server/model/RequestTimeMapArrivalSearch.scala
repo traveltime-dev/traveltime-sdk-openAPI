@@ -10,7 +10,7 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class RequestTimeMapArrivalSearch(
   id: String,
@@ -19,9 +19,9 @@ case class RequestTimeMapArrivalSearch(
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  arrivalUnderscoretime: Date,
+  arrivalTime: OffsetDateTime,
 
   properties: Option[List[RequestTimeMapProperty]],
 

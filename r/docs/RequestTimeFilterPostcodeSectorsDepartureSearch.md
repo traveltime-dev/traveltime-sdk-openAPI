@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestTimeFilterPostcodeSectorsDepartureSearch
+# openapi::RequestTimeFilterPostcodeSectorsDepartureSearch
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **travel_time** | **integer** |  | 
 **departure_time** | **character** |  | 
 **reachable_postcodes_threshold** | **numeric** |  | 
-**properties** | [**RequestTimeFilterPostcodeSectorsProperty**](RequestTimeFilterPostcodeSectorsProperty.md) |  | 
+**properties** | [**array[RequestTimeFilterPostcodeSectorsProperty]**](RequestTimeFilterPostcodeSectorsProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 
 

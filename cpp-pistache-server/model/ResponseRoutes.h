@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseRoutesResult>& getResults();
-    
+    void setResults(std::vector<ResponseRoutesResult> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseRoutes& o);
     friend void from_json(const nlohmann::json& j, ResponseRoutes& o);
 protected:

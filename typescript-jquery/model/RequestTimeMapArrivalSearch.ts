@@ -19,9 +19,9 @@ export interface RequestTimeMapArrivalSearch {
 
     transportation: models.RequestTransportation;
 
-    travelTime: number;
+    travel_time: number;
 
-    arrivalTime: Date;
+    arrival_time: string;
 
     properties?: Array<models.RequestTimeMapProperty>;
 

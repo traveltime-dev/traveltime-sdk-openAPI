@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterPostcodesResult {
-    "searchId": string;
+    "search_id": string;
     "postcodes": Array<models.ResponseTimeFilterPostcode>;
 }
 

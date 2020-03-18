@@ -8,11 +8,11 @@ import java.util.List;
 import org.openapitools.server.api.model.RequestLocation;
 import org.openapitools.server.api.model.RequestTimeFilterFastArrivalSearches;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterFast   {
   
   private List<RequestLocation> locations = new ArrayList<>();
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
 
   public RequestTimeFilterFast () {
 

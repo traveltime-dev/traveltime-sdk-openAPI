@@ -9,31 +9,31 @@ response_time_filter_fast_location_t *response_time_filter_fast_location_create(
     char *id,
     list_t *properties
     ) {
-	response_time_filter_fast_location_t *response_time_filter_fast_location_local_var = malloc(sizeof(response_time_filter_fast_location_t));
+    response_time_filter_fast_location_t *response_time_filter_fast_location_local_var = malloc(sizeof(response_time_filter_fast_location_t));
     if (!response_time_filter_fast_location_local_var) {
         return NULL;
     }
-	response_time_filter_fast_location_local_var->id = id;
-	response_time_filter_fast_location_local_var->properties = properties;
+    response_time_filter_fast_location_local_var->id = id;
+    response_time_filter_fast_location_local_var->properties = properties;
 
-	return response_time_filter_fast_location_local_var;
+    return response_time_filter_fast_location_local_var;
 }
 
 
 void response_time_filter_fast_location_free(response_time_filter_fast_location_t *response_time_filter_fast_location) {
     listEntry_t *listEntry;
     free(response_time_filter_fast_location->id);
-	list_ForEach(listEntry, response_time_filter_fast_location->properties) {
-		response_time_filter_fast_properties_free(listEntry->data);
-	}
-	list_free(response_time_filter_fast_location->properties);
-	free(response_time_filter_fast_location);
+    list_ForEach(listEntry, response_time_filter_fast_location->properties) {
+        response_time_filter_fast_properties_free(listEntry->data);
+    }
+    list_free(response_time_filter_fast_location->properties);
+    free(response_time_filter_fast_location);
 }
 
 cJSON *response_time_filter_fast_location_convertToJSON(response_time_filter_fast_location_t *response_time_filter_fast_location) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_fast_location->id
+    // response_time_filter_fast_location->id
     if (!response_time_filter_fast_location->id) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_time_filter_fast_location_convertToJSON(response_time_filter_fas
     }
 
 
-	// response_time_filter_fast_location->properties
+    // response_time_filter_fast_location->properties
     if (!response_time_filter_fast_location->properties) {
         goto fail;
     }
@@ -64,12 +64,12 @@ cJSON *response_time_filter_fast_location_convertToJSON(response_time_filter_fas
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_fast_location_t *response_time_filter_fast_location_parseFromJSON(cJSON *response_time_filter_fast_locationJSON){

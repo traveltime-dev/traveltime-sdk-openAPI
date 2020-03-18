@@ -9,37 +9,38 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeMapArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "coords")]
-    pub coords: ::models::Coords,
+    pub coords: crate::models::Coords,
     #[serde(rename = "transportation")]
-    pub transportation: ::models::RequestTransportation,
+    pub transportation: crate::models::RequestTransportation,
     #[serde(rename = "travel_time")]
     pub travel_time: i32,
     #[serde(rename = "arrival_time")]
     pub arrival_time: String,
-    #[serde(rename = "properties")]
-    pub properties: Option<Vec<::models::RequestTimeMapProperty>>,
-    #[serde(rename = "range")]
-    pub range: Option<::models::RequestRangeNoMaxResults>,
+    #[serde(rename = "properties", skip_serializing_if = "Option::is_none")]
+    pub properties: Option<Vec<crate::models::RequestTimeMapProperty>>,
+    #[serde(rename = "range", skip_serializing_if = "Option::is_none")]
+    pub range: Option<crate::models::RequestRangeNoMaxResults>,
 }
 
 impl RequestTimeMapArrivalSearch {
-    pub fn new(id: String, coords: ::models::Coords, transportation: ::models::RequestTransportation, travel_time: i32, arrival_time: String) -> RequestTimeMapArrivalSearch {
+    pub fn new(id: String, coords: crate::models::Coords, transportation: crate::models::RequestTransportation, travel_time: i32, arrival_time: String) -> RequestTimeMapArrivalSearch {
         RequestTimeMapArrivalSearch {
-            id: id,
-            coords: coords,
-            transportation: transportation,
-            travel_time: travel_time,
-            arrival_time: arrival_time,
+            id,
+            coords,
+            transportation,
+            travel_time,
+            arrival_time,
             properties: None,
             range: None,
         }
     }
 }
+
+

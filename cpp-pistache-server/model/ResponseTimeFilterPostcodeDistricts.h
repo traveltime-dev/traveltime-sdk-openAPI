@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterPostcodeDistrictsResult>& getResults();
-    
+    void setResults(std::vector<ResponseTimeFilterPostcodeDistrictsResult> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterPostcodeDistricts& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterPostcodeDistricts& o);
 protected:

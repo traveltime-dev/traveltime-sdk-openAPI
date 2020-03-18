@@ -23,36 +23,12 @@ class RequestTransportation {
 
   RequestTransportation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['type'] == null) {
-      type = null;
-    } else {
-          type = json['type'];
-    }
-    if (json['pt_change_delay'] == null) {
-      ptChangeDelay = null;
-    } else {
-          ptChangeDelay = json['pt_change_delay'];
-    }
-    if (json['walking_time'] == null) {
-      walkingTime = null;
-    } else {
-          walkingTime = json['walking_time'];
-    }
-    if (json['driving_time_to_station'] == null) {
-      drivingTimeToStation = null;
-    } else {
-          drivingTimeToStation = json['driving_time_to_station'];
-    }
-    if (json['parking_time'] == null) {
-      parkingTime = null;
-    } else {
-          parkingTime = json['parking_time'];
-    }
-    if (json['boarding_time'] == null) {
-      boardingTime = null;
-    } else {
-          boardingTime = json['boarding_time'];
-    }
+    type = json['type'];
+    ptChangeDelay = json['pt_change_delay'];
+    walkingTime = json['walking_time'];
+    drivingTimeToStation = json['driving_time_to_station'];
+    parkingTime = json['parking_time'];
+    boardingTime = json['boarding_time'];
   }
 
   Map<String, dynamic> toJson() {
@@ -73,15 +49,26 @@ class RequestTransportation {
   }
 
   static List<RequestTransportation> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTransportation>() : json.map((value) => new RequestTransportation.fromJson(value)).toList();
+    return json == null ? List<RequestTransportation>() : json.map((value) => RequestTransportation.fromJson(value)).toList();
   }
 
   static Map<String, RequestTransportation> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTransportation>();
+    var map = Map<String, RequestTransportation>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTransportation.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTransportation.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTransportation-objects as value to a dart map
+  static Map<String, List<RequestTransportation>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTransportation>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTransportation.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

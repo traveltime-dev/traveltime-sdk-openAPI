@@ -14,10 +14,10 @@ import * as models from './models';
 
 export interface RequestRoutesDepartureSearch {
     "id": string;
-    "departureLocationId": string;
-    "arrivalLocationIds": Array<string>;
+    "departure_location_id": string;
+    "arrival_location_ids": Array<string>;
     "transportation": models.RequestTransportation;
-    "departureTime": Date;
+    "departure_time": string;
     "properties": Array<models.RequestRoutesProperty>;
     "range"?: models.RequestRangeFull;
 }

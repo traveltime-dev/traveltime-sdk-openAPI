@@ -33,10 +33,10 @@ isa_ok($api, 'WWW::OpenAPIClient::DefaultApi');
 # geocoding_reverse_search test
 #
 {
-    my $focus/lat = undef; # replace NULL with a proper value
-    my $focus/lng = undef; # replace NULL with a proper value
+    my $lat = undef; # replace NULL with a proper value
+    my $lng = undef; # replace NULL with a proper value
     my $within/country = undef; # replace NULL with a proper value
-    my $result = $api->geocoding_reverse_search(focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country);
+    my $result = $api->geocoding_reverse_search(lat => $lat, lng => $lng, within/country => $within/country);
 }
 
 #
@@ -44,10 +44,10 @@ isa_ok($api, 'WWW::OpenAPIClient::DefaultApi');
 #
 {
     my $query = undef; # replace NULL with a proper value
-    my $within/country = undef; # replace NULL with a proper value
     my $focus/lat = undef; # replace NULL with a proper value
     my $focus/lng = undef; # replace NULL with a proper value
-    my $result = $api->geocoding_search(query => $query, within/country => $within/country, focus/lat => $focus/lat, focus/lng => $focus/lng);
+    my $within/country = undef; # replace NULL with a proper value
+    my $result = $api->geocoding_search(query => $query, focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country);
 }
 
 #

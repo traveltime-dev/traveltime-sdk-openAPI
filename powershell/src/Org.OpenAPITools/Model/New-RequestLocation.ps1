@@ -5,15 +5,15 @@ function New-RequestLocation {
         [String]
         ${id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.Coords]
+        [Org.OpenAPITools.Model.Coords]
         ${coords}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestLocation' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestLocation' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestLocation -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestLocation -ArgumentList @(
             ${id},
             ${coords}
         )

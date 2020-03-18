@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.request_time_filter_fast import RequestTimeFilterFast  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.request_time_filter_fast import RequestTimeFilterFast  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestRequestTimeFilterFast(unittest.TestCase):
     """RequestTimeFilterFast unit test stubs"""
@@ -29,11 +29,99 @@ class TestRequestTimeFilterFast(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test RequestTimeFilterFast
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.request_time_filter_fast.RequestTimeFilterFast()  # noqa: E501
+        if include_optional :
+            return RequestTimeFilterFast(
+                locations = [
+                    openapi_client.models.request_location.RequestLocation(
+                        id = '0', 
+                        coords = openapi_client.models.coords.Coords(
+                            lat = 1.337, 
+                            lng = 1.337, ), )
+                    ], 
+                arrival_searches = openapi_client.models.request_time_filter_fast_arrival_searches.RequestTimeFilterFastArrivalSearches(
+                    many_to_one = [
+                        openapi_client.models.request_time_filter_fast_arrival_many_to_one_search.RequestTimeFilterFastArrivalManyToOneSearch(
+                            id = '0', 
+                            arrival_location_id = '0', 
+                            departure_location_ids = [
+                                '0'
+                                ], 
+                            transportation = openapi_client.models.request_transportation_fast.RequestTransportationFast(
+                                type = 'public_transport', ), 
+                            travel_time = 60, 
+                            arrival_time_period = 'weekday_morning', 
+                            properties = [
+                                'travel_time'
+                                ], )
+                        ], 
+                    one_to_many = [
+                        openapi_client.models.request_time_filter_fast_arrival_one_to_many_search.RequestTimeFilterFastArrivalOneToManySearch(
+                            id = '0', 
+                            departure_location_id = '0', 
+                            arrival_location_ids = [
+                                '0'
+                                ], 
+                            transportation = openapi_client.models.request_transportation_fast.RequestTransportationFast(
+                                type = 'public_transport', ), 
+                            travel_time = 60, 
+                            arrival_time_period = 'weekday_morning', 
+                            properties = [
+                                'travel_time'
+                                ], )
+                        ], )
+            )
+        else :
+            return RequestTimeFilterFast(
+                locations = [
+                    openapi_client.models.request_location.RequestLocation(
+                        id = '0', 
+                        coords = openapi_client.models.coords.Coords(
+                            lat = 1.337, 
+                            lng = 1.337, ), )
+                    ],
+                arrival_searches = openapi_client.models.request_time_filter_fast_arrival_searches.RequestTimeFilterFastArrivalSearches(
+                    many_to_one = [
+                        openapi_client.models.request_time_filter_fast_arrival_many_to_one_search.RequestTimeFilterFastArrivalManyToOneSearch(
+                            id = '0', 
+                            arrival_location_id = '0', 
+                            departure_location_ids = [
+                                '0'
+                                ], 
+                            transportation = openapi_client.models.request_transportation_fast.RequestTransportationFast(
+                                type = 'public_transport', ), 
+                            travel_time = 60, 
+                            arrival_time_period = 'weekday_morning', 
+                            properties = [
+                                'travel_time'
+                                ], )
+                        ], 
+                    one_to_many = [
+                        openapi_client.models.request_time_filter_fast_arrival_one_to_many_search.RequestTimeFilterFastArrivalOneToManySearch(
+                            id = '0', 
+                            departure_location_id = '0', 
+                            arrival_location_ids = [
+                                '0'
+                                ], 
+                            transportation = openapi_client.models.request_transportation_fast.RequestTransportationFast(
+                                type = 'public_transport', ), 
+                            travel_time = 60, 
+                            arrival_time_period = 'weekday_morning', 
+                            properties = [
+                                'travel_time'
+                                ], )
+                        ], ),
+        )
+
     def testRequestTimeFilterFast(self):
         """Test RequestTimeFilterFast"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.request_time_filter_fast.RequestTimeFilterFast()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

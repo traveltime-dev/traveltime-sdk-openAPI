@@ -21,7 +21,7 @@ public class RequestLocation  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private Coords coords = null;
+  private Coords coords;
  /**
    * Get id
    * @return id

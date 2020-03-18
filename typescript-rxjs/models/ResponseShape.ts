@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseShape {
     /**
-     * 
      * @type {Array<Coords>}
      * @memberof ResponseShape
      */
     shell: Array<Coords>;
     /**
-     * 
      * @type {Array<Array<Coords>>}
      * @memberof ResponseShape
      */

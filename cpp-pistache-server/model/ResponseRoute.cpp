@@ -56,7 +56,6 @@ std::string ResponseRoute::getDepartureTime() const
 void ResponseRoute::setDepartureTime(std::string const& value)
 {
     m_Departure_time = value;
-    
 }
 std::string ResponseRoute::getArrivalTime() const
 {
@@ -65,11 +64,14 @@ std::string ResponseRoute::getArrivalTime() const
 void ResponseRoute::setArrivalTime(std::string const& value)
 {
     m_Arrival_time = value;
-    
 }
 std::vector<ResponseRoutePart>& ResponseRoute::getParts()
 {
     return m_Parts;
+}
+void ResponseRoute::setParts(std::vector<ResponseRoutePart> const& value)
+{
+    m_Parts = value;
 }
 
 }

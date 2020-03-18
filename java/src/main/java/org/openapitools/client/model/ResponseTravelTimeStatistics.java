@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseTravelTimeStatistics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTravelTimeStatistics {
   public static final String SERIALIZED_NAME_MIN = "min";
   @SerializedName(SERIALIZED_NAME_MIN)
@@ -45,7 +45,9 @@ public class ResponseTravelTimeStatistics {
   @SerializedName(SERIALIZED_NAME_MEDIAN)
   private Integer median;
 
+
   public ResponseTravelTimeStatistics min(Integer min) {
+    
     this.min = min;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseTravelTimeStatistics {
    * @return min
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getMin() {
     return min;
   }
+
 
   public void setMin(Integer min) {
     this.min = min;
   }
 
+
   public ResponseTravelTimeStatistics max(Integer max) {
+    
     this.max = max;
     return this;
   }
@@ -73,15 +79,19 @@ public class ResponseTravelTimeStatistics {
    * @return max
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getMax() {
     return max;
   }
+
 
   public void setMax(Integer max) {
     this.max = max;
   }
 
+
   public ResponseTravelTimeStatistics mean(Integer mean) {
+    
     this.mean = mean;
     return this;
   }
@@ -91,15 +101,19 @@ public class ResponseTravelTimeStatistics {
    * @return mean
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getMean() {
     return mean;
   }
+
 
   public void setMean(Integer mean) {
     this.mean = mean;
   }
 
+
   public ResponseTravelTimeStatistics median(Integer median) {
+    
     this.median = median;
     return this;
   }
@@ -109,9 +123,11 @@ public class ResponseTravelTimeStatistics {
    * @return median
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getMedian() {
     return median;
   }
+
 
   public void setMedian(Integer median) {
     this.median = median;

@@ -18,26 +18,18 @@ class ResponseBox {
 
   ResponseBox.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['min_lat'] == null) {
-      minLat = null;
-    } else {
-          minLat = json['min_lat'];
-    }
-    if (json['max_lat'] == null) {
-      maxLat = null;
-    } else {
-          maxLat = json['max_lat'];
-    }
-    if (json['min_lng'] == null) {
-      minLng = null;
-    } else {
-          minLng = json['min_lng'];
-    }
-    if (json['max_lng'] == null) {
-      maxLng = null;
-    } else {
-          maxLng = json['max_lng'];
-    }
+    minLat = (json['min_lat'] == null) ?
+      null :
+      json['min_lat'].toDouble();
+    maxLat = (json['max_lat'] == null) ?
+      null :
+      json['max_lat'].toDouble();
+    minLng = (json['min_lng'] == null) ?
+      null :
+      json['min_lng'].toDouble();
+    maxLng = (json['max_lng'] == null) ?
+      null :
+      json['max_lng'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -54,15 +46,26 @@ class ResponseBox {
   }
 
   static List<ResponseBox> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseBox>() : json.map((value) => new ResponseBox.fromJson(value)).toList();
+    return json == null ? List<ResponseBox>() : json.map((value) => ResponseBox.fromJson(value)).toList();
   }
 
   static Map<String, ResponseBox> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseBox>();
+    var map = Map<String, ResponseBox>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseBox.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseBox.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseBox-objects as value to a dart map
+  static Map<String, List<ResponseBox>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseBox>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseBox.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

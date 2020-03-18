@@ -18,7 +18,7 @@ public class ResponseMapInfoMap  {
   private String name;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
    * Get name
    * @return name

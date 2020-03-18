@@ -24,34 +24,51 @@ import java.util.List;
 import org.openapitools.model.RequestRangeFull;
 import org.openapitools.model.RequestTimeFilterPostcodeDistrictsProperty;
 import org.openapitools.model.RequestTransportation;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeFilterPostcodeDistrictsDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_ID,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_TRANSPORTATION,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_TRAVEL_TIME,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_DEPARTURE_TIME,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_REACHABLE_POSTCODES_THRESHOLD,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_PROPERTIES,
+  RequestTimeFilterPostcodeDistrictsDepartureSearch.JSON_PROPERTY_RANGE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  public static final String JSON_PROPERTY_TRANSPORTATION = "transportation";
+  @JsonProperty(JSON_PROPERTY_TRANSPORTATION)
+  private RequestTransportation transportation;
 
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("departure_time")
+  public static final String JSON_PROPERTY_DEPARTURE_TIME = "departure_time";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_TIME)
   private Date departureTime;
 
-  @JsonProperty("reachable_postcodes_threshold")
+  public static final String JSON_PROPERTY_REACHABLE_POSTCODES_THRESHOLD = "reachable_postcodes_threshold";
+  @JsonProperty(JSON_PROPERTY_REACHABLE_POSTCODES_THRESHOLD)
   private Double reachablePostcodesThreshold;
 
-  @JsonProperty("properties")
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<RequestTimeFilterPostcodeDistrictsProperty>();
 
-  @JsonProperty("range")
-  private RequestRangeFull range = null;
+  public static final String JSON_PROPERTY_RANGE = "range";
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  private RequestRangeFull range;
 
   public RequestTimeFilterPostcodeDistrictsDepartureSearch id(String id) {
     this.id = id;

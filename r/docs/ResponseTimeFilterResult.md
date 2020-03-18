@@ -1,10 +1,10 @@
-# traveltimeplatform::ResponseTimeFilterResult
+# openapi::ResponseTimeFilterResult
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_id** | **character** |  | 
-**locations** | [**ResponseTimeFilterLocation**](ResponseTimeFilterLocation.md) |  | 
-**unreachable** | **character** |  | 
+**locations** | [**array[ResponseTimeFilterLocation]**](ResponseTimeFilterLocation.md) |  | 
+**unreachable** | **array[character]** |  | 
 
 

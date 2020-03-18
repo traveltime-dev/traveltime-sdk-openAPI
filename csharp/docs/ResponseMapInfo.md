@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseMapInfo
+# Org.OpenAPITools.Model.ResponseMapInfo
 
 ## Properties
 

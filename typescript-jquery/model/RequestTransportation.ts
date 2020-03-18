@@ -15,15 +15,15 @@ import * as models from './models';
 export interface RequestTransportation {
     type: RequestTransportation.TypeEnum;
 
-    ptChangeDelay?: number;
+    pt_change_delay?: number;
 
-    walkingTime?: number;
+    walking_time?: number;
 
-    drivingTimeToStation?: number;
+    driving_time_to_station?: number;
 
-    parkingTime?: number;
+    parking_time?: number;
 
-    boardingTime?: number;
+    boarding_time?: number;
 
 }
 export namespace RequestTransportation {

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterPostcodesProperty exposing (RequestTimeFilterPostcodesProperty(..), decoder, encode)
+module Data.RequestTimeFilterPostcodesProperty exposing (RequestTimeFilterPostcodesProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -51,5 +51,18 @@ encode model =
 
         Distance ->
             Encode.string "distance"
+
+
+
+
+toString : RequestTimeFilterPostcodesProperty -> String
+toString model =
+    case model of
+        TravelTime ->
+            "travel_time"
+
+        Distance ->
+            "distance"
+
 
 

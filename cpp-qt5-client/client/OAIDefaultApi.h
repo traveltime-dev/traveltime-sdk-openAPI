@@ -40,44 +40,60 @@
 
 namespace OpenAPI {
 
-class OAIDefaultApi: public QObject {
+class OAIDefaultApi : public QObject {
     Q_OBJECT
 
 public:
-    OAIDefaultApi();
-    OAIDefaultApi(QString host, QString basePath);
+    OAIDefaultApi(const QString &scheme = "https", const QString &host = "api.traveltimeapp.com", int port = 0, const QString &basePath = "", const int timeOut = 0);
     ~OAIDefaultApi();
 
-    QString host;
-    QString basePath;
-    QMap<QString, QString> defaultHeaders;
+    void setScheme(const QString &scheme);
+    void setHost(const QString &host);
+    void setPort(int port);
+    void setBasePath(const QString &basePath);
+    void setTimeOut(const int timeOut);
+    void setWorkingDirectory(const QString &path);
+    void addHeaders(const QString &key, const QString &value);
+    void enableRequestCompression();
+    void enableResponseCompression();
+    void abortRequests();
 
-    void geocodingReverseSearch(const double& focus_lat, const double& focus_lng, const QString& within_country);
-    void geocodingSearch(const QString& query, const QString& within_country, const double& focus_lat, const double& focus_lng);
+    void geocodingReverseSearch(const double &lat, const double &lng, const QString &within_country);
+    void geocodingSearch(const QString &query, const double &focus_lat, const double &focus_lng, const QString &within_country);
     void mapInfo();
-    void routes(const OAIRequestRoutes& oai_request_routes);
-    void supportedLocations(const OAIRequestSupportedLocations& oai_request_supported_locations);
-    void timeFilter(const OAIRequestTimeFilter& oai_request_time_filter);
-    void timeFilterFast(const OAIRequestTimeFilterFast& oai_request_time_filter_fast);
-    void timeFilterPostcodeDistricts(const OAIRequestTimeFilterPostcodeDistricts& oai_request_time_filter_postcode_districts);
-    void timeFilterPostcodeSectors(const OAIRequestTimeFilterPostcodeSectors& oai_request_time_filter_postcode_sectors);
-    void timeFilterPostcodes(const OAIRequestTimeFilterPostcodes& oai_request_time_filter_postcodes);
-    void timeMap(const OAIRequestTimeMap& oai_request_time_map);
-    
+    void routes(const OAIRequestRoutes &oai_request_routes);
+    void supportedLocations(const OAIRequestSupportedLocations &oai_request_supported_locations);
+    void timeFilter(const OAIRequestTimeFilter &oai_request_time_filter);
+    void timeFilterFast(const OAIRequestTimeFilterFast &oai_request_time_filter_fast);
+    void timeFilterPostcodeDistricts(const OAIRequestTimeFilterPostcodeDistricts &oai_request_time_filter_postcode_districts);
+    void timeFilterPostcodeSectors(const OAIRequestTimeFilterPostcodeSectors &oai_request_time_filter_postcode_sectors);
+    void timeFilterPostcodes(const OAIRequestTimeFilterPostcodes &oai_request_time_filter_postcodes);
+    void timeMap(const OAIRequestTimeMap &oai_request_time_map);
+
 private:
-    void geocodingReverseSearchCallback (OAIHttpRequestWorker * worker);
-    void geocodingSearchCallback (OAIHttpRequestWorker * worker);
-    void mapInfoCallback (OAIHttpRequestWorker * worker);
-    void routesCallback (OAIHttpRequestWorker * worker);
-    void supportedLocationsCallback (OAIHttpRequestWorker * worker);
-    void timeFilterCallback (OAIHttpRequestWorker * worker);
-    void timeFilterFastCallback (OAIHttpRequestWorker * worker);
-    void timeFilterPostcodeDistrictsCallback (OAIHttpRequestWorker * worker);
-    void timeFilterPostcodeSectorsCallback (OAIHttpRequestWorker * worker);
-    void timeFilterPostcodesCallback (OAIHttpRequestWorker * worker);
-    void timeMapCallback (OAIHttpRequestWorker * worker);
-    
+    QString _scheme, _host;
+    int _port;
+    QString _basePath;
+    int _timeOut;
+    QString _workingDirectory;
+    QMap<QString, QString> defaultHeaders;
+    bool isResponseCompressionEnabled;
+    bool isRequestCompressionEnabled;
+
+    void geocodingReverseSearchCallback(OAIHttpRequestWorker *worker);
+    void geocodingSearchCallback(OAIHttpRequestWorker *worker);
+    void mapInfoCallback(OAIHttpRequestWorker *worker);
+    void routesCallback(OAIHttpRequestWorker *worker);
+    void supportedLocationsCallback(OAIHttpRequestWorker *worker);
+    void timeFilterCallback(OAIHttpRequestWorker *worker);
+    void timeFilterFastCallback(OAIHttpRequestWorker *worker);
+    void timeFilterPostcodeDistrictsCallback(OAIHttpRequestWorker *worker);
+    void timeFilterPostcodeSectorsCallback(OAIHttpRequestWorker *worker);
+    void timeFilterPostcodesCallback(OAIHttpRequestWorker *worker);
+    void timeMapCallback(OAIHttpRequestWorker *worker);
+
 signals:
+
     void geocodingReverseSearchSignal(OAIResponseGeocoding summary);
     void geocodingSearchSignal(OAIResponseGeocoding summary);
     void mapInfoSignal(OAIResponseMapInfo summary);
@@ -89,44 +105,45 @@ signals:
     void timeFilterPostcodeSectorsSignal(OAIResponseTimeFilterPostcodeSectors summary);
     void timeFilterPostcodesSignal(OAIResponseTimeFilterPostcodes summary);
     void timeMapSignal(OAIResponseTimeMap summary);
-    
-    void geocodingReverseSearchSignalFull(OAIHttpRequestWorker* worker, OAIResponseGeocoding summary);
-    void geocodingSearchSignalFull(OAIHttpRequestWorker* worker, OAIResponseGeocoding summary);
-    void mapInfoSignalFull(OAIHttpRequestWorker* worker, OAIResponseMapInfo summary);
-    void routesSignalFull(OAIHttpRequestWorker* worker, OAIResponseRoutes summary);
-    void supportedLocationsSignalFull(OAIHttpRequestWorker* worker, OAIResponseSupportedLocations summary);
-    void timeFilterSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeFilter summary);
-    void timeFilterFastSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeFilterFast summary);
-    void timeFilterPostcodeDistrictsSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeFilterPostcodeDistricts summary);
-    void timeFilterPostcodeSectorsSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeFilterPostcodeSectors summary);
-    void timeFilterPostcodesSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeFilterPostcodes summary);
-    void timeMapSignalFull(OAIHttpRequestWorker* worker, OAIResponseTimeMap summary);
-    
-    void geocodingReverseSearchSignalE(OAIResponseGeocoding summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void geocodingSearchSignalE(OAIResponseGeocoding summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void mapInfoSignalE(OAIResponseMapInfo summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void routesSignalE(OAIResponseRoutes summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void supportedLocationsSignalE(OAIResponseSupportedLocations summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterSignalE(OAIResponseTimeFilter summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterFastSignalE(OAIResponseTimeFilterFast summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodeDistrictsSignalE(OAIResponseTimeFilterPostcodeDistricts summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodeSectorsSignalE(OAIResponseTimeFilterPostcodeSectors summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodesSignalE(OAIResponseTimeFilterPostcodes summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeMapSignalE(OAIResponseTimeMap summary, QNetworkReply::NetworkError error_type, QString& error_str);
-    
-    void geocodingReverseSearchSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void geocodingSearchSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void mapInfoSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void routesSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void supportedLocationsSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterFastSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodeDistrictsSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodeSectorsSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeFilterPostcodesSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    void timeMapSignalEFull(OAIHttpRequestWorker* worker, QNetworkReply::NetworkError error_type, QString& error_str);
-    
+
+    void geocodingReverseSearchSignalFull(OAIHttpRequestWorker *worker, OAIResponseGeocoding summary);
+    void geocodingSearchSignalFull(OAIHttpRequestWorker *worker, OAIResponseGeocoding summary);
+    void mapInfoSignalFull(OAIHttpRequestWorker *worker, OAIResponseMapInfo summary);
+    void routesSignalFull(OAIHttpRequestWorker *worker, OAIResponseRoutes summary);
+    void supportedLocationsSignalFull(OAIHttpRequestWorker *worker, OAIResponseSupportedLocations summary);
+    void timeFilterSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeFilter summary);
+    void timeFilterFastSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeFilterFast summary);
+    void timeFilterPostcodeDistrictsSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeFilterPostcodeDistricts summary);
+    void timeFilterPostcodeSectorsSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeFilterPostcodeSectors summary);
+    void timeFilterPostcodesSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeFilterPostcodes summary);
+    void timeMapSignalFull(OAIHttpRequestWorker *worker, OAIResponseTimeMap summary);
+
+    void geocodingReverseSearchSignalE(OAIResponseGeocoding summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void geocodingSearchSignalE(OAIResponseGeocoding summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void mapInfoSignalE(OAIResponseMapInfo summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void routesSignalE(OAIResponseRoutes summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void supportedLocationsSignalE(OAIResponseSupportedLocations summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterSignalE(OAIResponseTimeFilter summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterFastSignalE(OAIResponseTimeFilterFast summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodeDistrictsSignalE(OAIResponseTimeFilterPostcodeDistricts summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodeSectorsSignalE(OAIResponseTimeFilterPostcodeSectors summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodesSignalE(OAIResponseTimeFilterPostcodes summary, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeMapSignalE(OAIResponseTimeMap summary, QNetworkReply::NetworkError error_type, QString error_str);
+
+    void geocodingReverseSearchSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void geocodingSearchSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void mapInfoSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void routesSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void supportedLocationsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterFastSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodeDistrictsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodeSectorsSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeFilterPostcodesSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+    void timeMapSignalEFull(OAIHttpRequestWorker *worker, QNetworkReply::NetworkError error_type, QString error_str);
+
+    void abortRequestsSignal(); 
 };
 
-}
+} // namespace OpenAPI
 #endif

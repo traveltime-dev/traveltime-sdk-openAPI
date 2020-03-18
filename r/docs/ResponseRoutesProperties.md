@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseRoutesProperties
+# openapi::ResponseRoutesProperties
 
 ## Properties
 Name | Type | Description | Notes

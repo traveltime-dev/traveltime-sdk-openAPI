@@ -23,7 +23,7 @@ public class ResponseTimeMapResult   {
 
   private List<ResponseShape> shapes = new ArrayList<ResponseShape>();
 
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
 
   /**

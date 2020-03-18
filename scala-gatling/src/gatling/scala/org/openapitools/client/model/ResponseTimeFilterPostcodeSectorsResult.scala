@@ -3,14 +3,14 @@ package org.openapitools.client.model
 
 
 case class ResponseTimeFilterPostcodeSectorsResult (
-    _searchUnderscoreid: String,
+    _searchId: String,
     _sectors: List[ResponseTimeFilterPostcodeSector]
 )
 object ResponseTimeFilterPostcodeSectorsResult {
-    def toStringBody(var_searchUnderscoreid: Object, var_sectors: Object) =
+    def toStringBody(var_searchId: Object, var_sectors: Object) =
         s"""
         | {
-        | "searchUnderscoreid":$var_searchUnderscoreid,"sectors":$var_sectors
+        | "searchId":$var_searchId,"sectors":$var_sectors
         | }
         """.stripMargin
 }

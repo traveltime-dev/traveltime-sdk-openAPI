@@ -61,15 +61,6 @@ interface DefaultApiInterface
 {
 
     /**
-     * Sets authentication method ApplicationId
-     *
-     * @param string $value Value of the ApplicationId authentication method.
-     *
-     * @return void
-     */
-    public function setApplicationId($value);
-
-    /**
      * Sets authentication method ApiKey
      *
      * @param string $value Value of the ApiKey authentication method.
@@ -79,33 +70,42 @@ interface DefaultApiInterface
     public function setApiKey($value);
 
     /**
+     * Sets authentication method ApplicationId
+     *
+     * @param string $value Value of the ApplicationId authentication method.
+     *
+     * @return void
+     */
+    public function setApplicationId($value);
+
+    /**
      * Operation geocodingReverseSearch
      *
-     * @param  double $focusLat   (required)
-     * @param  double $focusLng   (required)
+     * @param  double $lat   (required)
+     * @param  double $lng   (required)
      * @param  string $withinCountry   (optional)
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseGeocoding[]
+     * @return OpenAPI\Server\Model\ResponseGeocoding
      *
      */
-    public function geocodingReverseSearch($focusLat, $focusLng, $withinCountry = null, &$responseCode, array &$responseHeaders);
+    public function geocodingReverseSearch($lat, $lng, $withinCountry = null, &$responseCode, array &$responseHeaders);
 
     /**
      * Operation geocodingSearch
      *
      * @param  string $query   (required)
-     * @param  string $withinCountry   (optional)
      * @param  double $focusLat   (optional)
      * @param  double $focusLng   (optional)
+     * @param  string $withinCountry   (optional)
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseGeocoding[]
+     * @return OpenAPI\Server\Model\ResponseGeocoding
      *
      */
-    public function geocodingSearch($query, $withinCountry = null, $focusLat = null, $focusLng = null, &$responseCode, array &$responseHeaders);
+    public function geocodingSearch($query, $focusLat = null, $focusLng = null, $withinCountry = null, &$responseCode, array &$responseHeaders);
 
     /**
      * Operation mapInfo
@@ -113,7 +113,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseMapInfo[]
+     * @return OpenAPI\Server\Model\ResponseMapInfo
      *
      */
     public function mapInfo(&$responseCode, array &$responseHeaders);
@@ -125,7 +125,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseRoutes[]
+     * @return OpenAPI\Server\Model\ResponseRoutes
      *
      */
     public function routes(RequestRoutes $requestRoutes, &$responseCode, array &$responseHeaders);
@@ -137,7 +137,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseSupportedLocations[]
+     * @return OpenAPI\Server\Model\ResponseSupportedLocations
      *
      */
     public function supportedLocations(RequestSupportedLocations $requestSupportedLocations, &$responseCode, array &$responseHeaders);
@@ -149,7 +149,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeFilter[]
+     * @return OpenAPI\Server\Model\ResponseTimeFilter
      *
      */
     public function timeFilter(RequestTimeFilter $requestTimeFilter, &$responseCode, array &$responseHeaders);
@@ -161,7 +161,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeFilterFast[]
+     * @return OpenAPI\Server\Model\ResponseTimeFilterFast
      *
      */
     public function timeFilterFast(RequestTimeFilterFast $requestTimeFilterFast, &$responseCode, array &$responseHeaders);
@@ -173,7 +173,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeDistricts[]
+     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeDistricts
      *
      */
     public function timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts $requestTimeFilterPostcodeDistricts, &$responseCode, array &$responseHeaders);
@@ -185,7 +185,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeSectors[]
+     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeSectors
      *
      */
     public function timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors $requestTimeFilterPostcodeSectors, &$responseCode, array &$responseHeaders);
@@ -197,7 +197,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodes[]
+     * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodes
      *
      */
     public function timeFilterPostcodes(RequestTimeFilterPostcodes $requestTimeFilterPostcodes, &$responseCode, array &$responseHeaders);
@@ -209,7 +209,7 @@ interface DefaultApiInterface
      * @param  integer $responseCode     The HTTP response code to return
      * @param  array   $responseHeaders  Additional HTTP headers to return with the response ()
      *
-     * @return OpenAPI\Server\Model\ResponseTimeMap[]
+     * @return OpenAPI\Server\Model\ResponseTimeMap
      *
      */
     public function timeMap(RequestTimeMap $requestTimeMap, &$responseCode, array &$responseHeaders);

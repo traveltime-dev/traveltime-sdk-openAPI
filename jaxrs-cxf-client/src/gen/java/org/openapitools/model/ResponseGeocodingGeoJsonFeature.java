@@ -19,10 +19,10 @@ public class ResponseGeocodingGeoJsonFeature  {
   private String type;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
  /**
    * Get type
    * @return type

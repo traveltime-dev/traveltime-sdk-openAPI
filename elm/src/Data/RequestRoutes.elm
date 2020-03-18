@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestRoutes exposing (RequestRoutes, decoder, encode)
+module Data.RequestRoutes exposing (RequestRoutes, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestLocation as RequestLocation exposing (RequestLocation)
 import Data.RequestRoutesDepartureSearch as RequestRoutesDepartureSearch exposing (RequestRoutesDepartureSearch)
@@ -39,12 +39,28 @@ decoder =
 
 
 encode : RequestRoutes -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
-        , ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestRoutesDepartureSearch.encode) model.departureSearches) )
-        , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestRoutesArrivalSearch.encode) model.arrivalSearches) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestRoutes -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestRoutes -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
+    , ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestRoutesDepartureSearch.encode) model.departureSearches) )
+    , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestRoutesArrivalSearch.encode) model.arrivalSearches) )
+    ]
+
+
+
+toString : RequestRoutes -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

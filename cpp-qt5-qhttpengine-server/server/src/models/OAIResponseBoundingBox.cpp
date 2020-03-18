@@ -13,12 +13,12 @@
 
 #include "OAIResponseBoundingBox.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseBoundingBox::asJson () const {
 QJsonObject
 OAIResponseBoundingBox::asJsonObject() const {
     QJsonObject obj;
-	if(envelope.isSet()){
+    if(envelope.isSet()){
         obj.insert(QString("envelope"), ::OpenAPI::toJsonValue(envelope));
     }
-	
+    
     if(boxes.size() > 0){
         obj.insert(QString("boxes"), ::OpenAPI::toJsonValue(boxes));
     } 

@@ -9,23 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum RequestRoutesProperty {
+    #[serde(rename = "travel_time")]
+    TravelTime,
+    #[serde(rename = "distance")]
+    Distance,
+    #[serde(rename = "fares")]
+    Fares,
+    #[serde(rename = "route")]
+    Route,
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct RequestRoutesProperty {
 }
 
-impl RequestRoutesProperty {
-    pub fn new() -> RequestRoutesProperty {
-        RequestRoutesProperty {
-        }
-    }
-}
-// TODO enum
-// List of RequestRoutesProperty
-//const (
-//    
-//    
-//    
-//)
+
+
+

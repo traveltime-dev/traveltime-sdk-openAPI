@@ -44,86 +44,26 @@ class ResponseRoutePart {
 
   ResponseRoutePart.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['type'] == null) {
-      type = null;
-    } else {
-          type = json['type'];
-    }
-    if (json['mode'] == null) {
-      mode = null;
-    } else {
-      mode = new ResponseTransportationMode.fromJson(json['mode']);
-    }
-    if (json['directions'] == null) {
-      directions = null;
-    } else {
-          directions = json['directions'];
-    }
-    if (json['distance'] == null) {
-      distance = null;
-    } else {
-          distance = json['distance'];
-    }
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['coords'] == null) {
-      coords = null;
-    } else {
-      coords = Coords.listFromJson(json['coords']);
-    }
-    if (json['direction'] == null) {
-      direction = null;
-    } else {
-          direction = json['direction'];
-    }
-    if (json['road'] == null) {
-      road = null;
-    } else {
-          road = json['road'];
-    }
-    if (json['turn'] == null) {
-      turn = null;
-    } else {
-          turn = json['turn'];
-    }
-    if (json['line'] == null) {
-      line = null;
-    } else {
-          line = json['line'];
-    }
-    if (json['departure_station'] == null) {
-      departureStation = null;
-    } else {
-          departureStation = json['departure_station'];
-    }
-    if (json['arrival_station'] == null) {
-      arrivalStation = null;
-    } else {
-          arrivalStation = json['arrival_station'];
-    }
-    if (json['departs_at'] == null) {
-      departsAt = null;
-    } else {
-          departsAt = json['departs_at'];
-    }
-    if (json['arrives_at'] == null) {
-      arrivesAt = null;
-    } else {
-          arrivesAt = json['arrives_at'];
-    }
-    if (json['num_stops'] == null) {
-      numStops = null;
-    } else {
-          numStops = json['num_stops'];
-    }
+    id = json['id'];
+    type = json['type'];
+    mode = (json['mode'] == null) ?
+      null :
+      ResponseTransportationMode.fromJson(json['mode']);
+    directions = json['directions'];
+    distance = json['distance'];
+    travelTime = json['travel_time'];
+    coords = (json['coords'] == null) ?
+      null :
+      Coords.listFromJson(json['coords']);
+    direction = json['direction'];
+    road = json['road'];
+    turn = json['turn'];
+    line = json['line'];
+    departureStation = json['departure_station'];
+    arrivalStation = json['arrival_station'];
+    departsAt = json['departs_at'];
+    arrivesAt = json['arrives_at'];
+    numStops = json['num_stops'];
   }
 
   Map<String, dynamic> toJson() {
@@ -164,15 +104,26 @@ class ResponseRoutePart {
   }
 
   static List<ResponseRoutePart> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseRoutePart>() : json.map((value) => new ResponseRoutePart.fromJson(value)).toList();
+    return json == null ? List<ResponseRoutePart>() : json.map((value) => ResponseRoutePart.fromJson(value)).toList();
   }
 
   static Map<String, ResponseRoutePart> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseRoutePart>();
+    var map = Map<String, ResponseRoutePart>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseRoutePart.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseRoutePart.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseRoutePart-objects as value to a dart map
+  static Map<String, List<ResponseRoutePart>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseRoutePart>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseRoutePart.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

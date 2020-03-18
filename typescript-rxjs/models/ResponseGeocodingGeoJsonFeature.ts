@@ -22,19 +22,16 @@ import {
  */
 export interface ResponseGeocodingGeoJsonFeature {
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingGeoJsonFeature
      */
     type: string;
     /**
-     * 
      * @type {ResponseGeocodingGeometry}
      * @memberof ResponseGeocodingGeoJsonFeature
      */
     geometry: ResponseGeocodingGeometry;
     /**
-     * 
      * @type {ResponseGeocodingProperties}
      * @memberof ResponseGeocodingGeoJsonFeature
      */

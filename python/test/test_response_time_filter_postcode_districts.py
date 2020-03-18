@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_time_filter_postcode_districts import ResponseTimeFilterPostcodeDistricts  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_time_filter_postcode_districts import ResponseTimeFilterPostcodeDistricts  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseTimeFilterPostcodeDistricts(unittest.TestCase):
     """ResponseTimeFilterPostcodeDistricts unit test stubs"""
@@ -29,11 +29,63 @@ class TestResponseTimeFilterPostcodeDistricts(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseTimeFilterPostcodeDistricts
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_time_filter_postcode_districts.ResponseTimeFilterPostcodeDistricts()  # noqa: E501
+        if include_optional :
+            return ResponseTimeFilterPostcodeDistricts(
+                results = [
+                    openapi_client.models.response_time_filter_postcode_districts_result.ResponseTimeFilterPostcodeDistrictsResult(
+                        search_id = '0', 
+                        districts = [
+                            openapi_client.models.response_time_filter_postcode_district.ResponseTimeFilterPostcodeDistrict(
+                                code = null, 
+                                properties = openapi_client.models.response_time_filter_postcode_district_properties.ResponseTimeFilterPostcodeDistrictProperties(
+                                    travel_time_reachable = openapi_client.models.response_travel_time_statistics.ResponseTravelTimeStatistics(
+                                        min = 56, 
+                                        max = 56, 
+                                        mean = 56, 
+                                        median = 56, ), 
+                                    travel_time_all = openapi_client.models.response_travel_time_statistics.ResponseTravelTimeStatistics(
+                                        min = 56, 
+                                        max = 56, 
+                                        mean = 56, 
+                                        median = 56, ), 
+                                    coverage = 1.337, ), )
+                            ], )
+                    ]
+            )
+        else :
+            return ResponseTimeFilterPostcodeDistricts(
+                results = [
+                    openapi_client.models.response_time_filter_postcode_districts_result.ResponseTimeFilterPostcodeDistrictsResult(
+                        search_id = '0', 
+                        districts = [
+                            openapi_client.models.response_time_filter_postcode_district.ResponseTimeFilterPostcodeDistrict(
+                                code = null, 
+                                properties = openapi_client.models.response_time_filter_postcode_district_properties.ResponseTimeFilterPostcodeDistrictProperties(
+                                    travel_time_reachable = openapi_client.models.response_travel_time_statistics.ResponseTravelTimeStatistics(
+                                        min = 56, 
+                                        max = 56, 
+                                        mean = 56, 
+                                        median = 56, ), 
+                                    travel_time_all = openapi_client.models.response_travel_time_statistics.ResponseTravelTimeStatistics(
+                                        min = 56, 
+                                        max = 56, 
+                                        mean = 56, 
+                                        median = 56, ), 
+                                    coverage = 1.337, ), )
+                            ], )
+                    ],
+        )
+
     def testResponseTimeFilterPostcodeDistricts(self):
         """Test ResponseTimeFilterPostcodeDistricts"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_time_filter_postcode_districts.ResponseTimeFilterPostcodeDistricts()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

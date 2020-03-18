@@ -21,7 +21,7 @@ public class ResponseMapInfoMap  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
    * Get name
    * @return name

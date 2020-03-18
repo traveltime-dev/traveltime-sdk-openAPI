@@ -13,12 +13,12 @@
 
 #include "OAIResponseFaresBreakdownItem.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,15 +81,15 @@ OAIResponseFaresBreakdownItem::asJson () const {
 QJsonObject
 OAIResponseFaresBreakdownItem::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(modes.size() > 0){
         obj.insert(QString("modes"), ::OpenAPI::toJsonValue(modes));
     } 
-	
+    
     if(route_part_ids.size() > 0){
         obj.insert(QString("route_part_ids"), ::OpenAPI::toJsonValue(route_part_ids));
     } 
-	
+    
     if(tickets.size() > 0){
         obj.insert(QString("tickets"), ::OpenAPI::toJsonValue(tickets));
     } 

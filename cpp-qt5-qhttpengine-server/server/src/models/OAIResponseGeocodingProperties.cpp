@@ -13,12 +13,12 @@
 
 #include "OAIResponseGeocodingProperties.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -159,52 +159,52 @@ OAIResponseGeocodingProperties::asJson () const {
 QJsonObject
 OAIResponseGeocodingProperties::asJsonObject() const {
     QJsonObject obj;
-	if(m_name_isSet){
+    if(m_name_isSet){
         obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
     }
-	if(m_label_isSet){
+    if(m_label_isSet){
         obj.insert(QString("label"), ::OpenAPI::toJsonValue(label));
     }
-	if(m_score_isSet){
+    if(m_score_isSet){
         obj.insert(QString("score"), ::OpenAPI::toJsonValue(score));
     }
-	if(m_house_number_isSet){
+    if(m_house_number_isSet){
         obj.insert(QString("house_number"), ::OpenAPI::toJsonValue(house_number));
     }
-	if(m_street_isSet){
+    if(m_street_isSet){
         obj.insert(QString("street"), ::OpenAPI::toJsonValue(street));
     }
-	if(m_region_isSet){
+    if(m_region_isSet){
         obj.insert(QString("region"), ::OpenAPI::toJsonValue(region));
     }
-	if(m_region_code_isSet){
+    if(m_region_code_isSet){
         obj.insert(QString("region_code"), ::OpenAPI::toJsonValue(region_code));
     }
-	if(m_neighbourhood_isSet){
+    if(m_neighbourhood_isSet){
         obj.insert(QString("neighbourhood"), ::OpenAPI::toJsonValue(neighbourhood));
     }
-	if(m_county_isSet){
+    if(m_county_isSet){
         obj.insert(QString("county"), ::OpenAPI::toJsonValue(county));
     }
-	if(m_macroregion_isSet){
+    if(m_macroregion_isSet){
         obj.insert(QString("macroregion"), ::OpenAPI::toJsonValue(macroregion));
     }
-	if(m_city_isSet){
+    if(m_city_isSet){
         obj.insert(QString("city"), ::OpenAPI::toJsonValue(city));
     }
-	if(m_country_isSet){
+    if(m_country_isSet){
         obj.insert(QString("country"), ::OpenAPI::toJsonValue(country));
     }
-	if(m_country_code_isSet){
+    if(m_country_code_isSet){
         obj.insert(QString("country_code"), ::OpenAPI::toJsonValue(country_code));
     }
-	if(m_continent_isSet){
+    if(m_continent_isSet){
         obj.insert(QString("continent"), ::OpenAPI::toJsonValue(continent));
     }
-	if(m_postcode_isSet){
+    if(m_postcode_isSet){
         obj.insert(QString("postcode"), ::OpenAPI::toJsonValue(postcode));
     }
-	if(features.isSet()){
+    if(features.isSet()){
         obj.insert(QString("features"), ::OpenAPI::toJsonValue(features));
     }
     return obj;

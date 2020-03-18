@@ -10,14 +10,14 @@ MyApp.add_route('GET', '/v4/geocoding/reverse', {
   "notes" => "",
   "parameters" => [
     {
-      "name" => "focus_lat",
+      "name" => "lat",
       "description" => "",
       "dataType" => "Float",
       "allowableValues" => "",
       "paramType" => "query",
     },
     {
-      "name" => "focus_lng",
+      "name" => "lng",
       "description" => "",
       "dataType" => "Float",
       "allowableValues" => "",
@@ -54,13 +54,6 @@ MyApp.add_route('GET', '/v4/geocoding/search', {
       "paramType" => "query",
     },
     {
-      "name" => "within_country",
-      "description" => "",
-      "dataType" => "String",
-      "allowableValues" => "",
-      "paramType" => "query",
-    },
-    {
       "name" => "focus_lat",
       "description" => "",
       "dataType" => "Float",
@@ -71,6 +64,13 @@ MyApp.add_route('GET', '/v4/geocoding/search', {
       "name" => "focus_lng",
       "description" => "",
       "dataType" => "Float",
+      "allowableValues" => "",
+      "paramType" => "query",
+    },
+    {
+      "name" => "within_country",
+      "description" => "",
+      "dataType" => "String",
       "allowableValues" => "",
       "paramType" => "query",
     },

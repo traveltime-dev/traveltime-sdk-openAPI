@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseRoutesLocation {
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutesLocation
      */
     id: string;
     /**
-     * 
      * @type {Array<ResponseRoutesProperties>}
      * @memberof ResponseRoutesLocation
      */

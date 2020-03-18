@@ -5,15 +5,15 @@ function New-ResponseTimeFilterPostcode {
         [String]
         ${code},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTimeFilterPostcodesProperties[]]
+        [Org.OpenAPITools.Model.ResponseTimeFilterPostcodesProperties[]]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterPostcode' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterPostcode' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterPostcode -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterPostcode -ArgumentList @(
             ${code},
             ${properties}
         )

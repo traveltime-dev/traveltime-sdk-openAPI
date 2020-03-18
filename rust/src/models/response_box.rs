@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseBox {
     #[serde(rename = "min_lat")]
     pub min_lat: f64,
@@ -27,10 +26,12 @@ pub struct ResponseBox {
 impl ResponseBox {
     pub fn new(min_lat: f64, max_lat: f64, min_lng: f64, max_lng: f64) -> ResponseBox {
         ResponseBox {
-            min_lat: min_lat,
-            max_lat: max_lat,
-            min_lng: min_lng,
-            max_lng: max_lng,
+            min_lat,
+            max_lat,
+            min_lng,
+            max_lng,
         }
     }
 }
+
+

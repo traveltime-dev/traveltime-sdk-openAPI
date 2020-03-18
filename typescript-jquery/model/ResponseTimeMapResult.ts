@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeMapResult {
-    searchId: string;
+    search_id: string;
 
     shapes: Array<models.ResponseShape>;
 

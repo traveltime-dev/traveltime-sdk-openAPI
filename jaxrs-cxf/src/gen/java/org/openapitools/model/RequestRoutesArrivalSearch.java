@@ -32,7 +32,7 @@ public class RequestRoutesArrivalSearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Date arrivalTime;
@@ -43,7 +43,7 @@ public class RequestRoutesArrivalSearch  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
  /**
    * Get id
    * @return id

@@ -19,7 +19,7 @@
 typedef struct response_time_map_result_t {
     char *search_id; // string
     list_t *shapes; //nonprimitive container
-    response_time_map_properties_t *properties; //model
+    struct response_time_map_properties_t *properties; //model
 
 } response_time_map_result_t;
 

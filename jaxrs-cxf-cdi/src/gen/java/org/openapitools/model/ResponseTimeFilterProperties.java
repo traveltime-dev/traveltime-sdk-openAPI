@@ -26,9 +26,9 @@ public class ResponseTimeFilterProperties   {
 
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
 
   /**

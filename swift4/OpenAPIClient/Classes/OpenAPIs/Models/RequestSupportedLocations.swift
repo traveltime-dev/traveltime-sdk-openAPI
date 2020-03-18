@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestSupportedLocations: Codable { 
 
-public struct RequestSupportedLocations: Codable {
 
     public var locations: [RequestLocation]
 
@@ -17,6 +17,4 @@ public struct RequestSupportedLocations: Codable {
         self.locations = locations
     }
 
-
 }
-

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterFastProperty exposing (RequestTimeFilterFastProperty(..), decoder, encode)
+module Data.RequestTimeFilterFastProperty exposing (RequestTimeFilterFastProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -51,5 +51,18 @@ encode model =
 
         Fares ->
             Encode.string "fares"
+
+
+
+
+toString : RequestTimeFilterFastProperty -> String
+toString model =
+    case model of
+        TravelTime ->
+            "travel_time"
+
+        Fares ->
+            "fares"
+
 
 

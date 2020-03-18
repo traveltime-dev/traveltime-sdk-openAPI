@@ -1,6 +1,6 @@
 library openapi.api;
 
-import 'package:http/io_client.dart';
+import 'package:http/http.dart' as http;
 import 'package:jaguar_serializer/jaguar_serializer.dart';
 import 'package:jaguar_retrofit/jaguar_retrofit.dart';
 import 'package:openapi/auth/api_key_auth.dart';
@@ -107,14 +107,14 @@ import 'package:openapi/model/response_travel_time_statistics.dart';
 
 final _jsonJaguarRepo = JsonRepo()
 ..add(CoordsSerializer())
-..add(RequestArrivalTimePeriodSerializer())
+
 ..add(RequestLocationSerializer())
 ..add(RequestRangeFullSerializer())
 ..add(RequestRangeNoMaxResultsSerializer())
 ..add(RequestRoutesSerializer())
 ..add(RequestRoutesArrivalSearchSerializer())
 ..add(RequestRoutesDepartureSearchSerializer())
-..add(RequestRoutesPropertySerializer())
+
 ..add(RequestSupportedLocationsSerializer())
 ..add(RequestTimeFilterSerializer())
 ..add(RequestTimeFilterArrivalSearchSerializer())
@@ -123,24 +123,24 @@ final _jsonJaguarRepo = JsonRepo()
 ..add(RequestTimeFilterFastArrivalManyToOneSearchSerializer())
 ..add(RequestTimeFilterFastArrivalOneToManySearchSerializer())
 ..add(RequestTimeFilterFastArrivalSearchesSerializer())
-..add(RequestTimeFilterFastPropertySerializer())
+
 ..add(RequestTimeFilterPostcodeDistrictsSerializer())
 ..add(RequestTimeFilterPostcodeDistrictsArrivalSearchSerializer())
 ..add(RequestTimeFilterPostcodeDistrictsDepartureSearchSerializer())
-..add(RequestTimeFilterPostcodeDistrictsPropertySerializer())
+
 ..add(RequestTimeFilterPostcodeSectorsSerializer())
 ..add(RequestTimeFilterPostcodeSectorsArrivalSearchSerializer())
 ..add(RequestTimeFilterPostcodeSectorsDepartureSearchSerializer())
-..add(RequestTimeFilterPostcodeSectorsPropertySerializer())
+
 ..add(RequestTimeFilterPostcodesSerializer())
 ..add(RequestTimeFilterPostcodesArrivalSearchSerializer())
 ..add(RequestTimeFilterPostcodesDepartureSearchSerializer())
-..add(RequestTimeFilterPostcodesPropertySerializer())
-..add(RequestTimeFilterPropertySerializer())
+
+
 ..add(RequestTimeMapSerializer())
 ..add(RequestTimeMapArrivalSearchSerializer())
 ..add(RequestTimeMapDepartureSearchSerializer())
-..add(RequestTimeMapPropertySerializer())
+
 ..add(RequestTransportationSerializer())
 ..add(RequestTransportationFastSerializer())
 ..add(RequestUnionOnIntersectionSerializer())
@@ -196,10 +196,10 @@ final _jsonJaguarRepo = JsonRepo()
 ..add(ResponseTimeMapResultSerializer())
 ..add(ResponseTimeMapWktSerializer())
 ..add(ResponseTimeMapWktResultSerializer())
-..add(ResponseTransportationModeSerializer())
+
 ..add(ResponseTravelTimeStatisticsSerializer())
 ;
-final Map<String, CodecRepo> _converters = {
+final Map<String, CodecRepo> defaultConverters = {
     MimeTypes.json: _jsonJaguarRepo,
 };
 
@@ -207,7 +207,7 @@ final Map<String, CodecRepo> _converters = {
 
 final _defaultInterceptors = [OAuthInterceptor(), BasicAuthInterceptor(), ApiKeyAuthInterceptor()];
 
-class JaguarApiGen {
+class Openapi {
     List<Interceptor> interceptors;
     String basePath = "https://api.traveltimeapp.com";
     Route _baseRoute;
@@ -216,8 +216,8 @@ class JaguarApiGen {
     /**
     * Add custom global interceptors, put overrideInterceptors to true to set your interceptors only (auth interceptors will not be added)
     */
-    JaguarApiGen({List<Interceptor> interceptors, bool overrideInterceptors = false, String baseUrl, this.timeout = const Duration(minutes: 2)}) {
-        _baseRoute = Route(baseUrl ?? basePath).withClient(globalClient ?? IOClient());
+    Openapi({List<Interceptor> interceptors, bool overrideInterceptors = false, String baseUrl, this.timeout = const Duration(minutes: 2)}) {
+        _baseRoute = Route(baseUrl ?? basePath).withClient(globalClient ?? http.Client());
         if(interceptors == null) {
             this.interceptors = _defaultInterceptors;
         }
@@ -256,7 +256,7 @@ class JaguarApiGen {
             base = _baseRoute;
         }
         if(converters == null) {
-            converters = _converters;
+            converters = defaultConverters;
         }
         return DefaultApi(base: base, converters: converters, timeout: timeout);
     }

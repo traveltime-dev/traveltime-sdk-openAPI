@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestRoutesArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -21,25 +20,27 @@ pub struct RequestRoutesArrivalSearch {
     #[serde(rename = "arrival_location_id")]
     pub arrival_location_id: String,
     #[serde(rename = "transportation")]
-    pub transportation: ::models::RequestTransportation,
+    pub transportation: crate::models::RequestTransportation,
     #[serde(rename = "arrival_time")]
     pub arrival_time: String,
     #[serde(rename = "properties")]
-    pub properties: Vec<::models::RequestRoutesProperty>,
-    #[serde(rename = "range")]
-    pub range: Option<::models::RequestRangeFull>,
+    pub properties: Vec<crate::models::RequestRoutesProperty>,
+    #[serde(rename = "range", skip_serializing_if = "Option::is_none")]
+    pub range: Option<crate::models::RequestRangeFull>,
 }
 
 impl RequestRoutesArrivalSearch {
-    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: ::models::RequestTransportation, arrival_time: String, properties: Vec<::models::RequestRoutesProperty>) -> RequestRoutesArrivalSearch {
+    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: crate::models::RequestTransportation, arrival_time: String, properties: Vec<crate::models::RequestRoutesProperty>) -> RequestRoutesArrivalSearch {
         RequestRoutesArrivalSearch {
-            id: id,
-            departure_location_ids: departure_location_ids,
-            arrival_location_id: arrival_location_id,
-            transportation: transportation,
-            arrival_time: arrival_time,
-            properties: properties,
+            id,
+            departure_location_ids,
+            arrival_location_id,
+            transportation,
+            arrival_time,
+            properties,
             range: None,
         }
     }
 }
+
+

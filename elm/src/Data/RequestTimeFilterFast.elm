@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterFast exposing (RequestTimeFilterFast, decoder, encode)
+module Data.RequestTimeFilterFast exposing (RequestTimeFilterFast, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestLocation as RequestLocation exposing (RequestLocation)
 import Data.RequestTimeFilterFastArrivalSearches as RequestTimeFilterFastArrivalSearches exposing (RequestTimeFilterFastArrivalSearches)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : RequestTimeFilterFast -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
-        , ( "arrival_searches", RequestTimeFilterFastArrivalSearches.encode model.arrivalSearches )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterFast -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterFast -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
+    , ( "arrival_searches", RequestTimeFilterFastArrivalSearches.encode model.arrivalSearches )
+    ]
+
+
+
+toString : RequestTimeFilterFast -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

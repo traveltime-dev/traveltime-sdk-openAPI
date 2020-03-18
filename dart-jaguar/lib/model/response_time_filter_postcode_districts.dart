@@ -7,7 +7,7 @@ part 'response_time_filter_postcode_districts.jser.dart';
 
 class ResponseTimeFilterPostcodeDistricts {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeFilterPostcodeDistrictsResult> results;
   
 

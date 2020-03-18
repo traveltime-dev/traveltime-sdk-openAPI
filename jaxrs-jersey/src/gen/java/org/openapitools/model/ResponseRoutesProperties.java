@@ -20,25 +20,36 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseFares;
 import org.openapitools.model.ResponseRoute;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseRoutesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseRoutesProperties.JSON_PROPERTY_TRAVEL_TIME,
+  ResponseRoutesProperties.JSON_PROPERTY_DISTANCE,
+  ResponseRoutesProperties.JSON_PROPERTY_FARES,
+  ResponseRoutesProperties.JSON_PROPERTY_ROUTE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseRoutesProperties   {
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("distance")
+  public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
   private Integer distance;
 
-  @JsonProperty("fares")
-  private ResponseFares fares = null;
+  public static final String JSON_PROPERTY_FARES = "fares";
+  @JsonProperty(JSON_PROPERTY_FARES)
+  private ResponseFares fares;
 
-  @JsonProperty("route")
-  private ResponseRoute route = null;
+  public static final String JSON_PROPERTY_ROUTE = "route";
+  @JsonProperty(JSON_PROPERTY_ROUTE)
+  private ResponseRoute route;
 
   public ResponseRoutesProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

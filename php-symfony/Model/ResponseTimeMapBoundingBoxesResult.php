@@ -110,7 +110,7 @@ class ResponseTimeMapBoundingBoxesResult
      *
      * @return OpenAPI\Server\Model\ResponseBoundingBox[]
      */
-    public function getBoundingBoxes()
+    public function getBoundingBoxes(): array
     {
         return $this->boundingBoxes;
     }
@@ -122,7 +122,7 @@ class ResponseTimeMapBoundingBoxesResult
      *
      * @return $this
      */
-    public function setBoundingBoxes(array $boundingBoxes)
+    public function setBoundingBoxes(array $boundingBoxes): array
     {
         $this->boundingBoxes = $boundingBoxes;
 
@@ -134,7 +134,7 @@ class ResponseTimeMapBoundingBoxesResult
      *
      * @return OpenAPI\Server\Model\ResponseTimeMapProperties
      */
-    public function getProperties()
+    public function getProperties(): ResponseTimeMapProperties
     {
         return $this->properties;
     }
@@ -146,7 +146,7 @@ class ResponseTimeMapBoundingBoxesResult
      *
      * @return $this
      */
-    public function setProperties(ResponseTimeMapProperties $properties)
+    public function setProperties(ResponseTimeMapProperties $properties): ResponseTimeMapProperties
     {
         $this->properties = $properties;
 

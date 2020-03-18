@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseGeocodingGeometry
+# Org.OpenAPITools.Model.ResponseGeocodingGeometry
 ## Properties
 
 Name | Type | Description | Notes

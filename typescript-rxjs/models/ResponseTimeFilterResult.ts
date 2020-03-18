@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseTimeFilterResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeFilterResult
      */
-    searchId: string;
+    search_id: string;
     /**
-     * 
      * @type {Array<ResponseTimeFilterLocation>}
      * @memberof ResponseTimeFilterResult
      */
     locations: Array<ResponseTimeFilterLocation>;
     /**
-     * 
      * @type {Array<string>}
      * @memberof ResponseTimeFilterResult
      */

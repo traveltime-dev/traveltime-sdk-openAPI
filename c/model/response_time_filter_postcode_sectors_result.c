@@ -9,31 +9,31 @@ response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_se
     char *search_id,
     list_t *sectors
     ) {
-	response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_sectors_result_local_var = malloc(sizeof(response_time_filter_postcode_sectors_result_t));
+    response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_sectors_result_local_var = malloc(sizeof(response_time_filter_postcode_sectors_result_t));
     if (!response_time_filter_postcode_sectors_result_local_var) {
         return NULL;
     }
-	response_time_filter_postcode_sectors_result_local_var->search_id = search_id;
-	response_time_filter_postcode_sectors_result_local_var->sectors = sectors;
+    response_time_filter_postcode_sectors_result_local_var->search_id = search_id;
+    response_time_filter_postcode_sectors_result_local_var->sectors = sectors;
 
-	return response_time_filter_postcode_sectors_result_local_var;
+    return response_time_filter_postcode_sectors_result_local_var;
 }
 
 
 void response_time_filter_postcode_sectors_result_free(response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_sectors_result) {
     listEntry_t *listEntry;
     free(response_time_filter_postcode_sectors_result->search_id);
-	list_ForEach(listEntry, response_time_filter_postcode_sectors_result->sectors) {
-		response_time_filter_postcode_sector_free(listEntry->data);
-	}
-	list_free(response_time_filter_postcode_sectors_result->sectors);
-	free(response_time_filter_postcode_sectors_result);
+    list_ForEach(listEntry, response_time_filter_postcode_sectors_result->sectors) {
+        response_time_filter_postcode_sector_free(listEntry->data);
+    }
+    list_free(response_time_filter_postcode_sectors_result->sectors);
+    free(response_time_filter_postcode_sectors_result);
 }
 
 cJSON *response_time_filter_postcode_sectors_result_convertToJSON(response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_sectors_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcode_sectors_result->search_id
+    // response_time_filter_postcode_sectors_result->search_id
     if (!response_time_filter_postcode_sectors_result->search_id) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_time_filter_postcode_sectors_result_convertToJSON(response_time_
     }
 
 
-	// response_time_filter_postcode_sectors_result->sectors
+    // response_time_filter_postcode_sectors_result->sectors
     if (!response_time_filter_postcode_sectors_result->sectors) {
         goto fail;
     }
@@ -64,12 +64,12 @@ cJSON *response_time_filter_postcode_sectors_result_convertToJSON(response_time_
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcode_sectors_result_t *response_time_filter_postcode_sectors_result_parseFromJSON(cJSON *response_time_filter_postcode_sectors_resultJSON){

@@ -13,12 +13,12 @@
 
 #include "OAIResponseBox.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -87,16 +87,16 @@ OAIResponseBox::asJson () const {
 QJsonObject
 OAIResponseBox::asJsonObject() const {
     QJsonObject obj;
-	if(m_min_lat_isSet){
+    if(m_min_lat_isSet){
         obj.insert(QString("min_lat"), ::OpenAPI::toJsonValue(min_lat));
     }
-	if(m_max_lat_isSet){
+    if(m_max_lat_isSet){
         obj.insert(QString("max_lat"), ::OpenAPI::toJsonValue(max_lat));
     }
-	if(m_min_lng_isSet){
+    if(m_min_lng_isSet){
         obj.insert(QString("min_lng"), ::OpenAPI::toJsonValue(min_lng));
     }
-	if(m_max_lng_isSet){
+    if(m_max_lng_isSet){
         obj.insert(QString("max_lng"), ::OpenAPI::toJsonValue(max_lng));
     }
     return obj;

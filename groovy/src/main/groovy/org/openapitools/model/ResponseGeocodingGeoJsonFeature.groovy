@@ -11,7 +11,7 @@ class ResponseGeocodingGeoJsonFeature {
     
     String type
     
-    ResponseGeocodingGeometry geometry = null
+    ResponseGeocodingGeometry geometry
     
-    ResponseGeocodingProperties properties = null
+    ResponseGeocodingProperties properties
 }

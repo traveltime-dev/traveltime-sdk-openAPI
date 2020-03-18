@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeFilterFastArrivalOneToManySearch: Codable { 
 
-public struct RequestTimeFilterFastArrivalOneToManySearch: Codable {
 
     public var id: String
     public var departureLocationId: String
@@ -39,6 +39,4 @@ public struct RequestTimeFilterFastArrivalOneToManySearch: Codable {
         case properties
     }
 
-
 }
-

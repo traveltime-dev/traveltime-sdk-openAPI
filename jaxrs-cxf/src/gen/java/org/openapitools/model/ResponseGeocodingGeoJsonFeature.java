@@ -22,11 +22,11 @@ public class ResponseGeocodingGeoJsonFeature  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
  /**
    * Get type
    * @return type

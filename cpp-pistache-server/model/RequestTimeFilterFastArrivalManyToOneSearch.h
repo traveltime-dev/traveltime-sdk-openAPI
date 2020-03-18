@@ -50,35 +50,37 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getArrivalLocationId() const;
     void setArrivalLocationId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<std::string>& getDepartureLocationIds();
-        /// <summary>
+    void setDepartureLocationIds(std::vector<std::string> const& value);
+    /// <summary>
     /// 
     /// </summary>
     RequestTransportationFast getTransportation() const;
     void setTransportation(RequestTransportationFast const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getTravelTime() const;
     void setTravelTime(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     RequestArrivalTimePeriod getArrivalTimePeriod() const;
     void setArrivalTimePeriod(RequestArrivalTimePeriod const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterFastProperty>& getProperties();
-    
+    void setProperties(std::vector<RequestTimeFilterFastProperty> const& value);
+
     friend void to_json(nlohmann::json& j, const RequestTimeFilterFastArrivalManyToOneSearch& o);
     friend void from_json(const nlohmann::json& j, RequestTimeFilterFastArrivalManyToOneSearch& o);
 protected:

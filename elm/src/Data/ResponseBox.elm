@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseBox exposing (ResponseBox, decoder, encode)
+module Data.ResponseBox exposing (ResponseBox, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -38,13 +38,29 @@ decoder =
 
 
 encode : ResponseBox -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "min_lat", Encode.float model.minLat )
-        , ( "max_lat", Encode.float model.maxLat )
-        , ( "min_lng", Encode.float model.minLng )
-        , ( "max_lng", Encode.float model.maxLng )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseBox -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseBox -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "min_lat", Encode.float model.minLat )
+    , ( "max_lat", Encode.float model.maxLat )
+    , ( "min_lng", Encode.float model.minLng )
+    , ( "max_lng", Encode.float model.maxLng )
+    ]
+
+
+
+toString : ResponseBox -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

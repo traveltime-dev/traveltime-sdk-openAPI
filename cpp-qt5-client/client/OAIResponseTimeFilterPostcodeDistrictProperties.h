@@ -21,59 +21,54 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTravelTimeStatistics.h"
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterPostcodeDistrictProperties: public OAIObject {
+class OAIResponseTimeFilterPostcodeDistrictProperties : public OAIObject {
 public:
     OAIResponseTimeFilterPostcodeDistrictProperties();
     OAIResponseTimeFilterPostcodeDistrictProperties(QString json);
     ~OAIResponseTimeFilterPostcodeDistrictProperties() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     OAIResponseTravelTimeStatistics getTravelTimeReachable() const;
     void setTravelTimeReachable(const OAIResponseTravelTimeStatistics &travel_time_reachable);
 
-    
     OAIResponseTravelTimeStatistics getTravelTimeAll() const;
     void setTravelTimeAll(const OAIResponseTravelTimeStatistics &travel_time_all);
 
-    
     double getCoverage() const;
     void setCoverage(const double &coverage);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     OAIResponseTravelTimeStatistics travel_time_reachable;
     bool m_travel_time_reachable_isSet;
     bool m_travel_time_reachable_isValid;
-    
+
     OAIResponseTravelTimeStatistics travel_time_all;
     bool m_travel_time_all_isSet;
     bool m_travel_time_all_isValid;
-    
+
     double coverage;
     bool m_coverage_isSet;
     bool m_coverage_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterPostcodeDistrictProperties)
 
 #endif // OAIResponseTimeFilterPostcodeDistrictProperties_H

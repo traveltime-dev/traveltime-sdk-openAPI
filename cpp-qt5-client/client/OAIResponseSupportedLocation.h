@@ -21,51 +21,47 @@
 
 #include <QJsonObject>
 
-
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseSupportedLocation: public OAIObject {
+class OAIResponseSupportedLocation : public OAIObject {
 public:
     OAIResponseSupportedLocation();
     OAIResponseSupportedLocation(QString json);
     ~OAIResponseSupportedLocation() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     QString getMapName() const;
     void setMapName(const QString &map_name);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     QString map_name;
     bool m_map_name_isSet;
     bool m_map_name_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseSupportedLocation)
 
 #endif // OAIResponseSupportedLocation_H

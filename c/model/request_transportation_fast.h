@@ -12,20 +12,23 @@
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
 
-                typedef enum  {  public_transport, driving, driving+public_transport } type_e;
+// Enum TYPE for request_transportation_fast
 
-        char* type_ToString(type_e type);
+typedef enum  { traveltime_platform_api_request_transportation_fast_TYPE_NULL = 0, traveltime_platform_api_request_transportation_fast_TYPE_public_transport, traveltime_platform_api_request_transportation_fast_TYPE_driving, traveltime_platform_api_request_transportation_fast_TYPE_driving+public_transport } traveltime_platform_api_request_transportation_fast_TYPE_e;
 
-        type_e type_FromString(char* type);
+char* request_transportation_fast_type_ToString(traveltime_platform_api_request_transportation_fast_TYPE_e type);
+
+traveltime_platform_api_request_transportation_fast_TYPE_e request_transportation_fast_type_FromString(char* type);
+
 
 
 typedef struct request_transportation_fast_t {
-    type_e type; //enum
+    traveltime_platform_api_request_transportation_fast_TYPE_e type; //enum
 
 } request_transportation_fast_t;
 
 request_transportation_fast_t *request_transportation_fast_create(
-    type_e type
+    traveltime_platform_api_request_transportation_fast_TYPE_e type
 );
 
 void request_transportation_fast_free(request_transportation_fast_t *request_transportation_fast);

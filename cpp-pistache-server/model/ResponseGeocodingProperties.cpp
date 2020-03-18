@@ -100,72 +100,72 @@ void from_json(const nlohmann::json& j, ResponseGeocodingProperties& o)
 {
     j.at("name").get_to(o.m_Name);
     j.at("label").get_to(o.m_Label);
-    if(j.contains("score"))
+    if(j.find("score") != j.end())
     {
         j.at("score").get_to(o.m_Score);
         o.m_ScoreIsSet = true;
     } 
-    if(j.contains("house_number"))
+    if(j.find("house_number") != j.end())
     {
         j.at("house_number").get_to(o.m_House_number);
         o.m_House_numberIsSet = true;
     } 
-    if(j.contains("street"))
+    if(j.find("street") != j.end())
     {
         j.at("street").get_to(o.m_Street);
         o.m_StreetIsSet = true;
     } 
-    if(j.contains("region"))
+    if(j.find("region") != j.end())
     {
         j.at("region").get_to(o.m_Region);
         o.m_RegionIsSet = true;
     } 
-    if(j.contains("region_code"))
+    if(j.find("region_code") != j.end())
     {
         j.at("region_code").get_to(o.m_Region_code);
         o.m_Region_codeIsSet = true;
     } 
-    if(j.contains("neighbourhood"))
+    if(j.find("neighbourhood") != j.end())
     {
         j.at("neighbourhood").get_to(o.m_Neighbourhood);
         o.m_NeighbourhoodIsSet = true;
     } 
-    if(j.contains("county"))
+    if(j.find("county") != j.end())
     {
         j.at("county").get_to(o.m_County);
         o.m_CountyIsSet = true;
     } 
-    if(j.contains("macroregion"))
+    if(j.find("macroregion") != j.end())
     {
         j.at("macroregion").get_to(o.m_Macroregion);
         o.m_MacroregionIsSet = true;
     } 
-    if(j.contains("city"))
+    if(j.find("city") != j.end())
     {
         j.at("city").get_to(o.m_City);
         o.m_CityIsSet = true;
     } 
-    if(j.contains("country"))
+    if(j.find("country") != j.end())
     {
         j.at("country").get_to(o.m_Country);
         o.m_CountryIsSet = true;
     } 
-    if(j.contains("country_code"))
+    if(j.find("country_code") != j.end())
     {
         j.at("country_code").get_to(o.m_Country_code);
         o.m_Country_codeIsSet = true;
     } 
-    if(j.contains("continent"))
+    if(j.find("continent") != j.end())
     {
         j.at("continent").get_to(o.m_Continent);
         o.m_ContinentIsSet = true;
     } 
-    if(j.contains("postcode"))
+    if(j.find("postcode") != j.end())
     {
         j.at("postcode").get_to(o.m_Postcode);
         o.m_PostcodeIsSet = true;
     } 
-    if(j.contains("features"))
+    if(j.find("features") != j.end())
     {
         j.at("features").get_to(o.m_Features);
         o.m_FeaturesIsSet = true;
@@ -179,7 +179,6 @@ std::string ResponseGeocodingProperties::getName() const
 void ResponseGeocodingProperties::setName(std::string const& value)
 {
     m_Name = value;
-    
 }
 std::string ResponseGeocodingProperties::getLabel() const
 {
@@ -188,7 +187,6 @@ std::string ResponseGeocodingProperties::getLabel() const
 void ResponseGeocodingProperties::setLabel(std::string const& value)
 {
     m_Label = value;
-    
 }
 double ResponseGeocodingProperties::getScore() const
 {

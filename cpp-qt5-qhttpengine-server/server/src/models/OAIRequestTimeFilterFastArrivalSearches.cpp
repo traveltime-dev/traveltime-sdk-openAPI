@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterFastArrivalSearches.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,11 +75,11 @@ OAIRequestTimeFilterFastArrivalSearches::asJson () const {
 QJsonObject
 OAIRequestTimeFilterFastArrivalSearches::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(many_to_one.size() > 0){
         obj.insert(QString("many_to_one"), ::OpenAPI::toJsonValue(many_to_one));
     } 
-	
+    
     if(one_to_many.size() > 0){
         obj.insert(QString("one_to_many"), ::OpenAPI::toJsonValue(one_to_many));
     } 

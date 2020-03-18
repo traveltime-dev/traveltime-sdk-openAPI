@@ -29,9 +29,9 @@ import javax.validation.constraints.*;
 
 @SuppressWarnings("RedundantThrows")
 public interface DefaultApiControllerImpInterface {
-    ResponseGeocoding geocodingReverseSearch( @NotNull Double focusLat,  @NotNull Double focusLng, String withinCountry) throws Exception;
+    ResponseGeocoding geocodingReverseSearch( @NotNull Double lat,  @NotNull Double lng, String withinCountry) throws Exception;
 
-    ResponseGeocoding geocodingSearch( @NotNull String query, String withinCountry, Double focusLat, Double focusLng) throws Exception;
+    ResponseGeocoding geocodingSearch( @NotNull String query, Double focusLat, Double focusLng, String withinCountry) throws Exception;
 
     ResponseMapInfo mapInfo() throws Exception;
 

@@ -18,18 +18,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterPostcodesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterPostcodesProperties.JSON_PROPERTY_TRAVEL_TIME,
+  ResponseTimeFilterPostcodesProperties.JSON_PROPERTY_DISTANCE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodesProperties   {
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("distance")
+  public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
   private Integer distance;
 
   public ResponseTimeFilterPostcodesProperties travelTime(Integer travelTime) {

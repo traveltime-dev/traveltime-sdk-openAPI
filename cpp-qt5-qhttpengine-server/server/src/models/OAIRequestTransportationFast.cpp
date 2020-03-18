@@ -13,12 +13,12 @@
 
 #include "OAIRequestTransportationFast.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -69,7 +69,7 @@ OAIRequestTransportationFast::asJson () const {
 QJsonObject
 OAIRequestTransportationFast::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
     return obj;

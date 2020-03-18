@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestRoutesDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestRoutesDepartureSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -49,7 +49,7 @@ public class RequestRoutesDepartureSearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_DEPARTURE_TIME = "departure_time";
   @SerializedName(SERIALIZED_NAME_DEPARTURE_TIME)
@@ -61,9 +61,11 @@ public class RequestRoutesDepartureSearch {
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
+
 
   public RequestRoutesDepartureSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -73,15 +75,19 @@ public class RequestRoutesDepartureSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestRoutesDepartureSearch departureLocationId(String departureLocationId) {
+    
     this.departureLocationId = departureLocationId;
     return this;
   }
@@ -91,15 +97,19 @@ public class RequestRoutesDepartureSearch {
    * @return departureLocationId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getDepartureLocationId() {
     return departureLocationId;
   }
+
 
   public void setDepartureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
   }
 
+
   public RequestRoutesDepartureSearch arrivalLocationIds(List<String> arrivalLocationIds) {
+    
     this.arrivalLocationIds = arrivalLocationIds;
     return this;
   }
@@ -114,15 +124,19 @@ public class RequestRoutesDepartureSearch {
    * @return arrivalLocationIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
+
 
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
   }
 
+
   public RequestRoutesDepartureSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -132,15 +146,19 @@ public class RequestRoutesDepartureSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestRoutesDepartureSearch departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -150,15 +168,19 @@ public class RequestRoutesDepartureSearch {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public RequestRoutesDepartureSearch properties(List<RequestRoutesProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -173,15 +195,19 @@ public class RequestRoutesDepartureSearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestRoutesProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestRoutesProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestRoutesDepartureSearch range(RequestRangeFull range) {
+    
     this.range = range;
     return this;
   }
@@ -190,10 +216,13 @@ public class RequestRoutesDepartureSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeFull getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeFull range) {
     this.range = range;

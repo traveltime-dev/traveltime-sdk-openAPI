@@ -15,13 +15,13 @@ import org.openapitools.model.RequestTransportation;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeSectorsArrivalSearch   {
   
 
   private String id;
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Integer travelTime;
 
@@ -31,7 +31,7 @@ public class RequestTimeFilterPostcodeSectorsArrivalSearch   {
 
   private List<RequestTimeFilterPostcodeSectorsProperty> properties = new ArrayList<RequestTimeFilterPostcodeSectorsProperty>();
 
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   /**
    **/

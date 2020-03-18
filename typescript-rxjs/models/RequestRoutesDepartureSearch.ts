@@ -23,43 +23,36 @@ import {
  */
 export interface RequestRoutesDepartureSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestRoutesDepartureSearch
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof RequestRoutesDepartureSearch
      */
-    departureLocationId: string;
+    departure_location_id: string;
     /**
-     * 
      * @type {Array<string>}
      * @memberof RequestRoutesDepartureSearch
      */
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestRoutesDepartureSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
-     * @type {Date}
+     * @type {string}
      * @memberof RequestRoutesDepartureSearch
      */
-    departureTime: Date;
+    departure_time: string;
     /**
-     * 
      * @type {Array<RequestRoutesProperty>}
      * @memberof RequestRoutesDepartureSearch
      */
     properties: Array<RequestRoutesProperty>;
     /**
-     * 
      * @type {RequestRangeFull}
      * @memberof RequestRoutesDepartureSearch
      */

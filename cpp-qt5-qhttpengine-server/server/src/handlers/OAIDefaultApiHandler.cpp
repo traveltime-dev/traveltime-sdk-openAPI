@@ -29,9 +29,9 @@ OAIDefaultApiHandler::~OAIDefaultApiHandler(){
 
 }
 
-void OAIDefaultApiHandler::geocodingReverseSearch(double focus_lat, double focus_lng, QString within_country) {
-    Q_UNUSED(focus_lat);
-    Q_UNUSED(focus_lng);
+void OAIDefaultApiHandler::geocodingReverseSearch(double lat, double lng, QString within_country) {
+    Q_UNUSED(lat);
+    Q_UNUSED(lng);
     Q_UNUSED(within_country);
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr ) 
@@ -40,11 +40,11 @@ void OAIDefaultApiHandler::geocodingReverseSearch(double focus_lat, double focus
         reqObj->geocodingReverseSearchResponse(res);
     }    
 }
-void OAIDefaultApiHandler::geocodingSearch(QString query, QString within_country, double focus_lat, double focus_lng) {
+void OAIDefaultApiHandler::geocodingSearch(QString query, double focus_lat, double focus_lng, QString within_country) {
     Q_UNUSED(query);
-    Q_UNUSED(within_country);
     Q_UNUSED(focus_lat);
     Q_UNUSED(focus_lng);
+    Q_UNUSED(within_country);
     auto reqObj = qobject_cast<OAIDefaultApiRequest*>(sender());
     if( reqObj != nullptr ) 
     { 

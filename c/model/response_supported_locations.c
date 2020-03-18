@@ -9,34 +9,34 @@ response_supported_locations_t *response_supported_locations_create(
     list_t *locations,
     list_t *unsupported_locations
     ) {
-	response_supported_locations_t *response_supported_locations_local_var = malloc(sizeof(response_supported_locations_t));
+    response_supported_locations_t *response_supported_locations_local_var = malloc(sizeof(response_supported_locations_t));
     if (!response_supported_locations_local_var) {
         return NULL;
     }
-	response_supported_locations_local_var->locations = locations;
-	response_supported_locations_local_var->unsupported_locations = unsupported_locations;
+    response_supported_locations_local_var->locations = locations;
+    response_supported_locations_local_var->unsupported_locations = unsupported_locations;
 
-	return response_supported_locations_local_var;
+    return response_supported_locations_local_var;
 }
 
 
 void response_supported_locations_free(response_supported_locations_t *response_supported_locations) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_supported_locations->locations) {
-		response_supported_location_free(listEntry->data);
-	}
-	list_free(response_supported_locations->locations);
-	list_ForEach(listEntry, response_supported_locations->unsupported_locations) {
-		free(listEntry->data);
-	}
-	list_free(response_supported_locations->unsupported_locations);
-	free(response_supported_locations);
+    list_ForEach(listEntry, response_supported_locations->locations) {
+        response_supported_location_free(listEntry->data);
+    }
+    list_free(response_supported_locations->locations);
+    list_ForEach(listEntry, response_supported_locations->unsupported_locations) {
+        free(listEntry->data);
+    }
+    list_free(response_supported_locations->unsupported_locations);
+    free(response_supported_locations);
 }
 
 cJSON *response_supported_locations_convertToJSON(response_supported_locations_t *response_supported_locations) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_supported_locations->locations
+    // response_supported_locations->locations
     if (!response_supported_locations->locations) {
         goto fail;
     }
@@ -58,17 +58,17 @@ cJSON *response_supported_locations_convertToJSON(response_supported_locations_t
     }
 
 
-	// response_supported_locations->unsupported_locations
+    // response_supported_locations->unsupported_locations
     if (!response_supported_locations->unsupported_locations) {
         goto fail;
     }
     
-	cJSON *unsupported_locations = cJSON_AddArrayToObject(item, "unsupported_locations");
-	if(unsupported_locations == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *unsupported_locations = cJSON_AddArrayToObject(item, "unsupported_locations");
+    if(unsupported_locations == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *unsupported_locationsListEntry;
+    listEntry_t *unsupported_locationsListEntry;
     list_ForEach(unsupported_locationsListEntry, response_supported_locations->unsupported_locations) {
     if(cJSON_AddStringToObject(unsupported_locations, "", (char*)unsupported_locationsListEntry->data) == NULL)
     {
@@ -76,12 +76,12 @@ cJSON *response_supported_locations_convertToJSON(response_supported_locations_t
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_supported_locations_t *response_supported_locations_parseFromJSON(cJSON *response_supported_locationsJSON){

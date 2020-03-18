@@ -1,9 +1,9 @@
-# traveltimeplatform::RequestTimeFilterPostcodeDistricts
+# openapi::RequestTimeFilterPostcodeDistricts
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departure_searches** | [**RequestTimeFilterPostcodeDistrictsDepartureSearch**](RequestTimeFilterPostcodeDistrictsDepartureSearch.md) |  | [optional] 
-**arrival_searches** | [**RequestTimeFilterPostcodeDistrictsArrivalSearch**](RequestTimeFilterPostcodeDistrictsArrivalSearch.md) |  | [optional] 
+**departure_searches** | [**array[RequestTimeFilterPostcodeDistrictsDepartureSearch]**](RequestTimeFilterPostcodeDistrictsDepartureSearch.md) |  | [optional] 
+**arrival_searches** | [**array[RequestTimeFilterPostcodeDistrictsArrivalSearch]**](RequestTimeFilterPostcodeDistrictsArrivalSearch.md) |  | [optional] 
 
 

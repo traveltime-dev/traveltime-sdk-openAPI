@@ -197,24 +197,31 @@ let primitives = [
                     "number",
                     "any"
                  ];
-                 
+
 let enumsMap: {[index: string]: any} = {
+        "RequestArrivalTimePeriod": RequestArrivalTimePeriod,
+        "RequestRoutesProperty": RequestRoutesProperty,
+        "RequestTimeFilterFastProperty": RequestTimeFilterFastProperty,
+        "RequestTimeFilterPostcodeDistrictsProperty": RequestTimeFilterPostcodeDistrictsProperty,
+        "RequestTimeFilterPostcodeSectorsProperty": RequestTimeFilterPostcodeSectorsProperty,
+        "RequestTimeFilterPostcodesProperty": RequestTimeFilterPostcodesProperty,
+        "RequestTimeFilterProperty": RequestTimeFilterProperty,
+        "RequestTimeMapProperty": RequestTimeMapProperty,
         "RequestTransportation.TypeEnum": RequestTransportation.TypeEnum,
         "RequestTransportationFast.TypeEnum": RequestTransportationFast.TypeEnum,
         "ResponseFareTicket.TypeEnum": ResponseFareTicket.TypeEnum,
         "ResponseRoutePart.TypeEnum": ResponseRoutePart.TypeEnum,
+        "ResponseTransportationMode": ResponseTransportationMode,
 }
 
 let typeMap: {[index: string]: any} = {
     "Coords": Coords,
-    "RequestArrivalTimePeriod": RequestArrivalTimePeriod,
     "RequestLocation": RequestLocation,
     "RequestRangeFull": RequestRangeFull,
     "RequestRangeNoMaxResults": RequestRangeNoMaxResults,
     "RequestRoutes": RequestRoutes,
     "RequestRoutesArrivalSearch": RequestRoutesArrivalSearch,
     "RequestRoutesDepartureSearch": RequestRoutesDepartureSearch,
-    "RequestRoutesProperty": RequestRoutesProperty,
     "RequestSupportedLocations": RequestSupportedLocations,
     "RequestTimeFilter": RequestTimeFilter,
     "RequestTimeFilterArrivalSearch": RequestTimeFilterArrivalSearch,
@@ -223,24 +230,18 @@ let typeMap: {[index: string]: any} = {
     "RequestTimeFilterFastArrivalManyToOneSearch": RequestTimeFilterFastArrivalManyToOneSearch,
     "RequestTimeFilterFastArrivalOneToManySearch": RequestTimeFilterFastArrivalOneToManySearch,
     "RequestTimeFilterFastArrivalSearches": RequestTimeFilterFastArrivalSearches,
-    "RequestTimeFilterFastProperty": RequestTimeFilterFastProperty,
     "RequestTimeFilterPostcodeDistricts": RequestTimeFilterPostcodeDistricts,
     "RequestTimeFilterPostcodeDistrictsArrivalSearch": RequestTimeFilterPostcodeDistrictsArrivalSearch,
     "RequestTimeFilterPostcodeDistrictsDepartureSearch": RequestTimeFilterPostcodeDistrictsDepartureSearch,
-    "RequestTimeFilterPostcodeDistrictsProperty": RequestTimeFilterPostcodeDistrictsProperty,
     "RequestTimeFilterPostcodeSectors": RequestTimeFilterPostcodeSectors,
     "RequestTimeFilterPostcodeSectorsArrivalSearch": RequestTimeFilterPostcodeSectorsArrivalSearch,
     "RequestTimeFilterPostcodeSectorsDepartureSearch": RequestTimeFilterPostcodeSectorsDepartureSearch,
-    "RequestTimeFilterPostcodeSectorsProperty": RequestTimeFilterPostcodeSectorsProperty,
     "RequestTimeFilterPostcodes": RequestTimeFilterPostcodes,
     "RequestTimeFilterPostcodesArrivalSearch": RequestTimeFilterPostcodesArrivalSearch,
     "RequestTimeFilterPostcodesDepartureSearch": RequestTimeFilterPostcodesDepartureSearch,
-    "RequestTimeFilterPostcodesProperty": RequestTimeFilterPostcodesProperty,
-    "RequestTimeFilterProperty": RequestTimeFilterProperty,
     "RequestTimeMap": RequestTimeMap,
     "RequestTimeMapArrivalSearch": RequestTimeMapArrivalSearch,
     "RequestTimeMapDepartureSearch": RequestTimeMapDepartureSearch,
-    "RequestTimeMapProperty": RequestTimeMapProperty,
     "RequestTransportation": RequestTransportation,
     "RequestTransportationFast": RequestTransportationFast,
     "RequestUnionOnIntersection": RequestUnionOnIntersection,
@@ -296,7 +297,6 @@ let typeMap: {[index: string]: any} = {
     "ResponseTimeMapResult": ResponseTimeMapResult,
     "ResponseTimeMapWkt": ResponseTimeMapWkt,
     "ResponseTimeMapWktResult": ResponseTimeMapWktResult,
-    "ResponseTransportationMode": ResponseTransportationMode,
     "ResponseTravelTimeStatistics": ResponseTravelTimeStatistics,
 }
 
@@ -359,7 +359,7 @@ export class ObjectSerializer {
             if (!typeMap[type]) { // in case we dont know the type
                 return data;
             }
-            
+
             // Get the actual type of this object
             type = this.findCorrectType(data, type);
 
@@ -415,7 +415,7 @@ export interface Authentication {
     /**
     * Apply authentication settings to header and query params.
     */
-    applyToRequest(requestOptions: localVarRequest.Options): void;
+    applyToRequest(requestOptions: localVarRequest.Options): Promise<void> | void;
 }
 
 export class HttpBasicAuth implements Authentication {
@@ -425,6 +425,19 @@ export class HttpBasicAuth implements Authentication {
     applyToRequest(requestOptions: localVarRequest.Options): void {
         requestOptions.auth = {
             username: this.username, password: this.password
+        }
+    }
+}
+
+export class HttpBearerAuth implements Authentication {
+    public accessToken: string | (() => string) = '';
+
+    applyToRequest(requestOptions: localVarRequest.Options): void {
+        if (requestOptions && requestOptions.headers) {
+            const accessToken = typeof this.accessToken === 'function'
+                            ? this.accessToken()
+                            : this.accessToken;
+            requestOptions.headers["Authorization"] = "Bearer " + accessToken;
         }
     }
 }
@@ -440,6 +453,13 @@ export class ApiKeyAuth implements Authentication {
             (<any>requestOptions.qs)[this.paramName] = this.apiKey;
         } else if (this.location == "header" && requestOptions && requestOptions.headers) {
             requestOptions.headers[this.paramName] = this.apiKey;
+        } else if (this.location == 'cookie' && requestOptions && requestOptions.headers) {
+            if (requestOptions.headers['Cookie']) {
+                requestOptions.headers['Cookie'] += '; ' + this.paramName + '=' + encodeURIComponent(this.apiKey);
+            }
+            else {
+                requestOptions.headers['Cookie'] = this.paramName + '=' + encodeURIComponent(this.apiKey);
+            }
         }
     }
 }
@@ -462,3 +482,5 @@ export class VoidAuth implements Authentication {
         // Do nothing
     }
 }
+
+export type Interceptor = (requestOptions: localVarRequest.Options) => (Promise<void> | void);

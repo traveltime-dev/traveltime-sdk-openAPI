@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseTimeFilterPostcodeSectorsResult
+# openapi::ResponseTimeFilterPostcodeSectorsResult
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_id** | **character** |  | 
-**sectors** | [**ResponseTimeFilterPostcodeSector**](ResponseTimeFilterPostcodeSector.md) |  | 
+**sectors** | [**array[ResponseTimeFilterPostcodeSector]**](ResponseTimeFilterPostcodeSector.md) |  | 
 
 

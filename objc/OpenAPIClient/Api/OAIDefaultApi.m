@@ -70,34 +70,34 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 ///
 /// 
 /// 
-///  @param focusLat  
+///  @param lat  
 ///
-///  @param focusLng  
+///  @param lng  
 ///
 ///  @param withinCountry  (optional)
 ///
 ///  @returns OAIResponseGeocoding*
 ///
--(NSURLSessionTask*) geocodingReverseSearchWithFocusLat: (NSNumber*) focusLat
-    focusLng: (NSNumber*) focusLng
+-(NSURLSessionTask*) geocodingReverseSearchWithLat: (NSNumber*) lat
+    lng: (NSNumber*) lng
     withinCountry: (NSString*) withinCountry
     completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler {
-    // verify the required parameter 'focusLat' is set
-    if (focusLat == nil) {
-        NSParameterAssert(focusLat);
+    // verify the required parameter 'lat' is set
+    if (lat == nil) {
+        NSParameterAssert(lat);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"focusLat"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"lat"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
         return nil;
     }
 
-    // verify the required parameter 'focusLng' is set
-    if (focusLng == nil) {
-        NSParameterAssert(focusLng);
+    // verify the required parameter 'lng' is set
+    if (lng == nil) {
+        NSParameterAssert(lng);
         if(handler) {
-            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"focusLng"] };
+            NSDictionary * userInfo = @{NSLocalizedDescriptionKey : [NSString stringWithFormat:NSLocalizedString(@"Missing required parameter '%@'", nil),@"lng"] };
             NSError* error = [NSError errorWithDomain:kOAIDefaultApiErrorDomain code:kOAIDefaultApiMissingParamErrorCode userInfo:userInfo];
             handler(nil, error);
         }
@@ -109,11 +109,11 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     NSMutableDictionary *pathParams = [[NSMutableDictionary alloc] init];
 
     NSMutableDictionary* queryParams = [[NSMutableDictionary alloc] init];
-    if (focusLat != nil) {
-        queryParams[@"focus.lat"] = focusLat;
+    if (lat != nil) {
+        queryParams[@"lat"] = lat;
     }
-    if (focusLng != nil) {
-        queryParams[@"focus.lng"] = focusLng;
+    if (lng != nil) {
+        queryParams[@"lng"] = lng;
     }
     if (withinCountry != nil) {
         queryParams[@"within.country"] = withinCountry;
@@ -163,18 +163,18 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
 /// 
 ///  @param query  
 ///
-///  @param withinCountry  (optional)
-///
 ///  @param focusLat  (optional)
 ///
 ///  @param focusLng  (optional)
 ///
+///  @param withinCountry  (optional)
+///
 ///  @returns OAIResponseGeocoding*
 ///
 -(NSURLSessionTask*) geocodingSearchWithQuery: (NSString*) query
-    withinCountry: (NSString*) withinCountry
     focusLat: (NSNumber*) focusLat
     focusLng: (NSNumber*) focusLng
+    withinCountry: (NSString*) withinCountry
     completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler {
     // verify the required parameter 'query' is set
     if (query == nil) {
@@ -195,14 +195,14 @@ NSInteger kOAIDefaultApiMissingParamErrorCode = 234513;
     if (query != nil) {
         queryParams[@"query"] = query;
     }
-    if (withinCountry != nil) {
-        queryParams[@"within.country"] = withinCountry;
-    }
     if (focusLat != nil) {
         queryParams[@"focus.lat"] = focusLat;
     }
     if (focusLng != nil) {
         queryParams[@"focus.lng"] = focusLng;
+    }
+    if (withinCountry != nil) {
+        queryParams[@"within.country"] = withinCountry;
     }
     NSMutableDictionary* headerParams = [NSMutableDictionary dictionaryWithDictionary:self.apiClient.configuration.defaultHeaders];
     [headerParams addEntriesFromDictionary:self.defaultHeaders];

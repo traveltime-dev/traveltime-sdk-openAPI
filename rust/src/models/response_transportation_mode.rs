@@ -9,23 +9,42 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ResponseTransportationMode {
+    #[serde(rename = "car")]
+    Car,
+    #[serde(rename = "parking")]
+    Parking,
+    #[serde(rename = "boarding")]
+    Boarding,
+    #[serde(rename = "walk")]
+    Walk,
+    #[serde(rename = "bike")]
+    Bike,
+    #[serde(rename = "train")]
+    Train,
+    #[serde(rename = "rail_national")]
+    RailNational,
+    #[serde(rename = "rail_overground")]
+    RailOverground,
+    #[serde(rename = "rail_underground")]
+    RailUnderground,
+    #[serde(rename = "rail_dlr")]
+    RailDlr,
+    #[serde(rename = "bus")]
+    Bus,
+    #[serde(rename = "cable_car")]
+    CableCar,
+    #[serde(rename = "plane")]
+    Plane,
+    #[serde(rename = "ferry")]
+    Ferry,
+    #[serde(rename = "coach")]
+    Coach,
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct ResponseTransportationMode {
 }
 
-impl ResponseTransportationMode {
-    pub fn new() -> ResponseTransportationMode {
-        ResponseTransportationMode {
-        }
-    }
-}
-// TODO enum
-// List of ResponseTransportationMode
-//const (
-//    
-//    
-//    
-//)
+
+
+

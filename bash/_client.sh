@@ -316,8 +316,8 @@ case $state in
       geocodingReverseSearch)
         local -a _op_arguments
         _op_arguments=(
-                    "focus.lat=:[QUERY] "
-"focus.lng=:[QUERY] "
+                    "lat=:[QUERY] "
+"lng=:[QUERY] "
 "within.country=:[QUERY] "
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
@@ -326,9 +326,9 @@ case $state in
         local -a _op_arguments
         _op_arguments=(
                     "query=:[QUERY] "
-"within.country=:[QUERY] "
 "focus.lat=:[QUERY] "
 "focus.lng=:[QUERY] "
+"within.country=:[QUERY] "
           )
         _describe -t actions 'operations' _op_arguments -S '' && ret=0
         ;;

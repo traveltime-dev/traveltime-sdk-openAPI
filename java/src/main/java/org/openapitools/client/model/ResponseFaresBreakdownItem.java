@@ -31,7 +31,7 @@ import org.openapitools.client.model.ResponseTransportationMode;
 /**
  * ResponseFaresBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseFaresBreakdownItem {
   public static final String SERIALIZED_NAME_MODES = "modes";
   @SerializedName(SERIALIZED_NAME_MODES)
@@ -45,7 +45,9 @@ public class ResponseFaresBreakdownItem {
   @SerializedName(SERIALIZED_NAME_TICKETS)
   private List<ResponseFareTicket> tickets = new ArrayList<ResponseFareTicket>();
 
+
   public ResponseFaresBreakdownItem modes(List<ResponseTransportationMode> modes) {
+    
     this.modes = modes;
     return this;
   }
@@ -60,15 +62,19 @@ public class ResponseFaresBreakdownItem {
    * @return modes
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTransportationMode> getModes() {
     return modes;
   }
+
 
   public void setModes(List<ResponseTransportationMode> modes) {
     this.modes = modes;
   }
 
+
   public ResponseFaresBreakdownItem routePartIds(List<Integer> routePartIds) {
+    
     this.routePartIds = routePartIds;
     return this;
   }
@@ -83,15 +89,19 @@ public class ResponseFaresBreakdownItem {
    * @return routePartIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<Integer> getRoutePartIds() {
     return routePartIds;
   }
+
 
   public void setRoutePartIds(List<Integer> routePartIds) {
     this.routePartIds = routePartIds;
   }
 
+
   public ResponseFaresBreakdownItem tickets(List<ResponseFareTicket> tickets) {
+    
     this.tickets = tickets;
     return this;
   }
@@ -106,9 +116,11 @@ public class ResponseFaresBreakdownItem {
    * @return tickets
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseFareTicket> getTickets() {
     return tickets;
   }
+
 
   public void setTickets(List<ResponseFareTicket> tickets) {
     this.tickets = tickets;

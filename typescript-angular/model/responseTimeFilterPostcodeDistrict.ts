@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ModelString } from './modelString';
 import { ResponseTimeFilterPostcodeDistrictProperties } from './responseTimeFilterPostcodeDistrictProperties';
+import { ModelString } from './modelString';
 
 
 export interface ResponseTimeFilterPostcodeDistrict { 

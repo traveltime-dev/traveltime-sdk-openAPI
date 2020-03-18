@@ -9,10 +9,10 @@ part 'request_time_filter_fast_arrival_searches.jser.dart';
 
 class RequestTimeFilterFastArrivalSearches {
   
-  @Alias('many_to_one')
+  @Alias('many_to_one', isNullable: false,  )
   final List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne;
   
-  @Alias('one_to_many')
+  @Alias('one_to_many', isNullable: false,  )
   final List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany;
   
 

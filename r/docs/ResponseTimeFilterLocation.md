@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseTimeFilterLocation
+# openapi::ResponseTimeFilterLocation
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **character** |  | 
-**properties** | [**ResponseTimeFilterProperties**](ResponseTimeFilterProperties.md) |  | 
+**properties** | [**array[ResponseTimeFilterProperties]**](ResponseTimeFilterProperties.md) |  | 
 
 

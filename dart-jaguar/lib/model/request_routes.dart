@@ -11,13 +11,13 @@ part 'request_routes.jser.dart';
 
 class RequestRoutes {
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<RequestLocation> locations;
   
-  @Alias('departure_searches')
+  @Alias('departure_searches', isNullable: false,  )
   final List<RequestRoutesDepartureSearch> departureSearches;
   
-  @Alias('arrival_searches')
+  @Alias('arrival_searches', isNullable: false,  )
   final List<RequestRoutesArrivalSearch> arrivalSearches;
   
 

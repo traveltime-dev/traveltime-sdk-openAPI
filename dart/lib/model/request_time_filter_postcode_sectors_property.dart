@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class RequestTimeFilterPostcodeSectorsProperty {
   /// The underlying value of this enum member.
   final String value;
@@ -10,16 +9,18 @@ class RequestTimeFilterPostcodeSectorsProperty {
   static const RequestTimeFilterPostcodeSectorsProperty travelTimeReachable_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_reachable");
   static const RequestTimeFilterPostcodeSectorsProperty travelTimeAll_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_all");
   static const RequestTimeFilterPostcodeSectorsProperty coverage_ = const RequestTimeFilterPostcodeSectorsProperty._internal("coverage");
+
+  static RequestTimeFilterPostcodeSectorsProperty fromJson(String value) {
+    return new RequestTimeFilterPostcodeSectorsPropertyTypeTransformer().decode(value);
+  }
 }
 
-class RequestTimeFilterPostcodeSectorsPropertyTypeTransformer extends TypeTransformer<RequestTimeFilterPostcodeSectorsProperty> {
+class RequestTimeFilterPostcodeSectorsPropertyTypeTransformer {
 
-  @override
   dynamic encode(RequestTimeFilterPostcodeSectorsProperty data) {
     return data.value;
   }
 
-  @override
   RequestTimeFilterPostcodeSectorsProperty decode(dynamic data) {
     switch (data) {
       case "travel_time_reachable": return RequestTimeFilterPostcodeSectorsProperty.travelTimeReachable_;

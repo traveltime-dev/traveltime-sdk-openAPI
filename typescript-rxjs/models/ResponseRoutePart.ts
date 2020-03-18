@@ -22,101 +22,85 @@ import {
  */
 export interface ResponseRoutePart {
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     type: ResponseRoutePartTypeEnum;
     /**
-     * 
      * @type {ResponseTransportationMode}
      * @memberof ResponseRoutePart
      */
     mode: ResponseTransportationMode;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     directions: string;
     /**
-     * 
      * @type {number}
      * @memberof ResponseRoutePart
      */
     distance: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * 
      * @type {Array<Coords>}
      * @memberof ResponseRoutePart
      */
     coords: Array<Coords>;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     direction?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     road?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     turn?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
     line?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departureStation?: string;
+    departure_station?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivalStation?: string;
+    arrival_station?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departsAt?: string;
+    departs_at?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivesAt?: string;
+    arrives_at?: string;
     /**
-     * 
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    numStops?: number;
+    num_stops?: number;
 }
 
 /**

@@ -15,6 +15,6 @@ import * as models from './models';
 export interface ResponseSupportedLocations {
     locations: Array<models.ResponseSupportedLocation>;
 
-    unsupportedLocations: Array<string>;
+    unsupported_locations: Array<string>;
 
 }

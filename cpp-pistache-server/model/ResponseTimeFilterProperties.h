@@ -62,6 +62,7 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseDistanceBreakdownItem>& getDistanceBreakdown();
+    void setDistanceBreakdown(std::vector<ResponseDistanceBreakdownItem> const& value);
     bool distanceBreakdownIsSet() const;
     void unsetDistance_breakdown();
     /// <summary>

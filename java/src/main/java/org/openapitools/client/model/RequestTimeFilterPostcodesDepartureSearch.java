@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestTimeFilterPostcodesDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTimeFilterPostcodesDepartureSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -41,7 +41,7 @@ public class RequestTimeFilterPostcodesDepartureSearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -57,9 +57,11 @@ public class RequestTimeFilterPostcodesDepartureSearch {
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
+
 
   public RequestTimeFilterPostcodesDepartureSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -69,15 +71,19 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeFilterPostcodesDepartureSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -87,15 +93,19 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeFilterPostcodesDepartureSearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -107,15 +117,19 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeFilterPostcodesDepartureSearch departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -125,15 +139,19 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public RequestTimeFilterPostcodesDepartureSearch properties(List<RequestTimeFilterPostcodesProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -148,15 +166,19 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestTimeFilterPostcodesProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeFilterPostcodesProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestTimeFilterPostcodesDepartureSearch range(RequestRangeFull range) {
+    
     this.range = range;
     return this;
   }
@@ -165,10 +187,13 @@ public class RequestTimeFilterPostcodesDepartureSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeFull getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeFull range) {
     this.range = range;

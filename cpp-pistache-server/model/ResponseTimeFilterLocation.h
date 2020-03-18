@@ -48,11 +48,12 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterProperties>& getProperties();
-    
+    void setProperties(std::vector<ResponseTimeFilterProperties> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterLocation& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterLocation& o);
 protected:

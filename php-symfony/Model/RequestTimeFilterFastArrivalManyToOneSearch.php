@@ -178,7 +178,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return string[]
      */
-    public function getDepartureLocationIds()
+    public function getDepartureLocationIds(): array
     {
         return $this->departureLocationIds;
     }
@@ -190,7 +190,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return $this
      */
-    public function setDepartureLocationIds(array $departureLocationIds)
+    public function setDepartureLocationIds(array $departureLocationIds): array
     {
         $this->departureLocationIds = $departureLocationIds;
 
@@ -202,7 +202,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportationFast
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportationFast
     {
         return $this->transportation;
     }
@@ -214,7 +214,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportationFast $transportation)
+    public function setTransportation(RequestTransportationFast $transportation): RequestTransportationFast
     {
         $this->transportation = $transportation;
 
@@ -250,7 +250,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return OpenAPI\Server\Model\RequestArrivalTimePeriod
      */
-    public function getArrivalTimePeriod()
+    public function getArrivalTimePeriod(): RequestArrivalTimePeriod
     {
         return $this->arrivalTimePeriod;
     }
@@ -262,7 +262,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return $this
      */
-    public function setArrivalTimePeriod(RequestArrivalTimePeriod $arrivalTimePeriod)
+    public function setArrivalTimePeriod(RequestArrivalTimePeriod $arrivalTimePeriod): RequestArrivalTimePeriod
     {
         $this->arrivalTimePeriod = $arrivalTimePeriod;
 
@@ -274,7 +274,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterFastProperty[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -286,7 +286,7 @@ class RequestTimeFilterFastArrivalManyToOneSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 

@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesLocation {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "properties")]
-    pub properties: Vec<::models::ResponseRoutesProperties>,
+    pub properties: Vec<crate::models::ResponseRoutesProperties>,
 }
 
 impl ResponseRoutesLocation {
-    pub fn new(id: String, properties: Vec<::models::ResponseRoutesProperties>) -> ResponseRoutesLocation {
+    pub fn new(id: String, properties: Vec<crate::models::ResponseRoutesProperties>) -> ResponseRoutesLocation {
         ResponseRoutesLocation {
-            id: id,
-            properties: properties,
+            id,
+            properties,
         }
     }
 }
+
+

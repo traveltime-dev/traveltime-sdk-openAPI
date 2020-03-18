@@ -50,16 +50,16 @@ class DefaultApi(baseUrl: String) {
    *   ApiKey (apiKey)
    *   ApplicationId (apiKey)
    * 
-   * @param focusLat 
-   * @param focusLng 
+   * @param lat 
+   * @param lng 
    * @param withinCountry 
    */
-  def geocodingReverseSearch(focusLat: Double, focusLng: Double, withinCountry: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseGeocoding] =
-    ApiRequest[ResponseGeocoding](ApiMethods.GET, "https://api.traveltimeapp.com", "/v4/geocoding/reverse", "application/json")
+  def geocodingReverseSearch(lat: Double, lng: Double, withinCountry: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseGeocoding] =
+    ApiRequest[ResponseGeocoding](ApiMethods.GET, baseUrl, "/v4/geocoding/reverse", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
-      .withQueryParam("focus.lat", focusLat)
-      .withQueryParam("focus.lng", focusLng)
+      .withQueryParam("lat", lat)
+      .withQueryParam("lng", lng)
       .withQueryParam("within.country", withinCountry)
       .withSuccessResponse[ResponseGeocoding](200)
       .withDefaultErrorResponse[ResponseError]
@@ -75,18 +75,18 @@ class DefaultApi(baseUrl: String) {
    *   ApplicationId (apiKey)
    * 
    * @param query 
-   * @param withinCountry 
    * @param focusLat 
    * @param focusLng 
+   * @param withinCountry 
    */
-  def geocodingSearch(query: String, withinCountry: Option[String] = None, focusLat: Option[Double] = None, focusLng: Option[Double] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseGeocoding] =
-    ApiRequest[ResponseGeocoding](ApiMethods.GET, "https://api.traveltimeapp.com", "/v4/geocoding/search", "application/json")
+  def geocodingSearch(query: String, focusLat: Option[Double] = None, focusLng: Option[Double] = None, withinCountry: Option[String] = None)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseGeocoding] =
+    ApiRequest[ResponseGeocoding](ApiMethods.GET, baseUrl, "/v4/geocoding/search", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withQueryParam("query", query)
-      .withQueryParam("within.country", withinCountry)
       .withQueryParam("focus.lat", focusLat)
       .withQueryParam("focus.lng", focusLng)
+      .withQueryParam("within.country", withinCountry)
       .withSuccessResponse[ResponseGeocoding](200)
       .withDefaultErrorResponse[ResponseError]
       
@@ -101,7 +101,7 @@ class DefaultApi(baseUrl: String) {
    *   ApplicationId (apiKey)
    */
   def mapInfo()(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseMapInfo] =
-    ApiRequest[ResponseMapInfo](ApiMethods.GET, "https://api.traveltimeapp.com", "/v4/map-info", "application/json")
+    ApiRequest[ResponseMapInfo](ApiMethods.GET, baseUrl, "/v4/map-info", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withSuccessResponse[ResponseMapInfo](200)
@@ -120,7 +120,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestRoutes 
    */
   def routes(requestRoutes: RequestRoutes)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseRoutes] =
-    ApiRequest[ResponseRoutes](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/routes", "application/json")
+    ApiRequest[ResponseRoutes](ApiMethods.POST, baseUrl, "/v4/routes", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestRoutes)
@@ -140,7 +140,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestSupportedLocations 
    */
   def supportedLocations(requestSupportedLocations: RequestSupportedLocations)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseSupportedLocations] =
-    ApiRequest[ResponseSupportedLocations](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/supported-locations", "application/json")
+    ApiRequest[ResponseSupportedLocations](ApiMethods.POST, baseUrl, "/v4/supported-locations", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestSupportedLocations)
@@ -160,7 +160,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeFilter 
    */
   def timeFilter(requestTimeFilter: RequestTimeFilter)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeFilter] =
-    ApiRequest[ResponseTimeFilter](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-filter", "application/json")
+    ApiRequest[ResponseTimeFilter](ApiMethods.POST, baseUrl, "/v4/time-filter", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeFilter)
@@ -180,7 +180,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeFilterFast 
    */
   def timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeFilterFast] =
-    ApiRequest[ResponseTimeFilterFast](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-filter/fast", "application/json")
+    ApiRequest[ResponseTimeFilterFast](ApiMethods.POST, baseUrl, "/v4/time-filter/fast", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeFilterFast)
@@ -200,7 +200,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeFilterPostcodeDistricts 
    */
   def timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeFilterPostcodeDistricts] =
-    ApiRequest[ResponseTimeFilterPostcodeDistricts](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-filter/postcode-districts", "application/json")
+    ApiRequest[ResponseTimeFilterPostcodeDistricts](ApiMethods.POST, baseUrl, "/v4/time-filter/postcode-districts", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeFilterPostcodeDistricts)
@@ -220,7 +220,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeFilterPostcodeSectors 
    */
   def timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeFilterPostcodeSectors] =
-    ApiRequest[ResponseTimeFilterPostcodeSectors](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-filter/postcode-sectors", "application/json")
+    ApiRequest[ResponseTimeFilterPostcodeSectors](ApiMethods.POST, baseUrl, "/v4/time-filter/postcode-sectors", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeFilterPostcodeSectors)
@@ -240,7 +240,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeFilterPostcodes 
    */
   def timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeFilterPostcodes] =
-    ApiRequest[ResponseTimeFilterPostcodes](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-filter/postcodes", "application/json")
+    ApiRequest[ResponseTimeFilterPostcodes](ApiMethods.POST, baseUrl, "/v4/time-filter/postcodes", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeFilterPostcodes)
@@ -260,7 +260,7 @@ class DefaultApi(baseUrl: String) {
    * @param requestTimeMap 
    */
   def timeMap(requestTimeMap: RequestTimeMap)(implicit apiKey: ApiKeyValue, apiKey: ApiKeyValue): ApiRequest[ResponseTimeMap] =
-    ApiRequest[ResponseTimeMap](ApiMethods.POST, "https://api.traveltimeapp.com", "/v4/time-map", "application/json")
+    ApiRequest[ResponseTimeMap](ApiMethods.POST, baseUrl, "/v4/time-map", "application/json")
       .withApiKey(apiKey, "X-Api-Key", HEADER)
       .withApiKey(apiKey, "X-Application-Id", HEADER)
       .withBody(requestTimeMap)

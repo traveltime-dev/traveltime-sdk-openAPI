@@ -13,7 +13,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -95,10 +95,10 @@ public class DefaultApiTest {
      */
     @Test
     public void geocodingReverseSearchTest() {
-        Double focusLat = null;
-        Double focusLng = null;
+        Double lat = null;
+        Double lng = null;
         String withinCountry = null;
-        //ResponseGeocoding response = api.geocodingReverseSearch(focusLat, focusLng, withinCountry);
+        //ResponseGeocoding response = api.geocodingReverseSearch(lat, lng, withinCountry);
         //assertNotNull(response);
         // TODO: test validations
         
@@ -112,10 +112,10 @@ public class DefaultApiTest {
     @Test
     public void geocodingSearchTest() {
         String query = null;
-        String withinCountry = null;
         Double focusLat = null;
         Double focusLng = null;
-        //ResponseGeocoding response = api.geocodingSearch(query, withinCountry, focusLat, focusLng);
+        String withinCountry = null;
+        //ResponseGeocoding response = api.geocodingSearch(query, focusLat, focusLng, withinCountry);
         //assertNotNull(response);
         // TODO: test validations
         

@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestTimeFilterFastArrivalSearches
+# Org.OpenAPITools.Model.RequestTimeFilterFastArrivalSearches
 ## Properties
 
 Name | Type | Description | Notes

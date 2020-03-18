@@ -5,13 +5,15 @@ part 'response_fare_ticket.jser.dart';
 
 class ResponseFareTicket {
   
-  @Alias('type')
+  @Alias('type', isNullable: false,
+          
+  )
   final String type;
   //enum typeEnum {  single,  week,  month,  year,  };
-  @Alias('price')
+  @Alias('price', isNullable: false,  )
   final double price;
   
-  @Alias('currency')
+  @Alias('currency', isNullable: false,  )
   final String currency;
   
 

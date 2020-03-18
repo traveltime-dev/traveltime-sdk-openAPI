@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterFastResult {
-    "searchId": string;
+    "search_id": string;
     "locations": Array<models.ResponseTimeFilterFastLocation>;
     "unreachable": Array<string>;
 }

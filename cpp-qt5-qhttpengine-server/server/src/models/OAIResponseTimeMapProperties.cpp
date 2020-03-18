@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeMapProperties.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -69,7 +69,7 @@ OAIResponseTimeMapProperties::asJson () const {
 QJsonObject
 OAIResponseTimeMapProperties::asJsonObject() const {
     QJsonObject obj;
-	if(m_is_only_walking_isSet){
+    if(m_is_only_walking_isSet){
         obj.insert(QString("is_only_walking"), ::OpenAPI::toJsonValue(is_only_walking));
     }
     return obj;

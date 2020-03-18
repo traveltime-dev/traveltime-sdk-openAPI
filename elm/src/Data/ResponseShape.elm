@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseShape exposing (ResponseShape, decoder, encode)
+module Data.ResponseShape exposing (ResponseShape, decoder, encode, encodeWithTag, toString)
 
 import Data.Coords as Coords exposing (Coords)
 import Dict exposing (Dict)
@@ -35,11 +35,27 @@ decoder =
 
 
 encode : ResponseShape -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "shell", (Encode.list Coords.encode) model.shell )
-        , ( "holes", (Encode.list (Encode.list Coords.encode)) model.holes )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseShape -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseShape -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "shell", (Encode.list Coords.encode) model.shell )
+    , ( "holes", (Encode.list (Encode.list Coords.encode)) model.holes )
+    ]
+
+
+
+toString : ResponseShape -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

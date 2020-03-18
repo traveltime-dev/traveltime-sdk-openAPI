@@ -23,12 +23,12 @@ import model.ResponseTimeMap
 /**
   * Provides a default implementation for [[DefaultApi]].
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2019-05-24T09:07:50.761Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T08:51:49.713Z[Etc/UTC]")
 class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc
     */
-  override def geocodingReverseSearch(focusPeriodlat: Double, focusPeriodlng: Double, withinPeriodcountry: Option[String]): ResponseGeocoding = {
+  override def geocodingReverseSearch(lat: Double, lng: Double, withinPeriodcountry: Option[String]): ResponseGeocoding = {
     // TODO: Implement better logic
 
     ResponseGeocoding("", List.empty[ResponseGeocodingGeoJsonFeature])
@@ -37,7 +37,7 @@ class DefaultApiImpl extends DefaultApi {
   /**
     * @inheritdoc
     */
-  override def geocodingSearch(query: String, withinPeriodcountry: Option[String], focusPeriodlat: Option[Double], focusPeriodlng: Option[Double]): ResponseGeocoding = {
+  override def geocodingSearch(query: String, focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], withinPeriodcountry: Option[String]): ResponseGeocoding = {
     // TODO: Implement better logic
 
     ResponseGeocoding("", List.empty[ResponseGeocodingGeoJsonFeature])

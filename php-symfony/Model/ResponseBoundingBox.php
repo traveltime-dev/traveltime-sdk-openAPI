@@ -76,7 +76,7 @@ class ResponseBoundingBox
      *
      * @return OpenAPI\Server\Model\ResponseBox
      */
-    public function getEnvelope()
+    public function getEnvelope(): ResponseBox
     {
         return $this->envelope;
     }
@@ -88,7 +88,7 @@ class ResponseBoundingBox
      *
      * @return $this
      */
-    public function setEnvelope(ResponseBox $envelope)
+    public function setEnvelope(ResponseBox $envelope): ResponseBox
     {
         $this->envelope = $envelope;
 
@@ -100,7 +100,7 @@ class ResponseBoundingBox
      *
      * @return OpenAPI\Server\Model\ResponseBox[]
      */
-    public function getBoxes()
+    public function getBoxes(): array
     {
         return $this->boxes;
     }
@@ -112,7 +112,7 @@ class ResponseBoundingBox
      *
      * @return $this
      */
-    public function setBoxes(array $boxes)
+    public function setBoxes(array $boxes): array
     {
         $this->boxes = $boxes;
 

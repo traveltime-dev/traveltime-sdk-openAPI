@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { RequestTimeFilterPostcodeSectorsArrivalSearch } from './requestTimeFilterPostcodeSectorsArrivalSearch';
 import { RequestTimeFilterPostcodeSectorsDepartureSearch } from './requestTimeFilterPostcodeSectorsDepartureSearch';
 

@@ -256,7 +256,7 @@ class ResponseRoutePart
      *
      * @return OpenAPI\Server\Model\ResponseTransportationMode
      */
-    public function getMode()
+    public function getMode(): ResponseTransportationMode
     {
         return $this->mode;
     }
@@ -268,7 +268,7 @@ class ResponseRoutePart
      *
      * @return $this
      */
-    public function setMode(ResponseTransportationMode $mode)
+    public function setMode(ResponseTransportationMode $mode): ResponseTransportationMode
     {
         $this->mode = $mode;
 
@@ -352,7 +352,7 @@ class ResponseRoutePart
      *
      * @return OpenAPI\Server\Model\Coords[]
      */
-    public function getCoords()
+    public function getCoords(): array
     {
         return $this->coords;
     }
@@ -364,7 +364,7 @@ class ResponseRoutePart
      *
      * @return $this
      */
-    public function setCoords(array $coords)
+    public function setCoords(array $coords): array
     {
         $this->coords = $coords;
 

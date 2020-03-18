@@ -187,7 +187,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return string[]
      */
-    public function getArrivalLocationIds()
+    public function getArrivalLocationIds(): array
     {
         return $this->arrivalLocationIds;
     }
@@ -199,7 +199,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return $this
      */
-    public function setArrivalLocationIds(array $arrivalLocationIds)
+    public function setArrivalLocationIds(array $arrivalLocationIds): array
     {
         $this->arrivalLocationIds = $arrivalLocationIds;
 
@@ -211,7 +211,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportation
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportation
     {
         return $this->transportation;
     }
@@ -223,7 +223,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportation $transportation)
+    public function setTransportation(RequestTransportation $transportation): RequestTransportation
     {
         $this->transportation = $transportation;
 
@@ -259,7 +259,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return \DateTime
      */
-    public function getDepartureTime()
+    public function getDepartureTime(): \DateTime
     {
         return $this->departureTime;
     }
@@ -271,7 +271,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return $this
      */
-    public function setDepartureTime(\DateTime $departureTime)
+    public function setDepartureTime(\DateTime $departureTime): \DateTime
     {
         $this->departureTime = $departureTime;
 
@@ -283,7 +283,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterProperty[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -295,7 +295,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 
@@ -307,7 +307,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return OpenAPI\Server\Model\RequestRangeFull|null
      */
-    public function getRange()
+    public function getRange(): ?RequestRangeFull
     {
         return $this->range;
     }
@@ -319,7 +319,7 @@ class RequestTimeFilterDepartureSearch
      *
      * @return $this
      */
-    public function setRange(RequestRangeFull $range = null)
+    public function setRange(RequestRangeFull $range = null): ?RequestRangeFull
     {
         $this->range = $range;
 

@@ -17,7 +17,7 @@
 
 typedef struct response_map_info_map_t {
     char *name; // string
-    response_map_info_features_t *features; //model
+    struct response_map_info_features_t *features; //model
 
 } response_map_info_map_t;
 

@@ -5,16 +5,16 @@ part 'response_box.jser.dart';
 
 class ResponseBox {
   
-  @Alias('min_lat')
+  @Alias('min_lat', isNullable: false,  )
   final double minLat;
   
-  @Alias('max_lat')
+  @Alias('max_lat', isNullable: false,  )
   final double maxLat;
   
-  @Alias('min_lng')
+  @Alias('min_lng', isNullable: false,  )
   final double minLng;
   
-  @Alias('max_lng')
+  @Alias('max_lng', isNullable: false,  )
   final double maxLng;
   
 

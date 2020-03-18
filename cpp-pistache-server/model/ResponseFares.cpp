@@ -49,9 +49,17 @@ std::vector<ResponseFaresBreakdownItem>& ResponseFares::getBreakdown()
 {
     return m_Breakdown;
 }
+void ResponseFares::setBreakdown(std::vector<ResponseFaresBreakdownItem> const& value)
+{
+    m_Breakdown = value;
+}
 std::vector<ResponseFareTicket>& ResponseFares::getTicketsTotal()
 {
     return m_Tickets_total;
+}
+void ResponseFares::setTicketsTotal(std::vector<ResponseFareTicket> const& value)
+{
+    m_Tickets_total = value;
 }
 
 }

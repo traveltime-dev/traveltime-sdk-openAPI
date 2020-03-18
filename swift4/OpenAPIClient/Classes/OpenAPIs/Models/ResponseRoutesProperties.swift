@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseRoutesProperties: Codable { 
 
-public struct ResponseRoutesProperties: Codable {
 
     public var travelTime: Int?
     public var distance: Int?
@@ -30,6 +30,4 @@ public struct ResponseRoutesProperties: Codable {
         case route
     }
 
-
 }
-

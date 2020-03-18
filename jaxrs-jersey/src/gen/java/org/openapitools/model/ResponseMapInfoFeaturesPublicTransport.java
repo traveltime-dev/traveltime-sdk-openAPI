@@ -19,18 +19,25 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseMapInfoFeaturesPublicTransport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseMapInfoFeaturesPublicTransport.JSON_PROPERTY_DATE_START,
+  ResponseMapInfoFeaturesPublicTransport.JSON_PROPERTY_DATE_END
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseMapInfoFeaturesPublicTransport   {
-  @JsonProperty("date_start")
+  public static final String JSON_PROPERTY_DATE_START = "date_start";
+  @JsonProperty(JSON_PROPERTY_DATE_START)
   private Date dateStart;
 
-  @JsonProperty("date_end")
+  public static final String JSON_PROPERTY_DATE_END = "date_end";
+  @JsonProperty(JSON_PROPERTY_DATE_END)
   private Date dateEnd;
 
   public ResponseMapInfoFeaturesPublicTransport dateStart(Date dateStart) {

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterPostcodeDistrictProperties: Codable { 
 
-public struct ResponseTimeFilterPostcodeDistrictProperties: Codable {
 
     public var travelTimeReachable: ResponseTravelTimeStatistics?
     public var travelTimeAll: ResponseTravelTimeStatistics?
@@ -27,6 +27,4 @@ public struct ResponseTimeFilterPostcodeDistrictProperties: Codable {
         case coverage
     }
 
-
 }
-

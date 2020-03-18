@@ -7,10 +7,10 @@ part 'response_geocoding.jser.dart';
 
 class ResponseGeocoding {
   
-  @Alias('type')
+  @Alias('type', isNullable: false,  )
   final String type;
   
-  @Alias('features')
+  @Alias('features', isNullable: false,  )
   final List<ResponseGeocodingGeoJsonFeature> features;
   
 

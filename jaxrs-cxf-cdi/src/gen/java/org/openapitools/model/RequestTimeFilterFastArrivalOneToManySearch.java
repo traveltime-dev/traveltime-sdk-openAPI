@@ -26,7 +26,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
 
   private List<String> arrivalLocationIds = new ArrayList<String>();
 
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   private Integer travelTime;
 

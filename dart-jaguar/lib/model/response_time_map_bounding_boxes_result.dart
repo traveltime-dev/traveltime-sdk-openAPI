@@ -9,13 +9,13 @@ part 'response_time_map_bounding_boxes_result.jser.dart';
 
 class ResponseTimeMapBoundingBoxesResult {
   
-  @Alias('search_id')
+  @Alias('search_id', isNullable: false,  )
   final String searchId;
   
-  @Alias('bounding_boxes')
+  @Alias('bounding_boxes', isNullable: false,  )
   final List<ResponseBoundingBox> boundingBoxes;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final ResponseTimeMapProperties properties;
   
 

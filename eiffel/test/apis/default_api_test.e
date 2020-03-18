@@ -19,15 +19,15 @@ feature -- Test routines
             --  
         local
             l_response: RESPONSE_GEOCODING
-            l_focus_lat: REAL_64
-            l_focus_lng: REAL_64
+            l_lat: REAL_64
+            l_lng: REAL_64
             l_within_country: STRING_32
         do
             -- TODO: Initialize required params.
-            -- l_focus_lat
-            -- l_focus_lng
+            -- l_lat
+            -- l_lng
                       
-            -- l_response := api.geocoding_reverse_search(l_focus_lat, l_focus_lng, l_within_country)
+            -- l_response := api.geocoding_reverse_search(l_lat, l_lng, l_within_country)
             assert ("not_implemented", False)
         end
     
@@ -38,14 +38,14 @@ feature -- Test routines
         local
             l_response: RESPONSE_GEOCODING
             l_query: STRING_32
-            l_within_country: STRING_32
             l_focus_lat: REAL_64
             l_focus_lng: REAL_64
+            l_within_country: STRING_32
         do
             -- TODO: Initialize required params.
             -- l_query
                       
-            -- l_response := api.geocoding_search(l_query, l_within_country, l_focus_lat, l_focus_lng)
+            -- l_response := api.geocoding_search(l_query, l_focus_lat, l_focus_lng, l_within_country)
             assert ("not_implemented", False)
         end
     

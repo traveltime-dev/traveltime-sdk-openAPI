@@ -13,7 +13,7 @@ test_that("code", {
 })
 
 test_that("properties", {
-  # tests for the property `properties` (ResponseTimeFilterPostcodesProperties)
+  # tests for the property `properties` (array[ResponseTimeFilterPostcodesProperties])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`properties`, "EXPECTED_RESULT")

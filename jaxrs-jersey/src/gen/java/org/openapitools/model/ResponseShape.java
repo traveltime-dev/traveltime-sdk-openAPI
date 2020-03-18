@@ -21,18 +21,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.Coords;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseShape
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseShape.JSON_PROPERTY_SHELL,
+  ResponseShape.JSON_PROPERTY_HOLES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseShape   {
-  @JsonProperty("shell")
+  public static final String JSON_PROPERTY_SHELL = "shell";
+  @JsonProperty(JSON_PROPERTY_SHELL)
   private List<Coords> shell = new ArrayList<Coords>();
 
-  @JsonProperty("holes")
+  public static final String JSON_PROPERTY_HOLES = "holes";
+  @JsonProperty(JSON_PROPERTY_HOLES)
   private List<List<Coords>> holes = new ArrayList<List<Coords>>();
 
   public ResponseShape shell(List<Coords> shell) {

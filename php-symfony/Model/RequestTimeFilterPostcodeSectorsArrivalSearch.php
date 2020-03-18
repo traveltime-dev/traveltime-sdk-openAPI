@@ -151,7 +151,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportation
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportation
     {
         return $this->transportation;
     }
@@ -163,7 +163,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportation $transportation)
+    public function setTransportation(RequestTransportation $transportation): RequestTransportation
     {
         $this->transportation = $transportation;
 
@@ -199,7 +199,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return \DateTime
      */
-    public function getArrivalTime()
+    public function getArrivalTime(): \DateTime
     {
         return $this->arrivalTime;
     }
@@ -211,7 +211,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return $this
      */
-    public function setArrivalTime(\DateTime $arrivalTime)
+    public function setArrivalTime(\DateTime $arrivalTime): \DateTime
     {
         $this->arrivalTime = $arrivalTime;
 
@@ -247,7 +247,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterPostcodeSectorsProperty[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -259,7 +259,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 
@@ -271,7 +271,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestRangeFull|null
      */
-    public function getRange()
+    public function getRange(): ?RequestRangeFull
     {
         return $this->range;
     }
@@ -283,7 +283,7 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch
      *
      * @return $this
      */
-    public function setRange(RequestRangeFull $range = null)
+    public function setRange(RequestRangeFull $range = null): ?RequestRangeFull
     {
         $this->range = $range;
 

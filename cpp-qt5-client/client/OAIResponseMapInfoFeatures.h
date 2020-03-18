@@ -21,59 +21,54 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseMapInfoFeaturesPublicTransport.h"
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseMapInfoFeatures: public OAIObject {
+class OAIResponseMapInfoFeatures : public OAIObject {
 public:
     OAIResponseMapInfoFeatures();
     OAIResponseMapInfoFeatures(QString json);
     ~OAIResponseMapInfoFeatures() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     OAIResponseMapInfoFeaturesPublicTransport getPublicTransport() const;
     void setPublicTransport(const OAIResponseMapInfoFeaturesPublicTransport &public_transport);
 
-    
     bool isFares() const;
     void setFares(const bool &fares);
 
-    
     bool isPostcodes() const;
     void setPostcodes(const bool &postcodes);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     OAIResponseMapInfoFeaturesPublicTransport public_transport;
     bool m_public_transport_isSet;
     bool m_public_transport_isValid;
-    
+
     bool fares;
     bool m_fares_isSet;
     bool m_fares_isValid;
-    
+
     bool postcodes;
     bool m_postcodes_isSet;
     bool m_postcodes_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseMapInfoFeatures)
 
 #endif // OAIResponseMapInfoFeatures_H

@@ -20,22 +20,31 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseGeocodingGeometry;
 import org.openapitools.model.ResponseGeocodingProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseGeocodingGeoJsonFeature
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseGeocodingGeoJsonFeature.JSON_PROPERTY_TYPE,
+  ResponseGeocodingGeoJsonFeature.JSON_PROPERTY_GEOMETRY,
+  ResponseGeocodingGeoJsonFeature.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseGeocodingGeoJsonFeature   {
-  @JsonProperty("type")
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
   private String type;
 
-  @JsonProperty("geometry")
-  private ResponseGeocodingGeometry geometry = null;
+  public static final String JSON_PROPERTY_GEOMETRY = "geometry";
+  @JsonProperty(JSON_PROPERTY_GEOMETRY)
+  private ResponseGeocodingGeometry geometry;
 
-  @JsonProperty("properties")
-  private ResponseGeocodingProperties properties = null;
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  private ResponseGeocodingProperties properties;
 
   public ResponseGeocodingGeoJsonFeature type(String type) {
     this.type = type;

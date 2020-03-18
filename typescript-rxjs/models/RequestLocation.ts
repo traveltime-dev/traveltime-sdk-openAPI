@@ -21,13 +21,11 @@ import {
  */
 export interface RequestLocation {
     /**
-     * 
      * @type {string}
      * @memberof RequestLocation
      */
     id: string;
     /**
-     * 
      * @type {Coords}
      * @memberof RequestLocation
      */

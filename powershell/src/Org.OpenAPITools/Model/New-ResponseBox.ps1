@@ -16,10 +16,10 @@ function New-ResponseBox {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseBox' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseBox' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseBox -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseBox -ArgumentList @(
             ${minUnderscorelat},
             ${maxUnderscorelat},
             ${minUnderscorelng},

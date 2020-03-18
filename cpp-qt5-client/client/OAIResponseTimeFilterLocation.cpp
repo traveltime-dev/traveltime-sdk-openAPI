@@ -10,119 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterLocation.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterLocation::OAIResponseTimeFilterLocation(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterLocation::OAIResponseTimeFilterLocation() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterLocation::~OAIResponseTimeFilterLocation() {
+OAIResponseTimeFilterLocation::~OAIResponseTimeFilterLocation() {}
 
-}
+void OAIResponseTimeFilterLocation::initializeModel() {
 
-void
-OAIResponseTimeFilterLocation::init() {
-    
     m_id_isSet = false;
     m_id_isValid = false;
-    
+
     m_properties_isSet = false;
     m_properties_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterLocation::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterLocation::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterLocation::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseTimeFilterLocation::fromJsonObject(QJsonObject json) {
+
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    
-    
-    
+    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
+
     m_properties_isValid = ::OpenAPI::fromJsonValue(properties, json[QString("properties")]);
-    
+    m_properties_isSet = !json[QString("properties")].isNull() && m_properties_isValid;
 }
 
-QString
-OAIResponseTimeFilterLocation::asJson () const {
+QString OAIResponseTimeFilterLocation::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterLocation::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterLocation::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	
-    if(properties.size() > 0){
+    if (properties.size() > 0) {
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
-    } 
+    }
     return obj;
 }
 
-
-QString
-OAIResponseTimeFilterLocation::getId() const {
+QString OAIResponseTimeFilterLocation::getId() const {
     return id;
 }
-void
-OAIResponseTimeFilterLocation::setId(const QString &id) {
+void OAIResponseTimeFilterLocation::setId(const QString &id) {
     this->id = id;
     this->m_id_isSet = true;
 }
 
-
-QList<OAIResponseTimeFilterProperties>
-OAIResponseTimeFilterLocation::getProperties() const {
+QList<OAIResponseTimeFilterProperties> OAIResponseTimeFilterLocation::getProperties() const {
     return properties;
 }
-void
-OAIResponseTimeFilterLocation::setProperties(const QList<OAIResponseTimeFilterProperties> &properties) {
+void OAIResponseTimeFilterLocation::setProperties(const QList<OAIResponseTimeFilterProperties> &properties) {
     this->properties = properties;
     this->m_properties_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterLocation::isSet() const {
+bool OAIResponseTimeFilterLocation::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_id_isSet){ isObjectUpdated = true; break;}
-    
-        if(properties.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (properties.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterLocation::isValid() const {
+bool OAIResponseTimeFilterLocation::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_id_isValid && m_properties_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

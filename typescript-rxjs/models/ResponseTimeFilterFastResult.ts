@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseTimeFilterFastResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeFilterFastResult
      */
-    searchId: string;
+    search_id: string;
     /**
-     * 
      * @type {Array<ResponseTimeFilterFastLocation>}
      * @memberof ResponseTimeFilterFastResult
      */
     locations: Array<ResponseTimeFilterFastLocation>;
     /**
-     * 
      * @type {Array<string>}
      * @memberof ResponseTimeFilterFastResult
      */

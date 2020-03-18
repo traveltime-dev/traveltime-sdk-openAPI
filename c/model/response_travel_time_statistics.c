@@ -11,28 +11,28 @@ response_travel_time_statistics_t *response_travel_time_statistics_create(
     int mean,
     int median
     ) {
-	response_travel_time_statistics_t *response_travel_time_statistics_local_var = malloc(sizeof(response_travel_time_statistics_t));
+    response_travel_time_statistics_t *response_travel_time_statistics_local_var = malloc(sizeof(response_travel_time_statistics_t));
     if (!response_travel_time_statistics_local_var) {
         return NULL;
     }
-	response_travel_time_statistics_local_var->min = min;
-	response_travel_time_statistics_local_var->max = max;
-	response_travel_time_statistics_local_var->mean = mean;
-	response_travel_time_statistics_local_var->median = median;
+    response_travel_time_statistics_local_var->min = min;
+    response_travel_time_statistics_local_var->max = max;
+    response_travel_time_statistics_local_var->mean = mean;
+    response_travel_time_statistics_local_var->median = median;
 
-	return response_travel_time_statistics_local_var;
+    return response_travel_time_statistics_local_var;
 }
 
 
 void response_travel_time_statistics_free(response_travel_time_statistics_t *response_travel_time_statistics) {
     listEntry_t *listEntry;
-	free(response_travel_time_statistics);
+    free(response_travel_time_statistics);
 }
 
 cJSON *response_travel_time_statistics_convertToJSON(response_travel_time_statistics_t *response_travel_time_statistics) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_travel_time_statistics->min
+    // response_travel_time_statistics->min
     if (!response_travel_time_statistics->min) {
         goto fail;
     }
@@ -42,7 +42,7 @@ cJSON *response_travel_time_statistics_convertToJSON(response_travel_time_statis
     }
 
 
-	// response_travel_time_statistics->max
+    // response_travel_time_statistics->max
     if (!response_travel_time_statistics->max) {
         goto fail;
     }
@@ -52,7 +52,7 @@ cJSON *response_travel_time_statistics_convertToJSON(response_travel_time_statis
     }
 
 
-	// response_travel_time_statistics->mean
+    // response_travel_time_statistics->mean
     if (!response_travel_time_statistics->mean) {
         goto fail;
     }
@@ -62,7 +62,7 @@ cJSON *response_travel_time_statistics_convertToJSON(response_travel_time_statis
     }
 
 
-	// response_travel_time_statistics->median
+    // response_travel_time_statistics->median
     if (!response_travel_time_statistics->median) {
         goto fail;
     }
@@ -71,12 +71,12 @@ cJSON *response_travel_time_statistics_convertToJSON(response_travel_time_statis
     goto fail; //Numeric
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_travel_time_statistics_t *response_travel_time_statistics_parseFromJSON(cJSON *response_travel_time_statisticsJSON){

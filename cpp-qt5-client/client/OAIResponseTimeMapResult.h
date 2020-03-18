@@ -21,62 +21,57 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseShape.h"
 #include "OAIResponseTimeMapProperties.h"
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeMapResult: public OAIObject {
+class OAIResponseTimeMapResult : public OAIObject {
 public:
     OAIResponseTimeMapResult();
     OAIResponseTimeMapResult(QString json);
     ~OAIResponseTimeMapResult() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getSearchId() const;
     void setSearchId(const QString &search_id);
 
-    
     QList<OAIResponseShape> getShapes() const;
     void setShapes(const QList<OAIResponseShape> &shapes);
 
-    
     OAIResponseTimeMapProperties getProperties() const;
     void setProperties(const OAIResponseTimeMapProperties &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString search_id;
     bool m_search_id_isSet;
     bool m_search_id_isValid;
-    
+
     QList<OAIResponseShape> shapes;
     bool m_shapes_isSet;
     bool m_shapes_isValid;
-    
+
     OAIResponseTimeMapProperties properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapResult)
 
 #endif // OAIResponseTimeMapResult_H

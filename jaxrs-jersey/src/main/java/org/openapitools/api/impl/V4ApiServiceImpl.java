@@ -33,15 +33,15 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class V4ApiServiceImpl extends V4ApiService {
     @Override
-    public Response geocodingReverseSearch( @NotNull Double focusLat,  @NotNull Double focusLng, String withinCountry, SecurityContext securityContext) throws NotFoundException {
+    public Response geocodingReverseSearch( @NotNull Double lat,  @NotNull Double lng, String withinCountry, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }
     @Override
-    public Response geocodingSearch( @NotNull String query, String withinCountry, Double focusLat, Double focusLng, SecurityContext securityContext) throws NotFoundException {
+    public Response geocodingSearch( @NotNull String query, Double focusLat, Double focusLng, String withinCountry, SecurityContext securityContext) throws NotFoundException {
         // do some magic!
         return Response.ok().entity(new ApiResponseMessage(ApiResponseMessage.OK, "magic!")).build();
     }

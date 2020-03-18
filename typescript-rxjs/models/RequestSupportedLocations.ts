@@ -21,7 +21,6 @@ import {
  */
 export interface RequestSupportedLocations {
     /**
-     * 
      * @type {Array<RequestLocation>}
      * @memberof RequestSupportedLocations
      */

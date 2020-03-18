@@ -9,15 +9,14 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFastArrivalSearches {
-    #[serde(rename = "many_to_one")]
-    pub many_to_one: Option<Vec<::models::RequestTimeFilterFastArrivalManyToOneSearch>>,
-    #[serde(rename = "one_to_many")]
-    pub one_to_many: Option<Vec<::models::RequestTimeFilterFastArrivalOneToManySearch>>,
+    #[serde(rename = "many_to_one", skip_serializing_if = "Option::is_none")]
+    pub many_to_one: Option<Vec<crate::models::RequestTimeFilterFastArrivalManyToOneSearch>>,
+    #[serde(rename = "one_to_many", skip_serializing_if = "Option::is_none")]
+    pub one_to_many: Option<Vec<crate::models::RequestTimeFilterFastArrivalOneToManySearch>>,
 }
 
 impl RequestTimeFilterFastArrivalSearches {
@@ -28,3 +27,5 @@ impl RequestTimeFilterFastArrivalSearches {
         }
     }
 }
+
+

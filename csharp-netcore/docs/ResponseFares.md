@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseFares
+# Org.OpenAPITools.Model.ResponseFares
 ## Properties
 
 Name | Type | Description | Notes

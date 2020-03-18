@@ -10,15 +10,15 @@ response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_creat
     response_geocoding_geometry_t *geometry,
     response_geocoding_properties_t *properties
     ) {
-	response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_local_var = malloc(sizeof(response_geocoding_geo_json_feature_t));
+    response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_local_var = malloc(sizeof(response_geocoding_geo_json_feature_t));
     if (!response_geocoding_geo_json_feature_local_var) {
         return NULL;
     }
-	response_geocoding_geo_json_feature_local_var->type = type;
-	response_geocoding_geo_json_feature_local_var->geometry = geometry;
-	response_geocoding_geo_json_feature_local_var->properties = properties;
+    response_geocoding_geo_json_feature_local_var->type = type;
+    response_geocoding_geo_json_feature_local_var->geometry = geometry;
+    response_geocoding_geo_json_feature_local_var->properties = properties;
 
-	return response_geocoding_geo_json_feature_local_var;
+    return response_geocoding_geo_json_feature_local_var;
 }
 
 
@@ -27,13 +27,13 @@ void response_geocoding_geo_json_feature_free(response_geocoding_geo_json_featur
     free(response_geocoding_geo_json_feature->type);
     response_geocoding_geometry_free(response_geocoding_geo_json_feature->geometry);
     response_geocoding_properties_free(response_geocoding_geo_json_feature->properties);
-	free(response_geocoding_geo_json_feature);
+    free(response_geocoding_geo_json_feature);
 }
 
 cJSON *response_geocoding_geo_json_feature_convertToJSON(response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_geocoding_geo_json_feature->type
+    // response_geocoding_geo_json_feature->type
     if (!response_geocoding_geo_json_feature->type) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_geocoding_geo_json_feature_convertToJSON(response_geocoding_geo_
     }
 
 
-	// response_geocoding_geo_json_feature->geometry
+    // response_geocoding_geo_json_feature->geometry
     if (!response_geocoding_geo_json_feature->geometry) {
         goto fail;
     }
@@ -58,7 +58,7 @@ cJSON *response_geocoding_geo_json_feature_convertToJSON(response_geocoding_geo_
     }
 
 
-	// response_geocoding_geo_json_feature->properties
+    // response_geocoding_geo_json_feature->properties
     if (!response_geocoding_geo_json_feature->properties) {
         goto fail;
     }
@@ -72,12 +72,12 @@ cJSON *response_geocoding_geo_json_feature_convertToJSON(response_geocoding_geo_
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_parseFromJSON(cJSON *response_geocoding_geo_json_featureJSON){

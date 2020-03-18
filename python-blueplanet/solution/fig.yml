@@ -21,7 +21,7 @@ __version__: 1
 docker_registry: registry.blueplanet.com
 
 # this name is read by the Makefile and used to build various paths
-solution_name: traveltimeplatform
+solution_name: openapi_server
 
 # version is not read from this file, but coded in the Makefile
 # the vendor and tag are provided by the Makefile as argumernts to solmaker
@@ -35,17 +35,17 @@ solution_version: 1.0.0
 
 apps:
   tapi-swagger:
-    # https://..../traveltimeplatform
-    image: registry.blueplanet.com/blueplanet/traveltimeplatform:1.0.0
+    # https://..../openapi_server
+    image: registry.blueplanet.com/blueplanet/openapi_server:1.0.0
     volumes:
       - /dev/log:/dev/log
     environment:
-      - NBI_traveltimeplatform_type=http
-      - NBI_traveltimeplatform_port=8080
+      - NBI_openapi_server_type=http
+      - NBI_openapi_server_port=8080
 app_bar:
   System:
     Documentation:
-      'traveltimeplatform Swagger':
-        description: 'traveltimeplatform Swagger UI'
+      'openapi_server Swagger':
+        description: 'openapi_server Swagger UI'
         icon: 'orchestrate'
-        url: '/traveltimeplatform/ui/#'
+        url: '/openapi_server/ui/#'

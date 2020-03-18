@@ -13,8 +13,8 @@ import { ResponseTravelTimeStatistics } from './responseTravelTimeStatistics';
 
 
 export interface ResponseTimeFilterPostcodeSectorProperties { 
-    travelTimeReachable?: ResponseTravelTimeStatistics;
-    travelTimeAll?: ResponseTravelTimeStatistics;
+    travel_time_reachable?: ResponseTravelTimeStatistics;
+    travel_time_all?: ResponseTravelTimeStatistics;
     coverage?: number;
 }
 

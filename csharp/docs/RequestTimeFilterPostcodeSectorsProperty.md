@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeFilterPostcodeSectorsProperty
+# Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectorsProperty
 
 ## Properties
 

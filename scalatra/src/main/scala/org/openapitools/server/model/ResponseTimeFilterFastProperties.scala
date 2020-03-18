@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseTimeFilterFastProperties(
-  travelUnderscoretime: Option[Int],
+  travelTime: Option[Int],
 
   fares: Option[ResponseFaresFast]
 

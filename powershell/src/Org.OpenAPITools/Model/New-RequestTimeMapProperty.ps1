@@ -4,10 +4,10 @@ function New-RequestTimeMapProperty {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeMapProperty' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeMapProperty' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeMapProperty -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeMapProperty -ArgumentList @(
         )
     }
 }

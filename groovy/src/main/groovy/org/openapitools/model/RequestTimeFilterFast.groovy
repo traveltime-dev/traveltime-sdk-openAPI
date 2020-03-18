@@ -13,5 +13,5 @@ class RequestTimeFilterFast {
     
     List<RequestLocation> locations = new ArrayList<RequestLocation>()
     
-    RequestTimeFilterFastArrivalSearches arrivalSearches = null
+    RequestTimeFilterFastArrivalSearches arrivalSearches
 }

@@ -18,13 +18,13 @@ case class ResponseGeocodingProperties(
 
   score: Option[Double],
 
-  houseUnderscorenumber: Option[String],
+  houseNumber: Option[String],
 
   street: Option[String],
 
   region: Option[String],
 
-  regionUnderscorecode: Option[String],
+  regionCode: Option[String],
 
   neighbourhood: Option[String],
 
@@ -36,7 +36,7 @@ case class ResponseGeocodingProperties(
 
   country: Option[String],
 
-  countryUnderscorecode: Option[String],
+  countryCode: Option[String],
 
   continent: Option[String],
 

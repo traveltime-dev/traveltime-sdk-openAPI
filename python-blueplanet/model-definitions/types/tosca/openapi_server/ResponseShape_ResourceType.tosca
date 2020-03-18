@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseShape"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseShape"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Coords = openapi_server.resourceTypes.Coords
+}
+resourceTypes {
+
+  ResponseShape {
+    title = ResponseShape
+    description = ResponseShape
+    derivedFrom = Root
+    properties {
+        shell {
+          type = array
+          items.type = Coords
+          description = ""
+          optional = true
+        }
+        holes {
+          type = array
+          items.type = List[Coords]
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseShape {
+    title = ResponseShape
+    description = ResponseShape
+    implements = openapi_server.resourceTypes.ResponseShape
+
+  }
+}

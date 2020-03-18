@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.server.api.model.ResponseRoutesResult;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseRoutes   {
   
   private List<ResponseRoutesResult> results = new ArrayList<>();

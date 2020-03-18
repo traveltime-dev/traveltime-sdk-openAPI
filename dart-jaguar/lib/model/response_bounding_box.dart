@@ -7,10 +7,10 @@ part 'response_bounding_box.jser.dart';
 
 class ResponseBoundingBox {
   
-  @Alias('envelope')
+  @Alias('envelope', isNullable: false,  )
   final ResponseBox envelope;
   
-  @Alias('boxes')
+  @Alias('boxes', isNullable: false,  )
   final List<ResponseBox> boxes;
   
 

@@ -560,7 +560,7 @@ class ResponseGeocodingProperties
      *
      * @return OpenAPI\Server\Model\ResponseMapInfoFeatures|null
      */
-    public function getFeatures()
+    public function getFeatures(): ?ResponseMapInfoFeatures
     {
         return $this->features;
     }
@@ -572,7 +572,7 @@ class ResponseGeocodingProperties
      *
      * @return $this
      */
-    public function setFeatures(ResponseMapInfoFeatures $features = null)
+    public function setFeatures(ResponseMapInfoFeatures $features = null): ?ResponseMapInfoFeatures
     {
         $this->features = $features;
 

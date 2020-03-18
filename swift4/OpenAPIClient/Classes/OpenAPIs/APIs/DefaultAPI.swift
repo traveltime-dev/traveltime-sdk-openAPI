@@ -6,20 +6,19 @@
 //
 
 import Foundation
-import Alamofire
 
 
 
 open class DefaultAPI {
     /**
 
-     - parameter focusLat: (query)  
-     - parameter focusLng: (query)  
+     - parameter lat: (query)  
+     - parameter lng: (query)  
      - parameter withinCountry: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func geocodingReverseSearch(focusLat: Double, focusLng: Double, withinCountry: String? = nil, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
-        geocodingReverseSearchWithRequestBuilder(focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry).execute { (response, error) -> Void in
+    open class func geocodingReverseSearch(lat: Double, lng: Double, withinCountry: String? = nil, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
+        geocodingReverseSearchWithRequestBuilder(lat: lat, lng: lng, withinCountry: withinCountry).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -36,21 +35,21 @@ open class DefaultAPI {
     description: null
     url: http://docs.traveltimeplatform.com/reference/geocoding-reverse
 }
-     - parameter focusLat: (query)  
-     - parameter focusLng: (query)  
+     - parameter lat: (query)  
+     - parameter lng: (query)  
      - parameter withinCountry: (query)  (optional)
      - returns: RequestBuilder<ResponseGeocoding> 
      */
-    open class func geocodingReverseSearchWithRequestBuilder(focusLat: Double, focusLng: Double, withinCountry: String? = nil) -> RequestBuilder<ResponseGeocoding> {
+    open class func geocodingReverseSearchWithRequestBuilder(lat: Double, lng: Double, withinCountry: String? = nil) -> RequestBuilder<ResponseGeocoding> {
         let path = "/v4/geocoding/reverse"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "focus.lat": focusLat, 
-            "focus.lng": focusLng, 
-            "within.country": withinCountry
+            "lat": lat.encodeToJSON(), 
+            "lng": lng.encodeToJSON(), 
+            "within.country": withinCountry?.encodeToJSON()
         ])
 
         let requestBuilder: RequestBuilder<ResponseGeocoding>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
@@ -61,13 +60,13 @@ open class DefaultAPI {
     /**
 
      - parameter query: (query)  
-     - parameter withinCountry: (query)  (optional)
      - parameter focusLat: (query)  (optional)
      - parameter focusLng: (query)  (optional)
+     - parameter withinCountry: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func geocodingSearch(query: String, withinCountry: String? = nil, focusLat: Double? = nil, focusLng: Double? = nil, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
-        geocodingSearchWithRequestBuilder(query: query, withinCountry: withinCountry, focusLat: focusLat, focusLng: focusLng).execute { (response, error) -> Void in
+    open class func geocodingSearch(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
+        geocodingSearchWithRequestBuilder(query: query, focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -85,22 +84,22 @@ open class DefaultAPI {
     url: http://docs.traveltimeplatform.com/reference/geocoding-search
 }
      - parameter query: (query)  
-     - parameter withinCountry: (query)  (optional)
      - parameter focusLat: (query)  (optional)
      - parameter focusLng: (query)  (optional)
+     - parameter withinCountry: (query)  (optional)
      - returns: RequestBuilder<ResponseGeocoding> 
      */
-    open class func geocodingSearchWithRequestBuilder(query: String, withinCountry: String? = nil, focusLat: Double? = nil, focusLng: Double? = nil) -> RequestBuilder<ResponseGeocoding> {
+    open class func geocodingSearchWithRequestBuilder(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil) -> RequestBuilder<ResponseGeocoding> {
         let path = "/v4/geocoding/search"
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters: [String:Any]? = nil
         
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "query": query, 
-            "within.country": withinCountry, 
-            "focus.lat": focusLat, 
-            "focus.lng": focusLng
+            "query": query.encodeToJSON(), 
+            "focus.lat": focusLat?.encodeToJSON(), 
+            "focus.lng": focusLng?.encodeToJSON(), 
+            "within.country": withinCountry?.encodeToJSON()
         ])
 
         let requestBuilder: RequestBuilder<ResponseGeocoding>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()

@@ -32,7 +32,7 @@ import org.openapitools.client.model.RequestTransportationFast;
 /**
  * RequestTimeFilterFastArrivalOneToManySearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalOneToManySearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -48,7 +48,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -62,7 +62,9 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();
 
+
   public RequestTimeFilterFastArrivalOneToManySearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -72,15 +74,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch departureLocationId(String departureLocationId) {
+    
     this.departureLocationId = departureLocationId;
     return this;
   }
@@ -90,15 +96,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return departureLocationId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getDepartureLocationId() {
     return departureLocationId;
   }
+
 
   public void setDepartureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch arrivalLocationIds(List<String> arrivalLocationIds) {
+    
     this.arrivalLocationIds = arrivalLocationIds;
     return this;
   }
@@ -113,15 +123,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return arrivalLocationIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
+
 
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch transportation(RequestTransportationFast transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -131,15 +145,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportationFast getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportationFast transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -151,15 +169,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch arrivalTimePeriod(RequestArrivalTimePeriod arrivalTimePeriod) {
+    
     this.arrivalTimePeriod = arrivalTimePeriod;
     return this;
   }
@@ -169,15 +191,19 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return arrivalTimePeriod
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestArrivalTimePeriod getArrivalTimePeriod() {
     return arrivalTimePeriod;
   }
+
 
   public void setArrivalTimePeriod(RequestArrivalTimePeriod arrivalTimePeriod) {
     this.arrivalTimePeriod = arrivalTimePeriod;
   }
 
+
   public RequestTimeFilterFastArrivalOneToManySearch properties(List<RequestTimeFilterFastProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -192,9 +218,11 @@ public class RequestTimeFilterFastArrivalOneToManySearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestTimeFilterFastProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeFilterFastProperty> properties) {
     this.properties = properties;

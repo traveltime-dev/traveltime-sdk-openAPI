@@ -76,7 +76,7 @@ class RequestTimeFilterPostcodeDistricts
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterPostcodeDistrictsDepartureSearch[]|null
      */
-    public function getDepartureSearches()
+    public function getDepartureSearches(): ?array
     {
         return $this->departureSearches;
     }
@@ -88,7 +88,7 @@ class RequestTimeFilterPostcodeDistricts
      *
      * @return $this
      */
-    public function setDepartureSearches(array $departureSearches = null)
+    public function setDepartureSearches(array $departureSearches = null): ?array
     {
         $this->departureSearches = $departureSearches;
 
@@ -100,7 +100,7 @@ class RequestTimeFilterPostcodeDistricts
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterPostcodeDistrictsArrivalSearch[]|null
      */
-    public function getArrivalSearches()
+    public function getArrivalSearches(): ?array
     {
         return $this->arrivalSearches;
     }
@@ -112,7 +112,7 @@ class RequestTimeFilterPostcodeDistricts
      *
      * @return $this
      */
-    public function setArrivalSearches(array $arrivalSearches = null)
+    public function setArrivalSearches(array $arrivalSearches = null): ?array
     {
         $this->arrivalSearches = $arrivalSearches;
 

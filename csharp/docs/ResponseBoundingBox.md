@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseBoundingBox
+# Org.OpenAPITools.Model.ResponseBoundingBox
 
 ## Properties
 

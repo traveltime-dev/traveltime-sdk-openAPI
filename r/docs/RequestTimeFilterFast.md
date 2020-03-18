@@ -1,9 +1,9 @@
-# traveltimeplatform::RequestTimeFilterFast
+# openapi::RequestTimeFilterFast
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**RequestLocation**](RequestLocation.md) |  | 
+**locations** | [**array[RequestLocation]**](RequestLocation.md) |  | 
 **arrival_searches** | [**RequestTimeFilterFastArrivalSearches**](RequestTimeFilterFastArrivalSearches.md) |  | 
 
 

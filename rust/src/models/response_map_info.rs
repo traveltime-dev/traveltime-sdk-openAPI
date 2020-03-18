@@ -9,19 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfo {
     #[serde(rename = "maps")]
-    pub maps: Vec<::models::ResponseMapInfoMap>,
+    pub maps: Vec<crate::models::ResponseMapInfoMap>,
 }
 
 impl ResponseMapInfo {
-    pub fn new(maps: Vec<::models::ResponseMapInfoMap>) -> ResponseMapInfo {
+    pub fn new(maps: Vec<crate::models::ResponseMapInfoMap>) -> ResponseMapInfo {
         ResponseMapInfo {
-            maps: maps,
+            maps,
         }
     }
 }
+
+

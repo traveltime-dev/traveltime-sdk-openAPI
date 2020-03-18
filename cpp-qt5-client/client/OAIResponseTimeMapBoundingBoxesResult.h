@@ -21,62 +21,57 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseBoundingBox.h"
 #include "OAIResponseTimeMapProperties.h"
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeMapBoundingBoxesResult: public OAIObject {
+class OAIResponseTimeMapBoundingBoxesResult : public OAIObject {
 public:
     OAIResponseTimeMapBoundingBoxesResult();
     OAIResponseTimeMapBoundingBoxesResult(QString json);
     ~OAIResponseTimeMapBoundingBoxesResult() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getSearchId() const;
     void setSearchId(const QString &search_id);
 
-    
     QList<OAIResponseBoundingBox> getBoundingBoxes() const;
     void setBoundingBoxes(const QList<OAIResponseBoundingBox> &bounding_boxes);
 
-    
     OAIResponseTimeMapProperties getProperties() const;
     void setProperties(const OAIResponseTimeMapProperties &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString search_id;
     bool m_search_id_isSet;
     bool m_search_id_isValid;
-    
+
     QList<OAIResponseBoundingBox> bounding_boxes;
     bool m_bounding_boxes_isSet;
     bool m_bounding_boxes_isValid;
-    
+
     OAIResponseTimeMapProperties properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapBoundingBoxesResult)
 
 #endif // OAIResponseTimeMapBoundingBoxesResult_H

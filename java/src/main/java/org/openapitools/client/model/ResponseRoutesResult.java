@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseRoutesLocation;
 /**
  * ResponseRoutesResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseRoutesResult {
   public static final String SERIALIZED_NAME_SEARCH_ID = "search_id";
   @SerializedName(SERIALIZED_NAME_SEARCH_ID)
@@ -44,7 +44,9 @@ public class ResponseRoutesResult {
   @SerializedName(SERIALIZED_NAME_UNREACHABLE)
   private List<String> unreachable = new ArrayList<String>();
 
+
   public ResponseRoutesResult searchId(String searchId) {
+    
     this.searchId = searchId;
     return this;
   }
@@ -54,15 +56,19 @@ public class ResponseRoutesResult {
    * @return searchId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getSearchId() {
     return searchId;
   }
+
 
   public void setSearchId(String searchId) {
     this.searchId = searchId;
   }
 
+
   public ResponseRoutesResult locations(List<ResponseRoutesLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -77,15 +83,19 @@ public class ResponseRoutesResult {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseRoutesLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<ResponseRoutesLocation> locations) {
     this.locations = locations;
   }
 
+
   public ResponseRoutesResult unreachable(List<String> unreachable) {
+    
     this.unreachable = unreachable;
     return this;
   }
@@ -100,9 +110,11 @@ public class ResponseRoutesResult {
    * @return unreachable
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getUnreachable() {
     return unreachable;
   }
+
 
   public void setUnreachable(List<String> unreachable) {
     this.unreachable = unreachable;

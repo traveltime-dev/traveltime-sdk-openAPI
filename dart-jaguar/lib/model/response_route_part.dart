@@ -9,52 +9,58 @@ part 'response_route_part.jser.dart';
 
 class ResponseRoutePart {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('type')
+  @Alias('type', isNullable: false,
+          
+  )
   final String type;
   //enum typeEnum {  basic,  start_end,  road,  public_transport,  };
-  @Alias('mode')
+  @Alias('mode', isNullable: false,
+          
+             processor:  const ResponseTransportationModeFieldProcessor(),
+          
+  )
   final ResponseTransportationMode mode;
   //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };
-  @Alias('directions')
+  @Alias('directions', isNullable: false,  )
   final String directions;
   
-  @Alias('distance')
+  @Alias('distance', isNullable: false,  )
   final int distance;
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('coords')
+  @Alias('coords', isNullable: false,  )
   final List<Coords> coords;
   
-  @Alias('direction')
+  @Alias('direction', isNullable: false,  )
   final String direction;
   
-  @Alias('road')
+  @Alias('road', isNullable: false,  )
   final String road;
   
-  @Alias('turn')
+  @Alias('turn', isNullable: false,  )
   final String turn;
   
-  @Alias('line')
+  @Alias('line', isNullable: false,  )
   final String line;
   
-  @Alias('departure_station')
+  @Alias('departure_station', isNullable: false,  )
   final String departureStation;
   
-  @Alias('arrival_station')
+  @Alias('arrival_station', isNullable: false,  )
   final String arrivalStation;
   
-  @Alias('departs_at')
+  @Alias('departs_at', isNullable: false,  )
   final String departsAt;
   
-  @Alias('arrives_at')
+  @Alias('arrives_at', isNullable: false,  )
   final String arrivesAt;
   
-  @Alias('num_stops')
+  @Alias('num_stops', isNullable: false,  )
   final int numStops;
   
 

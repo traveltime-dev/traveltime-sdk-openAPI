@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseMapInfoFeatures: Codable { 
 
-public struct ResponseMapInfoFeatures: Codable {
 
     public var publicTransport: ResponseMapInfoFeaturesPublicTransport?
     public var fares: Bool
@@ -27,6 +27,4 @@ public struct ResponseMapInfoFeatures: Codable {
         case postcodes
     }
 
-
 }
-

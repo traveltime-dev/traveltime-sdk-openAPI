@@ -11,16 +11,16 @@ import org.openapitools.server.api.model.RequestRangeNoMaxResults;
 import org.openapitools.server.api.model.RequestTimeMapProperty;
 import org.openapitools.server.api.model.RequestTransportation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeMapDepartureSearch   {
   
   private String id;
-  private Coords coords = null;
-  private RequestTransportation transportation = null;
+  private Coords coords;
+  private RequestTransportation transportation;
   private Integer travelTime;
   private OffsetDateTime departureTime;
   private List<RequestTimeMapProperty> properties = new ArrayList<>();
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
 
   public RequestTimeMapDepartureSearch () {
 

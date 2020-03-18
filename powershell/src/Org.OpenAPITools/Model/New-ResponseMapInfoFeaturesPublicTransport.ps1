@@ -10,10 +10,10 @@ function New-ResponseMapInfoFeaturesPublicTransport {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseMapInfoFeaturesPublicTransport' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseMapInfoFeaturesPublicTransport' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseMapInfoFeaturesPublicTransport -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseMapInfoFeaturesPublicTransport -ArgumentList @(
             ${dateUnderscorestart},
             ${dateUnderscoreend}
         )

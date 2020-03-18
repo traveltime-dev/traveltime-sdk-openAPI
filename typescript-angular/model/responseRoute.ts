@@ -13,8 +13,8 @@ import { ResponseRoutePart } from './responseRoutePart';
 
 
 export interface ResponseRoute { 
-    departureTime: Date;
-    arrivalTime: Date;
+    departure_time: string;
+    arrival_time: string;
     parts: Array<ResponseRoutePart>;
 }
 

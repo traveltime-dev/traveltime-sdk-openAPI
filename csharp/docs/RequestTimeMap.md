@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeMap
+# Org.OpenAPITools.Model.RequestTimeMap
 
 ## Properties
 

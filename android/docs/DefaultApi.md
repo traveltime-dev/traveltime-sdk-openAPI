@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## geocodingReverseSearch
 
-> ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
 
 
 
@@ -31,11 +31,11 @@ Method | HTTP request | Description
 //import org.openapitools.client.api.DefaultApi;
 
 DefaultApi apiInstance = new DefaultApi();
-Double focusLat = null; // Double | 
-Double focusLng = null; // Double | 
+Double lat = null; // Double | 
+Double lng = null; // Double | 
 String withinCountry = null; // String | 
 try {
-    ResponseGeocoding result = apiInstance.geocodingReverseSearch(focusLat, focusLng, withinCountry);
+    ResponseGeocoding result = apiInstance.geocodingReverseSearch(lat, lng, withinCountry);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#geocodingReverseSearch");
@@ -48,8 +48,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **Double**|  | [default to null]
- **focusLng** | **Double**|  | [default to null]
+ **lat** | **Double**|  | [default to null]
+ **lng** | **Double**|  | [default to null]
  **withinCountry** | **String**|  | [optional] [default to null]
 
 ### Return type
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ## geocodingSearch
 
-> ResponseGeocoding geocodingSearch(query, withinCountry, focusLat, focusLng)
+> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
 
 
 
@@ -80,11 +80,11 @@ Name | Type | Description  | Notes
 
 DefaultApi apiInstance = new DefaultApi();
 String query = null; // String | 
-String withinCountry = null; // String | 
 Double focusLat = null; // Double | 
 Double focusLng = null; // Double | 
+String withinCountry = null; // String | 
 try {
-    ResponseGeocoding result = apiInstance.geocodingSearch(query, withinCountry, focusLat, focusLng);
+    ResponseGeocoding result = apiInstance.geocodingSearch(query, focusLat, focusLng, withinCountry);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling DefaultApi#geocodingSearch");
@@ -98,9 +98,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
  **focusLat** | **Double**|  | [optional] [default to null]
  **focusLng** | **Double**|  | [optional] [default to null]
+ **withinCountry** | **String**|  | [optional] [default to null]
 
 ### Return type
 

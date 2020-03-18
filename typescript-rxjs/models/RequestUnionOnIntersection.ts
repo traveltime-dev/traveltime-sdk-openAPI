@@ -17,15 +17,13 @@
  */
 export interface RequestUnionOnIntersection {
     /**
-     * 
      * @type {string}
      * @memberof RequestUnionOnIntersection
      */
     id: string;
     /**
-     * 
      * @type {Array<string>}
      * @memberof RequestUnionOnIntersection
      */
-    searchIds: Array<string>;
+    search_ids: Array<string>;
 }

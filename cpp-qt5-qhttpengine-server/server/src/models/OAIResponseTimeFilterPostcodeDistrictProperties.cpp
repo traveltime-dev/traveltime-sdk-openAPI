@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeFilterPostcodeDistrictProperties.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIResponseTimeFilterPostcodeDistrictProperties::asJson () const {
 QJsonObject
 OAIResponseTimeFilterPostcodeDistrictProperties::asJsonObject() const {
     QJsonObject obj;
-	if(travel_time_reachable.isSet()){
+    if(travel_time_reachable.isSet()){
         obj.insert(QString("travel_time_reachable"), ::OpenAPI::toJsonValue(travel_time_reachable));
     }
-	if(travel_time_all.isSet()){
+    if(travel_time_all.isSet()){
         obj.insert(QString("travel_time_all"), ::OpenAPI::toJsonValue(travel_time_all));
     }
-	if(m_coverage_isSet){
+    if(m_coverage_isSet){
         obj.insert(QString("coverage"), ::OpenAPI::toJsonValue(coverage));
     }
     return obj;

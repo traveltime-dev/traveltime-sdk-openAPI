@@ -29,10 +29,10 @@ import java.util.Map;
 
 public interface DefaultApi  {
     //geocodingReverseSearch
-    void geocodingReverseSearch(Double focusLat, Double focusLng, String withinCountry, Handler<AsyncResult<ResponseGeocoding>> handler);
+    void geocodingReverseSearch(Double lat, Double lng, String withinCountry, Handler<AsyncResult<ResponseGeocoding>> handler);
     
     //geocodingSearch
-    void geocodingSearch(String query, String withinCountry, Double focusLat, Double focusLng, Handler<AsyncResult<ResponseGeocoding>> handler);
+    void geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry, Handler<AsyncResult<ResponseGeocoding>> handler);
     
     //mapInfo
     void mapInfo(Handler<AsyncResult<ResponseMapInfo>> handler);

@@ -61,30 +61,30 @@ export default class DefaultApi {
      */
 
     /**
-     * @param {Number} focusLat 
-     * @param {Number} focusLng 
+     * @param {Number} lat 
+     * @param {Number} lng 
      * @param {Object} opts Optional parameters
      * @param {String} opts.withinCountry 
      * @param {module:api/DefaultApi~geocodingReverseSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ResponseGeocoding}
      */
-    geocodingReverseSearch(focusLat, focusLng, opts, callback) {
+    geocodingReverseSearch(lat, lng, opts, callback) {
       opts = opts || {};
       let postBody = null;
-      // verify the required parameter 'focusLat' is set
-      if (focusLat === undefined || focusLat === null) {
-        throw new Error("Missing the required parameter 'focusLat' when calling geocodingReverseSearch");
+      // verify the required parameter 'lat' is set
+      if (lat === undefined || lat === null) {
+        throw new Error("Missing the required parameter 'lat' when calling geocodingReverseSearch");
       }
-      // verify the required parameter 'focusLng' is set
-      if (focusLng === undefined || focusLng === null) {
-        throw new Error("Missing the required parameter 'focusLng' when calling geocodingReverseSearch");
+      // verify the required parameter 'lng' is set
+      if (lng === undefined || lng === null) {
+        throw new Error("Missing the required parameter 'lng' when calling geocodingReverseSearch");
       }
 
       let pathParams = {
       };
       let queryParams = {
-        'focus.lat': focusLat,
-        'focus.lng': focusLng,
+        'lat': lat,
+        'lng': lng,
         'within.country': opts['withinCountry']
       };
       let headerParams = {
@@ -114,9 +114,9 @@ export default class DefaultApi {
     /**
      * @param {String} query 
      * @param {Object} opts Optional parameters
-     * @param {String} opts.withinCountry 
      * @param {Number} opts.focusLat 
      * @param {Number} opts.focusLng 
+     * @param {String} opts.withinCountry 
      * @param {module:api/DefaultApi~geocodingSearchCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ResponseGeocoding}
      */
@@ -132,9 +132,9 @@ export default class DefaultApi {
       };
       let queryParams = {
         'query': query,
-        'within.country': opts['withinCountry'],
         'focus.lat': opts['focusLat'],
-        'focus.lng': opts['focusLng']
+        'focus.lng': opts['focusLng'],
+        'within.country': opts['withinCountry']
       };
       let headerParams = {
       };

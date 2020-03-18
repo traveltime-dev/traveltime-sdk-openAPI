@@ -13,8 +13,8 @@
 import * as models from './models';
 
 export interface ResponseMapInfoFeaturesPublicTransport {
-    dateStart: Date;
+    date_start: string;
 
-    dateEnd: Date;
+    date_end: string;
 
 }

@@ -5,7 +5,7 @@ function New-ResponseRoutesResult {
         [String]
         ${searchUnderscoreid},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseRoutesLocation[]]
+        [Org.OpenAPITools.Model.ResponseRoutesLocation[]]
         ${locations},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[]]
@@ -13,10 +13,10 @@ function New-ResponseRoutesResult {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseRoutesResult' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseRoutesResult' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseRoutesResult -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseRoutesResult -ArgumentList @(
             ${searchUnderscoreid},
             ${locations},
             ${unreachable}

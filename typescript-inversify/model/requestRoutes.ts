@@ -16,6 +16,6 @@ import { RequestRoutesDepartureSearch } from './requestRoutesDepartureSearch';
 
 export interface RequestRoutes { 
     locations: Array<RequestLocation>;
-    departureSearches?: Array<RequestRoutesDepartureSearch>;
-    arrivalSearches?: Array<RequestRoutesArrivalSearch>;
+    departure_searches?: Array<RequestRoutesDepartureSearch>;
+    arrival_searches?: Array<RequestRoutesArrivalSearch>;
 }

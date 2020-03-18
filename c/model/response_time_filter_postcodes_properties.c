@@ -9,26 +9,26 @@ response_time_filter_postcodes_properties_t *response_time_filter_postcodes_prop
     int travel_time,
     int distance
     ) {
-	response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties_local_var = malloc(sizeof(response_time_filter_postcodes_properties_t));
+    response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties_local_var = malloc(sizeof(response_time_filter_postcodes_properties_t));
     if (!response_time_filter_postcodes_properties_local_var) {
         return NULL;
     }
-	response_time_filter_postcodes_properties_local_var->travel_time = travel_time;
-	response_time_filter_postcodes_properties_local_var->distance = distance;
+    response_time_filter_postcodes_properties_local_var->travel_time = travel_time;
+    response_time_filter_postcodes_properties_local_var->distance = distance;
 
-	return response_time_filter_postcodes_properties_local_var;
+    return response_time_filter_postcodes_properties_local_var;
 }
 
 
 void response_time_filter_postcodes_properties_free(response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties) {
     listEntry_t *listEntry;
-	free(response_time_filter_postcodes_properties);
+    free(response_time_filter_postcodes_properties);
 }
 
 cJSON *response_time_filter_postcodes_properties_convertToJSON(response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcodes_properties->travel_time
+    // response_time_filter_postcodes_properties->travel_time
     if(response_time_filter_postcodes_properties->travel_time) { 
     if(cJSON_AddNumberToObject(item, "travel_time", response_time_filter_postcodes_properties->travel_time) == NULL) {
     goto fail; //Numeric
@@ -36,19 +36,19 @@ cJSON *response_time_filter_postcodes_properties_convertToJSON(response_time_fil
      } 
 
 
-	// response_time_filter_postcodes_properties->distance
+    // response_time_filter_postcodes_properties->distance
     if(response_time_filter_postcodes_properties->distance) { 
     if(cJSON_AddNumberToObject(item, "distance", response_time_filter_postcodes_properties->distance) == NULL) {
     goto fail; //Numeric
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties_parseFromJSON(cJSON *response_time_filter_postcodes_propertiesJSON){

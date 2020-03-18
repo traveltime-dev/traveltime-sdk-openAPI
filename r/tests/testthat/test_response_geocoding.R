@@ -13,7 +13,7 @@ test_that("type", {
 })
 
 test_that("features", {
-  # tests for the property `features` (ResponseGeocodingGeoJsonFeature)
+  # tests for the property `features` (array[ResponseGeocodingGeoJsonFeature])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`features`, "EXPECTED_RESULT")

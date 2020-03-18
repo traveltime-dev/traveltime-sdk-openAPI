@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
  * ResponseGeocodingProperties
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class ResponseGeocodingProperties   {
   @JsonProperty("name")
@@ -64,7 +64,7 @@ public class ResponseGeocodingProperties   {
   private String postcode;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties name(String name) {
     this.name = name;

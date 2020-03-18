@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseBoundingBox exposing (ResponseBoundingBox, decoder, encode)
+module Data.ResponseBoundingBox exposing (ResponseBoundingBox, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseBox as ResponseBox exposing (ResponseBox)
 import Data.ResponseBox as ResponseBox exposing (ResponseBox)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : ResponseBoundingBox -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "envelope", ResponseBox.encode model.envelope )
-        , ( "boxes", (Encode.list ResponseBox.encode) model.boxes )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseBoundingBox -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseBoundingBox -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "envelope", ResponseBox.encode model.envelope )
+    , ( "boxes", (Encode.list ResponseBox.encode) model.boxes )
+    ]
+
+
+
+toString : ResponseBoundingBox -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

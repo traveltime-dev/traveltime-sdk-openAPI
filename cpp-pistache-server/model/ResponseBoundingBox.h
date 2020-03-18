@@ -47,11 +47,12 @@ public:
     /// </summary>
     ResponseBox getEnvelope() const;
     void setEnvelope(ResponseBox const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseBox>& getBoxes();
-    
+    void setBoxes(std::vector<ResponseBox> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseBoundingBox& o);
     friend void from_json(const nlohmann::json& j, ResponseBoundingBox& o);
 protected:

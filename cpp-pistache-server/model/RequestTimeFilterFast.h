@@ -47,12 +47,13 @@ public:
     /// 
     /// </summary>
     std::vector<RequestLocation>& getLocations();
-        /// <summary>
+    void setLocations(std::vector<RequestLocation> const& value);
+    /// <summary>
     /// 
     /// </summary>
     RequestTimeFilterFastArrivalSearches getArrivalSearches() const;
     void setArrivalSearches(RequestTimeFilterFastArrivalSearches const& value);
-    
+
     friend void to_json(nlohmann::json& j, const RequestTimeFilterFast& o);
     friend void from_json(const nlohmann::json& j, RequestTimeFilterFast& o);
 protected:

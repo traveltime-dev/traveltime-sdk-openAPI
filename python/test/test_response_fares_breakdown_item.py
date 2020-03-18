@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_fares_breakdown_item import ResponseFaresBreakdownItem  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_fares_breakdown_item import ResponseFaresBreakdownItem  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseFaresBreakdownItem(unittest.TestCase):
     """ResponseFaresBreakdownItem unit test stubs"""
@@ -29,11 +29,47 @@ class TestResponseFaresBreakdownItem(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseFaresBreakdownItem
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_fares_breakdown_item.ResponseFaresBreakdownItem()  # noqa: E501
+        if include_optional :
+            return ResponseFaresBreakdownItem(
+                modes = [
+                    'car'
+                    ], 
+                route_part_ids = [
+                    56
+                    ], 
+                tickets = [
+                    openapi_client.models.response_fare_ticket.ResponseFareTicket(
+                        type = 'single', 
+                        price = 1.337, 
+                        currency = '0', )
+                    ]
+            )
+        else :
+            return ResponseFaresBreakdownItem(
+                modes = [
+                    'car'
+                    ],
+                route_part_ids = [
+                    56
+                    ],
+                tickets = [
+                    openapi_client.models.response_fare_ticket.ResponseFareTicket(
+                        type = 'single', 
+                        price = 1.337, 
+                        currency = '0', )
+                    ],
+        )
+
     def testResponseFaresBreakdownItem(self):
         """Test ResponseFaresBreakdownItem"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_fares_breakdown_item.ResponseFaresBreakdownItem()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

@@ -13,7 +13,7 @@ import { ResponseMapInfoFeaturesPublicTransport } from './responseMapInfoFeature
 
 
 export interface ResponseMapInfoFeatures { 
-    publicTransport?: ResponseMapInfoFeaturesPublicTransport;
+    public_transport?: ResponseMapInfoFeaturesPublicTransport;
     fares: boolean;
     postcodes: boolean;
 }

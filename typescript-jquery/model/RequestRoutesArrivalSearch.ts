@@ -15,13 +15,13 @@ import * as models from './models';
 export interface RequestRoutesArrivalSearch {
     id: string;
 
-    departureLocationIds: Array<string>;
+    departure_location_ids: Array<string>;
 
-    arrivalLocationId: string;
+    arrival_location_id: string;
 
     transportation: models.RequestTransportation;
 
-    arrivalTime: Date;
+    arrival_time: string;
 
     properties: Array<models.RequestRoutesProperty>;
 

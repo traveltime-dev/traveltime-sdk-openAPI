@@ -14,10 +14,11 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSector   {
   
   private @Valid String code = null;
-  private @Valid ResponseTimeFilterPostcodeSectorProperties properties = null;
+  private @Valid ResponseTimeFilterPostcodeSectorProperties properties;
 
   /**
    **/

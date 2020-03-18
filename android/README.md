@@ -64,11 +64,11 @@ public class DefaultApiExample {
 
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        Double focusLat = null; // Double | 
-        Double focusLng = null; // Double | 
+        Double lat = null; // Double | 
+        Double lng = null; // Double | 
         String withinCountry = null; // String | 
         try {
-            ResponseGeocoding result = apiInstance.geocodingReverseSearch(focusLat, focusLng, withinCountry);
+            ResponseGeocoding result = apiInstance.geocodingReverseSearch(lat, lng, withinCountry);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#geocodingReverseSearch");

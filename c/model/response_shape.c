@@ -9,34 +9,34 @@ response_shape_t *response_shape_create(
     list_t *shell,
     list_t *holes
     ) {
-	response_shape_t *response_shape_local_var = malloc(sizeof(response_shape_t));
+    response_shape_t *response_shape_local_var = malloc(sizeof(response_shape_t));
     if (!response_shape_local_var) {
         return NULL;
     }
-	response_shape_local_var->shell = shell;
-	response_shape_local_var->holes = holes;
+    response_shape_local_var->shell = shell;
+    response_shape_local_var->holes = holes;
 
-	return response_shape_local_var;
+    return response_shape_local_var;
 }
 
 
 void response_shape_free(response_shape_t *response_shape) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_shape->shell) {
-		coords_free(listEntry->data);
-	}
-	list_free(response_shape->shell);
-	list_ForEach(listEntry, response_shape->holes) {
-		free(listEntry->data);
-	}
-	list_free(response_shape->holes);
-	free(response_shape);
+    list_ForEach(listEntry, response_shape->shell) {
+        coords_free(listEntry->data);
+    }
+    list_free(response_shape->shell);
+    list_ForEach(listEntry, response_shape->holes) {
+        free(listEntry->data);
+    }
+    list_free(response_shape->holes);
+    free(response_shape);
 }
 
 cJSON *response_shape_convertToJSON(response_shape_t *response_shape) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_shape->shell
+    // response_shape->shell
     if (!response_shape->shell) {
         goto fail;
     }
@@ -58,17 +58,17 @@ cJSON *response_shape_convertToJSON(response_shape_t *response_shape) {
     }
 
 
-	// response_shape->holes
+    // response_shape->holes
     if (!response_shape->holes) {
         goto fail;
     }
     
-	cJSON *holes = cJSON_AddArrayToObject(item, "holes");
-	if(holes == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *holes = cJSON_AddArrayToObject(item, "holes");
+    if(holes == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *holesListEntry;
+    listEntry_t *holesListEntry;
     list_ForEach(holesListEntry, response_shape->holes) {
     if(cJSON_AddNumberToObject(holes, "", *(double *)holesListEntry->data) == NULL)
     {
@@ -76,12 +76,12 @@ cJSON *response_shape_convertToJSON(response_shape_t *response_shape) {
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_shape_t *response_shape_parseFromJSON(cJSON *response_shapeJSON){

@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseSupportedLocation;
 /**
  * ResponseSupportedLocations
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseSupportedLocations {
   public static final String SERIALIZED_NAME_LOCATIONS = "locations";
   @SerializedName(SERIALIZED_NAME_LOCATIONS)
@@ -40,7 +40,9 @@ public class ResponseSupportedLocations {
   @SerializedName(SERIALIZED_NAME_UNSUPPORTED_LOCATIONS)
   private List<String> unsupportedLocations = new ArrayList<String>();
 
+
   public ResponseSupportedLocations locations(List<ResponseSupportedLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseSupportedLocations {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseSupportedLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<ResponseSupportedLocation> locations) {
     this.locations = locations;
   }
 
+
   public ResponseSupportedLocations unsupportedLocations(List<String> unsupportedLocations) {
+    
     this.unsupportedLocations = unsupportedLocations;
     return this;
   }
@@ -78,9 +84,11 @@ public class ResponseSupportedLocations {
    * @return unsupportedLocations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getUnsupportedLocations() {
     return unsupportedLocations;
   }
+
 
   public void setUnsupportedLocations(List<String> unsupportedLocations) {
     this.unsupportedLocations = unsupportedLocations;

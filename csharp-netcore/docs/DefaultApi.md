@@ -1,4 +1,4 @@
-# traveltimeplatform.Api.DefaultApi
+# Org.OpenAPITools.Api.DefaultApi
 
 All URIs are relative to *https://api.traveltimeapp.com*
 
@@ -19,46 +19,50 @@ Method | HTTP request | Description
 
 <a name="geocodingreversesearch"></a>
 # **GeocodingReverseSearch**
-> ResponseGeocoding GeocodingReverseSearch (double focusLat, double focusLng, string withinCountry = null)
+> ResponseGeocoding GeocodingReverseSearch (double lat, double lng, string withinCountry = null)
 
 
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class GeocodingReverseSearchExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
-            var focusLat = 1.2D;  // double | 
-            var focusLng = 1.2D;  // double | 
+            var apiInstance = new DefaultApi(config);
+            var lat = 1.2D;  // double | 
+            var lng = 1.2D;  // double | 
             var withinCountry = withinCountry_example;  // string |  (optional) 
 
             try
             {
-                ResponseGeocoding result = apiInstance.GeocodingReverseSearch(focusLat, focusLng, withinCountry);
+                ResponseGeocoding result = apiInstance.GeocodingReverseSearch(lat, lng, withinCountry);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.GeocodingReverseSearch: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -69,8 +73,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **double**|  | 
- **focusLng** | **double**|  | 
+ **lat** | **double**|  | 
+ **lng** | **double**|  | 
  **withinCountry** | **string**|  | [optional] 
 
 ### Return type
@@ -86,51 +90,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="geocodingsearch"></a>
 # **GeocodingSearch**
-> ResponseGeocoding GeocodingSearch (string query, string withinCountry = null, double? focusLat = null, double? focusLng = null)
+> ResponseGeocoding GeocodingSearch (string query, double? focusLat = null, double? focusLng = null, string withinCountry = null)
 
 
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class GeocodingSearchExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var query = query_example;  // string | 
-            var withinCountry = withinCountry_example;  // string |  (optional) 
             var focusLat = 1.2D;  // double? |  (optional) 
             var focusLng = 1.2D;  // double? |  (optional) 
+            var withinCountry = withinCountry_example;  // string |  (optional) 
 
             try
             {
-                ResponseGeocoding result = apiInstance.GeocodingSearch(query, withinCountry, focusLat, focusLng);
+                ResponseGeocoding result = apiInstance.GeocodingSearch(query, focusLat, focusLng, withinCountry);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.GeocodingSearch: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -142,9 +156,9 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  | 
- **withinCountry** | **string**|  | [optional] 
  **focusLat** | **double?**|  | [optional] 
  **focusLng** | **double?**|  | [optional] 
+ **withinCountry** | **string**|  | [optional] 
 
 ### Return type
 
@@ -159,6 +173,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="mapinfo"></a>
@@ -169,37 +189,41 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class MapInfoExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
 
             try
             {
                 ResponseMapInfo result = apiInstance.MapInfo();
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.MapInfo: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -222,6 +246,12 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="routes"></a>
@@ -232,28 +262,30 @@ This endpoint does not need any parameter.
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class RoutesExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestRoutes = new RequestRoutes(); // RequestRoutes | 
 
             try
@@ -261,9 +293,11 @@ namespace Example
                 ResponseRoutes result = apiInstance.Routes(requestRoutes);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.Routes: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -289,6 +323,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="supportedlocations"></a>
@@ -299,28 +339,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class SupportedLocationsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestSupportedLocations = new RequestSupportedLocations(); // RequestSupportedLocations | 
 
             try
@@ -328,9 +370,11 @@ namespace Example
                 ResponseSupportedLocations result = apiInstance.SupportedLocations(requestSupportedLocations);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.SupportedLocations: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -356,6 +400,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timefilter"></a>
@@ -366,28 +416,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeFilterExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeFilter = new RequestTimeFilter(); // RequestTimeFilter | 
 
             try
@@ -395,9 +447,11 @@ namespace Example
                 ResponseTimeFilter result = apiInstance.TimeFilter(requestTimeFilter);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeFilter: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -423,6 +477,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timefilterfast"></a>
@@ -433,28 +493,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeFilterFastExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeFilterFast = new RequestTimeFilterFast(); // RequestTimeFilterFast | 
 
             try
@@ -462,9 +524,11 @@ namespace Example
                 ResponseTimeFilterFast result = apiInstance.TimeFilterFast(requestTimeFilterFast);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeFilterFast: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -490,6 +554,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timefilterpostcodedistricts"></a>
@@ -500,28 +570,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeFilterPostcodeDistrictsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeFilterPostcodeDistricts = new RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
 
             try
@@ -529,9 +601,11 @@ namespace Example
                 ResponseTimeFilterPostcodeDistricts result = apiInstance.TimeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeFilterPostcodeDistricts: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -557,6 +631,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timefilterpostcodesectors"></a>
@@ -567,28 +647,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeFilterPostcodeSectorsExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeFilterPostcodeSectors = new RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
 
             try
@@ -596,9 +678,11 @@ namespace Example
                 ResponseTimeFilterPostcodeSectors result = apiInstance.TimeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeFilterPostcodeSectors: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -624,6 +708,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timefilterpostcodes"></a>
@@ -634,28 +724,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeFilterPostcodesExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeFilterPostcodes = new RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
 
             try
@@ -663,9 +755,11 @@ namespace Example
                 ResponseTimeFilterPostcodes result = apiInstance.TimeFilterPostcodes(requestTimeFilterPostcodes);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeFilterPostcodes: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -691,6 +785,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="timemap"></a>
@@ -701,28 +801,30 @@ Name | Type | Description  | Notes
 
 ### Example
 ```csharp
-using System;
+using System.Collections.Generic;
 using System.Diagnostics;
-using traveltimeplatform.Api;
-using traveltimeplatform.Client;
-using traveltimeplatform.Model;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
 
 namespace Example
 {
     public class TimeMapExample
     {
-        public void main()
+        public static void Main()
         {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.traveltimeapp.com";
             // Configure API key authorization: ApiKey
-            Configuration.Default.AddApiKey("X-Api-Key", "YOUR_API_KEY");
+            config.AddApiKey("X-Api-Key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Api-Key", "Bearer");
+            // config.AddApiKeyPrefix("X-Api-Key", "Bearer");
             // Configure API key authorization: ApplicationId
-            Configuration.Default.AddApiKey("X-Application-Id", "YOUR_API_KEY");
+            config.AddApiKey("X-Application-Id", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("X-Application-Id", "Bearer");
+            // config.AddApiKeyPrefix("X-Application-Id", "Bearer");
 
-            var apiInstance = new DefaultApi();
+            var apiInstance = new DefaultApi(config);
             var requestTimeMap = new RequestTimeMap(); // RequestTimeMap | 
 
             try
@@ -730,9 +832,11 @@ namespace Example
                 ResponseTimeMap result = apiInstance.TimeMap(requestTimeMap);
                 Debug.WriteLine(result);
             }
-            catch (Exception e)
+            catch (ApiException  e)
             {
                 Debug.Print("Exception when calling DefaultApi.TimeMap: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
             }
         }
     }
@@ -757,6 +861,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

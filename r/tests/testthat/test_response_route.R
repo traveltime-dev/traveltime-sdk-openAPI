@@ -20,7 +20,7 @@ test_that("arrival_time", {
 })
 
 test_that("parts", {
-  # tests for the property `parts` (ResponseRoutePart)
+  # tests for the property `parts` (array[ResponseRoutePart])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`parts`, "EXPECTED_RESULT")

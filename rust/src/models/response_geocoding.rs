@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocoding {
     #[serde(rename = "type")]
     pub _type: String,
     #[serde(rename = "features")]
-    pub features: Vec<::models::ResponseGeocodingGeoJsonFeature>,
+    pub features: Vec<crate::models::ResponseGeocodingGeoJsonFeature>,
 }
 
 impl ResponseGeocoding {
-    pub fn new(_type: String, features: Vec<::models::ResponseGeocodingGeoJsonFeature>) -> ResponseGeocoding {
+    pub fn new(_type: String, features: Vec<crate::models::ResponseGeocodingGeoJsonFeature>) -> ResponseGeocoding {
         ResponseGeocoding {
-            _type: _type,
-            features: features,
+            _type,
+            features,
         }
     }
 }
+
+

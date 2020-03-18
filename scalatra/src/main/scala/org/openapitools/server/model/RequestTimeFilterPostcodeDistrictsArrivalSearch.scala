@@ -10,18 +10,18 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterPostcodeDistrictsArrivalSearch(
   id: String,
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  arrivalUnderscoretime: Date,
+  arrivalTime: OffsetDateTime,
 
-  reachableUnderscorepostcodesUnderscorethreshold: Double,
+  reachablePostcodesThreshold: Double,
 
   properties: List[RequestTimeFilterPostcodeDistrictsProperty],
 

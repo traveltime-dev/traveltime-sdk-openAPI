@@ -10,7 +10,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseRoutesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseRoutesProperties   {
@@ -21,10 +21,10 @@ public class ResponseRoutesProperties   {
   private Integer distance;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseRoutesProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

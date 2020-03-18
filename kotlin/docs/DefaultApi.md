@@ -19,22 +19,22 @@ Method | HTTP request | Description
 
 <a name="geocodingReverseSearch"></a>
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(focusPeriodLat, focusPeriodLng, withinPeriodCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodCountry)
 
 
 
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
-val focusPeriodLat : kotlin.Double = 1.2 // kotlin.Double | 
-val focusPeriodLng : kotlin.Double = 1.2 // kotlin.Double | 
+val lat : kotlin.Double = 1.2 // kotlin.Double | 
+val lng : kotlin.Double = 1.2 // kotlin.Double | 
 val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(focusPeriodLat, focusPeriodLng, withinPeriodCountry)
+    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(lat, lng, withinPeriodCountry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingReverseSearch")
@@ -49,8 +49,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusPeriodLat** | **kotlin.Double**|  |
- **focusPeriodLng** | **kotlin.Double**|  |
+ **lat** | **kotlin.Double**|  |
+ **lng** | **kotlin.Double**|  |
  **withinPeriodCountry** | **kotlin.String**|  | [optional]
 
 ### Return type
@@ -59,7 +59,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -68,23 +74,23 @@ Name | Type | Description  | Notes
 
 <a name="geocodingSearch"></a>
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, withinPeriodCountry, focusPeriodLat, focusPeriodLng)
+> ResponseGeocoding geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
 
 
 
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val query : kotlin.String = query_example // kotlin.String | 
-val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
 val focusPeriodLat : kotlin.Double = 1.2 // kotlin.Double | 
 val focusPeriodLng : kotlin.Double = 1.2 // kotlin.Double | 
+val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, withinPeriodCountry, focusPeriodLat, focusPeriodLng)
+    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingSearch")
@@ -100,9 +106,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **kotlin.String**|  |
- **withinPeriodCountry** | **kotlin.String**|  | [optional]
  **focusPeriodLat** | **kotlin.Double**|  | [optional]
  **focusPeriodLng** | **kotlin.Double**|  | [optional]
+ **withinPeriodCountry** | **kotlin.String**|  | [optional]
 
 ### Return type
 
@@ -110,7 +116,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -126,8 +138,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 try {
@@ -151,7 +163,13 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -167,8 +185,8 @@ This endpoint does not need any parameter.
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestRoutes : RequestRoutes =  // RequestRoutes | 
@@ -196,7 +214,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -212,8 +236,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestSupportedLocations : RequestSupportedLocations =  // RequestSupportedLocations | 
@@ -241,7 +265,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -257,8 +287,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeFilter : RequestTimeFilter =  // RequestTimeFilter | 
@@ -286,7 +316,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -302,8 +338,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeFilterFast : RequestTimeFilterFast =  // RequestTimeFilterFast | 
@@ -331,7 +367,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -347,8 +389,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeFilterPostcodeDistricts : RequestTimeFilterPostcodeDistricts =  // RequestTimeFilterPostcodeDistricts | 
@@ -376,7 +418,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -392,8 +440,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeFilterPostcodeSectors : RequestTimeFilterPostcodeSectors =  // RequestTimeFilterPostcodeSectors | 
@@ -421,7 +469,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -437,8 +491,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeFilterPostcodes : RequestTimeFilterPostcodes =  // RequestTimeFilterPostcodes | 
@@ -466,7 +520,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 
@@ -482,8 +542,8 @@ Name | Type | Description  | Notes
 ### Example
 ```kotlin
 // Import classes:
-//import traveltimeplatform.infrastructure.*
-//import traveltimeplatform.models.*
+//import org.openapitools.client.infrastructure.*
+//import org.openapitools.client.models.*
 
 val apiInstance = DefaultApi()
 val requestTimeMap : RequestTimeMap =  // RequestTimeMap | 
@@ -511,7 +571,13 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[ApiKey](../README.md#ApiKey), [ApplicationId](../README.md#ApplicationId)
+
+Configure ApiKey:
+    ApiClient.apiKey["X-Api-Key"] = ""
+    ApiClient.apiKeyPrefix["X-Api-Key"] = ""
+Configure ApplicationId:
+    ApiClient.apiKey["X-Application-Id"] = ""
+    ApiClient.apiKeyPrefix["X-Application-Id"] = ""
 
 ### HTTP request headers
 

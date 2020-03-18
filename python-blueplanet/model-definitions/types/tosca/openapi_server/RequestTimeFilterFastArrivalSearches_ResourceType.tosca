@@ -1,0 +1,44 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterFastArrivalSearches"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterFastArrivalSearches"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestTimeFilterFastArrivalManyToOneSearch = openapi_server.resourceTypes.RequestTimeFilterFastArrivalManyToOneSearch
+  RequestTimeFilterFastArrivalOneToManySearch = openapi_server.resourceTypes.RequestTimeFilterFastArrivalOneToManySearch
+}
+resourceTypes {
+
+  RequestTimeFilterFastArrivalSearches {
+    title = RequestTimeFilterFastArrivalSearches
+    description = RequestTimeFilterFastArrivalSearches
+    derivedFrom = Root
+    properties {
+        many_to_one {
+          type = array
+          items.type = RequestTimeFilterFastArrivalManyToOneSearch
+          description = ""
+          optional = false
+        }
+        one_to_many {
+          type = array
+          items.type = RequestTimeFilterFastArrivalOneToManySearch
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterFastArrivalSearches {
+    title = RequestTimeFilterFastArrivalSearches
+    description = RequestTimeFilterFastArrivalSearches
+    implements = openapi_server.resourceTypes.RequestTimeFilterFastArrivalSearches
+
+  }
+}

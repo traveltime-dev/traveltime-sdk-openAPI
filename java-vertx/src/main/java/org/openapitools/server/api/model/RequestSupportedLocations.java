@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.server.api.model.RequestLocation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestSupportedLocations   {
   
   private List<RequestLocation> locations = new ArrayList<>();

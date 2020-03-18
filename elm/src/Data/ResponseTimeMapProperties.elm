@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMapProperties exposing (ResponseTimeMapProperties, decoder, encode)
+module Data.ResponseTimeMapProperties exposing (ResponseTimeMapProperties, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -32,10 +32,26 @@ decoder =
 
 
 encode : ResponseTimeMapProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "is_only_walking", Maybe.withDefault Encode.null (Maybe.map Encode.bool model.isOnlyWalking) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMapProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMapProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "is_only_walking", Maybe.withDefault Encode.null (Maybe.map Encode.bool model.isOnlyWalking) )
+    ]
+
+
+
+toString : ResponseTimeMapProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

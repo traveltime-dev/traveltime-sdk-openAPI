@@ -14,6 +14,6 @@ import * as models from './models';
 
 export interface ResponseFares {
     "breakdown": Array<models.ResponseFaresBreakdownItem>;
-    "ticketsTotal": Array<models.ResponseFareTicket>;
+    "tickets_total": Array<models.ResponseFareTicket>;
 }
 

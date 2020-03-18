@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseBoundingBox {
     /**
-     * 
      * @type {ResponseBox}
      * @memberof ResponseBoundingBox
      */
     envelope: ResponseBox;
     /**
-     * 
      * @type {Array<ResponseBox>}
      * @memberof ResponseBoundingBox
      */

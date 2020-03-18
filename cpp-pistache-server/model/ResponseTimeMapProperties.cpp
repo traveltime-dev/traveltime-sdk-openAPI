@@ -43,7 +43,7 @@ void to_json(nlohmann::json& j, const ResponseTimeMapProperties& o)
 
 void from_json(const nlohmann::json& j, ResponseTimeMapProperties& o)
 {
-    if(j.contains("is_only_walking"))
+    if(j.find("is_only_walking") != j.end())
     {
         j.at("is_only_walking").get_to(o.m_Is_only_walking);
         o.m_Is_only_walkingIsSet = true;

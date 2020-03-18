@@ -46,7 +46,7 @@ public:
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-    
+
     friend void to_json(nlohmann::json& j, const RequestTransportationFast& o);
     friend void from_json(const nlohmann::json& j, RequestTransportationFast& o);
 protected:

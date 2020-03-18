@@ -1,0 +1,48 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseRoutesResult"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseRoutesResult"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseRoutesLocation = openapi_server.resourceTypes.ResponseRoutesLocation
+}
+resourceTypes {
+
+  ResponseRoutesResult {
+    title = ResponseRoutesResult
+    description = ResponseRoutesResult
+    derivedFrom = Root
+    properties {
+        search_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        locations {
+          type = array
+          items.type = ResponseRoutesLocation
+          description = ""
+          optional = true
+        }
+        unreachable {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseRoutesResult {
+    title = ResponseRoutesResult
+    description = ResponseRoutesResult
+    implements = openapi_server.resourceTypes.ResponseRoutesResult
+
+  }
+}

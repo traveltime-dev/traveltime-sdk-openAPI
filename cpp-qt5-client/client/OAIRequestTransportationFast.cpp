@@ -10,96 +10,84 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTransportationFast.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTransportationFast::OAIRequestTransportationFast(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTransportationFast::OAIRequestTransportationFast() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTransportationFast::~OAIRequestTransportationFast() {
+OAIRequestTransportationFast::~OAIRequestTransportationFast() {}
 
-}
+void OAIRequestTransportationFast::initializeModel() {
 
-void
-OAIRequestTransportationFast::init() {
-    
     m_type_isSet = false;
     m_type_isValid = false;
-    }
+}
 
-void
-OAIRequestTransportationFast::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestTransportationFast::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestTransportationFast::fromJsonObject(QJsonObject json) {
-    
+void OAIRequestTransportationFast::fromJsonObject(QJsonObject json) {
+
     m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    
-    
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
 }
 
-QString
-OAIRequestTransportationFast::asJson () const {
+QString OAIRequestTransportationFast::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestTransportationFast::asJsonObject() const {
+QJsonObject OAIRequestTransportationFast::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if (m_type_isSet) {
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
     return obj;
 }
 
-
-QString
-OAIRequestTransportationFast::getType() const {
+QString OAIRequestTransportationFast::getType() const {
     return type;
 }
-void
-OAIRequestTransportationFast::setType(const QString &type) {
+void OAIRequestTransportationFast::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-bool
-OAIRequestTransportationFast::isSet() const {
+bool OAIRequestTransportationFast::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_type_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_type_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestTransportationFast::isValid() const {
+bool OAIRequestTransportationFast::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_type_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

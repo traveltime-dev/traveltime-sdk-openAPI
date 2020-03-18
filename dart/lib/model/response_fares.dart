@@ -14,16 +14,12 @@ class ResponseFares {
 
   ResponseFares.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['breakdown'] == null) {
-      breakdown = null;
-    } else {
-      breakdown = ResponseFaresBreakdownItem.listFromJson(json['breakdown']);
-    }
-    if (json['tickets_total'] == null) {
-      ticketsTotal = null;
-    } else {
-      ticketsTotal = ResponseFareTicket.listFromJson(json['tickets_total']);
-    }
+    breakdown = (json['breakdown'] == null) ?
+      null :
+      ResponseFaresBreakdownItem.listFromJson(json['breakdown']);
+    ticketsTotal = (json['tickets_total'] == null) ?
+      null :
+      ResponseFareTicket.listFromJson(json['tickets_total']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class ResponseFares {
   }
 
   static List<ResponseFares> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseFares>() : json.map((value) => new ResponseFares.fromJson(value)).toList();
+    return json == null ? List<ResponseFares>() : json.map((value) => ResponseFares.fromJson(value)).toList();
   }
 
   static Map<String, ResponseFares> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseFares>();
+    var map = Map<String, ResponseFares>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseFares.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseFares.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseFares-objects as value to a dart map
+  static Map<String, List<ResponseFares>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseFares>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseFares.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

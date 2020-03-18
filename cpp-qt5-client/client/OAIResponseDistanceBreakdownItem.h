@@ -21,51 +21,47 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTransportationMode.h"
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseDistanceBreakdownItem: public OAIObject {
+class OAIResponseDistanceBreakdownItem : public OAIObject {
 public:
     OAIResponseDistanceBreakdownItem();
     OAIResponseDistanceBreakdownItem(QString json);
     ~OAIResponseDistanceBreakdownItem() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     OAIResponseTransportationMode getMode() const;
     void setMode(const OAIResponseTransportationMode &mode);
 
-    
     qint32 getDistance() const;
     void setDistance(const qint32 &distance);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     OAIResponseTransportationMode mode;
     bool m_mode_isSet;
     bool m_mode_isValid;
-    
+
     qint32 distance;
     bool m_distance_isSet;
     bool m_distance_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseDistanceBreakdownItem)
 
 #endif // OAIResponseDistanceBreakdownItem_H

@@ -17,41 +17,35 @@
  */
 export interface RequestTransportation {
     /**
-     * 
      * @type {string}
      * @memberof RequestTransportation
      */
     type: RequestTransportationTypeEnum;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    ptChangeDelay?: number;
+    pt_change_delay?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    walkingTime?: number;
+    walking_time?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    drivingTimeToStation?: number;
+    driving_time_to_station?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    parkingTime?: number;
+    parking_time?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    boardingTime?: number;
+    boarding_time?: number;
 }
 
 /**

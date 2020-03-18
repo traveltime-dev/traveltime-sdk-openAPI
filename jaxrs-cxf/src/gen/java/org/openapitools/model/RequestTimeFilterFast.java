@@ -25,7 +25,7 @@ public class RequestTimeFilterFast  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
  /**
    * Get locations
    * @return locations

@@ -9,19 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapWkt {
     #[serde(rename = "results")]
-    pub results: Vec<::models::ResponseTimeMapWktResult>,
+    pub results: Vec<crate::models::ResponseTimeMapWktResult>,
 }
 
 impl ResponseTimeMapWkt {
-    pub fn new(results: Vec<::models::ResponseTimeMapWktResult>) -> ResponseTimeMapWkt {
+    pub fn new(results: Vec<crate::models::ResponseTimeMapWktResult>) -> ResponseTimeMapWkt {
         ResponseTimeMapWkt {
-            results: results,
+            results,
         }
     }
 }
+
+

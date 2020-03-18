@@ -14,16 +14,10 @@ class ResponseGeocodingGeometry {
 
   ResponseGeocodingGeometry.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['type'] == null) {
-      type = null;
-    } else {
-          type = json['type'];
-    }
-    if (json['coordinates'] == null) {
-      coordinates = null;
-    } else {
-      coordinates = (json['coordinates'] as List).cast<double>();
-    }
+    type = json['type'];
+    coordinates = (json['coordinates'] == null) ?
+      null :
+      (json['coordinates'] as List).cast<double>();
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +30,26 @@ class ResponseGeocodingGeometry {
   }
 
   static List<ResponseGeocodingGeometry> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseGeocodingGeometry>() : json.map((value) => new ResponseGeocodingGeometry.fromJson(value)).toList();
+    return json == null ? List<ResponseGeocodingGeometry>() : json.map((value) => ResponseGeocodingGeometry.fromJson(value)).toList();
   }
 
   static Map<String, ResponseGeocodingGeometry> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseGeocodingGeometry>();
+    var map = Map<String, ResponseGeocodingGeometry>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseGeocodingGeometry.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseGeocodingGeometry.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseGeocodingGeometry-objects as value to a dart map
+  static Map<String, List<ResponseGeocodingGeometry>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseGeocodingGeometry>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseGeocodingGeometry.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

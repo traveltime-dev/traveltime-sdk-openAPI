@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseRoutesProperties  {
   
   @ApiModelProperty(value = "")
@@ -26,11 +27,11 @@ public class ResponseRoutesProperties  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseRoute route = null;
+  private ResponseRoute route;
  /**
   * Get travelTime
   * @return travelTime

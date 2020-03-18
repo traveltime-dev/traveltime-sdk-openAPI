@@ -1,14 +1,14 @@
-# traveltimeplatform::RequestRoutesDepartureSearch
+# openapi::RequestRoutesDepartureSearch
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **character** |  | 
 **departure_location_id** | **character** |  | 
-**arrival_location_ids** | **character** |  | 
+**arrival_location_ids** | **array[character]** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **departure_time** | **character** |  | 
-**properties** | [**RequestRoutesProperty**](RequestRoutesProperty.md) |  | 
+**properties** | [**array[RequestRoutesProperty]**](RequestRoutesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 
 

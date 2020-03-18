@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**breakdown** | [**Vec<::models::ResponseFaresBreakdownItem>**](ResponseFaresBreakdownItem.md) |  | 
-**tickets_total** | [**Vec<::models::ResponseFareTicket>**](ResponseFareTicket.md) |  | 
+**breakdown** | [**Vec<crate::models::ResponseFaresBreakdownItem>**](ResponseFaresBreakdownItem.md) |  | 
+**tickets_total** | [**Vec<crate::models::ResponseFareTicket>**](ResponseFareTicket.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

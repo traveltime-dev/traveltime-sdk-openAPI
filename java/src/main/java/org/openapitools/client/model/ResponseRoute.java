@@ -31,7 +31,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * ResponseRoute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseRoute {
   public static final String SERIALIZED_NAME_DEPARTURE_TIME = "departure_time";
   @SerializedName(SERIALIZED_NAME_DEPARTURE_TIME)
@@ -45,7 +45,9 @@ public class ResponseRoute {
   @SerializedName(SERIALIZED_NAME_PARTS)
   private List<ResponseRoutePart> parts = new ArrayList<ResponseRoutePart>();
 
+
   public ResponseRoute departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseRoute {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public ResponseRoute arrivalTime(OffsetDateTime arrivalTime) {
+    
     this.arrivalTime = arrivalTime;
     return this;
   }
@@ -73,15 +79,19 @@ public class ResponseRoute {
    * @return arrivalTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getArrivalTime() {
     return arrivalTime;
   }
+
 
   public void setArrivalTime(OffsetDateTime arrivalTime) {
     this.arrivalTime = arrivalTime;
   }
 
+
   public ResponseRoute parts(List<ResponseRoutePart> parts) {
+    
     this.parts = parts;
     return this;
   }
@@ -96,9 +106,11 @@ public class ResponseRoute {
    * @return parts
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseRoutePart> getParts() {
     return parts;
   }
+
 
   public void setParts(List<ResponseRoutePart> parts) {
     this.parts = parts;

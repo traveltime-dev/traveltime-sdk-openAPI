@@ -10,427 +10,414 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseRoutePart.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseRoutePart::OAIResponseRoutePart(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseRoutePart::OAIResponseRoutePart() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseRoutePart::~OAIResponseRoutePart() {
+OAIResponseRoutePart::~OAIResponseRoutePart() {}
 
-}
+void OAIResponseRoutePart::initializeModel() {
 
-void
-OAIResponseRoutePart::init() {
-    
     m_id_isSet = false;
     m_id_isValid = false;
-    
+
     m_type_isSet = false;
     m_type_isValid = false;
-    
+
     m_mode_isSet = false;
     m_mode_isValid = false;
-    
+
     m_directions_isSet = false;
     m_directions_isValid = false;
-    
+
     m_distance_isSet = false;
     m_distance_isValid = false;
-    
+
     m_travel_time_isSet = false;
     m_travel_time_isValid = false;
-    
+
     m_coords_isSet = false;
     m_coords_isValid = false;
-    
+
     m_direction_isSet = false;
     m_direction_isValid = false;
-    
+
     m_road_isSet = false;
     m_road_isValid = false;
-    
+
     m_turn_isSet = false;
     m_turn_isValid = false;
-    
+
     m_line_isSet = false;
     m_line_isValid = false;
-    
+
     m_departure_station_isSet = false;
     m_departure_station_isValid = false;
-    
+
     m_arrival_station_isSet = false;
     m_arrival_station_isValid = false;
-    
+
     m_departs_at_isSet = false;
     m_departs_at_isValid = false;
-    
+
     m_arrives_at_isSet = false;
     m_arrives_at_isValid = false;
-    
+
     m_num_stops_isSet = false;
     m_num_stops_isValid = false;
-    }
+}
 
-void
-OAIResponseRoutePart::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseRoutePart::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseRoutePart::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseRoutePart::fromJsonObject(QJsonObject json) {
+
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    
-    
+    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
+
     m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    
-    
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
+
     m_mode_isValid = ::OpenAPI::fromJsonValue(mode, json[QString("mode")]);
-    
-    
+    m_mode_isSet = !json[QString("mode")].isNull() && m_mode_isValid;
+
     m_directions_isValid = ::OpenAPI::fromJsonValue(directions, json[QString("directions")]);
-    
-    
+    m_directions_isSet = !json[QString("directions")].isNull() && m_directions_isValid;
+
     m_distance_isValid = ::OpenAPI::fromJsonValue(distance, json[QString("distance")]);
-    
-    
+    m_distance_isSet = !json[QString("distance")].isNull() && m_distance_isValid;
+
     m_travel_time_isValid = ::OpenAPI::fromJsonValue(travel_time, json[QString("travel_time")]);
-    
-    
-    
+    m_travel_time_isSet = !json[QString("travel_time")].isNull() && m_travel_time_isValid;
+
     m_coords_isValid = ::OpenAPI::fromJsonValue(coords, json[QString("coords")]);
-    
+    m_coords_isSet = !json[QString("coords")].isNull() && m_coords_isValid;
+
     m_direction_isValid = ::OpenAPI::fromJsonValue(direction, json[QString("direction")]);
-    
-    
+    m_direction_isSet = !json[QString("direction")].isNull() && m_direction_isValid;
+
     m_road_isValid = ::OpenAPI::fromJsonValue(road, json[QString("road")]);
-    
-    
+    m_road_isSet = !json[QString("road")].isNull() && m_road_isValid;
+
     m_turn_isValid = ::OpenAPI::fromJsonValue(turn, json[QString("turn")]);
-    
-    
+    m_turn_isSet = !json[QString("turn")].isNull() && m_turn_isValid;
+
     m_line_isValid = ::OpenAPI::fromJsonValue(line, json[QString("line")]);
-    
-    
+    m_line_isSet = !json[QString("line")].isNull() && m_line_isValid;
+
     m_departure_station_isValid = ::OpenAPI::fromJsonValue(departure_station, json[QString("departure_station")]);
-    
-    
+    m_departure_station_isSet = !json[QString("departure_station")].isNull() && m_departure_station_isValid;
+
     m_arrival_station_isValid = ::OpenAPI::fromJsonValue(arrival_station, json[QString("arrival_station")]);
-    
-    
+    m_arrival_station_isSet = !json[QString("arrival_station")].isNull() && m_arrival_station_isValid;
+
     m_departs_at_isValid = ::OpenAPI::fromJsonValue(departs_at, json[QString("departs_at")]);
-    
-    
+    m_departs_at_isSet = !json[QString("departs_at")].isNull() && m_departs_at_isValid;
+
     m_arrives_at_isValid = ::OpenAPI::fromJsonValue(arrives_at, json[QString("arrives_at")]);
-    
-    
+    m_arrives_at_isSet = !json[QString("arrives_at")].isNull() && m_arrives_at_isValid;
+
     m_num_stops_isValid = ::OpenAPI::fromJsonValue(num_stops, json[QString("num_stops")]);
-    
-    
+    m_num_stops_isSet = !json[QString("num_stops")].isNull() && m_num_stops_isValid;
 }
 
-QString
-OAIResponseRoutePart::asJson () const {
+QString OAIResponseRoutePart::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseRoutePart::asJsonObject() const {
+QJsonObject OAIResponseRoutePart::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(m_type_isSet){
+    if (m_type_isSet) {
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(mode.isSet()){
+    if (mode.isSet()) {
         obj.insert(QString("mode"), ::OpenAPI::toJsonValue(mode));
     }
-	if(m_directions_isSet){
+    if (m_directions_isSet) {
         obj.insert(QString("directions"), ::OpenAPI::toJsonValue(directions));
     }
-	if(m_distance_isSet){
+    if (m_distance_isSet) {
         obj.insert(QString("distance"), ::OpenAPI::toJsonValue(distance));
     }
-	if(m_travel_time_isSet){
+    if (m_travel_time_isSet) {
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	
-    if(coords.size() > 0){
+    if (coords.size() > 0) {
         obj.insert(QString("coords"), ::OpenAPI::toJsonValue(coords));
-    } 
-	if(m_direction_isSet){
+    }
+    if (m_direction_isSet) {
         obj.insert(QString("direction"), ::OpenAPI::toJsonValue(direction));
     }
-	if(m_road_isSet){
+    if (m_road_isSet) {
         obj.insert(QString("road"), ::OpenAPI::toJsonValue(road));
     }
-	if(m_turn_isSet){
+    if (m_turn_isSet) {
         obj.insert(QString("turn"), ::OpenAPI::toJsonValue(turn));
     }
-	if(m_line_isSet){
+    if (m_line_isSet) {
         obj.insert(QString("line"), ::OpenAPI::toJsonValue(line));
     }
-	if(m_departure_station_isSet){
+    if (m_departure_station_isSet) {
         obj.insert(QString("departure_station"), ::OpenAPI::toJsonValue(departure_station));
     }
-	if(m_arrival_station_isSet){
+    if (m_arrival_station_isSet) {
         obj.insert(QString("arrival_station"), ::OpenAPI::toJsonValue(arrival_station));
     }
-	if(m_departs_at_isSet){
+    if (m_departs_at_isSet) {
         obj.insert(QString("departs_at"), ::OpenAPI::toJsonValue(departs_at));
     }
-	if(m_arrives_at_isSet){
+    if (m_arrives_at_isSet) {
         obj.insert(QString("arrives_at"), ::OpenAPI::toJsonValue(arrives_at));
     }
-	if(m_num_stops_isSet){
+    if (m_num_stops_isSet) {
         obj.insert(QString("num_stops"), ::OpenAPI::toJsonValue(num_stops));
     }
     return obj;
 }
 
-
-QString
-OAIResponseRoutePart::getId() const {
+QString OAIResponseRoutePart::getId() const {
     return id;
 }
-void
-OAIResponseRoutePart::setId(const QString &id) {
+void OAIResponseRoutePart::setId(const QString &id) {
     this->id = id;
     this->m_id_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getType() const {
+QString OAIResponseRoutePart::getType() const {
     return type;
 }
-void
-OAIResponseRoutePart::setType(const QString &type) {
+void OAIResponseRoutePart::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-
-OAIResponseTransportationMode
-OAIResponseRoutePart::getMode() const {
+OAIResponseTransportationMode OAIResponseRoutePart::getMode() const {
     return mode;
 }
-void
-OAIResponseRoutePart::setMode(const OAIResponseTransportationMode &mode) {
+void OAIResponseRoutePart::setMode(const OAIResponseTransportationMode &mode) {
     this->mode = mode;
     this->m_mode_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getDirections() const {
+QString OAIResponseRoutePart::getDirections() const {
     return directions;
 }
-void
-OAIResponseRoutePart::setDirections(const QString &directions) {
+void OAIResponseRoutePart::setDirections(const QString &directions) {
     this->directions = directions;
     this->m_directions_isSet = true;
 }
 
-
-qint32
-OAIResponseRoutePart::getDistance() const {
+qint32 OAIResponseRoutePart::getDistance() const {
     return distance;
 }
-void
-OAIResponseRoutePart::setDistance(const qint32 &distance) {
+void OAIResponseRoutePart::setDistance(const qint32 &distance) {
     this->distance = distance;
     this->m_distance_isSet = true;
 }
 
-
-qint32
-OAIResponseRoutePart::getTravelTime() const {
+qint32 OAIResponseRoutePart::getTravelTime() const {
     return travel_time;
 }
-void
-OAIResponseRoutePart::setTravelTime(const qint32 &travel_time) {
+void OAIResponseRoutePart::setTravelTime(const qint32 &travel_time) {
     this->travel_time = travel_time;
     this->m_travel_time_isSet = true;
 }
 
-
-QList<OAICoords>
-OAIResponseRoutePart::getCoords() const {
+QList<OAICoords> OAIResponseRoutePart::getCoords() const {
     return coords;
 }
-void
-OAIResponseRoutePart::setCoords(const QList<OAICoords> &coords) {
+void OAIResponseRoutePart::setCoords(const QList<OAICoords> &coords) {
     this->coords = coords;
     this->m_coords_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getDirection() const {
+QString OAIResponseRoutePart::getDirection() const {
     return direction;
 }
-void
-OAIResponseRoutePart::setDirection(const QString &direction) {
+void OAIResponseRoutePart::setDirection(const QString &direction) {
     this->direction = direction;
     this->m_direction_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getRoad() const {
+QString OAIResponseRoutePart::getRoad() const {
     return road;
 }
-void
-OAIResponseRoutePart::setRoad(const QString &road) {
+void OAIResponseRoutePart::setRoad(const QString &road) {
     this->road = road;
     this->m_road_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getTurn() const {
+QString OAIResponseRoutePart::getTurn() const {
     return turn;
 }
-void
-OAIResponseRoutePart::setTurn(const QString &turn) {
+void OAIResponseRoutePart::setTurn(const QString &turn) {
     this->turn = turn;
     this->m_turn_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getLine() const {
+QString OAIResponseRoutePart::getLine() const {
     return line;
 }
-void
-OAIResponseRoutePart::setLine(const QString &line) {
+void OAIResponseRoutePart::setLine(const QString &line) {
     this->line = line;
     this->m_line_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getDepartureStation() const {
+QString OAIResponseRoutePart::getDepartureStation() const {
     return departure_station;
 }
-void
-OAIResponseRoutePart::setDepartureStation(const QString &departure_station) {
+void OAIResponseRoutePart::setDepartureStation(const QString &departure_station) {
     this->departure_station = departure_station;
     this->m_departure_station_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getArrivalStation() const {
+QString OAIResponseRoutePart::getArrivalStation() const {
     return arrival_station;
 }
-void
-OAIResponseRoutePart::setArrivalStation(const QString &arrival_station) {
+void OAIResponseRoutePart::setArrivalStation(const QString &arrival_station) {
     this->arrival_station = arrival_station;
     this->m_arrival_station_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getDepartsAt() const {
+QString OAIResponseRoutePart::getDepartsAt() const {
     return departs_at;
 }
-void
-OAIResponseRoutePart::setDepartsAt(const QString &departs_at) {
+void OAIResponseRoutePart::setDepartsAt(const QString &departs_at) {
     this->departs_at = departs_at;
     this->m_departs_at_isSet = true;
 }
 
-
-QString
-OAIResponseRoutePart::getArrivesAt() const {
+QString OAIResponseRoutePart::getArrivesAt() const {
     return arrives_at;
 }
-void
-OAIResponseRoutePart::setArrivesAt(const QString &arrives_at) {
+void OAIResponseRoutePart::setArrivesAt(const QString &arrives_at) {
     this->arrives_at = arrives_at;
     this->m_arrives_at_isSet = true;
 }
 
-
-qint32
-OAIResponseRoutePart::getNumStops() const {
+qint32 OAIResponseRoutePart::getNumStops() const {
     return num_stops;
 }
-void
-OAIResponseRoutePart::setNumStops(const qint32 &num_stops) {
+void OAIResponseRoutePart::setNumStops(const qint32 &num_stops) {
     this->num_stops = num_stops;
     this->m_num_stops_isSet = true;
 }
 
-bool
-OAIResponseRoutePart::isSet() const {
+bool OAIResponseRoutePart::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_id_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_type_isSet){ isObjectUpdated = true; break;}
-    
-        if(mode.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_directions_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_distance_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_travel_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(coords.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(m_direction_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_road_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_turn_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_line_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_departure_station_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_arrival_station_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_departs_at_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_arrives_at_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_num_stops_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_type_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (mode.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_directions_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_distance_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_travel_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (coords.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_direction_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_road_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_turn_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_line_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_departure_station_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_arrival_station_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_departs_at_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_arrives_at_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_num_stops_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseRoutePart::isValid() const {
+bool OAIResponseRoutePart::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_id_isValid && m_type_isValid && m_mode_isValid && m_directions_isValid && m_distance_isValid && m_travel_time_isValid && m_coords_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

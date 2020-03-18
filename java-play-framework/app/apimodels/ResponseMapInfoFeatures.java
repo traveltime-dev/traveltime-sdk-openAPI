@@ -9,12 +9,12 @@ import javax.validation.constraints.*;
 /**
  * ResponseMapInfoFeatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseMapInfoFeatures   {
   @JsonProperty("public_transport")
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   @JsonProperty("fares")
   private Boolean fares;

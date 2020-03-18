@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseGeocoding
+# Org.OpenAPITools.Model.ResponseGeocoding
 
 ## Properties
 

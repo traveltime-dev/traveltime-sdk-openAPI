@@ -47,11 +47,12 @@ public:
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<double>& getCoordinates();
-    
+    void setCoordinates(std::vector<double> const value);
+
     friend void to_json(nlohmann::json& j, const ResponseGeocodingGeometry& o);
     friend void from_json(const nlohmann::json& j, ResponseGeocodingGeometry& o);
 protected:

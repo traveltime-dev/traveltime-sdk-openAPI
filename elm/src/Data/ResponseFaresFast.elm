@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseFaresFast exposing (ResponseFaresFast, decoder, encode)
+module Data.ResponseFaresFast exposing (ResponseFaresFast, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseFareTicket as ResponseFareTicket exposing (ResponseFareTicket)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseFaresFast -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "tickets_total", (Encode.list ResponseFareTicket.encode) model.ticketsTotal )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseFaresFast -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseFaresFast -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "tickets_total", (Encode.list ResponseFareTicket.encode) model.ticketsTotal )
+    ]
+
+
+
+toString : ResponseFaresFast -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

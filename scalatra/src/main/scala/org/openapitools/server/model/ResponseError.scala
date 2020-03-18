@@ -12,14 +12,14 @@
 package org.openapitools.server.model
 
 case class ResponseError(
-  httpUnderscorestatus: Option[Int],
+  httpStatus: Option[Int],
 
-  errorUnderscorecode: Option[Int],
+  errorCode: Option[Int],
 
   description: Option[String],
 
-  documentationUnderscorelink: Option[String],
+  documentationLink: Option[String],
 
-  additionalUnderscoreinfo: Option[Map[String, List[String]]]
+  additionalInfo: Option[Map[String, List[String]]]
 
  )

@@ -21,51 +21,47 @@
 
 #include <QJsonObject>
 
-
 #include <QDateTime>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseMapInfoFeaturesPublicTransport: public OAIObject {
+class OAIResponseMapInfoFeaturesPublicTransport : public OAIObject {
 public:
     OAIResponseMapInfoFeaturesPublicTransport();
     OAIResponseMapInfoFeaturesPublicTransport(QString json);
     ~OAIResponseMapInfoFeaturesPublicTransport() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QDateTime getDateStart() const;
     void setDateStart(const QDateTime &date_start);
 
-    
     QDateTime getDateEnd() const;
     void setDateEnd(const QDateTime &date_end);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QDateTime date_start;
     bool m_date_start_isSet;
     bool m_date_start_isValid;
-    
+
     QDateTime date_end;
     bool m_date_end_isSet;
     bool m_date_end_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseMapInfoFeaturesPublicTransport)
 
 #endif // OAIResponseMapInfoFeaturesPublicTransport_H

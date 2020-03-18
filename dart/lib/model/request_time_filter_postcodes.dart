@@ -14,16 +14,12 @@ class RequestTimeFilterPostcodes {
 
   RequestTimeFilterPostcodes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['departure_searches'] == null) {
-      departureSearches = null;
-    } else {
-      departureSearches = RequestTimeFilterPostcodesDepartureSearch.listFromJson(json['departure_searches']);
-    }
-    if (json['arrival_searches'] == null) {
-      arrivalSearches = null;
-    } else {
-      arrivalSearches = RequestTimeFilterPostcodesArrivalSearch.listFromJson(json['arrival_searches']);
-    }
+    departureSearches = (json['departure_searches'] == null) ?
+      null :
+      RequestTimeFilterPostcodesDepartureSearch.listFromJson(json['departure_searches']);
+    arrivalSearches = (json['arrival_searches'] == null) ?
+      null :
+      RequestTimeFilterPostcodesArrivalSearch.listFromJson(json['arrival_searches']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class RequestTimeFilterPostcodes {
   }
 
   static List<RequestTimeFilterPostcodes> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterPostcodes>() : json.map((value) => new RequestTimeFilterPostcodes.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterPostcodes>() : json.map((value) => RequestTimeFilterPostcodes.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterPostcodes> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterPostcodes>();
+    var map = Map<String, RequestTimeFilterPostcodes>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterPostcodes.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterPostcodes.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterPostcodes-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterPostcodes>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterPostcodes>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterPostcodes.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

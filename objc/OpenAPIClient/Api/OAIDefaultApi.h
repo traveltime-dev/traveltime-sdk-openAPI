@@ -44,16 +44,16 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 /// 
 ///
-/// @param focusLat 
-/// @param focusLng 
+/// @param lat 
+/// @param lng 
 /// @param withinCountry  (optional)
 /// 
 ///  code:200 message:"Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)",
 ///  code:0 message:"The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
 ///
 /// @return OAIResponseGeocoding*
--(NSURLSessionTask*) geocodingReverseSearchWithFocusLat: (NSNumber*) focusLat
-    focusLng: (NSNumber*) focusLng
+-(NSURLSessionTask*) geocodingReverseSearchWithLat: (NSNumber*) lat
+    lng: (NSNumber*) lng
     withinCountry: (NSString*) withinCountry
     completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler;
 
@@ -62,18 +62,18 @@ extern NSInteger kOAIDefaultApiMissingParamErrorCode;
 /// 
 ///
 /// @param query 
-/// @param withinCountry  (optional)
 /// @param focusLat  (optional)
 /// @param focusLng  (optional)
+/// @param withinCountry  (optional)
 /// 
 ///  code:200 message:"Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)",
 ///  code:0 message:"The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
 ///
 /// @return OAIResponseGeocoding*
 -(NSURLSessionTask*) geocodingSearchWithQuery: (NSString*) query
-    withinCountry: (NSString*) withinCountry
     focusLat: (NSNumber*) focusLat
     focusLng: (NSNumber*) focusLng
+    withinCountry: (NSString*) withinCountry
     completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler;
 
 

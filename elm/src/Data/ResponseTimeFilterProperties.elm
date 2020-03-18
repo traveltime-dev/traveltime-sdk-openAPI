@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterProperties exposing (ResponseTimeFilterProperties, decoder, encode)
+module Data.ResponseTimeFilterProperties exposing (ResponseTimeFilterProperties, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseDistanceBreakdownItem as ResponseDistanceBreakdownItem exposing (ResponseDistanceBreakdownItem)
 import Data.ResponseFares as ResponseFares exposing (ResponseFares)
@@ -43,14 +43,30 @@ decoder =
 
 
 encode : ResponseTimeFilterProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
-        , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
-        , ( "distance_breakdown", Maybe.withDefault Encode.null (Maybe.map (Encode.list ResponseDistanceBreakdownItem.encode) model.distanceBreakdown) )
-        , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFares.encode model.fares) )
-        , ( "route", Maybe.withDefault Encode.null (Maybe.map ResponseRoute.encode model.route) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
+    , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
+    , ( "distance_breakdown", Maybe.withDefault Encode.null (Maybe.map (Encode.list ResponseDistanceBreakdownItem.encode) model.distanceBreakdown) )
+    , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFares.encode model.fares) )
+    , ( "route", Maybe.withDefault Encode.null (Maybe.map ResponseRoute.encode model.route) )
+    ]
+
+
+
+toString : ResponseTimeFilterProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

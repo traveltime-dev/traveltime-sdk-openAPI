@@ -10,7 +10,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseGeocodingGeoJsonFeature
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseGeocodingGeoJsonFeature   {
@@ -18,10 +18,10 @@ public class ResponseGeocodingGeoJsonFeature   {
   private String type;
 
   @JsonProperty("geometry")
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @JsonProperty("properties")
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
 
   public ResponseGeocodingGeoJsonFeature type(String type) {
     this.type = type;

@@ -20,7 +20,7 @@ test_that("distance", {
 })
 
 test_that("distance_breakdown", {
-  # tests for the property `distance_breakdown` (ResponseDistanceBreakdownItem)
+  # tests for the property `distance_breakdown` (array[ResponseDistanceBreakdownItem])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`distance_breakdown`, "EXPECTED_RESULT")

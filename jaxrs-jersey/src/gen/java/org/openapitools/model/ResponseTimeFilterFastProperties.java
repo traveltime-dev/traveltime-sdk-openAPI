@@ -19,19 +19,26 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseFaresFast;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterFastProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterFastProperties.JSON_PROPERTY_TRAVEL_TIME,
+  ResponseTimeFilterFastProperties.JSON_PROPERTY_FARES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeFilterFastProperties   {
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("fares")
-  private ResponseFaresFast fares = null;
+  public static final String JSON_PROPERTY_FARES = "fares";
+  @JsonProperty(JSON_PROPERTY_FARES)
+  private ResponseFaresFast fares;
 
   public ResponseTimeFilterFastProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

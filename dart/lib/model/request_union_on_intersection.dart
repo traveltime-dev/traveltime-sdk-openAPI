@@ -14,16 +14,10 @@ class RequestUnionOnIntersection {
 
   RequestUnionOnIntersection.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['search_ids'] == null) {
-      searchIds = null;
-    } else {
-      searchIds = (json['search_ids'] as List).cast<String>();
-    }
+    id = json['id'];
+    searchIds = (json['search_ids'] == null) ?
+      null :
+      (json['search_ids'] as List).cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +30,26 @@ class RequestUnionOnIntersection {
   }
 
   static List<RequestUnionOnIntersection> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestUnionOnIntersection>() : json.map((value) => new RequestUnionOnIntersection.fromJson(value)).toList();
+    return json == null ? List<RequestUnionOnIntersection>() : json.map((value) => RequestUnionOnIntersection.fromJson(value)).toList();
   }
 
   static Map<String, RequestUnionOnIntersection> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestUnionOnIntersection>();
+    var map = Map<String, RequestUnionOnIntersection>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestUnionOnIntersection.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestUnionOnIntersection.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestUnionOnIntersection-objects as value to a dart map
+  static Map<String, List<RequestUnionOnIntersection>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestUnionOnIntersection>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestUnionOnIntersection.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

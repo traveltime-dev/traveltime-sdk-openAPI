@@ -7,7 +7,7 @@ part 'response_fares_fast.jser.dart';
 
 class ResponseFaresFast {
   
-  @Alias('tickets_total')
+  @Alias('tickets_total', isNullable: false,  )
   final List<ResponseFareTicket> ticketsTotal;
   
 

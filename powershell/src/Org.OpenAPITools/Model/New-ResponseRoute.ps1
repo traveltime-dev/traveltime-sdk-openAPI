@@ -8,15 +8,15 @@ function New-ResponseRoute {
         [System.DateTime]
         ${arrivalUnderscoretime},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseRoutePart[]]
+        [Org.OpenAPITools.Model.ResponseRoutePart[]]
         ${parts}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseRoute' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseRoute' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseRoute -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseRoute -ArgumentList @(
             ${departureUnderscoretime},
             ${arrivalUnderscoretime},
             ${parts}

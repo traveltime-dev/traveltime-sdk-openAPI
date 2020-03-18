@@ -30,13 +30,15 @@ import org.openapitools.client.model.ResponseTimeFilterResult;
 /**
  * ResponseTimeFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilter {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   private List<ResponseTimeFilterResult> results = new ArrayList<ResponseTimeFilterResult>();
 
+
   public ResponseTimeFilter results(List<ResponseTimeFilterResult> results) {
+    
     this.results = results;
     return this;
   }
@@ -51,9 +53,11 @@ public class ResponseTimeFilter {
    * @return results
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterResult> getResults() {
     return results;
   }
+
 
   public void setResults(List<ResponseTimeFilterResult> results) {
     this.results = results;

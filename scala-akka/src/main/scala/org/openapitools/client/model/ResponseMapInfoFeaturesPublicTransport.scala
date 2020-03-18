@@ -11,13 +11,12 @@
  */
 package org.openapitools.client.model
 
+import java.time.OffsetDateTime
 import org.openapitools.client.core.ApiModel
-import org.joda.time.DateTime
-import java.util.UUID
 
 case class ResponseMapInfoFeaturesPublicTransport (
-  dateStart: DateTime,
-  dateEnd: DateTime
+  dateStart: OffsetDateTime,
+  dateEnd: OffsetDateTime
 ) extends ApiModel
 
 

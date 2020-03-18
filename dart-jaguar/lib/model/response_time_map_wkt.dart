@@ -7,7 +7,7 @@ part 'response_time_map_wkt.jser.dart';
 
 class ResponseTimeMapWkt {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeMapWktResult> results;
   
 

@@ -11,44 +11,44 @@ request_time_map_t *request_time_map_create(
     list_t *unions,
     list_t *intersections
     ) {
-	request_time_map_t *request_time_map_local_var = malloc(sizeof(request_time_map_t));
+    request_time_map_t *request_time_map_local_var = malloc(sizeof(request_time_map_t));
     if (!request_time_map_local_var) {
         return NULL;
     }
-	request_time_map_local_var->departure_searches = departure_searches;
-	request_time_map_local_var->arrival_searches = arrival_searches;
-	request_time_map_local_var->unions = unions;
-	request_time_map_local_var->intersections = intersections;
+    request_time_map_local_var->departure_searches = departure_searches;
+    request_time_map_local_var->arrival_searches = arrival_searches;
+    request_time_map_local_var->unions = unions;
+    request_time_map_local_var->intersections = intersections;
 
-	return request_time_map_local_var;
+    return request_time_map_local_var;
 }
 
 
 void request_time_map_free(request_time_map_t *request_time_map) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_time_map->departure_searches) {
-		request_time_map_departure_search_free(listEntry->data);
-	}
-	list_free(request_time_map->departure_searches);
-	list_ForEach(listEntry, request_time_map->arrival_searches) {
-		request_time_map_arrival_search_free(listEntry->data);
-	}
-	list_free(request_time_map->arrival_searches);
-	list_ForEach(listEntry, request_time_map->unions) {
-		request_union_on_intersection_free(listEntry->data);
-	}
-	list_free(request_time_map->unions);
-	list_ForEach(listEntry, request_time_map->intersections) {
-		request_union_on_intersection_free(listEntry->data);
-	}
-	list_free(request_time_map->intersections);
-	free(request_time_map);
+    list_ForEach(listEntry, request_time_map->departure_searches) {
+        request_time_map_departure_search_free(listEntry->data);
+    }
+    list_free(request_time_map->departure_searches);
+    list_ForEach(listEntry, request_time_map->arrival_searches) {
+        request_time_map_arrival_search_free(listEntry->data);
+    }
+    list_free(request_time_map->arrival_searches);
+    list_ForEach(listEntry, request_time_map->unions) {
+        request_union_on_intersection_free(listEntry->data);
+    }
+    list_free(request_time_map->unions);
+    list_ForEach(listEntry, request_time_map->intersections) {
+        request_union_on_intersection_free(listEntry->data);
+    }
+    list_free(request_time_map->intersections);
+    free(request_time_map);
 }
 
 cJSON *request_time_map_convertToJSON(request_time_map_t *request_time_map) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_map->departure_searches
+    // request_time_map->departure_searches
     if(request_time_map->departure_searches) { 
     cJSON *departure_searches = cJSON_AddArrayToObject(item, "departure_searches");
     if(departure_searches == NULL) {
@@ -68,7 +68,7 @@ cJSON *request_time_map_convertToJSON(request_time_map_t *request_time_map) {
      } 
 
 
-	// request_time_map->arrival_searches
+    // request_time_map->arrival_searches
     if(request_time_map->arrival_searches) { 
     cJSON *arrival_searches = cJSON_AddArrayToObject(item, "arrival_searches");
     if(arrival_searches == NULL) {
@@ -88,7 +88,7 @@ cJSON *request_time_map_convertToJSON(request_time_map_t *request_time_map) {
      } 
 
 
-	// request_time_map->unions
+    // request_time_map->unions
     if(request_time_map->unions) { 
     cJSON *unions = cJSON_AddArrayToObject(item, "unions");
     if(unions == NULL) {
@@ -108,7 +108,7 @@ cJSON *request_time_map_convertToJSON(request_time_map_t *request_time_map) {
      } 
 
 
-	// request_time_map->intersections
+    // request_time_map->intersections
     if(request_time_map->intersections) { 
     cJSON *intersections = cJSON_AddArrayToObject(item, "intersections");
     if(intersections == NULL) {
@@ -127,12 +127,12 @@ cJSON *request_time_map_convertToJSON(request_time_map_t *request_time_map) {
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_map_t *request_time_map_parseFromJSON(cJSON *request_time_mapJSON){

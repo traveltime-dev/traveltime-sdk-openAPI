@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeFilterArrivalSearch
+# Org.OpenAPITools.Model.RequestTimeFilterArrivalSearch
 
 ## Properties
 
@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **DepartureLocationIds** | **List&lt;string&gt;** |  | 
 **ArrivalLocationId** | **string** |  | 
 **Transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**TravelTime** | **int?** |  | 
-**ArrivalTime** | **DateTime?** |  | 
+**TravelTime** | **int** |  | 
+**ArrivalTime** | **DateTime** |  | 
 **Properties** | [**List&lt;RequestTimeFilterProperty&gt;**](RequestTimeFilterProperty.md) |  | 
 **Range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 

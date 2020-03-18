@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
  * ResponseRoutesProperties
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class ResponseRoutesProperties   {
   @JsonProperty("travel_time")
@@ -26,10 +26,10 @@ public class ResponseRoutesProperties   {
   private Integer distance;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseRoutesProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

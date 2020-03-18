@@ -8,7 +8,7 @@ import org.openapitools.model.ResponseMapInfoFeaturesPublicTransport;
 @Canonical
 class ResponseMapInfoFeatures {
     
-    ResponseMapInfoFeaturesPublicTransport publicTransport = null
+    ResponseMapInfoFeaturesPublicTransport publicTransport
     
     Boolean fares
     

@@ -28,7 +28,7 @@ import org.openapitools.client.model.Coords;
 /**
  * RequestLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestLocation {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -36,9 +36,11 @@ public class RequestLocation {
 
   public static final String SERIALIZED_NAME_COORDS = "coords";
   @SerializedName(SERIALIZED_NAME_COORDS)
-  private Coords coords = null;
+  private Coords coords;
+
 
   public RequestLocation id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -48,15 +50,19 @@ public class RequestLocation {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestLocation coords(Coords coords) {
+    
     this.coords = coords;
     return this;
   }
@@ -66,9 +72,11 @@ public class RequestLocation {
    * @return coords
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Coords getCoords() {
     return coords;
   }
+
 
   public void setCoords(Coords coords) {
     this.coords = coords;

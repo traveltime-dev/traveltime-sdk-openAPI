@@ -2,21 +2,21 @@ function New-RequestRoutes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestLocation[]]
+        [Org.OpenAPITools.Model.RequestLocation[]]
         ${locations},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRoutesDepartureSearch[]]]
+        [Org.OpenAPITools.Model.RequestRoutesDepartureSearch[]]
         ${departureUnderscoresearches},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRoutesArrivalSearch[]]]
+        [Org.OpenAPITools.Model.RequestRoutesArrivalSearch[]]
         ${arrivalUnderscoresearches}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestRoutes' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestRoutes' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestRoutes -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestRoutes -ArgumentList @(
             ${locations},
             ${departureUnderscoresearches},
             ${arrivalUnderscoresearches}

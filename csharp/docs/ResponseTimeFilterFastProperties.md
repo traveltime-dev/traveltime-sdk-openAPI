@@ -1,11 +1,11 @@
 
-# traveltimeplatform.Model.ResponseTimeFilterFastProperties
+# Org.OpenAPITools.Model.ResponseTimeFilterFastProperties
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TravelTime** | **int?** |  | [optional] 
+**TravelTime** | **int** |  | [optional] 
 **Fares** | [**ResponseFaresFast**](ResponseFaresFast.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

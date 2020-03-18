@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseSupportedLocations
+# openapi::ResponseSupportedLocations
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**ResponseSupportedLocation**](ResponseSupportedLocation.md) |  | 
-**unsupported_locations** | **character** |  | 
+**locations** | [**array[ResponseSupportedLocation]**](ResponseSupportedLocation.md) |  | 
+**unsupported_locations** | **array[character]** |  | 
 
 

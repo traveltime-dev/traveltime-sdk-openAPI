@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_supported_locations import ResponseSupportedLocations  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_supported_locations import ResponseSupportedLocations  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseSupportedLocations(unittest.TestCase):
     """ResponseSupportedLocations unit test stubs"""
@@ -29,11 +29,39 @@ class TestResponseSupportedLocations(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseSupportedLocations
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_supported_locations.ResponseSupportedLocations()  # noqa: E501
+        if include_optional :
+            return ResponseSupportedLocations(
+                locations = [
+                    openapi_client.models.response_supported_location.ResponseSupportedLocation(
+                        id = '0', 
+                        map_name = '0', )
+                    ], 
+                unsupported_locations = [
+                    '0'
+                    ]
+            )
+        else :
+            return ResponseSupportedLocations(
+                locations = [
+                    openapi_client.models.response_supported_location.ResponseSupportedLocation(
+                        id = '0', 
+                        map_name = '0', )
+                    ],
+                unsupported_locations = [
+                    '0'
+                    ],
+        )
+
     def testResponseSupportedLocations(self):
         """Test ResponseSupportedLocations"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_supported_locations.ResponseSupportedLocations()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseTimeMapBoundingBoxesResult>& getResults();
-    
+    void setResults(std::vector<ResponseTimeMapBoundingBoxesResult> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeMapBoundingBoxes& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeMapBoundingBoxes& o);
 protected:

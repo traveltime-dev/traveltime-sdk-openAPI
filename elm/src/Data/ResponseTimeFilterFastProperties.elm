@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterFastProperties exposing (ResponseTimeFilterFastProperties, decoder, encode)
+module Data.ResponseTimeFilterFastProperties exposing (ResponseTimeFilterFastProperties, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseFaresFast as ResponseFaresFast exposing (ResponseFaresFast)
 import Dict exposing (Dict)
@@ -35,11 +35,27 @@ decoder =
 
 
 encode : ResponseTimeFilterFastProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
-        , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFaresFast.encode model.fares) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterFastProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterFastProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
+    , ( "fares", Maybe.withDefault Encode.null (Maybe.map ResponseFaresFast.encode model.fares) )
+    ]
+
+
+
+toString : ResponseTimeFilterFastProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

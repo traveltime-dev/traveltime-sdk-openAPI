@@ -83,8 +83,8 @@ _()
     # An associative array of operations to their parameters
     # Only include path, query and header parameters
     declare -A operation_parameters
-    operation_parameters["geocodingReverseSearch"]="focus.lat= focus.lng= within.country= "
-    operation_parameters["geocodingSearch"]="query= within.country= focus.lat= focus.lng= "
+    operation_parameters["geocodingReverseSearch"]="lat= lng= within.country= "
+    operation_parameters["geocodingSearch"]="query= focus.lat= focus.lng= within.country= "
     operation_parameters["mapInfo"]=""
     operation_parameters["routes"]=""
     operation_parameters["supportedLocations"]=""

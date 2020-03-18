@@ -23,33 +23,50 @@ import java.util.List;
 import org.openapitools.model.RequestArrivalTimePeriod;
 import org.openapitools.model.RequestTimeFilterFastProperty;
 import org.openapitools.model.RequestTransportationFast;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeFilterFastArrivalOneToManySearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_ID,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_DEPARTURE_LOCATION_ID,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_ARRIVAL_LOCATION_IDS,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_TRANSPORTATION,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_TRAVEL_TIME,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_ARRIVAL_TIME_PERIOD,
+  RequestTimeFilterFastArrivalOneToManySearch.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalOneToManySearch   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("departure_location_id")
+  public static final String JSON_PROPERTY_DEPARTURE_LOCATION_ID = "departure_location_id";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_LOCATION_ID)
   private String departureLocationId;
 
-  @JsonProperty("arrival_location_ids")
+  public static final String JSON_PROPERTY_ARRIVAL_LOCATION_IDS = "arrival_location_ids";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_LOCATION_IDS)
   private List<String> arrivalLocationIds = new ArrayList<String>();
 
-  @JsonProperty("transportation")
-  private RequestTransportationFast transportation = null;
+  public static final String JSON_PROPERTY_TRANSPORTATION = "transportation";
+  @JsonProperty(JSON_PROPERTY_TRANSPORTATION)
+  private RequestTransportationFast transportation;
 
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("arrival_time_period")
+  public static final String JSON_PROPERTY_ARRIVAL_TIME_PERIOD = "arrival_time_period";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_TIME_PERIOD)
   private RequestArrivalTimePeriod arrivalTimePeriod;
 
-  @JsonProperty("properties")
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();
 
   public RequestTimeFilterFastArrivalOneToManySearch id(String id) {

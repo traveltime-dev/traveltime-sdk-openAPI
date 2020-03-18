@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTransportationFast: Codable { 
 
-public struct RequestTransportationFast: Codable {
 
     public enum ModelType: String, Codable {
         case publicTransport = "public_transport"
@@ -22,6 +22,4 @@ public struct RequestTransportationFast: Codable {
         self.type = type
     }
 
-
 }
-

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeMapArrivalSearch: Codable { 
 
-public struct RequestTimeMapArrivalSearch: Codable {
 
     public var id: String
     public var coords: Coords
@@ -39,6 +39,4 @@ public struct RequestTimeMapArrivalSearch: Codable {
         case range
     }
 
-
 }
-

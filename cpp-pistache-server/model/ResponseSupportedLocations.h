@@ -47,11 +47,13 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseSupportedLocation>& getLocations();
-        /// <summary>
+    void setLocations(std::vector<ResponseSupportedLocation> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<std::string>& getUnsupportedLocations();
-    
+    void setUnsupportedLocations(std::vector<std::string> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseSupportedLocations& o);
     friend void from_json(const nlohmann::json& j, ResponseSupportedLocations& o);
 protected:

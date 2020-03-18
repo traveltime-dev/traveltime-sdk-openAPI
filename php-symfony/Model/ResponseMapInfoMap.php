@@ -98,7 +98,7 @@ class ResponseMapInfoMap
      *
      * @return OpenAPI\Server\Model\ResponseMapInfoFeatures
      */
-    public function getFeatures()
+    public function getFeatures(): ResponseMapInfoFeatures
     {
         return $this->features;
     }
@@ -110,7 +110,7 @@ class ResponseMapInfoMap
      *
      * @return $this
      */
-    public function setFeatures(ResponseMapInfoFeatures $features)
+    public function setFeatures(ResponseMapInfoFeatures $features): ResponseMapInfoFeatures
     {
         $this->features = $features;
 

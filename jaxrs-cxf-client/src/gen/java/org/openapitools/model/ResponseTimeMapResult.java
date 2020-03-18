@@ -24,7 +24,7 @@ public class ResponseTimeMapResult  {
   private List<ResponseShape> shapes = new ArrayList<ResponseShape>();
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
  /**
    * Get searchId
    * @return searchId

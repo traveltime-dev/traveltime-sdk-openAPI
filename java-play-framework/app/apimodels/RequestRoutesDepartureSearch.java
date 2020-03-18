@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * RequestRoutesDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestRoutesDepartureSearch   {
@@ -28,7 +28,7 @@ public class RequestRoutesDepartureSearch   {
   private List<String> arrivalLocationIds = new ArrayList<>();
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("departure_time")
   private OffsetDateTime departureTime;
@@ -37,7 +37,7 @@ public class RequestRoutesDepartureSearch   {
   private List<RequestRoutesProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestRoutesDepartureSearch id(String id) {
     this.id = id;

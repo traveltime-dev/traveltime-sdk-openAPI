@@ -34,16 +34,16 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T08:50:47.585Z[Etc/UTC]")
 public abstract class V4ApiService {
-    public abstract Response geocodingReverseSearch(Double focusLat
- ,Double focusLng
+    public abstract Response geocodingReverseSearch(Double lat
+ ,Double lng
  ,String withinCountry
  ) throws NotFoundException;
     public abstract Response geocodingSearch(String query
- ,String withinCountry
  ,Double focusLat
  ,Double focusLng
+ ,String withinCountry
  ) throws NotFoundException;
     public abstract Response mapInfo() throws NotFoundException;
     public abstract Response routes(RequestRoutes requestRoutes

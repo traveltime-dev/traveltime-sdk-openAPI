@@ -5,7 +5,9 @@ part 'request_transportation_fast.jser.dart';
 
 class RequestTransportationFast {
   
-  @Alias('type')
+  @Alias('type', isNullable: false,
+          
+  )
   final String type;
   //enum typeEnum {  public_transport,  driving,  driving+public_transport,  };
 

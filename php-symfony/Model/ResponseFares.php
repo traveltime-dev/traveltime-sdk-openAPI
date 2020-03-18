@@ -78,7 +78,7 @@ class ResponseFares
      *
      * @return OpenAPI\Server\Model\ResponseFaresBreakdownItem[]
      */
-    public function getBreakdown()
+    public function getBreakdown(): array
     {
         return $this->breakdown;
     }
@@ -90,7 +90,7 @@ class ResponseFares
      *
      * @return $this
      */
-    public function setBreakdown(array $breakdown)
+    public function setBreakdown(array $breakdown): array
     {
         $this->breakdown = $breakdown;
 
@@ -102,7 +102,7 @@ class ResponseFares
      *
      * @return OpenAPI\Server\Model\ResponseFareTicket[]
      */
-    public function getTicketsTotal()
+    public function getTicketsTotal(): array
     {
         return $this->ticketsTotal;
     }
@@ -114,7 +114,7 @@ class ResponseFares
      *
      * @return $this
      */
-    public function setTicketsTotal(array $ticketsTotal)
+    public function setTicketsTotal(array $ticketsTotal): array
     {
         $this->ticketsTotal = $ticketsTotal;
 

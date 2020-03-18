@@ -11,16 +11,16 @@ response_routes_properties_t *response_routes_properties_create(
     response_fares_t *fares,
     response_route_t *route
     ) {
-	response_routes_properties_t *response_routes_properties_local_var = malloc(sizeof(response_routes_properties_t));
+    response_routes_properties_t *response_routes_properties_local_var = malloc(sizeof(response_routes_properties_t));
     if (!response_routes_properties_local_var) {
         return NULL;
     }
-	response_routes_properties_local_var->travel_time = travel_time;
-	response_routes_properties_local_var->distance = distance;
-	response_routes_properties_local_var->fares = fares;
-	response_routes_properties_local_var->route = route;
+    response_routes_properties_local_var->travel_time = travel_time;
+    response_routes_properties_local_var->distance = distance;
+    response_routes_properties_local_var->fares = fares;
+    response_routes_properties_local_var->route = route;
 
-	return response_routes_properties_local_var;
+    return response_routes_properties_local_var;
 }
 
 
@@ -28,13 +28,13 @@ void response_routes_properties_free(response_routes_properties_t *response_rout
     listEntry_t *listEntry;
     response_fares_free(response_routes_properties->fares);
     response_route_free(response_routes_properties->route);
-	free(response_routes_properties);
+    free(response_routes_properties);
 }
 
 cJSON *response_routes_properties_convertToJSON(response_routes_properties_t *response_routes_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_routes_properties->travel_time
+    // response_routes_properties->travel_time
     if(response_routes_properties->travel_time) { 
     if(cJSON_AddNumberToObject(item, "travel_time", response_routes_properties->travel_time) == NULL) {
     goto fail; //Numeric
@@ -42,7 +42,7 @@ cJSON *response_routes_properties_convertToJSON(response_routes_properties_t *re
      } 
 
 
-	// response_routes_properties->distance
+    // response_routes_properties->distance
     if(response_routes_properties->distance) { 
     if(cJSON_AddNumberToObject(item, "distance", response_routes_properties->distance) == NULL) {
     goto fail; //Numeric
@@ -50,7 +50,7 @@ cJSON *response_routes_properties_convertToJSON(response_routes_properties_t *re
      } 
 
 
-	// response_routes_properties->fares
+    // response_routes_properties->fares
     if(response_routes_properties->fares) { 
     cJSON *fares_local_JSON = response_fares_convertToJSON(response_routes_properties->fares);
     if(fares_local_JSON == NULL) {
@@ -63,7 +63,7 @@ cJSON *response_routes_properties_convertToJSON(response_routes_properties_t *re
      } 
 
 
-	// response_routes_properties->route
+    // response_routes_properties->route
     if(response_routes_properties->route) { 
     cJSON *route_local_JSON = response_route_convertToJSON(response_routes_properties->route);
     if(route_local_JSON == NULL) {
@@ -75,12 +75,12 @@ cJSON *response_routes_properties_convertToJSON(response_routes_properties_t *re
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_routes_properties_t *response_routes_properties_parseFromJSON(cJSON *response_routes_propertiesJSON){

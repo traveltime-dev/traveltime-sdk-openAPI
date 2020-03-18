@@ -8,7 +8,7 @@ import java.util.List;
 import org.openapitools.server.api.model.RequestTimeFilterPostcodeSectorsArrivalSearch;
 import org.openapitools.server.api.model.RequestTimeFilterPostcodeSectorsDepartureSearch;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterPostcodeSectors   {
   
   private List<RequestTimeFilterPostcodeSectorsDepartureSearch> departureSearches = new ArrayList<>();

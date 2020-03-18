@@ -10,15 +10,15 @@ response_time_map_wkt_result_t *response_time_map_wkt_result_create(
     char *shape,
     response_time_map_properties_t *properties
     ) {
-	response_time_map_wkt_result_t *response_time_map_wkt_result_local_var = malloc(sizeof(response_time_map_wkt_result_t));
+    response_time_map_wkt_result_t *response_time_map_wkt_result_local_var = malloc(sizeof(response_time_map_wkt_result_t));
     if (!response_time_map_wkt_result_local_var) {
         return NULL;
     }
-	response_time_map_wkt_result_local_var->search_id = search_id;
-	response_time_map_wkt_result_local_var->shape = shape;
-	response_time_map_wkt_result_local_var->properties = properties;
+    response_time_map_wkt_result_local_var->search_id = search_id;
+    response_time_map_wkt_result_local_var->shape = shape;
+    response_time_map_wkt_result_local_var->properties = properties;
 
-	return response_time_map_wkt_result_local_var;
+    return response_time_map_wkt_result_local_var;
 }
 
 
@@ -27,13 +27,13 @@ void response_time_map_wkt_result_free(response_time_map_wkt_result_t *response_
     free(response_time_map_wkt_result->search_id);
     free(response_time_map_wkt_result->shape);
     response_time_map_properties_free(response_time_map_wkt_result->properties);
-	free(response_time_map_wkt_result);
+    free(response_time_map_wkt_result);
 }
 
 cJSON *response_time_map_wkt_result_convertToJSON(response_time_map_wkt_result_t *response_time_map_wkt_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map_wkt_result->search_id
+    // response_time_map_wkt_result->search_id
     if (!response_time_map_wkt_result->search_id) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_time_map_wkt_result_convertToJSON(response_time_map_wkt_result_t
     }
 
 
-	// response_time_map_wkt_result->shape
+    // response_time_map_wkt_result->shape
     if (!response_time_map_wkt_result->shape) {
         goto fail;
     }
@@ -53,7 +53,7 @@ cJSON *response_time_map_wkt_result_convertToJSON(response_time_map_wkt_result_t
     }
 
 
-	// response_time_map_wkt_result->properties
+    // response_time_map_wkt_result->properties
     if (!response_time_map_wkt_result->properties) {
         goto fail;
     }
@@ -67,12 +67,12 @@ cJSON *response_time_map_wkt_result_convertToJSON(response_time_map_wkt_result_t
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_wkt_result_t *response_time_map_wkt_result_parseFromJSON(cJSON *response_time_map_wkt_resultJSON){

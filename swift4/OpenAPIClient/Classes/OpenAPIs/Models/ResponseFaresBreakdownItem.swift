@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseFaresBreakdownItem: Codable { 
 
-public struct ResponseFaresBreakdownItem: Codable {
 
     public var modes: [ResponseTransportationMode]
     public var routePartIds: [Int]
@@ -27,6 +27,4 @@ public struct ResponseFaresBreakdownItem: Codable {
         case tickets
     }
 
-
 }
-

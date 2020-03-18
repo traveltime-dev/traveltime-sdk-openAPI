@@ -20,31 +20,17 @@ class ResponseTimeFilterProperties {
 
   ResponseTimeFilterProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['distance'] == null) {
-      distance = null;
-    } else {
-          distance = json['distance'];
-    }
-    if (json['distance_breakdown'] == null) {
-      distanceBreakdown = null;
-    } else {
-      distanceBreakdown = ResponseDistanceBreakdownItem.listFromJson(json['distance_breakdown']);
-    }
-    if (json['fares'] == null) {
-      fares = null;
-    } else {
-      fares = new ResponseFares.fromJson(json['fares']);
-    }
-    if (json['route'] == null) {
-      route = null;
-    } else {
-      route = new ResponseRoute.fromJson(json['route']);
-    }
+    travelTime = json['travel_time'];
+    distance = json['distance'];
+    distanceBreakdown = (json['distance_breakdown'] == null) ?
+      null :
+      ResponseDistanceBreakdownItem.listFromJson(json['distance_breakdown']);
+    fares = (json['fares'] == null) ?
+      null :
+      ResponseFares.fromJson(json['fares']);
+    route = (json['route'] == null) ?
+      null :
+      ResponseRoute.fromJson(json['route']);
   }
 
   Map<String, dynamic> toJson() {
@@ -63,15 +49,26 @@ class ResponseTimeFilterProperties {
   }
 
   static List<ResponseTimeFilterProperties> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterProperties>() : json.map((value) => new ResponseTimeFilterProperties.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterProperties>() : json.map((value) => ResponseTimeFilterProperties.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterProperties> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterProperties>();
+    var map = Map<String, ResponseTimeFilterProperties>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterProperties.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterProperties.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterProperties-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterProperties>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterProperties>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterProperties.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

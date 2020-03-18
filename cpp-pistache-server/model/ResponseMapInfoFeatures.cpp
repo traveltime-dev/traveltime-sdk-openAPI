@@ -46,7 +46,7 @@ void to_json(nlohmann::json& j, const ResponseMapInfoFeatures& o)
 
 void from_json(const nlohmann::json& j, ResponseMapInfoFeatures& o)
 {
-    if(j.contains("public_transport"))
+    if(j.find("public_transport") != j.end())
     {
         j.at("public_transport").get_to(o.m_Public_transport);
         o.m_Public_transportIsSet = true;
@@ -79,7 +79,6 @@ bool ResponseMapInfoFeatures::isFares() const
 void ResponseMapInfoFeatures::setFares(bool const value)
 {
     m_Fares = value;
-    
 }
 bool ResponseMapInfoFeatures::isPostcodes() const
 {
@@ -88,7 +87,6 @@ bool ResponseMapInfoFeatures::isPostcodes() const
 void ResponseMapInfoFeatures::setPostcodes(bool const value)
 {
     m_Postcodes = value;
-    
 }
 
 }

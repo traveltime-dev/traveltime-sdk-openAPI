@@ -15,9 +15,9 @@ import * as models from './models';
 export interface RequestTimeFilterPostcodeDistrictsArrivalSearch {
     "id": string;
     "transportation": models.RequestTransportation;
-    "travelTime": number;
-    "arrivalTime": Date;
-    "reachablePostcodesThreshold": number;
+    "travel_time": number;
+    "arrival_time": string;
+    "reachable_postcodes_threshold": number;
     "properties": Array<models.RequestTimeFilterPostcodeDistrictsProperty>;
     "range"?: models.RequestRangeFull;
 }

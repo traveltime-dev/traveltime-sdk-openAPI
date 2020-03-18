@@ -9,31 +9,31 @@ request_time_filter_fast_t *request_time_filter_fast_create(
     list_t *locations,
     request_time_filter_fast_arrival_searches_t *arrival_searches
     ) {
-	request_time_filter_fast_t *request_time_filter_fast_local_var = malloc(sizeof(request_time_filter_fast_t));
+    request_time_filter_fast_t *request_time_filter_fast_local_var = malloc(sizeof(request_time_filter_fast_t));
     if (!request_time_filter_fast_local_var) {
         return NULL;
     }
-	request_time_filter_fast_local_var->locations = locations;
-	request_time_filter_fast_local_var->arrival_searches = arrival_searches;
+    request_time_filter_fast_local_var->locations = locations;
+    request_time_filter_fast_local_var->arrival_searches = arrival_searches;
 
-	return request_time_filter_fast_local_var;
+    return request_time_filter_fast_local_var;
 }
 
 
 void request_time_filter_fast_free(request_time_filter_fast_t *request_time_filter_fast) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_time_filter_fast->locations) {
-		request_location_free(listEntry->data);
-	}
-	list_free(request_time_filter_fast->locations);
+    list_ForEach(listEntry, request_time_filter_fast->locations) {
+        request_location_free(listEntry->data);
+    }
+    list_free(request_time_filter_fast->locations);
     request_time_filter_fast_arrival_searches_free(request_time_filter_fast->arrival_searches);
-	free(request_time_filter_fast);
+    free(request_time_filter_fast);
 }
 
 cJSON *request_time_filter_fast_convertToJSON(request_time_filter_fast_t *request_time_filter_fast) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_filter_fast->locations
+    // request_time_filter_fast->locations
     if (!request_time_filter_fast->locations) {
         goto fail;
     }
@@ -55,7 +55,7 @@ cJSON *request_time_filter_fast_convertToJSON(request_time_filter_fast_t *reques
     }
 
 
-	// request_time_filter_fast->arrival_searches
+    // request_time_filter_fast->arrival_searches
     if (!request_time_filter_fast->arrival_searches) {
         goto fail;
     }
@@ -69,12 +69,12 @@ cJSON *request_time_filter_fast_convertToJSON(request_time_filter_fast_t *reques
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_filter_fast_t *request_time_filter_fast_parseFromJSON(cJSON *request_time_filter_fastJSON){

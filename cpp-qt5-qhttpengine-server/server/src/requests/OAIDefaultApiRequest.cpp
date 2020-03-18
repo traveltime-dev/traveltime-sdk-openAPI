@@ -55,14 +55,14 @@ void OAIDefaultApiRequest::geocodingReverseSearchRequest(){
     connect(this, &OAIDefaultApiRequest::geocodingReverseSearch, handler.data(), &OAIDefaultApiHandler::geocodingReverseSearch);
 
     
-    double focus_lat;
-    if(socket->queryString().keys().contains("focus_lat")){
-        fromStringValue(socket->queryString().value("focus_lat"), focus_lat);
+    double lat;
+    if(socket->queryString().keys().contains("lat")){
+        fromStringValue(socket->queryString().value("lat"), lat);
     }
     
-    double focus_lng;
-    if(socket->queryString().keys().contains("focus_lng")){
-        fromStringValue(socket->queryString().value("focus_lng"), focus_lng);
+    double lng;
+    if(socket->queryString().keys().contains("lng")){
+        fromStringValue(socket->queryString().value("lng"), lng);
     }
     
     QString within_country;
@@ -72,7 +72,7 @@ void OAIDefaultApiRequest::geocodingReverseSearchRequest(){
     
 
 
-    emit geocodingReverseSearch(focus_lat, focus_lng, within_country);
+    emit geocodingReverseSearch(lat, lng, within_country);
 }
 
 
@@ -86,11 +86,6 @@ void OAIDefaultApiRequest::geocodingSearchRequest(){
         fromStringValue(socket->queryString().value("query"), query);
     }
     
-    QString within_country;
-    if(socket->queryString().keys().contains("within_country")){
-        fromStringValue(socket->queryString().value("within_country"), within_country);
-    }
-    
     double focus_lat;
     if(socket->queryString().keys().contains("focus_lat")){
         fromStringValue(socket->queryString().value("focus_lat"), focus_lat);
@@ -101,9 +96,14 @@ void OAIDefaultApiRequest::geocodingSearchRequest(){
         fromStringValue(socket->queryString().value("focus_lng"), focus_lng);
     }
     
+    QString within_country;
+    if(socket->queryString().keys().contains("within_country")){
+        fromStringValue(socket->queryString().value("within_country"), within_country);
+    }
+    
 
 
-    emit geocodingSearch(query, within_country, focus_lat, focus_lng);
+    emit geocodingSearch(query, focus_lat, focus_lng, within_country);
 }
 
 

@@ -22,19 +22,16 @@ import {
  */
 export interface ResponseFaresBreakdownItem {
     /**
-     * 
      * @type {Array<ResponseTransportationMode>}
      * @memberof ResponseFaresBreakdownItem
      */
     modes: Array<ResponseTransportationMode>;
     /**
-     * 
      * @type {Array<number>}
      * @memberof ResponseFaresBreakdownItem
      */
-    routePartIds: Array<number>;
+    route_part_ids: Array<number>;
     /**
-     * 
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFaresBreakdownItem
      */

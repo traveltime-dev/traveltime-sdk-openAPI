@@ -13,6 +13,6 @@ import { ResponseFareTicket } from './responseFareTicket';
 
 
 export interface ResponseFaresFast { 
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }
 

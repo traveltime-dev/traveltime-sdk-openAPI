@@ -14,6 +14,6 @@ package org.openapitools.server.model
 case class ResponseSupportedLocation(
   id: String,
 
-  mapUnderscorename: String
+  mapName: String
 
  )

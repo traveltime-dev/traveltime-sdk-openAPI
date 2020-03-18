@@ -45,22 +45,22 @@ public:
     /// </summary>
     int32_t getMin() const;
     void setMin(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getMax() const;
     void setMax(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getMean() const;
     void setMean(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getMedian() const;
     void setMedian(int32_t const value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseTravelTimeStatistics& o);
     friend void from_json(const nlohmann::json& j, ResponseTravelTimeStatistics& o);
 protected:

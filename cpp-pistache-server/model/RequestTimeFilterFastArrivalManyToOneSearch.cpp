@@ -65,7 +65,6 @@ std::string RequestTimeFilterFastArrivalManyToOneSearch::getId() const
 void RequestTimeFilterFastArrivalManyToOneSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::string RequestTimeFilterFastArrivalManyToOneSearch::getArrivalLocationId() const
 {
@@ -74,11 +73,14 @@ std::string RequestTimeFilterFastArrivalManyToOneSearch::getArrivalLocationId() 
 void RequestTimeFilterFastArrivalManyToOneSearch::setArrivalLocationId(std::string const& value)
 {
     m_Arrival_location_id = value;
-    
 }
 std::vector<std::string>& RequestTimeFilterFastArrivalManyToOneSearch::getDepartureLocationIds()
 {
     return m_Departure_location_ids;
+}
+void RequestTimeFilterFastArrivalManyToOneSearch::setDepartureLocationIds(std::vector<std::string> const& value)
+{
+    m_Departure_location_ids = value;
 }
 RequestTransportationFast RequestTimeFilterFastArrivalManyToOneSearch::getTransportation() const
 {
@@ -87,7 +89,6 @@ RequestTransportationFast RequestTimeFilterFastArrivalManyToOneSearch::getTransp
 void RequestTimeFilterFastArrivalManyToOneSearch::setTransportation(RequestTransportationFast const& value)
 {
     m_Transportation = value;
-    
 }
 int32_t RequestTimeFilterFastArrivalManyToOneSearch::getTravelTime() const
 {
@@ -96,7 +97,6 @@ int32_t RequestTimeFilterFastArrivalManyToOneSearch::getTravelTime() const
 void RequestTimeFilterFastArrivalManyToOneSearch::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 RequestArrivalTimePeriod RequestTimeFilterFastArrivalManyToOneSearch::getArrivalTimePeriod() const
 {
@@ -105,11 +105,14 @@ RequestArrivalTimePeriod RequestTimeFilterFastArrivalManyToOneSearch::getArrival
 void RequestTimeFilterFastArrivalManyToOneSearch::setArrivalTimePeriod(RequestArrivalTimePeriod const& value)
 {
     m_Arrival_time_period = value;
-    
 }
 std::vector<RequestTimeFilterFastProperty>& RequestTimeFilterFastArrivalManyToOneSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestTimeFilterFastArrivalManyToOneSearch::setProperties(std::vector<RequestTimeFilterFastProperty> const& value)
+{
+    m_Properties = value;
 }
 
 }

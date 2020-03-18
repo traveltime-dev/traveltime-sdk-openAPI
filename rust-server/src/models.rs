@@ -1,6 +1,5 @@
 #![allow(unused_imports, unused_qualifications, unused_extern_crates)]
 extern crate chrono;
-extern crate uuid;
 
 use serde::ser::Serializer;
 
@@ -10,8 +9,8 @@ use swagger;
 use std::string::ParseError;
 
 
-
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct Coords {
     #[serde(rename = "lat")]
     pub lat: f64,
@@ -36,7 +35,8 @@ impl Coords {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestArrivalTimePeriod { 
     #[serde(rename = "weekday_morning")]
     WEEKDAY_MORNING,
@@ -62,7 +62,7 @@ impl ::std::str::FromStr for RequestArrivalTimePeriod {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestDepartureArrivalLocationOne(String);
 
 impl ::std::convert::From<String> for RequestDepartureArrivalLocationOne {
@@ -100,7 +100,7 @@ impl ::std::ops::DerefMut for RequestDepartureArrivalLocationOne {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestDepartureArrivalTime(chrono::DateTime<chrono::Utc>);
 
 impl ::std::convert::From<chrono::DateTime<chrono::Utc>> for RequestDepartureArrivalTime {
@@ -132,6 +132,7 @@ impl ::std::ops::DerefMut for RequestDepartureArrivalTime {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -152,7 +153,7 @@ impl RequestLocation {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestLocationId(String);
 
 impl ::std::convert::From<String> for RequestLocationId {
@@ -190,7 +191,7 @@ impl ::std::ops::DerefMut for RequestLocationId {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRangeEnabled(bool);
 
 impl ::std::convert::From<bool> for RequestRangeEnabled {
@@ -222,6 +223,7 @@ impl ::std::ops::DerefMut for RequestRangeEnabled {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRangeFull {
     #[serde(rename = "enabled")]
     pub enabled: bool,
@@ -246,6 +248,7 @@ impl RequestRangeFull {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRangeNoMaxResults {
     #[serde(rename = "enabled")]
     pub enabled: bool,
@@ -266,7 +269,7 @@ impl RequestRangeNoMaxResults {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRangeWidth(i32);
 
 impl ::std::convert::From<i32> for RequestRangeWidth {
@@ -298,6 +301,7 @@ impl ::std::ops::DerefMut for RequestRangeWidth {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRoutes {
     #[serde(rename = "locations")]
     pub locations: Vec<models::RequestLocation>,
@@ -324,6 +328,7 @@ impl RequestRoutes {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRoutesArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -365,6 +370,7 @@ impl RequestRoutesArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestRoutesDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -410,7 +416,8 @@ impl RequestRoutesDepartureSearch {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestRoutesProperty { 
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
@@ -448,7 +455,7 @@ impl ::std::str::FromStr for RequestRoutesProperty {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestSearchId(String);
 
 impl ::std::convert::From<String> for RequestSearchId {
@@ -486,6 +493,7 @@ impl ::std::ops::DerefMut for RequestSearchId {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestSupportedLocations {
     #[serde(rename = "locations")]
     pub locations: Vec<models::RequestLocation>,
@@ -502,6 +510,7 @@ impl RequestSupportedLocations {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilter {
     #[serde(rename = "locations")]
     pub locations: Vec<models::RequestLocation>,
@@ -528,6 +537,7 @@ impl RequestTimeFilter {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -573,6 +583,7 @@ impl RequestTimeFilterArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -618,6 +629,7 @@ impl RequestTimeFilterDepartureSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterFast {
     #[serde(rename = "locations")]
     pub locations: Vec<models::RequestLocation>,
@@ -638,6 +650,7 @@ impl RequestTimeFilterFast {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterFastArrivalManyToOneSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -678,6 +691,7 @@ impl RequestTimeFilterFastArrivalManyToOneSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterFastArrivalOneToManySearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -718,6 +732,7 @@ impl RequestTimeFilterFastArrivalOneToManySearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterFastArrivalSearches {
     #[serde(rename = "many_to_one")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -744,7 +759,8 @@ impl RequestTimeFilterFastArrivalSearches {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeFilterFastProperty { 
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
@@ -774,6 +790,7 @@ impl ::std::str::FromStr for RequestTimeFilterFastProperty {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeDistricts {
     #[serde(rename = "departure_searches")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -796,6 +813,7 @@ impl RequestTimeFilterPostcodeDistricts {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeDistrictsArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -837,6 +855,7 @@ impl RequestTimeFilterPostcodeDistrictsArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeDistrictsDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -882,7 +901,8 @@ impl RequestTimeFilterPostcodeDistrictsDepartureSearch {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeFilterPostcodeDistrictsProperty { 
     #[serde(rename = "travel_time_reachable")]
     TRAVEL_TIME_REACHABLE,
@@ -916,7 +936,7 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodeDistrictsProperty {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold(f64);
 
 impl ::std::convert::From<f64> for RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold {
@@ -948,6 +968,7 @@ impl ::std::ops::DerefMut for RequestTimeFilterPostcodeDistrictsReachablePostcod
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeSectors {
     #[serde(rename = "departure_searches")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -970,6 +991,7 @@ impl RequestTimeFilterPostcodeSectors {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeSectorsArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1011,6 +1033,7 @@ impl RequestTimeFilterPostcodeSectorsArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeSectorsDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1056,7 +1079,8 @@ impl RequestTimeFilterPostcodeSectorsDepartureSearch {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeFilterPostcodeSectorsProperty { 
     #[serde(rename = "travel_time_reachable")]
     TRAVEL_TIME_REACHABLE,
@@ -1090,7 +1114,7 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodeSectorsProperty {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold(f64);
 
 impl ::std::convert::From<f64> for RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold {
@@ -1122,6 +1146,7 @@ impl ::std::ops::DerefMut for RequestTimeFilterPostcodeSectorsReachablePostcodes
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodes {
     #[serde(rename = "departure_searches")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -1144,6 +1169,7 @@ impl RequestTimeFilterPostcodes {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodesArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1181,6 +1207,7 @@ impl RequestTimeFilterPostcodesArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeFilterPostcodesDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1222,7 +1249,8 @@ impl RequestTimeFilterPostcodesDepartureSearch {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeFilterPostcodesProperty { 
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
@@ -1256,7 +1284,8 @@ impl ::std::str::FromStr for RequestTimeFilterPostcodesProperty {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeFilterProperty { 
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
@@ -1298,6 +1327,7 @@ impl ::std::str::FromStr for RequestTimeFilterProperty {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeMap {
     #[serde(rename = "departure_searches")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -1330,6 +1360,7 @@ impl RequestTimeMap {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeMapArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1372,6 +1403,7 @@ impl RequestTimeMapArrivalSearch {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTimeMapDepartureSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -1418,7 +1450,8 @@ impl RequestTimeMapDepartureSearch {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum RequestTimeMapProperty { 
     #[serde(rename = "is_only_walking")]
     IS_ONLY_WALKING,
@@ -1444,6 +1477,7 @@ impl ::std::str::FromStr for RequestTimeMapProperty {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTransportation {
     // Note: inline enums are not fully supported by openapi-generator
     #[serde(rename = "type")]
@@ -1486,6 +1520,7 @@ impl RequestTransportation {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTransportationFast {
     // Note: inline enums are not fully supported by openapi-generator
     #[serde(rename = "type")]
@@ -1503,7 +1538,7 @@ impl RequestTransportationFast {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestTravelTime(i32);
 
 impl ::std::convert::From<i32> for RequestTravelTime {
@@ -1535,6 +1570,7 @@ impl ::std::ops::DerefMut for RequestTravelTime {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct RequestUnionOnIntersection {
     #[serde(rename = "id")]
     pub id: String,
@@ -1555,6 +1591,7 @@ impl RequestUnionOnIntersection {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseBoundingBox {
     #[serde(rename = "envelope")]
     pub envelope: models::ResponseBox,
@@ -1575,6 +1612,7 @@ impl ResponseBoundingBox {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseBox {
     #[serde(rename = "min_lat")]
     pub min_lat: f64,
@@ -1603,7 +1641,7 @@ impl ResponseBox {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseDistance(i32);
 
 impl ::std::convert::From<i32> for ResponseDistance {
@@ -1635,6 +1673,7 @@ impl ::std::ops::DerefMut for ResponseDistance {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseDistanceBreakdownItem {
     #[serde(rename = "mode")]
     pub mode: models::ResponseTransportationMode,
@@ -1655,6 +1694,7 @@ impl ResponseDistanceBreakdownItem {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseError {
     #[serde(rename = "http_status")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -1692,6 +1732,7 @@ impl ResponseError {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseFareTicket {
     // Note: inline enums are not fully supported by openapi-generator
     #[serde(rename = "type")]
@@ -1717,6 +1758,7 @@ impl ResponseFareTicket {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseFares {
     #[serde(rename = "breakdown")]
     pub breakdown: Vec<models::ResponseFaresBreakdownItem>,
@@ -1737,6 +1779,7 @@ impl ResponseFares {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseFaresBreakdownItem {
     #[serde(rename = "modes")]
     pub modes: Vec<models::ResponseTransportationMode>,
@@ -1761,6 +1804,7 @@ impl ResponseFaresBreakdownItem {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseFaresFast {
     #[serde(rename = "tickets_total")]
     pub tickets_total: Vec<models::ResponseFareTicket>,
@@ -1777,6 +1821,7 @@ impl ResponseFaresFast {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseGeocoding {
     #[serde(rename = "type")]
     pub _type: String,
@@ -1797,6 +1842,7 @@ impl ResponseGeocoding {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseGeocodingGeoJsonFeature {
     #[serde(rename = "type")]
     pub _type: String,
@@ -1821,6 +1867,7 @@ impl ResponseGeocodingGeoJsonFeature {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseGeocodingGeometry {
     #[serde(rename = "type")]
     pub _type: String,
@@ -1841,6 +1888,7 @@ impl ResponseGeocodingGeometry {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseGeocodingProperties {
     #[serde(rename = "name")]
     pub name: String,
@@ -1931,7 +1979,7 @@ impl ResponseGeocodingProperties {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseLocalTime(String);
 
 impl ::std::convert::From<String> for ResponseLocalTime {
@@ -1969,7 +2017,7 @@ impl ::std::ops::DerefMut for ResponseLocalTime {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseLocationId(String);
 
 impl ::std::convert::From<String> for ResponseLocationId {
@@ -2007,6 +2055,7 @@ impl ::std::ops::DerefMut for ResponseLocationId {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseMapInfo {
     #[serde(rename = "maps")]
     pub maps: Vec<models::ResponseMapInfoMap>,
@@ -2023,6 +2072,7 @@ impl ResponseMapInfo {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseMapInfoFeatures {
     #[serde(rename = "public_transport")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2048,6 +2098,7 @@ impl ResponseMapInfoFeatures {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseMapInfoFeaturesPublicTransport {
     #[serde(rename = "date_start")]
     pub date_start: chrono::DateTime<chrono::Utc>,
@@ -2068,6 +2119,7 @@ impl ResponseMapInfoFeaturesPublicTransport {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseMapInfoMap {
     #[serde(rename = "name")]
     pub name: String,
@@ -2088,6 +2140,7 @@ impl ResponseMapInfoMap {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoute {
     #[serde(rename = "departure_time")]
     pub departure_time: chrono::DateTime<chrono::Utc>,
@@ -2112,6 +2165,7 @@ impl ResponseRoute {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoutePart {
     #[serde(rename = "id")]
     pub id: String,
@@ -2198,6 +2252,7 @@ impl ResponseRoutePart {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoutes {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseRoutesResult>,
@@ -2214,6 +2269,7 @@ impl ResponseRoutes {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoutesLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -2234,6 +2290,7 @@ impl ResponseRoutesLocation {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoutesProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2266,6 +2323,7 @@ impl ResponseRoutesProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseRoutesResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2290,7 +2348,7 @@ impl ResponseRoutesResult {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseSearchId(String);
 
 impl ::std::convert::From<String> for ResponseSearchId {
@@ -2328,6 +2386,7 @@ impl ::std::ops::DerefMut for ResponseSearchId {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseShape {
     #[serde(rename = "shell")]
     pub shell: Vec<models::Coords>,
@@ -2348,6 +2407,7 @@ impl ResponseShape {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseSupportedLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -2368,6 +2428,7 @@ impl ResponseSupportedLocation {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseSupportedLocations {
     #[serde(rename = "locations")]
     pub locations: Vec<models::ResponseSupportedLocation>,
@@ -2388,6 +2449,7 @@ impl ResponseSupportedLocations {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilter {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeFilterResult>,
@@ -2404,6 +2466,7 @@ impl ResponseTimeFilter {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterFast {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeFilterFastResult>,
@@ -2420,6 +2483,7 @@ impl ResponseTimeFilterFast {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterFastLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -2440,6 +2504,7 @@ impl ResponseTimeFilterFastLocation {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterFastProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2462,6 +2527,7 @@ impl ResponseTimeFilterFastProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterFastResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2486,6 +2552,7 @@ impl ResponseTimeFilterFastResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -2506,6 +2573,7 @@ impl ResponseTimeFilterLocation {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcode {
     #[serde(rename = "code")]
     pub code: String,
@@ -2526,6 +2594,7 @@ impl ResponseTimeFilterPostcode {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeDistrict {
     #[serde(rename = "code")]
     pub code: String,
@@ -2546,6 +2615,7 @@ impl ResponseTimeFilterPostcodeDistrict {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeDistrictProperties {
     #[serde(rename = "travel_time_reachable")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2573,6 +2643,7 @@ impl ResponseTimeFilterPostcodeDistrictProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeDistricts {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeFilterPostcodeDistrictsResult>,
@@ -2589,6 +2660,7 @@ impl ResponseTimeFilterPostcodeDistricts {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeDistrictsResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2609,6 +2681,7 @@ impl ResponseTimeFilterPostcodeDistrictsResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeSector {
     #[serde(rename = "code")]
     pub code: String,
@@ -2629,6 +2702,7 @@ impl ResponseTimeFilterPostcodeSector {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeSectorProperties {
     #[serde(rename = "travel_time_reachable")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2656,6 +2730,7 @@ impl ResponseTimeFilterPostcodeSectorProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeSectors {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeFilterPostcodeSectorsResult>,
@@ -2672,6 +2747,7 @@ impl ResponseTimeFilterPostcodeSectors {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodeSectorsResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2692,6 +2768,7 @@ impl ResponseTimeFilterPostcodeSectorsResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodes {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeFilterPostcodesResult>,
@@ -2708,6 +2785,7 @@ impl ResponseTimeFilterPostcodes {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodesProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2730,6 +2808,7 @@ impl ResponseTimeFilterPostcodesProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterPostcodesResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2750,6 +2829,7 @@ impl ResponseTimeFilterPostcodesResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterProperties {
     #[serde(rename = "travel_time")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2787,6 +2867,7 @@ impl ResponseTimeFilterProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeFilterResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2811,6 +2892,7 @@ impl ResponseTimeFilterResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMap {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeMapResult>,
@@ -2827,6 +2909,7 @@ impl ResponseTimeMap {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapBoundingBoxes {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeMapBoundingBoxesResult>,
@@ -2843,6 +2926,7 @@ impl ResponseTimeMapBoundingBoxes {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapBoundingBoxesResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2867,6 +2951,7 @@ impl ResponseTimeMapBoundingBoxesResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapProperties {
     #[serde(rename = "is_only_walking")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -2884,6 +2969,7 @@ impl ResponseTimeMapProperties {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2908,6 +2994,7 @@ impl ResponseTimeMapResult {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapWkt {
     #[serde(rename = "results")]
     pub results: Vec<models::ResponseTimeMapWktResult>,
@@ -2924,6 +3011,7 @@ impl ResponseTimeMapWkt {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTimeMapWktResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
@@ -2952,7 +3040,8 @@ impl ResponseTimeMapWktResult {
 /// which helps with FFI.
 #[allow(non_camel_case_types)]
 #[repr(C)]
-#[derive(Debug, Clone, Copy, PartialEq, PartialOrd, Serialize, Deserialize, Eq, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGenericEnum))]
 pub enum ResponseTransportationMode { 
     #[serde(rename = "car")]
     CAR,
@@ -3034,7 +3123,7 @@ impl ::std::str::FromStr for ResponseTransportationMode {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTravelTime(i32);
 
 impl ::std::convert::From<i32> for ResponseTravelTime {
@@ -3066,6 +3155,7 @@ impl ::std::ops::DerefMut for ResponseTravelTime {
 
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseTravelTimeStatistics {
     #[serde(rename = "min")]
     pub min: isize,
@@ -3094,7 +3184,7 @@ impl ResponseTravelTimeStatistics {
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Serialize, Deserialize)]
-
+#[cfg_attr(feature = "conversion", derive(LabelledGeneric))]
 pub struct ResponseWktShape(String);
 
 impl ::std::convert::From<String> for ResponseWktShape {

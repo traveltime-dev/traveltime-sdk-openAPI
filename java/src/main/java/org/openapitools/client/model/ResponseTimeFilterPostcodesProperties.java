@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseTimeFilterPostcodesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodesProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -37,7 +37,9 @@ public class ResponseTimeFilterPostcodesProperties {
   @SerializedName(SERIALIZED_NAME_DISTANCE)
   private Integer distance;
 
+
   public ResponseTimeFilterPostcodesProperties travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -46,16 +48,21 @@ public class ResponseTimeFilterPostcodesProperties {
    * Get travelTime
    * @return travelTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public ResponseTimeFilterPostcodesProperties distance(Integer distance) {
+    
     this.distance = distance;
     return this;
   }
@@ -64,10 +71,13 @@ public class ResponseTimeFilterPostcodesProperties {
    * Get distance
    * @return distance
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getDistance() {
     return distance;
   }
+
 
   public void setDistance(Integer distance) {
     this.distance = distance;

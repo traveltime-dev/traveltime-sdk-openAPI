@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestRangeFull: public OAIObject {
@@ -52,7 +53,7 @@ public:
     void setWidth(const qint32 &width);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -74,5 +75,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRangeFull)
 
 #endif // OAIRequestRangeFull_H

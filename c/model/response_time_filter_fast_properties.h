@@ -17,7 +17,7 @@
 
 typedef struct response_time_filter_fast_properties_t {
     int travel_time; //numeric
-    response_fares_fast_t *fares; //model
+    struct response_fares_fast_t *fares; //model
 
 } response_time_filter_fast_properties_t;
 

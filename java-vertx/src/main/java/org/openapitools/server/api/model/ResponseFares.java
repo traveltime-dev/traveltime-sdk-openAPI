@@ -8,7 +8,7 @@ import java.util.List;
 import org.openapitools.server.api.model.ResponseFareTicket;
 import org.openapitools.server.api.model.ResponseFaresBreakdownItem;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseFares   {
   
   private List<ResponseFaresBreakdownItem> breakdown = new ArrayList<>();

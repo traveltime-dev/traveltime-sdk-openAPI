@@ -21,44 +21,41 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseRoutesResult.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseRoutes: public OAIObject {
+class OAIResponseRoutes : public OAIObject {
 public:
     OAIResponseRoutes();
     OAIResponseRoutes(QString json);
     ~OAIResponseRoutes() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseRoutesResult> getResults() const;
     void setResults(const QList<OAIResponseRoutesResult> &results);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseRoutesResult> results;
     bool m_results_isSet;
     bool m_results_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseRoutes)
 
 #endif // OAIResponseRoutes_H

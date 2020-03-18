@@ -21,53 +21,49 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestTimeFilterPostcodesArrivalSearch.h"
 #include "OAIRequestTimeFilterPostcodesDepartureSearch.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterPostcodes: public OAIObject {
+class OAIRequestTimeFilterPostcodes : public OAIObject {
 public:
     OAIRequestTimeFilterPostcodes();
     OAIRequestTimeFilterPostcodes(QString json);
     ~OAIRequestTimeFilterPostcodes() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIRequestTimeFilterPostcodesDepartureSearch> getDepartureSearches() const;
     void setDepartureSearches(const QList<OAIRequestTimeFilterPostcodesDepartureSearch> &departure_searches);
 
-    
     QList<OAIRequestTimeFilterPostcodesArrivalSearch> getArrivalSearches() const;
     void setArrivalSearches(const QList<OAIRequestTimeFilterPostcodesArrivalSearch> &arrival_searches);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIRequestTimeFilterPostcodesDepartureSearch> departure_searches;
     bool m_departure_searches_isSet;
     bool m_departure_searches_isValid;
-    
+
     QList<OAIRequestTimeFilterPostcodesArrivalSearch> arrival_searches;
     bool m_arrival_searches_isSet;
     bool m_arrival_searches_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterPostcodes)
 
 #endif // OAIRequestTimeFilterPostcodes_H

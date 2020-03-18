@@ -53,11 +53,14 @@ std::string ResponseGeocoding::getType() const
 void ResponseGeocoding::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 std::vector<ResponseGeocodingGeoJsonFeature>& ResponseGeocoding::getFeatures()
 {
     return m_Features;
+}
+void ResponseGeocoding::setFeatures(std::vector<ResponseGeocodingGeoJsonFeature> const& value)
+{
+    m_Features = value;
 }
 
 }

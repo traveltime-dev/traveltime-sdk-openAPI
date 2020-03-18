@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-
 #include "OAICoords.h"
 #include "OAIRequestRangeNoMaxResults.h"
 #include "OAIRequestTimeMapProperty.h"
@@ -30,88 +29,80 @@
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeMapArrivalSearch: public OAIObject {
+class OAIRequestTimeMapArrivalSearch : public OAIObject {
 public:
     OAIRequestTimeMapArrivalSearch();
     OAIRequestTimeMapArrivalSearch(QString json);
     ~OAIRequestTimeMapArrivalSearch() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     OAICoords getCoords() const;
     void setCoords(const OAICoords &coords);
 
-    
     OAIRequestTransportation getTransportation() const;
     void setTransportation(const OAIRequestTransportation &transportation);
 
-    
     qint32 getTravelTime() const;
     void setTravelTime(const qint32 &travel_time);
 
-    
     QDateTime getArrivalTime() const;
     void setArrivalTime(const QDateTime &arrival_time);
 
-    
     QList<OAIRequestTimeMapProperty> getProperties() const;
     void setProperties(const QList<OAIRequestTimeMapProperty> &properties);
 
-    
     OAIRequestRangeNoMaxResults getRange() const;
     void setRange(const OAIRequestRangeNoMaxResults &range);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     OAICoords coords;
     bool m_coords_isSet;
     bool m_coords_isValid;
-    
+
     OAIRequestTransportation transportation;
     bool m_transportation_isSet;
     bool m_transportation_isValid;
-    
+
     qint32 travel_time;
     bool m_travel_time_isSet;
     bool m_travel_time_isValid;
-    
+
     QDateTime arrival_time;
     bool m_arrival_time_isSet;
     bool m_arrival_time_isValid;
-    
+
     QList<OAIRequestTimeMapProperty> properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
+
     OAIRequestRangeNoMaxResults range;
     bool m_range_isSet;
     bool m_range_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeMapArrivalSearch)
 
 #endif // OAIRequestTimeMapArrivalSearch_H

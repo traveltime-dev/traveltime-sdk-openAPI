@@ -10,119 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseBoundingBox.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseBoundingBox::OAIResponseBoundingBox(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseBoundingBox::OAIResponseBoundingBox() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseBoundingBox::~OAIResponseBoundingBox() {
+OAIResponseBoundingBox::~OAIResponseBoundingBox() {}
 
-}
+void OAIResponseBoundingBox::initializeModel() {
 
-void
-OAIResponseBoundingBox::init() {
-    
     m_envelope_isSet = false;
     m_envelope_isValid = false;
-    
+
     m_boxes_isSet = false;
     m_boxes_isValid = false;
-    }
+}
 
-void
-OAIResponseBoundingBox::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseBoundingBox::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseBoundingBox::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseBoundingBox::fromJsonObject(QJsonObject json) {
+
     m_envelope_isValid = ::OpenAPI::fromJsonValue(envelope, json[QString("envelope")]);
-    
-    
-    
+    m_envelope_isSet = !json[QString("envelope")].isNull() && m_envelope_isValid;
+
     m_boxes_isValid = ::OpenAPI::fromJsonValue(boxes, json[QString("boxes")]);
-    
+    m_boxes_isSet = !json[QString("boxes")].isNull() && m_boxes_isValid;
 }
 
-QString
-OAIResponseBoundingBox::asJson () const {
+QString OAIResponseBoundingBox::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseBoundingBox::asJsonObject() const {
+QJsonObject OAIResponseBoundingBox::asJsonObject() const {
     QJsonObject obj;
-	if(envelope.isSet()){
+    if (envelope.isSet()) {
         obj.insert(QString("envelope"), ::OpenAPI::toJsonValue(envelope));
     }
-	
-    if(boxes.size() > 0){
+    if (boxes.size() > 0) {
         obj.insert(QString("boxes"), ::OpenAPI::toJsonValue(boxes));
-    } 
+    }
     return obj;
 }
 
-
-OAIResponseBox
-OAIResponseBoundingBox::getEnvelope() const {
+OAIResponseBox OAIResponseBoundingBox::getEnvelope() const {
     return envelope;
 }
-void
-OAIResponseBoundingBox::setEnvelope(const OAIResponseBox &envelope) {
+void OAIResponseBoundingBox::setEnvelope(const OAIResponseBox &envelope) {
     this->envelope = envelope;
     this->m_envelope_isSet = true;
 }
 
-
-QList<OAIResponseBox>
-OAIResponseBoundingBox::getBoxes() const {
+QList<OAIResponseBox> OAIResponseBoundingBox::getBoxes() const {
     return boxes;
 }
-void
-OAIResponseBoundingBox::setBoxes(const QList<OAIResponseBox> &boxes) {
+void OAIResponseBoundingBox::setBoxes(const QList<OAIResponseBox> &boxes) {
     this->boxes = boxes;
     this->m_boxes_isSet = true;
 }
 
-bool
-OAIResponseBoundingBox::isSet() const {
+bool OAIResponseBoundingBox::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(envelope.isSet()){ isObjectUpdated = true; break;}
-    
-        if(boxes.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (envelope.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (boxes.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseBoundingBox::isValid() const {
+bool OAIResponseBoundingBox::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_envelope_isValid && m_boxes_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

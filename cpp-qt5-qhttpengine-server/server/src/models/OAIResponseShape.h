@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseShape: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setHoles(const QList<QList<OAICoords>> &holes);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseShape)
 
 #endif // OAIResponseShape_H

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseGeocodingGeoJsonFeature: Codable { 
 
-public struct ResponseGeocodingGeoJsonFeature: Codable {
 
     public var type: String
     public var geometry: ResponseGeocodingGeometry
@@ -21,6 +21,4 @@ public struct ResponseGeocodingGeoJsonFeature: Codable {
         self.properties = properties
     }
 
-
 }
-

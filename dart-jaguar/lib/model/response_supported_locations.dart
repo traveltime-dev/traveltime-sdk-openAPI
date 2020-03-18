@@ -7,10 +7,10 @@ part 'response_supported_locations.jser.dart';
 
 class ResponseSupportedLocations {
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<ResponseSupportedLocation> locations;
   
-  @Alias('unsupported_locations')
+  @Alias('unsupported_locations', isNullable: false,  )
   final List<String> unsupportedLocations;
   
 

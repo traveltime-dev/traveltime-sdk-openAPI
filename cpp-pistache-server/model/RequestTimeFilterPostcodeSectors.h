@@ -47,12 +47,14 @@ public:
     /// 
     /// </summary>
     std::vector<RequestTimeFilterPostcodeSectorsDepartureSearch>& getDepartureSearches();
+    void setDepartureSearches(std::vector<RequestTimeFilterPostcodeSectorsDepartureSearch> const& value);
     bool departureSearchesIsSet() const;
     void unsetDeparture_searches();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterPostcodeSectorsArrivalSearch>& getArrivalSearches();
+    void setArrivalSearches(std::vector<RequestTimeFilterPostcodeSectorsArrivalSearch> const& value);
     bool arrivalSearchesIsSet() const;
     void unsetArrival_searches();
 

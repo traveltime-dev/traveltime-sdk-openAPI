@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseSupportedLocation.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseSupportedLocations: public OAIObject {
+class OAIResponseSupportedLocations : public OAIObject {
 public:
     OAIResponseSupportedLocations();
     OAIResponseSupportedLocations(QString json);
     ~OAIResponseSupportedLocations() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseSupportedLocation> getLocations() const;
     void setLocations(const QList<OAIResponseSupportedLocation> &locations);
 
-    
     QList<QString> getUnsupportedLocations() const;
     void setUnsupportedLocations(const QList<QString> &unsupported_locations);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseSupportedLocation> locations;
     bool m_locations_isSet;
     bool m_locations_isValid;
-    
+
     QList<QString> unsupported_locations;
     bool m_unsupported_locations_isSet;
     bool m_unsupported_locations_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseSupportedLocations)
 
 #endif // OAIResponseSupportedLocations_H

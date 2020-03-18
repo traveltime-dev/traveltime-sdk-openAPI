@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTimeFilterFast"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTimeFilterFast"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeFilterFastResult = openapi_server.resourceTypes.ResponseTimeFilterFastResult
+}
+resourceTypes {
+
+  ResponseTimeFilterFast {
+    title = ResponseTimeFilterFast
+    description = ResponseTimeFilterFast
+    derivedFrom = Root
+    properties {
+        results {
+          type = array
+          items.type = ResponseTimeFilterFastResult
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterFast {
+    title = ResponseTimeFilterFast
+    description = ResponseTimeFilterFast
+    implements = openapi_server.resourceTypes.ResponseTimeFilterFast
+
+  }
+}

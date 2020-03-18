@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseMapInfoMap: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setFeatures(const OAIResponseMapInfoFeatures &features);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseMapInfoMap)
 
 #endif // OAIResponseMapInfoMap_H

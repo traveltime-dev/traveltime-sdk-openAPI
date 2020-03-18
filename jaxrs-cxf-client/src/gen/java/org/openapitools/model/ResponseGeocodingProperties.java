@@ -60,7 +60,7 @@ public class ResponseGeocodingProperties  {
   private String postcode;
 
   @ApiModelProperty(value = "")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
    * Get name
    * @return name

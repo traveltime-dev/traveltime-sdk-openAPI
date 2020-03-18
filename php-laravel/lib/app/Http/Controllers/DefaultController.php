@@ -46,15 +46,15 @@ class DefaultController extends Controller
 
 
         //not path params validation
-        if (!isset($input['focusLat'])) {
-            throw new \InvalidArgumentException('Missing the required parameter $focusLat when calling geocodingReverseSearch');
+        if (!isset($input['lat'])) {
+            throw new \InvalidArgumentException('Missing the required parameter $lat when calling geocodingReverseSearch');
         }
-        $focusLat = $input['focusLat'];
+        $lat = $input['lat'];
 
-        if (!isset($input['focusLng'])) {
-            throw new \InvalidArgumentException('Missing the required parameter $focusLng when calling geocodingReverseSearch');
+        if (!isset($input['lng'])) {
+            throw new \InvalidArgumentException('Missing the required parameter $lng when calling geocodingReverseSearch');
         }
-        $focusLng = $input['focusLng'];
+        $lng = $input['lng'];
 
         $withinCountry = $input['withinCountry'];
 
@@ -82,11 +82,11 @@ class DefaultController extends Controller
         }
         $query = $input['query'];
 
-        $withinCountry = $input['withinCountry'];
-
         $focusLat = $input['focusLat'];
 
         $focusLng = $input['focusLng'];
+
+        $withinCountry = $input['withinCountry'];
 
 
         return response('How about implementing geocodingSearch as a get method ?');

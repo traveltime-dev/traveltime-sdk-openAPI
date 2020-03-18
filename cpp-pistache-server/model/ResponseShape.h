@@ -46,11 +46,13 @@ public:
     /// 
     /// </summary>
     std::vector<Coords>& getShell();
-        /// <summary>
+    void setShell(std::vector<Coords> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<std::vector<Coords>>& getHoles();
-    
+    void setHoles(std::vector<std::vector<Coords>> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseShape& o);
     friend void from_json(const nlohmann::json& j, ResponseShape& o);
 protected:

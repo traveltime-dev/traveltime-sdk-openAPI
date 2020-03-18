@@ -1,0 +1,41 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestLocation"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestLocation"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Coords = openapi_server.resourceTypes.Coords
+}
+resourceTypes {
+
+  RequestLocation {
+    title = RequestLocation
+    description = RequestLocation
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        coords {
+          type = Coords
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestLocation {
+    title = RequestLocation
+    description = RequestLocation
+    implements = openapi_server.resourceTypes.RequestLocation
+
+  }
+}

@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeFilter
+# Org.OpenAPITools.Model.RequestTimeFilter
 
 ## Properties
 

@@ -14,6 +14,6 @@ import { ResponseSupportedLocation } from './responseSupportedLocation';
 
 export interface ResponseSupportedLocations { 
     locations: Array<ResponseSupportedLocation>;
-    unsupportedLocations: Array<string>;
+    unsupported_locations: Array<string>;
 }
 

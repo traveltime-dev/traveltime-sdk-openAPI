@@ -12,6 +12,6 @@
 package org.openapitools.server.model
 
 case class ResponseTimeMapProperties(
-  isUnderscoreonlyUnderscorewalking: Option[Boolean]
+  isOnlyWalking: Option[Boolean]
 
  )

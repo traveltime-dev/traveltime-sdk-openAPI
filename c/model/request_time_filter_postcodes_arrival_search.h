@@ -15,15 +15,23 @@
 #include "request_time_filter_postcodes_property.h"
 #include "request_transportation.h"
 
+// Enum  for request_time_filter_postcodes_arrival_search
+
+typedef enum  { traveltime_platform_api_request_time_filter_postcodes_arrival_search__NULL = 0, traveltime_platform_api_request_time_filter_postcodes_arrival_search__travel_time, traveltime_platform_api_request_time_filter_postcodes_arrival_search__distance } traveltime_platform_api_request_time_filter_postcodes_arrival_search__e;
+
+char* request_time_filter_postcodes_arrival_search_properties_ToString(traveltime_platform_api_request_time_filter_postcodes_arrival_search__e properties);
+
+traveltime_platform_api_request_time_filter_postcodes_arrival_search__e request_time_filter_postcodes_arrival_search_properties_FromString(char* properties);
+
 
 
 typedef struct request_time_filter_postcodes_arrival_search_t {
     char *id; // string
-    request_transportation_t *transportation; //model
+    struct request_transportation_t *transportation; //model
     int travel_time; //numeric
     char *arrival_time; //date time
     list_t *properties; //nonprimitive container
-    request_range_full_t *range; //model
+    struct request_range_full_t *range; //model
 
 } request_time_filter_postcodes_arrival_search_t;
 

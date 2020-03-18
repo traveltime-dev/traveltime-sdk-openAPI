@@ -81,7 +81,7 @@ class ResponseTimeFilterPostcodeDistrictProperties
      *
      * @return OpenAPI\Server\Model\ResponseTravelTimeStatistics|null
      */
-    public function getTravelTimeReachable()
+    public function getTravelTimeReachable(): ?ResponseTravelTimeStatistics
     {
         return $this->travelTimeReachable;
     }
@@ -93,7 +93,7 @@ class ResponseTimeFilterPostcodeDistrictProperties
      *
      * @return $this
      */
-    public function setTravelTimeReachable(ResponseTravelTimeStatistics $travelTimeReachable = null)
+    public function setTravelTimeReachable(ResponseTravelTimeStatistics $travelTimeReachable = null): ?ResponseTravelTimeStatistics
     {
         $this->travelTimeReachable = $travelTimeReachable;
 
@@ -105,7 +105,7 @@ class ResponseTimeFilterPostcodeDistrictProperties
      *
      * @return OpenAPI\Server\Model\ResponseTravelTimeStatistics|null
      */
-    public function getTravelTimeAll()
+    public function getTravelTimeAll(): ?ResponseTravelTimeStatistics
     {
         return $this->travelTimeAll;
     }
@@ -117,7 +117,7 @@ class ResponseTimeFilterPostcodeDistrictProperties
      *
      * @return $this
      */
-    public function setTravelTimeAll(ResponseTravelTimeStatistics $travelTimeAll = null)
+    public function setTravelTimeAll(ResponseTravelTimeStatistics $travelTimeAll = null): ?ResponseTravelTimeStatistics
     {
         $this->travelTimeAll = $travelTimeAll;
 

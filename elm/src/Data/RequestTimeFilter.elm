@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilter exposing (RequestTimeFilter, decoder, encode)
+module Data.RequestTimeFilter exposing (RequestTimeFilter, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestLocation as RequestLocation exposing (RequestLocation)
 import Data.RequestTimeFilterDepartureSearch as RequestTimeFilterDepartureSearch exposing (RequestTimeFilterDepartureSearch)
@@ -39,12 +39,28 @@ decoder =
 
 
 encode : RequestTimeFilter -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
-        , ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterDepartureSearch.encode) model.departureSearches) )
-        , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterArrivalSearch.encode) model.arrivalSearches) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilter -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilter -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "locations", (Encode.list RequestLocation.encode) model.locations )
+    , ( "departure_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterDepartureSearch.encode) model.departureSearches) )
+    , ( "arrival_searches", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeFilterArrivalSearch.encode) model.arrivalSearches) )
+    ]
+
+
+
+toString : RequestTimeFilter -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

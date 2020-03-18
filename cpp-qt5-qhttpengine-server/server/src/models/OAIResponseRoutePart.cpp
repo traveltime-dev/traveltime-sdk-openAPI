@@ -13,12 +13,12 @@
 
 #include "OAIResponseRoutePart.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -159,53 +159,53 @@ OAIResponseRoutePart::asJson () const {
 QJsonObject
 OAIResponseRoutePart::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(mode.isSet()){
+    if(mode.isSet()){
         obj.insert(QString("mode"), ::OpenAPI::toJsonValue(mode));
     }
-	if(m_directions_isSet){
+    if(m_directions_isSet){
         obj.insert(QString("directions"), ::OpenAPI::toJsonValue(directions));
     }
-	if(m_distance_isSet){
+    if(m_distance_isSet){
         obj.insert(QString("distance"), ::OpenAPI::toJsonValue(distance));
     }
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	
+    
     if(coords.size() > 0){
         obj.insert(QString("coords"), ::OpenAPI::toJsonValue(coords));
     } 
-	if(m_direction_isSet){
+    if(m_direction_isSet){
         obj.insert(QString("direction"), ::OpenAPI::toJsonValue(direction));
     }
-	if(m_road_isSet){
+    if(m_road_isSet){
         obj.insert(QString("road"), ::OpenAPI::toJsonValue(road));
     }
-	if(m_turn_isSet){
+    if(m_turn_isSet){
         obj.insert(QString("turn"), ::OpenAPI::toJsonValue(turn));
     }
-	if(m_line_isSet){
+    if(m_line_isSet){
         obj.insert(QString("line"), ::OpenAPI::toJsonValue(line));
     }
-	if(m_departure_station_isSet){
+    if(m_departure_station_isSet){
         obj.insert(QString("departure_station"), ::OpenAPI::toJsonValue(departure_station));
     }
-	if(m_arrival_station_isSet){
+    if(m_arrival_station_isSet){
         obj.insert(QString("arrival_station"), ::OpenAPI::toJsonValue(arrival_station));
     }
-	if(m_departs_at_isSet){
+    if(m_departs_at_isSet){
         obj.insert(QString("departs_at"), ::OpenAPI::toJsonValue(departs_at));
     }
-	if(m_arrives_at_isSet){
+    if(m_arrives_at_isSet){
         obj.insert(QString("arrives_at"), ::OpenAPI::toJsonValue(arrives_at));
     }
-	if(m_num_stops_isSet){
+    if(m_num_stops_isSet){
         obj.insert(QString("num_stops"), ::OpenAPI::toJsonValue(num_stops));
     }
     return obj;

@@ -17,11 +17,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class ResponseTimeMapResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseShape> shapes = new ArrayList<ResponseShape>();
-  private @Valid ResponseTimeMapProperties properties = null;
+  private @Valid ResponseTimeMapProperties properties;
 
   /**
    **/

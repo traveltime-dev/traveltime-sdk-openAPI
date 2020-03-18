@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTimeFilterProperties: public OAIObject {
@@ -64,7 +65,7 @@ public:
     void setRoute(const OAIResponseRoute &route);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -94,5 +95,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterProperties)
 
 #endif // OAIResponseTimeFilterProperties_H

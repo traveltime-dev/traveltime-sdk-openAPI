@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseFaresFast
+# Org.OpenAPITools.Model.ResponseFaresFast
 ## Properties
 
 Name | Type | Description | Notes

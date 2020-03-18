@@ -37,20 +37,20 @@ void RequestTimeFilterFastArrivalSearches::validate()
 void to_json(nlohmann::json& j, const RequestTimeFilterFastArrivalSearches& o)
 {
     j = nlohmann::json();
-    if(o.manyToOneIsSet())
+    if(o.manyToOneIsSet() || !o.m_Many_to_one.empty())
         j["many_to_one"] = o.m_Many_to_one;
-    if(o.oneToManyIsSet())
+    if(o.oneToManyIsSet() || !o.m_One_to_many.empty())
         j["one_to_many"] = o.m_One_to_many;
 }
 
 void from_json(const nlohmann::json& j, RequestTimeFilterFastArrivalSearches& o)
 {
-    if(j.contains("many_to_one"))
+    if(j.find("many_to_one") != j.end())
     {
         j.at("many_to_one").get_to(o.m_Many_to_one);
         o.m_Many_to_oneIsSet = true;
     } 
-    if(j.contains("one_to_many"))
+    if(j.find("one_to_many") != j.end())
     {
         j.at("one_to_many").get_to(o.m_One_to_many);
         o.m_One_to_manyIsSet = true;
@@ -60,6 +60,11 @@ void from_json(const nlohmann::json& j, RequestTimeFilterFastArrivalSearches& o)
 std::vector<RequestTimeFilterFastArrivalManyToOneSearch>& RequestTimeFilterFastArrivalSearches::getManyToOne()
 {
     return m_Many_to_one;
+}
+void RequestTimeFilterFastArrivalSearches::setManyToOne(std::vector<RequestTimeFilterFastArrivalManyToOneSearch> const& value)
+{
+    m_Many_to_one = value;
+    m_Many_to_oneIsSet = true;
 }
 bool RequestTimeFilterFastArrivalSearches::manyToOneIsSet() const
 {
@@ -72,6 +77,11 @@ void RequestTimeFilterFastArrivalSearches::unsetMany_to_one()
 std::vector<RequestTimeFilterFastArrivalOneToManySearch>& RequestTimeFilterFastArrivalSearches::getOneToMany()
 {
     return m_One_to_many;
+}
+void RequestTimeFilterFastArrivalSearches::setOneToMany(std::vector<RequestTimeFilterFastArrivalOneToManySearch> const& value)
+{
+    m_One_to_many = value;
+    m_One_to_manyIsSet = true;
 }
 bool RequestTimeFilterFastArrivalSearches::oneToManyIsSet() const
 {

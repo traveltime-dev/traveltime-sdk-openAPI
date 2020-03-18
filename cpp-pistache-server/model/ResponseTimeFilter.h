@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterResult>& getResults();
-    
+    void setResults(std::vector<ResponseTimeFilterResult> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilter& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilter& o);
 protected:

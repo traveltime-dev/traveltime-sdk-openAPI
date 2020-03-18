@@ -14,7 +14,7 @@ package org.openapitools.server.model
 case class ResponseFaresBreakdownItem(
   modes: List[ResponseTransportationMode],
 
-  routeUnderscorepartUnderscoreids: List[Int],
+  routePartIds: List[Int],
 
   tickets: List[ResponseFareTicket]
 

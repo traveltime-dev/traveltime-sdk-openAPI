@@ -74,7 +74,7 @@ class ResponseMapInfoFeaturesPublicTransport
      *
      * @return \DateTime
      */
-    public function getDateStart()
+    public function getDateStart(): \DateTime
     {
         return $this->dateStart;
     }
@@ -86,7 +86,7 @@ class ResponseMapInfoFeaturesPublicTransport
      *
      * @return $this
      */
-    public function setDateStart(\DateTime $dateStart)
+    public function setDateStart(\DateTime $dateStart): \DateTime
     {
         $this->dateStart = $dateStart;
 
@@ -98,7 +98,7 @@ class ResponseMapInfoFeaturesPublicTransport
      *
      * @return \DateTime
      */
-    public function getDateEnd()
+    public function getDateEnd(): \DateTime
     {
         return $this->dateEnd;
     }
@@ -110,7 +110,7 @@ class ResponseMapInfoFeaturesPublicTransport
      *
      * @return $this
      */
-    public function setDateEnd(\DateTime $dateEnd)
+    public function setDateEnd(\DateTime $dateEnd): \DateTime
     {
         $this->dateEnd = $dateEnd;
 

@@ -52,11 +52,14 @@ String ResponseTimeFilterPostcode::getCode() const
 void ResponseTimeFilterPostcode::setCode(String const& value)
 {
     m_Code = value;
-    
 }
 std::vector<ResponseTimeFilterPostcodesProperties>& ResponseTimeFilterPostcode::getProperties()
 {
     return m_Properties;
+}
+void ResponseTimeFilterPostcode::setProperties(std::vector<ResponseTimeFilterPostcodesProperties> const& value)
+{
+    m_Properties = value;
 }
 
 }

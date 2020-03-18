@@ -16,13 +16,13 @@ import org.openapitools.model.RequestTransportation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -37,7 +37,7 @@ public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<RequestTimeFilterPostcodeDistrictsProperty>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   /**
    **/

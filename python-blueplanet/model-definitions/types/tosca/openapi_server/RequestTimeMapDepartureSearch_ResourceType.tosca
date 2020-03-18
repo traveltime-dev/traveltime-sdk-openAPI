@@ -1,0 +1,70 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeMapDepartureSearch"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeMapDepartureSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  Coords = openapi_server.resourceTypes.Coords
+  RequestRangeNoMaxResults = openapi_server.resourceTypes.RequestRangeNoMaxResults
+  RequestTimeMapProperty = openapi_server.resourceTypes.RequestTimeMapProperty
+  RequestTransportation = openapi_server.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeMapDepartureSearch {
+    title = RequestTimeMapDepartureSearch
+    description = RequestTimeMapDepartureSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        coords {
+          type = Coords
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeMapProperty
+          description = ""
+          optional = false
+        }
+        range {
+          type = RequestRangeNoMaxResults
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeMapDepartureSearch {
+    title = RequestTimeMapDepartureSearch
+    description = RequestTimeMapDepartureSearch
+    implements = openapi_server.resourceTypes.RequestTimeMapDepartureSearch
+
+  }
+}

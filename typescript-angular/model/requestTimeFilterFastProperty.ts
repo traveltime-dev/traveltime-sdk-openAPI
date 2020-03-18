@@ -17,3 +17,4 @@ export const RequestTimeFilterFastProperty = {
     TravelTime: 'travel_time' as RequestTimeFilterFastProperty,
     Fares: 'fares' as RequestTimeFilterFastProperty
 };
+

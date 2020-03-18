@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseRoutesResult: Codable { 
 
-public struct ResponseRoutesResult: Codable {
 
     public var searchId: String
     public var locations: [ResponseRoutesLocation]
@@ -27,6 +27,4 @@ public struct ResponseRoutesResult: Codable {
         case unreachable
     }
 
-
 }
-

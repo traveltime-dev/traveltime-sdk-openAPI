@@ -26,46 +26,24 @@ class RequestTimeFilterDepartureSearch {
 
   RequestTimeFilterDepartureSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['departure_location_id'] == null) {
-      departureLocationId = null;
-    } else {
-          departureLocationId = json['departure_location_id'];
-    }
-    if (json['arrival_location_ids'] == null) {
-      arrivalLocationIds = null;
-    } else {
-      arrivalLocationIds = (json['arrival_location_ids'] as List).cast<String>();
-    }
-    if (json['transportation'] == null) {
-      transportation = null;
-    } else {
-      transportation = new RequestTransportation.fromJson(json['transportation']);
-    }
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['departure_time'] == null) {
-      departureTime = null;
-    } else {
-      departureTime = DateTime.parse(json['departure_time']);
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = RequestTimeFilterProperty.listFromJson(json['properties']);
-    }
-    if (json['range'] == null) {
-      range = null;
-    } else {
-      range = new RequestRangeFull.fromJson(json['range']);
-    }
+    id = json['id'];
+    departureLocationId = json['departure_location_id'];
+    arrivalLocationIds = (json['arrival_location_ids'] == null) ?
+      null :
+      (json['arrival_location_ids'] as List).cast<String>();
+    transportation = (json['transportation'] == null) ?
+      null :
+      RequestTransportation.fromJson(json['transportation']);
+    travelTime = json['travel_time'];
+    departureTime = (json['departure_time'] == null) ?
+      null :
+      DateTime.parse(json['departure_time']);
+    properties = (json['properties'] == null) ?
+      null :
+      RequestTimeFilterProperty.listFromJson(json['properties']);
+    range = (json['range'] == null) ?
+      null :
+      RequestRangeFull.fromJson(json['range']);
   }
 
   Map<String, dynamic> toJson() {
@@ -90,15 +68,26 @@ class RequestTimeFilterDepartureSearch {
   }
 
   static List<RequestTimeFilterDepartureSearch> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterDepartureSearch>() : json.map((value) => new RequestTimeFilterDepartureSearch.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterDepartureSearch>() : json.map((value) => RequestTimeFilterDepartureSearch.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterDepartureSearch> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterDepartureSearch>();
+    var map = Map<String, RequestTimeFilterDepartureSearch>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterDepartureSearch.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterDepartureSearch.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterDepartureSearch-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterDepartureSearch>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterDepartureSearch>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterDepartureSearch.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

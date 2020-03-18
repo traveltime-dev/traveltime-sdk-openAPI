@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class RequestTimeMapProperty {
   /// The underlying value of this enum member.
   final String value;
@@ -8,16 +7,18 @@ class RequestTimeMapProperty {
   const RequestTimeMapProperty._internal(this.value);
 
   static const RequestTimeMapProperty isOnlyWalking_ = const RequestTimeMapProperty._internal("is_only_walking");
+
+  static RequestTimeMapProperty fromJson(String value) {
+    return new RequestTimeMapPropertyTypeTransformer().decode(value);
+  }
 }
 
-class RequestTimeMapPropertyTypeTransformer extends TypeTransformer<RequestTimeMapProperty> {
+class RequestTimeMapPropertyTypeTransformer {
 
-  @override
   dynamic encode(RequestTimeMapProperty data) {
     return data.value;
   }
 
-  @override
   RequestTimeMapProperty decode(dynamic data) {
     switch (data) {
       case "is_only_walking": return RequestTimeMapProperty.isOnlyWalking_;

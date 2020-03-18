@@ -9,31 +9,31 @@ request_union_on_intersection_t *request_union_on_intersection_create(
     char *id,
     list_t *search_ids
     ) {
-	request_union_on_intersection_t *request_union_on_intersection_local_var = malloc(sizeof(request_union_on_intersection_t));
+    request_union_on_intersection_t *request_union_on_intersection_local_var = malloc(sizeof(request_union_on_intersection_t));
     if (!request_union_on_intersection_local_var) {
         return NULL;
     }
-	request_union_on_intersection_local_var->id = id;
-	request_union_on_intersection_local_var->search_ids = search_ids;
+    request_union_on_intersection_local_var->id = id;
+    request_union_on_intersection_local_var->search_ids = search_ids;
 
-	return request_union_on_intersection_local_var;
+    return request_union_on_intersection_local_var;
 }
 
 
 void request_union_on_intersection_free(request_union_on_intersection_t *request_union_on_intersection) {
     listEntry_t *listEntry;
     free(request_union_on_intersection->id);
-	list_ForEach(listEntry, request_union_on_intersection->search_ids) {
-		free(listEntry->data);
-	}
-	list_free(request_union_on_intersection->search_ids);
-	free(request_union_on_intersection);
+    list_ForEach(listEntry, request_union_on_intersection->search_ids) {
+        free(listEntry->data);
+    }
+    list_free(request_union_on_intersection->search_ids);
+    free(request_union_on_intersection);
 }
 
 cJSON *request_union_on_intersection_convertToJSON(request_union_on_intersection_t *request_union_on_intersection) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_union_on_intersection->id
+    // request_union_on_intersection->id
     if (!request_union_on_intersection->id) {
         goto fail;
     }
@@ -43,17 +43,17 @@ cJSON *request_union_on_intersection_convertToJSON(request_union_on_intersection
     }
 
 
-	// request_union_on_intersection->search_ids
+    // request_union_on_intersection->search_ids
     if (!request_union_on_intersection->search_ids) {
         goto fail;
     }
     
-	cJSON *search_ids = cJSON_AddArrayToObject(item, "search_ids");
-	if(search_ids == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *search_ids = cJSON_AddArrayToObject(item, "search_ids");
+    if(search_ids == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *search_idsListEntry;
+    listEntry_t *search_idsListEntry;
     list_ForEach(search_idsListEntry, request_union_on_intersection->search_ids) {
     if(cJSON_AddStringToObject(search_ids, "", (char*)search_idsListEntry->data) == NULL)
     {
@@ -61,12 +61,12 @@ cJSON *request_union_on_intersection_convertToJSON(request_union_on_intersection
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_union_on_intersection_t *request_union_on_intersection_parseFromJSON(cJSON *request_union_on_intersectionJSON){

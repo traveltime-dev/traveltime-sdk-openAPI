@@ -9,12 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ResponseFareTicket } from './responseFareTicket';
 import { ResponseFaresBreakdownItem } from './responseFaresBreakdownItem';
+import { ResponseFareTicket } from './responseFareTicket';
 
 
 export interface ResponseFares { 
     breakdown: Array<ResponseFaresBreakdownItem>;
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }
 

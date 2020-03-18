@@ -10,119 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseGeocoding.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseGeocoding::OAIResponseGeocoding(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseGeocoding::OAIResponseGeocoding() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseGeocoding::~OAIResponseGeocoding() {
+OAIResponseGeocoding::~OAIResponseGeocoding() {}
 
-}
+void OAIResponseGeocoding::initializeModel() {
 
-void
-OAIResponseGeocoding::init() {
-    
     m_type_isSet = false;
     m_type_isValid = false;
-    
+
     m_features_isSet = false;
     m_features_isValid = false;
-    }
+}
 
-void
-OAIResponseGeocoding::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseGeocoding::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseGeocoding::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseGeocoding::fromJsonObject(QJsonObject json) {
+
     m_type_isValid = ::OpenAPI::fromJsonValue(type, json[QString("type")]);
-    
-    
-    
+    m_type_isSet = !json[QString("type")].isNull() && m_type_isValid;
+
     m_features_isValid = ::OpenAPI::fromJsonValue(features, json[QString("features")]);
-    
+    m_features_isSet = !json[QString("features")].isNull() && m_features_isValid;
 }
 
-QString
-OAIResponseGeocoding::asJson () const {
+QString OAIResponseGeocoding::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseGeocoding::asJsonObject() const {
+QJsonObject OAIResponseGeocoding::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if (m_type_isSet) {
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	
-    if(features.size() > 0){
+    if (features.size() > 0) {
         obj.insert(QString("features"), ::OpenAPI::toJsonValue(features));
-    } 
+    }
     return obj;
 }
 
-
-QString
-OAIResponseGeocoding::getType() const {
+QString OAIResponseGeocoding::getType() const {
     return type;
 }
-void
-OAIResponseGeocoding::setType(const QString &type) {
+void OAIResponseGeocoding::setType(const QString &type) {
     this->type = type;
     this->m_type_isSet = true;
 }
 
-
-QList<OAIResponseGeocodingGeoJsonFeature>
-OAIResponseGeocoding::getFeatures() const {
+QList<OAIResponseGeocodingGeoJsonFeature> OAIResponseGeocoding::getFeatures() const {
     return features;
 }
-void
-OAIResponseGeocoding::setFeatures(const QList<OAIResponseGeocodingGeoJsonFeature> &features) {
+void OAIResponseGeocoding::setFeatures(const QList<OAIResponseGeocodingGeoJsonFeature> &features) {
     this->features = features;
     this->m_features_isSet = true;
 }
 
-bool
-OAIResponseGeocoding::isSet() const {
+bool OAIResponseGeocoding::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_type_isSet){ isObjectUpdated = true; break;}
-    
-        if(features.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_type_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (features.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseGeocoding::isValid() const {
+bool OAIResponseGeocoding::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_type_isValid && m_features_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseGeocodingGeometry: public OAIObject {
+class OAIResponseGeocodingGeometry : public OAIObject {
 public:
     OAIResponseGeocodingGeometry();
     OAIResponseGeocodingGeometry(QString json);
     ~OAIResponseGeocodingGeometry() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getType() const;
     void setType(const QString &type);
 
-    
     QList<double> getCoordinates() const;
     void setCoordinates(const QList<double> &coordinates);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString type;
     bool m_type_isSet;
     bool m_type_isValid;
-    
+
     QList<double> coordinates;
     bool m_coordinates_isSet;
     bool m_coordinates_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseGeocodingGeometry)
 
 #endif // OAIResponseGeocodingGeometry_H

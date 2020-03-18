@@ -15,8 +15,8 @@ import * as models from './models';
 export interface RequestTimeFilterPostcodesArrivalSearch {
     "id": string;
     "transportation": models.RequestTransportation;
-    "travelTime": number;
-    "arrivalTime": Date;
+    "travel_time": number;
+    "arrival_time": string;
     "properties": Array<models.RequestTimeFilterPostcodesProperty>;
     "range"?: models.RequestRangeFull;
 }

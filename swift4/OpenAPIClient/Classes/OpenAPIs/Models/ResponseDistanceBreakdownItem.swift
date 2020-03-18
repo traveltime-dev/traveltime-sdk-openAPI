@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseDistanceBreakdownItem: Codable { 
 
-public struct ResponseDistanceBreakdownItem: Codable {
 
     public var mode: ResponseTransportationMode
     public var distance: Int
@@ -19,6 +19,4 @@ public struct ResponseDistanceBreakdownItem: Codable {
         self.distance = distance
     }
 
-
 }
-

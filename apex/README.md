@@ -47,8 +47,8 @@ OASClient client = api.getClient();
 
 
 Map<String, Object> params = new Map<String, Object>{
-    'focusLat' => '',
-    'focusLng' => '',
+    'lat' => '',
+    'lng' => '',
     'withinCountry' => 'null'
 };
 

@@ -13,14 +13,14 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeSector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class ResponseTimeFilterPostcodeSector   {
   @JsonProperty("code")
   private String code = null;
 
   @JsonProperty("properties")
-  private ResponseTimeFilterPostcodeSectorProperties properties = null;
+  private ResponseTimeFilterPostcodeSectorProperties properties;
 
   public ResponseTimeFilterPostcodeSector code(String code) {
     this.code = code;

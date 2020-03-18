@@ -13,12 +13,12 @@
 
 #include "OAIResponseGeocoding.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseGeocoding::asJson () const {
 QJsonObject
 OAIResponseGeocoding::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	
+    
     if(features.size() > 0){
         obj.insert(QString("features"), ::OpenAPI::toJsonValue(features));
     } 

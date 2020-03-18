@@ -22,22 +22,31 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseBoundingBox;
 import org.openapitools.model.ResponseTimeMapProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeMapBoundingBoxesResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeMapBoundingBoxesResult.JSON_PROPERTY_SEARCH_ID,
+  ResponseTimeMapBoundingBoxesResult.JSON_PROPERTY_BOUNDING_BOXES,
+  ResponseTimeMapBoundingBoxesResult.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeMapBoundingBoxesResult   {
-  @JsonProperty("search_id")
+  public static final String JSON_PROPERTY_SEARCH_ID = "search_id";
+  @JsonProperty(JSON_PROPERTY_SEARCH_ID)
   private String searchId;
 
-  @JsonProperty("bounding_boxes")
+  public static final String JSON_PROPERTY_BOUNDING_BOXES = "bounding_boxes";
+  @JsonProperty(JSON_PROPERTY_BOUNDING_BOXES)
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
 
-  @JsonProperty("properties")
-  private ResponseTimeMapProperties properties = null;
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapBoundingBoxesResult searchId(String searchId) {
     this.searchId = searchId;

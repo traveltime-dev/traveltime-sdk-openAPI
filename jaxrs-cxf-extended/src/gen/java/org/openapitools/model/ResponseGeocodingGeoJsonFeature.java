@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseGeocodingGeoJsonFeature  {
   
   @ApiModelProperty(required = true, value = "")
@@ -23,11 +24,11 @@ public class ResponseGeocodingGeoJsonFeature  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
  /**
   * Get type
   * @return type

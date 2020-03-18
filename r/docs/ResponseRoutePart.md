@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseRoutePart
+# openapi::ResponseRoutePart
 
 ## Properties
 Name | Type | Description | Notes
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **directions** | **character** |  | 
 **distance** | **integer** |  | 
 **travel_time** | **integer** |  | 
-**coords** | [**Coords**](Coords.md) |  | 
+**coords** | [**array[Coords]**](Coords.md) |  | 
 **direction** | **character** |  | [optional] 
 **road** | **character** |  | [optional] 
 **turn** | **character** |  | [optional] 

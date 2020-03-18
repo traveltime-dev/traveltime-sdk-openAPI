@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseFareTicket
+# Org.OpenAPITools.Model.ResponseFareTicket
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**Price** | **double?** |  | 
+**Price** | **double** |  | 
 **Currency** | **string** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

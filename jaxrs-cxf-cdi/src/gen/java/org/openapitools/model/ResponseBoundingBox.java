@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.*;
 
 public class ResponseBoundingBox   {
   
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 

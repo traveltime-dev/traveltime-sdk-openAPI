@@ -9,19 +9,18 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesProperties {
-    #[serde(rename = "travel_time")]
+    #[serde(rename = "travel_time", skip_serializing_if = "Option::is_none")]
     pub travel_time: Option<i32>,
-    #[serde(rename = "distance")]
+    #[serde(rename = "distance", skip_serializing_if = "Option::is_none")]
     pub distance: Option<i32>,
-    #[serde(rename = "fares")]
-    pub fares: Option<::models::ResponseFares>,
-    #[serde(rename = "route")]
-    pub route: Option<::models::ResponseRoute>,
+    #[serde(rename = "fares", skip_serializing_if = "Option::is_none")]
+    pub fares: Option<crate::models::ResponseFares>,
+    #[serde(rename = "route", skip_serializing_if = "Option::is_none")]
+    pub route: Option<crate::models::ResponseRoute>,
 }
 
 impl ResponseRoutesProperties {
@@ -34,3 +33,5 @@ impl ResponseRoutesProperties {
         }
     }
 }
+
+

@@ -9,16 +9,16 @@ part 'response_routes_properties.jser.dart';
 
 class ResponseRoutesProperties {
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('distance')
+  @Alias('distance', isNullable: false,  )
   final int distance;
   
-  @Alias('fares')
+  @Alias('fares', isNullable: false,  )
   final ResponseFares fares;
   
-  @Alias('route')
+  @Alias('route', isNullable: false,  )
   final ResponseRoute route;
   
 

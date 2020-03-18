@@ -18,21 +18,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestRangeFull
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestRangeFull.JSON_PROPERTY_ENABLED,
+  RequestRangeFull.JSON_PROPERTY_MAX_RESULTS,
+  RequestRangeFull.JSON_PROPERTY_WIDTH
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestRangeFull   {
-  @JsonProperty("enabled")
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   private Boolean enabled;
 
-  @JsonProperty("max_results")
+  public static final String JSON_PROPERTY_MAX_RESULTS = "max_results";
+  @JsonProperty(JSON_PROPERTY_MAX_RESULTS)
   private Integer maxResults;
 
-  @JsonProperty("width")
+  public static final String JSON_PROPERTY_WIDTH = "width";
+  @JsonProperty(JSON_PROPERTY_WIDTH)
   private Integer width;
 
   public RequestRangeFull enabled(Boolean enabled) {

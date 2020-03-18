@@ -18,26 +18,18 @@ class RequestTimeMap {
 
   RequestTimeMap.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['departure_searches'] == null) {
-      departureSearches = null;
-    } else {
-      departureSearches = RequestTimeMapDepartureSearch.listFromJson(json['departure_searches']);
-    }
-    if (json['arrival_searches'] == null) {
-      arrivalSearches = null;
-    } else {
-      arrivalSearches = RequestTimeMapArrivalSearch.listFromJson(json['arrival_searches']);
-    }
-    if (json['unions'] == null) {
-      unions = null;
-    } else {
-      unions = RequestUnionOnIntersection.listFromJson(json['unions']);
-    }
-    if (json['intersections'] == null) {
-      intersections = null;
-    } else {
-      intersections = RequestUnionOnIntersection.listFromJson(json['intersections']);
-    }
+    departureSearches = (json['departure_searches'] == null) ?
+      null :
+      RequestTimeMapDepartureSearch.listFromJson(json['departure_searches']);
+    arrivalSearches = (json['arrival_searches'] == null) ?
+      null :
+      RequestTimeMapArrivalSearch.listFromJson(json['arrival_searches']);
+    unions = (json['unions'] == null) ?
+      null :
+      RequestUnionOnIntersection.listFromJson(json['unions']);
+    intersections = (json['intersections'] == null) ?
+      null :
+      RequestUnionOnIntersection.listFromJson(json['intersections']);
   }
 
   Map<String, dynamic> toJson() {
@@ -54,15 +46,26 @@ class RequestTimeMap {
   }
 
   static List<RequestTimeMap> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeMap>() : json.map((value) => new RequestTimeMap.fromJson(value)).toList();
+    return json == null ? List<RequestTimeMap>() : json.map((value) => RequestTimeMap.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeMap> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeMap>();
+    var map = Map<String, RequestTimeMap>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeMap.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeMap.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeMap-objects as value to a dart map
+  static Map<String, List<RequestTimeMap>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeMap>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeMap.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

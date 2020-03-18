@@ -23,21 +23,18 @@ import {
  */
 export interface RequestTimeFilter {
     /**
-     * 
      * @type {Array<RequestLocation>}
      * @memberof RequestTimeFilter
      */
     locations: Array<RequestLocation>;
     /**
-     * 
      * @type {Array<RequestTimeFilterDepartureSearch>}
      * @memberof RequestTimeFilter
      */
-    departureSearches?: Array<RequestTimeFilterDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterDepartureSearch>;
     /**
-     * 
      * @type {Array<RequestTimeFilterArrivalSearch>}
      * @memberof RequestTimeFilter
      */
-    arrivalSearches?: Array<RequestTimeFilterArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterArrivalSearch>;
 }

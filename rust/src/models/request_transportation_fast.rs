@@ -9,19 +9,30 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTransportationFast {
     #[serde(rename = "type")]
-    pub _type: String,
+    pub _type: Type,
 }
 
 impl RequestTransportationFast {
-    pub fn new(_type: String) -> RequestTransportationFast {
+    pub fn new(_type: Type) -> RequestTransportationFast {
         RequestTransportationFast {
-            _type: _type,
+            _type,
         }
     }
 }
+
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    #[serde(rename = "public_transport")]
+    PublicTransport,
+    #[serde(rename = "driving")]
+    Driving,
+    #[serde(rename = "driving+public_transport")]
+    DrivingpublicTransport,
+}
+

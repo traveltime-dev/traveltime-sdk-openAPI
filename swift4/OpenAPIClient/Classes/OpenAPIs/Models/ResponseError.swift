@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseError: Codable { 
 
-public struct ResponseError: Codable {
 
     public var httpStatus: Int?
     public var errorCode: Int?
@@ -33,6 +33,4 @@ public struct ResponseError: Codable {
         case additionalInfo = "additional_info"
     }
 
-
 }
-

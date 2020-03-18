@@ -10,118 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAICoords.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAICoords::OAICoords(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAICoords::OAICoords() {
-    this->init();
+    this->initializeModel();
 }
 
-OAICoords::~OAICoords() {
+OAICoords::~OAICoords() {}
 
-}
+void OAICoords::initializeModel() {
 
-void
-OAICoords::init() {
-    
     m_lat_isSet = false;
     m_lat_isValid = false;
-    
+
     m_lng_isSet = false;
     m_lng_isValid = false;
-    }
+}
 
-void
-OAICoords::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAICoords::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAICoords::fromJsonObject(QJsonObject json) {
-    
+void OAICoords::fromJsonObject(QJsonObject json) {
+
     m_lat_isValid = ::OpenAPI::fromJsonValue(lat, json[QString("lat")]);
-    
-    
+    m_lat_isSet = !json[QString("lat")].isNull() && m_lat_isValid;
+
     m_lng_isValid = ::OpenAPI::fromJsonValue(lng, json[QString("lng")]);
-    
-    
+    m_lng_isSet = !json[QString("lng")].isNull() && m_lng_isValid;
 }
 
-QString
-OAICoords::asJson () const {
+QString OAICoords::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAICoords::asJsonObject() const {
+QJsonObject OAICoords::asJsonObject() const {
     QJsonObject obj;
-	if(m_lat_isSet){
+    if (m_lat_isSet) {
         obj.insert(QString("lat"), ::OpenAPI::toJsonValue(lat));
     }
-	if(m_lng_isSet){
+    if (m_lng_isSet) {
         obj.insert(QString("lng"), ::OpenAPI::toJsonValue(lng));
     }
     return obj;
 }
 
-
-double
-OAICoords::getLat() const {
+double OAICoords::getLat() const {
     return lat;
 }
-void
-OAICoords::setLat(const double &lat) {
+void OAICoords::setLat(const double &lat) {
     this->lat = lat;
     this->m_lat_isSet = true;
 }
 
-
-double
-OAICoords::getLng() const {
+double OAICoords::getLng() const {
     return lng;
 }
-void
-OAICoords::setLng(const double &lng) {
+void OAICoords::setLng(const double &lng) {
     this->lng = lng;
     this->m_lng_isSet = true;
 }
 
-bool
-OAICoords::isSet() const {
+bool OAICoords::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_lat_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_lng_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_lat_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_lng_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAICoords::isValid() const {
+bool OAICoords::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_lat_isValid && m_lng_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

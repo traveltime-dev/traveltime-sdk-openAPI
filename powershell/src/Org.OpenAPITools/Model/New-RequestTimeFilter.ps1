@@ -2,21 +2,21 @@ function New-RequestTimeFilter {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestLocation[]]
+        [Org.OpenAPITools.Model.RequestLocation[]]
         ${locations},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestTimeFilterDepartureSearch[]]]
+        [Org.OpenAPITools.Model.RequestTimeFilterDepartureSearch[]]
         ${departureUnderscoresearches},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestTimeFilterArrivalSearch[]]]
+        [Org.OpenAPITools.Model.RequestTimeFilterArrivalSearch[]]
         ${arrivalUnderscoresearches}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilter' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilter' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilter -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilter -ArgumentList @(
             ${locations},
             ${departureUnderscoresearches},
             ${arrivalUnderscoresearches}

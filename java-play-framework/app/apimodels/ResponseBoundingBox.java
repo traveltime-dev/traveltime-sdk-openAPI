@@ -11,12 +11,12 @@ import javax.validation.constraints.*;
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T08:50:52.411Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseBoundingBox   {
   @JsonProperty("envelope")
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @JsonProperty("boxes")
   private List<ResponseBox> boxes = new ArrayList<>();

@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseBox.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseBoundingBox: public OAIObject {
+class OAIResponseBoundingBox : public OAIObject {
 public:
     OAIResponseBoundingBox();
     OAIResponseBoundingBox(QString json);
     ~OAIResponseBoundingBox() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     OAIResponseBox getEnvelope() const;
     void setEnvelope(const OAIResponseBox &envelope);
 
-    
     QList<OAIResponseBox> getBoxes() const;
     void setBoxes(const QList<OAIResponseBox> &boxes);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     OAIResponseBox envelope;
     bool m_envelope_isSet;
     bool m_envelope_isValid;
-    
+
     QList<OAIResponseBox> boxes;
     bool m_boxes_isSet;
     bool m_boxes_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseBoundingBox)
 
 #endif // OAIResponseBoundingBox_H

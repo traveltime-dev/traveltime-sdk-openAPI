@@ -12,10 +12,10 @@ import org.openapitools.model.ResponseBox;
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T08:50:47.585Z[Etc/UTC]")
 public class ResponseBoundingBox   {
   @JsonProperty("envelope")
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @JsonProperty("boxes")
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();

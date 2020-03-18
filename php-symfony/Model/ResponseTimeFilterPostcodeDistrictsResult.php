@@ -100,7 +100,7 @@ class ResponseTimeFilterPostcodeDistrictsResult
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterPostcodeDistrict[]
      */
-    public function getDistricts()
+    public function getDistricts(): array
     {
         return $this->districts;
     }
@@ -112,7 +112,7 @@ class ResponseTimeFilterPostcodeDistrictsResult
      *
      * @return $this
      */
-    public function setDistricts(array $districts)
+    public function setDistricts(array $districts): array
     {
         $this->districts = $districts;
 

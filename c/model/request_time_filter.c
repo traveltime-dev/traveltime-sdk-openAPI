@@ -10,39 +10,39 @@ request_time_filter_t *request_time_filter_create(
     list_t *departure_searches,
     list_t *arrival_searches
     ) {
-	request_time_filter_t *request_time_filter_local_var = malloc(sizeof(request_time_filter_t));
+    request_time_filter_t *request_time_filter_local_var = malloc(sizeof(request_time_filter_t));
     if (!request_time_filter_local_var) {
         return NULL;
     }
-	request_time_filter_local_var->locations = locations;
-	request_time_filter_local_var->departure_searches = departure_searches;
-	request_time_filter_local_var->arrival_searches = arrival_searches;
+    request_time_filter_local_var->locations = locations;
+    request_time_filter_local_var->departure_searches = departure_searches;
+    request_time_filter_local_var->arrival_searches = arrival_searches;
 
-	return request_time_filter_local_var;
+    return request_time_filter_local_var;
 }
 
 
 void request_time_filter_free(request_time_filter_t *request_time_filter) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_time_filter->locations) {
-		request_location_free(listEntry->data);
-	}
-	list_free(request_time_filter->locations);
-	list_ForEach(listEntry, request_time_filter->departure_searches) {
-		request_time_filter_departure_search_free(listEntry->data);
-	}
-	list_free(request_time_filter->departure_searches);
-	list_ForEach(listEntry, request_time_filter->arrival_searches) {
-		request_time_filter_arrival_search_free(listEntry->data);
-	}
-	list_free(request_time_filter->arrival_searches);
-	free(request_time_filter);
+    list_ForEach(listEntry, request_time_filter->locations) {
+        request_location_free(listEntry->data);
+    }
+    list_free(request_time_filter->locations);
+    list_ForEach(listEntry, request_time_filter->departure_searches) {
+        request_time_filter_departure_search_free(listEntry->data);
+    }
+    list_free(request_time_filter->departure_searches);
+    list_ForEach(listEntry, request_time_filter->arrival_searches) {
+        request_time_filter_arrival_search_free(listEntry->data);
+    }
+    list_free(request_time_filter->arrival_searches);
+    free(request_time_filter);
 }
 
 cJSON *request_time_filter_convertToJSON(request_time_filter_t *request_time_filter) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_filter->locations
+    // request_time_filter->locations
     if (!request_time_filter->locations) {
         goto fail;
     }
@@ -64,7 +64,7 @@ cJSON *request_time_filter_convertToJSON(request_time_filter_t *request_time_fil
     }
 
 
-	// request_time_filter->departure_searches
+    // request_time_filter->departure_searches
     if(request_time_filter->departure_searches) { 
     cJSON *departure_searches = cJSON_AddArrayToObject(item, "departure_searches");
     if(departure_searches == NULL) {
@@ -84,7 +84,7 @@ cJSON *request_time_filter_convertToJSON(request_time_filter_t *request_time_fil
      } 
 
 
-	// request_time_filter->arrival_searches
+    // request_time_filter->arrival_searches
     if(request_time_filter->arrival_searches) { 
     cJSON *arrival_searches = cJSON_AddArrayToObject(item, "arrival_searches");
     if(arrival_searches == NULL) {
@@ -103,12 +103,12 @@ cJSON *request_time_filter_convertToJSON(request_time_filter_t *request_time_fil
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_filter_t *request_time_filter_parseFromJSON(cJSON *request_time_filterJSON){

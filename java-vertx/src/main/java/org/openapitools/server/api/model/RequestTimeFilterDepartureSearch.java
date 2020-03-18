@@ -10,17 +10,17 @@ import org.openapitools.server.api.model.RequestRangeFull;
 import org.openapitools.server.api.model.RequestTimeFilterProperty;
 import org.openapitools.server.api.model.RequestTransportation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterDepartureSearch   {
   
   private String id;
   private String departureLocationId;
   private List<String> arrivalLocationIds = new ArrayList<>();
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
   private Integer travelTime;
   private OffsetDateTime departureTime;
   private List<RequestTimeFilterProperty> properties = new ArrayList<>();
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterDepartureSearch () {
 

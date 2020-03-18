@@ -13,7 +13,7 @@ test_that("id", {
 })
 
 test_that("properties", {
-  # tests for the property `properties` (ResponseRoutesProperties)
+  # tests for the property `properties` (array[ResponseRoutesProperties])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`properties`, "EXPECTED_RESULT")

@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseShape {
     #[serde(rename = "shell")]
-    pub shell: Vec<::models::Coords>,
+    pub shell: Vec<crate::models::Coords>,
     #[serde(rename = "holes")]
-    pub holes: Vec<Vec<::models::Coords>>,
+    pub holes: Vec<Vec<crate::models::Coords>>,
 }
 
 impl ResponseShape {
-    pub fn new(shell: Vec<::models::Coords>, holes: Vec<Vec<::models::Coords>>) -> ResponseShape {
+    pub fn new(shell: Vec<crate::models::Coords>, holes: Vec<Vec<crate::models::Coords>>) -> ResponseShape {
         ResponseShape {
-            shell: shell,
-            holes: holes,
+            shell,
+            holes,
         }
     }
 }
+
+

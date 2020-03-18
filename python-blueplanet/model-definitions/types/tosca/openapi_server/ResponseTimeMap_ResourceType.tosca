@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTimeMap"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTimeMap"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeMapResult = openapi_server.resourceTypes.ResponseTimeMapResult
+}
+resourceTypes {
+
+  ResponseTimeMap {
+    title = ResponseTimeMap
+    description = ResponseTimeMap
+    derivedFrom = Root
+    properties {
+        results {
+          type = array
+          items.type = ResponseTimeMapResult
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeMap {
+    title = ResponseTimeMap
+    description = ResponseTimeMap
+    implements = openapi_server.resourceTypes.ResponseTimeMap
+
+  }
+}

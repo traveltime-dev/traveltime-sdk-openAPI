@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterFastProperty.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,11 +45,11 @@ OAIRequestTimeFilterFastProperty::init() {
 
 void
 OAIRequestTimeFilterFastProperty::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("travel_time", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterFastProperty::TRAVEL_TIME;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("fares", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterFastProperty::FARES;
         m_value_isValid = true;
@@ -72,7 +72,7 @@ OAIRequestTimeFilterFastProperty::asJson () const {
             break;
         case eOAIRequestTimeFilterFastProperty::FARES:
             val = "fares";
-            break; 
+            break;
         default:
             break;
     }

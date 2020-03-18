@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeMapProperty exposing (RequestTimeMapProperty(..), decoder, encode)
+module Data.RequestTimeMapProperty exposing (RequestTimeMapProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -44,5 +44,15 @@ encode model =
     case model of
         IsOnlyWalking ->
             Encode.string "is_only_walking"
+
+
+
+
+toString : RequestTimeMapProperty -> String
+toString model =
+    case model of
+        IsOnlyWalking ->
+            "is_only_walking"
+
 
 

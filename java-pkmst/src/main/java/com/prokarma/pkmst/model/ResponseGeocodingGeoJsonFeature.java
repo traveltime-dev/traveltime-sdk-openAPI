@@ -16,17 +16,17 @@ import io.swagger.annotations.ApiModelProperty;
  * ResponseGeocodingGeoJsonFeature
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class ResponseGeocodingGeoJsonFeature   {
   @JsonProperty("type")
   private String type;
 
   @JsonProperty("geometry")
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @JsonProperty("properties")
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
 
   public ResponseGeocodingGeoJsonFeature type(String type) {
     this.type = type;

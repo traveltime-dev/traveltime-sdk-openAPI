@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestLocation
+# Org.OpenAPITools.Model.RequestLocation
 ## Properties
 
 Name | Type | Description | Notes

@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseMapInfo {
     /**
-     * 
      * @type {Array<ResponseMapInfoMap>}
      * @memberof ResponseMapInfo
      */

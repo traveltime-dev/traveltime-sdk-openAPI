@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeMapProperty"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeMapProperty"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestTimeMapProperty {
+    title = RequestTimeMapProperty
+    description = RequestTimeMapProperty
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeMapProperty {
+    title = RequestTimeMapProperty
+    description = RequestTimeMapProperty
+    implements = openapi_server.resourceTypes.RequestTimeMapProperty
+
+  }
+}

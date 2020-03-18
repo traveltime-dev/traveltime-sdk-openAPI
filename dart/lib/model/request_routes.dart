@@ -16,21 +16,15 @@ class RequestRoutes {
 
   RequestRoutes.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = RequestLocation.listFromJson(json['locations']);
-    }
-    if (json['departure_searches'] == null) {
-      departureSearches = null;
-    } else {
-      departureSearches = RequestRoutesDepartureSearch.listFromJson(json['departure_searches']);
-    }
-    if (json['arrival_searches'] == null) {
-      arrivalSearches = null;
-    } else {
-      arrivalSearches = RequestRoutesArrivalSearch.listFromJson(json['arrival_searches']);
-    }
+    locations = (json['locations'] == null) ?
+      null :
+      RequestLocation.listFromJson(json['locations']);
+    departureSearches = (json['departure_searches'] == null) ?
+      null :
+      RequestRoutesDepartureSearch.listFromJson(json['departure_searches']);
+    arrivalSearches = (json['arrival_searches'] == null) ?
+      null :
+      RequestRoutesArrivalSearch.listFromJson(json['arrival_searches']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +39,26 @@ class RequestRoutes {
   }
 
   static List<RequestRoutes> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestRoutes>() : json.map((value) => new RequestRoutes.fromJson(value)).toList();
+    return json == null ? List<RequestRoutes>() : json.map((value) => RequestRoutes.fromJson(value)).toList();
   }
 
   static Map<String, RequestRoutes> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestRoutes>();
+    var map = Map<String, RequestRoutes>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestRoutes.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestRoutes.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestRoutes-objects as value to a dart map
+  static Map<String, List<RequestRoutes>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestRoutes>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestRoutes.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

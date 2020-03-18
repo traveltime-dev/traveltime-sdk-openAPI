@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ResponseGeocodingGeometry } from './responseGeocodingGeometry';
 import { ResponseGeocodingProperties } from './responseGeocodingProperties';
+import { ResponseGeocodingGeometry } from './responseGeocodingGeometry';
 
 
 export interface ResponseGeocodingGeoJsonFeature { 

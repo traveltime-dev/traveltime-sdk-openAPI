@@ -13,12 +13,12 @@
 
 #include "OAIRequestUnionOnIntersection.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIRequestUnionOnIntersection::asJson () const {
 QJsonObject
 OAIRequestUnionOnIntersection::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	
+    
     if(search_ids.size() > 0){
         obj.insert(QString("search_ids"), ::OpenAPI::toJsonValue(search_ids));
     } 

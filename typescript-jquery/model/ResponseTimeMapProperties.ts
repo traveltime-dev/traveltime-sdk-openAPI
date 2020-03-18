@@ -13,6 +13,6 @@
 import * as models from './models';
 
 export interface ResponseTimeMapProperties {
-    isOnlyWalking?: boolean;
+    is_only_walking?: boolean;
 
 }

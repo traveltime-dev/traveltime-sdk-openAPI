@@ -18,17 +18,17 @@ export interface ResponseRoutePart {
     "mode": models.ResponseTransportationMode;
     "directions": string;
     "distance": number;
-    "travelTime": number;
+    "travel_time": number;
     "coords": Array<models.Coords>;
     "direction"?: string;
     "road"?: string;
     "turn"?: string;
     "line"?: string;
-    "departureStation"?: string;
-    "arrivalStation"?: string;
-    "departsAt"?: string;
-    "arrivesAt"?: string;
-    "numStops"?: number;
+    "departure_station"?: string;
+    "arrival_station"?: string;
+    "departs_at"?: string;
+    "arrives_at"?: string;
+    "num_stops"?: number;
 }
 
 export namespace ResponseRoutePart {

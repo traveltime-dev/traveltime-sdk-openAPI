@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeMapProperty.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,7 +45,7 @@ OAIRequestTimeMapProperty::init() {
 
 void
 OAIRequestTimeMapProperty::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("is_only_walking", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeMapProperty::IS_ONLY_WALKING;
         m_value_isValid = true;
@@ -65,7 +65,7 @@ OAIRequestTimeMapProperty::asJson () const {
     switch (m_value){
         case eOAIRequestTimeMapProperty::IS_ONLY_WALKING:
             val = "is_only_walking";
-            break; 
+            break;
         default:
             break;
     }

@@ -21,61 +21,56 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTimeFilterFastLocation.h"
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterFastResult: public OAIObject {
+class OAIResponseTimeFilterFastResult : public OAIObject {
 public:
     OAIResponseTimeFilterFastResult();
     OAIResponseTimeFilterFastResult(QString json);
     ~OAIResponseTimeFilterFastResult() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getSearchId() const;
     void setSearchId(const QString &search_id);
 
-    
     QList<OAIResponseTimeFilterFastLocation> getLocations() const;
     void setLocations(const QList<OAIResponseTimeFilterFastLocation> &locations);
 
-    
     QList<QString> getUnreachable() const;
     void setUnreachable(const QList<QString> &unreachable);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString search_id;
     bool m_search_id_isSet;
     bool m_search_id_isValid;
-    
+
     QList<OAIResponseTimeFilterFastLocation> locations;
     bool m_locations_isSet;
     bool m_locations_isValid;
-    
+
     QList<QString> unreachable;
     bool m_unreachable_isSet;
     bool m_unreachable_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterFastResult)
 
 #endif // OAIResponseTimeFilterFastResult_H

@@ -18,14 +18,14 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterPostcodeDistrictsDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -41,7 +41,7 @@ public class RequestTimeFilterPostcodeDistrictsDepartureSearch   {
   private List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterPostcodeDistrictsDepartureSearch id(String id) {
     this.id = id;

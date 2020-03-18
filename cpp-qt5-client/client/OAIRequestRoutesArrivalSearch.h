@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestRangeFull.h"
 #include "OAIRequestRoutesProperty.h"
 #include "OAIRequestTransportation.h"
@@ -29,88 +28,80 @@
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestRoutesArrivalSearch: public OAIObject {
+class OAIRequestRoutesArrivalSearch : public OAIObject {
 public:
     OAIRequestRoutesArrivalSearch();
     OAIRequestRoutesArrivalSearch(QString json);
     ~OAIRequestRoutesArrivalSearch() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     QList<QString> getDepartureLocationIds() const;
     void setDepartureLocationIds(const QList<QString> &departure_location_ids);
 
-    
     QString getArrivalLocationId() const;
     void setArrivalLocationId(const QString &arrival_location_id);
 
-    
     OAIRequestTransportation getTransportation() const;
     void setTransportation(const OAIRequestTransportation &transportation);
 
-    
     QDateTime getArrivalTime() const;
     void setArrivalTime(const QDateTime &arrival_time);
 
-    
     QList<OAIRequestRoutesProperty> getProperties() const;
     void setProperties(const QList<OAIRequestRoutesProperty> &properties);
 
-    
     OAIRequestRangeFull getRange() const;
     void setRange(const OAIRequestRangeFull &range);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     QList<QString> departure_location_ids;
     bool m_departure_location_ids_isSet;
     bool m_departure_location_ids_isValid;
-    
+
     QString arrival_location_id;
     bool m_arrival_location_id_isSet;
     bool m_arrival_location_id_isValid;
-    
+
     OAIRequestTransportation transportation;
     bool m_transportation_isSet;
     bool m_transportation_isValid;
-    
+
     QDateTime arrival_time;
     bool m_arrival_time_isSet;
     bool m_arrival_time_isValid;
-    
+
     QList<OAIRequestRoutesProperty> properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
+
     OAIRequestRangeFull range;
     bool m_range_isSet;
     bool m_range_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRoutesArrivalSearch)
 
 #endif // OAIRequestRoutesArrivalSearch_H

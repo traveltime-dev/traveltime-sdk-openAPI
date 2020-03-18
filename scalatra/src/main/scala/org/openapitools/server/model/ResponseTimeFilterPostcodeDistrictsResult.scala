@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseTimeFilterPostcodeDistrictsResult(
-  searchUnderscoreid: String,
+  searchId: String,
 
   districts: List[ResponseTimeFilterPostcodeDistrict]
 

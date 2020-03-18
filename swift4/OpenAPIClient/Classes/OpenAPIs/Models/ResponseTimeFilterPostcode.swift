@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterPostcode: Codable { 
 
-public struct ResponseTimeFilterPostcode: Codable {
 
     public var code: ModelString
     public var properties: [ResponseTimeFilterPostcodesProperties]
@@ -19,6 +19,4 @@ public struct ResponseTimeFilterPostcode: Codable {
         self.properties = properties
     }
 
-
 }
-

@@ -27,13 +27,15 @@ import java.io.IOException;
 /**
  * ResponseTimeMapProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeMapProperties {
   public static final String SERIALIZED_NAME_IS_ONLY_WALKING = "is_only_walking";
   @SerializedName(SERIALIZED_NAME_IS_ONLY_WALKING)
   private Boolean isOnlyWalking;
 
+
   public ResponseTimeMapProperties isOnlyWalking(Boolean isOnlyWalking) {
+    
     this.isOnlyWalking = isOnlyWalking;
     return this;
   }
@@ -42,10 +44,13 @@ public class ResponseTimeMapProperties {
    * Get isOnlyWalking
    * @return isOnlyWalking
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Boolean getIsOnlyWalking() {
     return isOnlyWalking;
   }
+
 
   public void setIsOnlyWalking(Boolean isOnlyWalking) {
     this.isOnlyWalking = isOnlyWalking;

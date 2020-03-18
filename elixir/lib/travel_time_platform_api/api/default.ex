@@ -16,8 +16,8 @@ defmodule TravelTimePlatformAPI.Api.Default do
   ## Parameters
 
   - connection (TravelTimePlatformAPI.Connection): Connection to server
-  - focus_periodlat (float()): 
-  - focus_periodlng (float()): 
+  - lat (float()): 
+  - lng (float()): 
   - opts (KeywordList): [optional] Optional parameters
     - :within_periodcountry (String.t): 
   ## Returns
@@ -26,15 +26,15 @@ defmodule TravelTimePlatformAPI.Api.Default do
   {:error, info} on failure
   """
   @spec geocoding_reverse_search(Tesla.Env.client, float(), float(), keyword()) :: {:ok, TravelTimePlatformAPI.Model.ResponseGeocoding.t} | {:error, Tesla.Env.t}
-  def geocoding_reverse_search(connection, focus_periodlat, focus_periodlng, opts \\ []) do
+  def geocoding_reverse_search(connection, lat, lng, opts \\ []) do
     optional_params = %{
       :"within.country" => :query
     }
     %{}
     |> method(:get)
     |> url("/v4/geocoding/reverse")
-    |> add_param(:query, :"focus.lat", focus_periodlat)
-    |> add_param(:query, :"focus.lng", focus_periodlng)
+    |> add_param(:query, :"lat", lat)
+    |> add_param(:query, :"lng", lng)
     |> add_optional_params(optional_params, opts)
     |> Enum.into([])
     |> (&Connection.request(connection, &1)).()
@@ -51,9 +51,9 @@ defmodule TravelTimePlatformAPI.Api.Default do
   - connection (TravelTimePlatformAPI.Connection): Connection to server
   - query (String.t): 
   - opts (KeywordList): [optional] Optional parameters
-    - :within_periodcountry (String.t): 
     - :focus_periodlat (float()): 
     - :focus_periodlng (float()): 
+    - :within_periodcountry (String.t): 
   ## Returns
 
   {:ok, %TravelTimePlatformAPI.Model.ResponseGeocoding{}} on success
@@ -62,9 +62,9 @@ defmodule TravelTimePlatformAPI.Api.Default do
   @spec geocoding_search(Tesla.Env.client, String.t, keyword()) :: {:ok, TravelTimePlatformAPI.Model.ResponseGeocoding.t} | {:error, Tesla.Env.t}
   def geocoding_search(connection, query, opts \\ []) do
     optional_params = %{
-      :"within.country" => :query,
       :"focus.lat" => :query,
-      :"focus.lng" => :query
+      :"focus.lng" => :query,
+      :"within.country" => :query
     }
     %{}
     |> method(:get)

@@ -22,15 +22,13 @@ import {
  */
 export interface RequestTimeFilterFast {
     /**
-     * 
      * @type {Array<RequestLocation>}
      * @memberof RequestTimeFilterFast
      */
     locations: Array<RequestLocation>;
     /**
-     * 
      * @type {RequestTimeFilterFastArrivalSearches}
      * @memberof RequestTimeFilterFast
      */
-    arrivalSearches: RequestTimeFilterFastArrivalSearches;
+    arrival_searches: RequestTimeFilterFastArrivalSearches;
 }

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseGeocodingProperties exposing (ResponseGeocodingProperties, decoder, encode)
+module Data.ResponseGeocodingProperties exposing (ResponseGeocodingProperties, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseMapInfoFeatures as ResponseMapInfoFeatures exposing (ResponseMapInfoFeatures)
 import Dict exposing (Dict)
@@ -63,25 +63,41 @@ decoder =
 
 
 encode : ResponseGeocodingProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "name", Encode.string model.name )
-        , ( "label", Encode.string model.label )
-        , ( "score", Maybe.withDefault Encode.null (Maybe.map Encode.float model.score) )
-        , ( "house_number", Maybe.withDefault Encode.null (Maybe.map Encode.string model.houseNumber) )
-        , ( "street", Maybe.withDefault Encode.null (Maybe.map Encode.string model.street) )
-        , ( "region", Maybe.withDefault Encode.null (Maybe.map Encode.string model.region) )
-        , ( "region_code", Maybe.withDefault Encode.null (Maybe.map Encode.string model.regionCode) )
-        , ( "neighbourhood", Maybe.withDefault Encode.null (Maybe.map Encode.string model.neighbourhood) )
-        , ( "county", Maybe.withDefault Encode.null (Maybe.map Encode.string model.county) )
-        , ( "macroregion", Maybe.withDefault Encode.null (Maybe.map Encode.string model.macroregion) )
-        , ( "city", Maybe.withDefault Encode.null (Maybe.map Encode.string model.city) )
-        , ( "country", Maybe.withDefault Encode.null (Maybe.map Encode.string model.country) )
-        , ( "country_code", Maybe.withDefault Encode.null (Maybe.map Encode.string model.countryCode) )
-        , ( "continent", Maybe.withDefault Encode.null (Maybe.map Encode.string model.continent) )
-        , ( "postcode", Maybe.withDefault Encode.null (Maybe.map Encode.string model.postcode) )
-        , ( "features", Maybe.withDefault Encode.null (Maybe.map ResponseMapInfoFeatures.encode model.features) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseGeocodingProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseGeocodingProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "name", Encode.string model.name )
+    , ( "label", Encode.string model.label )
+    , ( "score", Maybe.withDefault Encode.null (Maybe.map Encode.float model.score) )
+    , ( "house_number", Maybe.withDefault Encode.null (Maybe.map Encode.string model.houseNumber) )
+    , ( "street", Maybe.withDefault Encode.null (Maybe.map Encode.string model.street) )
+    , ( "region", Maybe.withDefault Encode.null (Maybe.map Encode.string model.region) )
+    , ( "region_code", Maybe.withDefault Encode.null (Maybe.map Encode.string model.regionCode) )
+    , ( "neighbourhood", Maybe.withDefault Encode.null (Maybe.map Encode.string model.neighbourhood) )
+    , ( "county", Maybe.withDefault Encode.null (Maybe.map Encode.string model.county) )
+    , ( "macroregion", Maybe.withDefault Encode.null (Maybe.map Encode.string model.macroregion) )
+    , ( "city", Maybe.withDefault Encode.null (Maybe.map Encode.string model.city) )
+    , ( "country", Maybe.withDefault Encode.null (Maybe.map Encode.string model.country) )
+    , ( "country_code", Maybe.withDefault Encode.null (Maybe.map Encode.string model.countryCode) )
+    , ( "continent", Maybe.withDefault Encode.null (Maybe.map Encode.string model.continent) )
+    , ( "postcode", Maybe.withDefault Encode.null (Maybe.map Encode.string model.postcode) )
+    , ( "features", Maybe.withDefault Encode.null (Maybe.map ResponseMapInfoFeatures.encode model.features) )
+    ]
+
+
+
+toString : ResponseGeocodingProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

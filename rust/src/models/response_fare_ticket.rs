@@ -9,13 +9,12 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFareTicket {
     #[serde(rename = "type")]
-    pub _type: String,
+    pub _type: Type,
     #[serde(rename = "price")]
     pub price: f64,
     #[serde(rename = "currency")]
@@ -23,11 +22,25 @@ pub struct ResponseFareTicket {
 }
 
 impl ResponseFareTicket {
-    pub fn new(_type: String, price: f64, currency: String) -> ResponseFareTicket {
+    pub fn new(_type: Type, price: f64, currency: String) -> ResponseFareTicket {
         ResponseFareTicket {
-            _type: _type,
-            price: price,
-            currency: currency,
+            _type,
+            price,
+            currency,
         }
     }
 }
+
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    #[serde(rename = "single")]
+    Single,
+    #[serde(rename = "week")]
+    Week,
+    #[serde(rename = "month")]
+    Month,
+    #[serde(rename = "year")]
+    Year,
+}
+

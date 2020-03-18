@@ -10,20 +10,20 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterArrivalSearch(
   id: String,
 
-  departureUnderscorelocationUnderscoreids: List[String],
+  departureLocationIds: List[String],
 
-  arrivalUnderscorelocationUnderscoreid: String,
+  arrivalLocationId: String,
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  arrivalUnderscoretime: Date,
+  arrivalTime: OffsetDateTime,
 
   properties: List[RequestTimeFilterProperty],
 

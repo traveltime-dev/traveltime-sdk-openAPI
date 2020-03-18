@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseRoute exposing (ResponseRoute, decoder, encode)
+module Data.ResponseRoute exposing (ResponseRoute, decoder, encode, encodeWithTag, toString)
 
 import DateTime exposing (DateTime)
 import DateTime exposing (DateTime)
@@ -39,12 +39,28 @@ decoder =
 
 
 encode : ResponseRoute -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "departure_time", DateTime.encode model.departureTime )
-        , ( "arrival_time", DateTime.encode model.arrivalTime )
-        , ( "parts", (Encode.list ResponseRoutePart.encode) model.parts )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseRoute -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseRoute -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "departure_time", DateTime.encode model.departureTime )
+    , ( "arrival_time", DateTime.encode model.arrivalTime )
+    , ( "parts", (Encode.list ResponseRoutePart.encode) model.parts )
+    ]
+
+
+
+toString : ResponseRoute -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

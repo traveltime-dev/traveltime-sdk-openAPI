@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestRangeNoMaxResults {
     #[serde(rename = "enabled")]
     pub enabled: bool,
@@ -23,8 +22,10 @@ pub struct RequestRangeNoMaxResults {
 impl RequestRangeNoMaxResults {
     pub fn new(enabled: bool, width: i32) -> RequestRangeNoMaxResults {
         RequestRangeNoMaxResults {
-            enabled: enabled,
-            width: width,
+            enabled,
+            width,
         }
     }
 }
+
+

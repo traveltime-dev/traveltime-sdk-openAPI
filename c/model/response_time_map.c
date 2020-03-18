@@ -8,29 +8,29 @@
 response_time_map_t *response_time_map_create(
     list_t *results
     ) {
-	response_time_map_t *response_time_map_local_var = malloc(sizeof(response_time_map_t));
+    response_time_map_t *response_time_map_local_var = malloc(sizeof(response_time_map_t));
     if (!response_time_map_local_var) {
         return NULL;
     }
-	response_time_map_local_var->results = results;
+    response_time_map_local_var->results = results;
 
-	return response_time_map_local_var;
+    return response_time_map_local_var;
 }
 
 
 void response_time_map_free(response_time_map_t *response_time_map) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_map->results) {
-		response_time_map_result_free(listEntry->data);
-	}
-	list_free(response_time_map->results);
-	free(response_time_map);
+    list_ForEach(listEntry, response_time_map->results) {
+        response_time_map_result_free(listEntry->data);
+    }
+    list_free(response_time_map->results);
+    free(response_time_map);
 }
 
 cJSON *response_time_map_convertToJSON(response_time_map_t *response_time_map) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map->results
+    // response_time_map->results
     if (!response_time_map->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_time_map_convertToJSON(response_time_map_t *response_time_map) {
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_t *response_time_map_parseFromJSON(cJSON *response_time_mapJSON){

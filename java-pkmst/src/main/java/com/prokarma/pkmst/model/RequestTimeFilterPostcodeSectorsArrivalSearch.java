@@ -20,14 +20,14 @@ import org.threeten.bp.OffsetDateTime;
  * RequestTimeFilterPostcodeSectorsArrivalSearch
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class RequestTimeFilterPostcodeSectorsArrivalSearch   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -43,7 +43,7 @@ public class RequestTimeFilterPostcodeSectorsArrivalSearch   {
   private List<RequestTimeFilterPostcodeSectorsProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterPostcodeSectorsArrivalSearch id(String id) {
     this.id = id;

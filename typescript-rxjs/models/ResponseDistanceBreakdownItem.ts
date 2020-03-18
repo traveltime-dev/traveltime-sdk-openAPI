@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseDistanceBreakdownItem {
     /**
-     * 
      * @type {ResponseTransportationMode}
      * @memberof ResponseDistanceBreakdownItem
      */
     mode: ResponseTransportationMode;
     /**
-     * 
      * @type {number}
      * @memberof ResponseDistanceBreakdownItem
      */

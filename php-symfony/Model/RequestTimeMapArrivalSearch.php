@@ -150,7 +150,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return OpenAPI\Server\Model\Coords
      */
-    public function getCoords()
+    public function getCoords(): Coords
     {
         return $this->coords;
     }
@@ -162,7 +162,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return $this
      */
-    public function setCoords(Coords $coords)
+    public function setCoords(Coords $coords): Coords
     {
         $this->coords = $coords;
 
@@ -174,7 +174,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestTransportation
      */
-    public function getTransportation()
+    public function getTransportation(): RequestTransportation
     {
         return $this->transportation;
     }
@@ -186,7 +186,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return $this
      */
-    public function setTransportation(RequestTransportation $transportation)
+    public function setTransportation(RequestTransportation $transportation): RequestTransportation
     {
         $this->transportation = $transportation;
 
@@ -222,7 +222,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return \DateTime
      */
-    public function getArrivalTime()
+    public function getArrivalTime(): \DateTime
     {
         return $this->arrivalTime;
     }
@@ -234,7 +234,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return $this
      */
-    public function setArrivalTime(\DateTime $arrivalTime)
+    public function setArrivalTime(\DateTime $arrivalTime): \DateTime
     {
         $this->arrivalTime = $arrivalTime;
 
@@ -246,7 +246,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestTimeMapProperty[]|null
      */
-    public function getProperties()
+    public function getProperties(): ?array
     {
         return $this->properties;
     }
@@ -258,7 +258,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return $this
      */
-    public function setProperties(array $properties = null)
+    public function setProperties(array $properties = null): ?array
     {
         $this->properties = $properties;
 
@@ -270,7 +270,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return OpenAPI\Server\Model\RequestRangeNoMaxResults|null
      */
-    public function getRange()
+    public function getRange(): ?RequestRangeNoMaxResults
     {
         return $this->range;
     }
@@ -282,7 +282,7 @@ class RequestTimeMapArrivalSearch
      *
      * @return $this
      */
-    public function setRange(RequestRangeNoMaxResults $range = null)
+    public function setRange(RequestRangeNoMaxResults $range = null): ?RequestRangeNoMaxResults
     {
         $this->range = $range;
 

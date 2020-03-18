@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterPostcodes exposing (ResponseTimeFilterPostcodes, decoder, encode)
+module Data.ResponseTimeFilterPostcodes exposing (ResponseTimeFilterPostcodes, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeFilterPostcodesResult as ResponseTimeFilterPostcodesResult exposing (ResponseTimeFilterPostcodesResult)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseTimeFilterPostcodes -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "results", (Encode.list ResponseTimeFilterPostcodesResult.encode) model.results )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterPostcodes -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterPostcodes -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "results", (Encode.list ResponseTimeFilterPostcodesResult.encode) model.results )
+    ]
+
+
+
+toString : ResponseTimeFilterPostcodes -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

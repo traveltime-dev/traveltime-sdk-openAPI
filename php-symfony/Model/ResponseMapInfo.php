@@ -66,7 +66,7 @@ class ResponseMapInfo
      *
      * @return OpenAPI\Server\Model\ResponseMapInfoMap[]
      */
-    public function getMaps()
+    public function getMaps(): array
     {
         return $this->maps;
     }
@@ -78,7 +78,7 @@ class ResponseMapInfo
      *
      * @return $this
      */
-    public function setMaps(array $maps)
+    public function setMaps(array $maps): array
     {
         $this->maps = $maps;
 

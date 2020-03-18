@@ -28,7 +28,7 @@ import org.openapitools.client.model.ResponseMapInfoFeatures;
 /**
  * ResponseMapInfoMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseMapInfoMap {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -36,9 +36,11 @@ public class ResponseMapInfoMap {
 
   public static final String SERIALIZED_NAME_FEATURES = "features";
   @SerializedName(SERIALIZED_NAME_FEATURES)
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
+
 
   public ResponseMapInfoMap name(String name) {
+    
     this.name = name;
     return this;
   }
@@ -48,15 +50,19 @@ public class ResponseMapInfoMap {
    * @return name
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getName() {
     return name;
   }
+
 
   public void setName(String name) {
     this.name = name;
   }
 
+
   public ResponseMapInfoMap features(ResponseMapInfoFeatures features) {
+    
     this.features = features;
     return this;
   }
@@ -66,9 +72,11 @@ public class ResponseMapInfoMap {
    * @return features
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseMapInfoFeatures getFeatures() {
     return features;
   }
+
 
   public void setFeatures(ResponseMapInfoFeatures features) {
     this.features = features;

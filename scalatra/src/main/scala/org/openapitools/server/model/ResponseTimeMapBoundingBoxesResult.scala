@@ -12,9 +12,9 @@
 package org.openapitools.server.model
 
 case class ResponseTimeMapBoundingBoxesResult(
-  searchUnderscoreid: String,
+  searchId: String,
 
-  boundingUnderscoreboxes: List[ResponseBoundingBox],
+  boundingBoxes: List[ResponseBoundingBox],
 
   properties: ResponseTimeMapProperties
 

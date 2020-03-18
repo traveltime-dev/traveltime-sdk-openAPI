@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestTimeFilterPostcodeSectorsDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeSectorsDepartureSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -41,7 +41,7 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -61,9 +61,11 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
+
 
   public RequestTimeFilterPostcodeSectorsDepartureSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -73,15 +75,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -91,15 +97,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -111,15 +121,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -129,15 +143,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch reachablePostcodesThreshold(Double reachablePostcodesThreshold) {
+    
     this.reachablePostcodesThreshold = reachablePostcodesThreshold;
     return this;
   }
@@ -147,15 +165,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return reachablePostcodesThreshold
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getReachablePostcodesThreshold() {
     return reachablePostcodesThreshold;
   }
+
 
   public void setReachablePostcodesThreshold(Double reachablePostcodesThreshold) {
     this.reachablePostcodesThreshold = reachablePostcodesThreshold;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch properties(List<RequestTimeFilterPostcodeSectorsProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -170,15 +192,19 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestTimeFilterPostcodeSectorsProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeFilterPostcodeSectorsProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestTimeFilterPostcodeSectorsDepartureSearch range(RequestRangeFull range) {
+    
     this.range = range;
     return this;
   }
@@ -187,10 +213,13 @@ public class RequestTimeFilterPostcodeSectorsDepartureSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeFull getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeFull range) {
     this.range = range;

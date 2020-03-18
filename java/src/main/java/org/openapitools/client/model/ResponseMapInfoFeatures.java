@@ -28,11 +28,11 @@ import org.openapitools.client.model.ResponseMapInfoFeaturesPublicTransport;
 /**
  * ResponseMapInfoFeatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseMapInfoFeatures {
   public static final String SERIALIZED_NAME_PUBLIC_TRANSPORT = "public_transport";
   @SerializedName(SERIALIZED_NAME_PUBLIC_TRANSPORT)
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   public static final String SERIALIZED_NAME_FARES = "fares";
   @SerializedName(SERIALIZED_NAME_FARES)
@@ -42,7 +42,9 @@ public class ResponseMapInfoFeatures {
   @SerializedName(SERIALIZED_NAME_POSTCODES)
   private Boolean postcodes;
 
+
   public ResponseMapInfoFeatures publicTransport(ResponseMapInfoFeaturesPublicTransport publicTransport) {
+    
     this.publicTransport = publicTransport;
     return this;
   }
@@ -51,16 +53,21 @@ public class ResponseMapInfoFeatures {
    * Get publicTransport
    * @return publicTransport
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseMapInfoFeaturesPublicTransport getPublicTransport() {
     return publicTransport;
   }
+
 
   public void setPublicTransport(ResponseMapInfoFeaturesPublicTransport publicTransport) {
     this.publicTransport = publicTransport;
   }
 
+
   public ResponseMapInfoFeatures fares(Boolean fares) {
+    
     this.fares = fares;
     return this;
   }
@@ -70,15 +77,19 @@ public class ResponseMapInfoFeatures {
    * @return fares
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Boolean getFares() {
     return fares;
   }
+
 
   public void setFares(Boolean fares) {
     this.fares = fares;
   }
 
+
   public ResponseMapInfoFeatures postcodes(Boolean postcodes) {
+    
     this.postcodes = postcodes;
     return this;
   }
@@ -88,9 +99,11 @@ public class ResponseMapInfoFeatures {
    * @return postcodes
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Boolean getPostcodes() {
     return postcodes;
   }
+
 
   public void setPostcodes(Boolean postcodes) {
     this.postcodes = postcodes;

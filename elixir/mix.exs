@@ -2,7 +2,7 @@ defmodule TravelTimePlatformAPI.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :traveltimeplatform,
+    [app: :travel_time_platform_api,
      version: "1.0.0",
      elixir: "~> 1.6",
      build_embedded: Mix.env == :prod,

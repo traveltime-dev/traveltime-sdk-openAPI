@@ -30,13 +30,15 @@ import org.openapitools.client.model.ResponseTimeFilterPostcodeDistrictsResult;
 /**
  * ResponseTimeFilterPostcodeDistricts
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistricts {
   public static final String SERIALIZED_NAME_RESULTS = "results";
   @SerializedName(SERIALIZED_NAME_RESULTS)
   private List<ResponseTimeFilterPostcodeDistrictsResult> results = new ArrayList<ResponseTimeFilterPostcodeDistrictsResult>();
 
+
   public ResponseTimeFilterPostcodeDistricts results(List<ResponseTimeFilterPostcodeDistrictsResult> results) {
+    
     this.results = results;
     return this;
   }
@@ -51,9 +53,11 @@ public class ResponseTimeFilterPostcodeDistricts {
    * @return results
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterPostcodeDistrictsResult> getResults() {
     return results;
   }
+
 
   public void setResults(List<ResponseTimeFilterPostcodeDistrictsResult> results) {
     this.results = results;

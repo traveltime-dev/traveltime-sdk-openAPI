@@ -4,10 +4,10 @@ function New-RequestTimeFilterProperty {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilterProperty' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilterProperty' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilterProperty -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilterProperty -ArgumentList @(
         )
     }
 }

@@ -33,10 +33,10 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public abstract class V4ApiService {
-    public abstract Response geocodingReverseSearch( @NotNull Double focusLat, @NotNull Double focusLng,String withinCountry,SecurityContext securityContext) throws NotFoundException;
-    public abstract Response geocodingSearch( @NotNull String query,String withinCountry,Double focusLat,Double focusLng,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response geocodingReverseSearch( @NotNull Double lat, @NotNull Double lng,String withinCountry,SecurityContext securityContext) throws NotFoundException;
+    public abstract Response geocodingSearch( @NotNull String query,Double focusLat,Double focusLng,String withinCountry,SecurityContext securityContext) throws NotFoundException;
     public abstract Response mapInfo(SecurityContext securityContext) throws NotFoundException;
     public abstract Response routes(RequestRoutes requestRoutes,SecurityContext securityContext) throws NotFoundException;
     public abstract Response supportedLocations(RequestSupportedLocations requestSupportedLocations,SecurityContext securityContext) throws NotFoundException;

@@ -9,13 +9,13 @@ part 'response_fares_breakdown_item.jser.dart';
 
 class ResponseFaresBreakdownItem {
   
-  @Alias('modes')
+  @Alias('modes', isNullable: false,  )
   final List<ResponseTransportationMode> modes;
   
-  @Alias('route_part_ids')
+  @Alias('route_part_ids', isNullable: false,  )
   final List<int> routePartIds;
   
-  @Alias('tickets')
+  @Alias('tickets', isNullable: false,  )
   final List<ResponseFareTicket> tickets;
   
 

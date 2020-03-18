@@ -22,18 +22,25 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.RequestTimeFilterFastArrivalManyToOneSearch;
 import org.openapitools.model.RequestTimeFilterFastArrivalOneToManySearch;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeFilterFastArrivalSearches
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeFilterFastArrivalSearches.JSON_PROPERTY_MANY_TO_ONE,
+  RequestTimeFilterFastArrivalSearches.JSON_PROPERTY_ONE_TO_MANY
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalSearches   {
-  @JsonProperty("many_to_one")
+  public static final String JSON_PROPERTY_MANY_TO_ONE = "many_to_one";
+  @JsonProperty(JSON_PROPERTY_MANY_TO_ONE)
   private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = null;
 
-  @JsonProperty("one_to_many")
+  public static final String JSON_PROPERTY_ONE_TO_MANY = "one_to_many";
+  @JsonProperty(JSON_PROPERTY_ONE_TO_MANY)
   private List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = null;
 
   public RequestTimeFilterFastArrivalSearches manyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {

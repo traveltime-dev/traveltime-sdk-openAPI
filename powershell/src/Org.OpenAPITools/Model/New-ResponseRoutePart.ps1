@@ -8,7 +8,7 @@ function New-ResponseRoutePart {
         [String]
         ${type},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTransportationMode]
+        [Org.OpenAPITools.Model.ResponseTransportationMode]
         ${mode},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String]
@@ -20,7 +20,7 @@ function New-ResponseRoutePart {
         [Int32]
         ${travelUnderscoretime},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.Coords[]]
+        [Org.OpenAPITools.Model.Coords[]]
         ${coords},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
         [String]
@@ -52,10 +52,10 @@ function New-ResponseRoutePart {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseRoutePart' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseRoutePart' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseRoutePart -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseRoutePart -ArgumentList @(
             ${id},
             ${type},
             ${mode},

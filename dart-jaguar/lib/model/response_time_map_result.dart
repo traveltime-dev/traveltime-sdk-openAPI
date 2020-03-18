@@ -9,13 +9,13 @@ part 'response_time_map_result.jser.dart';
 
 class ResponseTimeMapResult {
   
-  @Alias('search_id')
+  @Alias('search_id', isNullable: false,  )
   final String searchId;
   
-  @Alias('shapes')
+  @Alias('shapes', isNullable: false,  )
   final List<ResponseShape> shapes;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final ResponseTimeMapProperties properties;
   
 

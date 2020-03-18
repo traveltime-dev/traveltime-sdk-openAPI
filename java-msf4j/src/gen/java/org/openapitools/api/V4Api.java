@@ -44,7 +44,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T08:50:47.585Z[Etc/UTC]")
 public class V4Api  {
    private final V4ApiService delegate = V4ApiServiceFactory.getV4Api();
 
@@ -60,12 +60,12 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseGeocoding.class) })
-    public Response geocodingReverseSearch(@ApiParam(value = "",required=true) @QueryParam("focus.lat") Double focusLat
-,@ApiParam(value = "",required=true) @QueryParam("focus.lng") Double focusLng
+    public Response geocodingReverseSearch(@ApiParam(value = "",required=true) @QueryParam("lat") Double lat
+,@ApiParam(value = "",required=true) @QueryParam("lng") Double lng
 ,@ApiParam(value = "") @QueryParam("within.country") String withinCountry
 )
     throws NotFoundException {
-        return delegate.geocodingReverseSearch(focusLat,focusLng,withinCountry);
+        return delegate.geocodingReverseSearch(lat,lng,withinCountry);
     }
     @GET
     @Path("/geocoding/search")
@@ -80,12 +80,12 @@ public class V4Api  {
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseGeocoding.class) })
     public Response geocodingSearch(@ApiParam(value = "",required=true) @QueryParam("query") String query
-,@ApiParam(value = "") @QueryParam("within.country") String withinCountry
 ,@ApiParam(value = "") @QueryParam("focus.lat") Double focusLat
 ,@ApiParam(value = "") @QueryParam("focus.lng") Double focusLng
+,@ApiParam(value = "") @QueryParam("within.country") String withinCountry
 )
     throws NotFoundException {
-        return delegate.geocodingSearch(query,withinCountry,focusLat,focusLng);
+        return delegate.geocodingSearch(query,focusLat,focusLng,withinCountry);
     }
     @GET
     @Path("/map-info")

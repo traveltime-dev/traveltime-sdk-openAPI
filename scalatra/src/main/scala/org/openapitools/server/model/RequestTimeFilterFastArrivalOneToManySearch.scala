@@ -14,15 +14,15 @@ package org.openapitools.server.model
 case class RequestTimeFilterFastArrivalOneToManySearch(
   id: String,
 
-  departureUnderscorelocationUnderscoreid: String,
+  departureLocationId: String,
 
-  arrivalUnderscorelocationUnderscoreids: List[String],
+  arrivalLocationIds: List[String],
 
   transportation: RequestTransportationFast,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  arrivalUnderscoretimeUnderscoreperiod: RequestArrivalTimePeriod,
+  arrivalTimePeriod: RequestArrivalTimePeriod,
 
   properties: List[RequestTimeFilterFastProperty]
 

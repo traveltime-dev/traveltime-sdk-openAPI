@@ -7,7 +7,7 @@ part 'response_time_map.jser.dart';
 
 class ResponseTimeMap {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeMapResult> results;
   
 

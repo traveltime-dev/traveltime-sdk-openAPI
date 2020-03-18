@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **geocodingReverseSearch**
-> models::ResponseGeocoding geocodingReverseSearch(ctx, ctx, focus_lat, focus_lng, optional)
+> models::ResponseGeocoding geocodingReverseSearch(ctx, ctx, lat, lng, optional)
 
 
 ### Required Parameters
@@ -27,8 +27,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
  **ctx** | **context.Context** | context containing the authentication | nil if no authentication
-  **focus_lat** | **f64**|  | 
-  **focus_lng** | **f64**|  | 
+  **lat** | **f64**|  | 
+  **lng** | **f64**|  | 
  **optional** | **map[string]interface{}** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -36,8 +36,8 @@ Optional parameters are passed through a map[string]interface{}.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus_lat** | **f64**|  | 
- **focus_lng** | **f64**|  | 
+ **lat** | **f64**|  | 
+ **lng** | **f64**|  | 
  **within_country** | **String**|  | 
 
 ### Return type
@@ -74,9 +74,9 @@ Optional parameters are passed through a map[string]interface{}.
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | 
- **within_country** | **String**|  | 
  **focus_lat** | **f64**|  | 
  **focus_lng** | **f64**|  | 
+ **within_country** | **String**|  | 
 
 ### Return type
 

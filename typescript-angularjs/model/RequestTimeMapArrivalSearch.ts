@@ -16,8 +16,8 @@ export interface RequestTimeMapArrivalSearch {
     "id": string;
     "coords": models.Coords;
     "transportation": models.RequestTransportation;
-    "travelTime": number;
-    "arrivalTime": Date;
+    "travel_time": number;
+    "arrival_time": string;
     "properties"?: Array<models.RequestTimeMapProperty>;
     "range"?: models.RequestRangeNoMaxResults;
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseShape: Codable { 
 
-public struct ResponseShape: Codable {
 
     public var shell: [Coords]
     public var holes: [[Coords]]
@@ -19,6 +19,4 @@ public struct ResponseShape: Codable {
         self.holes = holes
     }
 
-
 }
-

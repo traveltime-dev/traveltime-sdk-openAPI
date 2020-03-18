@@ -22,7 +22,7 @@ import { Configuration } from '../configuration';
 export class DefaultApi {
     protected basePath = 'https://api.traveltimeapp.com';
     public defaultHeaders: Array<string> = [];
-    public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = null;
+    public defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings = undefined;
     public configuration: Configuration = new Configuration();
 
     constructor(basePath?: string, configuration?: Configuration, defaultExtraJQueryAjaxSettings?: JQueryAjaxSettings) {
@@ -37,7 +37,7 @@ export class DefaultApi {
         }
     }
 
-    private extendObj<T1, T2 extends T1>(objA: T2, objB: T2): T1|T2 {
+    private extendObj<T1 extends object, T2 extends T1>(objA: T2, objB: T2): T1|T2 {
         for (let key in objB) {
             if (objB.hasOwnProperty(key)) {
                 objA[key] = objB[key];
@@ -48,11 +48,11 @@ export class DefaultApi {
 
     /**
      * 
-     * @param focusLat 
-     * @param focusLng 
+     * @param lat 
+     * @param lng 
      * @param withinCountry 
      */
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.ResponseGeocoding;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -60,21 +60,21 @@ export class DefaultApi {
 
         let queryParameters: any = {};
         let headerParams: any = {};
-        // verify required parameter 'focusLat' is not null or undefined
-        if (focusLat === null || focusLat === undefined) {
-            throw new Error('Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lat' is not null or undefined
+        if (lat === null || lat === undefined) {
+            throw new Error('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
 
-        // verify required parameter 'focusLng' is not null or undefined
-        if (focusLng === null || focusLng === undefined) {
-            throw new Error('Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lng' is not null or undefined
+        if (lng === null || lng === undefined) {
+            throw new Error('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
-        if (focusLat !== null && focusLat !== undefined) {
-            queryParameters['focus.lat'] = <string><any>focusLat;
+        if (lat !== null && lat !== undefined) {
+            queryParameters['lat'] = <string><any>lat;
         }
-        if (focusLng !== null && focusLng !== undefined) {
-            queryParameters['focus.lng'] = <string><any>focusLng;
+        if (lng !== null && lng !== undefined) {
+            queryParameters['lng'] = <string><any>lng;
         }
         if (withinCountry !== null && withinCountry !== undefined) {
             queryParameters['within.country'] = <string><any>withinCountry;
@@ -136,11 +136,11 @@ export class DefaultApi {
     /**
      * 
      * @param query 
-     * @param withinCountry 
      * @param focusLat 
      * @param focusLng 
+     * @param withinCountry 
      */
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, extraJQueryAjaxSettings?: JQueryAjaxSettings): JQuery.Promise<
     { response: JQueryXHR; body: models.ResponseGeocoding;  },
     { response: JQueryXHR; errorThrown: string }
     > {
@@ -156,14 +156,14 @@ export class DefaultApi {
         if (query !== null && query !== undefined) {
             queryParameters['query'] = <string><any>query;
         }
-        if (withinCountry !== null && withinCountry !== undefined) {
-            queryParameters['within.country'] = <string><any>withinCountry;
-        }
         if (focusLat !== null && focusLat !== undefined) {
             queryParameters['focus.lat'] = <string><any>focusLat;
         }
         if (focusLng !== null && focusLng !== undefined) {
             queryParameters['focus.lng'] = <string><any>focusLng;
+        }
+        if (withinCountry !== null && withinCountry !== undefined) {
+            queryParameters['within.country'] = <string><any>withinCountry;
         }
 
         localVarPath = localVarPath + "?" + $.param(queryParameters);

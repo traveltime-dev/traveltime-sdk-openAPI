@@ -45,17 +45,17 @@ public:
     /// </summary>
     bool isEnabled() const;
     void setEnabled(bool const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getMaxResults() const;
     void setMaxResults(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getWidth() const;
     void setWidth(int32_t const value);
-    
+
     friend void to_json(nlohmann::json& j, const RequestRangeFull& o);
     friend void from_json(const nlohmann::json& j, RequestRangeFull& o);
 protected:

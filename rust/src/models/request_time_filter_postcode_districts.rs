@@ -9,15 +9,14 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodeDistricts {
-    #[serde(rename = "departure_searches")]
-    pub departure_searches: Option<Vec<::models::RequestTimeFilterPostcodeDistrictsDepartureSearch>>,
-    #[serde(rename = "arrival_searches")]
-    pub arrival_searches: Option<Vec<::models::RequestTimeFilterPostcodeDistrictsArrivalSearch>>,
+    #[serde(rename = "departure_searches", skip_serializing_if = "Option::is_none")]
+    pub departure_searches: Option<Vec<crate::models::RequestTimeFilterPostcodeDistrictsDepartureSearch>>,
+    #[serde(rename = "arrival_searches", skip_serializing_if = "Option::is_none")]
+    pub arrival_searches: Option<Vec<crate::models::RequestTimeFilterPostcodeDistrictsArrivalSearch>>,
 }
 
 impl RequestTimeFilterPostcodeDistricts {
@@ -28,3 +27,5 @@ impl RequestTimeFilterPostcodeDistricts {
         }
     }
 }
+
+

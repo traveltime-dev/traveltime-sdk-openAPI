@@ -9,10 +9,10 @@ part 'response_fares.jser.dart';
 
 class ResponseFares {
   
-  @Alias('breakdown')
+  @Alias('breakdown', isNullable: false,  )
   final List<ResponseFaresBreakdownItem> breakdown;
   
-  @Alias('tickets_total')
+  @Alias('tickets_total', isNullable: false,  )
   final List<ResponseFareTicket> ticketsTotal;
   
 

@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseTimeFilterProperties
+# Org.OpenAPITools.Model.ResponseTimeFilterProperties
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TravelTime** | **int?** |  | [optional] 
-**Distance** | **int?** |  | [optional] 
+**TravelTime** | **int** |  | [optional] 
+**Distance** | **int** |  | [optional] 
 **DistanceBreakdown** | [**List&lt;ResponseDistanceBreakdownItem&gt;**](ResponseDistanceBreakdownItem.md) |  | [optional] 
 **Fares** | [**ResponseFares**](ResponseFares.md) |  | [optional] 
 **Route** | [**ResponseRoute**](ResponseRoute.md) |  | [optional] 

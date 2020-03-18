@@ -16,11 +16,11 @@ import { RequestTransportation } from './requestTransportation';
 
 export interface RequestTimeFilterArrivalSearch { 
     id: string;
-    departureLocationIds: Array<string>;
-    arrivalLocationId: string;
+    departure_location_ids: Array<string>;
+    arrival_location_id: string;
     transportation: RequestTransportation;
-    travelTime: number;
-    arrivalTime: Date;
+    travel_time: number;
+    arrival_time: string;
     properties: Array<RequestTimeFilterProperty>;
     range?: RequestRangeFull;
 }

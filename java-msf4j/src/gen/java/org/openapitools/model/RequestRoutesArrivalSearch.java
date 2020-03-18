@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTransportation;
 /**
  * RequestRoutesArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T08:50:47.585Z[Etc/UTC]")
 public class RequestRoutesArrivalSearch   {
   @JsonProperty("id")
   private String id;
@@ -27,7 +27,7 @@ public class RequestRoutesArrivalSearch   {
   private String arrivalLocationId;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("arrival_time")
   private Date arrivalTime;
@@ -36,7 +36,7 @@ public class RequestRoutesArrivalSearch   {
   private List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestRoutesArrivalSearch id(String id) {
     this.id = id;

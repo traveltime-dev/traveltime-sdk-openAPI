@@ -23,43 +23,36 @@ import {
  */
 export interface RequestTimeFilterPostcodeDistrictsDepartureSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
     id: string;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * 
-     * @type {Date}
+     * @type {string}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    departureTime: Date;
+    departure_time: string;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
-     * 
      * @type {Array<RequestTimeFilterPostcodeDistrictsProperty>}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
     properties: Array<RequestTimeFilterPostcodeDistrictsProperty>;
     /**
-     * 
      * @type {RequestRangeFull}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */

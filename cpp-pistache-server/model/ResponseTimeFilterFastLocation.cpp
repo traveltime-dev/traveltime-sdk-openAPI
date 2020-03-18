@@ -53,11 +53,14 @@ std::string ResponseTimeFilterFastLocation::getId() const
 void ResponseTimeFilterFastLocation::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::vector<ResponseTimeFilterFastProperties>& ResponseTimeFilterFastLocation::getProperties()
 {
     return m_Properties;
+}
+void ResponseTimeFilterFastLocation::setProperties(std::vector<ResponseTimeFilterFastProperties> const& value)
+{
+    m_Properties = value;
 }
 
 }

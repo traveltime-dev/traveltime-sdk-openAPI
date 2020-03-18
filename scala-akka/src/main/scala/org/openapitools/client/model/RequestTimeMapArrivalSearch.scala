@@ -11,16 +11,15 @@
  */
 package org.openapitools.client.model
 
+import java.time.OffsetDateTime
 import org.openapitools.client.core.ApiModel
-import org.joda.time.DateTime
-import java.util.UUID
 
 case class RequestTimeMapArrivalSearch (
   id: String,
   coords: Coords,
   transportation: RequestTransportation,
   travelTime: Int,
-  arrivalTime: DateTime,
+  arrivalTime: OffsetDateTime,
   properties: Option[Seq[RequestTimeMapProperty]] = None,
   range: Option[RequestRangeNoMaxResults] = None
 ) extends ApiModel

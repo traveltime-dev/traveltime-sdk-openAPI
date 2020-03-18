@@ -13,14 +13,14 @@ test_that("search_id", {
 })
 
 test_that("locations", {
-  # tests for the property `locations` (ResponseTimeFilterLocation)
+  # tests for the property `locations` (array[ResponseTimeFilterLocation])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`locations`, "EXPECTED_RESULT")
 })
 
 test_that("unreachable", {
-  # tests for the property `unreachable` (character)
+  # tests for the property `unreachable` (array[character])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`unreachable`, "EXPECTED_RESULT")

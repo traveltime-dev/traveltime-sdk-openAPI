@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseFaresFast: public OAIObject {
@@ -46,7 +47,7 @@ public:
     void setTicketsTotal(const QList<OAIResponseFareTicket> &tickets_total);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -60,5 +61,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseFaresFast)
 
 #endif // OAIResponseFaresFast_H

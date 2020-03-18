@@ -57,7 +57,7 @@ void from_json(const nlohmann::json& j, RequestRoutesDepartureSearch& o)
     j.at("transportation").get_to(o.m_Transportation);
     j.at("departure_time").get_to(o.m_Departure_time);
     j.at("properties").get_to(o.m_Properties);
-    if(j.contains("range"))
+    if(j.find("range") != j.end())
     {
         j.at("range").get_to(o.m_Range);
         o.m_RangeIsSet = true;
@@ -71,7 +71,6 @@ std::string RequestRoutesDepartureSearch::getId() const
 void RequestRoutesDepartureSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::string RequestRoutesDepartureSearch::getDepartureLocationId() const
 {
@@ -80,11 +79,14 @@ std::string RequestRoutesDepartureSearch::getDepartureLocationId() const
 void RequestRoutesDepartureSearch::setDepartureLocationId(std::string const& value)
 {
     m_Departure_location_id = value;
-    
 }
 std::vector<std::string>& RequestRoutesDepartureSearch::getArrivalLocationIds()
 {
     return m_Arrival_location_ids;
+}
+void RequestRoutesDepartureSearch::setArrivalLocationIds(std::vector<std::string> const& value)
+{
+    m_Arrival_location_ids = value;
 }
 RequestTransportation RequestRoutesDepartureSearch::getTransportation() const
 {
@@ -93,7 +95,6 @@ RequestTransportation RequestRoutesDepartureSearch::getTransportation() const
 void RequestRoutesDepartureSearch::setTransportation(RequestTransportation const& value)
 {
     m_Transportation = value;
-    
 }
 std::string RequestRoutesDepartureSearch::getDepartureTime() const
 {
@@ -102,11 +103,14 @@ std::string RequestRoutesDepartureSearch::getDepartureTime() const
 void RequestRoutesDepartureSearch::setDepartureTime(std::string const& value)
 {
     m_Departure_time = value;
-    
 }
 std::vector<RequestRoutesProperty>& RequestRoutesDepartureSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestRoutesDepartureSearch::setProperties(std::vector<RequestRoutesProperty> const& value)
+{
+    m_Properties = value;
 }
 RequestRangeFull RequestRoutesDepartureSearch::getRange() const
 {

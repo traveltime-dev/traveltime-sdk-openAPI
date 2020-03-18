@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseTimeFilterFastLocation {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeFilterFastLocation
      */
     id: string;
     /**
-     * 
      * @type {Array<ResponseTimeFilterFastProperties>}
      * @memberof ResponseTimeFilterFastLocation
      */

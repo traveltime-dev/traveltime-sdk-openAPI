@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class RequestTimeFilterFastArrivalManyToOneSearch  {
   
   @ApiModelProperty(required = true, value = "")
@@ -32,7 +33,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;

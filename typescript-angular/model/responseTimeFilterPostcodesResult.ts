@@ -13,7 +13,7 @@ import { ResponseTimeFilterPostcode } from './responseTimeFilterPostcode';
 
 
 export interface ResponseTimeFilterPostcodesResult { 
-    searchId: string;
+    search_id: string;
     postcodes: Array<ResponseTimeFilterPostcode>;
 }
 

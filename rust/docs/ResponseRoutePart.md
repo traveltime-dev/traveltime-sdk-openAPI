@@ -6,20 +6,20 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **_type** | **String** |  | 
-**mode** | [***::models::ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
+**mode** | [**crate::models::ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
 **directions** | **String** |  | 
 **distance** | **i32** |  | 
 **travel_time** | **i32** |  | 
-**coords** | [**Vec<::models::Coords>**](Coords.md) |  | 
-**direction** | **String** |  | [optional] 
-**road** | **String** |  | [optional] 
-**turn** | **String** |  | [optional] 
-**line** | **String** |  | [optional] 
-**departure_station** | **String** |  | [optional] 
-**arrival_station** | **String** |  | [optional] 
-**departs_at** | **String** |  | [optional] 
-**arrives_at** | **String** |  | [optional] 
-**num_stops** | **i32** |  | [optional] 
+**coords** | [**Vec<crate::models::Coords>**](Coords.md) |  | 
+**direction** | Option<**String**> |  | [optional]
+**road** | Option<**String**> |  | [optional]
+**turn** | Option<**String**> |  | [optional]
+**line** | Option<**String**> |  | [optional]
+**departure_station** | Option<**String**> |  | [optional]
+**arrival_station** | Option<**String**> |  | [optional]
+**departs_at** | Option<**String**> |  | [optional]
+**arrives_at** | Option<**String**> |  | [optional]
+**num_stops** | Option<**i32**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

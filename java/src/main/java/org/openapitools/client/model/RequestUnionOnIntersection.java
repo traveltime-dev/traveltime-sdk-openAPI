@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * RequestUnionOnIntersection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestUnionOnIntersection {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -39,7 +39,9 @@ public class RequestUnionOnIntersection {
   @SerializedName(SERIALIZED_NAME_SEARCH_IDS)
   private List<String> searchIds = new ArrayList<String>();
 
+
   public RequestUnionOnIntersection id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -49,15 +51,19 @@ public class RequestUnionOnIntersection {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestUnionOnIntersection searchIds(List<String> searchIds) {
+    
     this.searchIds = searchIds;
     return this;
   }
@@ -72,9 +78,11 @@ public class RequestUnionOnIntersection {
    * @return searchIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getSearchIds() {
     return searchIds;
   }
+
 
   public void setSearchIds(List<String> searchIds) {
     this.searchIds = searchIds;

@@ -1,0 +1,64 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterPostcodesDepartureSearch"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodesDepartureSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = openapi_server.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodesProperty = openapi_server.resourceTypes.RequestTimeFilterPostcodesProperty
+  RequestTransportation = openapi_server.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodesDepartureSearch {
+    title = RequestTimeFilterPostcodesDepartureSearch
+    description = RequestTimeFilterPostcodesDepartureSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodesProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodesDepartureSearch {
+    title = RequestTimeFilterPostcodesDepartureSearch
+    description = RequestTimeFilterPostcodesDepartureSearch
+    implements = openapi_server.resourceTypes.RequestTimeFilterPostcodesDepartureSearch
+
+  }
+}

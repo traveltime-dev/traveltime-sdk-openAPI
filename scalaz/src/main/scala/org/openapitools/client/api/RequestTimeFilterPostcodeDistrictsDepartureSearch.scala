@@ -7,13 +7,16 @@ import argonaut.DecodeJson._
 import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
+
+import java.time.OffsetDateTime
+
 import RequestTimeFilterPostcodeDistrictsDepartureSearch._
 
 case class RequestTimeFilterPostcodeDistrictsDepartureSearch (
   id: String,
 transportation: RequestTransportation,
 travelTime: Integer,
-departureTime: DateTime,
+departureTime: OffsetDateTime,
 reachablePostcodesThreshold: Double,
 properties: List[RequestTimeFilterPostcodeDistrictsProperty],
 range: Option[RequestRangeFull])

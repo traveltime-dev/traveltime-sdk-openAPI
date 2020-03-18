@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RequestTransportation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTransportation {
   /**
    * Gets or Sets type
@@ -88,7 +88,7 @@ public class RequestTransportation {
 
       @Override
       public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return TypeEnum.fromValue(value);
       }
     }
@@ -118,7 +118,9 @@ public class RequestTransportation {
   @SerializedName(SERIALIZED_NAME_BOARDING_TIME)
   private Integer boardingTime;
 
+
   public RequestTransportation type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -128,15 +130,19 @@ public class RequestTransportation {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TypeEnum getType() {
     return type;
   }
+
 
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
+
   public RequestTransportation ptChangeDelay(Integer ptChangeDelay) {
+    
     this.ptChangeDelay = ptChangeDelay;
     return this;
   }
@@ -145,16 +151,21 @@ public class RequestTransportation {
    * Get ptChangeDelay
    * @return ptChangeDelay
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getPtChangeDelay() {
     return ptChangeDelay;
   }
+
 
   public void setPtChangeDelay(Integer ptChangeDelay) {
     this.ptChangeDelay = ptChangeDelay;
   }
 
+
   public RequestTransportation walkingTime(Integer walkingTime) {
+    
     this.walkingTime = walkingTime;
     return this;
   }
@@ -163,16 +174,21 @@ public class RequestTransportation {
    * Get walkingTime
    * @return walkingTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getWalkingTime() {
     return walkingTime;
   }
+
 
   public void setWalkingTime(Integer walkingTime) {
     this.walkingTime = walkingTime;
   }
 
+
   public RequestTransportation drivingTimeToStation(Integer drivingTimeToStation) {
+    
     this.drivingTimeToStation = drivingTimeToStation;
     return this;
   }
@@ -181,16 +197,21 @@ public class RequestTransportation {
    * Get drivingTimeToStation
    * @return drivingTimeToStation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getDrivingTimeToStation() {
     return drivingTimeToStation;
   }
+
 
   public void setDrivingTimeToStation(Integer drivingTimeToStation) {
     this.drivingTimeToStation = drivingTimeToStation;
   }
 
+
   public RequestTransportation parkingTime(Integer parkingTime) {
+    
     this.parkingTime = parkingTime;
     return this;
   }
@@ -199,16 +220,21 @@ public class RequestTransportation {
    * Get parkingTime
    * @return parkingTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getParkingTime() {
     return parkingTime;
   }
+
 
   public void setParkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
   }
 
+
   public RequestTransportation boardingTime(Integer boardingTime) {
+    
     this.boardingTime = boardingTime;
     return this;
   }
@@ -217,10 +243,13 @@ public class RequestTransportation {
    * Get boardingTime
    * @return boardingTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getBoardingTime() {
     return boardingTime;
   }
+
 
   public void setBoardingTime(Integer boardingTime) {
     this.boardingTime = boardingTime;

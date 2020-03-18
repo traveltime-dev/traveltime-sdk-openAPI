@@ -18,12 +18,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalManyToOneSearch   {
   
   private @Valid String id;
   private @Valid String arrivalLocationId;
   private @Valid List<String> departureLocationIds = new ArrayList<String>();
-  private @Valid RequestTransportationFast transportation = null;
+  private @Valid RequestTransportationFast transportation;
   private @Valid Integer travelTime;
   private @Valid RequestArrivalTimePeriod arrivalTimePeriod;
   private @Valid List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();

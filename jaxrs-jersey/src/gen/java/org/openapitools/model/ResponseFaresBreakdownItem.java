@@ -22,21 +22,30 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseFareTicket;
 import org.openapitools.model.ResponseTransportationMode;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseFaresBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseFaresBreakdownItem.JSON_PROPERTY_MODES,
+  ResponseFaresBreakdownItem.JSON_PROPERTY_ROUTE_PART_IDS,
+  ResponseFaresBreakdownItem.JSON_PROPERTY_TICKETS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseFaresBreakdownItem   {
-  @JsonProperty("modes")
+  public static final String JSON_PROPERTY_MODES = "modes";
+  @JsonProperty(JSON_PROPERTY_MODES)
   private List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>();
 
-  @JsonProperty("route_part_ids")
+  public static final String JSON_PROPERTY_ROUTE_PART_IDS = "route_part_ids";
+  @JsonProperty(JSON_PROPERTY_ROUTE_PART_IDS)
   private List<Integer> routePartIds = new ArrayList<Integer>();
 
-  @JsonProperty("tickets")
+  public static final String JSON_PROPERTY_TICKETS = "tickets";
+  @JsonProperty(JSON_PROPERTY_TICKETS)
   private List<ResponseFareTicket> tickets = new ArrayList<ResponseFareTicket>();
 
   public ResponseFaresBreakdownItem modes(List<ResponseTransportationMode> modes) {

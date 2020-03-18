@@ -47,6 +47,10 @@ std::vector<ResponseTimeFilterFastResult>& ResponseTimeFilterFast::getResults()
 {
     return m_Results;
 }
+void ResponseTimeFilterFast::setResults(std::vector<ResponseTimeFilterFastResult> const& value)
+{
+    m_Results = value;
+}
 
 }
 }

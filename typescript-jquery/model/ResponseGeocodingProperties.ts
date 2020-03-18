@@ -19,13 +19,13 @@ export interface ResponseGeocodingProperties {
 
     score?: number;
 
-    houseNumber?: string;
+    house_number?: string;
 
     street?: string;
 
     region?: string;
 
-    regionCode?: string;
+    region_code?: string;
 
     neighbourhood?: string;
 
@@ -37,7 +37,7 @@ export interface ResponseGeocodingProperties {
 
     country?: string;
 
-    countryCode?: string;
+    country_code?: string;
 
     continent?: string;
 

@@ -9,31 +9,31 @@ response_time_filter_postcodes_result_t *response_time_filter_postcodes_result_c
     char *search_id,
     list_t *postcodes
     ) {
-	response_time_filter_postcodes_result_t *response_time_filter_postcodes_result_local_var = malloc(sizeof(response_time_filter_postcodes_result_t));
+    response_time_filter_postcodes_result_t *response_time_filter_postcodes_result_local_var = malloc(sizeof(response_time_filter_postcodes_result_t));
     if (!response_time_filter_postcodes_result_local_var) {
         return NULL;
     }
-	response_time_filter_postcodes_result_local_var->search_id = search_id;
-	response_time_filter_postcodes_result_local_var->postcodes = postcodes;
+    response_time_filter_postcodes_result_local_var->search_id = search_id;
+    response_time_filter_postcodes_result_local_var->postcodes = postcodes;
 
-	return response_time_filter_postcodes_result_local_var;
+    return response_time_filter_postcodes_result_local_var;
 }
 
 
 void response_time_filter_postcodes_result_free(response_time_filter_postcodes_result_t *response_time_filter_postcodes_result) {
     listEntry_t *listEntry;
     free(response_time_filter_postcodes_result->search_id);
-	list_ForEach(listEntry, response_time_filter_postcodes_result->postcodes) {
-		response_time_filter_postcode_free(listEntry->data);
-	}
-	list_free(response_time_filter_postcodes_result->postcodes);
-	free(response_time_filter_postcodes_result);
+    list_ForEach(listEntry, response_time_filter_postcodes_result->postcodes) {
+        response_time_filter_postcode_free(listEntry->data);
+    }
+    list_free(response_time_filter_postcodes_result->postcodes);
+    free(response_time_filter_postcodes_result);
 }
 
 cJSON *response_time_filter_postcodes_result_convertToJSON(response_time_filter_postcodes_result_t *response_time_filter_postcodes_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcodes_result->search_id
+    // response_time_filter_postcodes_result->search_id
     if (!response_time_filter_postcodes_result->search_id) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_time_filter_postcodes_result_convertToJSON(response_time_filter_
     }
 
 
-	// response_time_filter_postcodes_result->postcodes
+    // response_time_filter_postcodes_result->postcodes
     if (!response_time_filter_postcodes_result->postcodes) {
         goto fail;
     }
@@ -64,12 +64,12 @@ cJSON *response_time_filter_postcodes_result_convertToJSON(response_time_filter_
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcodes_result_t *response_time_filter_postcodes_result_parseFromJSON(cJSON *response_time_filter_postcodes_resultJSON){

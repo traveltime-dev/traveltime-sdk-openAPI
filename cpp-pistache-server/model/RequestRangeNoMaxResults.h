@@ -45,12 +45,12 @@ public:
     /// </summary>
     bool isEnabled() const;
     void setEnabled(bool const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getWidth() const;
     void setWidth(int32_t const value);
-    
+
     friend void to_json(nlohmann::json& j, const RequestRangeNoMaxResults& o);
     friend void from_json(const nlohmann::json& j, RequestRangeNoMaxResults& o);
 protected:

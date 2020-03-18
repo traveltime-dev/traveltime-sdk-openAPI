@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestLocation {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "coords")]
-    pub coords: ::models::Coords,
+    pub coords: crate::models::Coords,
 }
 
 impl RequestLocation {
-    pub fn new(id: String, coords: ::models::Coords) -> RequestLocation {
+    pub fn new(id: String, coords: crate::models::Coords) -> RequestLocation {
         RequestLocation {
-            id: id,
-            coords: coords,
+            id,
+            coords,
         }
     }
 }
+
+

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTransportation exposing (RequestTransportation, Type(..), decoder, encode)
+module Data.RequestTransportation exposing (RequestTransportation, Type(..), decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -57,16 +57,31 @@ decoder =
 
 
 encode : RequestTransportation -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "type", encodeType model.type_ )
-        , ( "pt_change_delay", Maybe.withDefault Encode.null (Maybe.map Encode.int model.ptChangeDelay) )
-        , ( "walking_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.walkingTime) )
-        , ( "driving_time_to_station", Maybe.withDefault Encode.null (Maybe.map Encode.int model.drivingTimeToStation) )
-        , ( "parking_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.parkingTime) )
-        , ( "boarding_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.boardingTime) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTransportation -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTransportation -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "type", encodeType model.type_ )
+    , ( "pt_change_delay", Maybe.withDefault Encode.null (Maybe.map Encode.int model.ptChangeDelay) )
+    , ( "walking_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.walkingTime) )
+    , ( "driving_time_to_station", Maybe.withDefault Encode.null (Maybe.map Encode.int model.drivingTimeToStation) )
+    , ( "parking_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.parkingTime) )
+    , ( "boarding_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.boardingTime) )
+    ]
+
+
+
+toString : RequestTransportation -> String
+toString =
+    Encode.encode 0 << encode
+
 
 
 
@@ -150,6 +165,7 @@ encodeType model =
 
         Cycling+ferry ->
             Encode.string "cycling+ferry"
+
 
 
 

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterFast: Codable { 
 
-public struct ResponseTimeFilterFast: Codable {
 
     public var results: [ResponseTimeFilterFastResult]
 
@@ -17,6 +17,4 @@ public struct ResponseTimeFilterFast: Codable {
         self.results = results
     }
 
-
 }
-

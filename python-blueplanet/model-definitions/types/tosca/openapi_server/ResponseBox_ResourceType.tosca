@@ -1,0 +1,50 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseBox"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseBox"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ResponseBox {
+    title = ResponseBox
+    description = ResponseBox
+    derivedFrom = Root
+    properties {
+        min_lat {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        max_lat {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        min_lng {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        max_lng {
+          type =  integer
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseBox {
+    title = ResponseBox
+    description = ResponseBox
+    implements = openapi_server.resourceTypes.ResponseBox
+
+  }
+}

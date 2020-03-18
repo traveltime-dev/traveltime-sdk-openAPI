@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMapBoundingBoxes exposing (ResponseTimeMapBoundingBoxes, decoder, encode)
+module Data.ResponseTimeMapBoundingBoxes exposing (ResponseTimeMapBoundingBoxes, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeMapBoundingBoxesResult as ResponseTimeMapBoundingBoxesResult exposing (ResponseTimeMapBoundingBoxesResult)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseTimeMapBoundingBoxes -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "results", (Encode.list ResponseTimeMapBoundingBoxesResult.encode) model.results )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMapBoundingBoxes -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMapBoundingBoxes -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "results", (Encode.list ResponseTimeMapBoundingBoxesResult.encode) model.results )
+    ]
+
+
+
+toString : ResponseTimeMapBoundingBoxes -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

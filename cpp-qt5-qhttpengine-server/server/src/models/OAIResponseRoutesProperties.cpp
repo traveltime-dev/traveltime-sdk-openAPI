@@ -13,12 +13,12 @@
 
 #include "OAIResponseRoutesProperties.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -87,16 +87,16 @@ OAIResponseRoutesProperties::asJson () const {
 QJsonObject
 OAIResponseRoutesProperties::asJsonObject() const {
     QJsonObject obj;
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(m_distance_isSet){
+    if(m_distance_isSet){
         obj.insert(QString("distance"), ::OpenAPI::toJsonValue(distance));
     }
-	if(fares.isSet()){
+    if(fares.isSet()){
         obj.insert(QString("fares"), ::OpenAPI::toJsonValue(fares));
     }
-	if(route.isSet()){
+    if(route.isSet()){
         obj.insert(QString("route"), ::OpenAPI::toJsonValue(route));
     }
     return obj;

@@ -13,12 +13,12 @@
 
 #include "OAIResponseSupportedLocation.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseSupportedLocation::asJson () const {
 QJsonObject
 OAIResponseSupportedLocation::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(m_map_name_isSet){
+    if(m_map_name_isSet){
         obj.insert(QString("map_name"), ::OpenAPI::toJsonValue(map_name));
     }
     return obj;

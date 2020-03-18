@@ -19,17 +19,17 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeMapArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
 
 public class RequestTimeMapArrivalSearch   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("coords")
-  private Coords coords = null;
+  private Coords coords;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -42,7 +42,7 @@ public class RequestTimeMapArrivalSearch   {
   private List<RequestTimeMapProperty> properties = null;
 
   @JsonProperty("range")
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
 
   public RequestTimeMapArrivalSearch id(String id) {
     this.id = id;

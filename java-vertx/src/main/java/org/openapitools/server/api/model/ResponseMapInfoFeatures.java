@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseMapInfoFeaturesPublicTransport;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseMapInfoFeatures   {
   
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
   private Boolean fares;
   private Boolean postcodes;
 

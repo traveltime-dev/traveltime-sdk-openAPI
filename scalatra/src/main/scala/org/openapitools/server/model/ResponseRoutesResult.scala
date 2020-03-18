@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseRoutesResult(
-  searchUnderscoreid: String,
+  searchId: String,
 
   locations: List[ResponseRoutesLocation],
 

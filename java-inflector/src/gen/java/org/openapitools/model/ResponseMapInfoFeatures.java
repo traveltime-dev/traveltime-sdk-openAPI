@@ -11,10 +11,10 @@ import org.openapitools.model.ResponseMapInfoFeaturesPublicTransport;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class ResponseMapInfoFeatures   {
   @JsonProperty("public_transport")
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   @JsonProperty("fares")
   private Boolean fares;

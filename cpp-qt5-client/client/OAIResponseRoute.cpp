@@ -10,141 +10,128 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseRoute.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseRoute::OAIResponseRoute(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseRoute::OAIResponseRoute() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseRoute::~OAIResponseRoute() {
+OAIResponseRoute::~OAIResponseRoute() {}
 
-}
+void OAIResponseRoute::initializeModel() {
 
-void
-OAIResponseRoute::init() {
-    
     m_departure_time_isSet = false;
     m_departure_time_isValid = false;
-    
+
     m_arrival_time_isSet = false;
     m_arrival_time_isValid = false;
-    
+
     m_parts_isSet = false;
     m_parts_isValid = false;
-    }
+}
 
-void
-OAIResponseRoute::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseRoute::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseRoute::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseRoute::fromJsonObject(QJsonObject json) {
+
     m_departure_time_isValid = ::OpenAPI::fromJsonValue(departure_time, json[QString("departure_time")]);
-    
-    
+    m_departure_time_isSet = !json[QString("departure_time")].isNull() && m_departure_time_isValid;
+
     m_arrival_time_isValid = ::OpenAPI::fromJsonValue(arrival_time, json[QString("arrival_time")]);
-    
-    
-    
+    m_arrival_time_isSet = !json[QString("arrival_time")].isNull() && m_arrival_time_isValid;
+
     m_parts_isValid = ::OpenAPI::fromJsonValue(parts, json[QString("parts")]);
-    
+    m_parts_isSet = !json[QString("parts")].isNull() && m_parts_isValid;
 }
 
-QString
-OAIResponseRoute::asJson () const {
+QString OAIResponseRoute::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseRoute::asJsonObject() const {
+QJsonObject OAIResponseRoute::asJsonObject() const {
     QJsonObject obj;
-	if(m_departure_time_isSet){
+    if (m_departure_time_isSet) {
         obj.insert(QString("departure_time"), ::OpenAPI::toJsonValue(departure_time));
     }
-	if(m_arrival_time_isSet){
+    if (m_arrival_time_isSet) {
         obj.insert(QString("arrival_time"), ::OpenAPI::toJsonValue(arrival_time));
     }
-	
-    if(parts.size() > 0){
+    if (parts.size() > 0) {
         obj.insert(QString("parts"), ::OpenAPI::toJsonValue(parts));
-    } 
+    }
     return obj;
 }
 
-
-QDateTime
-OAIResponseRoute::getDepartureTime() const {
+QDateTime OAIResponseRoute::getDepartureTime() const {
     return departure_time;
 }
-void
-OAIResponseRoute::setDepartureTime(const QDateTime &departure_time) {
+void OAIResponseRoute::setDepartureTime(const QDateTime &departure_time) {
     this->departure_time = departure_time;
     this->m_departure_time_isSet = true;
 }
 
-
-QDateTime
-OAIResponseRoute::getArrivalTime() const {
+QDateTime OAIResponseRoute::getArrivalTime() const {
     return arrival_time;
 }
-void
-OAIResponseRoute::setArrivalTime(const QDateTime &arrival_time) {
+void OAIResponseRoute::setArrivalTime(const QDateTime &arrival_time) {
     this->arrival_time = arrival_time;
     this->m_arrival_time_isSet = true;
 }
 
-
-QList<OAIResponseRoutePart>
-OAIResponseRoute::getParts() const {
+QList<OAIResponseRoutePart> OAIResponseRoute::getParts() const {
     return parts;
 }
-void
-OAIResponseRoute::setParts(const QList<OAIResponseRoutePart> &parts) {
+void OAIResponseRoute::setParts(const QList<OAIResponseRoutePart> &parts) {
     this->parts = parts;
     this->m_parts_isSet = true;
 }
 
-bool
-OAIResponseRoute::isSet() const {
+bool OAIResponseRoute::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_departure_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_arrival_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(parts.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_departure_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_arrival_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (parts.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseRoute::isValid() const {
+bool OAIResponseRoute::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_departure_time_isValid && m_arrival_time_isValid && m_parts_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

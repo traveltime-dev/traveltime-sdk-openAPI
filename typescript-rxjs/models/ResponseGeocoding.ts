@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseGeocoding {
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocoding
      */
     type: string;
     /**
-     * 
      * @type {Array<ResponseGeocodingGeoJsonFeature>}
      * @memberof ResponseGeocoding
      */

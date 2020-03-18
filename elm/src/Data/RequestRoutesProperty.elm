@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestRoutesProperty exposing (RequestRoutesProperty(..), decoder, encode)
+module Data.RequestRoutesProperty exposing (RequestRoutesProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -65,5 +65,24 @@ encode model =
 
         Route ->
             Encode.string "route"
+
+
+
+
+toString : RequestRoutesProperty -> String
+toString model =
+    case model of
+        TravelTime ->
+            "travel_time"
+
+        Distance ->
+            "distance"
+
+        Fares ->
+            "fares"
+
+        Route ->
+            "route"
+
 
 

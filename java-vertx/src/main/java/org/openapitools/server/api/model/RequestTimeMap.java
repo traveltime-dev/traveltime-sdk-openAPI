@@ -9,7 +9,7 @@ import org.openapitools.server.api.model.RequestTimeMapArrivalSearch;
 import org.openapitools.server.api.model.RequestTimeMapDepartureSearch;
 import org.openapitools.server.api.model.RequestUnionOnIntersection;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeMap   {
   
   private List<RequestTimeMapDepartureSearch> departureSearches = new ArrayList<>();

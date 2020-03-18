@@ -50,26 +50,27 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     RequestTransportation getTransportation() const;
     void setTransportation(RequestTransportation const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getTravelTime() const;
     void setTravelTime(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getDepartureTime() const;
     void setDepartureTime(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterPostcodesProperty>& getProperties();
-        /// <summary>
+    void setProperties(std::vector<RequestTimeFilterPostcodesProperty> const& value);
+    /// <summary>
     /// 
     /// </summary>
     RequestRangeFull getRange() const;

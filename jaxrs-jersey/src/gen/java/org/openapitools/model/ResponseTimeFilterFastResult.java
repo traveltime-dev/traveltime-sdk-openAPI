@@ -21,21 +21,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseTimeFilterFastLocation;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterFastResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterFastResult.JSON_PROPERTY_SEARCH_ID,
+  ResponseTimeFilterFastResult.JSON_PROPERTY_LOCATIONS,
+  ResponseTimeFilterFastResult.JSON_PROPERTY_UNREACHABLE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeFilterFastResult   {
-  @JsonProperty("search_id")
+  public static final String JSON_PROPERTY_SEARCH_ID = "search_id";
+  @JsonProperty(JSON_PROPERTY_SEARCH_ID)
   private String searchId;
 
-  @JsonProperty("locations")
+  public static final String JSON_PROPERTY_LOCATIONS = "locations";
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
   private List<ResponseTimeFilterFastLocation> locations = new ArrayList<ResponseTimeFilterFastLocation>();
 
-  @JsonProperty("unreachable")
+  public static final String JSON_PROPERTY_UNREACHABLE = "unreachable";
+  @JsonProperty(JSON_PROPERTY_UNREACHABLE)
   private List<String> unreachable = new ArrayList<String>();
 
   public ResponseTimeFilterFastResult searchId(String searchId) {

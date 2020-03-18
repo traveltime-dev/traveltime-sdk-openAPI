@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/OpenAPITools/openapi-generator'
   s.summary = 'OpenAPIClient Swift SDK'
   s.source_files = 'OpenAPIClient/Classes/**/*.swift'
-  s.dependency 'Alamofire', '~> 4.7.0'
+  s.dependency 'Alamofire', '~> 4.9.0'
 end

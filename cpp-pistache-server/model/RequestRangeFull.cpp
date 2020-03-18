@@ -57,7 +57,6 @@ bool RequestRangeFull::isEnabled() const
 void RequestRangeFull::setEnabled(bool const value)
 {
     m_Enabled = value;
-    
 }
 int32_t RequestRangeFull::getMaxResults() const
 {
@@ -66,7 +65,6 @@ int32_t RequestRangeFull::getMaxResults() const
 void RequestRangeFull::setMaxResults(int32_t const value)
 {
     m_Max_results = value;
-    
 }
 int32_t RequestRangeFull::getWidth() const
 {
@@ -75,7 +73,6 @@ int32_t RequestRangeFull::getWidth() const
 void RequestRangeFull::setWidth(int32_t const value)
 {
     m_Width = value;
-    
 }
 
 }

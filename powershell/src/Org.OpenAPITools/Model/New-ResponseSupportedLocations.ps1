@@ -2,7 +2,7 @@ function New-ResponseSupportedLocations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseSupportedLocation[]]
+        [Org.OpenAPITools.Model.ResponseSupportedLocation[]]
         ${locations},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[]]
@@ -10,10 +10,10 @@ function New-ResponseSupportedLocations {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseSupportedLocations' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseSupportedLocations' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseSupportedLocations -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseSupportedLocations -ArgumentList @(
             ${locations},
             ${unsupportedUnderscorelocations}
         )

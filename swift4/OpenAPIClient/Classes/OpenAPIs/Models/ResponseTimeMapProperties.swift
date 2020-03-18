@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeMapProperties: Codable { 
 
-public struct ResponseTimeMapProperties: Codable {
 
     public var isOnlyWalking: Bool?
 
@@ -21,6 +21,4 @@ public struct ResponseTimeMapProperties: Codable {
         case isOnlyWalking = "is_only_walking"
     }
 
-
 }
-

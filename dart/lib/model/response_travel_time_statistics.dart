@@ -18,26 +18,10 @@ class ResponseTravelTimeStatistics {
 
   ResponseTravelTimeStatistics.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['min'] == null) {
-      min = null;
-    } else {
-          min = json['min'];
-    }
-    if (json['max'] == null) {
-      max = null;
-    } else {
-          max = json['max'];
-    }
-    if (json['mean'] == null) {
-      mean = null;
-    } else {
-          mean = json['mean'];
-    }
-    if (json['median'] == null) {
-      median = null;
-    } else {
-          median = json['median'];
-    }
+    min = json['min'];
+    max = json['max'];
+    mean = json['mean'];
+    median = json['median'];
   }
 
   Map<String, dynamic> toJson() {
@@ -54,15 +38,26 @@ class ResponseTravelTimeStatistics {
   }
 
   static List<ResponseTravelTimeStatistics> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTravelTimeStatistics>() : json.map((value) => new ResponseTravelTimeStatistics.fromJson(value)).toList();
+    return json == null ? List<ResponseTravelTimeStatistics>() : json.map((value) => ResponseTravelTimeStatistics.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTravelTimeStatistics> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTravelTimeStatistics>();
+    var map = Map<String, ResponseTravelTimeStatistics>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTravelTimeStatistics.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTravelTimeStatistics.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTravelTimeStatistics-objects as value to a dart map
+  static Map<String, List<ResponseTravelTimeStatistics>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTravelTimeStatistics>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTravelTimeStatistics.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

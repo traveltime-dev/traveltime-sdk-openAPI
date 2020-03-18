@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseSupportedLocation: Codable { 
 
-public struct ResponseSupportedLocation: Codable {
 
     public var id: String
     public var mapName: String
@@ -24,6 +24,4 @@ public struct ResponseSupportedLocation: Codable {
         case mapName = "map_name"
     }
 
-
 }
-

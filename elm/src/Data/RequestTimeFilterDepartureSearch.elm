@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterDepartureSearch exposing (RequestTimeFilterDepartureSearch, decoder, encode)
+module Data.RequestTimeFilterDepartureSearch exposing (RequestTimeFilterDepartureSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTransportation as RequestTransportation exposing (RequestTransportation)
 import DateTime exposing (DateTime)
@@ -50,17 +50,33 @@ decoder =
 
 
 encode : RequestTimeFilterDepartureSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "departure_location_id", Encode.string model.departureLocationId )
-        , ( "arrival_location_ids", (Encode.list Encode.string) model.arrivalLocationIds )
-        , ( "transportation", RequestTransportation.encode model.transportation )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "departure_time", DateTime.encode model.departureTime )
-        , ( "properties", (Encode.list RequestTimeFilterProperty.encode) model.properties )
-        , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterDepartureSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterDepartureSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "departure_location_id", Encode.string model.departureLocationId )
+    , ( "arrival_location_ids", (Encode.list Encode.string) model.arrivalLocationIds )
+    , ( "transportation", RequestTransportation.encode model.transportation )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "departure_time", DateTime.encode model.departureTime )
+    , ( "properties", (Encode.list RequestTimeFilterProperty.encode) model.properties )
+    , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+    ]
+
+
+
+toString : RequestTimeFilterDepartureSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

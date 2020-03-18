@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseSupportedLocation: public OAIObject {
@@ -49,7 +50,7 @@ public:
     void setMapName(const QString &map_name);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -67,5 +68,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseSupportedLocation)
 
 #endif // OAIResponseSupportedLocation_H

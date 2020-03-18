@@ -11,7 +11,7 @@ import org.openapitools.model.ResponseMapInfoFeatures;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
   @JsonProperty("name")
   private String name;
@@ -59,7 +59,7 @@ public class ResponseGeocodingProperties   {
   private String postcode;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   /**
    **/

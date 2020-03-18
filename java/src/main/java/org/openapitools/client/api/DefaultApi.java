@@ -74,29 +74,35 @@ public class DefaultApi {
 
     /**
      * Build call for geocodingReverseSearch
-     * @param focusLat  (required)
-     * @param focusLng  (required)
+     * @param lat  (required)
+     * @param lng  (required)
      * @param withinCountry  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-reverse"> Documentation</a>
      */
-    public okhttp3.Call geocodingReverseSearchCall(Double focusLat, Double focusLng, String withinCountry, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+    public okhttp3.Call geocodingReverseSearchCall(Double lat, Double lng, String withinCountry, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/geocoding/reverse";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        if (focusLat != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("focus.lat", focusLat));
+        if (lat != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lat", lat));
         }
 
-        if (focusLng != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("focus.lng", focusLng));
+        if (lng != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("lng", lng));
         }
 
         if (withinCountry != null) {
@@ -104,6 +110,7 @@ public class DefaultApi {
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -120,24 +127,24 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call geocodingReverseSearchValidateBeforeCall(Double focusLat, Double focusLng, String withinCountry, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call geocodingReverseSearchValidateBeforeCall(Double lat, Double lng, String withinCountry, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'focusLat' is set
-        if (focusLat == null) {
-            throw new ApiException("Missing the required parameter 'focusLat' when calling geocodingReverseSearch(Async)");
+        // verify the required parameter 'lat' is set
+        if (lat == null) {
+            throw new ApiException("Missing the required parameter 'lat' when calling geocodingReverseSearch(Async)");
         }
         
-        // verify the required parameter 'focusLng' is set
-        if (focusLng == null) {
-            throw new ApiException("Missing the required parameter 'focusLng' when calling geocodingReverseSearch(Async)");
+        // verify the required parameter 'lng' is set
+        if (lng == null) {
+            throw new ApiException("Missing the required parameter 'lng' when calling geocodingReverseSearch(Async)");
         }
         
 
-        okhttp3.Call localVarCall = geocodingReverseSearchCall(focusLat, focusLng, withinCountry, _callback);
+        okhttp3.Call localVarCall = geocodingReverseSearchCall(lat, lng, withinCountry, _callback);
         return localVarCall;
 
     }
@@ -145,32 +152,44 @@ public class DefaultApi {
     /**
      * 
      * 
-     * @param focusLat  (required)
-     * @param focusLng  (required)
+     * @param lat  (required)
+     * @param lng  (required)
      * @param withinCountry  (optional)
      * @return ResponseGeocoding
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-reverse"> Documentation</a>
      */
-    public ResponseGeocoding geocodingReverseSearch(Double focusLat, Double focusLng, String withinCountry) throws ApiException {
-        ApiResponse<ResponseGeocoding> localVarResp = geocodingReverseSearchWithHttpInfo(focusLat, focusLng, withinCountry);
+    public ResponseGeocoding geocodingReverseSearch(Double lat, Double lng, String withinCountry) throws ApiException {
+        ApiResponse<ResponseGeocoding> localVarResp = geocodingReverseSearchWithHttpInfo(lat, lng, withinCountry);
         return localVarResp.getData();
     }
 
     /**
      * 
      * 
-     * @param focusLat  (required)
-     * @param focusLng  (required)
+     * @param lat  (required)
+     * @param lng  (required)
      * @param withinCountry  (optional)
      * @return ApiResponse&lt;ResponseGeocoding&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-reverse"> Documentation</a>
      */
-    public ApiResponse<ResponseGeocoding> geocodingReverseSearchWithHttpInfo(Double focusLat, Double focusLng, String withinCountry) throws ApiException {
-        okhttp3.Call localVarCall = geocodingReverseSearchValidateBeforeCall(focusLat, focusLng, withinCountry, null);
+    public ApiResponse<ResponseGeocoding> geocodingReverseSearchWithHttpInfo(Double lat, Double lng, String withinCountry) throws ApiException {
+        okhttp3.Call localVarCall = geocodingReverseSearchValidateBeforeCall(lat, lng, withinCountry, null);
         Type localVarReturnType = new TypeToken<ResponseGeocoding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -178,18 +197,24 @@ public class DefaultApi {
     /**
      *  (asynchronously)
      * 
-     * @param focusLat  (required)
-     * @param focusLng  (required)
+     * @param lat  (required)
+     * @param lng  (required)
      * @param withinCountry  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-reverse"> Documentation</a>
      */
-    public okhttp3.Call geocodingReverseSearchAsync(Double focusLat, Double focusLng, String withinCountry, final ApiCallback<ResponseGeocoding> _callback) throws ApiException {
+    public okhttp3.Call geocodingReverseSearchAsync(Double lat, Double lng, String withinCountry, final ApiCallback<ResponseGeocoding> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = geocodingReverseSearchValidateBeforeCall(focusLat, focusLng, withinCountry, _callback);
+        okhttp3.Call localVarCall = geocodingReverseSearchValidateBeforeCall(lat, lng, withinCountry, _callback);
         Type localVarReturnType = new TypeToken<ResponseGeocoding>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -197,17 +222,23 @@ public class DefaultApi {
     /**
      * Build call for geocodingSearch
      * @param query  (required)
-     * @param withinCountry  (optional)
      * @param focusLat  (optional)
      * @param focusLng  (optional)
+     * @param withinCountry  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-search"> Documentation</a>
      */
-    public okhttp3.Call geocodingSearchCall(String query, String withinCountry, Double focusLat, Double focusLng, final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+    public okhttp3.Call geocodingSearchCall(String query, Double focusLat, Double focusLng, String withinCountry, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/geocoding/search";
@@ -218,10 +249,6 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
         }
 
-        if (withinCountry != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("within.country", withinCountry));
-        }
-
         if (focusLat != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("focus.lat", focusLat));
         }
@@ -230,7 +257,12 @@ public class DefaultApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("focus.lng", focusLng));
         }
 
+        if (withinCountry != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("within.country", withinCountry));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -247,11 +279,11 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call geocodingSearchValidateBeforeCall(String query, String withinCountry, Double focusLat, Double focusLng, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call geocodingSearchValidateBeforeCall(String query, Double focusLat, Double focusLng, String withinCountry, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'query' is set
         if (query == null) {
@@ -259,7 +291,7 @@ public class DefaultApi {
         }
         
 
-        okhttp3.Call localVarCall = geocodingSearchCall(query, withinCountry, focusLat, focusLng, _callback);
+        okhttp3.Call localVarCall = geocodingSearchCall(query, focusLat, focusLng, withinCountry, _callback);
         return localVarCall;
 
     }
@@ -268,16 +300,22 @@ public class DefaultApi {
      * 
      * 
      * @param query  (required)
-     * @param withinCountry  (optional)
      * @param focusLat  (optional)
      * @param focusLng  (optional)
+     * @param withinCountry  (optional)
      * @return ResponseGeocoding
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-search"> Documentation</a>
      */
-    public ResponseGeocoding geocodingSearch(String query, String withinCountry, Double focusLat, Double focusLng) throws ApiException {
-        ApiResponse<ResponseGeocoding> localVarResp = geocodingSearchWithHttpInfo(query, withinCountry, focusLat, focusLng);
+    public ResponseGeocoding geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry) throws ApiException {
+        ApiResponse<ResponseGeocoding> localVarResp = geocodingSearchWithHttpInfo(query, focusLat, focusLng, withinCountry);
         return localVarResp.getData();
     }
 
@@ -285,16 +323,22 @@ public class DefaultApi {
      * 
      * 
      * @param query  (required)
-     * @param withinCountry  (optional)
      * @param focusLat  (optional)
      * @param focusLng  (optional)
+     * @param withinCountry  (optional)
      * @return ApiResponse&lt;ResponseGeocoding&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-search"> Documentation</a>
      */
-    public ApiResponse<ResponseGeocoding> geocodingSearchWithHttpInfo(String query, String withinCountry, Double focusLat, Double focusLng) throws ApiException {
-        okhttp3.Call localVarCall = geocodingSearchValidateBeforeCall(query, withinCountry, focusLat, focusLng, null);
+    public ApiResponse<ResponseGeocoding> geocodingSearchWithHttpInfo(String query, Double focusLat, Double focusLng, String withinCountry) throws ApiException {
+        okhttp3.Call localVarCall = geocodingSearchValidateBeforeCall(query, focusLat, focusLng, withinCountry, null);
         Type localVarReturnType = new TypeToken<ResponseGeocoding>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -303,18 +347,24 @@ public class DefaultApi {
      *  (asynchronously)
      * 
      * @param query  (required)
-     * @param withinCountry  (optional)
      * @param focusLat  (optional)
      * @param focusLng  (optional)
+     * @param withinCountry  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/geocoding-search"> Documentation</a>
      */
-    public okhttp3.Call geocodingSearchAsync(String query, String withinCountry, Double focusLat, Double focusLng, final ApiCallback<ResponseGeocoding> _callback) throws ApiException {
+    public okhttp3.Call geocodingSearchAsync(String query, Double focusLat, Double focusLng, String withinCountry, final ApiCallback<ResponseGeocoding> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = geocodingSearchValidateBeforeCall(query, withinCountry, focusLat, focusLng, _callback);
+        okhttp3.Call localVarCall = geocodingSearchValidateBeforeCall(query, focusLat, focusLng, withinCountry, _callback);
         Type localVarReturnType = new TypeToken<ResponseGeocoding>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -324,11 +374,17 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/map-info"> Documentation</a>
      */
     public okhttp3.Call mapInfoCall(final ApiCallback _callback) throws ApiException {
-        Object localVarPostBody = new Object();
+        Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/v4/map-info";
@@ -336,6 +392,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -352,7 +409,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -369,6 +426,12 @@ public class DefaultApi {
      * 
      * @return ResponseMapInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/map-info"> Documentation</a>
      */
@@ -382,6 +445,12 @@ public class DefaultApi {
      * 
      * @return ApiResponse&lt;ResponseMapInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/map-info"> Documentation</a>
      */
@@ -397,6 +466,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/map-info"> Documentation</a>
      */
@@ -413,6 +488,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/routes"> Documentation</a>
      */
@@ -425,6 +506,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -441,7 +523,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -464,6 +546,12 @@ public class DefaultApi {
      * @param requestRoutes  (required)
      * @return ResponseRoutes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/routes"> Documentation</a>
      */
@@ -478,6 +566,12 @@ public class DefaultApi {
      * @param requestRoutes  (required)
      * @return ApiResponse&lt;ResponseRoutes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/routes"> Documentation</a>
      */
@@ -494,6 +588,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/routes"> Documentation</a>
      */
@@ -510,6 +610,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/supported-locations"> Documentation</a>
      */
@@ -522,6 +628,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -538,7 +645,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -561,6 +668,12 @@ public class DefaultApi {
      * @param requestSupportedLocations  (required)
      * @return ResponseSupportedLocations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/supported-locations"> Documentation</a>
      */
@@ -575,6 +688,12 @@ public class DefaultApi {
      * @param requestSupportedLocations  (required)
      * @return ApiResponse&lt;ResponseSupportedLocations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/supported-locations"> Documentation</a>
      */
@@ -591,6 +710,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/supported-locations"> Documentation</a>
      */
@@ -607,6 +732,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter"> Documentation</a>
      */
@@ -619,6 +750,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -635,7 +767,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -658,6 +790,12 @@ public class DefaultApi {
      * @param requestTimeFilter  (required)
      * @return ResponseTimeFilter
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter"> Documentation</a>
      */
@@ -672,6 +810,12 @@ public class DefaultApi {
      * @param requestTimeFilter  (required)
      * @return ApiResponse&lt;ResponseTimeFilter&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter"> Documentation</a>
      */
@@ -688,6 +832,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter"> Documentation</a>
      */
@@ -704,6 +854,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter-fast"> Documentation</a>
      */
@@ -716,6 +872,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -732,7 +889,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -755,6 +912,12 @@ public class DefaultApi {
      * @param requestTimeFilterFast  (required)
      * @return ResponseTimeFilterFast
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter-fast"> Documentation</a>
      */
@@ -769,6 +932,12 @@ public class DefaultApi {
      * @param requestTimeFilterFast  (required)
      * @return ApiResponse&lt;ResponseTimeFilterFast&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter-fast"> Documentation</a>
      */
@@ -785,6 +954,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-filter-fast"> Documentation</a>
      */
@@ -801,6 +976,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -813,6 +994,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -829,7 +1011,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -852,6 +1034,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodeDistricts  (required)
      * @return ResponseTimeFilterPostcodeDistricts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -866,6 +1054,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodeDistricts  (required)
      * @return ApiResponse&lt;ResponseTimeFilterPostcodeDistricts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -882,6 +1076,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -898,6 +1098,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-sector-filter"> Documentation</a>
      */
@@ -910,6 +1116,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -926,7 +1133,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -949,6 +1156,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodeSectors  (required)
      * @return ResponseTimeFilterPostcodeSectors
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-sector-filter"> Documentation</a>
      */
@@ -963,6 +1176,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodeSectors  (required)
      * @return ApiResponse&lt;ResponseTimeFilterPostcodeSectors&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-sector-filter"> Documentation</a>
      */
@@ -979,6 +1198,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-sector-filter"> Documentation</a>
      */
@@ -995,6 +1220,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -1007,6 +1238,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json"
@@ -1023,7 +1255,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1046,6 +1278,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodes  (required)
      * @return ResponseTimeFilterPostcodes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -1060,6 +1298,12 @@ public class DefaultApi {
      * @param requestTimeFilterPostcodes  (required)
      * @return ApiResponse&lt;ResponseTimeFilterPostcodes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -1076,6 +1320,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/postcode-search"> Documentation</a>
      */
@@ -1092,6 +1342,12 @@ public class DefaultApi {
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-map"> Documentation</a>
      */
@@ -1104,6 +1360,7 @@ public class DefaultApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
             "application/json", "application/vnd.wkt+json", "application/vnd.wkt-no-holes+json", "application/vnd.bounding-boxes+json"
@@ -1120,7 +1377,7 @@ public class DefaultApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         String[] localVarAuthNames = new String[] { "ApiKey", "ApplicationId" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1143,6 +1400,12 @@ public class DefaultApi {
      * @param requestTimeMap  (required)
      * @return ResponseTimeMap
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-map"> Documentation</a>
      */
@@ -1157,6 +1420,12 @@ public class DefaultApi {
      * @param requestTimeMap  (required)
      * @return ApiResponse&lt;ResponseTimeMap&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-map"> Documentation</a>
      */
@@ -1173,6 +1442,12 @@ public class DefaultApi {
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) </td><td>  -  </td></tr>
+     </table>
      * 
      * @see <a href="http://docs.traveltimeplatform.com/reference/time-map"> Documentation</a>
      */

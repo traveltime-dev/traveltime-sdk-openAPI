@@ -41,7 +41,7 @@ import java.io.IOException;
  * @author pkmst
  *
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 @Controller
 public class DefaultApiController implements DefaultApi {
@@ -51,8 +51,8 @@ public class DefaultApiController implements DefaultApi {
         this.objectMapper = objectMapper;
     }
 
-    public ResponseEntity<ResponseGeocoding> geocodingReverseSearch(@ApiParam(value = "", required = true)  @RequestParam(value = "focus.lat", required = true) Double focusLat,
-        @ApiParam(value = "", required = true)  @RequestParam(value = "focus.lng", required = true) Double focusLng,
+    public ResponseEntity<ResponseGeocoding> geocodingReverseSearch(@ApiParam(value = "", required = true)  @RequestParam(value = "lat", required = true) Double lat,
+        @ApiParam(value = "", required = true)  @RequestParam(value = "lng", required = true) Double lng,
         @ApiParam(value = "")  @RequestParam(value = "within.country", required = false) String withinCountry,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
@@ -65,9 +65,9 @@ public class DefaultApiController implements DefaultApi {
     }
 
     public ResponseEntity<ResponseGeocoding> geocodingSearch(@ApiParam(value = "", required = true)  @RequestParam(value = "query", required = true) String query,
-        @ApiParam(value = "")  @RequestParam(value = "within.country", required = false) String withinCountry,
         @ApiParam(value = "")  @RequestParam(value = "focus.lat", required = false) Double focusLat,
         @ApiParam(value = "")  @RequestParam(value = "focus.lng", required = false) Double focusLng,
+        @ApiParam(value = "")  @RequestParam(value = "within.country", required = false) String withinCountry,
         @RequestHeader(value = "Accept", required = false) String accept) throws Exception {
         // do some magic!
 

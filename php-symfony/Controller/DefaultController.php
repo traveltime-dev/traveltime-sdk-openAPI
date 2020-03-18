@@ -93,16 +93,16 @@ class DefaultController extends Controller
         $securityApplicationId = $request->headers->get('X-Application-Id');
 
         // Read out all input parameter values into variables
-        $focusLat = $request->query->get('focusLat');
-        $focusLng = $request->query->get('focusLng');
+        $lat = $request->query->get('lat');
+        $lng = $request->query->get('lng');
         $withinCountry = $request->query->get('withinCountry');
 
         // Use the default value if no value was provided
 
         // Deserialize the input values that needs it
         try {
-            $focusLat = $this->deserialize($focusLat, 'double', 'string');
-            $focusLng = $this->deserialize($focusLng, 'double', 'string');
+            $lat = $this->deserialize($lat, 'double', 'string');
+            $lng = $this->deserialize($lng, 'double', 'string');
             $withinCountry = $this->deserialize($withinCountry, 'string', 'string');
         } catch (SerializerRuntimeException $exception) {
             return $this->createBadRequestResponse($exception->getMessage());
@@ -112,14 +112,14 @@ class DefaultController extends Controller
         $asserts = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\Type("double");
-        $response = $this->validate($focusLat, $asserts);
+        $response = $this->validate($lat, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
         $asserts = [];
         $asserts[] = new Assert\NotNull();
         $asserts[] = new Assert\Type("double");
-        $response = $this->validate($focusLng, $asserts);
+        $response = $this->validate($lng, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -142,7 +142,7 @@ class DefaultController extends Controller
             // Make the call to the business logic
             $responseCode = 200;
             $responseHeaders = [];
-            $result = $handler->geocodingReverseSearch($focusLat, $focusLng, $withinCountry, $responseCode, $responseHeaders);
+            $result = $handler->geocodingReverseSearch($lat, $lng, $withinCountry, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)';
@@ -200,18 +200,18 @@ class DefaultController extends Controller
 
         // Read out all input parameter values into variables
         $query = $request->query->get('query');
-        $withinCountry = $request->query->get('withinCountry');
         $focusLat = $request->query->get('focusLat');
         $focusLng = $request->query->get('focusLng');
+        $withinCountry = $request->query->get('withinCountry');
 
         // Use the default value if no value was provided
 
         // Deserialize the input values that needs it
         try {
             $query = $this->deserialize($query, 'string', 'string');
-            $withinCountry = $this->deserialize($withinCountry, 'string', 'string');
             $focusLat = $this->deserialize($focusLat, 'double', 'string');
             $focusLng = $this->deserialize($focusLng, 'double', 'string');
+            $withinCountry = $this->deserialize($withinCountry, 'string', 'string');
         } catch (SerializerRuntimeException $exception) {
             return $this->createBadRequestResponse($exception->getMessage());
         }
@@ -225,12 +225,6 @@ class DefaultController extends Controller
             return $response;
         }
         $asserts = [];
-        $asserts[] = new Assert\Type("string");
-        $response = $this->validate($withinCountry, $asserts);
-        if ($response instanceof Response) {
-            return $response;
-        }
-        $asserts = [];
         $asserts[] = new Assert\Type("double");
         $response = $this->validate($focusLat, $asserts);
         if ($response instanceof Response) {
@@ -239,6 +233,12 @@ class DefaultController extends Controller
         $asserts = [];
         $asserts[] = new Assert\Type("double");
         $response = $this->validate($focusLng, $asserts);
+        if ($response instanceof Response) {
+            return $response;
+        }
+        $asserts = [];
+        $asserts[] = new Assert\Type("string");
+        $response = $this->validate($withinCountry, $asserts);
         if ($response instanceof Response) {
             return $response;
         }
@@ -255,7 +255,7 @@ class DefaultController extends Controller
             // Make the call to the business logic
             $responseCode = 200;
             $responseHeaders = [];
-            $result = $handler->geocodingSearch($query, $withinCountry, $focusLat, $focusLng, $responseCode, $responseHeaders);
+            $result = $handler->geocodingSearch($query, $focusLat, $focusLng, $withinCountry, $responseCode, $responseHeaders);
 
             // Find default response message
             $message = 'Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)';

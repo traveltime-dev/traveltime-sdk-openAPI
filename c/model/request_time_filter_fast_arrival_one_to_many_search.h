@@ -15,15 +15,30 @@
 #include "request_time_filter_fast_property.h"
 #include "request_transportation_fast.h"
 
+// Enum  for request_time_filter_fast_arrival_one_to_many_search
+
+typedef enum  { traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__NULL = 0, traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__weekday_morning } traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e;
+
+char* request_time_filter_fast_arrival_one_to_many_search_arrival_time_period_ToString(traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e arrival_time_period);
+
+traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e request_time_filter_fast_arrival_one_to_many_search_arrival_time_period_FromString(char* arrival_time_period);
+
+// Enum  for request_time_filter_fast_arrival_one_to_many_search
+
+typedef enum  { traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__NULL = 0, traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__travel_time, traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__fares } traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e;
+
+char* request_time_filter_fast_arrival_one_to_many_search_properties_ToString(traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e properties);
+
+traveltime_platform_api_request_time_filter_fast_arrival_one_to_many_search__e request_time_filter_fast_arrival_one_to_many_search_properties_FromString(char* properties);
+
 
 
 typedef struct request_time_filter_fast_arrival_one_to_many_search_t {
     char *id; // string
     char *departure_location_id; // string
     list_t *arrival_location_ids; //primitive container
-    request_transportation_fast_t *transportation; //model
+    struct request_transportation_fast_t *transportation; //model
     int travel_time; //numeric
-    request_arrival_time_period_e arrival_time_period; //enum model
     list_t *properties; //nonprimitive container
 
 } request_time_filter_fast_arrival_one_to_many_search_t;
@@ -34,7 +49,6 @@ request_time_filter_fast_arrival_one_to_many_search_t *request_time_filter_fast_
     list_t *arrival_location_ids,
     request_transportation_fast_t *transportation,
     int travel_time,
-    request_arrival_time_period_e arrival_time_period,
     list_t *properties
 );
 

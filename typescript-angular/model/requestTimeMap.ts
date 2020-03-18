@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestTimeMapArrivalSearch } from './requestTimeMapArrivalSearch';
 import { RequestTimeMapDepartureSearch } from './requestTimeMapDepartureSearch';
 import { RequestUnionOnIntersection } from './requestUnionOnIntersection';
+import { RequestTimeMapArrivalSearch } from './requestTimeMapArrivalSearch';
 
 
 export interface RequestTimeMap { 
-    departureSearches?: Array<RequestTimeMapDepartureSearch>;
-    arrivalSearches?: Array<RequestTimeMapArrivalSearch>;
+    departure_searches?: Array<RequestTimeMapDepartureSearch>;
+    arrival_searches?: Array<RequestTimeMapArrivalSearch>;
     unions?: Array<RequestUnionOnIntersection>;
     intersections?: Array<RequestUnionOnIntersection>;
 }

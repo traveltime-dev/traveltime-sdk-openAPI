@@ -22,24 +22,22 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTransportationMode: public OAIEnum {
+class OAIResponseTransportationMode : public OAIEnum {
 public:
     OAIResponseTransportationMode();
     OAIResponseTransportationMode(QString json);
     ~OAIResponseTransportationMode() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(QString jsonString) override;
 
-    
     enum class eOAIResponseTransportationMode {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         CAR, 
@@ -58,21 +56,21 @@ public:
         FERRY, 
         COACH
     };
-
     OAIResponseTransportationMode::eOAIResponseTransportationMode getValue() const;
     void setValue(const OAIResponseTransportationMode::eOAIResponseTransportationMode& value);
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     eOAIResponseTransportationMode m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTransportationMode)
 
 #endif // OAIResponseTransportationMode_H

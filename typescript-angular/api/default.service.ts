@@ -13,33 +13,33 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent }                           from '@angular/common/http';
-import { CustomHttpUrlEncodingCodec }                        from '../encoder';
-
+         HttpResponse, HttpEvent, HttpParameterCodec }       from '@angular/common/http';
+import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { RequestRoutes } from '../model/requestRoutes';
-import { RequestSupportedLocations } from '../model/requestSupportedLocations';
-import { RequestTimeFilter } from '../model/requestTimeFilter';
-import { RequestTimeFilterFast } from '../model/requestTimeFilterFast';
-import { RequestTimeFilterPostcodeDistricts } from '../model/requestTimeFilterPostcodeDistricts';
-import { RequestTimeFilterPostcodeSectors } from '../model/requestTimeFilterPostcodeSectors';
-import { RequestTimeFilterPostcodes } from '../model/requestTimeFilterPostcodes';
-import { RequestTimeMap } from '../model/requestTimeMap';
-import { ResponseError } from '../model/responseError';
-import { ResponseGeocoding } from '../model/responseGeocoding';
-import { ResponseMapInfo } from '../model/responseMapInfo';
-import { ResponseRoutes } from '../model/responseRoutes';
-import { ResponseSupportedLocations } from '../model/responseSupportedLocations';
-import { ResponseTimeFilter } from '../model/responseTimeFilter';
-import { ResponseTimeFilterFast } from '../model/responseTimeFilterFast';
-import { ResponseTimeFilterPostcodeDistricts } from '../model/responseTimeFilterPostcodeDistricts';
-import { ResponseTimeFilterPostcodeSectors } from '../model/responseTimeFilterPostcodeSectors';
-import { ResponseTimeFilterPostcodes } from '../model/responseTimeFilterPostcodes';
-import { ResponseTimeMap } from '../model/responseTimeMap';
+import { RequestRoutes } from '../model/models';
+import { RequestSupportedLocations } from '../model/models';
+import { RequestTimeFilter } from '../model/models';
+import { RequestTimeFilterFast } from '../model/models';
+import { RequestTimeFilterPostcodeDistricts } from '../model/models';
+import { RequestTimeFilterPostcodeSectors } from '../model/models';
+import { RequestTimeFilterPostcodes } from '../model/models';
+import { RequestTimeMap } from '../model/models';
+import { ResponseError } from '../model/models';
+import { ResponseGeocoding } from '../model/models';
+import { ResponseMapInfo } from '../model/models';
+import { ResponseRoutes } from '../model/models';
+import { ResponseSupportedLocations } from '../model/models';
+import { ResponseTimeFilter } from '../model/models';
+import { ResponseTimeFilterFast } from '../model/models';
+import { ResponseTimeFilterPostcodeDistricts } from '../model/models';
+import { ResponseTimeFilterPostcodeSectors } from '../model/models';
+import { ResponseTimeFilterPostcodes } from '../model/models';
+import { ResponseTimeMap } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
+
 
 
 @Injectable({
@@ -50,92 +50,131 @@ export class DefaultService {
     protected basePath = 'https://api.traveltimeapp.com';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
+    public encoder: HttpParameterCodec;
 
     constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
-
         if (configuration) {
             this.configuration = configuration;
-            this.configuration.basePath = configuration.basePath || basePath || this.basePath;
-
-        } else {
-            this.configuration.basePath = basePath || this.basePath;
         }
-    }
-
-    /**
-     * @param consumes string[] mime-types
-     * @return true: consumes contains 'multipart/form-data', false: otherwise
-     */
-    private canConsumeForm(consumes: string[]): boolean {
-        const form = 'multipart/form-data';
-        for (const consume of consumes) {
-            if (form === consume) {
-                return true;
+        if (typeof this.configuration.basePath !== 'string') {
+            if (typeof basePath !== 'string') {
+                basePath = this.basePath;
             }
+            this.configuration.basePath = basePath;
         }
-        return false;
+        this.encoder = this.configuration.encoder || new CustomHttpParameterCodec();
     }
 
 
+
+    private addToHttpParams(httpParams: HttpParams, value: any, key?: string): HttpParams {
+        if (typeof value === "object" && value instanceof Date === false) {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value);
+        } else {
+            httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
+        }
+        return httpParams;
+    }
+
+    private addToHttpParamsRecursive(httpParams: HttpParams, value?: any, key?: string): HttpParams {
+        if (value == null) {
+            return httpParams;
+        }
+
+        if (typeof value === "object") {
+            if (Array.isArray(value)) {
+                (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
+            } else if (value instanceof Date) {
+                if (key != null) {
+                    httpParams = httpParams.append(key,
+                        (value as Date).toISOString().substr(0, 10));
+                } else {
+                   throw Error("key may not be null if value is Date");
+                }
+            } else {
+                Object.keys(value).forEach( k => httpParams = this.addToHttpParamsRecursive(
+                    httpParams, value[k], key != null ? `${key}.${k}` : k));
+            }
+        } else if (key != null) {
+            httpParams = httpParams.append(key, value);
+        } else {
+            throw Error("key may not be null if value is not object or array");
+        }
+        return httpParams;
+    }
+
     /**
-     * 
-     * 
-     * @param focusLat 
-     * @param focusLng 
+     * @param lat 
+     * @param lng 
      * @param withinCountry 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe?: 'body', reportProgress?: boolean): Observable<ResponseGeocoding>;
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseGeocoding>>;
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseGeocoding>>;
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-        if (focusLat === null || focusLat === undefined) {
-            throw new Error('Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseGeocoding>;
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseGeocoding>>;
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseGeocoding>>;
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
+        if (lat === null || lat === undefined) {
+            throw new Error('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
-        if (focusLng === null || focusLng === undefined) {
-            throw new Error('Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+        if (lng === null || lng === undefined) {
+            throw new Error('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (focusLat !== undefined && focusLat !== null) {
-            queryParameters = queryParameters.set('focus.lat', <any>focusLat);
+        let queryParameters = new HttpParams({encoder: this.encoder});
+        if (lat !== undefined && lat !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>lat, 'lat');
         }
-        if (focusLng !== undefined && focusLng !== null) {
-            queryParameters = queryParameters.set('focus.lng', <any>focusLng);
+        if (lng !== undefined && lng !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>lng, 'lng');
         }
         if (withinCountry !== undefined && withinCountry !== null) {
-            queryParameters = queryParameters.set('within.country', <any>withinCountry);
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>withinCountry, 'within.country');
         }
 
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
+
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
 
         return this.httpClient.get<ResponseGeocoding>(`${this.configuration.basePath}/v4/geocoding/reverse`,
             {
                 params: queryParameters,
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -145,65 +184,79 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param query 
-     * @param withinCountry 
      * @param focusLat 
      * @param focusLng 
+     * @param withinCountry 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe?: 'body', reportProgress?: boolean): Observable<ResponseGeocoding>;
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseGeocoding>>;
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseGeocoding>>;
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseGeocoding>;
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseGeocoding>>;
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseGeocoding>>;
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (query === null || query === undefined) {
             throw new Error('Required parameter query was null or undefined when calling geocodingSearch.');
         }
 
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        let queryParameters = new HttpParams({encoder: this.encoder});
         if (query !== undefined && query !== null) {
-            queryParameters = queryParameters.set('query', <any>query);
-        }
-        if (withinCountry !== undefined && withinCountry !== null) {
-            queryParameters = queryParameters.set('within.country', <any>withinCountry);
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>query, 'query');
         }
         if (focusLat !== undefined && focusLat !== null) {
-            queryParameters = queryParameters.set('focus.lat', <any>focusLat);
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>focusLat, 'focus.lat');
         }
         if (focusLng !== undefined && focusLng !== null) {
-            queryParameters = queryParameters.set('focus.lng', <any>focusLng);
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>focusLng, 'focus.lng');
+        }
+        if (withinCountry !== undefined && withinCountry !== null) {
+          queryParameters = this.addToHttpParams(queryParameters,
+            <any>withinCountry, 'within.country');
         }
 
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
+
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
 
         return this.httpClient.get<ResponseGeocoding>(`${this.configuration.basePath}/v4/geocoding/search`,
             {
                 params: queryParameters,
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -213,43 +266,53 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public mapInfo(observe?: 'body', reportProgress?: boolean): Observable<ResponseMapInfo>;
-    public mapInfo(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseMapInfo>>;
-    public mapInfo(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseMapInfo>>;
-    public mapInfo(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public mapInfo(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseMapInfo>;
+    public mapInfo(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseMapInfo>>;
+    public mapInfo(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseMapInfo>>;
+    public mapInfo(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
 
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
+
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
 
         return this.httpClient.get<ResponseMapInfo>(`${this.configuration.basePath}/v4/map-info`,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -259,16 +322,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestRoutes 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public routes(requestRoutes: RequestRoutes, observe?: 'body', reportProgress?: boolean): Observable<ResponseRoutes>;
-    public routes(requestRoutes: RequestRoutes, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseRoutes>>;
-    public routes(requestRoutes: RequestRoutes, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseRoutes>>;
-    public routes(requestRoutes: RequestRoutes, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public routes(requestRoutes: RequestRoutes, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseRoutes>;
+    public routes(requestRoutes: RequestRoutes, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseRoutes>>;
+    public routes(requestRoutes: RequestRoutes, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseRoutes>>;
+    public routes(requestRoutes: RequestRoutes, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestRoutes === null || requestRoutes === undefined) {
             throw new Error('Required parameter requestRoutes was null or undefined when calling routes.');
         }
@@ -276,23 +337,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -303,9 +374,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseRoutes>(`${this.configuration.basePath}/v4/routes`,
             requestRoutes,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -315,16 +392,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestSupportedLocations 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'body', reportProgress?: boolean): Observable<ResponseSupportedLocations>;
-    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseSupportedLocations>>;
-    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseSupportedLocations>>;
-    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseSupportedLocations>;
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseSupportedLocations>>;
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseSupportedLocations>>;
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestSupportedLocations === null || requestSupportedLocations === undefined) {
             throw new Error('Required parameter requestSupportedLocations was null or undefined when calling supportedLocations.');
         }
@@ -332,23 +407,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -359,9 +444,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseSupportedLocations>(`${this.configuration.basePath}/v4/supported-locations`,
             requestSupportedLocations,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -371,16 +462,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeFilter 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeFilter>;
-    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeFilter>>;
-    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeFilter>>;
-    public timeFilter(requestTimeFilter: RequestTimeFilter, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTimeFilter>;
+    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTimeFilter>>;
+    public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTimeFilter>>;
+    public timeFilter(requestTimeFilter: RequestTimeFilter, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestTimeFilter === null || requestTimeFilter === undefined) {
             throw new Error('Required parameter requestTimeFilter was null or undefined when calling timeFilter.');
         }
@@ -388,23 +477,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -415,9 +514,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeFilter>(`${this.configuration.basePath}/v4/time-filter`,
             requestTimeFilter,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -427,16 +532,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeFilterFast 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeFilterFast>;
-    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeFilterFast>>;
-    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeFilterFast>>;
-    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTimeFilterFast>;
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTimeFilterFast>>;
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTimeFilterFast>>;
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestTimeFilterFast === null || requestTimeFilterFast === undefined) {
             throw new Error('Required parameter requestTimeFilterFast was null or undefined when calling timeFilterFast.');
         }
@@ -444,23 +547,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -471,9 +584,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeFilterFast>(`${this.configuration.basePath}/v4/time-filter/fast`,
             requestTimeFilterFast,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -483,16 +602,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeFilterPostcodeDistricts 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeFilterPostcodeDistricts>;
-    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeFilterPostcodeDistricts>>;
-    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeFilterPostcodeDistricts>>;
-    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTimeFilterPostcodeDistricts>;
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTimeFilterPostcodeDistricts>>;
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTimeFilterPostcodeDistricts>>;
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestTimeFilterPostcodeDistricts === null || requestTimeFilterPostcodeDistricts === undefined) {
             throw new Error('Required parameter requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
         }
@@ -500,23 +617,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -527,9 +654,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeFilterPostcodeDistricts>(`${this.configuration.basePath}/v4/time-filter/postcode-districts`,
             requestTimeFilterPostcodeDistricts,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -539,16 +672,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeFilterPostcodeSectors 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeFilterPostcodeSectors>;
-    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeFilterPostcodeSectors>>;
-    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeFilterPostcodeSectors>>;
-    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTimeFilterPostcodeSectors>;
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTimeFilterPostcodeSectors>>;
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTimeFilterPostcodeSectors>>;
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestTimeFilterPostcodeSectors === null || requestTimeFilterPostcodeSectors === undefined) {
             throw new Error('Required parameter requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
         }
@@ -556,23 +687,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -583,9 +724,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeFilterPostcodeSectors>(`${this.configuration.basePath}/v4/time-filter/postcode-sectors`,
             requestTimeFilterPostcodeSectors,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -595,16 +742,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeFilterPostcodes 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeFilterPostcodes>;
-    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeFilterPostcodes>>;
-    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeFilterPostcodes>>;
-    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<ResponseTimeFilterPostcodes>;
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpResponse<ResponseTimeFilterPostcodes>>;
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json'}): Observable<HttpEvent<ResponseTimeFilterPostcodes>>;
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json'}): Observable<any> {
         if (requestTimeFilterPostcodes === null || requestTimeFilterPostcodes === undefined) {
             throw new Error('Required parameter requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
         }
@@ -612,23 +757,33 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -639,9 +794,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeFilterPostcodes>(`${this.configuration.basePath}/v4/time-filter/postcodes`,
             requestTimeFilterPostcodes,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,
@@ -651,16 +812,14 @@ export class DefaultService {
     }
 
     /**
-     * 
-     * 
      * @param requestTimeMap 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'body', reportProgress?: boolean): Observable<ResponseTimeMap>;
-    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ResponseTimeMap>>;
-    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ResponseTimeMap>>;
-    public timeMap(requestTimeMap: RequestTimeMap, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/vnd.wkt+json' | 'application/vnd.wkt-no-holes+json' | 'application/vnd.bounding-boxes+json'}): Observable<ResponseTimeMap>;
+    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/vnd.wkt+json' | 'application/vnd.wkt-no-holes+json' | 'application/vnd.bounding-boxes+json'}): Observable<HttpResponse<ResponseTimeMap>>;
+    public timeMap(requestTimeMap: RequestTimeMap, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json' | 'application/vnd.wkt+json' | 'application/vnd.wkt-no-holes+json' | 'application/vnd.bounding-boxes+json'}): Observable<HttpEvent<ResponseTimeMap>>;
+    public timeMap(requestTimeMap: RequestTimeMap, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json' | 'application/vnd.wkt+json' | 'application/vnd.wkt-no-holes+json' | 'application/vnd.bounding-boxes+json'}): Observable<any> {
         if (requestTimeMap === null || requestTimeMap === undefined) {
             throw new Error('Required parameter requestTimeMap was null or undefined when calling timeMap.');
         }
@@ -668,26 +827,36 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
-        // to determine the Accept header
-        const httpHeaderAccepts: string[] = [
-            'application/json',
-            'application/vnd.wkt+json',
-            'application/vnd.wkt-no-holes+json',
-            'application/vnd.bounding-boxes+json'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (httpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json',
+                'application/vnd.wkt+json',
+                'application/vnd.wkt-no-holes+json',
+                'application/vnd.bounding-boxes+json'
+            ];
+            httpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
         if (httpHeaderAcceptSelected !== undefined) {
             headers = headers.set('Accept', httpHeaderAcceptSelected);
         }
+
 
         // to determine the Content-Type header
         const consumes: string[] = [
@@ -698,9 +867,15 @@ export class DefaultService {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
 
+        let responseType: 'text' | 'json' = 'json';
+        if(httpHeaderAcceptSelected && httpHeaderAcceptSelected.startsWith('text')) {
+            responseType = 'text';
+        }
+
         return this.httpClient.post<ResponseTimeMap>(`${this.configuration.basePath}/v4/time-map`,
             requestTimeMap,
             {
+                responseType: <any>responseType,
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
                 observe: observe,

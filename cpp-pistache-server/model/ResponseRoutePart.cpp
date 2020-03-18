@@ -94,47 +94,47 @@ void from_json(const nlohmann::json& j, ResponseRoutePart& o)
     j.at("distance").get_to(o.m_Distance);
     j.at("travel_time").get_to(o.m_Travel_time);
     j.at("coords").get_to(o.m_Coords);
-    if(j.contains("direction"))
+    if(j.find("direction") != j.end())
     {
         j.at("direction").get_to(o.m_Direction);
         o.m_DirectionIsSet = true;
     } 
-    if(j.contains("road"))
+    if(j.find("road") != j.end())
     {
         j.at("road").get_to(o.m_Road);
         o.m_RoadIsSet = true;
     } 
-    if(j.contains("turn"))
+    if(j.find("turn") != j.end())
     {
         j.at("turn").get_to(o.m_Turn);
         o.m_TurnIsSet = true;
     } 
-    if(j.contains("line"))
+    if(j.find("line") != j.end())
     {
         j.at("line").get_to(o.m_Line);
         o.m_LineIsSet = true;
     } 
-    if(j.contains("departure_station"))
+    if(j.find("departure_station") != j.end())
     {
         j.at("departure_station").get_to(o.m_Departure_station);
         o.m_Departure_stationIsSet = true;
     } 
-    if(j.contains("arrival_station"))
+    if(j.find("arrival_station") != j.end())
     {
         j.at("arrival_station").get_to(o.m_Arrival_station);
         o.m_Arrival_stationIsSet = true;
     } 
-    if(j.contains("departs_at"))
+    if(j.find("departs_at") != j.end())
     {
         j.at("departs_at").get_to(o.m_Departs_at);
         o.m_Departs_atIsSet = true;
     } 
-    if(j.contains("arrives_at"))
+    if(j.find("arrives_at") != j.end())
     {
         j.at("arrives_at").get_to(o.m_Arrives_at);
         o.m_Arrives_atIsSet = true;
     } 
-    if(j.contains("num_stops"))
+    if(j.find("num_stops") != j.end())
     {
         j.at("num_stops").get_to(o.m_Num_stops);
         o.m_Num_stopsIsSet = true;
@@ -148,7 +148,6 @@ std::string ResponseRoutePart::getId() const
 void ResponseRoutePart::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::string ResponseRoutePart::getType() const
 {
@@ -157,7 +156,6 @@ std::string ResponseRoutePart::getType() const
 void ResponseRoutePart::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 ResponseTransportationMode ResponseRoutePart::getMode() const
 {
@@ -166,7 +164,6 @@ ResponseTransportationMode ResponseRoutePart::getMode() const
 void ResponseRoutePart::setMode(ResponseTransportationMode const& value)
 {
     m_Mode = value;
-    
 }
 std::string ResponseRoutePart::getDirections() const
 {
@@ -175,7 +172,6 @@ std::string ResponseRoutePart::getDirections() const
 void ResponseRoutePart::setDirections(std::string const& value)
 {
     m_Directions = value;
-    
 }
 int32_t ResponseRoutePart::getDistance() const
 {
@@ -184,7 +180,6 @@ int32_t ResponseRoutePart::getDistance() const
 void ResponseRoutePart::setDistance(int32_t const value)
 {
     m_Distance = value;
-    
 }
 int32_t ResponseRoutePart::getTravelTime() const
 {
@@ -193,11 +188,14 @@ int32_t ResponseRoutePart::getTravelTime() const
 void ResponseRoutePart::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 std::vector<Coords>& ResponseRoutePart::getCoords()
 {
     return m_Coords;
+}
+void ResponseRoutePart::setCoords(std::vector<Coords> const& value)
+{
+    m_Coords = value;
 }
 std::string ResponseRoutePart::getDirection() const
 {

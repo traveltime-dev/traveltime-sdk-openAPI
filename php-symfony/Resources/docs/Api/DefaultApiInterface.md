@@ -30,7 +30,7 @@ services:
 ```
 
 ## **geocodingReverseSearch**
-> OpenAPI\Server\Model\ResponseGeocoding geocodingReverseSearch($focusLat, $focusLng, $withinCountry)
+> OpenAPI\Server\Model\ResponseGeocoding geocodingReverseSearch($lat, $lng, $withinCountry)
 
 
 
@@ -67,7 +67,7 @@ class DefaultApi implements DefaultApiInterface
     /**
      * Implementation of DefaultApiInterface#geocodingReverseSearch
      */
-    public function geocodingReverseSearch($focusLat, $focusLng, $withinCountry = null)
+    public function geocodingReverseSearch($lat, $lng, $withinCountry = null)
     {
         // Implement the operation ...
     }
@@ -80,8 +80,8 @@ class DefaultApi implements DefaultApiInterface
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **double**|  |
- **focusLng** | **double**|  |
+ **lat** | **double**|  |
+ **lng** | **double**|  |
  **withinCountry** | **string**|  | [optional]
 
 ### Return type
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 ## **geocodingSearch**
-> OpenAPI\Server\Model\ResponseGeocoding geocodingSearch($query, $withinCountry, $focusLat, $focusLng)
+> OpenAPI\Server\Model\ResponseGeocoding geocodingSearch($query, $focusLat, $focusLng, $withinCountry)
 
 
 
@@ -137,7 +137,7 @@ class DefaultApi implements DefaultApiInterface
     /**
      * Implementation of DefaultApiInterface#geocodingSearch
      */
-    public function geocodingSearch($query, $withinCountry = null, $focusLat = null, $focusLng = null)
+    public function geocodingSearch($query, $focusLat = null, $focusLng = null, $withinCountry = null)
     {
         // Implement the operation ...
     }
@@ -151,9 +151,9 @@ class DefaultApi implements DefaultApiInterface
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string**|  |
- **withinCountry** | **string**|  | [optional]
  **focusLat** | **double**|  | [optional]
  **focusLng** | **double**|  | [optional]
+ **withinCountry** | **string**|  | [optional]
 
 ### Return type
 

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseGeocodingProperties: Codable { 
 
-public struct ResponseGeocodingProperties: Codable {
 
     public var name: String
     public var label: String
@@ -66,6 +66,4 @@ public struct ResponseGeocodingProperties: Codable {
         case features
     }
 
-
 }
-

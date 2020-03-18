@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseRoute
+# Org.OpenAPITools.Model.ResponseRoute
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DepartureTime** | **DateTime?** |  | 
-**ArrivalTime** | **DateTime?** |  | 
+**DepartureTime** | **DateTime** |  | 
+**ArrivalTime** | **DateTime** |  | 
 **Parts** | [**List&lt;ResponseRoutePart&gt;**](ResponseRoutePart.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

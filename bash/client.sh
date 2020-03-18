@@ -95,13 +95,13 @@ declare -a result_color_table=( "$WHITE" "$WHITE" "$GREEN" "$YELLOW" "$WHITE" "$
 # 0 - optional
 # 1 - required
 declare -A operation_parameters_minimum_occurrences
-operation_parameters_minimum_occurrences["geocodingReverseSearch:::focus.lat"]=1
-operation_parameters_minimum_occurrences["geocodingReverseSearch:::focus.lng"]=1
+operation_parameters_minimum_occurrences["geocodingReverseSearch:::lat"]=1
+operation_parameters_minimum_occurrences["geocodingReverseSearch:::lng"]=1
 operation_parameters_minimum_occurrences["geocodingReverseSearch:::within.country"]=0
 operation_parameters_minimum_occurrences["geocodingSearch:::query"]=1
-operation_parameters_minimum_occurrences["geocodingSearch:::within.country"]=0
 operation_parameters_minimum_occurrences["geocodingSearch:::focus.lat"]=0
 operation_parameters_minimum_occurrences["geocodingSearch:::focus.lng"]=0
+operation_parameters_minimum_occurrences["geocodingSearch:::within.country"]=0
 operation_parameters_minimum_occurrences["routes:::RequestRoutes"]=1
 operation_parameters_minimum_occurrences["supportedLocations:::RequestSupportedLocations"]=1
 operation_parameters_minimum_occurrences["timeFilter:::RequestTimeFilter"]=1
@@ -118,13 +118,13 @@ operation_parameters_minimum_occurrences["timeMap:::RequestTimeMap"]=1
 # N - N values
 # 0 - unlimited
 declare -A operation_parameters_maximum_occurrences
-operation_parameters_maximum_occurrences["geocodingReverseSearch:::focus.lat"]=0
-operation_parameters_maximum_occurrences["geocodingReverseSearch:::focus.lng"]=0
+operation_parameters_maximum_occurrences["geocodingReverseSearch:::lat"]=0
+operation_parameters_maximum_occurrences["geocodingReverseSearch:::lng"]=0
 operation_parameters_maximum_occurrences["geocodingReverseSearch:::within.country"]=0
 operation_parameters_maximum_occurrences["geocodingSearch:::query"]=0
-operation_parameters_maximum_occurrences["geocodingSearch:::within.country"]=0
 operation_parameters_maximum_occurrences["geocodingSearch:::focus.lat"]=0
 operation_parameters_maximum_occurrences["geocodingSearch:::focus.lng"]=0
+operation_parameters_maximum_occurrences["geocodingSearch:::within.country"]=0
 operation_parameters_maximum_occurrences["routes:::RequestRoutes"]=0
 operation_parameters_maximum_occurrences["supportedLocations:::RequestSupportedLocations"]=0
 operation_parameters_maximum_occurrences["timeFilter:::RequestTimeFilter"]=0
@@ -138,13 +138,13 @@ operation_parameters_maximum_occurrences["timeMap:::RequestTimeMap"]=0
 # The type of collection for specifying multiple values for parameter:
 # - multi, csv, ssv, tsv
 declare -A operation_parameters_collection_type
-operation_parameters_collection_type["geocodingReverseSearch:::focus.lat"]=""
-operation_parameters_collection_type["geocodingReverseSearch:::focus.lng"]=""
+operation_parameters_collection_type["geocodingReverseSearch:::lat"]=""
+operation_parameters_collection_type["geocodingReverseSearch:::lng"]=""
 operation_parameters_collection_type["geocodingReverseSearch:::within.country"]=""
 operation_parameters_collection_type["geocodingSearch:::query"]=""
-operation_parameters_collection_type["geocodingSearch:::within.country"]=""
 operation_parameters_collection_type["geocodingSearch:::focus.lat"]=""
 operation_parameters_collection_type["geocodingSearch:::focus.lng"]=""
+operation_parameters_collection_type["geocodingSearch:::within.country"]=""
 operation_parameters_collection_type["routes:::RequestRoutes"]=""
 operation_parameters_collection_type["supportedLocations:::RequestSupportedLocations"]=""
 operation_parameters_collection_type["timeFilter:::RequestTimeFilter"]=""
@@ -411,18 +411,16 @@ build_request_path() {
 
     local query_request_part=""
 
-    local count=0
     for qparam in "${query_params[@]}"; do
+        if [[ "${operation_parameters[$qparam]}" == "" ]]; then
+            continue
+        fi
+
         # Get the array of parameter values
         local parameter_value=""
         local parameter_values
         mapfile -t parameter_values < <(sed -e 's/'":::"'/\n/g' <<<"${operation_parameters[$qparam]}")
 
-        if [[ -n "${parameter_values[*]}" ]]; then
-            if [[ $((count++)) -gt 0 ]]; then
-                query_request_part+="&"
-            fi
-        fi
 
 
         #
@@ -490,6 +488,9 @@ build_request_path() {
         fi
 
         if [[ -n "${parameter_value}" ]]; then
+            if [[ -n "${query_request_part}" ]]; then
+                query_request_part+="&"
+            fi
             query_request_part+="${parameter_value}"
         fi
 
@@ -626,9 +627,9 @@ print_geocodingReverseSearch_help() {
     echo -e "${BOLD}${WHITE}geocodingReverseSearch - ${OFF}${BLUE}(AUTH - HEADER)${OFF}${BLUE}(AUTH - HEADER)${OFF}" | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e ""
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
-    echo -e "  * ${GREEN}focus.lat${OFF} ${BLUE}[float]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: focus.lat=value${OFF}" \
+    echo -e "  * ${GREEN}lat${OFF} ${BLUE}[float]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: lat=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}focus.lng${OFF} ${BLUE}[float]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: focus.lng=value${OFF}" \
+    echo -e "  * ${GREEN}lng${OFF} ${BLUE}[float]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: lng=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}within.country${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: within.country=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
@@ -651,11 +652,11 @@ print_geocodingSearch_help() {
     echo -e "${BOLD}${WHITE}Parameters${OFF}"
     echo -e "  * ${GREEN}query${OFF} ${BLUE}[string]${OFF} ${RED}(required)${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: query=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
-    echo -e "  * ${GREEN}within.country${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: within.country=value${OFF}" \
-        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}focus.lat${OFF} ${BLUE}[float]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: focus.lat=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo -e "  * ${GREEN}focus.lng${OFF} ${BLUE}[float]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: focus.lng=value${OFF}" \
+        | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
+    echo -e "  * ${GREEN}within.country${OFF} ${BLUE}[string]${OFF} ${CYAN}(default: null)${OFF} - ${YELLOW} Specify as: within.country=value${OFF}" \
         | paste -sd' ' | fold -sw 80 | sed '2,$s/^/    /'
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
@@ -845,7 +846,7 @@ call_geocodingReverseSearch() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(focus.lat focus.lng within.country    )
+    local query_parameter_names=(lat lng within.country    )
     local path
 
     if ! path=$(build_request_path "/v4/geocoding/reverse" path_parameter_names query_parameter_names); then
@@ -881,7 +882,7 @@ call_geocodingSearch() {
     local path_parameter_names=()
     # ignore error about 'query_parameter_names' being unused; passed by reference
     # shellcheck disable=SC2034
-    local query_parameter_names=(query within.country focus.lat focus.lng    )
+    local query_parameter_names=(query focus.lat focus.lng within.country    )
     local path
 
     if ! path=$(build_request_path "/v4/geocoding/search" path_parameter_names query_parameter_names); then

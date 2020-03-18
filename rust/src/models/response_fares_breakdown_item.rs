@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFaresBreakdownItem {
     #[serde(rename = "modes")]
-    pub modes: Vec<::models::ResponseTransportationMode>,
+    pub modes: Vec<crate::models::ResponseTransportationMode>,
     #[serde(rename = "route_part_ids")]
     pub route_part_ids: Vec<i32>,
     #[serde(rename = "tickets")]
-    pub tickets: Vec<::models::ResponseFareTicket>,
+    pub tickets: Vec<crate::models::ResponseFareTicket>,
 }
 
 impl ResponseFaresBreakdownItem {
-    pub fn new(modes: Vec<::models::ResponseTransportationMode>, route_part_ids: Vec<i32>, tickets: Vec<::models::ResponseFareTicket>) -> ResponseFaresBreakdownItem {
+    pub fn new(modes: Vec<crate::models::ResponseTransportationMode>, route_part_ids: Vec<i32>, tickets: Vec<crate::models::ResponseFareTicket>) -> ResponseFaresBreakdownItem {
         ResponseFaresBreakdownItem {
-            modes: modes,
-            route_part_ids: route_part_ids,
-            tickets: tickets,
+            modes,
+            route_part_ids,
+            tickets,
         }
     }
 }
+
+

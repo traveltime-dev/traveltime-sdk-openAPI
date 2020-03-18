@@ -138,7 +138,7 @@ class ResponseRoutesProperties
      *
      * @return OpenAPI\Server\Model\ResponseFares|null
      */
-    public function getFares()
+    public function getFares(): ?ResponseFares
     {
         return $this->fares;
     }
@@ -150,7 +150,7 @@ class ResponseRoutesProperties
      *
      * @return $this
      */
-    public function setFares(ResponseFares $fares = null)
+    public function setFares(ResponseFares $fares = null): ?ResponseFares
     {
         $this->fares = $fares;
 
@@ -162,7 +162,7 @@ class ResponseRoutesProperties
      *
      * @return OpenAPI\Server\Model\ResponseRoute|null
      */
-    public function getRoute()
+    public function getRoute(): ?ResponseRoute
     {
         return $this->route;
     }
@@ -174,7 +174,7 @@ class ResponseRoutesProperties
      *
      * @return $this
      */
-    public function setRoute(ResponseRoute $route = null)
+    public function setRoute(ResponseRoute $route = null): ?ResponseRoute
     {
         $this->route = $route;
 

@@ -21,61 +21,56 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseFareTicket.h"
 #include "OAIResponseTransportationMode.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseFaresBreakdownItem: public OAIObject {
+class OAIResponseFaresBreakdownItem : public OAIObject {
 public:
     OAIResponseFaresBreakdownItem();
     OAIResponseFaresBreakdownItem(QString json);
     ~OAIResponseFaresBreakdownItem() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseTransportationMode> getModes() const;
     void setModes(const QList<OAIResponseTransportationMode> &modes);
 
-    
     QList<qint32> getRoutePartIds() const;
     void setRoutePartIds(const QList<qint32> &route_part_ids);
 
-    
     QList<OAIResponseFareTicket> getTickets() const;
     void setTickets(const QList<OAIResponseFareTicket> &tickets);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseTransportationMode> modes;
     bool m_modes_isSet;
     bool m_modes_isValid;
-    
+
     QList<qint32> route_part_ids;
     bool m_route_part_ids_isSet;
     bool m_route_part_ids_isValid;
-    
+
     QList<OAIResponseFareTicket> tickets;
     bool m_tickets_isSet;
     bool m_tickets_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseFaresBreakdownItem)
 
 #endif // OAIResponseFaresBreakdownItem_H

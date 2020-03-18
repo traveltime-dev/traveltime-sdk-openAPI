@@ -13,8 +13,8 @@
 import * as models from './models';
 
 export interface ResponseTimeMapBoundingBoxesResult {
-    "searchId": string;
-    "boundingBoxes": Array<models.ResponseBoundingBox>;
+    "search_id": string;
+    "bounding_boxes": Array<models.ResponseBoundingBox>;
     "properties": models.ResponseTimeMapProperties;
 }
 

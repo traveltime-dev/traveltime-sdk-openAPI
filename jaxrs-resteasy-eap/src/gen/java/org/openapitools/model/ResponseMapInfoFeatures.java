@@ -10,11 +10,11 @@ import org.openapitools.model.ResponseMapInfoFeaturesPublicTransport;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
 public class ResponseMapInfoFeatures   {
   
 
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   private Boolean fares;
 

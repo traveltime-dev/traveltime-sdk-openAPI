@@ -17,33 +17,28 @@
  */
 export interface ResponseError {
     /**
-     * 
      * @type {number}
      * @memberof ResponseError
      */
-    httpStatus?: number;
+    http_status?: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseError
      */
-    errorCode?: number;
+    error_code?: number;
     /**
-     * 
      * @type {string}
      * @memberof ResponseError
      */
     description?: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseError
      */
-    documentationLink?: string;
+    documentation_link?: string;
     /**
-     * 
      * @type {{ [key: string]: Array<string>; }}
      * @memberof ResponseError
      */
-    additionalInfo?: { [key: string]: Array<string>; };
+    additional_info?: { [key: string]: Array<string>; };
 }

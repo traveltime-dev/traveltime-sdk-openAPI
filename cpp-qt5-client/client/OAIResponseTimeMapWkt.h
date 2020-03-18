@@ -21,44 +21,41 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTimeMapWktResult.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeMapWkt: public OAIObject {
+class OAIResponseTimeMapWkt : public OAIObject {
 public:
     OAIResponseTimeMapWkt();
     OAIResponseTimeMapWkt(QString json);
     ~OAIResponseTimeMapWkt() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseTimeMapWktResult> getResults() const;
     void setResults(const QList<OAIResponseTimeMapWktResult> &results);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseTimeMapWktResult> results;
     bool m_results_isSet;
     bool m_results_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapWkt)
 
 #endif // OAIResponseTimeMapWkt_H

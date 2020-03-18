@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterFastProperties: Codable { 
 
-public struct ResponseTimeFilterFastProperties: Codable {
 
     public var travelTime: Int?
     public var fares: ResponseFaresFast?
@@ -24,6 +24,4 @@ public struct ResponseTimeFilterFastProperties: Codable {
         case fares
     }
 
-
 }
-

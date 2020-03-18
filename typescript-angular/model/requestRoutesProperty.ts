@@ -19,3 +19,4 @@ export const RequestRoutesProperty = {
     Fares: 'fares' as RequestRoutesProperty,
     Route: 'route' as RequestRoutesProperty
 };
+

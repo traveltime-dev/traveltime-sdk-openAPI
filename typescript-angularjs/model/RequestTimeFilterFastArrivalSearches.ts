@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface RequestTimeFilterFastArrivalSearches {
-    "manyToOne"?: Array<models.RequestTimeFilterFastArrivalManyToOneSearch>;
-    "oneToMany"?: Array<models.RequestTimeFilterFastArrivalOneToManySearch>;
+    "many_to_one"?: Array<models.RequestTimeFilterFastArrivalManyToOneSearch>;
+    "one_to_many"?: Array<models.RequestTimeFilterFastArrivalOneToManySearch>;
 }
 

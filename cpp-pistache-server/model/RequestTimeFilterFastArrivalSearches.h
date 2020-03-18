@@ -47,12 +47,14 @@ public:
     /// 
     /// </summary>
     std::vector<RequestTimeFilterFastArrivalManyToOneSearch>& getManyToOne();
+    void setManyToOne(std::vector<RequestTimeFilterFastArrivalManyToOneSearch> const& value);
     bool manyToOneIsSet() const;
     void unsetMany_to_one();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterFastArrivalOneToManySearch>& getOneToMany();
+    void setOneToMany(std::vector<RequestTimeFilterFastArrivalOneToManySearch> const& value);
     bool oneToManyIsSet() const;
     void unsetOne_to_many();
 

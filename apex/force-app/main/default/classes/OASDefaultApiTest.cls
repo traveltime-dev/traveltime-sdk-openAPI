@@ -13,8 +13,8 @@ private class OASDefaultApiTest {
         Test.setMock(HttpCalloutMock.class, new OASResponseMock(res));
 
         Map<String, Object> params = new Map<String, Object>{
-            'focusLat' => '',
-            'focusLng' => '',
+            'lat' => '',
+            'lng' => '',
             'withinCountry' => 'null'
         };
 
@@ -62,9 +62,9 @@ private class OASDefaultApiTest {
 
         Map<String, Object> params = new Map<String, Object>{
             'query' => 'null',
-            'withinCountry' => 'null',
             'focusLat' => '',
-            'focusLng' => ''
+            'focusLng' => '',
+            'withinCountry' => 'null'
         };
 
         OASClient client;

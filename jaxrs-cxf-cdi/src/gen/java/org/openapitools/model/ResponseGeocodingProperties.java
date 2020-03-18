@@ -46,7 +46,7 @@ public class ResponseGeocodingProperties   {
 
   private String postcode;
 
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
 
   /**

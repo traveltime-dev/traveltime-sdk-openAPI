@@ -37,20 +37,20 @@ void RequestTimeFilterPostcodes::validate()
 void to_json(nlohmann::json& j, const RequestTimeFilterPostcodes& o)
 {
     j = nlohmann::json();
-    if(o.departureSearchesIsSet())
+    if(o.departureSearchesIsSet() || !o.m_Departure_searches.empty())
         j["departure_searches"] = o.m_Departure_searches;
-    if(o.arrivalSearchesIsSet())
+    if(o.arrivalSearchesIsSet() || !o.m_Arrival_searches.empty())
         j["arrival_searches"] = o.m_Arrival_searches;
 }
 
 void from_json(const nlohmann::json& j, RequestTimeFilterPostcodes& o)
 {
-    if(j.contains("departure_searches"))
+    if(j.find("departure_searches") != j.end())
     {
         j.at("departure_searches").get_to(o.m_Departure_searches);
         o.m_Departure_searchesIsSet = true;
     } 
-    if(j.contains("arrival_searches"))
+    if(j.find("arrival_searches") != j.end())
     {
         j.at("arrival_searches").get_to(o.m_Arrival_searches);
         o.m_Arrival_searchesIsSet = true;
@@ -60,6 +60,11 @@ void from_json(const nlohmann::json& j, RequestTimeFilterPostcodes& o)
 std::vector<RequestTimeFilterPostcodesDepartureSearch>& RequestTimeFilterPostcodes::getDepartureSearches()
 {
     return m_Departure_searches;
+}
+void RequestTimeFilterPostcodes::setDepartureSearches(std::vector<RequestTimeFilterPostcodesDepartureSearch> const& value)
+{
+    m_Departure_searches = value;
+    m_Departure_searchesIsSet = true;
 }
 bool RequestTimeFilterPostcodes::departureSearchesIsSet() const
 {
@@ -72,6 +77,11 @@ void RequestTimeFilterPostcodes::unsetDeparture_searches()
 std::vector<RequestTimeFilterPostcodesArrivalSearch>& RequestTimeFilterPostcodes::getArrivalSearches()
 {
     return m_Arrival_searches;
+}
+void RequestTimeFilterPostcodes::setArrivalSearches(std::vector<RequestTimeFilterPostcodesArrivalSearch> const& value)
+{
+    m_Arrival_searches = value;
+    m_Arrival_searchesIsSet = true;
 }
 bool RequestTimeFilterPostcodes::arrivalSearchesIsSet() const
 {

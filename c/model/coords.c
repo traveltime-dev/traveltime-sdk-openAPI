@@ -9,26 +9,26 @@ coords_t *coords_create(
     double lat,
     double lng
     ) {
-	coords_t *coords_local_var = malloc(sizeof(coords_t));
+    coords_t *coords_local_var = malloc(sizeof(coords_t));
     if (!coords_local_var) {
         return NULL;
     }
-	coords_local_var->lat = lat;
-	coords_local_var->lng = lng;
+    coords_local_var->lat = lat;
+    coords_local_var->lng = lng;
 
-	return coords_local_var;
+    return coords_local_var;
 }
 
 
 void coords_free(coords_t *coords) {
     listEntry_t *listEntry;
-	free(coords);
+    free(coords);
 }
 
 cJSON *coords_convertToJSON(coords_t *coords) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// coords->lat
+    // coords->lat
     if (!coords->lat) {
         goto fail;
     }
@@ -38,7 +38,7 @@ cJSON *coords_convertToJSON(coords_t *coords) {
     }
 
 
-	// coords->lng
+    // coords->lng
     if (!coords->lng) {
         goto fail;
     }
@@ -47,12 +47,12 @@ cJSON *coords_convertToJSON(coords_t *coords) {
     goto fail; //Numeric
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 coords_t *coords_parseFromJSON(cJSON *coordsJSON){

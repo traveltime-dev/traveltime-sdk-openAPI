@@ -7,6 +7,9 @@ import argonaut.DecodeJson._
 import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
+
+import java.time.OffsetDateTime
+
 import RequestTimeFilterArrivalSearch._
 
 case class RequestTimeFilterArrivalSearch (
@@ -15,7 +18,7 @@ departureLocationIds: List[String],
 arrivalLocationId: String,
 transportation: RequestTransportation,
 travelTime: Integer,
-arrivalTime: DateTime,
+arrivalTime: OffsetDateTime,
 properties: List[RequestTimeFilterProperty],
 range: Option[RequestRangeFull])
 

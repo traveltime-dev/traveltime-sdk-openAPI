@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class RequestTimeFilterFastProperty {
   /// The underlying value of this enum member.
   final String value;
@@ -9,16 +8,18 @@ class RequestTimeFilterFastProperty {
 
   static const RequestTimeFilterFastProperty travelTime_ = const RequestTimeFilterFastProperty._internal("travel_time");
   static const RequestTimeFilterFastProperty fares_ = const RequestTimeFilterFastProperty._internal("fares");
+
+  static RequestTimeFilterFastProperty fromJson(String value) {
+    return new RequestTimeFilterFastPropertyTypeTransformer().decode(value);
+  }
 }
 
-class RequestTimeFilterFastPropertyTypeTransformer extends TypeTransformer<RequestTimeFilterFastProperty> {
+class RequestTimeFilterFastPropertyTypeTransformer {
 
-  @override
   dynamic encode(RequestTimeFilterFastProperty data) {
     return data.value;
   }
 
-  @override
   RequestTimeFilterFastProperty decode(dynamic data) {
     switch (data) {
       case "travel_time": return RequestTimeFilterFastProperty.travelTime_;

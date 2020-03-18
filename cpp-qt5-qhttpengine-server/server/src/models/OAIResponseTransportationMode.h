@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTransportationMode: public OAIEnum {
@@ -61,7 +62,7 @@ public:
 
     OAIResponseTransportationMode::eOAIResponseTransportationMode getValue() const;
     void setValue(const OAIResponseTransportationMode::eOAIResponseTransportationMode& value);
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -74,5 +75,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTransportationMode)
 
 #endif // OAIResponseTransportationMode_H

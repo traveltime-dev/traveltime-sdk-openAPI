@@ -4,10 +4,10 @@ function New-ResponseTransportationMode {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTransportationMode' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTransportationMode' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTransportationMode -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTransportationMode -ArgumentList @(
         )
     }
 }

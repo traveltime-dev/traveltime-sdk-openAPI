@@ -11,7 +11,7 @@
 -}
 
 
-module Data.Coords exposing (Coords, decoder, encode)
+module Data.Coords exposing (Coords, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -34,11 +34,27 @@ decoder =
 
 
 encode : Coords -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "lat", Encode.float model.lat )
-        , ( "lng", Encode.float model.lng )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> Coords -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : Coords -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "lat", Encode.float model.lat )
+    , ( "lng", Encode.float model.lng )
+    ]
+
+
+
+toString : Coords -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

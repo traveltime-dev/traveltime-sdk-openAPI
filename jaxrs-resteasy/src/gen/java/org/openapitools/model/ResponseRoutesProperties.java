@@ -11,13 +11,13 @@ import org.openapitools.model.ResponseRoute;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2019-05-24T09:07:07.467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T08:51:06.736Z[Etc/UTC]")
 public class ResponseRoutesProperties   {
   
   private Integer travelTime;
   private Integer distance;
-  private ResponseFares fares = null;
-  private ResponseRoute route = null;
+  private ResponseFares fares;
+  private ResponseRoute route;
 
   /**
    **/

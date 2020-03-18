@@ -10,143 +10,128 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilter.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilter::OAIRequestTimeFilter(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilter::OAIRequestTimeFilter() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilter::~OAIRequestTimeFilter() {
+OAIRequestTimeFilter::~OAIRequestTimeFilter() {}
 
-}
+void OAIRequestTimeFilter::initializeModel() {
 
-void
-OAIRequestTimeFilter::init() {
-    
     m_locations_isSet = false;
     m_locations_isValid = false;
-    
+
     m_departure_searches_isSet = false;
     m_departure_searches_isValid = false;
-    
+
     m_arrival_searches_isSet = false;
     m_arrival_searches_isValid = false;
-    }
+}
 
-void
-OAIRequestTimeFilter::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestTimeFilter::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestTimeFilter::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIRequestTimeFilter::fromJsonObject(QJsonObject json) {
+
     m_locations_isValid = ::OpenAPI::fromJsonValue(locations, json[QString("locations")]);
-    
-    
+    m_locations_isSet = !json[QString("locations")].isNull() && m_locations_isValid;
+
     m_departure_searches_isValid = ::OpenAPI::fromJsonValue(departure_searches, json[QString("departure_searches")]);
-    
-    
+    m_departure_searches_isSet = !json[QString("departure_searches")].isNull() && m_departure_searches_isValid;
+
     m_arrival_searches_isValid = ::OpenAPI::fromJsonValue(arrival_searches, json[QString("arrival_searches")]);
-    
+    m_arrival_searches_isSet = !json[QString("arrival_searches")].isNull() && m_arrival_searches_isValid;
 }
 
-QString
-OAIRequestTimeFilter::asJson () const {
+QString OAIRequestTimeFilter::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestTimeFilter::asJsonObject() const {
+QJsonObject OAIRequestTimeFilter::asJsonObject() const {
     QJsonObject obj;
-	
-    if(locations.size() > 0){
+    if (locations.size() > 0) {
         obj.insert(QString("locations"), ::OpenAPI::toJsonValue(locations));
-    } 
-	
-    if(departure_searches.size() > 0){
+    }
+    if (departure_searches.size() > 0) {
         obj.insert(QString("departure_searches"), ::OpenAPI::toJsonValue(departure_searches));
-    } 
-	
-    if(arrival_searches.size() > 0){
+    }
+    if (arrival_searches.size() > 0) {
         obj.insert(QString("arrival_searches"), ::OpenAPI::toJsonValue(arrival_searches));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIRequestLocation>
-OAIRequestTimeFilter::getLocations() const {
+QList<OAIRequestLocation> OAIRequestTimeFilter::getLocations() const {
     return locations;
 }
-void
-OAIRequestTimeFilter::setLocations(const QList<OAIRequestLocation> &locations) {
+void OAIRequestTimeFilter::setLocations(const QList<OAIRequestLocation> &locations) {
     this->locations = locations;
     this->m_locations_isSet = true;
 }
 
-
-QList<OAIRequestTimeFilterDepartureSearch>
-OAIRequestTimeFilter::getDepartureSearches() const {
+QList<OAIRequestTimeFilterDepartureSearch> OAIRequestTimeFilter::getDepartureSearches() const {
     return departure_searches;
 }
-void
-OAIRequestTimeFilter::setDepartureSearches(const QList<OAIRequestTimeFilterDepartureSearch> &departure_searches) {
+void OAIRequestTimeFilter::setDepartureSearches(const QList<OAIRequestTimeFilterDepartureSearch> &departure_searches) {
     this->departure_searches = departure_searches;
     this->m_departure_searches_isSet = true;
 }
 
-
-QList<OAIRequestTimeFilterArrivalSearch>
-OAIRequestTimeFilter::getArrivalSearches() const {
+QList<OAIRequestTimeFilterArrivalSearch> OAIRequestTimeFilter::getArrivalSearches() const {
     return arrival_searches;
 }
-void
-OAIRequestTimeFilter::setArrivalSearches(const QList<OAIRequestTimeFilterArrivalSearch> &arrival_searches) {
+void OAIRequestTimeFilter::setArrivalSearches(const QList<OAIRequestTimeFilterArrivalSearch> &arrival_searches) {
     this->arrival_searches = arrival_searches;
     this->m_arrival_searches_isSet = true;
 }
 
-bool
-OAIRequestTimeFilter::isSet() const {
+bool OAIRequestTimeFilter::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(locations.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(departure_searches.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(arrival_searches.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (locations.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (departure_searches.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (arrival_searches.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestTimeFilter::isValid() const {
+bool OAIRequestTimeFilter::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_locations_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

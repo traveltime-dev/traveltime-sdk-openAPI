@@ -53,7 +53,6 @@ std::string RequestLocation::getId() const
 void RequestLocation::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 Coords RequestLocation::getCoords() const
 {
@@ -62,7 +61,6 @@ Coords RequestLocation::getCoords() const
 void RequestLocation::setCoords(Coords const& value)
 {
     m_Coords = value;
-    
 }
 
 }

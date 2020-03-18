@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseFaresBreakdownItem exposing (ResponseFaresBreakdownItem, decoder, encode)
+module Data.ResponseFaresBreakdownItem exposing (ResponseFaresBreakdownItem, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTransportationMode as ResponseTransportationMode exposing (ResponseTransportationMode)
 import Data.ResponseFareTicket as ResponseFareTicket exposing (ResponseFareTicket)
@@ -38,12 +38,28 @@ decoder =
 
 
 encode : ResponseFaresBreakdownItem -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "modes", (Encode.list ResponseTransportationMode.encode) model.modes )
-        , ( "route_part_ids", (Encode.list Encode.int) model.routePartIds )
-        , ( "tickets", (Encode.list ResponseFareTicket.encode) model.tickets )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseFaresBreakdownItem -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseFaresBreakdownItem -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "modes", (Encode.list ResponseTransportationMode.encode) model.modes )
+    , ( "route_part_ids", (Encode.list Encode.int) model.routePartIds )
+    , ( "tickets", (Encode.list ResponseFareTicket.encode) model.tickets )
+    ]
+
+
+
+toString : ResponseFaresBreakdownItem -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

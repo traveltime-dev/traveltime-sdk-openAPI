@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## geocoding_reverse_search
 
-> ResponseGeocoding geocoding_reverse_search(focus_lat, focus_lng, opts)
+> ResponseGeocoding geocoding_reverse_search(lat, lng, opts)
 
 
 
@@ -43,14 +43,14 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::DefaultApi.new
-focus_lat = 3.4 # Float | 
-focus_lng = 3.4 # Float | 
+lat = 3.4 # Float | 
+lng = 3.4 # Float | 
 opts = {
   within_country: 'within_country_example' # String | 
 }
 
 begin
-  result = api_instance.geocoding_reverse_search(focus_lat, focus_lng, opts)
+  result = api_instance.geocoding_reverse_search(lat, lng, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling DefaultApi->geocoding_reverse_search: #{e}"
@@ -62,8 +62,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus_lat** | **Float**|  | 
- **focus_lng** | **Float**|  | 
+ **lat** | **Float**|  | 
+ **lng** | **Float**|  | 
  **within_country** | **String**|  | [optional] 
 
 ### Return type
@@ -107,9 +107,9 @@ end
 api_instance = OpenapiClient::DefaultApi.new
 query = 'query_example' # String | 
 opts = {
-  within_country: 'within_country_example', # String | 
   focus_lat: 3.4, # Float | 
-  focus_lng: 3.4 # Float | 
+  focus_lng: 3.4, # Float | 
+  within_country: 'within_country_example' # String | 
 }
 
 begin
@@ -126,9 +126,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | 
- **within_country** | **String**|  | [optional] 
  **focus_lat** | **Float**|  | [optional] 
  **focus_lng** | **Float**|  | [optional] 
+ **within_country** | **String**|  | [optional] 
 
 ### Return type
 

@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTimeFilterFastLocation: public OAIObject {
@@ -51,7 +52,7 @@ public:
     void setProperties(const QList<OAIResponseTimeFilterFastProperties> &properties);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -69,5 +70,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterFastLocation)
 
 #endif // OAIResponseTimeFilterFastLocation_H

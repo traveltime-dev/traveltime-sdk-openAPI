@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeMapWktResult {
-    "searchId": string;
+    "search_id": string;
     "shape": string;
     "properties": models.ResponseTimeMapProperties;
 }

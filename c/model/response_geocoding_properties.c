@@ -23,28 +23,28 @@ response_geocoding_properties_t *response_geocoding_properties_create(
     char *postcode,
     response_map_info_features_t *features
     ) {
-	response_geocoding_properties_t *response_geocoding_properties_local_var = malloc(sizeof(response_geocoding_properties_t));
+    response_geocoding_properties_t *response_geocoding_properties_local_var = malloc(sizeof(response_geocoding_properties_t));
     if (!response_geocoding_properties_local_var) {
         return NULL;
     }
-	response_geocoding_properties_local_var->name = name;
-	response_geocoding_properties_local_var->label = label;
-	response_geocoding_properties_local_var->score = score;
-	response_geocoding_properties_local_var->house_number = house_number;
-	response_geocoding_properties_local_var->street = street;
-	response_geocoding_properties_local_var->region = region;
-	response_geocoding_properties_local_var->region_code = region_code;
-	response_geocoding_properties_local_var->neighbourhood = neighbourhood;
-	response_geocoding_properties_local_var->county = county;
-	response_geocoding_properties_local_var->macroregion = macroregion;
-	response_geocoding_properties_local_var->city = city;
-	response_geocoding_properties_local_var->country = country;
-	response_geocoding_properties_local_var->country_code = country_code;
-	response_geocoding_properties_local_var->continent = continent;
-	response_geocoding_properties_local_var->postcode = postcode;
-	response_geocoding_properties_local_var->features = features;
+    response_geocoding_properties_local_var->name = name;
+    response_geocoding_properties_local_var->label = label;
+    response_geocoding_properties_local_var->score = score;
+    response_geocoding_properties_local_var->house_number = house_number;
+    response_geocoding_properties_local_var->street = street;
+    response_geocoding_properties_local_var->region = region;
+    response_geocoding_properties_local_var->region_code = region_code;
+    response_geocoding_properties_local_var->neighbourhood = neighbourhood;
+    response_geocoding_properties_local_var->county = county;
+    response_geocoding_properties_local_var->macroregion = macroregion;
+    response_geocoding_properties_local_var->city = city;
+    response_geocoding_properties_local_var->country = country;
+    response_geocoding_properties_local_var->country_code = country_code;
+    response_geocoding_properties_local_var->continent = continent;
+    response_geocoding_properties_local_var->postcode = postcode;
+    response_geocoding_properties_local_var->features = features;
 
-	return response_geocoding_properties_local_var;
+    return response_geocoding_properties_local_var;
 }
 
 
@@ -65,13 +65,13 @@ void response_geocoding_properties_free(response_geocoding_properties_t *respons
     free(response_geocoding_properties->continent);
     free(response_geocoding_properties->postcode);
     response_map_info_features_free(response_geocoding_properties->features);
-	free(response_geocoding_properties);
+    free(response_geocoding_properties);
 }
 
 cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties_t *response_geocoding_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_geocoding_properties->name
+    // response_geocoding_properties->name
     if (!response_geocoding_properties->name) {
         goto fail;
     }
@@ -81,7 +81,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
     }
 
 
-	// response_geocoding_properties->label
+    // response_geocoding_properties->label
     if (!response_geocoding_properties->label) {
         goto fail;
     }
@@ -91,7 +91,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
     }
 
 
-	// response_geocoding_properties->score
+    // response_geocoding_properties->score
     if(response_geocoding_properties->score) { 
     if(cJSON_AddNumberToObject(item, "score", response_geocoding_properties->score) == NULL) {
     goto fail; //Numeric
@@ -99,7 +99,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->house_number
+    // response_geocoding_properties->house_number
     if(response_geocoding_properties->house_number) { 
     if(cJSON_AddStringToObject(item, "house_number", response_geocoding_properties->house_number) == NULL) {
     goto fail; //String
@@ -107,7 +107,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->street
+    // response_geocoding_properties->street
     if(response_geocoding_properties->street) { 
     if(cJSON_AddStringToObject(item, "street", response_geocoding_properties->street) == NULL) {
     goto fail; //String
@@ -115,7 +115,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->region
+    // response_geocoding_properties->region
     if(response_geocoding_properties->region) { 
     if(cJSON_AddStringToObject(item, "region", response_geocoding_properties->region) == NULL) {
     goto fail; //String
@@ -123,7 +123,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->region_code
+    // response_geocoding_properties->region_code
     if(response_geocoding_properties->region_code) { 
     if(cJSON_AddStringToObject(item, "region_code", response_geocoding_properties->region_code) == NULL) {
     goto fail; //String
@@ -131,7 +131,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->neighbourhood
+    // response_geocoding_properties->neighbourhood
     if(response_geocoding_properties->neighbourhood) { 
     if(cJSON_AddStringToObject(item, "neighbourhood", response_geocoding_properties->neighbourhood) == NULL) {
     goto fail; //String
@@ -139,7 +139,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->county
+    // response_geocoding_properties->county
     if(response_geocoding_properties->county) { 
     if(cJSON_AddStringToObject(item, "county", response_geocoding_properties->county) == NULL) {
     goto fail; //String
@@ -147,7 +147,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->macroregion
+    // response_geocoding_properties->macroregion
     if(response_geocoding_properties->macroregion) { 
     if(cJSON_AddStringToObject(item, "macroregion", response_geocoding_properties->macroregion) == NULL) {
     goto fail; //String
@@ -155,7 +155,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->city
+    // response_geocoding_properties->city
     if(response_geocoding_properties->city) { 
     if(cJSON_AddStringToObject(item, "city", response_geocoding_properties->city) == NULL) {
     goto fail; //String
@@ -163,7 +163,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->country
+    // response_geocoding_properties->country
     if(response_geocoding_properties->country) { 
     if(cJSON_AddStringToObject(item, "country", response_geocoding_properties->country) == NULL) {
     goto fail; //String
@@ -171,7 +171,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->country_code
+    // response_geocoding_properties->country_code
     if(response_geocoding_properties->country_code) { 
     if(cJSON_AddStringToObject(item, "country_code", response_geocoding_properties->country_code) == NULL) {
     goto fail; //String
@@ -179,7 +179,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->continent
+    // response_geocoding_properties->continent
     if(response_geocoding_properties->continent) { 
     if(cJSON_AddStringToObject(item, "continent", response_geocoding_properties->continent) == NULL) {
     goto fail; //String
@@ -187,7 +187,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->postcode
+    // response_geocoding_properties->postcode
     if(response_geocoding_properties->postcode) { 
     if(cJSON_AddStringToObject(item, "postcode", response_geocoding_properties->postcode) == NULL) {
     goto fail; //String
@@ -195,7 +195,7 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
      } 
 
 
-	// response_geocoding_properties->features
+    // response_geocoding_properties->features
     if(response_geocoding_properties->features) { 
     cJSON *features_local_JSON = response_map_info_features_convertToJSON(response_geocoding_properties->features);
     if(features_local_JSON == NULL) {
@@ -207,12 +207,12 @@ cJSON *response_geocoding_properties_convertToJSON(response_geocoding_properties
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_geocoding_properties_t *response_geocoding_properties_parseFromJSON(cJSON *response_geocoding_propertiesJSON){

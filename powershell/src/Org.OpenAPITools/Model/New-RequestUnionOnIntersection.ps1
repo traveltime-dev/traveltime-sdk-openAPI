@@ -10,10 +10,10 @@ function New-RequestUnionOnIntersection {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestUnionOnIntersection' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestUnionOnIntersection' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestUnionOnIntersection -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestUnionOnIntersection -ArgumentList @(
             ${id},
             ${searchUnderscoreids}
         )

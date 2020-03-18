@@ -13,12 +13,12 @@
 
 #include "OAIResponseTransportationMode.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,63 +45,63 @@ OAIResponseTransportationMode::init() {
 
 void
 OAIResponseTransportationMode::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("car", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::CAR;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("parking", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::PARKING;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("boarding", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::BOARDING;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("walk", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::WALK;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("bike", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::BIKE;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("train", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::TRAIN;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("rail_national", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::RAIL_NATIONAL;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("rail_overground", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::RAIL_OVERGROUND;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("rail_underground", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::RAIL_UNDERGROUND;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("rail_dlr", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::RAIL_DLR;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("bus", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::BUS;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("cable_car", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::CABLE_CAR;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("plane", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::PLANE;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("ferry", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::FERRY;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("coach", Qt::CaseInsensitive) == 0) {
         m_value = eOAIResponseTransportationMode::COACH;
         m_value_isValid = true;
@@ -163,7 +163,7 @@ OAIResponseTransportationMode::asJson () const {
             break;
         case eOAIResponseTransportationMode::COACH:
             val = "coach";
-            break; 
+            break;
         default:
             break;
     }

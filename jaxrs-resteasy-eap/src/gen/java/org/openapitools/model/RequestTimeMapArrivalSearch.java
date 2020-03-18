@@ -16,15 +16,15 @@ import org.openapitools.model.RequestTransportation;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
 public class RequestTimeMapArrivalSearch   {
   
 
   private String id;
 
-  private Coords coords = null;
+  private Coords coords;
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Integer travelTime;
 
@@ -32,7 +32,7 @@ public class RequestTimeMapArrivalSearch   {
 
   private List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
 
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
 
   /**
    **/

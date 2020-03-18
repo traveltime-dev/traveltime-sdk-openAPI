@@ -30,17 +30,19 @@ import org.openapitools.client.model.ResponseBox;
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseBoundingBox {
   public static final String SERIALIZED_NAME_ENVELOPE = "envelope";
   @SerializedName(SERIALIZED_NAME_ENVELOPE)
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   public static final String SERIALIZED_NAME_BOXES = "boxes";
   @SerializedName(SERIALIZED_NAME_BOXES)
   private List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 
+
   public ResponseBoundingBox envelope(ResponseBox envelope) {
+    
     this.envelope = envelope;
     return this;
   }
@@ -50,15 +52,19 @@ public class ResponseBoundingBox {
    * @return envelope
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseBox getEnvelope() {
     return envelope;
   }
+
 
   public void setEnvelope(ResponseBox envelope) {
     this.envelope = envelope;
   }
 
+
   public ResponseBoundingBox boxes(List<ResponseBox> boxes) {
+    
     this.boxes = boxes;
     return this;
   }
@@ -73,9 +79,11 @@ public class ResponseBoundingBox {
    * @return boxes
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseBox> getBoxes() {
     return boxes;
   }
+
 
   public void setBoxes(List<ResponseBox> boxes) {
     this.boxes = boxes;

@@ -1,0 +1,51 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilter"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilter"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestLocation = openapi_server.resourceTypes.RequestLocation
+  RequestTimeFilterArrivalSearch = openapi_server.resourceTypes.RequestTimeFilterArrivalSearch
+  RequestTimeFilterDepartureSearch = openapi_server.resourceTypes.RequestTimeFilterDepartureSearch
+}
+resourceTypes {
+
+  RequestTimeFilter {
+    title = RequestTimeFilter
+    description = RequestTimeFilter
+    derivedFrom = Root
+    properties {
+        locations {
+          type = array
+          items.type = RequestLocation
+          description = ""
+          optional = true
+        }
+        departure_searches {
+          type = array
+          items.type = RequestTimeFilterDepartureSearch
+          description = ""
+          optional = false
+        }
+        arrival_searches {
+          type = array
+          items.type = RequestTimeFilterArrivalSearch
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilter {
+    title = RequestTimeFilter
+    description = RequestTimeFilter
+    implements = openapi_server.resourceTypes.RequestTimeFilter
+
+  }
+}

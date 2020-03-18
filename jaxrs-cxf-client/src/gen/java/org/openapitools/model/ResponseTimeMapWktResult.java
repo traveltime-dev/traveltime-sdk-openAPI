@@ -21,7 +21,7 @@ public class ResponseTimeMapWktResult  {
   private String shape;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
  /**
    * Get searchId
    * @return searchId

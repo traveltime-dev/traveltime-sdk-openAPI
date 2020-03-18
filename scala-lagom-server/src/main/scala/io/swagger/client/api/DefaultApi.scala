@@ -44,8 +44,8 @@ trait DefaultApi extends Service {
   final override def descriptor = {
     import Service._
     named("DefaultApi").withCalls(
-      restCall(Method.GET, "/v4/geocoding/reverse?focusLat&focusLng&withinCountry", geocodingReverseSearch _), 
-      restCall(Method.GET, "/v4/geocoding/search?query&withinCountry&focusLat&focusLng", geocodingSearch _), 
+      restCall(Method.GET, "/v4/geocoding/reverse?lat&lng&withinCountry", geocodingReverseSearch _), 
+      restCall(Method.GET, "/v4/geocoding/search?query&focusLat&focusLng&withinCountry", geocodingSearch _), 
       restCall(Method.GET, "/v4/map-info", mapInfo _), 
       restCall(Method.POST, "/v4/routes", routes _), 
       restCall(Method.POST, "/v4/supported-locations", supportedLocations _), 
@@ -63,24 +63,24 @@ trait DefaultApi extends Service {
     * 
     * 
     *  
-    * @param focusLat   
-    * @param focusLng   
+    * @param lat   
+    * @param lng   
     * @param withinCountry  (optional)
     * @return ResponseGeocoding
     */
-  def geocodingReverseSearch(focusLat:Double          ,focusLng:Double          ,withinCountry:           Option[String] = None): ServiceCall[NotUsed ,ResponseGeocoding]
+  def geocodingReverseSearch(lat:Double          ,lng:Double          ,withinCountry:           Option[String] = None): ServiceCall[NotUsed ,ResponseGeocoding]
         
   /**
     * 
     * 
     *  
     * @param query   
-    * @param withinCountry  (optional) 
     * @param focusLat  (optional) 
-    * @param focusLng  (optional)
+    * @param focusLng  (optional) 
+    * @param withinCountry  (optional)
     * @return ResponseGeocoding
     */
-  def geocodingSearch(query:String          ,withinCountry:           Option[String] = None,focusLat:           Option[Double] = None,focusLng:           Option[Double] = None): ServiceCall[NotUsed ,ResponseGeocoding]
+  def geocodingSearch(query:String          ,focusLat:           Option[Double] = None,focusLng:           Option[Double] = None,withinCountry:           Option[String] = None): ServiceCall[NotUsed ,ResponseGeocoding]
   
   /**
     * 

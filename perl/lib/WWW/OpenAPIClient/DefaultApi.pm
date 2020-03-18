@@ -53,17 +53,17 @@ sub new {
 #
 # 
 # 
-# @param double $focus/lat  (required)
-# @param double $focus/lng  (required)
+# @param double $lat  (required)
+# @param double $lng  (required)
 # @param string $within/country  (optional)
 {
     my $params = {
-    'focus/lat' => {
+    'lat' => {
         data_type => 'double',
         description => '',
         required => '1',
     },
-    'focus/lng' => {
+    'lng' => {
         data_type => 'double',
         description => '',
         required => '1',
@@ -85,14 +85,14 @@ sub new {
 sub geocoding_reverse_search {
     my ($self, %args) = @_;
 
-    # verify the required parameter 'focus/lat' is set
-    unless (exists $args{'focus/lat'}) {
-      croak("Missing the required parameter 'focus/lat' when calling geocoding_reverse_search");
+    # verify the required parameter 'lat' is set
+    unless (exists $args{'lat'}) {
+      croak("Missing the required parameter 'lat' when calling geocoding_reverse_search");
     }
 
-    # verify the required parameter 'focus/lng' is set
-    unless (exists $args{'focus/lng'}) {
-      croak("Missing the required parameter 'focus/lng' when calling geocoding_reverse_search");
+    # verify the required parameter 'lng' is set
+    unless (exists $args{'lng'}) {
+      croak("Missing the required parameter 'lng' when calling geocoding_reverse_search");
     }
 
     # parse inputs
@@ -111,13 +111,13 @@ sub geocoding_reverse_search {
     $header_params->{'Content-Type'} = $self->{api_client}->select_header_content_type();
 
     # query params
-    if ( exists $args{'focus/lat'}) {
-        $query_params->{'focus.lat'} = $self->{api_client}->to_query_value($args{'focus/lat'});
+    if ( exists $args{'lat'}) {
+        $query_params->{'lat'} = $self->{api_client}->to_query_value($args{'lat'});
     }
 
     # query params
-    if ( exists $args{'focus/lng'}) {
-        $query_params->{'focus.lng'} = $self->{api_client}->to_query_value($args{'focus/lng'});
+    if ( exists $args{'lng'}) {
+        $query_params->{'lng'} = $self->{api_client}->to_query_value($args{'lng'});
     }
 
     # query params
@@ -146,20 +146,15 @@ sub geocoding_reverse_search {
 # 
 # 
 # @param string $query  (required)
-# @param string $within/country  (optional)
 # @param double $focus/lat  (optional)
 # @param double $focus/lng  (optional)
+# @param string $within/country  (optional)
 {
     my $params = {
     'query' => {
         data_type => 'string',
         description => '',
         required => '1',
-    },
-    'within/country' => {
-        data_type => 'string',
-        description => '',
-        required => '0',
     },
     'focus/lat' => {
         data_type => 'double',
@@ -168,6 +163,11 @@ sub geocoding_reverse_search {
     },
     'focus/lng' => {
         data_type => 'double',
+        description => '',
+        required => '0',
+    },
+    'within/country' => {
+        data_type => 'string',
         description => '',
         required => '0',
     },
@@ -209,11 +209,6 @@ sub geocoding_search {
     }
 
     # query params
-    if ( exists $args{'within/country'}) {
-        $query_params->{'within.country'} = $self->{api_client}->to_query_value($args{'within/country'});
-    }
-
-    # query params
     if ( exists $args{'focus/lat'}) {
         $query_params->{'focus.lat'} = $self->{api_client}->to_query_value($args{'focus/lat'});
     }
@@ -221,6 +216,11 @@ sub geocoding_search {
     # query params
     if ( exists $args{'focus/lng'}) {
         $query_params->{'focus.lng'} = $self->{api_client}->to_query_value($args{'focus/lng'});
+    }
+
+    # query params
+    if ( exists $args{'within/country'}) {
+        $query_params->{'within.country'} = $self->{api_client}->to_query_value($args{'within/country'});
     }
 
     my $_body_data;

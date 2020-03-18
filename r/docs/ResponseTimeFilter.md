@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseTimeFilter
+# openapi::ResponseTimeFilter
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**ResponseTimeFilterResult**](ResponseTimeFilterResult.md) |  | 
+**results** | [**array[ResponseTimeFilterResult]**](ResponseTimeFilterResult.md) |  | 
 
 

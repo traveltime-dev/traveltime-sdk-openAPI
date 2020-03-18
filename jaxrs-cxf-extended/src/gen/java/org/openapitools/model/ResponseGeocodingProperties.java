@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseGeocodingProperties  {
   
   @ApiModelProperty(required = true, value = "")
@@ -64,7 +65,7 @@ public class ResponseGeocodingProperties  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
   * Get name
   * @return name

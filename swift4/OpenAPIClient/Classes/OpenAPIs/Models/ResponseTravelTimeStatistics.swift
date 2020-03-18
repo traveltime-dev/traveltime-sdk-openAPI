@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTravelTimeStatistics: Codable { 
 
-public struct ResponseTravelTimeStatistics: Codable {
 
     public var min: Int
     public var max: Int
@@ -23,6 +23,4 @@ public struct ResponseTravelTimeStatistics: Codable {
         self.median = median
     }
 
-
 }
-

@@ -9,16 +9,15 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSectorProperties {
-    #[serde(rename = "travel_time_reachable")]
-    pub travel_time_reachable: Option<::models::ResponseTravelTimeStatistics>,
-    #[serde(rename = "travel_time_all")]
-    pub travel_time_all: Option<::models::ResponseTravelTimeStatistics>,
-    #[serde(rename = "coverage")]
+    #[serde(rename = "travel_time_reachable", skip_serializing_if = "Option::is_none")]
+    pub travel_time_reachable: Option<crate::models::ResponseTravelTimeStatistics>,
+    #[serde(rename = "travel_time_all", skip_serializing_if = "Option::is_none")]
+    pub travel_time_all: Option<crate::models::ResponseTravelTimeStatistics>,
+    #[serde(rename = "coverage", skip_serializing_if = "Option::is_none")]
     pub coverage: Option<f64>,
 }
 
@@ -31,3 +30,5 @@ impl ResponseTimeFilterPostcodeSectorProperties {
         }
     }
 }
+
+

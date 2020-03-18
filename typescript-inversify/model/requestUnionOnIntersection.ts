@@ -13,5 +13,5 @@
 
 export interface RequestUnionOnIntersection { 
     id: string;
-    searchIds: Array<string>;
+    search_ids: Array<string>;
 }

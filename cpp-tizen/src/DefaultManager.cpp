@@ -109,7 +109,7 @@ static bool geocodingReverseSearchProcessor(MemoryStruct_s p_chunk, long code, c
 }
 
 static bool geocodingReverseSearchHelper(char * accessToken,
-	double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
+	double lat, double lng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -127,12 +127,12 @@ static bool geocodingReverseSearchHelper(char * accessToken,
 	string itemAtq;
 	
 
-	itemAtq = stringify(&focusPeriodlat, "double");
-	queryParams.insert(pair<string, string>("focus.lat", itemAtq));
+	itemAtq = stringify(&lat, "double");
+	queryParams.insert(pair<string, string>("lat", itemAtq));
 
 
-	itemAtq = stringify(&focusPeriodlng, "double");
-	queryParams.insert(pair<string, string>("focus.lng", itemAtq));
+	itemAtq = stringify(&lng, "double");
+	queryParams.insert(pair<string, string>("lng", itemAtq));
 
 
 	itemAtq = stringify(&withinPeriodcountry, "std::string");
@@ -195,22 +195,22 @@ static bool geocodingReverseSearchHelper(char * accessToken,
 
 
 bool DefaultManager::geocodingReverseSearchAsync(char * accessToken,
-	double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
+	double lat, double lng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData)
 {
 	return geocodingReverseSearchHelper(accessToken,
-	focusPeriodlat, focusPeriodlng, withinPeriodcountry, 
+	lat, lng, withinPeriodcountry, 
 	handler, userData, true);
 }
 
 bool DefaultManager::geocodingReverseSearchSync(char * accessToken,
-	double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
+	double lat, double lng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData)
 {
 	return geocodingReverseSearchHelper(accessToken,
-	focusPeriodlat, focusPeriodlng, withinPeriodcountry, 
+	lat, lng, withinPeriodcountry, 
 	handler, userData, false);
 }
 
@@ -275,7 +275,7 @@ static bool geocodingSearchProcessor(MemoryStruct_s p_chunk, long code, char* er
 }
 
 static bool geocodingSearchHelper(char * accessToken,
-	std::string query, std::string withinPeriodcountry, double focusPeriodlat, double focusPeriodlng, 
+	std::string query, double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData, bool isAsync)
 {
@@ -297,13 +297,6 @@ static bool geocodingSearchHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("query", itemAtq));
 
 
-	itemAtq = stringify(&withinPeriodcountry, "std::string");
-	queryParams.insert(pair<string, string>("within.country", itemAtq));
-	if( itemAtq.empty()==true){
-		queryParams.erase("within.country");
-	}
-
-
 	itemAtq = stringify(&focusPeriodlat, "double");
 	queryParams.insert(pair<string, string>("focus.lat", itemAtq));
 	if( itemAtq.empty()==true){
@@ -315,6 +308,13 @@ static bool geocodingSearchHelper(char * accessToken,
 	queryParams.insert(pair<string, string>("focus.lng", itemAtq));
 	if( itemAtq.empty()==true){
 		queryParams.erase("focus.lng");
+	}
+
+
+	itemAtq = stringify(&withinPeriodcountry, "std::string");
+	queryParams.insert(pair<string, string>("within.country", itemAtq));
+	if( itemAtq.empty()==true){
+		queryParams.erase("within.country");
 	}
 
 	string mBody = "";
@@ -371,22 +371,22 @@ static bool geocodingSearchHelper(char * accessToken,
 
 
 bool DefaultManager::geocodingSearchAsync(char * accessToken,
-	std::string query, std::string withinPeriodcountry, double focusPeriodlat, double focusPeriodlng, 
+	std::string query, double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData)
 {
 	return geocodingSearchHelper(accessToken,
-	query, withinPeriodcountry, focusPeriodlat, focusPeriodlng, 
+	query, focusPeriodlat, focusPeriodlng, withinPeriodcountry, 
 	handler, userData, true);
 }
 
 bool DefaultManager::geocodingSearchSync(char * accessToken,
-	std::string query, std::string withinPeriodcountry, double focusPeriodlat, double focusPeriodlng, 
+	std::string query, double focusPeriodlat, double focusPeriodlng, std::string withinPeriodcountry, 
 	void(* handler)(ResponseGeocoding, Error, void* )
 	, void* userData)
 {
 	return geocodingSearchHelper(accessToken,
-	query, withinPeriodcountry, focusPeriodlat, focusPeriodlng, 
+	query, focusPeriodlat, focusPeriodlng, withinPeriodcountry, 
 	handler, userData, false);
 }
 

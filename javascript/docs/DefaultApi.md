@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 ## geocodingReverseSearch
 
-> ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, opts)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, opts)
 
 
 
@@ -41,12 +41,12 @@ ApplicationId.apiKey = 'YOUR API KEY';
 //ApplicationId.apiKeyPrefix = 'Token';
 
 let apiInstance = new TravelTimePlatformApi.DefaultApi();
-let focusLat = 3.4; // Number | 
-let focusLng = 3.4; // Number | 
+let lat = 3.4; // Number | 
+let lng = 3.4; // Number | 
 let opts = {
   'withinCountry': "withinCountry_example" // String | 
 };
-apiInstance.geocodingReverseSearch(focusLat, focusLng, opts, (error, data, response) => {
+apiInstance.geocodingReverseSearch(lat, lng, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -60,8 +60,8 @@ apiInstance.geocodingReverseSearch(focusLat, focusLng, opts, (error, data, respo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **Number**|  | 
- **focusLng** | **Number**|  | 
+ **lat** | **Number**|  | 
+ **lng** | **Number**|  | 
  **withinCountry** | **String**|  | [optional] 
 
 ### Return type
@@ -103,9 +103,9 @@ ApplicationId.apiKey = 'YOUR API KEY';
 let apiInstance = new TravelTimePlatformApi.DefaultApi();
 let query = "query_example"; // String | 
 let opts = {
-  'withinCountry': "withinCountry_example", // String | 
   'focusLat': 3.4, // Number | 
-  'focusLng': 3.4 // Number | 
+  'focusLng': 3.4, // Number | 
+  'withinCountry': "withinCountry_example" // String | 
 };
 apiInstance.geocodingSearch(query, opts, (error, data, response) => {
   if (error) {
@@ -122,9 +122,9 @@ apiInstance.geocodingSearch(query, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | 
- **withinCountry** | **String**|  | [optional] 
  **focusLat** | **Number**|  | [optional] 
  **focusLng** | **Number**|  | [optional] 
+ **withinCountry** | **String**|  | [optional] 
 
 ### Return type
 

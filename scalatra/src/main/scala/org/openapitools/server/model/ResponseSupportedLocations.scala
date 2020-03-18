@@ -14,6 +14,6 @@ package org.openapitools.server.model
 case class ResponseSupportedLocations(
   locations: List[ResponseSupportedLocation],
 
-  unsupportedUnderscorelocations: List[String]
+  unsupportedLocations: List[String]
 
  )

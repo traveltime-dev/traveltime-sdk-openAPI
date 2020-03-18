@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 # **geocodingReverseSearch**
 ```swift
-    open class func geocodingReverseSearch(focusLat: Double, focusLng: Double, withinCountry: String? = nil, completion: @escaping (_ data: ResponseGeocoding?, _ error: Error?) -> Void)
+    open class func geocodingReverseSearch(lat: Double, lng: Double, withinCountry: String? = nil, completion: @escaping (_ data: ResponseGeocoding?, _ error: Error?) -> Void)
 ```
 
 
@@ -29,11 +29,11 @@ Method | HTTP request | Description
 // The following code samples are still beta. For any issue, please report via http://github.com/OpenAPITools/openapi-generator/issues/new
 import OpenAPIClient
 
-let focusLat = 987 // Double | 
-let focusLng = 987 // Double | 
+let lat = 987 // Double | 
+let lng = 987 // Double | 
 let withinCountry = "withinCountry_example" // String |  (optional)
 
-DefaultAPI.geocodingReverseSearch(focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry) { (response, error) in
+DefaultAPI.geocodingReverseSearch(lat: lat, lng: lng, withinCountry: withinCountry) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -49,8 +49,8 @@ DefaultAPI.geocodingReverseSearch(focusLat: focusLat, focusLng: focusLng, within
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **Double** |  | 
- **focusLng** | **Double** |  | 
+ **lat** | **Double** |  | 
+ **lng** | **Double** |  | 
  **withinCountry** | **String** |  | [optional] 
 
 ### Return type
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 # **geocodingSearch**
 ```swift
-    open class func geocodingSearch(query: String, withinCountry: String? = nil, focusLat: Double? = nil, focusLng: Double? = nil, completion: @escaping (_ data: ResponseGeocoding?, _ error: Error?) -> Void)
+    open class func geocodingSearch(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil, completion: @escaping (_ data: ResponseGeocoding?, _ error: Error?) -> Void)
 ```
 
 
@@ -81,11 +81,11 @@ Name | Type | Description  | Notes
 import OpenAPIClient
 
 let query = "query_example" // String | 
-let withinCountry = "withinCountry_example" // String |  (optional)
 let focusLat = 987 // Double |  (optional)
 let focusLng = 987 // Double |  (optional)
+let withinCountry = "withinCountry_example" // String |  (optional)
 
-DefaultAPI.geocodingSearch(query: query, withinCountry: withinCountry, focusLat: focusLat, focusLng: focusLng) { (response, error) in
+DefaultAPI.geocodingSearch(query: query, focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry) { (response, error) in
     guard error == nil else {
         print(error)
         return
@@ -102,9 +102,9 @@ DefaultAPI.geocodingSearch(query: query, withinCountry: withinCountry, focusLat:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String** |  | 
- **withinCountry** | **String** |  | [optional] 
  **focusLat** | **Double** |  | [optional] 
  **focusLng** | **Double** |  | [optional] 
+ **withinCountry** | **String** |  | [optional] 
 
 ### Return type
 

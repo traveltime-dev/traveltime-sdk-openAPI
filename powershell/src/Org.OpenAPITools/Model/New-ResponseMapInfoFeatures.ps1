@@ -2,7 +2,7 @@ function New-ResponseMapInfoFeatures {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseMapInfoFeaturesPublicTransport]]
+        [Org.OpenAPITools.Model.ResponseMapInfoFeaturesPublicTransport]
         ${publicUnderscoretransport},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Boolean]
@@ -13,10 +13,10 @@ function New-ResponseMapInfoFeatures {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseMapInfoFeatures' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseMapInfoFeatures' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseMapInfoFeatures -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseMapInfoFeatures -ArgumentList @(
             ${publicUnderscoretransport},
             ${fares},
             ${postcodes}

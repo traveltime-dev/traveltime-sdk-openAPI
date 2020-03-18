@@ -8,7 +8,7 @@ import java.util.List;
 import org.openapitools.server.api.model.RequestTimeFilterFastArrivalManyToOneSearch;
 import org.openapitools.server.api.model.RequestTimeFilterFastArrivalOneToManySearch;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterFastArrivalSearches   {
   
   private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = new ArrayList<>();

@@ -12,7 +12,7 @@ import org.openapitools.model.ResponseGeocodingGeoJsonFeature;
 /**
  * ResponseGeocoding
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T08:50:47.585Z[Etc/UTC]")
 public class ResponseGeocoding   {
   @JsonProperty("type")
   private String type;

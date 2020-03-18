@@ -19,8 +19,8 @@ export interface RequestTimeMapArrivalSearch {
     id: string;
     coords: Coords;
     transportation: RequestTransportation;
-    travelTime: number;
-    arrivalTime: Date;
+    travel_time: number;
+    arrival_time: string;
     properties?: Array<RequestTimeMapProperty>;
     range?: RequestRangeNoMaxResults;
 }

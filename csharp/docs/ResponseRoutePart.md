@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseRoutePart
+# Org.OpenAPITools.Model.ResponseRoutePart
 
 ## Properties
 
@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **string** |  | 
-**Mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
+**Mode** | **ResponseTransportationMode** |  | 
 **Directions** | **string** |  | 
-**Distance** | **int?** |  | 
-**TravelTime** | **int?** |  | 
+**Distance** | **int** |  | 
+**TravelTime** | **int** |  | 
 **Coords** | [**List&lt;Coords&gt;**](Coords.md) |  | 
 **Direction** | **string** |  | [optional] 
 **Road** | **string** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ArrivalStation** | **string** |  | [optional] 
 **DepartsAt** | **string** |  | [optional] 
 **ArrivesAt** | **string** |  | [optional] 
-**NumStops** | **int?** |  | [optional] 
+**NumStops** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

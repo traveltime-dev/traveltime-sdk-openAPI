@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseRoutes {
     /**
-     * 
      * @type {Array<ResponseRoutesResult>}
      * @memberof ResponseRoutes
      */

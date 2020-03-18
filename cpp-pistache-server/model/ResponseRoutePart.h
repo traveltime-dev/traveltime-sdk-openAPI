@@ -49,36 +49,37 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     ResponseTransportationMode getMode() const;
     void setMode(ResponseTransportationMode const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getDirections() const;
     void setDirections(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getDistance() const;
     void setDistance(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getTravelTime() const;
     void setTravelTime(int32_t const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<Coords>& getCoords();
-        /// <summary>
+    void setCoords(std::vector<Coords> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::string getDirection() const;

@@ -25,41 +25,21 @@ class RequestTimeFilterFastArrivalOneToManySearch {
 
   RequestTimeFilterFastArrivalOneToManySearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['departure_location_id'] == null) {
-      departureLocationId = null;
-    } else {
-          departureLocationId = json['departure_location_id'];
-    }
-    if (json['arrival_location_ids'] == null) {
-      arrivalLocationIds = null;
-    } else {
-      arrivalLocationIds = (json['arrival_location_ids'] as List).cast<String>();
-    }
-    if (json['transportation'] == null) {
-      transportation = null;
-    } else {
-      transportation = new RequestTransportationFast.fromJson(json['transportation']);
-    }
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['arrival_time_period'] == null) {
-      arrivalTimePeriod = null;
-    } else {
-      arrivalTimePeriod = new RequestArrivalTimePeriod.fromJson(json['arrival_time_period']);
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = RequestTimeFilterFastProperty.listFromJson(json['properties']);
-    }
+    id = json['id'];
+    departureLocationId = json['departure_location_id'];
+    arrivalLocationIds = (json['arrival_location_ids'] == null) ?
+      null :
+      (json['arrival_location_ids'] as List).cast<String>();
+    transportation = (json['transportation'] == null) ?
+      null :
+      RequestTransportationFast.fromJson(json['transportation']);
+    travelTime = json['travel_time'];
+    arrivalTimePeriod = (json['arrival_time_period'] == null) ?
+      null :
+      RequestArrivalTimePeriod.fromJson(json['arrival_time_period']);
+    properties = (json['properties'] == null) ?
+      null :
+      RequestTimeFilterFastProperty.listFromJson(json['properties']);
   }
 
   Map<String, dynamic> toJson() {
@@ -82,15 +62,26 @@ class RequestTimeFilterFastArrivalOneToManySearch {
   }
 
   static List<RequestTimeFilterFastArrivalOneToManySearch> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterFastArrivalOneToManySearch>() : json.map((value) => new RequestTimeFilterFastArrivalOneToManySearch.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterFastArrivalOneToManySearch>() : json.map((value) => RequestTimeFilterFastArrivalOneToManySearch.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterFastArrivalOneToManySearch> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterFastArrivalOneToManySearch>();
+    var map = Map<String, RequestTimeFilterFastArrivalOneToManySearch>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterFastArrivalOneToManySearch.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterFastArrivalOneToManySearch.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterFastArrivalOneToManySearch-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterFastArrivalOneToManySearch>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterFastArrivalOneToManySearch>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterFastArrivalOneToManySearch.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

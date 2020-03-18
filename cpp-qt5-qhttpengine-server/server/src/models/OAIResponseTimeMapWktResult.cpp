@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeMapWktResult.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIResponseTimeMapWktResult::asJson () const {
 QJsonObject
 OAIResponseTimeMapWktResult::asJsonObject() const {
     QJsonObject obj;
-	if(m_search_id_isSet){
+    if(m_search_id_isSet){
         obj.insert(QString("search_id"), ::OpenAPI::toJsonValue(search_id));
     }
-	if(m_shape_isSet){
+    if(m_shape_isSet){
         obj.insert(QString("shape"), ::OpenAPI::toJsonValue(shape));
     }
-	if(properties.isSet()){
+    if(properties.isSet()){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     }
     return obj;

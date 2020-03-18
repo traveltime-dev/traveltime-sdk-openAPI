@@ -24,43 +24,36 @@ import {
  */
 export interface RequestTimeMapDepartureSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeMapDepartureSearch
      */
     id: string;
     /**
-     * 
      * @type {Coords}
      * @memberof RequestTimeMapDepartureSearch
      */
     coords: Coords;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestTimeMapDepartureSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeMapDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * 
-     * @type {Date}
+     * @type {string}
      * @memberof RequestTimeMapDepartureSearch
      */
-    departureTime: Date;
+    departure_time: string;
     /**
-     * 
      * @type {Array<RequestTimeMapProperty>}
      * @memberof RequestTimeMapDepartureSearch
      */
     properties?: Array<RequestTimeMapProperty>;
     /**
-     * 
      * @type {RequestRangeNoMaxResults}
      * @memberof RequestTimeMapDepartureSearch
      */

@@ -49,17 +49,17 @@ void to_json(nlohmann::json& j, const ResponseTimeFilterPostcodeSectorProperties
 
 void from_json(const nlohmann::json& j, ResponseTimeFilterPostcodeSectorProperties& o)
 {
-    if(j.contains("travel_time_reachable"))
+    if(j.find("travel_time_reachable") != j.end())
     {
         j.at("travel_time_reachable").get_to(o.m_Travel_time_reachable);
         o.m_Travel_time_reachableIsSet = true;
     } 
-    if(j.contains("travel_time_all"))
+    if(j.find("travel_time_all") != j.end())
     {
         j.at("travel_time_all").get_to(o.m_Travel_time_all);
         o.m_Travel_time_allIsSet = true;
     } 
-    if(j.contains("coverage"))
+    if(j.find("coverage") != j.end())
     {
         j.at("coverage").get_to(o.m_Coverage);
         o.m_CoverageIsSet = true;

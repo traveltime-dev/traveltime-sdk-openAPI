@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMapBoundingBoxesResult exposing (ResponseTimeMapBoundingBoxesResult, decoder, encode)
+module Data.ResponseTimeMapBoundingBoxesResult exposing (ResponseTimeMapBoundingBoxesResult, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseBoundingBox as ResponseBoundingBox exposing (ResponseBoundingBox)
 import Data.ResponseTimeMapProperties as ResponseTimeMapProperties exposing (ResponseTimeMapProperties)
@@ -38,12 +38,28 @@ decoder =
 
 
 encode : ResponseTimeMapBoundingBoxesResult -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "search_id", Encode.string model.searchId )
-        , ( "bounding_boxes", (Encode.list ResponseBoundingBox.encode) model.boundingBoxes )
-        , ( "properties", ResponseTimeMapProperties.encode model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMapBoundingBoxesResult -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMapBoundingBoxesResult -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "search_id", Encode.string model.searchId )
+    , ( "bounding_boxes", (Encode.list ResponseBoundingBox.encode) model.boundingBoxes )
+    , ( "properties", ResponseTimeMapProperties.encode model.properties )
+    ]
+
+
+
+toString : ResponseTimeMapBoundingBoxesResult -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

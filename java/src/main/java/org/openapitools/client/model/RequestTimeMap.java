@@ -32,25 +32,27 @@ import org.openapitools.client.model.RequestUnionOnIntersection;
 /**
  * RequestTimeMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class RequestTimeMap {
   public static final String SERIALIZED_NAME_DEPARTURE_SEARCHES = "departure_searches";
   @SerializedName(SERIALIZED_NAME_DEPARTURE_SEARCHES)
-  private List<RequestTimeMapDepartureSearch> departureSearches = new ArrayList<RequestTimeMapDepartureSearch>();
+  private List<RequestTimeMapDepartureSearch> departureSearches = null;
 
   public static final String SERIALIZED_NAME_ARRIVAL_SEARCHES = "arrival_searches";
   @SerializedName(SERIALIZED_NAME_ARRIVAL_SEARCHES)
-  private List<RequestTimeMapArrivalSearch> arrivalSearches = new ArrayList<RequestTimeMapArrivalSearch>();
+  private List<RequestTimeMapArrivalSearch> arrivalSearches = null;
 
   public static final String SERIALIZED_NAME_UNIONS = "unions";
   @SerializedName(SERIALIZED_NAME_UNIONS)
-  private List<RequestUnionOnIntersection> unions = new ArrayList<RequestUnionOnIntersection>();
+  private List<RequestUnionOnIntersection> unions = null;
 
   public static final String SERIALIZED_NAME_INTERSECTIONS = "intersections";
   @SerializedName(SERIALIZED_NAME_INTERSECTIONS)
-  private List<RequestUnionOnIntersection> intersections = new ArrayList<RequestUnionOnIntersection>();
+  private List<RequestUnionOnIntersection> intersections = null;
+
 
   public RequestTimeMap departureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
+    
     this.departureSearches = departureSearches;
     return this;
   }
@@ -67,16 +69,21 @@ public class RequestTimeMap {
    * Get departureSearches
    * @return departureSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeMapDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
 
   public void setDepartureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
   }
 
+
   public RequestTimeMap arrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
+    
     this.arrivalSearches = arrivalSearches;
     return this;
   }
@@ -93,16 +100,21 @@ public class RequestTimeMap {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeMapArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
 
   public void setArrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
   }
 
+
   public RequestTimeMap unions(List<RequestUnionOnIntersection> unions) {
+    
     this.unions = unions;
     return this;
   }
@@ -119,16 +131,21 @@ public class RequestTimeMap {
    * Get unions
    * @return unions
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestUnionOnIntersection> getUnions() {
     return unions;
   }
+
 
   public void setUnions(List<RequestUnionOnIntersection> unions) {
     this.unions = unions;
   }
 
+
   public RequestTimeMap intersections(List<RequestUnionOnIntersection> intersections) {
+    
     this.intersections = intersections;
     return this;
   }
@@ -145,10 +162,13 @@ public class RequestTimeMap {
    * Get intersections
    * @return intersections
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestUnionOnIntersection> getIntersections() {
     return intersections;
   }
+
 
   public void setIntersections(List<RequestUnionOnIntersection> intersections) {
     this.intersections = intersections;

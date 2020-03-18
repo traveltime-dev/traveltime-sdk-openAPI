@@ -24,7 +24,7 @@ public class ResponseTimeMapBoundingBoxesResult  {
   private List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
  /**
    * Get searchId
    * @return searchId

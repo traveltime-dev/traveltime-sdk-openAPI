@@ -21,8 +21,8 @@ typedef struct response_time_filter_properties_t {
     int travel_time; //numeric
     int distance; //numeric
     list_t *distance_breakdown; //nonprimitive container
-    response_fares_t *fares; //model
-    response_route_t *route; //model
+    struct response_fares_t *fares; //model
+    struct response_route_t *route; //model
 
 } response_time_filter_properties_t;
 

@@ -15,10 +15,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ResponseTimeFilterPostcodeDistrictProperties  {
   
   @ApiModelProperty(value = "")
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
   @ApiModelProperty(value = "")
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeAll;
 
   @ApiModelProperty(value = "")
   private Double coverage;

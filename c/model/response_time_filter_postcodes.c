@@ -8,29 +8,29 @@
 response_time_filter_postcodes_t *response_time_filter_postcodes_create(
     list_t *results
     ) {
-	response_time_filter_postcodes_t *response_time_filter_postcodes_local_var = malloc(sizeof(response_time_filter_postcodes_t));
+    response_time_filter_postcodes_t *response_time_filter_postcodes_local_var = malloc(sizeof(response_time_filter_postcodes_t));
     if (!response_time_filter_postcodes_local_var) {
         return NULL;
     }
-	response_time_filter_postcodes_local_var->results = results;
+    response_time_filter_postcodes_local_var->results = results;
 
-	return response_time_filter_postcodes_local_var;
+    return response_time_filter_postcodes_local_var;
 }
 
 
 void response_time_filter_postcodes_free(response_time_filter_postcodes_t *response_time_filter_postcodes) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_filter_postcodes->results) {
-		response_time_filter_postcodes_result_free(listEntry->data);
-	}
-	list_free(response_time_filter_postcodes->results);
-	free(response_time_filter_postcodes);
+    list_ForEach(listEntry, response_time_filter_postcodes->results) {
+        response_time_filter_postcodes_result_free(listEntry->data);
+    }
+    list_free(response_time_filter_postcodes->results);
+    free(response_time_filter_postcodes);
 }
 
 cJSON *response_time_filter_postcodes_convertToJSON(response_time_filter_postcodes_t *response_time_filter_postcodes) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcodes->results
+    // response_time_filter_postcodes->results
     if (!response_time_filter_postcodes->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_time_filter_postcodes_convertToJSON(response_time_filter_postcod
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcodes_t *response_time_filter_postcodes_parseFromJSON(cJSON *response_time_filter_postcodesJSON){

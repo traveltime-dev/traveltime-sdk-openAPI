@@ -14,11 +14,11 @@ import * as models from './models';
 
 export interface RequestTimeFilterDepartureSearch {
     "id": string;
-    "departureLocationId": string;
-    "arrivalLocationIds": Array<string>;
+    "departure_location_id": string;
+    "arrival_location_ids": Array<string>;
     "transportation": models.RequestTransportation;
-    "travelTime": number;
-    "departureTime": Date;
+    "travel_time": number;
+    "departure_time": string;
     "properties": Array<models.RequestTimeFilterProperty>;
     "range"?: models.RequestRangeFull;
 }

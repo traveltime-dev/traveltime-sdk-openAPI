@@ -18,7 +18,7 @@ public class ResponseTimeFilterPostcodeSector   {
   
   private String code = null;
 
-  private ResponseTimeFilterPostcodeSectorProperties properties = null;
+  private ResponseTimeFilterPostcodeSectorProperties properties;
 
 
   /**

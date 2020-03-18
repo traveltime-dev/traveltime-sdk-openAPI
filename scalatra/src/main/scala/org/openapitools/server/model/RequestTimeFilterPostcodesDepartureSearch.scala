@@ -10,16 +10,16 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterPostcodesDepartureSearch(
   id: String,
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  departureUnderscoretime: Date,
+  departureTime: OffsetDateTime,
 
   properties: List[RequestTimeFilterPostcodesProperty],
 

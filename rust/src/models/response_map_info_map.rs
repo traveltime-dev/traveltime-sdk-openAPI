@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoMap {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "features")]
-    pub features: ::models::ResponseMapInfoFeatures,
+    pub features: crate::models::ResponseMapInfoFeatures,
 }
 
 impl ResponseMapInfoMap {
-    pub fn new(name: String, features: ::models::ResponseMapInfoFeatures) -> ResponseMapInfoMap {
+    pub fn new(name: String, features: crate::models::ResponseMapInfoFeatures) -> ResponseMapInfoMap {
         ResponseMapInfoMap {
-            name: name,
-            features: features,
+            name,
+            features,
         }
     }
 }
+
+

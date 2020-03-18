@@ -10,140 +10,128 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseMapInfoFeatures.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseMapInfoFeatures::OAIResponseMapInfoFeatures(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseMapInfoFeatures::OAIResponseMapInfoFeatures() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseMapInfoFeatures::~OAIResponseMapInfoFeatures() {
+OAIResponseMapInfoFeatures::~OAIResponseMapInfoFeatures() {}
 
-}
+void OAIResponseMapInfoFeatures::initializeModel() {
 
-void
-OAIResponseMapInfoFeatures::init() {
-    
     m_public_transport_isSet = false;
     m_public_transport_isValid = false;
-    
+
     m_fares_isSet = false;
     m_fares_isValid = false;
-    
+
     m_postcodes_isSet = false;
     m_postcodes_isValid = false;
-    }
+}
 
-void
-OAIResponseMapInfoFeatures::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseMapInfoFeatures::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseMapInfoFeatures::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseMapInfoFeatures::fromJsonObject(QJsonObject json) {
+
     m_public_transport_isValid = ::OpenAPI::fromJsonValue(public_transport, json[QString("public_transport")]);
-    
-    
+    m_public_transport_isSet = !json[QString("public_transport")].isNull() && m_public_transport_isValid;
+
     m_fares_isValid = ::OpenAPI::fromJsonValue(fares, json[QString("fares")]);
-    
-    
+    m_fares_isSet = !json[QString("fares")].isNull() && m_fares_isValid;
+
     m_postcodes_isValid = ::OpenAPI::fromJsonValue(postcodes, json[QString("postcodes")]);
-    
-    
+    m_postcodes_isSet = !json[QString("postcodes")].isNull() && m_postcodes_isValid;
 }
 
-QString
-OAIResponseMapInfoFeatures::asJson () const {
+QString OAIResponseMapInfoFeatures::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseMapInfoFeatures::asJsonObject() const {
+QJsonObject OAIResponseMapInfoFeatures::asJsonObject() const {
     QJsonObject obj;
-	if(public_transport.isSet()){
+    if (public_transport.isSet()) {
         obj.insert(QString("public_transport"), ::OpenAPI::toJsonValue(public_transport));
     }
-	if(m_fares_isSet){
+    if (m_fares_isSet) {
         obj.insert(QString("fares"), ::OpenAPI::toJsonValue(fares));
     }
-	if(m_postcodes_isSet){
+    if (m_postcodes_isSet) {
         obj.insert(QString("postcodes"), ::OpenAPI::toJsonValue(postcodes));
     }
     return obj;
 }
 
-
-OAIResponseMapInfoFeaturesPublicTransport
-OAIResponseMapInfoFeatures::getPublicTransport() const {
+OAIResponseMapInfoFeaturesPublicTransport OAIResponseMapInfoFeatures::getPublicTransport() const {
     return public_transport;
 }
-void
-OAIResponseMapInfoFeatures::setPublicTransport(const OAIResponseMapInfoFeaturesPublicTransport &public_transport) {
+void OAIResponseMapInfoFeatures::setPublicTransport(const OAIResponseMapInfoFeaturesPublicTransport &public_transport) {
     this->public_transport = public_transport;
     this->m_public_transport_isSet = true;
 }
 
-
-bool
-OAIResponseMapInfoFeatures::isFares() const {
+bool OAIResponseMapInfoFeatures::isFares() const {
     return fares;
 }
-void
-OAIResponseMapInfoFeatures::setFares(const bool &fares) {
+void OAIResponseMapInfoFeatures::setFares(const bool &fares) {
     this->fares = fares;
     this->m_fares_isSet = true;
 }
 
-
-bool
-OAIResponseMapInfoFeatures::isPostcodes() const {
+bool OAIResponseMapInfoFeatures::isPostcodes() const {
     return postcodes;
 }
-void
-OAIResponseMapInfoFeatures::setPostcodes(const bool &postcodes) {
+void OAIResponseMapInfoFeatures::setPostcodes(const bool &postcodes) {
     this->postcodes = postcodes;
     this->m_postcodes_isSet = true;
 }
 
-bool
-OAIResponseMapInfoFeatures::isSet() const {
+bool OAIResponseMapInfoFeatures::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(public_transport.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_fares_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_postcodes_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (public_transport.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_fares_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_postcodes_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseMapInfoFeatures::isValid() const {
+bool OAIResponseMapInfoFeatures::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_fares_isValid && m_postcodes_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

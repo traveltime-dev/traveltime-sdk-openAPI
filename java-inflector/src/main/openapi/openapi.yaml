@@ -1,4 +1,4 @@
-openapi: 3.0.2
+openapi: 3.0.3
 info:
   contact:
     email: support@igeolise.com
@@ -22,7 +22,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeFilter'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -45,7 +45,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodes'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -68,7 +68,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodeDistricts'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -91,7 +91,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodeSectors'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -114,7 +114,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterFast'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -136,7 +136,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/TimeMap'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -168,7 +168,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Routes'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -198,13 +198,6 @@ paths:
         style: form
       - explode: true
         in: query
-        name: within.country
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
         name: focus.lat
         required: false
         schema:
@@ -219,8 +212,15 @@ paths:
           format: double
           type: number
         style: form
+      - explode: true
+        in: query
+        name: within.country
+        required: false
+        schema:
+          type: string
+        style: form
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -241,7 +241,7 @@ paths:
       parameters:
       - explode: true
         in: query
-        name: focus.lat
+        name: lat
         required: true
         schema:
           format: double
@@ -249,7 +249,7 @@ paths:
         style: form
       - explode: true
         in: query
-        name: focus.lng
+        name: lng
         required: true
         schema:
           format: double
@@ -263,7 +263,7 @@ paths:
           type: string
         style: form
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -282,7 +282,7 @@ paths:
         url: http://docs.traveltimeplatform.com/reference/map-info
       operationId: mapInfo
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -304,7 +304,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/SupportedLocations'
       responses:
-        200:
+        "200":
           content:
             application/json:
               schema:
@@ -357,7 +357,7 @@ components:
     GeocodingReverseLat:
       explode: true
       in: query
-      name: focus.lat
+      name: lat
       required: true
       schema:
         format: double
@@ -366,7 +366,7 @@ components:
     GeocodingReverseLng:
       explode: true
       in: query
-      name: focus.lng
+      name: lng
       required: true
       schema:
         format: double

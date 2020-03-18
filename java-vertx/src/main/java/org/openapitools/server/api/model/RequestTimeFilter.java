@@ -9,7 +9,7 @@ import org.openapitools.server.api.model.RequestLocation;
 import org.openapitools.server.api.model.RequestTimeFilterArrivalSearch;
 import org.openapitools.server.api.model.RequestTimeFilterDepartureSearch;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilter   {
   
   private List<RequestLocation> locations = new ArrayList<>();

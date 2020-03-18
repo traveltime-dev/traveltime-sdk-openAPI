@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseTimeMapWkt {
     /**
-     * 
      * @type {Array<ResponseTimeMapWktResult>}
      * @memberof ResponseTimeMapWkt
      */

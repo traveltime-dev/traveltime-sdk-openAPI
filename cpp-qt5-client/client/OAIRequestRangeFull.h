@@ -22,57 +22,52 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestRangeFull: public OAIObject {
+class OAIRequestRangeFull : public OAIObject {
 public:
     OAIRequestRangeFull();
     OAIRequestRangeFull(QString json);
     ~OAIRequestRangeFull() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     bool isEnabled() const;
     void setEnabled(const bool &enabled);
 
-    
     qint32 getMaxResults() const;
     void setMaxResults(const qint32 &max_results);
 
-    
     qint32 getWidth() const;
     void setWidth(const qint32 &width);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     bool enabled;
     bool m_enabled_isSet;
     bool m_enabled_isValid;
-    
+
     qint32 max_results;
     bool m_max_results_isSet;
     bool m_max_results_isValid;
-    
+
     qint32 width;
     bool m_width_isSet;
     bool m_width_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRangeFull)
 
 #endif // OAIRequestRangeFull_H

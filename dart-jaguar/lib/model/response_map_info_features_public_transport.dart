@@ -5,10 +5,10 @@ part 'response_map_info_features_public_transport.jser.dart';
 
 class ResponseMapInfoFeaturesPublicTransport {
   
-  @Alias('date_start')
+  @Alias('date_start', isNullable: false,  )
   final DateTime dateStart;
   
-  @Alias('date_end')
+  @Alias('date_end', isNullable: false,  )
   final DateTime dateEnd;
   
 

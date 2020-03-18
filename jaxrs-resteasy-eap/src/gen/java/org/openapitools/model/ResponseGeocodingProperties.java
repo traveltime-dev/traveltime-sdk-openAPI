@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseMapInfoFeatures;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
   
 
@@ -44,7 +44,7 @@ public class ResponseGeocodingProperties   {
 
   private String postcode;
 
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   /**
    **/

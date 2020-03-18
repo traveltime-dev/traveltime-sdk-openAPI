@@ -9,14 +9,14 @@ response_map_info_map_t *response_map_info_map_create(
     char *name,
     response_map_info_features_t *features
     ) {
-	response_map_info_map_t *response_map_info_map_local_var = malloc(sizeof(response_map_info_map_t));
+    response_map_info_map_t *response_map_info_map_local_var = malloc(sizeof(response_map_info_map_t));
     if (!response_map_info_map_local_var) {
         return NULL;
     }
-	response_map_info_map_local_var->name = name;
-	response_map_info_map_local_var->features = features;
+    response_map_info_map_local_var->name = name;
+    response_map_info_map_local_var->features = features;
 
-	return response_map_info_map_local_var;
+    return response_map_info_map_local_var;
 }
 
 
@@ -24,13 +24,13 @@ void response_map_info_map_free(response_map_info_map_t *response_map_info_map) 
     listEntry_t *listEntry;
     free(response_map_info_map->name);
     response_map_info_features_free(response_map_info_map->features);
-	free(response_map_info_map);
+    free(response_map_info_map);
 }
 
 cJSON *response_map_info_map_convertToJSON(response_map_info_map_t *response_map_info_map) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_map_info_map->name
+    // response_map_info_map->name
     if (!response_map_info_map->name) {
         goto fail;
     }
@@ -40,7 +40,7 @@ cJSON *response_map_info_map_convertToJSON(response_map_info_map_t *response_map
     }
 
 
-	// response_map_info_map->features
+    // response_map_info_map->features
     if (!response_map_info_map->features) {
         goto fail;
     }
@@ -54,12 +54,12 @@ cJSON *response_map_info_map_convertToJSON(response_map_info_map_t *response_map
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_map_info_map_t *response_map_info_map_parseFromJSON(cJSON *response_map_info_mapJSON){

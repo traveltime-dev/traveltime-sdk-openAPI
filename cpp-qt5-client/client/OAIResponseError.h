@@ -21,77 +21,70 @@
 
 #include <QJsonObject>
 
-
 #include <QList>
 #include <QMap>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseError: public OAIObject {
+class OAIResponseError : public OAIObject {
 public:
     OAIResponseError();
     OAIResponseError(QString json);
     ~OAIResponseError() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     qint32 getHttpStatus() const;
     void setHttpStatus(const qint32 &http_status);
 
-    
     qint32 getErrorCode() const;
     void setErrorCode(const qint32 &error_code);
 
-    
     QString getDescription() const;
     void setDescription(const QString &description);
 
-    
     QString getDocumentationLink() const;
     void setDocumentationLink(const QString &documentation_link);
 
-    
     QMap<QString, QList<QString>> getAdditionalInfo() const;
     void setAdditionalInfo(const QMap<QString, QList<QString>> &additional_info);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     qint32 http_status;
     bool m_http_status_isSet;
     bool m_http_status_isValid;
-    
+
     qint32 error_code;
     bool m_error_code_isSet;
     bool m_error_code_isValid;
-    
+
     QString description;
     bool m_description_isSet;
     bool m_description_isValid;
-    
+
     QString documentation_link;
     bool m_documentation_link_isSet;
     bool m_documentation_link_isValid;
-    
+
     QMap<QString, QList<QString>> additional_info;
     bool m_additional_info_isSet;
     bool m_additional_info_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseError)
 
 #endif // OAIResponseError_H

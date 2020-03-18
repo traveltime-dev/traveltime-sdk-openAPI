@@ -15,16 +15,10 @@ class ResponseDistanceBreakdownItem {
 
   ResponseDistanceBreakdownItem.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['mode'] == null) {
-      mode = null;
-    } else {
-      mode = new ResponseTransportationMode.fromJson(json['mode']);
-    }
-    if (json['distance'] == null) {
-      distance = null;
-    } else {
-          distance = json['distance'];
-    }
+    mode = (json['mode'] == null) ?
+      null :
+      ResponseTransportationMode.fromJson(json['mode']);
+    distance = json['distance'];
   }
 
   Map<String, dynamic> toJson() {
@@ -37,15 +31,26 @@ class ResponseDistanceBreakdownItem {
   }
 
   static List<ResponseDistanceBreakdownItem> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseDistanceBreakdownItem>() : json.map((value) => new ResponseDistanceBreakdownItem.fromJson(value)).toList();
+    return json == null ? List<ResponseDistanceBreakdownItem>() : json.map((value) => ResponseDistanceBreakdownItem.fromJson(value)).toList();
   }
 
   static Map<String, ResponseDistanceBreakdownItem> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseDistanceBreakdownItem>();
+    var map = Map<String, ResponseDistanceBreakdownItem>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseDistanceBreakdownItem.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseDistanceBreakdownItem.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseDistanceBreakdownItem-objects as value to a dart map
+  static Map<String, List<ResponseDistanceBreakdownItem>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseDistanceBreakdownItem>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseDistanceBreakdownItem.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseBoundingBox: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setBoxes(const QList<OAIResponseBox> &boxes);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseBoundingBox)
 
 #endif // OAIResponseBoundingBox_H

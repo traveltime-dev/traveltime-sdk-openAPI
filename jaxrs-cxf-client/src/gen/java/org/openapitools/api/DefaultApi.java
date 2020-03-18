@@ -52,7 +52,7 @@ public interface DefaultApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public ResponseGeocoding geocodingReverseSearch(@QueryParam("focus.lat") Double focusLat, @QueryParam("focus.lng") Double focusLng, @QueryParam("within.country") String withinCountry);
+    public ResponseGeocoding geocodingReverseSearch(@QueryParam("lat") Double lat, @QueryParam("lng") Double lng, @QueryParam("within.country") String withinCountry);
 
     @GET
     @Path("/v4/geocoding/search")
@@ -61,7 +61,7 @@ public interface DefaultApi  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public ResponseGeocoding geocodingSearch(@QueryParam("query") String query, @QueryParam("within.country") String withinCountry, @QueryParam("focus.lat") Double focusLat, @QueryParam("focus.lng") Double focusLng);
+    public ResponseGeocoding geocodingSearch(@QueryParam("query") String query, @QueryParam("focus.lat") Double focusLat, @QueryParam("focus.lng") Double focusLng, @QueryParam("within.country") String withinCountry);
 
     @GET
     @Path("/v4/map-info")

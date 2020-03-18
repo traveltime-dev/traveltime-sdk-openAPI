@@ -21,13 +21,33 @@ import scalaz.concurrent.Task
 
 import HelperCodecs._
 
+import org.openapitools.client.api.RequestRoutes
+import org.openapitools.client.api.RequestSupportedLocations
+import org.openapitools.client.api.RequestTimeFilter
+import org.openapitools.client.api.RequestTimeFilterFast
+import org.openapitools.client.api.RequestTimeFilterPostcodeDistricts
+import org.openapitools.client.api.RequestTimeFilterPostcodeSectors
+import org.openapitools.client.api.RequestTimeFilterPostcodes
+import org.openapitools.client.api.RequestTimeMap
+import org.openapitools.client.api.ResponseError
+import org.openapitools.client.api.ResponseGeocoding
+import org.openapitools.client.api.ResponseMapInfo
+import org.openapitools.client.api.ResponseRoutes
+import org.openapitools.client.api.ResponseSupportedLocations
+import org.openapitools.client.api.ResponseTimeFilter
+import org.openapitools.client.api.ResponseTimeFilterFast
+import org.openapitools.client.api.ResponseTimeFilterPostcodeDistricts
+import org.openapitools.client.api.ResponseTimeFilterPostcodeSectors
+import org.openapitools.client.api.ResponseTimeFilterPostcodes
+import org.openapitools.client.api.ResponseTimeMap
+
 object DefaultApi {
 
   val client = PooledHttp1Client()
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def geocodingReverseSearch(host: String, focusLat: Double, focusLng: Double, withinCountry: String)(implicit focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
+  def geocodingReverseSearch(host: String, lat: Double, lng: Double, withinCountry: String)(implicit latQuery: QueryParam[Double], lngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
     implicit val returnTypeDecoder: EntityDecoder[ResponseGeocoding] = jsonOf[ResponseGeocoding]
 
     val path = "/v4/geocoding/reverse"
@@ -37,7 +57,7 @@ object DefaultApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
+      ("lat", Some(latQuery.toParamString(lat))), ("lng", Some(lngQuery.toParamString(lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -48,7 +68,7 @@ object DefaultApi {
     } yield resp
   }
   
-  def geocodingSearch(host: String, query: String, withinCountry: String, focusLat: Double, focusLng: Double)(implicit queryQuery: QueryParam[String], withinCountryQuery: QueryParam[String], focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double]): Task[ResponseGeocoding] = {
+  def geocodingSearch(host: String, query: String, focusLat: Double, focusLng: Double, withinCountry: String)(implicit queryQuery: QueryParam[String], focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
     implicit val returnTypeDecoder: EntityDecoder[ResponseGeocoding] = jsonOf[ResponseGeocoding]
 
     val path = "/v4/geocoding/search"
@@ -58,7 +78,7 @@ object DefaultApi {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("query", Some(queryQuery.toParamString(query))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))), ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))))
+      ("query", Some(queryQuery.toParamString(query))), ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(host + path))
@@ -265,7 +285,7 @@ class HttpServiceDefaultApi(service: HttpService) {
 
   def escape(value: String): String = URLEncoder.encode(value, "utf-8").replaceAll("\\+", "%20")
 
-  def geocodingReverseSearch(focusLat: Double, focusLng: Double, withinCountry: String)(implicit focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
+  def geocodingReverseSearch(lat: Double, lng: Double, withinCountry: String)(implicit latQuery: QueryParam[Double], lngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
     implicit val returnTypeDecoder: EntityDecoder[ResponseGeocoding] = jsonOf[ResponseGeocoding]
 
     val path = "/v4/geocoding/reverse"
@@ -275,7 +295,7 @@ class HttpServiceDefaultApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
+      ("lat", Some(latQuery.toParamString(lat))), ("lng", Some(lngQuery.toParamString(lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))
@@ -286,7 +306,7 @@ class HttpServiceDefaultApi(service: HttpService) {
     } yield resp
   }
   
-  def geocodingSearch(query: String, withinCountry: String, focusLat: Double, focusLng: Double)(implicit queryQuery: QueryParam[String], withinCountryQuery: QueryParam[String], focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double]): Task[ResponseGeocoding] = {
+  def geocodingSearch(query: String, focusLat: Double, focusLng: Double, withinCountry: String)(implicit queryQuery: QueryParam[String], focusLatQuery: QueryParam[Double], focusLngQuery: QueryParam[Double], withinCountryQuery: QueryParam[String]): Task[ResponseGeocoding] = {
     implicit val returnTypeDecoder: EntityDecoder[ResponseGeocoding] = jsonOf[ResponseGeocoding]
 
     val path = "/v4/geocoding/search"
@@ -296,7 +316,7 @@ class HttpServiceDefaultApi(service: HttpService) {
     val headers = Headers(
       )
     val queryParams = Query(
-      ("query", Some(queryQuery.toParamString(query))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))), ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))))
+      ("query", Some(queryQuery.toParamString(query))), ("focusLat", Some(focus.latQuery.toParamString(focus.lat))), ("focusLng", Some(focus.lngQuery.toParamString(focus.lng))), ("withinCountry", Some(within.countryQuery.toParamString(within.country))))
 
     for {
       uri           <- Task.fromDisjunction(Uri.fromString(path))

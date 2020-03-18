@@ -17,13 +17,11 @@
 
 
 typedef struct response_time_filter_postcode_t {
-    char_t *code; //model
     list_t *properties; //nonprimitive container
 
 } response_time_filter_postcode_t;
 
 response_time_filter_postcode_t *response_time_filter_postcode_create(
-    char_t *code,
     list_t *properties
 );
 

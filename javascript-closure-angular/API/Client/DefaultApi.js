@@ -59,13 +59,13 @@ API.Client.DefaultApi.$inject = ['$http', '$httpParamSerializer', '$injector'];
 /**
  * 
  * 
- * @param {!number} focusLat 
- * @param {!number} focusLng 
+ * @param {!number} lat 
+ * @param {!number} lng 
  * @param {!string=} opt_withinCountry 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.ResponseGeocoding>}
  */
-API.Client.DefaultApi.prototype.geocodingReverseSearch = function(focusLat, focusLng, opt_withinCountry, opt_extraHttpRequestParams) {
+API.Client.DefaultApi.prototype.geocodingReverseSearch = function(lat, lng, opt_withinCountry, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v4/geocoding/reverse';
 
@@ -74,20 +74,20 @@ API.Client.DefaultApi.prototype.geocodingReverseSearch = function(focusLat, focu
 
   /** @type {!Object} */
   var headerParams = angular.extend({}, this.defaultHeaders_);
-  // verify required parameter 'focusLat' is set
-  if (!focusLat) {
-    throw new Error('Missing required parameter focusLat when calling geocodingReverseSearch');
+  // verify required parameter 'lat' is set
+  if (!lat) {
+    throw new Error('Missing required parameter lat when calling geocodingReverseSearch');
   }
-  // verify required parameter 'focusLng' is set
-  if (!focusLng) {
-    throw new Error('Missing required parameter focusLng when calling geocodingReverseSearch');
+  // verify required parameter 'lng' is set
+  if (!lng) {
+    throw new Error('Missing required parameter lng when calling geocodingReverseSearch');
   }
-  if (focusLat !== undefined) {
-    queryParameters['focus.lat'] = focusLat;
+  if (lat !== undefined) {
+    queryParameters['lat'] = lat;
   }
 
-  if (focusLng !== undefined) {
-    queryParameters['focus.lng'] = focusLng;
+  if (lng !== undefined) {
+    queryParameters['lng'] = lng;
   }
 
   if (opt_withinCountry !== undefined) {
@@ -114,13 +114,13 @@ API.Client.DefaultApi.prototype.geocodingReverseSearch = function(focusLat, focu
  * 
  * 
  * @param {!string} query 
- * @param {!string=} opt_withinCountry 
  * @param {!number=} opt_focusLat 
  * @param {!number=} opt_focusLng 
+ * @param {!string=} opt_withinCountry 
  * @param {!angular.$http.Config=} opt_extraHttpRequestParams Extra HTTP parameters to send.
  * @return {!angular.$q.Promise<!API.Client.ResponseGeocoding>}
  */
-API.Client.DefaultApi.prototype.geocodingSearch = function(query, opt_withinCountry, opt_focusLat, opt_focusLng, opt_extraHttpRequestParams) {
+API.Client.DefaultApi.prototype.geocodingSearch = function(query, opt_focusLat, opt_focusLng, opt_withinCountry, opt_extraHttpRequestParams) {
   /** @const {string} */
   var path = this.basePath_ + '/v4/geocoding/search';
 
@@ -137,16 +137,16 @@ API.Client.DefaultApi.prototype.geocodingSearch = function(query, opt_withinCoun
     queryParameters['query'] = query;
   }
 
-  if (opt_withinCountry !== undefined) {
-    queryParameters['within.country'] = opt_withinCountry;
-  }
-
   if (opt_focusLat !== undefined) {
     queryParameters['focus.lat'] = opt_focusLat;
   }
 
   if (opt_focusLng !== undefined) {
     queryParameters['focus.lng'] = opt_focusLng;
+  }
+
+  if (opt_withinCountry !== undefined) {
+    queryParameters['within.country'] = opt_withinCountry;
   }
 
   /** @type {!Object} */

@@ -49,9 +49,17 @@ std::vector<Coords>& ResponseShape::getShell()
 {
     return m_Shell;
 }
+void ResponseShape::setShell(std::vector<Coords> const& value)
+{
+    m_Shell = value;
+}
 std::vector<std::vector<Coords>>& ResponseShape::getHoles()
 {
     return m_Holes;
+}
+void ResponseShape::setHoles(std::vector<std::vector<Coords>> const& value)
+{
+    m_Holes = value;
 }
 
 }

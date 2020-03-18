@@ -5,10 +5,10 @@ part 'response_time_filter_postcodes_properties.jser.dart';
 
 class ResponseTimeFilterPostcodesProperties {
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('distance')
+  @Alias('distance', isNullable: false,  )
   final int distance;
   
 

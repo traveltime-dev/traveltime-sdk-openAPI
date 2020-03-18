@@ -17,25 +17,21 @@
  */
 export interface ResponseBox {
     /**
-     * 
      * @type {number}
      * @memberof ResponseBox
      */
     minLat: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseBox
      */
     maxLat: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseBox
      */
     minLng: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseBox
      */

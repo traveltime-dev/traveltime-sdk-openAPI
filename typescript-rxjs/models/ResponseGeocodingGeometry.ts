@@ -17,13 +17,11 @@
  */
 export interface ResponseGeocodingGeometry {
     /**
-     * 
      * @type {string}
      * @memberof ResponseGeocodingGeometry
      */
     type: string;
     /**
-     * 
      * @type {Array<number>}
      * @memberof ResponseGeocodingGeometry
      */

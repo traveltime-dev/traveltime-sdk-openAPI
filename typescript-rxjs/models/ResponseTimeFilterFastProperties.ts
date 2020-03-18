@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseTimeFilterFastProperties {
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterFastProperties
      */
     travelTime?: number;
     /**
-     * 
      * @type {ResponseFaresFast}
      * @memberof ResponseTimeFilterFastProperties
      */

@@ -21,7 +21,6 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestRangeFull.h"
 #include "OAIRequestTimeFilterPostcodesProperty.h"
 #include "OAIRequestTransportation.h"
@@ -29,80 +28,73 @@
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterPostcodesArrivalSearch: public OAIObject {
+class OAIRequestTimeFilterPostcodesArrivalSearch : public OAIObject {
 public:
     OAIRequestTimeFilterPostcodesArrivalSearch();
     OAIRequestTimeFilterPostcodesArrivalSearch(QString json);
     ~OAIRequestTimeFilterPostcodesArrivalSearch() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     OAIRequestTransportation getTransportation() const;
     void setTransportation(const OAIRequestTransportation &transportation);
 
-    
     qint32 getTravelTime() const;
     void setTravelTime(const qint32 &travel_time);
 
-    
     QDateTime getArrivalTime() const;
     void setArrivalTime(const QDateTime &arrival_time);
 
-    
     QList<OAIRequestTimeFilterPostcodesProperty> getProperties() const;
     void setProperties(const QList<OAIRequestTimeFilterPostcodesProperty> &properties);
 
-    
     OAIRequestRangeFull getRange() const;
     void setRange(const OAIRequestRangeFull &range);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     OAIRequestTransportation transportation;
     bool m_transportation_isSet;
     bool m_transportation_isValid;
-    
+
     qint32 travel_time;
     bool m_travel_time_isSet;
     bool m_travel_time_isValid;
-    
+
     QDateTime arrival_time;
     bool m_arrival_time_isSet;
     bool m_arrival_time_isValid;
-    
+
     QList<OAIRequestTimeFilterPostcodesProperty> properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
+
     OAIRequestRangeFull range;
     bool m_range_isSet;
     bool m_range_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterPostcodesArrivalSearch)
 
 #endif // OAIRequestTimeFilterPostcodesArrivalSearch_H

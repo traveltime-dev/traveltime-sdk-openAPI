@@ -18,24 +18,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTravelTimeStatistics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTravelTimeStatistics.JSON_PROPERTY_MIN,
+  ResponseTravelTimeStatistics.JSON_PROPERTY_MAX,
+  ResponseTravelTimeStatistics.JSON_PROPERTY_MEAN,
+  ResponseTravelTimeStatistics.JSON_PROPERTY_MEDIAN
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTravelTimeStatistics   {
-  @JsonProperty("min")
+  public static final String JSON_PROPERTY_MIN = "min";
+  @JsonProperty(JSON_PROPERTY_MIN)
   private Integer min;
 
-  @JsonProperty("max")
+  public static final String JSON_PROPERTY_MAX = "max";
+  @JsonProperty(JSON_PROPERTY_MAX)
   private Integer max;
 
-  @JsonProperty("mean")
+  public static final String JSON_PROPERTY_MEAN = "mean";
+  @JsonProperty(JSON_PROPERTY_MEAN)
   private Integer mean;
 
-  @JsonProperty("median")
+  public static final String JSON_PROPERTY_MEDIAN = "median";
+  @JsonProperty(JSON_PROPERTY_MEDIAN)
   private Integer median;
 
   public ResponseTravelTimeStatistics min(Integer min) {

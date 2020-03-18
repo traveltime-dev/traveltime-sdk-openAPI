@@ -7,10 +7,10 @@ part 'response_time_filter_postcode_sectors_result.jser.dart';
 
 class ResponseTimeFilterPostcodeSectorsResult {
   
-  @Alias('search_id')
+  @Alias('search_id', isNullable: false,  )
   final String searchId;
   
-  @Alias('sectors')
+  @Alias('sectors', isNullable: false,  )
   final List<ResponseTimeFilterPostcodeSector> sectors;
   
 

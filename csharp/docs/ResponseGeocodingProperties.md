@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseGeocodingProperties
+# Org.OpenAPITools.Model.ResponseGeocodingProperties
 
 ## Properties
 
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | 
 **Label** | **string** |  | 
-**Score** | **double?** |  | [optional] 
+**Score** | **double** |  | [optional] 
 **HouseNumber** | **string** |  | [optional] 
 **Street** | **string** |  | [optional] 
 **Region** | **string** |  | [optional] 

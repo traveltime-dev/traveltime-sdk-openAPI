@@ -46,7 +46,7 @@ void to_json(nlohmann::json& j, const ResponseTimeFilterProperties& o)
         j["travel_time"] = o.m_Travel_time;
     if(o.distanceIsSet())
         j["distance"] = o.m_Distance;
-    if(o.distanceBreakdownIsSet())
+    if(o.distanceBreakdownIsSet() || !o.m_Distance_breakdown.empty())
         j["distance_breakdown"] = o.m_Distance_breakdown;
     if(o.faresIsSet())
         j["fares"] = o.m_Fares;
@@ -56,27 +56,27 @@ void to_json(nlohmann::json& j, const ResponseTimeFilterProperties& o)
 
 void from_json(const nlohmann::json& j, ResponseTimeFilterProperties& o)
 {
-    if(j.contains("travel_time"))
+    if(j.find("travel_time") != j.end())
     {
         j.at("travel_time").get_to(o.m_Travel_time);
         o.m_Travel_timeIsSet = true;
     } 
-    if(j.contains("distance"))
+    if(j.find("distance") != j.end())
     {
         j.at("distance").get_to(o.m_Distance);
         o.m_DistanceIsSet = true;
     } 
-    if(j.contains("distance_breakdown"))
+    if(j.find("distance_breakdown") != j.end())
     {
         j.at("distance_breakdown").get_to(o.m_Distance_breakdown);
         o.m_Distance_breakdownIsSet = true;
     } 
-    if(j.contains("fares"))
+    if(j.find("fares") != j.end())
     {
         j.at("fares").get_to(o.m_Fares);
         o.m_FaresIsSet = true;
     } 
-    if(j.contains("route"))
+    if(j.find("route") != j.end())
     {
         j.at("route").get_to(o.m_Route);
         o.m_RouteIsSet = true;
@@ -120,6 +120,11 @@ void ResponseTimeFilterProperties::unsetDistance()
 std::vector<ResponseDistanceBreakdownItem>& ResponseTimeFilterProperties::getDistanceBreakdown()
 {
     return m_Distance_breakdown;
+}
+void ResponseTimeFilterProperties::setDistanceBreakdown(std::vector<ResponseDistanceBreakdownItem> const& value)
+{
+    m_Distance_breakdown = value;
+    m_Distance_breakdownIsSet = true;
 }
 bool ResponseTimeFilterProperties::distanceBreakdownIsSet() const
 {

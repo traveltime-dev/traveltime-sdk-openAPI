@@ -18,7 +18,7 @@ public class ResponseMapInfoFeatures  {
   
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   @ApiModelProperty(required = true, value = "")
   private Boolean fares;

@@ -21,11 +21,27 @@
     }
     return 0;
     }
+    char* moderesponse_route_part_ToString(mode_e mode){
+    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+        return modeArray[mode];
+    }
+
+    mode_e moderesponse_route_part_FromString(char* mode){
+    int stringToReturn = 0;
+    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+    size_t sizeofArray = sizeof(modeArray) / sizeof(modeArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(mode, modeArray[stringToReturn]) == 0) {
+            return stringToReturn;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
 
 response_route_part_t *response_route_part_create(
     char *id,
     type_e type,
-    response_transportation_mode_e mode,
     char *directions,
     int distance,
     int travel_time,
@@ -40,28 +56,28 @@ response_route_part_t *response_route_part_create(
     char *arrives_at,
     int num_stops
     ) {
-	response_route_part_t *response_route_part_local_var = malloc(sizeof(response_route_part_t));
+    response_route_part_t *response_route_part_local_var = malloc(sizeof(response_route_part_t));
     if (!response_route_part_local_var) {
         return NULL;
     }
-	response_route_part_local_var->id = id;
-	response_route_part_local_var->type = type;
-	response_route_part_local_var->mode = mode;
-	response_route_part_local_var->directions = directions;
-	response_route_part_local_var->distance = distance;
-	response_route_part_local_var->travel_time = travel_time;
-	response_route_part_local_var->coords = coords;
-	response_route_part_local_var->direction = direction;
-	response_route_part_local_var->road = road;
-	response_route_part_local_var->turn = turn;
-	response_route_part_local_var->line = line;
-	response_route_part_local_var->departure_station = departure_station;
-	response_route_part_local_var->arrival_station = arrival_station;
-	response_route_part_local_var->departs_at = departs_at;
-	response_route_part_local_var->arrives_at = arrives_at;
-	response_route_part_local_var->num_stops = num_stops;
+    response_route_part_local_var->id = id;
+    response_route_part_local_var->type = type;
+    response_route_part_local_var->mode = mode;
+    response_route_part_local_var->directions = directions;
+    response_route_part_local_var->distance = distance;
+    response_route_part_local_var->travel_time = travel_time;
+    response_route_part_local_var->coords = coords;
+    response_route_part_local_var->direction = direction;
+    response_route_part_local_var->road = road;
+    response_route_part_local_var->turn = turn;
+    response_route_part_local_var->line = line;
+    response_route_part_local_var->departure_station = departure_station;
+    response_route_part_local_var->arrival_station = arrival_station;
+    response_route_part_local_var->departs_at = departs_at;
+    response_route_part_local_var->arrives_at = arrives_at;
+    response_route_part_local_var->num_stops = num_stops;
 
-	return response_route_part_local_var;
+    return response_route_part_local_var;
 }
 
 
@@ -69,10 +85,10 @@ void response_route_part_free(response_route_part_t *response_route_part) {
     listEntry_t *listEntry;
     free(response_route_part->id);
     free(response_route_part->directions);
-	list_ForEach(listEntry, response_route_part->coords) {
-		coords_free(listEntry->data);
-	}
-	list_free(response_route_part->coords);
+    list_ForEach(listEntry, response_route_part->coords) {
+        coords_free(listEntry->data);
+    }
+    list_free(response_route_part->coords);
     free(response_route_part->direction);
     free(response_route_part->road);
     free(response_route_part->turn);
@@ -81,13 +97,13 @@ void response_route_part_free(response_route_part_t *response_route_part) {
     free(response_route_part->arrival_station);
     free(response_route_part->departs_at);
     free(response_route_part->arrives_at);
-	free(response_route_part);
+    free(response_route_part);
 }
 
 cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_part) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_route_part->id
+    // response_route_part->id
     if (!response_route_part->id) {
         goto fail;
     }
@@ -97,7 +113,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->type
+    // response_route_part->type
     
     if(cJSON_AddStringToObject(item, "type", typeresponse_route_part_ToString(response_route_part->type)) == NULL)
     {
@@ -105,19 +121,11 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->mode
+    // response_route_part->mode
     
-    cJSON *mode_enum_local_JSON = response_transportation_mode_convertToJSON(response_route_part->mode);
-    if(mode_enum_local_JSON == NULL) {
-    goto fail; // enum
-    }
-    cJSON_AddItemToObject(item, "mode", mode_enum_local_JSON);
-    if(item->child == NULL) {
-    goto fail;
-    }
 
 
-	// response_route_part->directions
+    // response_route_part->directions
     if (!response_route_part->directions) {
         goto fail;
     }
@@ -127,7 +135,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->distance
+    // response_route_part->distance
     if (!response_route_part->distance) {
         goto fail;
     }
@@ -137,7 +145,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->travel_time
+    // response_route_part->travel_time
     if (!response_route_part->travel_time) {
         goto fail;
     }
@@ -147,7 +155,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->coords
+    // response_route_part->coords
     if (!response_route_part->coords) {
         goto fail;
     }
@@ -169,7 +177,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
     }
 
 
-	// response_route_part->direction
+    // response_route_part->direction
     if(response_route_part->direction) { 
     if(cJSON_AddStringToObject(item, "direction", response_route_part->direction) == NULL) {
     goto fail; //String
@@ -177,7 +185,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->road
+    // response_route_part->road
     if(response_route_part->road) { 
     if(cJSON_AddStringToObject(item, "road", response_route_part->road) == NULL) {
     goto fail; //String
@@ -185,7 +193,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->turn
+    // response_route_part->turn
     if(response_route_part->turn) { 
     if(cJSON_AddStringToObject(item, "turn", response_route_part->turn) == NULL) {
     goto fail; //String
@@ -193,7 +201,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->line
+    // response_route_part->line
     if(response_route_part->line) { 
     if(cJSON_AddStringToObject(item, "line", response_route_part->line) == NULL) {
     goto fail; //String
@@ -201,7 +209,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->departure_station
+    // response_route_part->departure_station
     if(response_route_part->departure_station) { 
     if(cJSON_AddStringToObject(item, "departure_station", response_route_part->departure_station) == NULL) {
     goto fail; //String
@@ -209,7 +217,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->arrival_station
+    // response_route_part->arrival_station
     if(response_route_part->arrival_station) { 
     if(cJSON_AddStringToObject(item, "arrival_station", response_route_part->arrival_station) == NULL) {
     goto fail; //String
@@ -217,7 +225,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->departs_at
+    // response_route_part->departs_at
     if(response_route_part->departs_at) { 
     if(cJSON_AddStringToObject(item, "departs_at", response_route_part->departs_at) == NULL) {
     goto fail; //String
@@ -225,7 +233,7 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->arrives_at
+    // response_route_part->arrives_at
     if(response_route_part->arrives_at) { 
     if(cJSON_AddStringToObject(item, "arrives_at", response_route_part->arrives_at) == NULL) {
     goto fail; //String
@@ -233,19 +241,19 @@ cJSON *response_route_part_convertToJSON(response_route_part_t *response_route_p
      } 
 
 
-	// response_route_part->num_stops
+    // response_route_part->num_stops
     if(response_route_part->num_stops) { 
     if(cJSON_AddNumberToObject(item, "num_stops", response_route_part->num_stops) == NULL) {
     goto fail; //Numeric
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_route_part_t *response_route_part_parseFromJSON(cJSON *response_route_partJSON){
@@ -284,9 +292,6 @@ response_route_part_t *response_route_part_parseFromJSON(cJSON *response_route_p
         goto end;
     }
 
-    response_transportation_mode_e mode_local_nonprim_enum;
-    
-    mode_local_nonprim_enum = response_transportation_mode_parseFromJSON(mode); //enum model
 
     // response_route_part->directions
     cJSON *directions = cJSON_GetObjectItemCaseSensitive(response_route_partJSON, "directions");
@@ -434,7 +439,6 @@ response_route_part_t *response_route_part_parseFromJSON(cJSON *response_route_p
     response_route_part_local_var = response_route_part_create (
         strdup(id->valuestring),
         typeVariable,
-        mode_local_nonprim_enum,
         strdup(directions->valuestring),
         distance->valuedouble,
         travel_time->valuedouble,

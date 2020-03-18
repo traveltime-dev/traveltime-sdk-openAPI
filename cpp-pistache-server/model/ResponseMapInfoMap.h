@@ -47,12 +47,12 @@ public:
     /// </summary>
     std::string getName() const;
     void setName(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     ResponseMapInfoFeatures getFeatures() const;
     void setFeatures(ResponseMapInfoFeatures const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseMapInfoMap& o);
     friend void from_json(const nlohmann::json& j, ResponseMapInfoMap& o);
 protected:

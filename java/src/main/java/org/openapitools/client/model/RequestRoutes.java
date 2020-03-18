@@ -32,7 +32,7 @@ import org.openapitools.client.model.RequestRoutesDepartureSearch;
 /**
  * RequestRoutes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestRoutes {
   public static final String SERIALIZED_NAME_LOCATIONS = "locations";
   @SerializedName(SERIALIZED_NAME_LOCATIONS)
@@ -40,13 +40,15 @@ public class RequestRoutes {
 
   public static final String SERIALIZED_NAME_DEPARTURE_SEARCHES = "departure_searches";
   @SerializedName(SERIALIZED_NAME_DEPARTURE_SEARCHES)
-  private List<RequestRoutesDepartureSearch> departureSearches = new ArrayList<RequestRoutesDepartureSearch>();
+  private List<RequestRoutesDepartureSearch> departureSearches = null;
 
   public static final String SERIALIZED_NAME_ARRIVAL_SEARCHES = "arrival_searches";
   @SerializedName(SERIALIZED_NAME_ARRIVAL_SEARCHES)
-  private List<RequestRoutesArrivalSearch> arrivalSearches = new ArrayList<RequestRoutesArrivalSearch>();
+  private List<RequestRoutesArrivalSearch> arrivalSearches = null;
+
 
   public RequestRoutes locations(List<RequestLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -61,15 +63,19 @@ public class RequestRoutes {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
   }
 
+
   public RequestRoutes departureSearches(List<RequestRoutesDepartureSearch> departureSearches) {
+    
     this.departureSearches = departureSearches;
     return this;
   }
@@ -86,16 +92,21 @@ public class RequestRoutes {
    * Get departureSearches
    * @return departureSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestRoutesDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
 
   public void setDepartureSearches(List<RequestRoutesDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
   }
 
+
   public RequestRoutes arrivalSearches(List<RequestRoutesArrivalSearch> arrivalSearches) {
+    
     this.arrivalSearches = arrivalSearches;
     return this;
   }
@@ -112,10 +123,13 @@ public class RequestRoutes {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestRoutesArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
 
   public void setArrivalSearches(List<RequestRoutesArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;

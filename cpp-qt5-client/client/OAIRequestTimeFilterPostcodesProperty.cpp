@@ -10,60 +10,52 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilterPostcodesProperty.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilterPostcodesProperty::OAIRequestTimeFilterPostcodesProperty(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilterPostcodesProperty::OAIRequestTimeFilterPostcodesProperty() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilterPostcodesProperty::~OAIRequestTimeFilterPostcodesProperty() {
+OAIRequestTimeFilterPostcodesProperty::~OAIRequestTimeFilterPostcodesProperty() {}
 
-}
+void OAIRequestTimeFilterPostcodesProperty::initializeModel() {
 
-void
-OAIRequestTimeFilterPostcodesProperty::init() {
-    
     m_value_isSet = false;
     m_value_isValid = false;
     m_value = eOAIRequestTimeFilterPostcodesProperty::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void
-OAIRequestTimeFilterPostcodesProperty::fromJson(QString jsonString) {
-     
+void OAIRequestTimeFilterPostcodesProperty::fromJson(QString jsonString) {
+    
     if ( jsonString.compare("travel_time", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterPostcodesProperty::TRAVEL_TIME;
-        m_value_isValid = true;
-    } 
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("distance", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterPostcodesProperty::DISTANCE;
-        m_value_isValid = true;
+        m_value_isSet = m_value_isValid = true;
     }
 }
 
-void
-OAIRequestTimeFilterPostcodesProperty::fromJsonValue(QJsonValue json) {
-    
-    fromJson(json.toString());
+void OAIRequestTimeFilterPostcodesProperty::fromJsonValue(QJsonValue json) {
+fromJson(json.toString());
 }
 
-QString
-OAIRequestTimeFilterPostcodesProperty::asJson () const {
+QString OAIRequestTimeFilterPostcodesProperty::asJson() const {
     
     QString val;
     switch (m_value){
@@ -72,15 +64,14 @@ OAIRequestTimeFilterPostcodesProperty::asJson () const {
             break;
         case eOAIRequestTimeFilterPostcodesProperty::DISTANCE:
             val = "distance";
-            break; 
+            break;
         default:
             break;
     }
     return val;
 }
 
-QJsonValue
-OAIRequestTimeFilterPostcodesProperty::asJsonValue() const {
+QJsonValue OAIRequestTimeFilterPostcodesProperty::asJsonValue() const {
     
     return QJsonValue(asJson());
 }
@@ -94,17 +85,14 @@ void OAIRequestTimeFilterPostcodesProperty::setValue(const OAIRequestTimeFilterP
     m_value = value;
     m_value_isSet = true;
 }
-bool
-OAIRequestTimeFilterPostcodesProperty::isSet() const {
+bool OAIRequestTimeFilterPostcodesProperty::isSet() const {
     
     return m_value_isSet;
 }
 
-bool
-OAIRequestTimeFilterPostcodesProperty::isValid() const {
+bool OAIRequestTimeFilterPostcodesProperty::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_value_isValid;
 }
 
-}
-
+} // namespace OpenAPI

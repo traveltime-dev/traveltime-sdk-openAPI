@@ -6,14 +6,14 @@ context("Test RequestTimeFilterFastArrivalSearches")
 model.instance <- RequestTimeFilterFastArrivalSearches$new()
 
 test_that("many_to_one", {
-  # tests for the property `many_to_one` (RequestTimeFilterFastArrivalManyToOneSearch)
+  # tests for the property `many_to_one` (array[RequestTimeFilterFastArrivalManyToOneSearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`many_to_one`, "EXPECTED_RESULT")
 })
 
 test_that("one_to_many", {
-  # tests for the property `one_to_many` (RequestTimeFilterFastArrivalOneToManySearch)
+  # tests for the property `one_to_many` (array[RequestTimeFilterFastArrivalOneToManySearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`one_to_many`, "EXPECTED_RESULT")

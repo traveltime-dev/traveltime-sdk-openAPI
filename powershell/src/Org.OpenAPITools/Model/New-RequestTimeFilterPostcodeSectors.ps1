@@ -2,18 +2,18 @@ function New-RequestTimeFilterPostcodeSectors {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestTimeFilterPostcodeSectorsDepartureSearch[]]]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectorsDepartureSearch[]]
         ${departureUnderscoresearches},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestTimeFilterPostcodeSectorsArrivalSearch[]]]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectorsArrivalSearch[]]
         ${arrivalUnderscoresearches}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilterPostcodeSectors' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectors' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilterPostcodeSectors -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectors -ArgumentList @(
             ${departureUnderscoresearches},
             ${arrivalUnderscoresearches}
         )

@@ -4,45 +4,62 @@
 #include "response_fares_breakdown_item.h"
 
 
+    char* modesresponse_fares_breakdown_item_ToString(modes_e modes){
+        char *modesArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+        return modesArray[modes - 1];
+    }
+
+    modes_e modesresponse_fares_breakdown_item_FromString(char* modes){
+    int stringToReturn = 0;
+    char *modesArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+    size_t sizeofArray = sizeof(modesArray) / sizeof(modesArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(modes, modesArray[stringToReturn]) == 0) {
+            return stringToReturn + 1;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
 
 response_fares_breakdown_item_t *response_fares_breakdown_item_create(
     list_t *modes,
     list_t *route_part_ids,
     list_t *tickets
     ) {
-	response_fares_breakdown_item_t *response_fares_breakdown_item_local_var = malloc(sizeof(response_fares_breakdown_item_t));
+    response_fares_breakdown_item_t *response_fares_breakdown_item_local_var = malloc(sizeof(response_fares_breakdown_item_t));
     if (!response_fares_breakdown_item_local_var) {
         return NULL;
     }
-	response_fares_breakdown_item_local_var->modes = modes;
-	response_fares_breakdown_item_local_var->route_part_ids = route_part_ids;
-	response_fares_breakdown_item_local_var->tickets = tickets;
+    response_fares_breakdown_item_local_var->modes = modes;
+    response_fares_breakdown_item_local_var->route_part_ids = route_part_ids;
+    response_fares_breakdown_item_local_var->tickets = tickets;
 
-	return response_fares_breakdown_item_local_var;
+    return response_fares_breakdown_item_local_var;
 }
 
 
 void response_fares_breakdown_item_free(response_fares_breakdown_item_t *response_fares_breakdown_item) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_fares_breakdown_item->modes) {
-		response_transportation_mode_free(listEntry->data);
-	}
-	list_free(response_fares_breakdown_item->modes);
-	list_ForEach(listEntry, response_fares_breakdown_item->route_part_ids) {
-		free(listEntry->data);
-	}
-	list_free(response_fares_breakdown_item->route_part_ids);
-	list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
-		response_fare_ticket_free(listEntry->data);
-	}
-	list_free(response_fares_breakdown_item->tickets);
-	free(response_fares_breakdown_item);
+    list_ForEach(listEntry, response_fares_breakdown_item->modes) {
+        response_transportation_mode_free(listEntry->data);
+    }
+    list_free(response_fares_breakdown_item->modes);
+    list_ForEach(listEntry, response_fares_breakdown_item->route_part_ids) {
+        free(listEntry->data);
+    }
+    list_free(response_fares_breakdown_item->route_part_ids);
+    list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
+        response_fare_ticket_free(listEntry->data);
+    }
+    list_free(response_fares_breakdown_item->tickets);
+    free(response_fares_breakdown_item);
 }
 
 cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item_t *response_fares_breakdown_item) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_fares_breakdown_item->modes
+    // response_fares_breakdown_item->modes
     
     cJSON *modes = cJSON_AddArrayToObject(item, "modes");
     if(modes == NULL) {
@@ -61,17 +78,17 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
     }
 
 
-	// response_fares_breakdown_item->route_part_ids
+    // response_fares_breakdown_item->route_part_ids
     if (!response_fares_breakdown_item->route_part_ids) {
         goto fail;
     }
     
-	cJSON *route_part_ids = cJSON_AddArrayToObject(item, "route_part_ids");
-	if(route_part_ids == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *route_part_ids = cJSON_AddArrayToObject(item, "route_part_ids");
+    if(route_part_ids == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *route_part_idsListEntry;
+    listEntry_t *route_part_idsListEntry;
     list_ForEach(route_part_idsListEntry, response_fares_breakdown_item->route_part_ids) {
     if(cJSON_AddNumberToObject(route_part_ids, "", *(double *)route_part_idsListEntry->data) == NULL)
     {
@@ -80,7 +97,7 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
     }
 
 
-	// response_fares_breakdown_item->tickets
+    // response_fares_breakdown_item->tickets
     if (!response_fares_breakdown_item->tickets) {
         goto fail;
     }
@@ -101,12 +118,12 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_fares_breakdown_item_t *response_fares_breakdown_item_parseFromJSON(cJSON *response_fares_breakdown_itemJSON){

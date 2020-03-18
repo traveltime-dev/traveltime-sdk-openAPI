@@ -7,7 +7,7 @@ part 'response_time_filter.jser.dart';
 
 class ResponseTimeFilter {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeFilterResult> results;
   
 

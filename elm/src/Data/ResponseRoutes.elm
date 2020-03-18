@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseRoutes exposing (ResponseRoutes, decoder, encode)
+module Data.ResponseRoutes exposing (ResponseRoutes, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseRoutesResult as ResponseRoutesResult exposing (ResponseRoutesResult)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseRoutes -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "results", (Encode.list ResponseRoutesResult.encode) model.results )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseRoutes -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseRoutes -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "results", (Encode.list ResponseRoutesResult.encode) model.results )
+    ]
+
+
+
+toString : ResponseRoutes -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

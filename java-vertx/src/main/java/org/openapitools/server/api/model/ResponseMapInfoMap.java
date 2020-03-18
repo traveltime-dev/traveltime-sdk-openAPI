@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseMapInfoFeatures;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseMapInfoMap   {
   
   private String name;
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseMapInfoMap () {
 

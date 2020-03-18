@@ -13,12 +13,12 @@
 
 #include "OAIRequestRangeFull.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIRequestRangeFull::asJson () const {
 QJsonObject
 OAIRequestRangeFull::asJsonObject() const {
     QJsonObject obj;
-	if(m_enabled_isSet){
+    if(m_enabled_isSet){
         obj.insert(QString("enabled"), ::OpenAPI::toJsonValue(enabled));
     }
-	if(m_max_results_isSet){
+    if(m_max_results_isSet){
         obj.insert(QString("max_results"), ::OpenAPI::toJsonValue(max_results));
     }
-	if(m_width_isSet){
+    if(m_width_isSet){
         obj.insert(QString("width"), ::OpenAPI::toJsonValue(width));
     }
     return obj;

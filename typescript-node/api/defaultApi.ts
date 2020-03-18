@@ -34,9 +34,10 @@ import { ResponseTimeFilterPostcodeSectors } from '../model/responseTimeFilterPo
 import { ResponseTimeFilterPostcodes } from '../model/responseTimeFilterPostcodes';
 import { ResponseTimeMap } from '../model/responseTimeMap';
 
-import { ObjectSerializer, Authentication, VoidAuth } from '../model/models';
-import { ApiKeyAuth } from '../model/models';
-import { ApiKeyAuth } from '../model/models';
+import { ObjectSerializer, Authentication, VoidAuth, Interceptor } from '../model/models';
+import { HttpBasicAuth, HttpBearerAuth, ApiKeyAuth, OAuth } from '../model/models';
+
+import { HttpError, RequestFile } from './apis';
 
 let defaultBasePath = 'https://api.traveltimeapp.com';
 
@@ -51,7 +52,7 @@ export enum DefaultApiApiKeys {
 
 export class DefaultApi {
     protected _basePath = defaultBasePath;
-    protected defaultHeaders : any = {};
+    protected _defaultHeaders : any = {};
     protected _useQuerystring : boolean = false;
 
     protected authentications = {
@@ -59,6 +60,8 @@ export class DefaultApi {
         'ApiKey': new ApiKeyAuth('header', 'X-Api-Key'),
         'ApplicationId': new ApiKeyAuth('header', 'X-Application-Id'),
     }
+
+    protected interceptors: Interceptor[] = [];
 
     constructor(basePath?: string);
     constructor(basePathOrUsername: string, password?: string, basePath?: string) {
@@ -81,6 +84,14 @@ export class DefaultApi {
         this._basePath = basePath;
     }
 
+    set defaultHeaders(defaultHeaders: any) {
+        this._defaultHeaders = defaultHeaders;
+    }
+
+    get defaultHeaders() {
+        return this._defaultHeaders;
+    }
+
     get basePath() {
         return this._basePath;
     }
@@ -93,34 +104,45 @@ export class DefaultApi {
         (this.authentications as any)[DefaultApiApiKeys[key]].apiKey = value;
     }
 
+    public addInterceptor(interceptor: Interceptor) {
+        this.interceptors.push(interceptor);
+    }
+
     /**
      * 
-     * @param focusLat 
-     * @param focusLng 
+     * @param lat 
+     * @param lng 
      * @param withinCountry 
      */
-    public async geocodingReverseSearch (focusLat: number, focusLng: number, withinCountry?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }> {
+    public async geocodingReverseSearch (lat: number, lng: number, withinCountry?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }> {
         const localVarPath = this.basePath + '/v4/geocoding/reverse';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
-        // verify required parameter 'focusLat' is not null or undefined
-        if (focusLat === null || focusLat === undefined) {
-            throw new Error('Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lat' is not null or undefined
+        if (lat === null || lat === undefined) {
+            throw new Error('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
 
-        // verify required parameter 'focusLng' is not null or undefined
-        if (focusLng === null || focusLng === undefined) {
-            throw new Error('Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lng' is not null or undefined
+        if (lng === null || lng === undefined) {
+            throw new Error('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
-        if (focusLat !== undefined) {
-            localVarQueryParameters['focus.lat'] = ObjectSerializer.serialize(focusLat, "number");
+        if (lat !== undefined) {
+            localVarQueryParameters['lat'] = ObjectSerializer.serialize(lat, "number");
         }
 
-        if (focusLng !== undefined) {
-            localVarQueryParameters['focus.lng'] = ObjectSerializer.serialize(focusLng, "number");
+        if (lng !== undefined) {
+            localVarQueryParameters['lng'] = ObjectSerializer.serialize(lng, "number");
         }
 
         if (withinCountry !== undefined) {
@@ -140,45 +162,62 @@ export class DefaultApi {
             json: true,
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseGeocoding");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseGeocoding");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
     /**
      * 
      * @param query 
-     * @param withinCountry 
      * @param focusLat 
      * @param focusLng 
+     * @param withinCountry 
      */
-    public async geocodingSearch (query: string, withinCountry?: string, focusLat?: number, focusLng?: number, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }> {
+    public async geocodingSearch (query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }> {
         const localVarPath = this.basePath + '/v4/geocoding/search';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'query' is not null or undefined
@@ -190,16 +229,16 @@ export class DefaultApi {
             localVarQueryParameters['query'] = ObjectSerializer.serialize(query, "string");
         }
 
-        if (withinCountry !== undefined) {
-            localVarQueryParameters['within.country'] = ObjectSerializer.serialize(withinCountry, "string");
-        }
-
         if (focusLat !== undefined) {
             localVarQueryParameters['focus.lat'] = ObjectSerializer.serialize(focusLat, "number");
         }
 
         if (focusLng !== undefined) {
             localVarQueryParameters['focus.lng'] = ObjectSerializer.serialize(focusLng, "number");
+        }
+
+        if (withinCountry !== undefined) {
+            localVarQueryParameters['within.country'] = ObjectSerializer.serialize(withinCountry, "string");
         }
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -215,31 +254,41 @@ export class DefaultApi {
             json: true,
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseGeocoding");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseGeocoding;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseGeocoding");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -249,7 +298,14 @@ export class DefaultApi {
     public async mapInfo (options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseMapInfo;  }> {
         const localVarPath = this.basePath + '/v4/map-info';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         (<any>Object).assign(localVarHeaderParams, options.headers);
@@ -265,31 +321,41 @@ export class DefaultApi {
             json: true,
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseMapInfo;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseMapInfo");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseMapInfo;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseMapInfo");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -300,7 +366,14 @@ export class DefaultApi {
     public async routes (requestRoutes: RequestRoutes, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseRoutes;  }> {
         const localVarPath = this.basePath + '/v4/routes';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestRoutes' is not null or undefined
@@ -322,31 +395,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestRoutes, "RequestRoutes")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseRoutes;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseRoutes");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseRoutes;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseRoutes");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -357,7 +440,14 @@ export class DefaultApi {
     public async supportedLocations (requestSupportedLocations: RequestSupportedLocations, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseSupportedLocations;  }> {
         const localVarPath = this.basePath + '/v4/supported-locations';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestSupportedLocations' is not null or undefined
@@ -379,31 +469,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestSupportedLocations, "RequestSupportedLocations")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseSupportedLocations;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseSupportedLocations");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseSupportedLocations;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseSupportedLocations");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -414,7 +514,14 @@ export class DefaultApi {
     public async timeFilter (requestTimeFilter: RequestTimeFilter, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeFilter;  }> {
         const localVarPath = this.basePath + '/v4/time-filter';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeFilter' is not null or undefined
@@ -436,31 +543,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeFilter, "RequestTimeFilter")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilter;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeFilter");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilter;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeFilter");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -471,7 +588,14 @@ export class DefaultApi {
     public async timeFilterFast (requestTimeFilterFast: RequestTimeFilterFast, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeFilterFast;  }> {
         const localVarPath = this.basePath + '/v4/time-filter/fast';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeFilterFast' is not null or undefined
@@ -493,31 +617,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeFilterFast, "RequestTimeFilterFast")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterFast;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeFilterFast");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterFast;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeFilterFast");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -528,7 +662,14 @@ export class DefaultApi {
     public async timeFilterPostcodeDistricts (requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeDistricts;  }> {
         const localVarPath = this.basePath + '/v4/time-filter/postcode-districts';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeFilterPostcodeDistricts' is not null or undefined
@@ -550,31 +691,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeFilterPostcodeDistricts, "RequestTimeFilterPostcodeDistricts")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeDistricts;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodeDistricts");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeDistricts;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodeDistricts");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -585,7 +736,14 @@ export class DefaultApi {
     public async timeFilterPostcodeSectors (requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeSectors;  }> {
         const localVarPath = this.basePath + '/v4/time-filter/postcode-sectors';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeFilterPostcodeSectors' is not null or undefined
@@ -607,31 +765,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeFilterPostcodeSectors, "RequestTimeFilterPostcodeSectors")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeSectors;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodeSectors");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodeSectors;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodeSectors");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -642,7 +810,14 @@ export class DefaultApi {
     public async timeFilterPostcodes (requestTimeFilterPostcodes: RequestTimeFilterPostcodes, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodes;  }> {
         const localVarPath = this.basePath + '/v4/time-filter/postcodes';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeFilterPostcodes' is not null or undefined
@@ -664,31 +839,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeFilterPostcodes, "RequestTimeFilterPostcodes")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodes;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodes");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeFilterPostcodes;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeFilterPostcodes");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }
@@ -699,7 +884,14 @@ export class DefaultApi {
     public async timeMap (requestTimeMap: RequestTimeMap, options: {headers: {[name: string]: string}} = {headers: {}}) : Promise<{ response: http.ClientResponse; body: ResponseTimeMap;  }> {
         const localVarPath = this.basePath + '/v4/time-map';
         let localVarQueryParameters: any = {};
-        let localVarHeaderParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
+        const produces = ['application/json', 'application/vnd.wkt+json', 'application/vnd.wkt-no-holes+json', 'application/vnd.bounding-boxes+json'];
+        // give precedence to 'application/json'
+        if (produces.indexOf('application/json') >= 0) {
+            localVarHeaderParams.Accept = 'application/json';
+        } else {
+            localVarHeaderParams.Accept = produces.join(',');
+        }
         let localVarFormParams: any = {};
 
         // verify required parameter 'requestTimeMap' is not null or undefined
@@ -721,31 +913,41 @@ export class DefaultApi {
             body: ObjectSerializer.serialize(requestTimeMap, "RequestTimeMap")
         };
 
-        this.authentications.ApiKey.applyToRequest(localVarRequestOptions);
-
-        this.authentications.ApplicationId.applyToRequest(localVarRequestOptions);
-
-        this.authentications.default.applyToRequest(localVarRequestOptions);
-
-        if (Object.keys(localVarFormParams).length) {
-            if (localVarUseFormData) {
-                (<any>localVarRequestOptions).formData = localVarFormParams;
-            } else {
-                localVarRequestOptions.form = localVarFormParams;
-            }
+        let authenticationPromise = Promise.resolve();
+        if (this.authentications.ApiKey.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApiKey.applyToRequest(localVarRequestOptions));
         }
-        return new Promise<{ response: http.ClientResponse; body: ResponseTimeMap;  }>((resolve, reject) => {
-            localVarRequest(localVarRequestOptions, (error, response, body) => {
-                if (error) {
-                    reject(error);
+        if (this.authentications.ApplicationId.apiKey) {
+            authenticationPromise = authenticationPromise.then(() => this.authentications.ApplicationId.applyToRequest(localVarRequestOptions));
+        }
+        authenticationPromise = authenticationPromise.then(() => this.authentications.default.applyToRequest(localVarRequestOptions));
+
+        let interceptorPromise = authenticationPromise;
+        for (const interceptor of this.interceptors) {
+            interceptorPromise = interceptorPromise.then(() => interceptor(localVarRequestOptions));
+        }
+
+        return interceptorPromise.then(() => {
+            if (Object.keys(localVarFormParams).length) {
+                if (localVarUseFormData) {
+                    (<any>localVarRequestOptions).formData = localVarFormParams;
                 } else {
-                    body = ObjectSerializer.deserialize(body, "ResponseTimeMap");
-                    if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                        resolve({ response: response, body: body });
-                    } else {
-                        reject({ response: response, body: body });
-                    }
+                    localVarRequestOptions.form = localVarFormParams;
                 }
+            }
+            return new Promise<{ response: http.ClientResponse; body: ResponseTimeMap;  }>((resolve, reject) => {
+                localVarRequest(localVarRequestOptions, (error, response, body) => {
+                    if (error) {
+                        reject(error);
+                    } else {
+                        body = ObjectSerializer.deserialize(body, "ResponseTimeMap");
+                        if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            resolve({ response: response, body: body });
+                        } else {
+                            reject(new HttpError(response, body, response.statusCode));
+                        }
+                    }
+                });
             });
         });
     }

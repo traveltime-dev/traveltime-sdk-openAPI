@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseTimeMapWktResult
+# Org.OpenAPITools.Model.ResponseTimeMapWktResult
 
 ## Properties
 

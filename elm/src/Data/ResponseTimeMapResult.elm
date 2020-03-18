@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMapResult exposing (ResponseTimeMapResult, decoder, encode)
+module Data.ResponseTimeMapResult exposing (ResponseTimeMapResult, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseShape as ResponseShape exposing (ResponseShape)
 import Data.ResponseTimeMapProperties as ResponseTimeMapProperties exposing (ResponseTimeMapProperties)
@@ -38,12 +38,28 @@ decoder =
 
 
 encode : ResponseTimeMapResult -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "search_id", Encode.string model.searchId )
-        , ( "shapes", (Encode.list ResponseShape.encode) model.shapes )
-        , ( "properties", ResponseTimeMapProperties.encode model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMapResult -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMapResult -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "search_id", Encode.string model.searchId )
+    , ( "shapes", (Encode.list ResponseShape.encode) model.shapes )
+    , ( "properties", ResponseTimeMapProperties.encode model.properties )
+    ]
+
+
+
+toString : ResponseTimeMapResult -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

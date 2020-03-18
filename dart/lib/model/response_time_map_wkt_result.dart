@@ -16,21 +16,11 @@ class ResponseTimeMapWktResult {
 
   ResponseTimeMapWktResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['search_id'] == null) {
-      searchId = null;
-    } else {
-          searchId = json['search_id'];
-    }
-    if (json['shape'] == null) {
-      shape = null;
-    } else {
-          shape = json['shape'];
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = new ResponseTimeMapProperties.fromJson(json['properties']);
-    }
+    searchId = json['search_id'];
+    shape = json['shape'];
+    properties = (json['properties'] == null) ?
+      null :
+      ResponseTimeMapProperties.fromJson(json['properties']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +35,26 @@ class ResponseTimeMapWktResult {
   }
 
   static List<ResponseTimeMapWktResult> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeMapWktResult>() : json.map((value) => new ResponseTimeMapWktResult.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeMapWktResult>() : json.map((value) => ResponseTimeMapWktResult.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeMapWktResult> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeMapWktResult>();
+    var map = Map<String, ResponseTimeMapWktResult>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeMapWktResult.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeMapWktResult.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeMapWktResult-objects as value to a dart map
+  static Map<String, List<ResponseTimeMapWktResult>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeMapWktResult>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeMapWktResult.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

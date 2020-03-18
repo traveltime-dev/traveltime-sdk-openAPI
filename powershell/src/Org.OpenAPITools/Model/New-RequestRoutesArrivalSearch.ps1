@@ -11,24 +11,24 @@ function New-RequestRoutesArrivalSearch {
         [String]
         ${arrivalUnderscorelocationUnderscoreid},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTransportation]
+        [Org.OpenAPITools.Model.RequestTransportation]
         ${transportation},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [System.DateTime]
         ${arrivalUnderscoretime},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestRoutesProperty[]]
+        [Org.OpenAPITools.Model.RequestRoutesProperty[]]
         ${properties},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRangeFull]]
+        [Org.OpenAPITools.Model.RequestRangeFull]
         ${range}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestRoutesArrivalSearch' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestRoutesArrivalSearch' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestRoutesArrivalSearch -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestRoutesArrivalSearch -ArgumentList @(
             ${id},
             ${departureUnderscorelocationUnderscoreids},
             ${arrivalUnderscorelocationUnderscoreid},

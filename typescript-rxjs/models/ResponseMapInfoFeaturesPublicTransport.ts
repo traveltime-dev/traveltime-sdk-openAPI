@@ -17,13 +17,11 @@
  */
 export interface ResponseMapInfoFeaturesPublicTransport {
     /**
-     * 
      * @type {Date}
      * @memberof ResponseMapInfoFeaturesPublicTransport
      */
     dateStart: Date;
     /**
-     * 
      * @type {Date}
      * @memberof ResponseMapInfoFeaturesPublicTransport
      */

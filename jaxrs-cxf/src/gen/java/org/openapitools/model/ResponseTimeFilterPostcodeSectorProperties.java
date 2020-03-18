@@ -18,11 +18,11 @@ public class ResponseTimeFilterPostcodeSectorProperties  {
   
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeAll;
 
   @ApiModelProperty(value = "")
   private Double coverage;

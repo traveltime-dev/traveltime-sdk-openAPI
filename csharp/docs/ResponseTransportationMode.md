@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseTransportationMode
+# Org.OpenAPITools.Model.ResponseTransportationMode
 
 ## Properties
 

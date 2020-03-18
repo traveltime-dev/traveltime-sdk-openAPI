@@ -1,0 +1,44 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseFares"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseFares"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseFareTicket = openapi_server.resourceTypes.ResponseFareTicket
+  ResponseFaresBreakdownItem = openapi_server.resourceTypes.ResponseFaresBreakdownItem
+}
+resourceTypes {
+
+  ResponseFares {
+    title = ResponseFares
+    description = ResponseFares
+    derivedFrom = Root
+    properties {
+        breakdown {
+          type = array
+          items.type = ResponseFaresBreakdownItem
+          description = ""
+          optional = true
+        }
+        tickets_total {
+          type = array
+          items.type = ResponseFareTicket
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseFares {
+    title = ResponseFares
+    description = ResponseFares
+    implements = openapi_server.resourceTypes.ResponseFares
+
+  }
+}

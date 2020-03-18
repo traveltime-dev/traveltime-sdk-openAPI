@@ -9,29 +9,28 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTransportation {
     #[serde(rename = "type")]
-    pub _type: String,
-    #[serde(rename = "pt_change_delay")]
+    pub _type: Type,
+    #[serde(rename = "pt_change_delay", skip_serializing_if = "Option::is_none")]
     pub pt_change_delay: Option<i32>,
-    #[serde(rename = "walking_time")]
+    #[serde(rename = "walking_time", skip_serializing_if = "Option::is_none")]
     pub walking_time: Option<i32>,
-    #[serde(rename = "driving_time_to_station")]
+    #[serde(rename = "driving_time_to_station", skip_serializing_if = "Option::is_none")]
     pub driving_time_to_station: Option<i32>,
-    #[serde(rename = "parking_time")]
+    #[serde(rename = "parking_time", skip_serializing_if = "Option::is_none")]
     pub parking_time: Option<i32>,
-    #[serde(rename = "boarding_time")]
+    #[serde(rename = "boarding_time", skip_serializing_if = "Option::is_none")]
     pub boarding_time: Option<i32>,
 }
 
 impl RequestTransportation {
-    pub fn new(_type: String) -> RequestTransportation {
+    pub fn new(_type: Type) -> RequestTransportation {
         RequestTransportation {
-            _type: _type,
+            _type,
             pt_change_delay: None,
             walking_time: None,
             driving_time_to_station: None,
@@ -40,3 +39,31 @@ impl RequestTransportation {
         }
     }
 }
+
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Type {
+    #[serde(rename = "cycling")]
+    Cycling,
+    #[serde(rename = "driving")]
+    Driving,
+    #[serde(rename = "driving+train")]
+    Drivingtrain,
+    #[serde(rename = "public_transport")]
+    PublicTransport,
+    #[serde(rename = "walking")]
+    Walking,
+    #[serde(rename = "coach")]
+    Coach,
+    #[serde(rename = "bus")]
+    Bus,
+    #[serde(rename = "train")]
+    Train,
+    #[serde(rename = "ferry")]
+    Ferry,
+    #[serde(rename = "driving+ferry")]
+    Drivingferry,
+    #[serde(rename = "cycling+ferry")]
+    Cyclingferry,
+}
+

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterPostcodeSectorsProperty exposing (RequestTimeFilterPostcodeSectorsProperty(..), decoder, encode)
+module Data.RequestTimeFilterPostcodeSectorsProperty exposing (RequestTimeFilterPostcodeSectorsProperty(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -58,5 +58,21 @@ encode model =
 
         Coverage ->
             Encode.string "coverage"
+
+
+
+
+toString : RequestTimeFilterPostcodeSectorsProperty -> String
+toString model =
+    case model of
+        TravelTimeReachable ->
+            "travel_time_reachable"
+
+        TravelTimeAll ->
+            "travel_time_all"
+
+        Coverage ->
+            "coverage"
+
 
 

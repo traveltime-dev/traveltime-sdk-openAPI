@@ -21,7 +21,7 @@ public class ResponseTimeMapBoundingBoxesResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
-  private @Valid ResponseTimeMapProperties properties = null;
+  private @Valid ResponseTimeMapProperties properties;
 
   /**
    **/

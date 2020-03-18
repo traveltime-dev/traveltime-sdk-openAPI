@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseTimeFilterPostcode
+# openapi::ResponseTimeFilterPostcode
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | [**String**](String.md) |  | 
-**properties** | [**ResponseTimeFilterPostcodesProperties**](ResponseTimeFilterPostcodesProperties.md) |  | 
+**properties** | [**array[ResponseTimeFilterPostcodesProperties]**](ResponseTimeFilterPostcodesProperties.md) |  | 
 
 

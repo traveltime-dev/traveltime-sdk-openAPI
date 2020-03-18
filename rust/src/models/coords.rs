@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct Coords {
     #[serde(rename = "lat")]
     pub lat: f64,
@@ -23,8 +22,10 @@ pub struct Coords {
 impl Coords {
     pub fn new(lat: f64, lng: f64) -> Coords {
         Coords {
-            lat: lat,
-            lng: lng,
+            lat,
+            lng,
         }
     }
 }
+
+

@@ -23,15 +23,35 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.Coords;
 import org.openapitools.model.ResponseTransportationMode;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseRoutePart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseRoutePart.JSON_PROPERTY_ID,
+  ResponseRoutePart.JSON_PROPERTY_TYPE,
+  ResponseRoutePart.JSON_PROPERTY_MODE,
+  ResponseRoutePart.JSON_PROPERTY_DIRECTIONS,
+  ResponseRoutePart.JSON_PROPERTY_DISTANCE,
+  ResponseRoutePart.JSON_PROPERTY_TRAVEL_TIME,
+  ResponseRoutePart.JSON_PROPERTY_COORDS,
+  ResponseRoutePart.JSON_PROPERTY_DIRECTION,
+  ResponseRoutePart.JSON_PROPERTY_ROAD,
+  ResponseRoutePart.JSON_PROPERTY_TURN,
+  ResponseRoutePart.JSON_PROPERTY_LINE,
+  ResponseRoutePart.JSON_PROPERTY_DEPARTURE_STATION,
+  ResponseRoutePart.JSON_PROPERTY_ARRIVAL_STATION,
+  ResponseRoutePart.JSON_PROPERTY_DEPARTS_AT,
+  ResponseRoutePart.JSON_PROPERTY_ARRIVES_AT,
+  ResponseRoutePart.JSON_PROPERTY_NUM_STOPS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseRoutePart   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
   /**
@@ -69,49 +89,64 @@ public class ResponseRoutePart   {
     }
   }
 
-  @JsonProperty("type")
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
 
-  @JsonProperty("mode")
+  public static final String JSON_PROPERTY_MODE = "mode";
+  @JsonProperty(JSON_PROPERTY_MODE)
   private ResponseTransportationMode mode;
 
-  @JsonProperty("directions")
+  public static final String JSON_PROPERTY_DIRECTIONS = "directions";
+  @JsonProperty(JSON_PROPERTY_DIRECTIONS)
   private String directions;
 
-  @JsonProperty("distance")
+  public static final String JSON_PROPERTY_DISTANCE = "distance";
+  @JsonProperty(JSON_PROPERTY_DISTANCE)
   private Integer distance;
 
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("coords")
+  public static final String JSON_PROPERTY_COORDS = "coords";
+  @JsonProperty(JSON_PROPERTY_COORDS)
   private List<Coords> coords = new ArrayList<Coords>();
 
-  @JsonProperty("direction")
+  public static final String JSON_PROPERTY_DIRECTION = "direction";
+  @JsonProperty(JSON_PROPERTY_DIRECTION)
   private String direction;
 
-  @JsonProperty("road")
+  public static final String JSON_PROPERTY_ROAD = "road";
+  @JsonProperty(JSON_PROPERTY_ROAD)
   private String road;
 
-  @JsonProperty("turn")
+  public static final String JSON_PROPERTY_TURN = "turn";
+  @JsonProperty(JSON_PROPERTY_TURN)
   private String turn;
 
-  @JsonProperty("line")
+  public static final String JSON_PROPERTY_LINE = "line";
+  @JsonProperty(JSON_PROPERTY_LINE)
   private String line;
 
-  @JsonProperty("departure_station")
+  public static final String JSON_PROPERTY_DEPARTURE_STATION = "departure_station";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_STATION)
   private String departureStation;
 
-  @JsonProperty("arrival_station")
+  public static final String JSON_PROPERTY_ARRIVAL_STATION = "arrival_station";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_STATION)
   private String arrivalStation;
 
-  @JsonProperty("departs_at")
+  public static final String JSON_PROPERTY_DEPARTS_AT = "departs_at";
+  @JsonProperty(JSON_PROPERTY_DEPARTS_AT)
   private String departsAt;
 
-  @JsonProperty("arrives_at")
+  public static final String JSON_PROPERTY_ARRIVES_AT = "arrives_at";
+  @JsonProperty(JSON_PROPERTY_ARRIVES_AT)
   private String arrivesAt;
 
-  @JsonProperty("num_stops")
+  public static final String JSON_PROPERTY_NUM_STOPS = "num_stops";
+  @JsonProperty(JSON_PROPERTY_NUM_STOPS)
   private Integer numStops;
 
   public ResponseRoutePart id(String id) {

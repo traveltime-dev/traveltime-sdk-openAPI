@@ -17,13 +17,11 @@
 
 
 typedef struct response_time_filter_postcode_district_t {
-    char_t *code; //model
-    response_time_filter_postcode_district_properties_t *properties; //model
+    struct response_time_filter_postcode_district_properties_t *properties; //model
 
 } response_time_filter_postcode_district_t;
 
 response_time_filter_postcode_district_t *response_time_filter_postcode_district_create(
-    char_t *code,
     response_time_filter_postcode_district_properties_t *properties
 );
 

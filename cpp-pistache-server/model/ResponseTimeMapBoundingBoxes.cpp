@@ -47,6 +47,10 @@ std::vector<ResponseTimeMapBoundingBoxesResult>& ResponseTimeMapBoundingBoxes::g
 {
     return m_Results;
 }
+void ResponseTimeMapBoundingBoxes::setResults(std::vector<ResponseTimeMapBoundingBoxesResult> const& value)
+{
+    m_Results = value;
+}
 
 }
 }

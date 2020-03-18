@@ -9,10 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Coords } from './coords';
+import { RequestTransportation } from './requestTransportation';
 import { RequestRangeNoMaxResults } from './requestRangeNoMaxResults';
 import { RequestTimeMapProperty } from './requestTimeMapProperty';
-import { RequestTransportation } from './requestTransportation';
+import { Coords } from './coords';
 
 
 export interface RequestTimeMapArrivalSearch { 

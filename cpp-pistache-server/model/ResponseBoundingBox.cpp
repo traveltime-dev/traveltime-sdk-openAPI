@@ -52,11 +52,14 @@ ResponseBox ResponseBoundingBox::getEnvelope() const
 void ResponseBoundingBox::setEnvelope(ResponseBox const& value)
 {
     m_Envelope = value;
-    
 }
 std::vector<ResponseBox>& ResponseBoundingBox::getBoxes()
 {
     return m_Boxes;
+}
+void ResponseBoundingBox::setBoxes(std::vector<ResponseBox> const& value)
+{
+    m_Boxes = value;
 }
 
 }

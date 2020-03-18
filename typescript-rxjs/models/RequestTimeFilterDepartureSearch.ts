@@ -23,49 +23,41 @@ import {
  */
 export interface RequestTimeFilterDepartureSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterDepartureSearch
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterDepartureSearch
      */
     departureLocationId: string;
     /**
-     * 
      * @type {Array<string>}
      * @memberof RequestTimeFilterDepartureSearch
      */
     arrivalLocationIds: Array<string>;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestTimeFilterDepartureSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeFilterDepartureSearch
      */
     travelTime: number;
     /**
-     * 
      * @type {Date}
      * @memberof RequestTimeFilterDepartureSearch
      */
     departureTime: Date;
     /**
-     * 
      * @type {Array<RequestTimeFilterProperty>}
      * @memberof RequestTimeFilterDepartureSearch
      */
     properties: Array<RequestTimeFilterProperty>;
     /**
-     * 
      * @type {RequestRangeFull}
      * @memberof RequestTimeFilterDepartureSearch
      */

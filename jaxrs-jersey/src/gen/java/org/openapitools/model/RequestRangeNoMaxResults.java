@@ -18,18 +18,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestRangeNoMaxResults
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestRangeNoMaxResults.JSON_PROPERTY_ENABLED,
+  RequestRangeNoMaxResults.JSON_PROPERTY_WIDTH
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class RequestRangeNoMaxResults   {
-  @JsonProperty("enabled")
+  public static final String JSON_PROPERTY_ENABLED = "enabled";
+  @JsonProperty(JSON_PROPERTY_ENABLED)
   private Boolean enabled;
 
-  @JsonProperty("width")
+  public static final String JSON_PROPERTY_WIDTH = "width";
+  @JsonProperty(JSON_PROPERTY_WIDTH)
   private Integer width;
 
   public RequestRangeNoMaxResults enabled(Boolean enabled) {

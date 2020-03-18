@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseTravelTimeStatistics
+# Org.OpenAPITools.Model.ResponseTravelTimeStatistics
 ## Properties
 
 Name | Type | Description | Notes

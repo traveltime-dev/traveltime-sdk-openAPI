@@ -54,7 +54,6 @@ std::string ResponseMapInfoFeaturesPublicTransport::getDateStart() const
 void ResponseMapInfoFeaturesPublicTransport::setDateStart(std::string const& value)
 {
     m_Date_start = value;
-    
 }
 std::string ResponseMapInfoFeaturesPublicTransport::getDateEnd() const
 {
@@ -63,7 +62,6 @@ std::string ResponseMapInfoFeaturesPublicTransport::getDateEnd() const
 void ResponseMapInfoFeaturesPublicTransport::setDateEnd(std::string const& value)
 {
     m_Date_end = value;
-    
 }
 
 }

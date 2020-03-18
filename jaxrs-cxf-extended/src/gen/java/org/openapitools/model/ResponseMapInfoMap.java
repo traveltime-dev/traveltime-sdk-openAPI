@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseMapInfoMap  {
   
   @ApiModelProperty(required = true, value = "")
@@ -22,7 +23,7 @@ public class ResponseMapInfoMap  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
  /**
   * Get name
   * @return name

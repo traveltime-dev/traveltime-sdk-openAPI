@@ -1,10 +1,10 @@
-# traveltimeplatform::ResponseFaresBreakdownItem
+# openapi::ResponseFaresBreakdownItem
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**modes** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
-**route_part_ids** | **integer** |  | 
-**tickets** | [**ResponseFareTicket**](ResponseFareTicket.md) |  | 
+**modes** | [**array[ResponseTransportationMode]**](ResponseTransportationMode.md) |  | 
+**route_part_ids** | **array[integer]** |  | 
+**tickets** | [**array[ResponseFareTicket]**](ResponseFareTicket.md) |  | 
 
 

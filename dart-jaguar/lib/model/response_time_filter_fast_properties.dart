@@ -7,10 +7,10 @@ part 'response_time_filter_fast_properties.jser.dart';
 
 class ResponseTimeFilterFastProperties {
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('fares')
+  @Alias('fares', isNullable: false,  )
   final ResponseFaresFast fares;
   
 

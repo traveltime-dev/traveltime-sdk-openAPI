@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseFaresBreakdownItem: public OAIObject {
@@ -55,7 +56,7 @@ public:
     void setTickets(const QList<OAIResponseFareTicket> &tickets);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -77,5 +78,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseFaresBreakdownItem)
 
 #endif // OAIResponseFaresBreakdownItem_H

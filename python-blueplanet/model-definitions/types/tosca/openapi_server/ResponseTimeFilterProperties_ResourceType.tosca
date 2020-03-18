@@ -1,0 +1,59 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTimeFilterProperties"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTimeFilterProperties"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseDistanceBreakdownItem = openapi_server.resourceTypes.ResponseDistanceBreakdownItem
+  ResponseFares = openapi_server.resourceTypes.ResponseFares
+  ResponseRoute = openapi_server.resourceTypes.ResponseRoute
+}
+resourceTypes {
+
+  ResponseTimeFilterProperties {
+    title = ResponseTimeFilterProperties
+    description = ResponseTimeFilterProperties
+    derivedFrom = Root
+    properties {
+        travel_time {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        distance {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        distance_breakdown {
+          type = array
+          items.type = ResponseDistanceBreakdownItem
+          description = ""
+          optional = false
+        }
+        fares {
+          type = ResponseFares
+          description = ""
+          optional = false
+        }
+        route {
+          type = ResponseRoute
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterProperties {
+    title = ResponseTimeFilterProperties
+    description = ResponseTimeFilterProperties
+    implements = openapi_server.resourceTypes.ResponseTimeFilterProperties
+
+  }
+}

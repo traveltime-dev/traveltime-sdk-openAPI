@@ -11,15 +11,15 @@ import org.openapitools.model.ResponseGeocodingProperties;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T07:54:23.710Z[Etc/UTC]")
 public class ResponseGeocodingGeoJsonFeature   {
   
 
   private String type;
 
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
 
   /**
    **/

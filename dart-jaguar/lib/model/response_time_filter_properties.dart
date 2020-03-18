@@ -11,19 +11,19 @@ part 'response_time_filter_properties.jser.dart';
 
 class ResponseTimeFilterProperties {
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('distance')
+  @Alias('distance', isNullable: false,  )
   final int distance;
   
-  @Alias('distance_breakdown')
+  @Alias('distance_breakdown', isNullable: false,  )
   final List<ResponseDistanceBreakdownItem> distanceBreakdown;
   
-  @Alias('fares')
+  @Alias('fares', isNullable: false,  )
   final ResponseFares fares;
   
-  @Alias('route')
+  @Alias('route', isNullable: false,  )
   final ResponseRoute route;
   
 

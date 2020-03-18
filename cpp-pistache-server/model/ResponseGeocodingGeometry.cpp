@@ -53,11 +53,14 @@ std::string ResponseGeocodingGeometry::getType() const
 void ResponseGeocodingGeometry::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 std::vector<double>& ResponseGeocodingGeometry::getCoordinates()
 {
     return m_Coordinates;
+}
+void ResponseGeocodingGeometry::setCoordinates(std::vector<double> const value)
+{
+    m_Coordinates = value;
 }
 
 }

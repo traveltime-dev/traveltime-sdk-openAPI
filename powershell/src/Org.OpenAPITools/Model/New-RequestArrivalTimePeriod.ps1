@@ -4,10 +4,10 @@ function New-RequestArrivalTimePeriod {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestArrivalTimePeriod' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestArrivalTimePeriod' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestArrivalTimePeriod -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestArrivalTimePeriod -ArgumentList @(
         )
     }
 }

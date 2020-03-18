@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestTimeFilterFastArrivalManyToOneSearch } from './requestTimeFilterFastArrivalManyToOneSearch';
 import { RequestTimeFilterFastArrivalOneToManySearch } from './requestTimeFilterFastArrivalOneToManySearch';
+import { RequestTimeFilterFastArrivalManyToOneSearch } from './requestTimeFilterFastArrivalManyToOneSearch';
 
 
 export interface RequestTimeFilterFastArrivalSearches { 

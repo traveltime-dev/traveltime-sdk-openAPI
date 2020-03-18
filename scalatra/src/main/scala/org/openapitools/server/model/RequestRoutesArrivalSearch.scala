@@ -10,7 +10,7 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import org.joda.time.DateTime
 
 case class RequestRoutesArrivalSearch(
   id: String,
@@ -21,7 +21,7 @@ case class RequestRoutesArrivalSearch(
 
   transportation: RequestTransportation,
 
-  arrivalUnderscoretime: Date,
+  arrivalUnderscoretime: DateTime,
 
   properties: List[RequestRoutesProperty],
 

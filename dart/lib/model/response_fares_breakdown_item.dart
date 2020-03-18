@@ -16,21 +16,15 @@ class ResponseFaresBreakdownItem {
 
   ResponseFaresBreakdownItem.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['modes'] == null) {
-      modes = null;
-    } else {
-      modes = ResponseTransportationMode.listFromJson(json['modes']);
-    }
-    if (json['route_part_ids'] == null) {
-      routePartIds = null;
-    } else {
-      routePartIds = (json['route_part_ids'] as List).cast<int>();
-    }
-    if (json['tickets'] == null) {
-      tickets = null;
-    } else {
-      tickets = ResponseFareTicket.listFromJson(json['tickets']);
-    }
+    modes = (json['modes'] == null) ?
+      null :
+      ResponseTransportationMode.listFromJson(json['modes']);
+    routePartIds = (json['route_part_ids'] == null) ?
+      null :
+      (json['route_part_ids'] as List).cast<int>();
+    tickets = (json['tickets'] == null) ?
+      null :
+      ResponseFareTicket.listFromJson(json['tickets']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +39,26 @@ class ResponseFaresBreakdownItem {
   }
 
   static List<ResponseFaresBreakdownItem> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseFaresBreakdownItem>() : json.map((value) => new ResponseFaresBreakdownItem.fromJson(value)).toList();
+    return json == null ? List<ResponseFaresBreakdownItem>() : json.map((value) => ResponseFaresBreakdownItem.fromJson(value)).toList();
   }
 
   static Map<String, ResponseFaresBreakdownItem> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseFaresBreakdownItem>();
+    var map = Map<String, ResponseFaresBreakdownItem>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseFaresBreakdownItem.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseFaresBreakdownItem.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseFaresBreakdownItem-objects as value to a dart map
+  static Map<String, List<ResponseFaresBreakdownItem>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseFaresBreakdownItem>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseFaresBreakdownItem.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

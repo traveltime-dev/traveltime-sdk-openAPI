@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseGeocodingGeoJsonFeature
+# Org.OpenAPITools.Model.ResponseGeocodingGeoJsonFeature
 ## Properties
 
 Name | Type | Description | Notes

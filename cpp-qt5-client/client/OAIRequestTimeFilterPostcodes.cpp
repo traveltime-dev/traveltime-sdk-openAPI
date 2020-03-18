@@ -10,120 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilterPostcodes.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilterPostcodes::OAIRequestTimeFilterPostcodes(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilterPostcodes::OAIRequestTimeFilterPostcodes() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilterPostcodes::~OAIRequestTimeFilterPostcodes() {
+OAIRequestTimeFilterPostcodes::~OAIRequestTimeFilterPostcodes() {}
 
-}
+void OAIRequestTimeFilterPostcodes::initializeModel() {
 
-void
-OAIRequestTimeFilterPostcodes::init() {
-    
     m_departure_searches_isSet = false;
     m_departure_searches_isValid = false;
-    
+
     m_arrival_searches_isSet = false;
     m_arrival_searches_isValid = false;
-    }
+}
 
-void
-OAIRequestTimeFilterPostcodes::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestTimeFilterPostcodes::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestTimeFilterPostcodes::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIRequestTimeFilterPostcodes::fromJsonObject(QJsonObject json) {
+
     m_departure_searches_isValid = ::OpenAPI::fromJsonValue(departure_searches, json[QString("departure_searches")]);
-    
-    
+    m_departure_searches_isSet = !json[QString("departure_searches")].isNull() && m_departure_searches_isValid;
+
     m_arrival_searches_isValid = ::OpenAPI::fromJsonValue(arrival_searches, json[QString("arrival_searches")]);
-    
+    m_arrival_searches_isSet = !json[QString("arrival_searches")].isNull() && m_arrival_searches_isValid;
 }
 
-QString
-OAIRequestTimeFilterPostcodes::asJson () const {
+QString OAIRequestTimeFilterPostcodes::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestTimeFilterPostcodes::asJsonObject() const {
+QJsonObject OAIRequestTimeFilterPostcodes::asJsonObject() const {
     QJsonObject obj;
-	
-    if(departure_searches.size() > 0){
+    if (departure_searches.size() > 0) {
         obj.insert(QString("departure_searches"), ::OpenAPI::toJsonValue(departure_searches));
-    } 
-	
-    if(arrival_searches.size() > 0){
+    }
+    if (arrival_searches.size() > 0) {
         obj.insert(QString("arrival_searches"), ::OpenAPI::toJsonValue(arrival_searches));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIRequestTimeFilterPostcodesDepartureSearch>
-OAIRequestTimeFilterPostcodes::getDepartureSearches() const {
+QList<OAIRequestTimeFilterPostcodesDepartureSearch> OAIRequestTimeFilterPostcodes::getDepartureSearches() const {
     return departure_searches;
 }
-void
-OAIRequestTimeFilterPostcodes::setDepartureSearches(const QList<OAIRequestTimeFilterPostcodesDepartureSearch> &departure_searches) {
+void OAIRequestTimeFilterPostcodes::setDepartureSearches(const QList<OAIRequestTimeFilterPostcodesDepartureSearch> &departure_searches) {
     this->departure_searches = departure_searches;
     this->m_departure_searches_isSet = true;
 }
 
-
-QList<OAIRequestTimeFilterPostcodesArrivalSearch>
-OAIRequestTimeFilterPostcodes::getArrivalSearches() const {
+QList<OAIRequestTimeFilterPostcodesArrivalSearch> OAIRequestTimeFilterPostcodes::getArrivalSearches() const {
     return arrival_searches;
 }
-void
-OAIRequestTimeFilterPostcodes::setArrivalSearches(const QList<OAIRequestTimeFilterPostcodesArrivalSearch> &arrival_searches) {
+void OAIRequestTimeFilterPostcodes::setArrivalSearches(const QList<OAIRequestTimeFilterPostcodesArrivalSearch> &arrival_searches) {
     this->arrival_searches = arrival_searches;
     this->m_arrival_searches_isSet = true;
 }
 
-bool
-OAIRequestTimeFilterPostcodes::isSet() const {
+bool OAIRequestTimeFilterPostcodes::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(departure_searches.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(arrival_searches.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (departure_searches.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (arrival_searches.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestTimeFilterPostcodes::isValid() const {
+bool OAIRequestTimeFilterPostcodes::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }
 
-}
-
+} // namespace OpenAPI

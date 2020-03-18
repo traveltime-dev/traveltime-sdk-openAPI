@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseBoundingBox
+# Org.OpenAPITools.Model.ResponseBoundingBox
 ## Properties
 
 Name | Type | Description | Notes

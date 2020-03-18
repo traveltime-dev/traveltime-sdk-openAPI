@@ -40,17 +40,17 @@ class DefaultApi extends ApiClient with _$DefaultApiClient {
     @GetReq(path: "/v4/geocoding/reverse", metadata: {"auth": [ {"type": "apiKey", "name": "ApiKey", "keyName": "X-Api-Key", "where": "header" },  {"type": "apiKey", "name": "ApplicationId", "keyName": "X-Application-Id", "where": "header" }]})
     Future<ResponseGeocoding> geocodingReverseSearch(
         
-            @QueryParam("focus.lat") double focusLat, 
+            @QueryParam("lat") double lat, 
         
-            @QueryParam("focus.lng") double focusLng, 
+            @QueryParam("lng") double lng, 
         
             @QueryParam("within.country") String withinCountry
         ) {
         return super.geocodingReverseSearch(
         
-        focusLat, 
+        lat, 
         
-        focusLng, 
+        lng, 
         
         withinCountry
 
@@ -65,21 +65,21 @@ class DefaultApi extends ApiClient with _$DefaultApiClient {
         
             @QueryParam("query") String query, 
         
-            @QueryParam("within.country") String withinCountry, 
-        
             @QueryParam("focus.lat") double focusLat, 
         
-            @QueryParam("focus.lng") double focusLng
+            @QueryParam("focus.lng") double focusLng, 
+        
+            @QueryParam("within.country") String withinCountry
         ) {
         return super.geocodingSearch(
         
         query, 
         
-        withinCountry, 
-        
         focusLat, 
         
-        focusLng
+        focusLng, 
+        
+        withinCountry
 
         ).timeout(timeout);
     }

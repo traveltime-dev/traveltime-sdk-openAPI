@@ -23,7 +23,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   private @Valid String id;
   private @Valid String departureLocationId;
   private @Valid List<String> arrivalLocationIds = new ArrayList<String>();
-  private @Valid RequestTransportationFast transportation = null;
+  private @Valid RequestTransportationFast transportation;
   private @Valid Integer travelTime;
   private @Valid RequestArrivalTimePeriod arrivalTimePeriod;
   private @Valid List<RequestTimeFilterFastProperty> properties = new ArrayList<RequestTimeFilterFastProperty>();

@@ -8,29 +8,29 @@
 response_fares_fast_t *response_fares_fast_create(
     list_t *tickets_total
     ) {
-	response_fares_fast_t *response_fares_fast_local_var = malloc(sizeof(response_fares_fast_t));
+    response_fares_fast_t *response_fares_fast_local_var = malloc(sizeof(response_fares_fast_t));
     if (!response_fares_fast_local_var) {
         return NULL;
     }
-	response_fares_fast_local_var->tickets_total = tickets_total;
+    response_fares_fast_local_var->tickets_total = tickets_total;
 
-	return response_fares_fast_local_var;
+    return response_fares_fast_local_var;
 }
 
 
 void response_fares_fast_free(response_fares_fast_t *response_fares_fast) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_fares_fast->tickets_total) {
-		response_fare_ticket_free(listEntry->data);
-	}
-	list_free(response_fares_fast->tickets_total);
-	free(response_fares_fast);
+    list_ForEach(listEntry, response_fares_fast->tickets_total) {
+        response_fare_ticket_free(listEntry->data);
+    }
+    list_free(response_fares_fast->tickets_total);
+    free(response_fares_fast);
 }
 
 cJSON *response_fares_fast_convertToJSON(response_fares_fast_t *response_fares_fast) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_fares_fast->tickets_total
+    // response_fares_fast->tickets_total
     if (!response_fares_fast->tickets_total) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_fares_fast_convertToJSON(response_fares_fast_t *response_fares_f
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_fares_fast_t *response_fares_fast_parseFromJSON(cJSON *response_fares_fastJSON){

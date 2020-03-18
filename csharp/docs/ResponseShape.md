@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseShape
+# Org.OpenAPITools.Model.ResponseShape
 
 ## Properties
 

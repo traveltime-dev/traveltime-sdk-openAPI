@@ -60,7 +60,6 @@ int32_t ResponseTravelTimeStatistics::getMin() const
 void ResponseTravelTimeStatistics::setMin(int32_t const value)
 {
     m_Min = value;
-    
 }
 int32_t ResponseTravelTimeStatistics::getMax() const
 {
@@ -69,7 +68,6 @@ int32_t ResponseTravelTimeStatistics::getMax() const
 void ResponseTravelTimeStatistics::setMax(int32_t const value)
 {
     m_Max = value;
-    
 }
 int32_t ResponseTravelTimeStatistics::getMean() const
 {
@@ -78,7 +76,6 @@ int32_t ResponseTravelTimeStatistics::getMean() const
 void ResponseTravelTimeStatistics::setMean(int32_t const value)
 {
     m_Mean = value;
-    
 }
 int32_t ResponseTravelTimeStatistics::getMedian() const
 {
@@ -87,7 +84,6 @@ int32_t ResponseTravelTimeStatistics::getMedian() const
 void ResponseTravelTimeStatistics::setMedian(int32_t const value)
 {
     m_Median = value;
-    
 }
 
 }

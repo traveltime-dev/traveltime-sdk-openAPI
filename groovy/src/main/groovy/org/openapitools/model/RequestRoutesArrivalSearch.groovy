@@ -18,11 +18,11 @@ class RequestRoutesArrivalSearch {
     
     String arrivalLocationId
     
-    RequestTransportation transportation = null
+    RequestTransportation transportation
     
     Date arrivalTime
     
     List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>()
     
-    RequestRangeFull range = null
+    RequestRangeFull range
 }

@@ -17,13 +17,11 @@
  */
 export interface Coords {
     /**
-     * 
      * @type {number}
      * @memberof Coords
      */
     lat: number;
     /**
-     * 
      * @type {number}
      * @memberof Coords
      */

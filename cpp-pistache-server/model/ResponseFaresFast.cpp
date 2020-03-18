@@ -47,6 +47,10 @@ std::vector<ResponseFareTicket>& ResponseFaresFast::getTicketsTotal()
 {
     return m_Tickets_total;
 }
+void ResponseFaresFast::setTicketsTotal(std::vector<ResponseFareTicket> const& value)
+{
+    m_Tickets_total = value;
+}
 
 }
 }

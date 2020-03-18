@@ -37,20 +37,20 @@ void RequestTimeFilterPostcodeDistricts::validate()
 void to_json(nlohmann::json& j, const RequestTimeFilterPostcodeDistricts& o)
 {
     j = nlohmann::json();
-    if(o.departureSearchesIsSet())
+    if(o.departureSearchesIsSet() || !o.m_Departure_searches.empty())
         j["departure_searches"] = o.m_Departure_searches;
-    if(o.arrivalSearchesIsSet())
+    if(o.arrivalSearchesIsSet() || !o.m_Arrival_searches.empty())
         j["arrival_searches"] = o.m_Arrival_searches;
 }
 
 void from_json(const nlohmann::json& j, RequestTimeFilterPostcodeDistricts& o)
 {
-    if(j.contains("departure_searches"))
+    if(j.find("departure_searches") != j.end())
     {
         j.at("departure_searches").get_to(o.m_Departure_searches);
         o.m_Departure_searchesIsSet = true;
     } 
-    if(j.contains("arrival_searches"))
+    if(j.find("arrival_searches") != j.end())
     {
         j.at("arrival_searches").get_to(o.m_Arrival_searches);
         o.m_Arrival_searchesIsSet = true;
@@ -60,6 +60,11 @@ void from_json(const nlohmann::json& j, RequestTimeFilterPostcodeDistricts& o)
 std::vector<RequestTimeFilterPostcodeDistrictsDepartureSearch>& RequestTimeFilterPostcodeDistricts::getDepartureSearches()
 {
     return m_Departure_searches;
+}
+void RequestTimeFilterPostcodeDistricts::setDepartureSearches(std::vector<RequestTimeFilterPostcodeDistrictsDepartureSearch> const& value)
+{
+    m_Departure_searches = value;
+    m_Departure_searchesIsSet = true;
 }
 bool RequestTimeFilterPostcodeDistricts::departureSearchesIsSet() const
 {
@@ -72,6 +77,11 @@ void RequestTimeFilterPostcodeDistricts::unsetDeparture_searches()
 std::vector<RequestTimeFilterPostcodeDistrictsArrivalSearch>& RequestTimeFilterPostcodeDistricts::getArrivalSearches()
 {
     return m_Arrival_searches;
+}
+void RequestTimeFilterPostcodeDistricts::setArrivalSearches(std::vector<RequestTimeFilterPostcodeDistrictsArrivalSearch> const& value)
+{
+    m_Arrival_searches = value;
+    m_Arrival_searchesIsSet = true;
 }
 bool RequestTimeFilterPostcodeDistricts::arrivalSearchesIsSet() const
 {

@@ -28,21 +28,23 @@ import org.openapitools.client.model.ResponseTravelTimeStatistics;
 /**
  * ResponseTimeFilterPostcodeSectorProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSectorProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME_REACHABLE = "travel_time_reachable";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME_REACHABLE)
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME_ALL = "travel_time_all";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME_ALL)
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeAll;
 
   public static final String SERIALIZED_NAME_COVERAGE = "coverage";
   @SerializedName(SERIALIZED_NAME_COVERAGE)
   private Double coverage;
 
+
   public ResponseTimeFilterPostcodeSectorProperties travelTimeReachable(ResponseTravelTimeStatistics travelTimeReachable) {
+    
     this.travelTimeReachable = travelTimeReachable;
     return this;
   }
@@ -51,16 +53,21 @@ public class ResponseTimeFilterPostcodeSectorProperties {
    * Get travelTimeReachable
    * @return travelTimeReachable
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseTravelTimeStatistics getTravelTimeReachable() {
     return travelTimeReachable;
   }
+
 
   public void setTravelTimeReachable(ResponseTravelTimeStatistics travelTimeReachable) {
     this.travelTimeReachable = travelTimeReachable;
   }
 
+
   public ResponseTimeFilterPostcodeSectorProperties travelTimeAll(ResponseTravelTimeStatistics travelTimeAll) {
+    
     this.travelTimeAll = travelTimeAll;
     return this;
   }
@@ -69,16 +76,21 @@ public class ResponseTimeFilterPostcodeSectorProperties {
    * Get travelTimeAll
    * @return travelTimeAll
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseTravelTimeStatistics getTravelTimeAll() {
     return travelTimeAll;
   }
+
 
   public void setTravelTimeAll(ResponseTravelTimeStatistics travelTimeAll) {
     this.travelTimeAll = travelTimeAll;
   }
 
+
   public ResponseTimeFilterPostcodeSectorProperties coverage(Double coverage) {
+    
     this.coverage = coverage;
     return this;
   }
@@ -87,10 +99,13 @@ public class ResponseTimeFilterPostcodeSectorProperties {
    * Get coverage
    * @return coverage
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Double getCoverage() {
     return coverage;
   }
+
 
   public void setCoverage(Double coverage) {
     this.coverage = coverage;

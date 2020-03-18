@@ -10,97 +10,84 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeMapBoundingBoxes.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeMapBoundingBoxes::OAIResponseTimeMapBoundingBoxes(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeMapBoundingBoxes::OAIResponseTimeMapBoundingBoxes() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeMapBoundingBoxes::~OAIResponseTimeMapBoundingBoxes() {
+OAIResponseTimeMapBoundingBoxes::~OAIResponseTimeMapBoundingBoxes() {}
 
-}
+void OAIResponseTimeMapBoundingBoxes::initializeModel() {
 
-void
-OAIResponseTimeMapBoundingBoxes::init() {
-    
     m_results_isSet = false;
     m_results_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeMapBoundingBoxes::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeMapBoundingBoxes::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeMapBoundingBoxes::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseTimeMapBoundingBoxes::fromJsonObject(QJsonObject json) {
+
     m_results_isValid = ::OpenAPI::fromJsonValue(results, json[QString("results")]);
-    
+    m_results_isSet = !json[QString("results")].isNull() && m_results_isValid;
 }
 
-QString
-OAIResponseTimeMapBoundingBoxes::asJson () const {
+QString OAIResponseTimeMapBoundingBoxes::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeMapBoundingBoxes::asJsonObject() const {
+QJsonObject OAIResponseTimeMapBoundingBoxes::asJsonObject() const {
     QJsonObject obj;
-	
-    if(results.size() > 0){
+    if (results.size() > 0) {
         obj.insert(QString("results"), ::OpenAPI::toJsonValue(results));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseTimeMapBoundingBoxesResult>
-OAIResponseTimeMapBoundingBoxes::getResults() const {
+QList<OAIResponseTimeMapBoundingBoxesResult> OAIResponseTimeMapBoundingBoxes::getResults() const {
     return results;
 }
-void
-OAIResponseTimeMapBoundingBoxes::setResults(const QList<OAIResponseTimeMapBoundingBoxesResult> &results) {
+void OAIResponseTimeMapBoundingBoxes::setResults(const QList<OAIResponseTimeMapBoundingBoxesResult> &results) {
     this->results = results;
     this->m_results_isSet = true;
 }
 
-bool
-OAIResponseTimeMapBoundingBoxes::isSet() const {
+bool OAIResponseTimeMapBoundingBoxes::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(results.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (results.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeMapBoundingBoxes::isValid() const {
+bool OAIResponseTimeMapBoundingBoxes::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_results_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

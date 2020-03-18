@@ -20,18 +20,25 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestUnionOnIntersection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestUnionOnIntersection.JSON_PROPERTY_ID,
+  RequestUnionOnIntersection.JSON_PROPERTY_SEARCH_IDS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class RequestUnionOnIntersection   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("search_ids")
+  public static final String JSON_PROPERTY_SEARCH_IDS = "search_ids";
+  @JsonProperty(JSON_PROPERTY_SEARCH_IDS)
   private List<String> searchIds = new ArrayList<String>();
 
   public RequestUnionOnIntersection id(String id) {

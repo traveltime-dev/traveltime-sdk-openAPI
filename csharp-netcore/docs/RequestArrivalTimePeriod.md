@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestArrivalTimePeriod
+# Org.OpenAPITools.Model.RequestArrivalTimePeriod
 ## Properties
 
 Name | Type | Description | Notes

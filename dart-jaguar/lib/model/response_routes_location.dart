@@ -7,10 +7,10 @@ part 'response_routes_location.jser.dart';
 
 class ResponseRoutesLocation {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<ResponseRoutesProperties> properties;
   
 

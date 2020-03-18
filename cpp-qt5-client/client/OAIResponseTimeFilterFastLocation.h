@@ -21,53 +21,49 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTimeFilterFastProperties.h"
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterFastLocation: public OAIObject {
+class OAIResponseTimeFilterFastLocation : public OAIObject {
 public:
     OAIResponseTimeFilterFastLocation();
     OAIResponseTimeFilterFastLocation(QString json);
     ~OAIResponseTimeFilterFastLocation() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     QList<OAIResponseTimeFilterFastProperties> getProperties() const;
     void setProperties(const QList<OAIResponseTimeFilterFastProperties> &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     QList<OAIResponseTimeFilterFastProperties> properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterFastLocation)
 
 #endif // OAIResponseTimeFilterFastLocation_H

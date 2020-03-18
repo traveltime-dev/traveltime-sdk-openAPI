@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class RequestTimeFilterFast   {
   
   private @Valid List<RequestLocation> locations = new ArrayList<RequestLocation>();
-  private @Valid RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private @Valid RequestTimeFilterFastArrivalSearches arrivalSearches;
 
   /**
    **/

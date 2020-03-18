@@ -13,12 +13,12 @@ import org.openapitools.model.ResponseTimeMapProperties;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2019-05-24T09:07:07.467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T07:54:20.248Z[Etc/UTC]")
 public class ResponseTimeMapResult   {
   
   private String searchId;
   private List<ResponseShape> shapes = new ArrayList<ResponseShape>();
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
   /**
    **/

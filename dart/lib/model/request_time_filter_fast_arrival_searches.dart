@@ -14,16 +14,12 @@ class RequestTimeFilterFastArrivalSearches {
 
   RequestTimeFilterFastArrivalSearches.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['many_to_one'] == null) {
-      manyToOne = null;
-    } else {
-      manyToOne = RequestTimeFilterFastArrivalManyToOneSearch.listFromJson(json['many_to_one']);
-    }
-    if (json['one_to_many'] == null) {
-      oneToMany = null;
-    } else {
-      oneToMany = RequestTimeFilterFastArrivalOneToManySearch.listFromJson(json['one_to_many']);
-    }
+    manyToOne = (json['many_to_one'] == null) ?
+      null :
+      RequestTimeFilterFastArrivalManyToOneSearch.listFromJson(json['many_to_one']);
+    oneToMany = (json['one_to_many'] == null) ?
+      null :
+      RequestTimeFilterFastArrivalOneToManySearch.listFromJson(json['one_to_many']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class RequestTimeFilterFastArrivalSearches {
   }
 
   static List<RequestTimeFilterFastArrivalSearches> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterFastArrivalSearches>() : json.map((value) => new RequestTimeFilterFastArrivalSearches.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterFastArrivalSearches>() : json.map((value) => RequestTimeFilterFastArrivalSearches.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterFastArrivalSearches> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterFastArrivalSearches>();
+    var map = Map<String, RequestTimeFilterFastArrivalSearches>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterFastArrivalSearches.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterFastArrivalSearches.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterFastArrivalSearches-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterFastArrivalSearches>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterFastArrivalSearches>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterFastArrivalSearches.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

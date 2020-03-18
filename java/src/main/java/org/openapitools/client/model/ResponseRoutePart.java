@@ -31,7 +31,7 @@ import org.openapitools.client.model.ResponseTransportationMode;
 /**
  * ResponseRoutePart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseRoutePart {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -82,7 +82,7 @@ public class ResponseRoutePart {
 
       @Override
       public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return TypeEnum.fromValue(value);
       }
     }
@@ -148,7 +148,9 @@ public class ResponseRoutePart {
   @SerializedName(SERIALIZED_NAME_NUM_STOPS)
   private Integer numStops;
 
+
   public ResponseRoutePart id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -158,15 +160,19 @@ public class ResponseRoutePart {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public ResponseRoutePart type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -176,15 +182,19 @@ public class ResponseRoutePart {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TypeEnum getType() {
     return type;
   }
+
 
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
+
   public ResponseRoutePart mode(ResponseTransportationMode mode) {
+    
     this.mode = mode;
     return this;
   }
@@ -194,15 +204,19 @@ public class ResponseRoutePart {
    * @return mode
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseTransportationMode getMode() {
     return mode;
   }
+
 
   public void setMode(ResponseTransportationMode mode) {
     this.mode = mode;
   }
 
+
   public ResponseRoutePart directions(String directions) {
+    
     this.directions = directions;
     return this;
   }
@@ -212,15 +226,19 @@ public class ResponseRoutePart {
    * @return directions
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getDirections() {
     return directions;
   }
+
 
   public void setDirections(String directions) {
     this.directions = directions;
   }
 
+
   public ResponseRoutePart distance(Integer distance) {
+    
     this.distance = distance;
     return this;
   }
@@ -230,15 +248,19 @@ public class ResponseRoutePart {
    * @return distance
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getDistance() {
     return distance;
   }
+
 
   public void setDistance(Integer distance) {
     this.distance = distance;
   }
 
+
   public ResponseRoutePart travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -248,15 +270,19 @@ public class ResponseRoutePart {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public ResponseRoutePart coords(List<Coords> coords) {
+    
     this.coords = coords;
     return this;
   }
@@ -271,15 +297,19 @@ public class ResponseRoutePart {
    * @return coords
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<Coords> getCoords() {
     return coords;
   }
+
 
   public void setCoords(List<Coords> coords) {
     this.coords = coords;
   }
 
+
   public ResponseRoutePart direction(String direction) {
+    
     this.direction = direction;
     return this;
   }
@@ -288,16 +318,21 @@ public class ResponseRoutePart {
    * Get direction
    * @return direction
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDirection() {
     return direction;
   }
+
 
   public void setDirection(String direction) {
     this.direction = direction;
   }
 
+
   public ResponseRoutePart road(String road) {
+    
     this.road = road;
     return this;
   }
@@ -306,16 +341,21 @@ public class ResponseRoutePart {
    * Get road
    * @return road
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getRoad() {
     return road;
   }
+
 
   public void setRoad(String road) {
     this.road = road;
   }
 
+
   public ResponseRoutePart turn(String turn) {
+    
     this.turn = turn;
     return this;
   }
@@ -324,16 +364,21 @@ public class ResponseRoutePart {
    * Get turn
    * @return turn
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getTurn() {
     return turn;
   }
+
 
   public void setTurn(String turn) {
     this.turn = turn;
   }
 
+
   public ResponseRoutePart line(String line) {
+    
     this.line = line;
     return this;
   }
@@ -342,16 +387,21 @@ public class ResponseRoutePart {
    * Get line
    * @return line
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getLine() {
     return line;
   }
+
 
   public void setLine(String line) {
     this.line = line;
   }
 
+
   public ResponseRoutePart departureStation(String departureStation) {
+    
     this.departureStation = departureStation;
     return this;
   }
@@ -360,16 +410,21 @@ public class ResponseRoutePart {
    * Get departureStation
    * @return departureStation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDepartureStation() {
     return departureStation;
   }
+
 
   public void setDepartureStation(String departureStation) {
     this.departureStation = departureStation;
   }
 
+
   public ResponseRoutePart arrivalStation(String arrivalStation) {
+    
     this.arrivalStation = arrivalStation;
     return this;
   }
@@ -378,16 +433,21 @@ public class ResponseRoutePart {
    * Get arrivalStation
    * @return arrivalStation
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getArrivalStation() {
     return arrivalStation;
   }
+
 
   public void setArrivalStation(String arrivalStation) {
     this.arrivalStation = arrivalStation;
   }
 
+
   public ResponseRoutePart departsAt(String departsAt) {
+    
     this.departsAt = departsAt;
     return this;
   }
@@ -396,16 +456,21 @@ public class ResponseRoutePart {
    * Get departsAt
    * @return departsAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDepartsAt() {
     return departsAt;
   }
+
 
   public void setDepartsAt(String departsAt) {
     this.departsAt = departsAt;
   }
 
+
   public ResponseRoutePart arrivesAt(String arrivesAt) {
+    
     this.arrivesAt = arrivesAt;
     return this;
   }
@@ -414,16 +479,21 @@ public class ResponseRoutePart {
    * Get arrivesAt
    * @return arrivesAt
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getArrivesAt() {
     return arrivesAt;
   }
+
 
   public void setArrivesAt(String arrivesAt) {
     this.arrivesAt = arrivesAt;
   }
 
+
   public ResponseRoutePart numStops(Integer numStops) {
+    
     this.numStops = numStops;
     return this;
   }
@@ -432,10 +502,13 @@ public class ResponseRoutePart {
    * Get numStops
    * @return numStops
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getNumStops() {
     return numStops;
   }
+
 
   public void setNumStops(Integer numStops) {
     this.numStops = numStops;

@@ -24,10 +24,10 @@ public class RequestRoutesArrivalSearch   {
   private @Valid String id;
   private @Valid List<String> departureLocationIds = new ArrayList<String>();
   private @Valid String arrivalLocationId;
-  private @Valid RequestTransportation transportation = null;
+  private @Valid RequestTransportation transportation;
   private @Valid Date arrivalTime;
   private @Valid List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
-  private @Valid RequestRangeFull range = null;
+  private @Valid RequestRangeFull range;
 
   /**
    **/

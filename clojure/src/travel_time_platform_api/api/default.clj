@@ -116,13 +116,13 @@
 
 (defn-spec geocoding-reverse-search-with-http-info any?
   ""
-  ([focuslat float?, focuslng float?, ] (geocoding-reverse-search-with-http-info focuslat focuslng nil))
-  ([focuslat float?, focuslng float?, {:keys [withincountry]} (s/map-of keyword? any?)]
-   (check-required-params focuslat focuslng)
+  ([lat float?, lng float?, ] (geocoding-reverse-search-with-http-info lat lng nil))
+  ([lat float?, lng float?, {:keys [withincountry]} (s/map-of keyword? any?)]
+   (check-required-params lat lng)
    (call-api "/v4/geocoding/reverse" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"focus.lat" focuslat "focus.lng" focuslng "within.country" withincountry }
+              :query-params  {"lat" lat "lng" lng "within.country" withincountry }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]
@@ -130,9 +130,9 @@
 
 (defn-spec geocoding-reverse-search response-geocoding-spec
   ""
-  ([focuslat float?, focuslng float?, ] (geocoding-reverse-search focuslat focuslng nil))
-  ([focuslat float?, focuslng float?, optional-params any?]
-   (let [res (:data (geocoding-reverse-search-with-http-info focuslat focuslng optional-params))]
+  ([lat float?, lng float?, ] (geocoding-reverse-search lat lng nil))
+  ([lat float?, lng float?, optional-params any?]
+   (let [res (:data (geocoding-reverse-search-with-http-info lat lng optional-params))]
      (if (:decode-models *api-context*)
         (st/decode response-geocoding-spec res st/string-transformer)
         res))))
@@ -141,12 +141,12 @@
 (defn-spec geocoding-search-with-http-info any?
   ""
   ([query string?, ] (geocoding-search-with-http-info query nil))
-  ([query string?, {:keys [withincountry focuslat focuslng]} (s/map-of keyword? any?)]
+  ([query string?, {:keys [focuslat focuslng withincountry]} (s/map-of keyword? any?)]
    (check-required-params query)
    (call-api "/v4/geocoding/search" :get
              {:path-params   {}
               :header-params {}
-              :query-params  {"query" query "within.country" withincountry "focus.lat" focuslat "focus.lng" focuslng }
+              :query-params  {"query" query "focus.lat" focuslat "focus.lng" focuslng "within.country" withincountry }
               :form-params   {}
               :content-types []
               :accepts       ["application/json"]

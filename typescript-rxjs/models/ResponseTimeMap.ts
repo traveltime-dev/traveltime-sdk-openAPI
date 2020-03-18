@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseTimeMap {
     /**
-     * 
      * @type {Array<ResponseTimeMapResult>}
      * @memberof ResponseTimeMap
      */

@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -21,28 +20,30 @@ pub struct RequestTimeFilterArrivalSearch {
     #[serde(rename = "arrival_location_id")]
     pub arrival_location_id: String,
     #[serde(rename = "transportation")]
-    pub transportation: ::models::RequestTransportation,
+    pub transportation: crate::models::RequestTransportation,
     #[serde(rename = "travel_time")]
     pub travel_time: i32,
     #[serde(rename = "arrival_time")]
     pub arrival_time: String,
     #[serde(rename = "properties")]
-    pub properties: Vec<::models::RequestTimeFilterProperty>,
-    #[serde(rename = "range")]
-    pub range: Option<::models::RequestRangeFull>,
+    pub properties: Vec<crate::models::RequestTimeFilterProperty>,
+    #[serde(rename = "range", skip_serializing_if = "Option::is_none")]
+    pub range: Option<crate::models::RequestRangeFull>,
 }
 
 impl RequestTimeFilterArrivalSearch {
-    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: ::models::RequestTransportation, travel_time: i32, arrival_time: String, properties: Vec<::models::RequestTimeFilterProperty>) -> RequestTimeFilterArrivalSearch {
+    pub fn new(id: String, departure_location_ids: Vec<String>, arrival_location_id: String, transportation: crate::models::RequestTransportation, travel_time: i32, arrival_time: String, properties: Vec<crate::models::RequestTimeFilterProperty>) -> RequestTimeFilterArrivalSearch {
         RequestTimeFilterArrivalSearch {
-            id: id,
-            departure_location_ids: departure_location_ids,
-            arrival_location_id: arrival_location_id,
-            transportation: transportation,
-            travel_time: travel_time,
-            arrival_time: arrival_time,
-            properties: properties,
+            id,
+            departure_location_ids,
+            arrival_location_id,
+            transportation,
+            travel_time,
+            arrival_time,
+            properties,
             range: None,
         }
     }
 }
+
+

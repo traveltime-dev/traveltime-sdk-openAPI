@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseMapInfoFeatures exposing (ResponseMapInfoFeatures, decoder, encode)
+module Data.ResponseMapInfoFeatures exposing (ResponseMapInfoFeatures, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseMapInfoFeaturesPublicTransport as ResponseMapInfoFeaturesPublicTransport exposing (ResponseMapInfoFeaturesPublicTransport)
 import Dict exposing (Dict)
@@ -37,12 +37,28 @@ decoder =
 
 
 encode : ResponseMapInfoFeatures -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "public_transport", Maybe.withDefault Encode.null (Maybe.map ResponseMapInfoFeaturesPublicTransport.encode model.publicTransport) )
-        , ( "fares", Encode.bool model.fares )
-        , ( "postcodes", Encode.bool model.postcodes )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseMapInfoFeatures -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseMapInfoFeatures -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "public_transport", Maybe.withDefault Encode.null (Maybe.map ResponseMapInfoFeaturesPublicTransport.encode model.publicTransport) )
+    , ( "fares", Encode.bool model.fares )
+    , ( "postcodes", Encode.bool model.postcodes )
+    ]
+
+
+
+toString : ResponseMapInfoFeatures -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

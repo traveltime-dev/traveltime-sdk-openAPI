@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocodingGeometry {
     #[serde(rename = "type")]
     pub _type: String,
@@ -23,8 +22,10 @@ pub struct ResponseGeocodingGeometry {
 impl ResponseGeocodingGeometry {
     pub fn new(_type: String, coordinates: Vec<f64>) -> ResponseGeocodingGeometry {
         ResponseGeocodingGeometry {
-            _type: _type,
-            coordinates: coordinates,
+            _type,
+            coordinates,
         }
     }
 }
+
+

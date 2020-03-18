@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestUnionOnIntersection {
     #[serde(rename = "id")]
     pub id: String,
@@ -23,8 +22,10 @@ pub struct RequestUnionOnIntersection {
 impl RequestUnionOnIntersection {
     pub fn new(id: String, search_ids: Vec<String>) -> RequestUnionOnIntersection {
         RequestUnionOnIntersection {
-            id: id,
-            search_ids: search_ids,
+            id,
+            search_ids,
         }
     }
 }
+
+

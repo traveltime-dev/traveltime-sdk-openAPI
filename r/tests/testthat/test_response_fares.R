@@ -6,14 +6,14 @@ context("Test ResponseFares")
 model.instance <- ResponseFares$new()
 
 test_that("breakdown", {
-  # tests for the property `breakdown` (ResponseFaresBreakdownItem)
+  # tests for the property `breakdown` (array[ResponseFaresBreakdownItem])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`breakdown`, "EXPECTED_RESULT")
 })
 
 test_that("tickets_total", {
-  # tests for the property `tickets_total` (ResponseFareTicket)
+  # tests for the property `tickets_total` (array[ResponseFareTicket])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`tickets_total`, "EXPECTED_RESULT")

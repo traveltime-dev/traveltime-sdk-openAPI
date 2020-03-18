@@ -14,7 +14,7 @@ import org.openapitools.model.ResponseRoute;
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class ResponseTimeFilterProperties   {
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -26,10 +26,10 @@ public class ResponseTimeFilterProperties   {
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseTimeFilterProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

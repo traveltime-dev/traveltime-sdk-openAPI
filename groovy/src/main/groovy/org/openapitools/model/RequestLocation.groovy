@@ -10,5 +10,5 @@ class RequestLocation {
     
     String id
     
-    Coords coords = null
+    Coords coords
 }

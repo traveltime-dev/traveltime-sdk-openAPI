@@ -31,7 +31,7 @@ public class ResponseGeocodingProperties   {
   private @Valid String countryCode;
   private @Valid String continent;
   private @Valid String postcode;
-  private @Valid ResponseMapInfoFeatures features = null;
+  private @Valid ResponseMapInfoFeatures features;
 
   /**
    **/

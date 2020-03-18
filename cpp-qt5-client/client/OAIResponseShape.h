@@ -21,52 +21,48 @@
 
 #include <QJsonObject>
 
-
 #include "OAICoords.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseShape: public OAIObject {
+class OAIResponseShape : public OAIObject {
 public:
     OAIResponseShape();
     OAIResponseShape(QString json);
     ~OAIResponseShape() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAICoords> getShell() const;
     void setShell(const QList<OAICoords> &shell);
 
-    
     QList<QList<OAICoords>> getHoles() const;
     void setHoles(const QList<QList<OAICoords>> &holes);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAICoords> shell;
     bool m_shell_isSet;
     bool m_shell_isValid;
-    
+
     QList<QList<OAICoords>> holes;
     bool m_holes_isSet;
     bool m_holes_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseShape)
 
 #endif // OAIResponseShape_H

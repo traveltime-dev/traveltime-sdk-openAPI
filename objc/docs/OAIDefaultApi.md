@@ -19,8 +19,8 @@ Method | HTTP request | Description
 
 # **geocodingReverseSearch**
 ```objc
--(NSURLSessionTask*) geocodingReverseSearchWithFocusLat: (NSNumber*) focusLat
-    focusLng: (NSNumber*) focusLng
+-(NSURLSessionTask*) geocodingReverseSearchWithLat: (NSNumber*) lat
+    lng: (NSNumber*) lng
     withinCountry: (NSString*) withinCountry
         completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler;
 ```
@@ -42,14 +42,14 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-Application-Id"];
 
 
-NSNumber* focusLat = @56; // 
-NSNumber* focusLng = @56; // 
+NSNumber* lat = @56; // 
+NSNumber* lng = @56; // 
 NSString* withinCountry = @"withinCountry_example"; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
-[apiInstance geocodingReverseSearchWithFocusLat:focusLat
-              focusLng:focusLng
+[apiInstance geocodingReverseSearchWithLat:lat
+              lng:lng
               withinCountry:withinCountry
           completionHandler: ^(OAIResponseGeocoding* output, NSError* error) {
                         if (output) {
@@ -65,8 +65,8 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **NSNumber***|  | 
- **focusLng** | **NSNumber***|  | 
+ **lat** | **NSNumber***|  | 
+ **lng** | **NSNumber***|  | 
  **withinCountry** | **NSString***|  | [optional] 
 
 ### Return type
@@ -87,9 +87,9 @@ Name | Type | Description  | Notes
 # **geocodingSearch**
 ```objc
 -(NSURLSessionTask*) geocodingSearchWithQuery: (NSString*) query
-    withinCountry: (NSString*) withinCountry
     focusLat: (NSNumber*) focusLat
     focusLng: (NSNumber*) focusLng
+    withinCountry: (NSString*) withinCountry
         completionHandler: (void (^)(OAIResponseGeocoding* output, NSError* error)) handler;
 ```
 
@@ -111,16 +111,16 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 
 
 NSString* query = @"query_example"; // 
-NSString* withinCountry = @"withinCountry_example"; //  (optional)
 NSNumber* focusLat = @56; //  (optional)
 NSNumber* focusLng = @56; //  (optional)
+NSString* withinCountry = @"withinCountry_example"; //  (optional)
 
 OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 
 [apiInstance geocodingSearchWithQuery:query
-              withinCountry:withinCountry
               focusLat:focusLat
               focusLng:focusLng
+              withinCountry:withinCountry
           completionHandler: ^(OAIResponseGeocoding* output, NSError* error) {
                         if (output) {
                             NSLog(@"%@", output);
@@ -136,9 +136,9 @@ OAIDefaultApi*apiInstance = [[OAIDefaultApi alloc] init];
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **NSString***|  | 
- **withinCountry** | **NSString***|  | [optional] 
  **focusLat** | **NSNumber***|  | [optional] 
  **focusLng** | **NSNumber***|  | [optional] 
+ **withinCountry** | **NSString***|  | [optional] 
 
 ### Return type
 

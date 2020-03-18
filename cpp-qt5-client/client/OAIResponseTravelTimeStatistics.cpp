@@ -10,162 +10,150 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTravelTimeStatistics.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTravelTimeStatistics::OAIResponseTravelTimeStatistics(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTravelTimeStatistics::OAIResponseTravelTimeStatistics() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTravelTimeStatistics::~OAIResponseTravelTimeStatistics() {
+OAIResponseTravelTimeStatistics::~OAIResponseTravelTimeStatistics() {}
 
-}
+void OAIResponseTravelTimeStatistics::initializeModel() {
 
-void
-OAIResponseTravelTimeStatistics::init() {
-    
     m_min_isSet = false;
     m_min_isValid = false;
-    
+
     m_max_isSet = false;
     m_max_isValid = false;
-    
+
     m_mean_isSet = false;
     m_mean_isValid = false;
-    
+
     m_median_isSet = false;
     m_median_isValid = false;
-    }
+}
 
-void
-OAIResponseTravelTimeStatistics::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTravelTimeStatistics::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTravelTimeStatistics::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseTravelTimeStatistics::fromJsonObject(QJsonObject json) {
+
     m_min_isValid = ::OpenAPI::fromJsonValue(min, json[QString("min")]);
-    
-    
+    m_min_isSet = !json[QString("min")].isNull() && m_min_isValid;
+
     m_max_isValid = ::OpenAPI::fromJsonValue(max, json[QString("max")]);
-    
-    
+    m_max_isSet = !json[QString("max")].isNull() && m_max_isValid;
+
     m_mean_isValid = ::OpenAPI::fromJsonValue(mean, json[QString("mean")]);
-    
-    
+    m_mean_isSet = !json[QString("mean")].isNull() && m_mean_isValid;
+
     m_median_isValid = ::OpenAPI::fromJsonValue(median, json[QString("median")]);
-    
-    
+    m_median_isSet = !json[QString("median")].isNull() && m_median_isValid;
 }
 
-QString
-OAIResponseTravelTimeStatistics::asJson () const {
+QString OAIResponseTravelTimeStatistics::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTravelTimeStatistics::asJsonObject() const {
+QJsonObject OAIResponseTravelTimeStatistics::asJsonObject() const {
     QJsonObject obj;
-	if(m_min_isSet){
+    if (m_min_isSet) {
         obj.insert(QString("min"), ::OpenAPI::toJsonValue(min));
     }
-	if(m_max_isSet){
+    if (m_max_isSet) {
         obj.insert(QString("max"), ::OpenAPI::toJsonValue(max));
     }
-	if(m_mean_isSet){
+    if (m_mean_isSet) {
         obj.insert(QString("mean"), ::OpenAPI::toJsonValue(mean));
     }
-	if(m_median_isSet){
+    if (m_median_isSet) {
         obj.insert(QString("median"), ::OpenAPI::toJsonValue(median));
     }
     return obj;
 }
 
-
-qint32
-OAIResponseTravelTimeStatistics::getMin() const {
+qint32 OAIResponseTravelTimeStatistics::getMin() const {
     return min;
 }
-void
-OAIResponseTravelTimeStatistics::setMin(const qint32 &min) {
+void OAIResponseTravelTimeStatistics::setMin(const qint32 &min) {
     this->min = min;
     this->m_min_isSet = true;
 }
 
-
-qint32
-OAIResponseTravelTimeStatistics::getMax() const {
+qint32 OAIResponseTravelTimeStatistics::getMax() const {
     return max;
 }
-void
-OAIResponseTravelTimeStatistics::setMax(const qint32 &max) {
+void OAIResponseTravelTimeStatistics::setMax(const qint32 &max) {
     this->max = max;
     this->m_max_isSet = true;
 }
 
-
-qint32
-OAIResponseTravelTimeStatistics::getMean() const {
+qint32 OAIResponseTravelTimeStatistics::getMean() const {
     return mean;
 }
-void
-OAIResponseTravelTimeStatistics::setMean(const qint32 &mean) {
+void OAIResponseTravelTimeStatistics::setMean(const qint32 &mean) {
     this->mean = mean;
     this->m_mean_isSet = true;
 }
 
-
-qint32
-OAIResponseTravelTimeStatistics::getMedian() const {
+qint32 OAIResponseTravelTimeStatistics::getMedian() const {
     return median;
 }
-void
-OAIResponseTravelTimeStatistics::setMedian(const qint32 &median) {
+void OAIResponseTravelTimeStatistics::setMedian(const qint32 &median) {
     this->median = median;
     this->m_median_isSet = true;
 }
 
-bool
-OAIResponseTravelTimeStatistics::isSet() const {
+bool OAIResponseTravelTimeStatistics::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_min_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_max_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_mean_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_median_isSet){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_min_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_max_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_mean_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_median_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTravelTimeStatistics::isValid() const {
+bool OAIResponseTravelTimeStatistics::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_min_isValid && m_max_isValid && m_mean_isValid && m_median_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

@@ -22,24 +22,22 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterProperty: public OAIEnum {
+class OAIRequestTimeFilterProperty : public OAIEnum {
 public:
     OAIRequestTimeFilterProperty();
     OAIRequestTimeFilterProperty(QString json);
     ~OAIRequestTimeFilterProperty() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonValue asJsonValue() const override;
     void fromJsonValue(QJsonValue json) override;
     void fromJson(QString jsonString) override;
 
-    
     enum class eOAIRequestTimeFilterProperty {
         INVALID_VALUE_OPENAPI_GENERATED = 0,
         TRAVEL_TIME, 
@@ -48,21 +46,21 @@ public:
         FARES, 
         ROUTE
     };
-
     OAIRequestTimeFilterProperty::eOAIRequestTimeFilterProperty getValue() const;
     void setValue(const OAIRequestTimeFilterProperty::eOAIRequestTimeFilterProperty& value);
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     eOAIRequestTimeFilterProperty m_value;
     bool m_value_isSet;
     bool m_value_isValid;
 };
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterProperty)
 
 #endif // OAIRequestTimeFilterProperty_H

@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseFareTicket
+# Org.OpenAPITools.Model.ResponseFareTicket
 ## Properties
 
 Name | Type | Description | Notes

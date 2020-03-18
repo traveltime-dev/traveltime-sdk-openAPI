@@ -9,34 +9,34 @@ response_fares_t *response_fares_create(
     list_t *breakdown,
     list_t *tickets_total
     ) {
-	response_fares_t *response_fares_local_var = malloc(sizeof(response_fares_t));
+    response_fares_t *response_fares_local_var = malloc(sizeof(response_fares_t));
     if (!response_fares_local_var) {
         return NULL;
     }
-	response_fares_local_var->breakdown = breakdown;
-	response_fares_local_var->tickets_total = tickets_total;
+    response_fares_local_var->breakdown = breakdown;
+    response_fares_local_var->tickets_total = tickets_total;
 
-	return response_fares_local_var;
+    return response_fares_local_var;
 }
 
 
 void response_fares_free(response_fares_t *response_fares) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_fares->breakdown) {
-		response_fares_breakdown_item_free(listEntry->data);
-	}
-	list_free(response_fares->breakdown);
-	list_ForEach(listEntry, response_fares->tickets_total) {
-		response_fare_ticket_free(listEntry->data);
-	}
-	list_free(response_fares->tickets_total);
-	free(response_fares);
+    list_ForEach(listEntry, response_fares->breakdown) {
+        response_fares_breakdown_item_free(listEntry->data);
+    }
+    list_free(response_fares->breakdown);
+    list_ForEach(listEntry, response_fares->tickets_total) {
+        response_fare_ticket_free(listEntry->data);
+    }
+    list_free(response_fares->tickets_total);
+    free(response_fares);
 }
 
 cJSON *response_fares_convertToJSON(response_fares_t *response_fares) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_fares->breakdown
+    // response_fares->breakdown
     if (!response_fares->breakdown) {
         goto fail;
     }
@@ -58,7 +58,7 @@ cJSON *response_fares_convertToJSON(response_fares_t *response_fares) {
     }
 
 
-	// response_fares->tickets_total
+    // response_fares->tickets_total
     if (!response_fares->tickets_total) {
         goto fail;
     }
@@ -79,12 +79,12 @@ cJSON *response_fares_convertToJSON(response_fares_t *response_fares) {
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_fares_t *response_fares_parseFromJSON(cJSON *response_faresJSON){

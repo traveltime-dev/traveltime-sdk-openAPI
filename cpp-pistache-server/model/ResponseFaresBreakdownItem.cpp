@@ -51,13 +51,25 @@ std::vector<ResponseTransportationMode>& ResponseFaresBreakdownItem::getModes()
 {
     return m_Modes;
 }
+void ResponseFaresBreakdownItem::setModes(std::vector<ResponseTransportationMode> const& value)
+{
+    m_Modes = value;
+}
 std::vector<int32_t>& ResponseFaresBreakdownItem::getRoutePartIds()
 {
     return m_Route_part_ids;
 }
+void ResponseFaresBreakdownItem::setRoutePartIds(std::vector<int32_t> const value)
+{
+    m_Route_part_ids = value;
+}
 std::vector<ResponseFareTicket>& ResponseFaresBreakdownItem::getTickets()
 {
     return m_Tickets;
+}
+void ResponseFaresBreakdownItem::setTickets(std::vector<ResponseFareTicket> const& value)
+{
+    m_Tickets = value;
 }
 
 }

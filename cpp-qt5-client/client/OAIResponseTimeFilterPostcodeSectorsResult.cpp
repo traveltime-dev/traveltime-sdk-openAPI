@@ -10,119 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterPostcodeSectorsResult.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterPostcodeSectorsResult::OAIResponseTimeFilterPostcodeSectorsResult(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterPostcodeSectorsResult::OAIResponseTimeFilterPostcodeSectorsResult() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterPostcodeSectorsResult::~OAIResponseTimeFilterPostcodeSectorsResult() {
+OAIResponseTimeFilterPostcodeSectorsResult::~OAIResponseTimeFilterPostcodeSectorsResult() {}
 
-}
+void OAIResponseTimeFilterPostcodeSectorsResult::initializeModel() {
 
-void
-OAIResponseTimeFilterPostcodeSectorsResult::init() {
-    
     m_search_id_isSet = false;
     m_search_id_isValid = false;
-    
+
     m_sectors_isSet = false;
     m_sectors_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterPostcodeSectorsResult::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterPostcodeSectorsResult::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterPostcodeSectorsResult::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseTimeFilterPostcodeSectorsResult::fromJsonObject(QJsonObject json) {
+
     m_search_id_isValid = ::OpenAPI::fromJsonValue(search_id, json[QString("search_id")]);
-    
-    
-    
+    m_search_id_isSet = !json[QString("search_id")].isNull() && m_search_id_isValid;
+
     m_sectors_isValid = ::OpenAPI::fromJsonValue(sectors, json[QString("sectors")]);
-    
+    m_sectors_isSet = !json[QString("sectors")].isNull() && m_sectors_isValid;
 }
 
-QString
-OAIResponseTimeFilterPostcodeSectorsResult::asJson () const {
+QString OAIResponseTimeFilterPostcodeSectorsResult::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterPostcodeSectorsResult::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterPostcodeSectorsResult::asJsonObject() const {
     QJsonObject obj;
-	if(m_search_id_isSet){
+    if (m_search_id_isSet) {
         obj.insert(QString("search_id"), ::OpenAPI::toJsonValue(search_id));
     }
-	
-    if(sectors.size() > 0){
+    if (sectors.size() > 0) {
         obj.insert(QString("sectors"), ::OpenAPI::toJsonValue(sectors));
-    } 
+    }
     return obj;
 }
 
-
-QString
-OAIResponseTimeFilterPostcodeSectorsResult::getSearchId() const {
+QString OAIResponseTimeFilterPostcodeSectorsResult::getSearchId() const {
     return search_id;
 }
-void
-OAIResponseTimeFilterPostcodeSectorsResult::setSearchId(const QString &search_id) {
+void OAIResponseTimeFilterPostcodeSectorsResult::setSearchId(const QString &search_id) {
     this->search_id = search_id;
     this->m_search_id_isSet = true;
 }
 
-
-QList<OAIResponseTimeFilterPostcodeSector>
-OAIResponseTimeFilterPostcodeSectorsResult::getSectors() const {
+QList<OAIResponseTimeFilterPostcodeSector> OAIResponseTimeFilterPostcodeSectorsResult::getSectors() const {
     return sectors;
 }
-void
-OAIResponseTimeFilterPostcodeSectorsResult::setSectors(const QList<OAIResponseTimeFilterPostcodeSector> &sectors) {
+void OAIResponseTimeFilterPostcodeSectorsResult::setSectors(const QList<OAIResponseTimeFilterPostcodeSector> &sectors) {
     this->sectors = sectors;
     this->m_sectors_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterPostcodeSectorsResult::isSet() const {
+bool OAIResponseTimeFilterPostcodeSectorsResult::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_search_id_isSet){ isObjectUpdated = true; break;}
-    
-        if(sectors.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_search_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (sectors.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterPostcodeSectorsResult::isValid() const {
+bool OAIResponseTimeFilterPostcodeSectorsResult::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_search_id_isValid && m_sectors_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

@@ -23,43 +23,36 @@ import {
  */
 export interface RequestRoutesArrivalSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestRoutesArrivalSearch
      */
     id: string;
     /**
-     * 
      * @type {Array<string>}
      * @memberof RequestRoutesArrivalSearch
      */
     departureLocationIds: Array<string>;
     /**
-     * 
      * @type {string}
      * @memberof RequestRoutesArrivalSearch
      */
     arrivalLocationId: string;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestRoutesArrivalSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
      * @type {Date}
      * @memberof RequestRoutesArrivalSearch
      */
     arrivalTime: Date;
     /**
-     * 
      * @type {Array<RequestRoutesProperty>}
      * @memberof RequestRoutesArrivalSearch
      */
     properties: Array<RequestRoutesProperty>;
     /**
-     * 
      * @type {RequestRangeFull}
      * @memberof RequestRoutesArrivalSearch
      */

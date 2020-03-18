@@ -4,6 +4,40 @@
 #include "request_time_filter_fast_arrival_many_to_one_search.h"
 
 
+    char* arrival_time_periodrequest_time_filter_fast_arrival_many_to_one_search_ToString(arrival_time_period_e arrival_time_period){
+    char *arrival_time_periodArray[] =  { "weekday_morning" };
+        return arrival_time_periodArray[arrival_time_period];
+    }
+
+    arrival_time_period_e arrival_time_periodrequest_time_filter_fast_arrival_many_to_one_search_FromString(char* arrival_time_period){
+    int stringToReturn = 0;
+    char *arrival_time_periodArray[] =  { "weekday_morning" };
+    size_t sizeofArray = sizeof(arrival_time_periodArray) / sizeof(arrival_time_periodArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(arrival_time_period, arrival_time_periodArray[stringToReturn]) == 0) {
+            return stringToReturn;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
+    char* propertiesrequest_time_filter_fast_arrival_many_to_one_search_ToString(properties_e properties){
+        char *propertiesArray[] =  { "travel_time","fares" };
+        return propertiesArray[properties - 1];
+    }
+
+    properties_e propertiesrequest_time_filter_fast_arrival_many_to_one_search_FromString(char* properties){
+    int stringToReturn = 0;
+    char *propertiesArray[] =  { "travel_time","fares" };
+    size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(properties, propertiesArray[stringToReturn]) == 0) {
+            return stringToReturn + 1;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
 
 request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_arrival_many_to_one_search_create(
     char *id,
@@ -11,22 +45,21 @@ request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_
     list_t *departure_location_ids,
     request_transportation_fast_t *transportation,
     int travel_time,
-    request_arrival_time_period_e arrival_time_period,
     list_t *properties
     ) {
-	request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_arrival_many_to_one_search_local_var = malloc(sizeof(request_time_filter_fast_arrival_many_to_one_search_t));
+    request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_arrival_many_to_one_search_local_var = malloc(sizeof(request_time_filter_fast_arrival_many_to_one_search_t));
     if (!request_time_filter_fast_arrival_many_to_one_search_local_var) {
         return NULL;
     }
-	request_time_filter_fast_arrival_many_to_one_search_local_var->id = id;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->arrival_location_id = arrival_location_id;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->departure_location_ids = departure_location_ids;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->transportation = transportation;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->travel_time = travel_time;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->arrival_time_period = arrival_time_period;
-	request_time_filter_fast_arrival_many_to_one_search_local_var->properties = properties;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->id = id;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->arrival_location_id = arrival_location_id;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->departure_location_ids = departure_location_ids;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->transportation = transportation;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->travel_time = travel_time;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->arrival_time_period = arrival_time_period;
+    request_time_filter_fast_arrival_many_to_one_search_local_var->properties = properties;
 
-	return request_time_filter_fast_arrival_many_to_one_search_local_var;
+    return request_time_filter_fast_arrival_many_to_one_search_local_var;
 }
 
 
@@ -34,22 +67,22 @@ void request_time_filter_fast_arrival_many_to_one_search_free(request_time_filte
     listEntry_t *listEntry;
     free(request_time_filter_fast_arrival_many_to_one_search->id);
     free(request_time_filter_fast_arrival_many_to_one_search->arrival_location_id);
-	list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
-		free(listEntry->data);
-	}
-	list_free(request_time_filter_fast_arrival_many_to_one_search->departure_location_ids);
+    list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
+        free(listEntry->data);
+    }
+    list_free(request_time_filter_fast_arrival_many_to_one_search->departure_location_ids);
     request_transportation_fast_free(request_time_filter_fast_arrival_many_to_one_search->transportation);
-	list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->properties) {
-		request_time_filter_fast_property_free(listEntry->data);
-	}
-	list_free(request_time_filter_fast_arrival_many_to_one_search->properties);
-	free(request_time_filter_fast_arrival_many_to_one_search);
+    list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->properties) {
+        request_time_filter_fast_property_free(listEntry->data);
+    }
+    list_free(request_time_filter_fast_arrival_many_to_one_search->properties);
+    free(request_time_filter_fast_arrival_many_to_one_search);
 }
 
 cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_arrival_many_to_one_search) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_filter_fast_arrival_many_to_one_search->id
+    // request_time_filter_fast_arrival_many_to_one_search->id
     if (!request_time_filter_fast_arrival_many_to_one_search->id) {
         goto fail;
     }
@@ -59,7 +92,7 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->arrival_location_id
+    // request_time_filter_fast_arrival_many_to_one_search->arrival_location_id
     if (!request_time_filter_fast_arrival_many_to_one_search->arrival_location_id) {
         goto fail;
     }
@@ -69,17 +102,17 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->departure_location_ids
+    // request_time_filter_fast_arrival_many_to_one_search->departure_location_ids
     if (!request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
         goto fail;
     }
     
-	cJSON *departure_location_ids = cJSON_AddArrayToObject(item, "departure_location_ids");
-	if(departure_location_ids == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *departure_location_ids = cJSON_AddArrayToObject(item, "departure_location_ids");
+    if(departure_location_ids == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *departure_location_idsListEntry;
+    listEntry_t *departure_location_idsListEntry;
     list_ForEach(departure_location_idsListEntry, request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
     if(cJSON_AddStringToObject(departure_location_ids, "", (char*)departure_location_idsListEntry->data) == NULL)
     {
@@ -88,7 +121,7 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->transportation
+    // request_time_filter_fast_arrival_many_to_one_search->transportation
     if (!request_time_filter_fast_arrival_many_to_one_search->transportation) {
         goto fail;
     }
@@ -103,7 +136,7 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->travel_time
+    // request_time_filter_fast_arrival_many_to_one_search->travel_time
     if (!request_time_filter_fast_arrival_many_to_one_search->travel_time) {
         goto fail;
     }
@@ -113,19 +146,11 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->arrival_time_period
+    // request_time_filter_fast_arrival_many_to_one_search->arrival_time_period
     
-    cJSON *arrival_time_period_enum_local_JSON = request_arrival_time_period_convertToJSON(request_time_filter_fast_arrival_many_to_one_search->arrival_time_period);
-    if(arrival_time_period_enum_local_JSON == NULL) {
-    goto fail; // enum
-    }
-    cJSON_AddItemToObject(item, "arrival_time_period", arrival_time_period_enum_local_JSON);
-    if(item->child == NULL) {
-    goto fail;
-    }
 
 
-	// request_time_filter_fast_arrival_many_to_one_search->properties
+    // request_time_filter_fast_arrival_many_to_one_search->properties
     
     cJSON *properties = cJSON_AddArrayToObject(item, "properties");
     if(properties == NULL) {
@@ -143,12 +168,12 @@ cJSON *request_time_filter_fast_arrival_many_to_one_search_convertToJSON(request
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_arrival_many_to_one_search_parseFromJSON(cJSON *request_time_filter_fast_arrival_many_to_one_searchJSON){
@@ -230,9 +255,6 @@ request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_
         goto end;
     }
 
-    request_arrival_time_period_e arrival_time_period_local_nonprim_enum;
-    
-    arrival_time_period_local_nonprim_enum = request_arrival_time_period_parseFromJSON(arrival_time_period); //enum model
 
     // request_time_filter_fast_arrival_many_to_one_search->properties
     cJSON *properties = cJSON_GetObjectItemCaseSensitive(request_time_filter_fast_arrival_many_to_one_searchJSON, "properties");
@@ -266,7 +288,6 @@ request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_
         departure_location_idsList,
         transportation_local_nonprim,
         travel_time->valuedouble,
-        arrival_time_period_local_nonprim_enum,
         propertiesList
         );
 

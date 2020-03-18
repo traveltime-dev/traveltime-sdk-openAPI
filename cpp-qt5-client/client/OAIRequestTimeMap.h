@@ -21,70 +21,64 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestTimeMapArrivalSearch.h"
 #include "OAIRequestTimeMapDepartureSearch.h"
 #include "OAIRequestUnionOnIntersection.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeMap: public OAIObject {
+class OAIRequestTimeMap : public OAIObject {
 public:
     OAIRequestTimeMap();
     OAIRequestTimeMap(QString json);
     ~OAIRequestTimeMap() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIRequestTimeMapDepartureSearch> getDepartureSearches() const;
     void setDepartureSearches(const QList<OAIRequestTimeMapDepartureSearch> &departure_searches);
 
-    
     QList<OAIRequestTimeMapArrivalSearch> getArrivalSearches() const;
     void setArrivalSearches(const QList<OAIRequestTimeMapArrivalSearch> &arrival_searches);
 
-    
     QList<OAIRequestUnionOnIntersection> getUnions() const;
     void setUnions(const QList<OAIRequestUnionOnIntersection> &unions);
 
-    
     QList<OAIRequestUnionOnIntersection> getIntersections() const;
     void setIntersections(const QList<OAIRequestUnionOnIntersection> &intersections);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIRequestTimeMapDepartureSearch> departure_searches;
     bool m_departure_searches_isSet;
     bool m_departure_searches_isValid;
-    
+
     QList<OAIRequestTimeMapArrivalSearch> arrival_searches;
     bool m_arrival_searches_isSet;
     bool m_arrival_searches_isValid;
-    
+
     QList<OAIRequestUnionOnIntersection> unions;
     bool m_unions_isSet;
     bool m_unions_isValid;
-    
+
     QList<OAIRequestUnionOnIntersection> intersections;
     bool m_intersections_isSet;
     bool m_intersections_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeMap)
 
 #endif // OAIRequestTimeMap_H

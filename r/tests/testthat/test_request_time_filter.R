@@ -6,21 +6,21 @@ context("Test RequestTimeFilter")
 model.instance <- RequestTimeFilter$new()
 
 test_that("locations", {
-  # tests for the property `locations` (RequestLocation)
+  # tests for the property `locations` (array[RequestLocation])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`locations`, "EXPECTED_RESULT")
 })
 
 test_that("departure_searches", {
-  # tests for the property `departure_searches` (RequestTimeFilterDepartureSearch)
+  # tests for the property `departure_searches` (array[RequestTimeFilterDepartureSearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`departure_searches`, "EXPECTED_RESULT")
 })
 
 test_that("arrival_searches", {
-  # tests for the property `arrival_searches` (RequestTimeFilterArrivalSearch)
+  # tests for the property `arrival_searches` (array[RequestTimeFilterArrivalSearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`arrival_searches`, "EXPECTED_RESULT")

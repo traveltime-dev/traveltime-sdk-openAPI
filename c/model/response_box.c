@@ -11,28 +11,28 @@ response_box_t *response_box_create(
     double min_lng,
     double max_lng
     ) {
-	response_box_t *response_box_local_var = malloc(sizeof(response_box_t));
+    response_box_t *response_box_local_var = malloc(sizeof(response_box_t));
     if (!response_box_local_var) {
         return NULL;
     }
-	response_box_local_var->min_lat = min_lat;
-	response_box_local_var->max_lat = max_lat;
-	response_box_local_var->min_lng = min_lng;
-	response_box_local_var->max_lng = max_lng;
+    response_box_local_var->min_lat = min_lat;
+    response_box_local_var->max_lat = max_lat;
+    response_box_local_var->min_lng = min_lng;
+    response_box_local_var->max_lng = max_lng;
 
-	return response_box_local_var;
+    return response_box_local_var;
 }
 
 
 void response_box_free(response_box_t *response_box) {
     listEntry_t *listEntry;
-	free(response_box);
+    free(response_box);
 }
 
 cJSON *response_box_convertToJSON(response_box_t *response_box) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_box->min_lat
+    // response_box->min_lat
     if (!response_box->min_lat) {
         goto fail;
     }
@@ -42,7 +42,7 @@ cJSON *response_box_convertToJSON(response_box_t *response_box) {
     }
 
 
-	// response_box->max_lat
+    // response_box->max_lat
     if (!response_box->max_lat) {
         goto fail;
     }
@@ -52,7 +52,7 @@ cJSON *response_box_convertToJSON(response_box_t *response_box) {
     }
 
 
-	// response_box->min_lng
+    // response_box->min_lng
     if (!response_box->min_lng) {
         goto fail;
     }
@@ -62,7 +62,7 @@ cJSON *response_box_convertToJSON(response_box_t *response_box) {
     }
 
 
-	// response_box->max_lng
+    // response_box->max_lng
     if (!response_box->max_lng) {
         goto fail;
     }
@@ -71,12 +71,12 @@ cJSON *response_box_convertToJSON(response_box_t *response_box) {
     goto fail; //Numeric
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_box_t *response_box_parseFromJSON(cJSON *response_boxJSON){

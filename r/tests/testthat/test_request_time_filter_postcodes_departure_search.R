@@ -34,7 +34,7 @@ test_that("departure_time", {
 })
 
 test_that("properties", {
-  # tests for the property `properties` (RequestTimeFilterPostcodesProperty)
+  # tests for the property `properties` (array[RequestTimeFilterPostcodesProperty])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`properties`, "EXPECTED_RESULT")

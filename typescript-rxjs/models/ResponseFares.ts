@@ -22,13 +22,11 @@ import {
  */
 export interface ResponseFares {
     /**
-     * 
      * @type {Array<ResponseFaresBreakdownItem>}
      * @memberof ResponseFares
      */
     breakdown: Array<ResponseFaresBreakdownItem>;
     /**
-     * 
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFares
      */

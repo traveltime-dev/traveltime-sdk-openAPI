@@ -12,11 +12,9 @@ class ResponseTimeFilterFast {
 
   ResponseTimeFilterFast.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['results'] == null) {
-      results = null;
-    } else {
-      results = ResponseTimeFilterFastResult.listFromJson(json['results']);
-    }
+    results = (json['results'] == null) ?
+      null :
+      ResponseTimeFilterFastResult.listFromJson(json['results']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseTimeFilterFast {
   }
 
   static List<ResponseTimeFilterFast> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterFast>() : json.map((value) => new ResponseTimeFilterFast.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterFast>() : json.map((value) => ResponseTimeFilterFast.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterFast> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterFast>();
+    var map = Map<String, ResponseTimeFilterFast>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterFast.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterFast.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterFast-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterFast>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterFast>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterFast.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

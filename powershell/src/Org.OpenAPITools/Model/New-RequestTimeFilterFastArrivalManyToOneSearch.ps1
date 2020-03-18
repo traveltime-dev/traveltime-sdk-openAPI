@@ -11,24 +11,24 @@ function New-RequestTimeFilterFastArrivalManyToOneSearch {
         [String[]]
         ${departureUnderscorelocationUnderscoreids},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTransportationFast]
+        [Org.OpenAPITools.Model.RequestTransportationFast]
         ${transportation},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
         ${travelUnderscoretime},
         [Parameter(Position = 5, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestArrivalTimePeriod]
+        [Org.OpenAPITools.Model.RequestArrivalTimePeriod]
         ${arrivalUnderscoretimeUnderscoreperiod},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterFastProperty[]]
+        [Org.OpenAPITools.Model.RequestTimeFilterFastProperty[]]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilterFastArrivalManyToOneSearch' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilterFastArrivalManyToOneSearch' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilterFastArrivalManyToOneSearch -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilterFastArrivalManyToOneSearch -ArgumentList @(
             ${id},
             ${arrivalUnderscorelocationUnderscoreid},
             ${departureUnderscorelocationUnderscoreids},

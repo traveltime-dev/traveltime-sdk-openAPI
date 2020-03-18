@@ -47,12 +47,12 @@ public:
     /// </summary>
     std::string getName() const;
     void setName(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getLabel() const;
     void setLabel(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getScore() const;

@@ -47,11 +47,12 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<std::string>& getSearchIds();
-    
+    void setSearchIds(std::vector<std::string> const& value);
+
     friend void to_json(nlohmann::json& j, const RequestUnionOnIntersection& o);
     friend void from_json(const nlohmann::json& j, RequestUnionOnIntersection& o);
 protected:

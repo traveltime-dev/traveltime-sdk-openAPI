@@ -48,11 +48,12 @@ public:
     /// </summary>
     std::string getSearchId() const;
     void setSearchId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterPostcode>& getPostcodes();
-    
+    void setPostcodes(std::vector<ResponseTimeFilterPostcode> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterPostcodesResult& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterPostcodesResult& o);
 protected:

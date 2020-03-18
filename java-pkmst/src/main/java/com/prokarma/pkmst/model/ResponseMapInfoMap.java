@@ -15,14 +15,14 @@ import io.swagger.annotations.ApiModelProperty;
  * ResponseMapInfoMap
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
 
 public class ResponseMapInfoMap   {
   @JsonProperty("name")
   private String name;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseMapInfoMap name(String name) {
     this.name = name;

@@ -13,12 +13,12 @@
 
 #include "OAIResponseDistanceBreakdownItem.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseDistanceBreakdownItem::asJson () const {
 QJsonObject
 OAIResponseDistanceBreakdownItem::asJsonObject() const {
     QJsonObject obj;
-	if(mode.isSet()){
+    if(mode.isSet()){
         obj.insert(QString("mode"), ::OpenAPI::toJsonValue(mode));
     }
-	if(m_distance_isSet){
+    if(m_distance_isSet){
         obj.insert(QString("distance"), ::OpenAPI::toJsonValue(distance));
     }
     return obj;

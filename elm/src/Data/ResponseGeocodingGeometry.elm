@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseGeocodingGeometry exposing (ResponseGeocodingGeometry, decoder, encode)
+module Data.ResponseGeocodingGeometry exposing (ResponseGeocodingGeometry, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -34,11 +34,27 @@ decoder =
 
 
 encode : ResponseGeocodingGeometry -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "type", Encode.string model.type_ )
-        , ( "coordinates", (Encode.list Encode.float) model.coordinates )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseGeocodingGeometry -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseGeocodingGeometry -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "type", Encode.string model.type_ )
+    , ( "coordinates", (Encode.list Encode.float) model.coordinates )
+    ]
+
+
+
+toString : ResponseGeocodingGeometry -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

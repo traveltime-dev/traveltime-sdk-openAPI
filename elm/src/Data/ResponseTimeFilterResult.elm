@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterResult exposing (ResponseTimeFilterResult, decoder, encode)
+module Data.ResponseTimeFilterResult exposing (ResponseTimeFilterResult, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeFilterLocation as ResponseTimeFilterLocation exposing (ResponseTimeFilterLocation)
 import Dict exposing (Dict)
@@ -37,12 +37,28 @@ decoder =
 
 
 encode : ResponseTimeFilterResult -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "search_id", Encode.string model.searchId )
-        , ( "locations", (Encode.list ResponseTimeFilterLocation.encode) model.locations )
-        , ( "unreachable", (Encode.list Encode.string) model.unreachable )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterResult -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterResult -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "search_id", Encode.string model.searchId )
+    , ( "locations", (Encode.list ResponseTimeFilterLocation.encode) model.locations )
+    , ( "unreachable", (Encode.list Encode.string) model.unreachable )
+    ]
+
+
+
+toString : ResponseTimeFilterResult -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

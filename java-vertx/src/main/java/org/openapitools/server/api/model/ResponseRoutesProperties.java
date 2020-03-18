@@ -6,13 +6,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseFares;
 import org.openapitools.server.api.model.ResponseRoute;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseRoutesProperties   {
   
   private Integer travelTime;
   private Integer distance;
-  private ResponseFares fares = null;
-  private ResponseRoute route = null;
+  private ResponseFares fares;
+  private ResponseRoute route;
 
   public ResponseRoutesProperties () {
 

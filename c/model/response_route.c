@@ -10,15 +10,15 @@ response_route_t *response_route_create(
     char *arrival_time,
     list_t *parts
     ) {
-	response_route_t *response_route_local_var = malloc(sizeof(response_route_t));
+    response_route_t *response_route_local_var = malloc(sizeof(response_route_t));
     if (!response_route_local_var) {
         return NULL;
     }
-	response_route_local_var->departure_time = departure_time;
-	response_route_local_var->arrival_time = arrival_time;
-	response_route_local_var->parts = parts;
+    response_route_local_var->departure_time = departure_time;
+    response_route_local_var->arrival_time = arrival_time;
+    response_route_local_var->parts = parts;
 
-	return response_route_local_var;
+    return response_route_local_var;
 }
 
 
@@ -26,17 +26,17 @@ void response_route_free(response_route_t *response_route) {
     listEntry_t *listEntry;
     free(response_route->departure_time);
     free(response_route->arrival_time);
-	list_ForEach(listEntry, response_route->parts) {
-		response_route_part_free(listEntry->data);
-	}
-	list_free(response_route->parts);
-	free(response_route);
+    list_ForEach(listEntry, response_route->parts) {
+        response_route_part_free(listEntry->data);
+    }
+    list_free(response_route->parts);
+    free(response_route);
 }
 
 cJSON *response_route_convertToJSON(response_route_t *response_route) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_route->departure_time
+    // response_route->departure_time
     if (!response_route->departure_time) {
         goto fail;
     }
@@ -46,7 +46,7 @@ cJSON *response_route_convertToJSON(response_route_t *response_route) {
     }
 
 
-	// response_route->arrival_time
+    // response_route->arrival_time
     if (!response_route->arrival_time) {
         goto fail;
     }
@@ -56,7 +56,7 @@ cJSON *response_route_convertToJSON(response_route_t *response_route) {
     }
 
 
-	// response_route->parts
+    // response_route->parts
     if (!response_route->parts) {
         goto fail;
     }
@@ -77,12 +77,12 @@ cJSON *response_route_convertToJSON(response_route_t *response_route) {
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_route_t *response_route_parseFromJSON(cJSON *response_routeJSON){

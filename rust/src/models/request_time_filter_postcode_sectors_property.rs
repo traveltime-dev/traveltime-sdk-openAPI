@@ -9,23 +9,18 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum RequestTimeFilterPostcodeSectorsProperty {
+    #[serde(rename = "travel_time_reachable")]
+    TravelTimeReachable,
+    #[serde(rename = "travel_time_all")]
+    TravelTimeAll,
+    #[serde(rename = "coverage")]
+    Coverage,
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct RequestTimeFilterPostcodeSectorsProperty {
 }
 
-impl RequestTimeFilterPostcodeSectorsProperty {
-    pub fn new() -> RequestTimeFilterPostcodeSectorsProperty {
-        RequestTimeFilterPostcodeSectorsProperty {
-        }
-    }
-}
-// TODO enum
-// List of RequestTimeFilterPostcodeSectorsProperty
-//const (
-//    
-//    
-//    
-//)
+
+
+

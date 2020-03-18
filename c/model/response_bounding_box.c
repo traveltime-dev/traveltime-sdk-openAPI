@@ -9,31 +9,31 @@ response_bounding_box_t *response_bounding_box_create(
     response_box_t *envelope,
     list_t *boxes
     ) {
-	response_bounding_box_t *response_bounding_box_local_var = malloc(sizeof(response_bounding_box_t));
+    response_bounding_box_t *response_bounding_box_local_var = malloc(sizeof(response_bounding_box_t));
     if (!response_bounding_box_local_var) {
         return NULL;
     }
-	response_bounding_box_local_var->envelope = envelope;
-	response_bounding_box_local_var->boxes = boxes;
+    response_bounding_box_local_var->envelope = envelope;
+    response_bounding_box_local_var->boxes = boxes;
 
-	return response_bounding_box_local_var;
+    return response_bounding_box_local_var;
 }
 
 
 void response_bounding_box_free(response_bounding_box_t *response_bounding_box) {
     listEntry_t *listEntry;
     response_box_free(response_bounding_box->envelope);
-	list_ForEach(listEntry, response_bounding_box->boxes) {
-		response_box_free(listEntry->data);
-	}
-	list_free(response_bounding_box->boxes);
-	free(response_bounding_box);
+    list_ForEach(listEntry, response_bounding_box->boxes) {
+        response_box_free(listEntry->data);
+    }
+    list_free(response_bounding_box->boxes);
+    free(response_bounding_box);
 }
 
 cJSON *response_bounding_box_convertToJSON(response_bounding_box_t *response_bounding_box) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_bounding_box->envelope
+    // response_bounding_box->envelope
     if (!response_bounding_box->envelope) {
         goto fail;
     }
@@ -48,7 +48,7 @@ cJSON *response_bounding_box_convertToJSON(response_bounding_box_t *response_bou
     }
 
 
-	// response_bounding_box->boxes
+    // response_bounding_box->boxes
     if (!response_bounding_box->boxes) {
         goto fail;
     }
@@ -69,12 +69,12 @@ cJSON *response_bounding_box_convertToJSON(response_bounding_box_t *response_bou
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_bounding_box_t *response_bounding_box_parseFromJSON(cJSON *response_bounding_boxJSON){

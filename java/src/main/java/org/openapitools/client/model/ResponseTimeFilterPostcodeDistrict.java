@@ -28,7 +28,7 @@ import org.openapitools.client.model.ResponseTimeFilterPostcodeDistrictPropertie
 /**
  * ResponseTimeFilterPostcodeDistrict
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrict {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -36,9 +36,11 @@ public class ResponseTimeFilterPostcodeDistrict {
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private ResponseTimeFilterPostcodeDistrictProperties properties = null;
+  private ResponseTimeFilterPostcodeDistrictProperties properties;
+
 
   public ResponseTimeFilterPostcodeDistrict code(String code) {
+    
     this.code = code;
     return this;
   }
@@ -48,15 +50,19 @@ public class ResponseTimeFilterPostcodeDistrict {
    * @return code
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getCode() {
     return code;
   }
+
 
   public void setCode(String code) {
     this.code = code;
   }
 
+
   public ResponseTimeFilterPostcodeDistrict properties(ResponseTimeFilterPostcodeDistrictProperties properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -66,9 +72,11 @@ public class ResponseTimeFilterPostcodeDistrict {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseTimeFilterPostcodeDistrictProperties getProperties() {
     return properties;
   }
+
 
   public void setProperties(ResponseTimeFilterPostcodeDistrictProperties properties) {
     this.properties = properties;

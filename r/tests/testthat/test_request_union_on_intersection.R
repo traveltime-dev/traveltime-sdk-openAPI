@@ -13,7 +13,7 @@ test_that("id", {
 })
 
 test_that("search_ids", {
-  # tests for the property `search_ids` (character)
+  # tests for the property `search_ids` (array[character])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`search_ids`, "EXPECTED_RESULT")

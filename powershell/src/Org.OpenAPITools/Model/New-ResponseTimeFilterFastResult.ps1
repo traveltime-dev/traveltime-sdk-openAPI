@@ -5,7 +5,7 @@ function New-ResponseTimeFilterFastResult {
         [String]
         ${searchUnderscoreid},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTimeFilterFastLocation[]]
+        [Org.OpenAPITools.Model.ResponseTimeFilterFastLocation[]]
         ${locations},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [String[]]
@@ -13,10 +13,10 @@ function New-ResponseTimeFilterFastResult {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterFastResult' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterFastResult' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterFastResult -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterFastResult -ArgumentList @(
             ${searchUnderscoreid},
             ${locations},
             ${unreachable}

@@ -45,12 +45,12 @@ public:
     /// </summary>
     double getLat() const;
     void setLat(double const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getLng() const;
     void setLng(double const value);
-    
+
     friend void to_json(nlohmann::json& j, const Coords& o);
     friend void from_json(const nlohmann::json& j, Coords& o);
 protected:

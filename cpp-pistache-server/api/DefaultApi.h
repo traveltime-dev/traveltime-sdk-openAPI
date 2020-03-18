@@ -85,10 +85,10 @@ private:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="focusPeriodlat"></param>
-    /// <param name="focusPeriodlng"></param>
+    /// <param name="lat"></param>
+    /// <param name="lng"></param>
     /// <param name="withinPeriodcountry"> (optional, default to &quot;&quot;)</param>
-    virtual void geocoding_reverse_search(const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) = 0;
+    virtual void geocoding_reverse_search(const Pistache::Optional<double> &lat, const Pistache::Optional<double> &lng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) = 0;
 
     /// <summary>
     /// 
@@ -97,10 +97,10 @@ private:
     /// 
     /// </remarks>
     /// <param name="query"></param>
-    /// <param name="withinPeriodcountry"> (optional, default to &quot;&quot;)</param>
     /// <param name="focusPeriodlat"> (optional, default to 0.0)</param>
     /// <param name="focusPeriodlng"> (optional, default to 0.0)</param>
-    virtual void geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<std::string> &withinPeriodcountry, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, Pistache::Http::ResponseWriter &response) = 0;
+    /// <param name="withinPeriodcountry"> (optional, default to &quot;&quot;)</param>
+    virtual void geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) = 0;
 
     /// <summary>
     /// 

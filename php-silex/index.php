@@ -9,8 +9,8 @@ $app = new Silex\Application();
 
 
 $app->GET('/v4/geocoding/reverse', function(Application $app, Request $request) {
-            $focus/lat = $request->get('focus/lat');
-            $focus/lng = $request->get('focus/lng');
+            $lat = $request->get('lat');
+            $lng = $request->get('lng');
             $within/country = $request->get('within/country');
             return new Response('How about implementing geocodingReverseSearch as a GET method ?');
             });
@@ -18,9 +18,9 @@ $app->GET('/v4/geocoding/reverse', function(Application $app, Request $request) 
 
 $app->GET('/v4/geocoding/search', function(Application $app, Request $request) {
             $query = $request->get('query');
-            $within/country = $request->get('within/country');
             $focus/lat = $request->get('focus/lat');
             $focus/lng = $request->get('focus/lng');
+            $within/country = $request->get('within/country');
             return new Response('How about implementing geocodingSearch as a GET method ?');
             });
 

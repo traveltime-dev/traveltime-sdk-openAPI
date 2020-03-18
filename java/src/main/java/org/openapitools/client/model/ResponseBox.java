@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseBox {
   public static final String SERIALIZED_NAME_MIN_LAT = "min_lat";
   @SerializedName(SERIALIZED_NAME_MIN_LAT)
@@ -45,7 +45,9 @@ public class ResponseBox {
   @SerializedName(SERIALIZED_NAME_MAX_LNG)
   private Double maxLng;
 
+
   public ResponseBox minLat(Double minLat) {
+    
     this.minLat = minLat;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseBox {
    * @return minLat
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getMinLat() {
     return minLat;
   }
+
 
   public void setMinLat(Double minLat) {
     this.minLat = minLat;
   }
 
+
   public ResponseBox maxLat(Double maxLat) {
+    
     this.maxLat = maxLat;
     return this;
   }
@@ -73,15 +79,19 @@ public class ResponseBox {
    * @return maxLat
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getMaxLat() {
     return maxLat;
   }
+
 
   public void setMaxLat(Double maxLat) {
     this.maxLat = maxLat;
   }
 
+
   public ResponseBox minLng(Double minLng) {
+    
     this.minLng = minLng;
     return this;
   }
@@ -91,15 +101,19 @@ public class ResponseBox {
    * @return minLng
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getMinLng() {
     return minLng;
   }
+
 
   public void setMinLng(Double minLng) {
     this.minLng = minLng;
   }
 
+
   public ResponseBox maxLng(Double maxLng) {
+    
     this.maxLng = maxLng;
     return this;
   }
@@ -109,9 +123,11 @@ public class ResponseBox {
    * @return maxLng
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getMaxLng() {
     return maxLng;
   }
+
 
   public void setMaxLng(Double maxLng) {
     this.maxLng = maxLng;

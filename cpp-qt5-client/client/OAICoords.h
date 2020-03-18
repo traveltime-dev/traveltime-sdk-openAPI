@@ -22,49 +22,45 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAICoords: public OAIObject {
+class OAICoords : public OAIObject {
 public:
     OAICoords();
     OAICoords(QString json);
     ~OAICoords() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     double getLat() const;
     void setLat(const double &lat);
 
-    
     double getLng() const;
     void setLng(const double &lng);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     double lat;
     bool m_lat_isSet;
     bool m_lat_isValid;
-    
+
     double lng;
     bool m_lng_isSet;
     bool m_lng_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAICoords)
 
 #endif // OAICoords_H

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterPostcodeDistrictProperties exposing (ResponseTimeFilterPostcodeDistrictProperties, decoder, encode)
+module Data.ResponseTimeFilterPostcodeDistrictProperties exposing (ResponseTimeFilterPostcodeDistrictProperties, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTravelTimeStatistics as ResponseTravelTimeStatistics exposing (ResponseTravelTimeStatistics)
 import Data.ResponseTravelTimeStatistics as ResponseTravelTimeStatistics exposing (ResponseTravelTimeStatistics)
@@ -38,12 +38,28 @@ decoder =
 
 
 encode : ResponseTimeFilterPostcodeDistrictProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "travel_time_reachable", Maybe.withDefault Encode.null (Maybe.map ResponseTravelTimeStatistics.encode model.travelTimeReachable) )
-        , ( "travel_time_all", Maybe.withDefault Encode.null (Maybe.map ResponseTravelTimeStatistics.encode model.travelTimeAll) )
-        , ( "coverage", Maybe.withDefault Encode.null (Maybe.map Encode.float model.coverage) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterPostcodeDistrictProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterPostcodeDistrictProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "travel_time_reachable", Maybe.withDefault Encode.null (Maybe.map ResponseTravelTimeStatistics.encode model.travelTimeReachable) )
+    , ( "travel_time_all", Maybe.withDefault Encode.null (Maybe.map ResponseTravelTimeStatistics.encode model.travelTimeAll) )
+    , ( "coverage", Maybe.withDefault Encode.null (Maybe.map Encode.float model.coverage) )
+    ]
+
+
+
+toString : ResponseTimeFilterPostcodeDistrictProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

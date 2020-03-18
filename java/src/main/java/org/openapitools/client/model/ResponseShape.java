@@ -30,7 +30,7 @@ import org.openapitools.client.model.Coords;
 /**
  * ResponseShape
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseShape {
   public static final String SERIALIZED_NAME_SHELL = "shell";
   @SerializedName(SERIALIZED_NAME_SHELL)
@@ -40,7 +40,9 @@ public class ResponseShape {
   @SerializedName(SERIALIZED_NAME_HOLES)
   private List<List<Coords>> holes = new ArrayList<List<Coords>>();
 
+
   public ResponseShape shell(List<Coords> shell) {
+    
     this.shell = shell;
     return this;
   }
@@ -55,15 +57,19 @@ public class ResponseShape {
    * @return shell
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<Coords> getShell() {
     return shell;
   }
+
 
   public void setShell(List<Coords> shell) {
     this.shell = shell;
   }
 
+
   public ResponseShape holes(List<List<Coords>> holes) {
+    
     this.holes = holes;
     return this;
   }
@@ -78,9 +84,11 @@ public class ResponseShape {
    * @return holes
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<List<Coords>> getHoles() {
     return holes;
   }
+
 
   public void setHoles(List<List<Coords>> holes) {
     this.holes = holes;

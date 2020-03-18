@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseTimeMapWktResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeMapWktResult
      */
     searchId: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeMapWktResult
      */
     shape: string;
     /**
-     * 
      * @type {ResponseTimeMapProperties}
      * @memberof ResponseTimeMapWktResult
      */

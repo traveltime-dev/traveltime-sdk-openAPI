@@ -16,7 +16,7 @@
 
 
 typedef struct response_bounding_box_t {
-    response_box_t *envelope; //model
+    struct response_box_t *envelope; //model
     list_t *boxes; //nonprimitive container
 
 } response_bounding_box_t;

@@ -7,52 +7,52 @@ part 'response_geocoding_properties.jser.dart';
 
 class ResponseGeocodingProperties {
   
-  @Alias('name')
+  @Alias('name', isNullable: false,  )
   final String name;
   
-  @Alias('label')
+  @Alias('label', isNullable: false,  )
   final String label;
   
-  @Alias('score')
+  @Alias('score', isNullable: false,  )
   final double score;
   
-  @Alias('house_number')
+  @Alias('house_number', isNullable: false,  )
   final String houseNumber;
   
-  @Alias('street')
+  @Alias('street', isNullable: false,  )
   final String street;
   
-  @Alias('region')
+  @Alias('region', isNullable: false,  )
   final String region;
   
-  @Alias('region_code')
+  @Alias('region_code', isNullable: false,  )
   final String regionCode;
   
-  @Alias('neighbourhood')
+  @Alias('neighbourhood', isNullable: false,  )
   final String neighbourhood;
   
-  @Alias('county')
+  @Alias('county', isNullable: false,  )
   final String county;
   
-  @Alias('macroregion')
+  @Alias('macroregion', isNullable: false,  )
   final String macroregion;
   
-  @Alias('city')
+  @Alias('city', isNullable: false,  )
   final String city;
   
-  @Alias('country')
+  @Alias('country', isNullable: false,  )
   final String country;
   
-  @Alias('country_code')
+  @Alias('country_code', isNullable: false,  )
   final String countryCode;
   
-  @Alias('continent')
+  @Alias('continent', isNullable: false,  )
   final String continent;
   
-  @Alias('postcode')
+  @Alias('postcode', isNullable: false,  )
   final String postcode;
   
-  @Alias('features')
+  @Alias('features', isNullable: false,  )
   final ResponseMapInfoFeatures features;
   
 

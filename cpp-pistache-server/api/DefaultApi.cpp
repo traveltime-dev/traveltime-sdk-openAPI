@@ -23,7 +23,7 @@ using namespace org::openapitools::server::model;
 
 DefaultApi::DefaultApi(std::shared_ptr<Pistache::Rest::Router> rtr) { 
     router = rtr;
-};
+}
 
 void DefaultApi::init() {
     setupRoutes();
@@ -51,37 +51,41 @@ void DefaultApi::setupRoutes() {
 void DefaultApi::geocoding_reverse_search_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
 
     // Getting the query params
-    auto focusPeriodlatQuery = request.query().get("focus.lat");
-    Pistache::Optional<double> focusPeriodlat;
-    if(!focusPeriodlatQuery.isEmpty()){
-        double value;
-        if(fromStringValue(focusPeriodlatQuery.get(), value)){
-            focusPeriodlat = Pistache::Some(value);
+    auto latQuery = request.query().get("lat");
+    Pistache::Optional<double> lat;
+    if(!latQuery.isEmpty()){
+        double valueQuery_instance;
+        if(fromStringValue(latQuery.get(), valueQuery_instance)){
+            lat = Pistache::Some(valueQuery_instance);
         }
     }
-    auto focusPeriodlngQuery = request.query().get("focus.lng");
-    Pistache::Optional<double> focusPeriodlng;
-    if(!focusPeriodlngQuery.isEmpty()){
-        double value;
-        if(fromStringValue(focusPeriodlngQuery.get(), value)){
-            focusPeriodlng = Pistache::Some(value);
+    auto lngQuery = request.query().get("lng");
+    Pistache::Optional<double> lng;
+    if(!lngQuery.isEmpty()){
+        double valueQuery_instance;
+        if(fromStringValue(lngQuery.get(), valueQuery_instance)){
+            lng = Pistache::Some(valueQuery_instance);
         }
     }
     auto withinPeriodcountryQuery = request.query().get("within.country");
     Pistache::Optional<std::string> withinPeriodcountry;
     if(!withinPeriodcountryQuery.isEmpty()){
-        std::string value;
-        if(fromStringValue(withinPeriodcountryQuery.get(), value)){
-            withinPeriodcountry = Pistache::Some(value);
+        std::string valueQuery_instance;
+        if(fromStringValue(withinPeriodcountryQuery.get(), valueQuery_instance)){
+            withinPeriodcountry = Pistache::Some(valueQuery_instance);
         }
     }
     
     try {
-      this->geocoding_reverse_search(focusPeriodlat, focusPeriodlng, withinPeriodcountry, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+      this->geocoding_reverse_search(lat, lng, withinPeriodcountry, response);
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -91,53 +95,61 @@ void DefaultApi::geocoding_search_handler(const Pistache::Rest::Request &request
     auto queryQuery = request.query().get("query");
     Pistache::Optional<std::string> query;
     if(!queryQuery.isEmpty()){
-        std::string value;
-        if(fromStringValue(queryQuery.get(), value)){
-            query = Pistache::Some(value);
-        }
-    }
-    auto withinPeriodcountryQuery = request.query().get("within.country");
-    Pistache::Optional<std::string> withinPeriodcountry;
-    if(!withinPeriodcountryQuery.isEmpty()){
-        std::string value;
-        if(fromStringValue(withinPeriodcountryQuery.get(), value)){
-            withinPeriodcountry = Pistache::Some(value);
+        std::string valueQuery_instance;
+        if(fromStringValue(queryQuery.get(), valueQuery_instance)){
+            query = Pistache::Some(valueQuery_instance);
         }
     }
     auto focusPeriodlatQuery = request.query().get("focus.lat");
     Pistache::Optional<double> focusPeriodlat;
     if(!focusPeriodlatQuery.isEmpty()){
-        double value;
-        if(fromStringValue(focusPeriodlatQuery.get(), value)){
-            focusPeriodlat = Pistache::Some(value);
+        double valueQuery_instance;
+        if(fromStringValue(focusPeriodlatQuery.get(), valueQuery_instance)){
+            focusPeriodlat = Pistache::Some(valueQuery_instance);
         }
     }
     auto focusPeriodlngQuery = request.query().get("focus.lng");
     Pistache::Optional<double> focusPeriodlng;
     if(!focusPeriodlngQuery.isEmpty()){
-        double value;
-        if(fromStringValue(focusPeriodlngQuery.get(), value)){
-            focusPeriodlng = Pistache::Some(value);
+        double valueQuery_instance;
+        if(fromStringValue(focusPeriodlngQuery.get(), valueQuery_instance)){
+            focusPeriodlng = Pistache::Some(valueQuery_instance);
+        }
+    }
+    auto withinPeriodcountryQuery = request.query().get("within.country");
+    Pistache::Optional<std::string> withinPeriodcountry;
+    if(!withinPeriodcountryQuery.isEmpty()){
+        std::string valueQuery_instance;
+        if(fromStringValue(withinPeriodcountryQuery.get(), valueQuery_instance)){
+            withinPeriodcountry = Pistache::Some(valueQuery_instance);
         }
     }
     
     try {
-      this->geocoding_search(query, withinPeriodcountry, focusPeriodlat, focusPeriodlng, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+      this->geocoding_search(query, focusPeriodlat, focusPeriodlng, withinPeriodcountry, response);
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
-void DefaultApi::map_info_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+void DefaultApi::map_info_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
 
     try {
       this->map_info(response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -150,10 +162,14 @@ void DefaultApi::routes_handler(const Pistache::Rest::Request &request, Pistache
     try {
       nlohmann::json::parse(request.body()).get_to(requestRoutes);
       this->routes(requestRoutes, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -166,10 +182,14 @@ void DefaultApi::supported_locations_handler(const Pistache::Rest::Request &requ
     try {
       nlohmann::json::parse(request.body()).get_to(requestSupportedLocations);
       this->supported_locations(requestSupportedLocations, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -182,10 +202,14 @@ void DefaultApi::time_filter_handler(const Pistache::Rest::Request &request, Pis
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeFilter);
       this->time_filter(requestTimeFilter, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -198,10 +222,14 @@ void DefaultApi::time_filter_fast_handler(const Pistache::Rest::Request &request
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeFilterFast);
       this->time_filter_fast(requestTimeFilterFast, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -214,10 +242,14 @@ void DefaultApi::time_filter_postcode_districts_handler(const Pistache::Rest::Re
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeFilterPostcodeDistricts);
       this->time_filter_postcode_districts(requestTimeFilterPostcodeDistricts, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -230,10 +262,14 @@ void DefaultApi::time_filter_postcode_sectors_handler(const Pistache::Rest::Requ
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeFilterPostcodeSectors);
       this->time_filter_postcode_sectors(requestTimeFilterPostcodeSectors, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -246,10 +282,14 @@ void DefaultApi::time_filter_postcodes_handler(const Pistache::Rest::Request &re
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeFilterPostcodes);
       this->time_filter_postcodes(requestTimeFilterPostcodes, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
@@ -262,15 +302,19 @@ void DefaultApi::time_map_handler(const Pistache::Rest::Request &request, Pistac
     try {
       nlohmann::json::parse(request.body()).get_to(requestTimeMap);
       this->time_map(requestTimeMap, response);
-    } catch (std::runtime_error & e) {
-      //send a 400 error
-      response.send(Pistache::Http::Code::Bad_Request, e.what());
-      return;
+    } catch (nlohmann::detail::exception &e) {
+        //send a 400 error
+        response.send(Pistache::Http::Code::Bad_Request, e.what());
+        return;
+    } catch (std::exception &e) {
+        //send a 500 error
+        response.send(Pistache::Http::Code::Internal_Server_Error, e.what());
+        return;
     }
 
 }
 
-void DefaultApi::default_api_default_handler(const Pistache::Rest::Request &request, Pistache::Http::ResponseWriter response) {
+void DefaultApi::default_api_default_handler(const Pistache::Rest::Request &, Pistache::Http::ResponseWriter response) {
     response.send(Pistache::Http::Code::Not_Found, "The requested method does not exist");
 }
 

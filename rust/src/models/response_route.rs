@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoute {
     #[serde(rename = "departure_time")]
     pub departure_time: String,
     #[serde(rename = "arrival_time")]
     pub arrival_time: String,
     #[serde(rename = "parts")]
-    pub parts: Vec<::models::ResponseRoutePart>,
+    pub parts: Vec<crate::models::ResponseRoutePart>,
 }
 
 impl ResponseRoute {
-    pub fn new(departure_time: String, arrival_time: String, parts: Vec<::models::ResponseRoutePart>) -> ResponseRoute {
+    pub fn new(departure_time: String, arrival_time: String, parts: Vec<crate::models::ResponseRoutePart>) -> ResponseRoute {
         ResponseRoute {
-            departure_time: departure_time,
-            arrival_time: arrival_time,
-            parts: parts,
+            departure_time,
+            arrival_time,
+            parts,
         }
     }
 }
+
+

@@ -14,16 +14,12 @@ class RequestTimeFilterFast {
 
   RequestTimeFilterFast.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = RequestLocation.listFromJson(json['locations']);
-    }
-    if (json['arrival_searches'] == null) {
-      arrivalSearches = null;
-    } else {
-      arrivalSearches = new RequestTimeFilterFastArrivalSearches.fromJson(json['arrival_searches']);
-    }
+    locations = (json['locations'] == null) ?
+      null :
+      RequestLocation.listFromJson(json['locations']);
+    arrivalSearches = (json['arrival_searches'] == null) ?
+      null :
+      RequestTimeFilterFastArrivalSearches.fromJson(json['arrival_searches']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class RequestTimeFilterFast {
   }
 
   static List<RequestTimeFilterFast> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterFast>() : json.map((value) => new RequestTimeFilterFast.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterFast>() : json.map((value) => RequestTimeFilterFast.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterFast> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterFast>();
+    var map = Map<String, RequestTimeFilterFast>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterFast.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterFast.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterFast-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterFast>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterFast>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterFast.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -9,20 +9,19 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseError {
-    #[serde(rename = "http_status")]
+    #[serde(rename = "http_status", skip_serializing_if = "Option::is_none")]
     pub http_status: Option<i32>,
-    #[serde(rename = "error_code")]
+    #[serde(rename = "error_code", skip_serializing_if = "Option::is_none")]
     pub error_code: Option<i32>,
-    #[serde(rename = "description")]
+    #[serde(rename = "description", skip_serializing_if = "Option::is_none")]
     pub description: Option<String>,
-    #[serde(rename = "documentation_link")]
+    #[serde(rename = "documentation_link", skip_serializing_if = "Option::is_none")]
     pub documentation_link: Option<String>,
-    #[serde(rename = "additional_info")]
+    #[serde(rename = "additional_info", skip_serializing_if = "Option::is_none")]
     pub additional_info: Option<::std::collections::HashMap<String, Vec<String>>>,
 }
 
@@ -37,3 +36,5 @@ impl ResponseError {
         }
     }
 }
+
+

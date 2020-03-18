@@ -9,50 +9,49 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseGeocodingProperties {
     #[serde(rename = "name")]
     pub name: String,
     #[serde(rename = "label")]
     pub label: String,
-    #[serde(rename = "score")]
+    #[serde(rename = "score", skip_serializing_if = "Option::is_none")]
     pub score: Option<f64>,
-    #[serde(rename = "house_number")]
+    #[serde(rename = "house_number", skip_serializing_if = "Option::is_none")]
     pub house_number: Option<String>,
-    #[serde(rename = "street")]
+    #[serde(rename = "street", skip_serializing_if = "Option::is_none")]
     pub street: Option<String>,
-    #[serde(rename = "region")]
+    #[serde(rename = "region", skip_serializing_if = "Option::is_none")]
     pub region: Option<String>,
-    #[serde(rename = "region_code")]
+    #[serde(rename = "region_code", skip_serializing_if = "Option::is_none")]
     pub region_code: Option<String>,
-    #[serde(rename = "neighbourhood")]
+    #[serde(rename = "neighbourhood", skip_serializing_if = "Option::is_none")]
     pub neighbourhood: Option<String>,
-    #[serde(rename = "county")]
+    #[serde(rename = "county", skip_serializing_if = "Option::is_none")]
     pub county: Option<String>,
-    #[serde(rename = "macroregion")]
+    #[serde(rename = "macroregion", skip_serializing_if = "Option::is_none")]
     pub macroregion: Option<String>,
-    #[serde(rename = "city")]
+    #[serde(rename = "city", skip_serializing_if = "Option::is_none")]
     pub city: Option<String>,
-    #[serde(rename = "country")]
+    #[serde(rename = "country", skip_serializing_if = "Option::is_none")]
     pub country: Option<String>,
-    #[serde(rename = "country_code")]
+    #[serde(rename = "country_code", skip_serializing_if = "Option::is_none")]
     pub country_code: Option<String>,
-    #[serde(rename = "continent")]
+    #[serde(rename = "continent", skip_serializing_if = "Option::is_none")]
     pub continent: Option<String>,
-    #[serde(rename = "postcode")]
+    #[serde(rename = "postcode", skip_serializing_if = "Option::is_none")]
     pub postcode: Option<String>,
-    #[serde(rename = "features")]
-    pub features: Option<::models::ResponseMapInfoFeatures>,
+    #[serde(rename = "features", skip_serializing_if = "Option::is_none")]
+    pub features: Option<crate::models::ResponseMapInfoFeatures>,
 }
 
 impl ResponseGeocodingProperties {
     pub fn new(name: String, label: String) -> ResponseGeocodingProperties {
         ResponseGeocodingProperties {
-            name: name,
-            label: label,
+            name,
+            label,
             score: None,
             house_number: None,
             street: None,
@@ -70,3 +69,5 @@ impl ResponseGeocodingProperties {
         }
     }
 }
+
+

@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseTimeFilter {
     /**
-     * 
      * @type {Array<ResponseTimeFilterResult>}
      * @memberof ResponseTimeFilter
      */

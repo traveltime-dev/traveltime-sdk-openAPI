@@ -29,7 +29,7 @@ import org.openapitools.client.model.ResponseRoute;
 /**
  * ResponseRoutesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseRoutesProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -41,13 +41,15 @@ public class ResponseRoutesProperties {
 
   public static final String SERIALIZED_NAME_FARES = "fares";
   @SerializedName(SERIALIZED_NAME_FARES)
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   public static final String SERIALIZED_NAME_ROUTE = "route";
   @SerializedName(SERIALIZED_NAME_ROUTE)
-  private ResponseRoute route = null;
+  private ResponseRoute route;
+
 
   public ResponseRoutesProperties travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -56,16 +58,21 @@ public class ResponseRoutesProperties {
    * Get travelTime
    * @return travelTime
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public ResponseRoutesProperties distance(Integer distance) {
+    
     this.distance = distance;
     return this;
   }
@@ -74,16 +81,21 @@ public class ResponseRoutesProperties {
    * Get distance
    * @return distance
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getDistance() {
     return distance;
   }
+
 
   public void setDistance(Integer distance) {
     this.distance = distance;
   }
 
+
   public ResponseRoutesProperties fares(ResponseFares fares) {
+    
     this.fares = fares;
     return this;
   }
@@ -92,16 +104,21 @@ public class ResponseRoutesProperties {
    * Get fares
    * @return fares
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseFares getFares() {
     return fares;
   }
+
 
   public void setFares(ResponseFares fares) {
     this.fares = fares;
   }
 
+
   public ResponseRoutesProperties route(ResponseRoute route) {
+    
     this.route = route;
     return this;
   }
@@ -110,10 +127,13 @@ public class ResponseRoutesProperties {
    * Get route
    * @return route
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public ResponseRoute getRoute() {
     return route;
   }
+
 
   public void setRoute(ResponseRoute route) {
     this.route = route;

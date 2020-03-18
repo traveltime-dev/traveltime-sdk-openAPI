@@ -22,13 +22,11 @@ import {
  */
 export interface ResponseTimeFilterPostcode {
     /**
-     * 
      * @type {ModelString}
      * @memberof ResponseTimeFilterPostcode
      */
     code: ModelString;
     /**
-     * 
      * @type {Array<ResponseTimeFilterPostcodesProperties>}
      * @memberof ResponseTimeFilterPostcode
      */

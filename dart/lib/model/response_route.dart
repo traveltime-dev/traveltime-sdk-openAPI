@@ -16,21 +16,15 @@ class ResponseRoute {
 
   ResponseRoute.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['departure_time'] == null) {
-      departureTime = null;
-    } else {
-      departureTime = DateTime.parse(json['departure_time']);
-    }
-    if (json['arrival_time'] == null) {
-      arrivalTime = null;
-    } else {
-      arrivalTime = DateTime.parse(json['arrival_time']);
-    }
-    if (json['parts'] == null) {
-      parts = null;
-    } else {
-      parts = ResponseRoutePart.listFromJson(json['parts']);
-    }
+    departureTime = (json['departure_time'] == null) ?
+      null :
+      DateTime.parse(json['departure_time']);
+    arrivalTime = (json['arrival_time'] == null) ?
+      null :
+      DateTime.parse(json['arrival_time']);
+    parts = (json['parts'] == null) ?
+      null :
+      ResponseRoutePart.listFromJson(json['parts']);
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +39,26 @@ class ResponseRoute {
   }
 
   static List<ResponseRoute> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseRoute>() : json.map((value) => new ResponseRoute.fromJson(value)).toList();
+    return json == null ? List<ResponseRoute>() : json.map((value) => ResponseRoute.fromJson(value)).toList();
   }
 
   static Map<String, ResponseRoute> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseRoute>();
+    var map = Map<String, ResponseRoute>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseRoute.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseRoute.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseRoute-objects as value to a dart map
+  static Map<String, List<ResponseRoute>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseRoute>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseRoute.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

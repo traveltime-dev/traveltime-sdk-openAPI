@@ -21,18 +21,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseTimeFilterPostcode;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterPostcodesResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterPostcodesResult.JSON_PROPERTY_SEARCH_ID,
+  ResponseTimeFilterPostcodesResult.JSON_PROPERTY_POSTCODES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodesResult   {
-  @JsonProperty("search_id")
+  public static final String JSON_PROPERTY_SEARCH_ID = "search_id";
+  @JsonProperty(JSON_PROPERTY_SEARCH_ID)
   private String searchId;
 
-  @JsonProperty("postcodes")
+  public static final String JSON_PROPERTY_POSTCODES = "postcodes";
+  @JsonProperty(JSON_PROPERTY_POSTCODES)
   private List<ResponseTimeFilterPostcode> postcodes = new ArrayList<ResponseTimeFilterPostcode>();
 
   public ResponseTimeFilterPostcodesResult searchId(String searchId) {

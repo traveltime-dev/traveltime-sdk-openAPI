@@ -26,13 +26,13 @@ public class RequestRoutesDepartureSearch   {
 
   private List<String> arrivalLocationIds = new ArrayList<String>();
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private java.util.Date departureTime;
 
   private List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
 
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
 
   /**

@@ -26,7 +26,7 @@ public class RequestTimeFilterDepartureSearch   {
 
   private List<String> arrivalLocationIds = new ArrayList<String>();
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Integer travelTime;
 
@@ -34,7 +34,7 @@ public class RequestTimeFilterDepartureSearch   {
 
   private List<RequestTimeFilterProperty> properties = new ArrayList<RequestTimeFilterProperty>();
 
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
 
   /**

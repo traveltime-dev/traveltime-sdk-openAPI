@@ -25,34 +25,51 @@ import org.openapitools.model.Coords;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeMapDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_ID,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_COORDS,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_TRANSPORTATION,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_TRAVEL_TIME,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_DEPARTURE_TIME,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_PROPERTIES,
+  RequestTimeMapDepartureSearch.JSON_PROPERTY_RANGE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class RequestTimeMapDepartureSearch   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("coords")
-  private Coords coords = null;
+  public static final String JSON_PROPERTY_COORDS = "coords";
+  @JsonProperty(JSON_PROPERTY_COORDS)
+  private Coords coords;
 
-  @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  public static final String JSON_PROPERTY_TRANSPORTATION = "transportation";
+  @JsonProperty(JSON_PROPERTY_TRANSPORTATION)
+  private RequestTransportation transportation;
 
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("departure_time")
+  public static final String JSON_PROPERTY_DEPARTURE_TIME = "departure_time";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_TIME)
   private Date departureTime;
 
-  @JsonProperty("properties")
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
   private List<RequestTimeMapProperty> properties = null;
 
-  @JsonProperty("range")
-  private RequestRangeNoMaxResults range = null;
+  public static final String JSON_PROPERTY_RANGE = "range";
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  private RequestRangeNoMaxResults range;
 
   public RequestTimeMapDepartureSearch id(String id) {
     this.id = id;

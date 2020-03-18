@@ -28,31 +28,31 @@ export class DefaultApi {
 
     /**
      * 
-     * @param focusLat 
-     * @param focusLng 
+     * @param lat 
+     * @param lng 
      * @param withinCountry 
      */
-    public geocodingReverseSearch (focusLat: number, focusLng: number, withinCountry?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ResponseGeocoding> {
+    public geocodingReverseSearch (lat: number, lng: number, withinCountry?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ResponseGeocoding> {
         const localVarPath = this.basePath + '/v4/geocoding/reverse';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'focusLat' is not null or undefined
-        if (focusLat === null || focusLat === undefined) {
-            throw new Error('Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lat' is not null or undefined
+        if (lat === null || lat === undefined) {
+            throw new Error('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
 
-        // verify required parameter 'focusLng' is not null or undefined
-        if (focusLng === null || focusLng === undefined) {
-            throw new Error('Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+        // verify required parameter 'lng' is not null or undefined
+        if (lng === null || lng === undefined) {
+            throw new Error('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
-        if (focusLat !== undefined) {
-            queryParameters['focus.lat'] = focusLat;
+        if (lat !== undefined) {
+            queryParameters['lat'] = lat;
         }
 
-        if (focusLng !== undefined) {
-            queryParameters['focus.lng'] = focusLng;
+        if (lng !== undefined) {
+            queryParameters['lng'] = lng;
         }
 
         if (withinCountry !== undefined) {
@@ -75,11 +75,11 @@ export class DefaultApi {
     /**
      * 
      * @param query 
-     * @param withinCountry 
      * @param focusLat 
      * @param focusLng 
+     * @param withinCountry 
      */
-    public geocodingSearch (query: string, withinCountry?: string, focusLat?: number, focusLng?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ResponseGeocoding> {
+    public geocodingSearch (query: string, focusLat?: number, focusLng?: number, withinCountry?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.ResponseGeocoding> {
         const localVarPath = this.basePath + '/v4/geocoding/search';
 
         let queryParameters: any = {};
@@ -93,16 +93,16 @@ export class DefaultApi {
             queryParameters['query'] = query;
         }
 
-        if (withinCountry !== undefined) {
-            queryParameters['within.country'] = withinCountry;
-        }
-
         if (focusLat !== undefined) {
             queryParameters['focus.lat'] = focusLat;
         }
 
         if (focusLng !== undefined) {
             queryParameters['focus.lng'] = focusLng;
+        }
+
+        if (withinCountry !== undefined) {
+            queryParameters['within.country'] = withinCountry;
         }
 
         let httpRequestParams: ng.IRequestConfig = {

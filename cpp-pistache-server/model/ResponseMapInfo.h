@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseMapInfoMap>& getMaps();
-    
+    void setMaps(std::vector<ResponseMapInfoMap> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseMapInfo& o);
     friend void from_json(const nlohmann::json& j, ResponseMapInfo& o);
 protected:

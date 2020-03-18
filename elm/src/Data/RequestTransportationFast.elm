@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTransportationFast exposing (RequestTransportationFast, Type(..), decoder, encode)
+module Data.RequestTransportationFast exposing (RequestTransportationFast, Type(..), decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -39,11 +39,26 @@ decoder =
 
 
 encode : RequestTransportationFast -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "type", encodeType model.type_ )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTransportationFast -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTransportationFast -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "type", encodeType model.type_ )
+    ]
+
+
+
+toString : RequestTransportationFast -> String
+toString =
+    Encode.encode 0 << encode
+
 
 
 
@@ -79,6 +94,7 @@ encodeType model =
 
         Driving+publicTransport ->
             Encode.string "driving+public_transport"
+
 
 
 

@@ -19,21 +19,30 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseMapInfoFeaturesPublicTransport;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseMapInfoFeatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseMapInfoFeatures.JSON_PROPERTY_PUBLIC_TRANSPORT,
+  ResponseMapInfoFeatures.JSON_PROPERTY_FARES,
+  ResponseMapInfoFeatures.JSON_PROPERTY_POSTCODES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseMapInfoFeatures   {
-  @JsonProperty("public_transport")
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  public static final String JSON_PROPERTY_PUBLIC_TRANSPORT = "public_transport";
+  @JsonProperty(JSON_PROPERTY_PUBLIC_TRANSPORT)
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
-  @JsonProperty("fares")
+  public static final String JSON_PROPERTY_FARES = "fares";
+  @JsonProperty(JSON_PROPERTY_FARES)
   private Boolean fares;
 
-  @JsonProperty("postcodes")
+  public static final String JSON_PROPERTY_POSTCODES = "postcodes";
+  @JsonProperty(JSON_PROPERTY_POSTCODES)
   private Boolean postcodes;
 
   public ResponseMapInfoFeatures publicTransport(ResponseMapInfoFeaturesPublicTransport publicTransport) {

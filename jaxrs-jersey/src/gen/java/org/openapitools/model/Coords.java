@@ -18,18 +18,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * Coords
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  Coords.JSON_PROPERTY_LAT,
+  Coords.JSON_PROPERTY_LNG
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class Coords   {
-  @JsonProperty("lat")
+  public static final String JSON_PROPERTY_LAT = "lat";
+  @JsonProperty(JSON_PROPERTY_LAT)
   private Double lat;
 
-  @JsonProperty("lng")
+  public static final String JSON_PROPERTY_LNG = "lng";
+  @JsonProperty(JSON_PROPERTY_LNG)
   private Double lng;
 
   public Coords lat(Double lat) {

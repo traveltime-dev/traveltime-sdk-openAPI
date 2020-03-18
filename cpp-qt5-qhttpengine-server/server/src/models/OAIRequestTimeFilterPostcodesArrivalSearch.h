@@ -32,6 +32,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterPostcodesArrivalSearch: public OAIObject {
@@ -70,7 +71,7 @@ public:
     void setRange(const OAIRequestRangeFull &range);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -104,5 +105,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterPostcodesArrivalSearch)
 
 #endif // OAIRequestTimeFilterPostcodesArrivalSearch_H

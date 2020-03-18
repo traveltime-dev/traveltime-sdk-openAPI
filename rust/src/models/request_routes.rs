@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestRoutes {
     #[serde(rename = "locations")]
-    pub locations: Vec<::models::RequestLocation>,
-    #[serde(rename = "departure_searches")]
-    pub departure_searches: Option<Vec<::models::RequestRoutesDepartureSearch>>,
-    #[serde(rename = "arrival_searches")]
-    pub arrival_searches: Option<Vec<::models::RequestRoutesArrivalSearch>>,
+    pub locations: Vec<crate::models::RequestLocation>,
+    #[serde(rename = "departure_searches", skip_serializing_if = "Option::is_none")]
+    pub departure_searches: Option<Vec<crate::models::RequestRoutesDepartureSearch>>,
+    #[serde(rename = "arrival_searches", skip_serializing_if = "Option::is_none")]
+    pub arrival_searches: Option<Vec<crate::models::RequestRoutesArrivalSearch>>,
 }
 
 impl RequestRoutes {
-    pub fn new(locations: Vec<::models::RequestLocation>) -> RequestRoutes {
+    pub fn new(locations: Vec<crate::models::RequestLocation>) -> RequestRoutes {
         RequestRoutes {
-            locations: locations,
+            locations,
             departure_searches: None,
             arrival_searches: None,
         }
     }
 }
+
+

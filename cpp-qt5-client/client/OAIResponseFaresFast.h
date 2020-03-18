@@ -21,44 +21,41 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseFareTicket.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseFaresFast: public OAIObject {
+class OAIResponseFaresFast : public OAIObject {
 public:
     OAIResponseFaresFast();
     OAIResponseFaresFast(QString json);
     ~OAIResponseFaresFast() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseFareTicket> getTicketsTotal() const;
     void setTicketsTotal(const QList<OAIResponseFareTicket> &tickets_total);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseFareTicket> tickets_total;
     bool m_tickets_total_isSet;
     bool m_tickets_total_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseFaresFast)
 
 #endif // OAIResponseFaresFast_H

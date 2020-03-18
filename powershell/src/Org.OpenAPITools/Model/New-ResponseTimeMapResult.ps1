@@ -5,18 +5,18 @@ function New-ResponseTimeMapResult {
         [String]
         ${searchUnderscoreid},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseShape[]]
+        [Org.OpenAPITools.Model.ResponseShape[]]
         ${shapes},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTimeMapProperties]
+        [Org.OpenAPITools.Model.ResponseTimeMapProperties]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeMapResult' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeMapResult' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeMapResult -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeMapResult -ArgumentList @(
             ${searchUnderscoreid},
             ${shapes},
             ${properties}

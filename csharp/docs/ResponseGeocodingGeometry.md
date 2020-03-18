@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseGeocodingGeometry
+# Org.OpenAPITools.Model.ResponseGeocodingGeometry
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
-**Coordinates** | **List&lt;double?&gt;** |  | 
+**Coordinates** | **List&lt;double&gt;** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

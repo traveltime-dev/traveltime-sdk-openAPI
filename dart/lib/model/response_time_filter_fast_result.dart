@@ -16,21 +16,13 @@ class ResponseTimeFilterFastResult {
 
   ResponseTimeFilterFastResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['search_id'] == null) {
-      searchId = null;
-    } else {
-          searchId = json['search_id'];
-    }
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = ResponseTimeFilterFastLocation.listFromJson(json['locations']);
-    }
-    if (json['unreachable'] == null) {
-      unreachable = null;
-    } else {
-      unreachable = (json['unreachable'] as List).cast<String>();
-    }
+    searchId = json['search_id'];
+    locations = (json['locations'] == null) ?
+      null :
+      ResponseTimeFilterFastLocation.listFromJson(json['locations']);
+    unreachable = (json['unreachable'] == null) ?
+      null :
+      (json['unreachable'] as List).cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +37,26 @@ class ResponseTimeFilterFastResult {
   }
 
   static List<ResponseTimeFilterFastResult> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterFastResult>() : json.map((value) => new ResponseTimeFilterFastResult.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterFastResult>() : json.map((value) => ResponseTimeFilterFastResult.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterFastResult> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterFastResult>();
+    var map = Map<String, ResponseTimeFilterFastResult>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterFastResult.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterFastResult.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterFastResult-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterFastResult>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterFastResult>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterFastResult.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

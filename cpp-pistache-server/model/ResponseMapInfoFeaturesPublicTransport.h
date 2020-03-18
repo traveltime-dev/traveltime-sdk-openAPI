@@ -46,12 +46,12 @@ public:
     /// </summary>
     std::string getDateStart() const;
     void setDateStart(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getDateEnd() const;
     void setDateEnd(std::string const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseMapInfoFeaturesPublicTransport& o);
     friend void from_json(const nlohmann::json& j, ResponseMapInfoFeaturesPublicTransport& o);
 protected:

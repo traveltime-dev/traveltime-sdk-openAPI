@@ -21,43 +21,40 @@
 
 #include <QJsonObject>
 
-
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTransportationFast: public OAIObject {
+class OAIRequestTransportationFast : public OAIObject {
 public:
     OAIRequestTransportationFast();
     OAIRequestTransportationFast(QString json);
     ~OAIRequestTransportationFast() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getType() const;
     void setType(const QString &type);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString type;
     bool m_type_isSet;
     bool m_type_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTransportationFast)
 
 #endif // OAIRequestTransportationFast_H

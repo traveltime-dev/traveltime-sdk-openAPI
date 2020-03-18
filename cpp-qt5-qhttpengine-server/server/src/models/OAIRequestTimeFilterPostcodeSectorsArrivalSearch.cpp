@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterPostcodeSectorsArrivalSearch.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -105,26 +105,26 @@ OAIRequestTimeFilterPostcodeSectorsArrivalSearch::asJson () const {
 QJsonObject
 OAIRequestTimeFilterPostcodeSectorsArrivalSearch::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(transportation.isSet()){
+    if(transportation.isSet()){
         obj.insert(QString("transportation"), ::OpenAPI::toJsonValue(transportation));
     }
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(m_arrival_time_isSet){
+    if(m_arrival_time_isSet){
         obj.insert(QString("arrival_time"), ::OpenAPI::toJsonValue(arrival_time));
     }
-	if(m_reachable_postcodes_threshold_isSet){
+    if(m_reachable_postcodes_threshold_isSet){
         obj.insert(QString("reachable_postcodes_threshold"), ::OpenAPI::toJsonValue(reachable_postcodes_threshold));
     }
-	
+    
     if(properties.size() > 0){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     } 
-	if(range.isSet()){
+    if(range.isSet()){
         obj.insert(QString("range"), ::OpenAPI::toJsonValue(range));
     }
     return obj;

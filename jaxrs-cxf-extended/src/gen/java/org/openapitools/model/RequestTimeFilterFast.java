@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class RequestTimeFilterFast  {
   
   @ApiModelProperty(required = true, value = "")
@@ -26,7 +27,7 @@ public class RequestTimeFilterFast  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
  /**
   * Get locations
   * @return locations

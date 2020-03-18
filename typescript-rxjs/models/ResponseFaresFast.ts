@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseFaresFast {
     /**
-     * 
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFaresFast
      */

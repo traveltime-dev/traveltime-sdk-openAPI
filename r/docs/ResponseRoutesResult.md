@@ -1,10 +1,10 @@
-# traveltimeplatform::ResponseRoutesResult
+# openapi::ResponseRoutesResult
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_id** | **character** |  | 
-**locations** | [**ResponseRoutesLocation**](ResponseRoutesLocation.md) |  | 
-**unreachable** | **character** |  | 
+**locations** | [**array[ResponseRoutesLocation]**](ResponseRoutesLocation.md) |  | 
+**unreachable** | **array[character]** |  | 
 
 

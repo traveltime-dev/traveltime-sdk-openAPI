@@ -10,7 +10,7 @@ class QueryParam {
 class ApiClient {
 
   String basePath;
-  var client = BrowserClient();
+  var client = Client();
 
   Map<String, String> _defaultHeaderMap = {};
   Map<String, Authentication> _authentications = {};
@@ -42,11 +42,7 @@ class ApiClient {
         case 'Coords':
           return Coords.fromJson(value);
         case 'RequestArrivalTimePeriod':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestArrivalTimePeriodTypeTransformer().decode(value);
         case 'RequestLocation':
           return RequestLocation.fromJson(value);
         case 'RequestRangeFull':
@@ -60,11 +56,7 @@ class ApiClient {
         case 'RequestRoutesDepartureSearch':
           return RequestRoutesDepartureSearch.fromJson(value);
         case 'RequestRoutesProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestRoutesPropertyTypeTransformer().decode(value);
         case 'RequestSupportedLocations':
           return RequestSupportedLocations.fromJson(value);
         case 'RequestTimeFilter':
@@ -82,11 +74,7 @@ class ApiClient {
         case 'RequestTimeFilterFastArrivalSearches':
           return RequestTimeFilterFastArrivalSearches.fromJson(value);
         case 'RequestTimeFilterFastProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeFilterFastPropertyTypeTransformer().decode(value);
         case 'RequestTimeFilterPostcodeDistricts':
           return RequestTimeFilterPostcodeDistricts.fromJson(value);
         case 'RequestTimeFilterPostcodeDistrictsArrivalSearch':
@@ -94,11 +82,7 @@ class ApiClient {
         case 'RequestTimeFilterPostcodeDistrictsDepartureSearch':
           return RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(value);
         case 'RequestTimeFilterPostcodeDistrictsProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeFilterPostcodeDistrictsPropertyTypeTransformer().decode(value);
         case 'RequestTimeFilterPostcodeSectors':
           return RequestTimeFilterPostcodeSectors.fromJson(value);
         case 'RequestTimeFilterPostcodeSectorsArrivalSearch':
@@ -106,11 +90,7 @@ class ApiClient {
         case 'RequestTimeFilterPostcodeSectorsDepartureSearch':
           return RequestTimeFilterPostcodeSectorsDepartureSearch.fromJson(value);
         case 'RequestTimeFilterPostcodeSectorsProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeFilterPostcodeSectorsPropertyTypeTransformer().decode(value);
         case 'RequestTimeFilterPostcodes':
           return RequestTimeFilterPostcodes.fromJson(value);
         case 'RequestTimeFilterPostcodesArrivalSearch':
@@ -118,17 +98,9 @@ class ApiClient {
         case 'RequestTimeFilterPostcodesDepartureSearch':
           return RequestTimeFilterPostcodesDepartureSearch.fromJson(value);
         case 'RequestTimeFilterPostcodesProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeFilterPostcodesPropertyTypeTransformer().decode(value);
         case 'RequestTimeFilterProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeFilterPropertyTypeTransformer().decode(value);
         case 'RequestTimeMap':
           return RequestTimeMap.fromJson(value);
         case 'RequestTimeMapArrivalSearch':
@@ -136,11 +108,7 @@ class ApiClient {
         case 'RequestTimeMapDepartureSearch':
           return RequestTimeMapDepartureSearch.fromJson(value);
         case 'RequestTimeMapProperty':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new RequestTimeMapPropertyTypeTransformer().decode(value);
         case 'RequestTransportation':
           return RequestTransportation.fromJson(value);
         case 'RequestTransportationFast':
@@ -252,11 +220,7 @@ class ApiClient {
         case 'ResponseTimeMapWktResult':
           return ResponseTimeMapWktResult.fromJson(value);
         case 'ResponseTransportationMode':
-          // Enclose the value in a list so that Dartson can use a transformer
-          // to decode it.
-          final listValue = [value];
-          final List<dynamic> listResult = dson.map(listValue, []);
-          return listResult[0];
+          return new ResponseTransportationModeTypeTransformer().decode(value);
         case 'ResponseTravelTimeStatistics':
           return ResponseTravelTimeStatistics.fromJson(value);
         default:
@@ -345,6 +309,8 @@ class ApiClient {
           return client.delete(url, headers: headerParams);
         case "PATCH":
           return client.patch(url, headers: headerParams, body: msgBody);
+        case "HEAD":
+          return client.head(url, headers: headerParams);
         default:
           return client.get(url, headers: headerParams);
       }

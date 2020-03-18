@@ -19,28 +19,22 @@
 #ifndef OAI_HTTPREQUESTWORKER_H
 #define OAI_HTTPREQUESTWORKER_H
 
-#include <QObject>
-#include <QString>
 #include <QMap>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QObject>
+#include <QString>
 
-
+#include "OAIHttpFileElement.h"
 
 namespace OpenAPI {
 
-enum OAIHttpRequestVarLayout {NOT_SET, ADDRESS, URL_ENCODED, MULTIPART};
-
-class OAIHttpRequestInputFileElement {
-
-public:
-    QString variable_name;
-    QString local_filename;
-    QString request_filename;
-    QString mime_type;
-
+enum OAIHttpRequestVarLayout {
+    NOT_SET,
+    ADDRESS,
+    URL_ENCODED,
+    MULTIPART
 };
-
 
 class OAIHttpRequestInput {
 
@@ -50,7 +44,7 @@ public:
     OAIHttpRequestVarLayout var_layout;
     QMap<QString, QString> vars;
     QMap<QString, QString> headers;
-    QList<OAIHttpRequestInputFileElement> files;
+    QList<OAIHttpFileElement> files;
     QByteArray request_body;
 
     OAIHttpRequestInput();
@@ -58,9 +52,7 @@ public:
     void initialize();
     void add_var(QString key, QString value);
     void add_file(QString variable_name, QString local_filename, QString request_filename, QString mime_type);
-
 };
-
 
 class OAIHttpRequestWorker : public QObject {
     Q_OBJECT
@@ -69,26 +61,43 @@ public:
     QByteArray response;
     QNetworkReply::NetworkError error_type;
     QString error_str;
-
     explicit OAIHttpRequestWorker(QObject *parent = nullptr);
     virtual ~OAIHttpRequestWorker();
 
-    QMap<QByteArray, QByteArray> getResponseHeaders() const;
+    QMap<QString, QString> getResponseHeaders() const;
     QString http_attribute_encode(QString attribute_name, QString input);
     void execute(OAIHttpRequestInput *input);
-    static QSslConfiguration* sslDefaultConfiguration;
-
+    static QSslConfiguration *sslDefaultConfiguration;
+    void setTimeOut(int tout);
+    void setWorkingDirectory(const QString &path);
+    OAIHttpFileElement getHttpFileElement(const QString &fieldname = QString());
+    QByteArray *getMultiPartField(const QString &fieldname = QString());
+    void setResponseCompressionEnabled(bool enable);
+    void setRequestCompressionEnabled(bool enable);
 signals:
     void on_execution_finished(OAIHttpRequestWorker *worker);
 
 private:
+    enum OAICompressionType{
+        Zlib,
+        Gzip
+    };
     QNetworkAccessManager *manager;
-    QMap<QByteArray, QByteArray> headers;
+    QMap<QString, QString> headers;
+    QMap<QString, OAIHttpFileElement> files;
+    QMap<QString, QByteArray *> multiPartFields;
+    QString workingDirectory;
+    int _timeOut;
+    bool isResponseCompressionEnabled;
+    bool isRequestCompressionEnabled;
+    void on_manager_timeout(QNetworkReply *reply);
+    void process_response(QNetworkReply *reply);
+    QByteArray decompress(const QByteArray& data);
+    QByteArray compress(const QByteArray& input, int level, OAICompressionType compressType); 
 private slots:
     void on_manager_finished(QNetworkReply *reply);
-
 };
 
-}
+} // namespace OpenAPI
 
 #endif // OAI_HTTPREQUESTWORKER_H

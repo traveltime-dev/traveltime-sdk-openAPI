@@ -14,16 +14,12 @@ class ResponseSupportedLocations {
 
   ResponseSupportedLocations.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = ResponseSupportedLocation.listFromJson(json['locations']);
-    }
-    if (json['unsupported_locations'] == null) {
-      unsupportedLocations = null;
-    } else {
-      unsupportedLocations = (json['unsupported_locations'] as List).cast<String>();
-    }
+    locations = (json['locations'] == null) ?
+      null :
+      ResponseSupportedLocation.listFromJson(json['locations']);
+    unsupportedLocations = (json['unsupported_locations'] == null) ?
+      null :
+      (json['unsupported_locations'] as List).cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class ResponseSupportedLocations {
   }
 
   static List<ResponseSupportedLocations> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseSupportedLocations>() : json.map((value) => new ResponseSupportedLocations.fromJson(value)).toList();
+    return json == null ? List<ResponseSupportedLocations>() : json.map((value) => ResponseSupportedLocations.fromJson(value)).toList();
   }
 
   static Map<String, ResponseSupportedLocations> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseSupportedLocations>();
+    var map = Map<String, ResponseSupportedLocations>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseSupportedLocations.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseSupportedLocations.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseSupportedLocations-objects as value to a dart map
+  static Map<String, List<ResponseSupportedLocations>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseSupportedLocations>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseSupportedLocations.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

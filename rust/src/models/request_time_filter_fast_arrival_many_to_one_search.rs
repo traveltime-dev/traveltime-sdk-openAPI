@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterFastArrivalManyToOneSearch {
     #[serde(rename = "id")]
     pub id: String,
@@ -21,25 +20,27 @@ pub struct RequestTimeFilterFastArrivalManyToOneSearch {
     #[serde(rename = "departure_location_ids")]
     pub departure_location_ids: Vec<String>,
     #[serde(rename = "transportation")]
-    pub transportation: ::models::RequestTransportationFast,
+    pub transportation: crate::models::RequestTransportationFast,
     #[serde(rename = "travel_time")]
     pub travel_time: i32,
     #[serde(rename = "arrival_time_period")]
-    pub arrival_time_period: ::models::RequestArrivalTimePeriod,
+    pub arrival_time_period: crate::models::RequestArrivalTimePeriod,
     #[serde(rename = "properties")]
-    pub properties: Vec<::models::RequestTimeFilterFastProperty>,
+    pub properties: Vec<crate::models::RequestTimeFilterFastProperty>,
 }
 
 impl RequestTimeFilterFastArrivalManyToOneSearch {
-    pub fn new(id: String, arrival_location_id: String, departure_location_ids: Vec<String>, transportation: ::models::RequestTransportationFast, travel_time: i32, arrival_time_period: ::models::RequestArrivalTimePeriod, properties: Vec<::models::RequestTimeFilterFastProperty>) -> RequestTimeFilterFastArrivalManyToOneSearch {
+    pub fn new(id: String, arrival_location_id: String, departure_location_ids: Vec<String>, transportation: crate::models::RequestTransportationFast, travel_time: i32, arrival_time_period: crate::models::RequestArrivalTimePeriod, properties: Vec<crate::models::RequestTimeFilterFastProperty>) -> RequestTimeFilterFastArrivalManyToOneSearch {
         RequestTimeFilterFastArrivalManyToOneSearch {
-            id: id,
-            arrival_location_id: arrival_location_id,
-            departure_location_ids: departure_location_ids,
-            transportation: transportation,
-            travel_time: travel_time,
-            arrival_time_period: arrival_time_period,
-            properties: properties,
+            id,
+            arrival_location_id,
+            departure_location_ids,
+            transportation,
+            travel_time,
+            arrival_time_period,
+            properties,
         }
     }
 }
+
+

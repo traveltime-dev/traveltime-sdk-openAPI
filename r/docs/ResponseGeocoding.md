@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseGeocoding
+# openapi::ResponseGeocoding
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **character** |  | 
-**features** | [**ResponseGeocodingGeoJsonFeature**](ResponseGeocodingGeoJsonFeature.md) |  | 
+**features** | [**array[ResponseGeocodingGeoJsonFeature]**](ResponseGeocodingGeoJsonFeature.md) |  | 
 
 

@@ -10,97 +10,84 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterFast.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterFast::OAIResponseTimeFilterFast(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterFast::OAIResponseTimeFilterFast() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterFast::~OAIResponseTimeFilterFast() {
+OAIResponseTimeFilterFast::~OAIResponseTimeFilterFast() {}
 
-}
+void OAIResponseTimeFilterFast::initializeModel() {
 
-void
-OAIResponseTimeFilterFast::init() {
-    
     m_results_isSet = false;
     m_results_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterFast::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterFast::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterFast::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseTimeFilterFast::fromJsonObject(QJsonObject json) {
+
     m_results_isValid = ::OpenAPI::fromJsonValue(results, json[QString("results")]);
-    
+    m_results_isSet = !json[QString("results")].isNull() && m_results_isValid;
 }
 
-QString
-OAIResponseTimeFilterFast::asJson () const {
+QString OAIResponseTimeFilterFast::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterFast::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterFast::asJsonObject() const {
     QJsonObject obj;
-	
-    if(results.size() > 0){
+    if (results.size() > 0) {
         obj.insert(QString("results"), ::OpenAPI::toJsonValue(results));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseTimeFilterFastResult>
-OAIResponseTimeFilterFast::getResults() const {
+QList<OAIResponseTimeFilterFastResult> OAIResponseTimeFilterFast::getResults() const {
     return results;
 }
-void
-OAIResponseTimeFilterFast::setResults(const QList<OAIResponseTimeFilterFastResult> &results) {
+void OAIResponseTimeFilterFast::setResults(const QList<OAIResponseTimeFilterFastResult> &results) {
     this->results = results;
     this->m_results_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterFast::isSet() const {
+bool OAIResponseTimeFilterFast::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(results.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (results.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterFast::isValid() const {
+bool OAIResponseTimeFilterFast::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_results_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

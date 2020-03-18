@@ -9,14 +9,14 @@ response_supported_location_t *response_supported_location_create(
     char *id,
     char *map_name
     ) {
-	response_supported_location_t *response_supported_location_local_var = malloc(sizeof(response_supported_location_t));
+    response_supported_location_t *response_supported_location_local_var = malloc(sizeof(response_supported_location_t));
     if (!response_supported_location_local_var) {
         return NULL;
     }
-	response_supported_location_local_var->id = id;
-	response_supported_location_local_var->map_name = map_name;
+    response_supported_location_local_var->id = id;
+    response_supported_location_local_var->map_name = map_name;
 
-	return response_supported_location_local_var;
+    return response_supported_location_local_var;
 }
 
 
@@ -24,13 +24,13 @@ void response_supported_location_free(response_supported_location_t *response_su
     listEntry_t *listEntry;
     free(response_supported_location->id);
     free(response_supported_location->map_name);
-	free(response_supported_location);
+    free(response_supported_location);
 }
 
 cJSON *response_supported_location_convertToJSON(response_supported_location_t *response_supported_location) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_supported_location->id
+    // response_supported_location->id
     if (!response_supported_location->id) {
         goto fail;
     }
@@ -40,7 +40,7 @@ cJSON *response_supported_location_convertToJSON(response_supported_location_t *
     }
 
 
-	// response_supported_location->map_name
+    // response_supported_location->map_name
     if (!response_supported_location->map_name) {
         goto fail;
     }
@@ -49,12 +49,12 @@ cJSON *response_supported_location_convertToJSON(response_supported_location_t *
     goto fail; //String
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_supported_location_t *response_supported_location_parseFromJSON(cJSON *response_supported_locationJSON){

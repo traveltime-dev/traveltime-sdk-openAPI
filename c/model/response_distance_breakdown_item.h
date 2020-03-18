@@ -13,16 +13,19 @@
 #include "../include/keyValuePair.h"
 #include "response_transportation_mode.h"
 
+                typedef enum  {  car, parking, boarding, walk, bike, train, rail_national, rail_overground, rail_underground, rail_dlr, bus, cable_car, plane, ferry, coach } mode_e;
+
+        char* mode_ToString(mode_e mode);
+
+        mode_e mode_FromString(char* mode);
 
 
 typedef struct response_distance_breakdown_item_t {
-    response_transportation_mode_e mode; //enum model
     int distance; //numeric
 
 } response_distance_breakdown_item_t;
 
 response_distance_breakdown_item_t *response_distance_breakdown_item_create(
-    response_transportation_mode_e mode,
     int distance
 );
 

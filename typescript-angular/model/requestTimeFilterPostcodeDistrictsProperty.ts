@@ -18,3 +18,4 @@ export const RequestTimeFilterPostcodeDistrictsProperty = {
     TravelTimeAll: 'travel_time_all' as RequestTimeFilterPostcodeDistrictsProperty,
     Coverage: 'coverage' as RequestTimeFilterPostcodeDistrictsProperty
 };
+

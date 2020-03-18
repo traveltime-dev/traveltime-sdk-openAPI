@@ -33,7 +33,7 @@ import javax.validation.Valid;
 
 @Path("/v4")
 @Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2019-05-24T09:07:11.905Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T07:54:27.108Z[Etc/UTC]")
 public class V4Api {
 
     @GET
@@ -47,7 +47,7 @@ public class V4Api {
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response geocodingReverseSearch(@QueryParam("focus.lat") @NotNull    Double focusLat,@QueryParam("focus.lng") @NotNull    Double focusLng,@QueryParam("within.country")    String withinCountry) {
+    public Response geocodingReverseSearch(@QueryParam("lat") @NotNull    Double lat,@QueryParam("lng") @NotNull    Double lng,@QueryParam("within.country")    String withinCountry) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -62,7 +62,7 @@ public class V4Api {
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response geocodingSearch(@QueryParam("query") @NotNull    String query,@QueryParam("within.country")    String withinCountry,@QueryParam("focus.lat")    Double focusLat,@QueryParam("focus.lng")    Double focusLng) {
+    public Response geocodingSearch(@QueryParam("query") @NotNull    String query,@QueryParam("focus.lat")    Double focusLat,@QueryParam("focus.lng")    Double focusLng,@QueryParam("within.country")    String withinCountry) {
         return Response.ok().entity("magic!").build();
     }
 

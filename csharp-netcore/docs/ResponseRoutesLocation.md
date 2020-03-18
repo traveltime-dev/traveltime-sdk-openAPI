@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseRoutesLocation
+# Org.OpenAPITools.Model.ResponseRoutesLocation
 ## Properties
 
 Name | Type | Description | Notes

@@ -5,10 +5,10 @@ part 'coords.jser.dart';
 
 class Coords {
   
-  @Alias('lat')
+  @Alias('lat', isNullable: false,  )
   final double lat;
   
-  @Alias('lng')
+  @Alias('lng', isNullable: false,  )
   final double lng;
   
 

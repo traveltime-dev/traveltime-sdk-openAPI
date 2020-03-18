@@ -9,13 +9,12 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoFeatures {
-    #[serde(rename = "public_transport")]
-    pub public_transport: Option<::models::ResponseMapInfoFeaturesPublicTransport>,
+    #[serde(rename = "public_transport", skip_serializing_if = "Option::is_none")]
+    pub public_transport: Option<crate::models::ResponseMapInfoFeaturesPublicTransport>,
     #[serde(rename = "fares")]
     pub fares: bool,
     #[serde(rename = "postcodes")]
@@ -26,8 +25,10 @@ impl ResponseMapInfoFeatures {
     pub fn new(fares: bool, postcodes: bool) -> ResponseMapInfoFeatures {
         ResponseMapInfoFeatures {
             public_transport: None,
-            fares: fares,
-            postcodes: postcodes,
+            fares,
+            postcodes,
         }
     }
 }
+
+

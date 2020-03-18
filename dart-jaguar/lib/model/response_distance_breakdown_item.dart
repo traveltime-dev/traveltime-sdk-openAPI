@@ -7,10 +7,14 @@ part 'response_distance_breakdown_item.jser.dart';
 
 class ResponseDistanceBreakdownItem {
   
-  @Alias('mode')
+  @Alias('mode', isNullable: false,
+          
+             processor:  const ResponseTransportationModeFieldProcessor(),
+          
+  )
   final ResponseTransportationMode mode;
   //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };
-  @Alias('distance')
+  @Alias('distance', isNullable: false,  )
   final int distance;
   
 

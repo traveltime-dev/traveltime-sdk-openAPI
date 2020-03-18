@@ -23,24 +23,35 @@ import java.util.List;
 import org.openapitools.model.RequestTimeMapArrivalSearch;
 import org.openapitools.model.RequestTimeMapDepartureSearch;
 import org.openapitools.model.RequestUnionOnIntersection;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeMap.JSON_PROPERTY_DEPARTURE_SEARCHES,
+  RequestTimeMap.JSON_PROPERTY_ARRIVAL_SEARCHES,
+  RequestTimeMap.JSON_PROPERTY_UNIONS,
+  RequestTimeMap.JSON_PROPERTY_INTERSECTIONS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class RequestTimeMap   {
-  @JsonProperty("departure_searches")
+  public static final String JSON_PROPERTY_DEPARTURE_SEARCHES = "departure_searches";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_SEARCHES)
   private List<RequestTimeMapDepartureSearch> departureSearches = null;
 
-  @JsonProperty("arrival_searches")
+  public static final String JSON_PROPERTY_ARRIVAL_SEARCHES = "arrival_searches";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_SEARCHES)
   private List<RequestTimeMapArrivalSearch> arrivalSearches = null;
 
-  @JsonProperty("unions")
+  public static final String JSON_PROPERTY_UNIONS = "unions";
+  @JsonProperty(JSON_PROPERTY_UNIONS)
   private List<RequestUnionOnIntersection> unions = null;
 
-  @JsonProperty("intersections")
+  public static final String JSON_PROPERTY_INTERSECTIONS = "intersections";
+  @JsonProperty(JSON_PROPERTY_INTERSECTIONS)
   private List<RequestUnionOnIntersection> intersections = null;
 
   public RequestTimeMap departureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {

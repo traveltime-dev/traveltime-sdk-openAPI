@@ -9,23 +9,14 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum RequestArrivalTimePeriod {
+    #[serde(rename = "weekday_morning")]
+    WeekdayMorning,
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct RequestArrivalTimePeriod {
 }
 
-impl RequestArrivalTimePeriod {
-    pub fn new() -> RequestArrivalTimePeriod {
-        RequestArrivalTimePeriod {
-        }
-    }
-}
-// TODO enum
-// List of RequestArrivalTimePeriod
-//const (
-//    
-//    
-//    
-//)
+
+
+

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **arrivalLocationId** | **kotlin.String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **kotlin.Int** |  | 
-**arrivalTime** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
+**arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **properties** | [**kotlin.Array&lt;RequestTimeFilterProperty&gt;**](RequestTimeFilterProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 

@@ -1,8 +1,8 @@
-# traveltimeplatform::RequestSupportedLocations
+# openapi::RequestSupportedLocations
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**RequestLocation**](RequestLocation.md) |  | 
+**locations** | [**array[RequestLocation]**](RequestLocation.md) |  | 
 
 

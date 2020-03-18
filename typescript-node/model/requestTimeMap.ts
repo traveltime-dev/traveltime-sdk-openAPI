@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { RequestTimeMapArrivalSearch } from './requestTimeMapArrivalSearch';
 import { RequestTimeMapDepartureSearch } from './requestTimeMapDepartureSearch';
 import { RequestUnionOnIntersection } from './requestUnionOnIntersection';

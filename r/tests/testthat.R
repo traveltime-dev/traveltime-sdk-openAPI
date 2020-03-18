@@ -1,4 +1,4 @@
 library(testthat)
-library(traveltimeplatform)
+library(openapi)
 
-test_check("traveltimeplatform")
+test_check("openapi")

@@ -20,7 +20,8 @@ Method | HTTP request | Description
 
 ## GeocodingReverseSearch
 
-> ResponseGeocoding GeocodingReverseSearch(ctx, focusLat, focusLng, optional)
+> ResponseGeocoding GeocodingReverseSearch(ctx, lat, lng, optional)
+
 
 
 ### Required Parameters
@@ -29,8 +30,8 @@ Method | HTTP request | Description
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**focusLat** | **float64**|  | 
-**focusLng** | **float64**|  | 
+**lat** | **float64**|  | 
+**lng** | **float64**|  | 
  **optional** | ***GeocodingReverseSearchOpts** | optional parameters | nil if no parameters
 
 ### Optional Parameters
@@ -67,6 +68,7 @@ Name | Type | Description  | Notes
 > ResponseGeocoding GeocodingSearch(ctx, query, optional)
 
 
+
 ### Required Parameters
 
 
@@ -84,9 +86,9 @@ Optional parameters are passed through a pointer to a GeocodingSearchOpts struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **withinCountry** | **optional.String**|  | 
  **focusLat** | **optional.Float64**|  | 
  **focusLng** | **optional.Float64**|  | 
+ **withinCountry** | **optional.String**|  | 
 
 ### Return type
 
@@ -109,6 +111,7 @@ Name | Type | Description  | Notes
 ## MapInfo
 
 > ResponseMapInfo MapInfo(ctx, )
+
 
 
 ### Required Parameters
@@ -136,6 +139,7 @@ This endpoint does not need any parameter.
 ## Routes
 
 > ResponseRoutes Routes(ctx, requestRoutes)
+
 
 
 ### Required Parameters
@@ -169,6 +173,7 @@ Name | Type | Description  | Notes
 > ResponseSupportedLocations SupportedLocations(ctx, requestSupportedLocations)
 
 
+
 ### Required Parameters
 
 
@@ -198,6 +203,7 @@ Name | Type | Description  | Notes
 ## TimeFilter
 
 > ResponseTimeFilter TimeFilter(ctx, requestTimeFilter)
+
 
 
 ### Required Parameters
@@ -231,6 +237,7 @@ Name | Type | Description  | Notes
 > ResponseTimeFilterFast TimeFilterFast(ctx, requestTimeFilterFast)
 
 
+
 ### Required Parameters
 
 
@@ -260,6 +267,7 @@ Name | Type | Description  | Notes
 ## TimeFilterPostcodeDistricts
 
 > ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts(ctx, requestTimeFilterPostcodeDistricts)
+
 
 
 ### Required Parameters
@@ -293,6 +301,7 @@ Name | Type | Description  | Notes
 > ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors(ctx, requestTimeFilterPostcodeSectors)
 
 
+
 ### Required Parameters
 
 
@@ -324,6 +333,7 @@ Name | Type | Description  | Notes
 > ResponseTimeFilterPostcodes TimeFilterPostcodes(ctx, requestTimeFilterPostcodes)
 
 
+
 ### Required Parameters
 
 
@@ -353,6 +363,7 @@ Name | Type | Description  | Notes
 ## TimeMap
 
 > ResponseTimeMap TimeMap(ctx, requestTimeMap)
+
 
 
 ### Required Parameters

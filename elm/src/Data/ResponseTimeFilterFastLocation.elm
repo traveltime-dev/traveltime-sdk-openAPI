@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterFastLocation exposing (ResponseTimeFilterFastLocation, decoder, encode)
+module Data.ResponseTimeFilterFastLocation exposing (ResponseTimeFilterFastLocation, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeFilterFastProperties as ResponseTimeFilterFastProperties exposing (ResponseTimeFilterFastProperties)
 import Dict exposing (Dict)
@@ -35,11 +35,27 @@ decoder =
 
 
 encode : ResponseTimeFilterFastLocation -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "properties", (Encode.list ResponseTimeFilterFastProperties.encode) model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterFastLocation -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterFastLocation -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "properties", (Encode.list ResponseTimeFilterFastProperties.encode) model.properties )
+    ]
+
+
+
+toString : ResponseTimeFilterFastLocation -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -19,7 +19,7 @@ import java.util.List;
  * ResponseTimeFilterProperties
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
 
 public class ResponseTimeFilterProperties   {
   @JsonProperty("travel_time")
@@ -33,10 +33,10 @@ public class ResponseTimeFilterProperties   {
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseTimeFilterProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

@@ -23,43 +23,36 @@ import {
  */
 export interface RequestTimeFilterFastArrivalManyToOneSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     arrivalLocationId: string;
     /**
-     * 
      * @type {Array<string>}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     departureLocationIds: Array<string>;
     /**
-     * 
      * @type {RequestTransportationFast}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     transportation: RequestTransportationFast;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     travelTime: number;
     /**
-     * 
      * @type {RequestArrivalTimePeriod}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
     arrivalTimePeriod: RequestArrivalTimePeriod;
     /**
-     * 
      * @type {Array<RequestTimeFilterFastProperty>}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */

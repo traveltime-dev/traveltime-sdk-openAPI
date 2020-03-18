@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseGeocodingGeoJsonFeature exposing (ResponseGeocodingGeoJsonFeature, decoder, encode)
+module Data.ResponseGeocodingGeoJsonFeature exposing (ResponseGeocodingGeoJsonFeature, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseGeocodingGeometry as ResponseGeocodingGeometry exposing (ResponseGeocodingGeometry)
 import Data.ResponseGeocodingProperties as ResponseGeocodingProperties exposing (ResponseGeocodingProperties)
@@ -38,12 +38,28 @@ decoder =
 
 
 encode : ResponseGeocodingGeoJsonFeature -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "type", Encode.string model.type_ )
-        , ( "geometry", ResponseGeocodingGeometry.encode model.geometry )
-        , ( "properties", ResponseGeocodingProperties.encode model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseGeocodingGeoJsonFeature -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseGeocodingGeoJsonFeature -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "type", Encode.string model.type_ )
+    , ( "geometry", ResponseGeocodingGeometry.encode model.geometry )
+    , ( "properties", ResponseGeocodingProperties.encode model.properties )
+    ]
+
+
+
+toString : ResponseGeocodingGeoJsonFeature -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

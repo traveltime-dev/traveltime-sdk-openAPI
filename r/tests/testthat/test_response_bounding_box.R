@@ -13,7 +13,7 @@ test_that("envelope", {
 })
 
 test_that("boxes", {
-  # tests for the property `boxes` (ResponseBox)
+  # tests for the property `boxes` (array[ResponseBox])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`boxes`, "EXPECTED_RESULT")

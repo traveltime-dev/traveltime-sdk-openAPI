@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseMapInfo exposing (ResponseMapInfo, decoder, encode)
+module Data.ResponseMapInfo exposing (ResponseMapInfo, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseMapInfoMap as ResponseMapInfoMap exposing (ResponseMapInfoMap)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseMapInfo -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "maps", (Encode.list ResponseMapInfoMap.encode) model.maps )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseMapInfo -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseMapInfo -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "maps", (Encode.list ResponseMapInfoMap.encode) model.maps )
+    ]
+
+
+
+toString : ResponseMapInfo -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

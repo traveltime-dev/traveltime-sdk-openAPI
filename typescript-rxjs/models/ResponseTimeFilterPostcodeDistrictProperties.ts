@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseTimeFilterPostcodeDistrictProperties {
     /**
-     * 
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeDistrictProperties
      */
     travelTimeReachable?: ResponseTravelTimeStatistics;
     /**
-     * 
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeDistrictProperties
      */
     travelTimeAll?: ResponseTravelTimeStatistics;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTimeFilterPostcodeDistrictProperties
      */

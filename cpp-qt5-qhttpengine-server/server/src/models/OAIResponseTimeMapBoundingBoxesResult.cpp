@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeMapBoundingBoxesResult.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,14 +81,14 @@ OAIResponseTimeMapBoundingBoxesResult::asJson () const {
 QJsonObject
 OAIResponseTimeMapBoundingBoxesResult::asJsonObject() const {
     QJsonObject obj;
-	if(m_search_id_isSet){
+    if(m_search_id_isSet){
         obj.insert(QString("search_id"), ::OpenAPI::toJsonValue(search_id));
     }
-	
+    
     if(bounding_boxes.size() > 0){
         obj.insert(QString("bounding_boxes"), ::OpenAPI::toJsonValue(bounding_boxes));
     } 
-	if(properties.isSet()){
+    if(properties.isSet()){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     }
     return obj;

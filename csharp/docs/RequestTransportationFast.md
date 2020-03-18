@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTransportationFast
+# Org.OpenAPITools.Model.RequestTransportationFast
 
 ## Properties
 

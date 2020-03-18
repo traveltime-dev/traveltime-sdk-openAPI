@@ -47,6 +47,10 @@ std::vector<ResponseMapInfoMap>& ResponseMapInfo::getMaps()
 {
     return m_Maps;
 }
+void ResponseMapInfo::setMaps(std::vector<ResponseMapInfoMap> const& value)
+{
+    m_Maps = value;
+}
 
 }
 }

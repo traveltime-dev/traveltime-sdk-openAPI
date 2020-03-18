@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseBox: public OAIObject {
@@ -56,7 +57,7 @@ public:
     void setMaxLng(const double &max_lng);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -82,5 +83,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseBox)
 
 #endif // OAIResponseBox_H

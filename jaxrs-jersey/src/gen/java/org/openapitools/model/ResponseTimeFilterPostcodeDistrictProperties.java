@@ -19,21 +19,30 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseTravelTimeStatistics;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterPostcodeDistrictProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterPostcodeDistrictProperties.JSON_PROPERTY_TRAVEL_TIME_REACHABLE,
+  ResponseTimeFilterPostcodeDistrictProperties.JSON_PROPERTY_TRAVEL_TIME_ALL,
+  ResponseTimeFilterPostcodeDistrictProperties.JSON_PROPERTY_COVERAGE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrictProperties   {
-  @JsonProperty("travel_time_reachable")
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  public static final String JSON_PROPERTY_TRAVEL_TIME_REACHABLE = "travel_time_reachable";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME_REACHABLE)
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
-  @JsonProperty("travel_time_all")
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  public static final String JSON_PROPERTY_TRAVEL_TIME_ALL = "travel_time_all";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME_ALL)
+  private ResponseTravelTimeStatistics travelTimeAll;
 
-  @JsonProperty("coverage")
+  public static final String JSON_PROPERTY_COVERAGE = "coverage";
+  @JsonProperty(JSON_PROPERTY_COVERAGE)
   private Double coverage;
 
   public ResponseTimeFilterPostcodeDistrictProperties travelTimeReachable(ResponseTravelTimeStatistics travelTimeReachable) {

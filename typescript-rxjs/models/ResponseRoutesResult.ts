@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseRoutesResult {
     /**
-     * 
      * @type {string}
      * @memberof ResponseRoutesResult
      */
     searchId: string;
     /**
-     * 
      * @type {Array<ResponseRoutesLocation>}
      * @memberof ResponseRoutesResult
      */
     locations: Array<ResponseRoutesLocation>;
     /**
-     * 
      * @type {Array<string>}
      * @memberof ResponseRoutesResult
      */

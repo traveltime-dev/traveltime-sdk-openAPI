@@ -47,6 +47,10 @@ std::vector<ResponseTimeMapWktResult>& ResponseTimeMapWkt::getResults()
 {
     return m_Results;
 }
+void ResponseTimeMapWkt::setResults(std::vector<ResponseTimeMapWktResult> const& value)
+{
+    m_Results = value;
+}
 
 }
 }

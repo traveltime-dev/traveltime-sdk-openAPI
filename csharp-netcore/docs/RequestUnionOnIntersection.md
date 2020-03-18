@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestUnionOnIntersection
+# Org.OpenAPITools.Model.RequestUnionOnIntersection
 ## Properties
 
 Name | Type | Description | Notes

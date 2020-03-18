@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseRoutesResult exposing (ResponseRoutesResult, decoder, encode)
+module Data.ResponseRoutesResult exposing (ResponseRoutesResult, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseRoutesLocation as ResponseRoutesLocation exposing (ResponseRoutesLocation)
 import Dict exposing (Dict)
@@ -37,12 +37,28 @@ decoder =
 
 
 encode : ResponseRoutesResult -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "search_id", Encode.string model.searchId )
-        , ( "locations", (Encode.list ResponseRoutesLocation.encode) model.locations )
-        , ( "unreachable", (Encode.list Encode.string) model.unreachable )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseRoutesResult -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseRoutesResult -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "search_id", Encode.string model.searchId )
+    , ( "locations", (Encode.list ResponseRoutesLocation.encode) model.locations )
+    , ( "unreachable", (Encode.list Encode.string) model.unreachable )
+    ]
+
+
+
+toString : ResponseRoutesResult -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

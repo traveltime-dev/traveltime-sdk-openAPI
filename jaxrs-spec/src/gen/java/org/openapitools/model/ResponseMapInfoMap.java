@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class ResponseMapInfoMap   {
   
   private @Valid String name;
-  private @Valid ResponseMapInfoFeatures features = null;
+  private @Valid ResponseMapInfoFeatures features;
 
   /**
    **/

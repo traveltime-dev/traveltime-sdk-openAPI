@@ -25,37 +25,37 @@
 request_transportation_fast_t *request_transportation_fast_create(
     type_e type
     ) {
-	request_transportation_fast_t *request_transportation_fast_local_var = malloc(sizeof(request_transportation_fast_t));
+    request_transportation_fast_t *request_transportation_fast_local_var = malloc(sizeof(request_transportation_fast_t));
     if (!request_transportation_fast_local_var) {
         return NULL;
     }
-	request_transportation_fast_local_var->type = type;
+    request_transportation_fast_local_var->type = type;
 
-	return request_transportation_fast_local_var;
+    return request_transportation_fast_local_var;
 }
 
 
 void request_transportation_fast_free(request_transportation_fast_t *request_transportation_fast) {
     listEntry_t *listEntry;
-	free(request_transportation_fast);
+    free(request_transportation_fast);
 }
 
 cJSON *request_transportation_fast_convertToJSON(request_transportation_fast_t *request_transportation_fast) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_transportation_fast->type
+    // request_transportation_fast->type
     
     if(cJSON_AddStringToObject(item, "type", typerequest_transportation_fast_ToString(request_transportation_fast->type)) == NULL)
     {
     goto fail; //Enum
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_transportation_fast_t *request_transportation_fast_parseFromJSON(cJSON *request_transportation_fastJSON){

@@ -23,37 +23,31 @@ import {
  */
 export interface RequestTimeFilterPostcodesDepartureSearch {
     /**
-     * 
      * @type {string}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
     id: string;
     /**
-     * 
      * @type {RequestTransportation}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
     transportation: RequestTransportation;
     /**
-     * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
     travelTime: number;
     /**
-     * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
     departureTime: Date;
     /**
-     * 
      * @type {Array<RequestTimeFilterPostcodesProperty>}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
     properties: Array<RequestTimeFilterPostcodesProperty>;
     /**
-     * 
      * @type {RequestRangeFull}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */

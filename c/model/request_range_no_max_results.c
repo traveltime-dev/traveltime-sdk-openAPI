@@ -9,26 +9,26 @@ request_range_no_max_results_t *request_range_no_max_results_create(
     int enabled,
     int width
     ) {
-	request_range_no_max_results_t *request_range_no_max_results_local_var = malloc(sizeof(request_range_no_max_results_t));
+    request_range_no_max_results_t *request_range_no_max_results_local_var = malloc(sizeof(request_range_no_max_results_t));
     if (!request_range_no_max_results_local_var) {
         return NULL;
     }
-	request_range_no_max_results_local_var->enabled = enabled;
-	request_range_no_max_results_local_var->width = width;
+    request_range_no_max_results_local_var->enabled = enabled;
+    request_range_no_max_results_local_var->width = width;
 
-	return request_range_no_max_results_local_var;
+    return request_range_no_max_results_local_var;
 }
 
 
 void request_range_no_max_results_free(request_range_no_max_results_t *request_range_no_max_results) {
     listEntry_t *listEntry;
-	free(request_range_no_max_results);
+    free(request_range_no_max_results);
 }
 
 cJSON *request_range_no_max_results_convertToJSON(request_range_no_max_results_t *request_range_no_max_results) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_range_no_max_results->enabled
+    // request_range_no_max_results->enabled
     if (!request_range_no_max_results->enabled) {
         goto fail;
     }
@@ -38,7 +38,7 @@ cJSON *request_range_no_max_results_convertToJSON(request_range_no_max_results_t
     }
 
 
-	// request_range_no_max_results->width
+    // request_range_no_max_results->width
     if (!request_range_no_max_results->width) {
         goto fail;
     }
@@ -47,12 +47,12 @@ cJSON *request_range_no_max_results_convertToJSON(request_range_no_max_results_t
     goto fail; //Numeric
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_range_no_max_results_t *request_range_no_max_results_parseFromJSON(cJSON *request_range_no_max_resultsJSON){

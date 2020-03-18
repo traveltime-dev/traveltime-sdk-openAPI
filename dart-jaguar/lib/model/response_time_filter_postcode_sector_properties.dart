@@ -7,13 +7,13 @@ part 'response_time_filter_postcode_sector_properties.jser.dart';
 
 class ResponseTimeFilterPostcodeSectorProperties {
   
-  @Alias('travel_time_reachable')
+  @Alias('travel_time_reachable', isNullable: false,  )
   final ResponseTravelTimeStatistics travelTimeReachable;
   
-  @Alias('travel_time_all')
+  @Alias('travel_time_all', isNullable: false,  )
   final ResponseTravelTimeStatistics travelTimeAll;
   
-  @Alias('coverage')
+  @Alias('coverage', isNullable: false,  )
   final double coverage;
   
 

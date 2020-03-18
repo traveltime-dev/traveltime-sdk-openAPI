@@ -25,4 +25,4 @@ EXPOSE 8080
 
 ENTRYPOINT ["python3"]
 
-CMD ["-B", "-m", "traveltimeplatform"]
+CMD ["-B", "-m", "openapi_server"]

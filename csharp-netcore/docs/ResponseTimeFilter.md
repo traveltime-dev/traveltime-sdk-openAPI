@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseTimeFilter
+# Org.OpenAPITools.Model.ResponseTimeFilter
 ## Properties
 
 Name | Type | Description | Notes

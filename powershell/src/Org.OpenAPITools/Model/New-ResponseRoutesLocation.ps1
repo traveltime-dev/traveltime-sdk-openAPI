@@ -5,15 +5,15 @@ function New-ResponseRoutesLocation {
         [String]
         ${id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseRoutesProperties[]]
+        [Org.OpenAPITools.Model.ResponseRoutesProperties[]]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseRoutesLocation' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseRoutesLocation' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseRoutesLocation -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseRoutesLocation -ArgumentList @(
             ${id},
             ${properties}
         )

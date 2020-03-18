@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeMapDepartureSearch exposing (RequestTimeMapDepartureSearch, decoder, encode)
+module Data.RequestTimeMapDepartureSearch exposing (RequestTimeMapDepartureSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.Coords as Coords exposing (Coords)
 import Data.RequestTransportation as RequestTransportation exposing (RequestTransportation)
@@ -49,16 +49,32 @@ decoder =
 
 
 encode : RequestTimeMapDepartureSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "coords", Coords.encode model.coords )
-        , ( "transportation", RequestTransportation.encode model.transportation )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "departure_time", DateTime.encode model.departureTime )
-        , ( "properties", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapProperty.encode) model.properties) )
-        , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeNoMaxResults.encode model.range) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeMapDepartureSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeMapDepartureSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "coords", Coords.encode model.coords )
+    , ( "transportation", RequestTransportation.encode model.transportation )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "departure_time", DateTime.encode model.departureTime )
+    , ( "properties", Maybe.withDefault Encode.null (Maybe.map (Encode.list RequestTimeMapProperty.encode) model.properties) )
+    , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeNoMaxResults.encode model.range) )
+    ]
+
+
+
+toString : RequestTimeMapDepartureSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

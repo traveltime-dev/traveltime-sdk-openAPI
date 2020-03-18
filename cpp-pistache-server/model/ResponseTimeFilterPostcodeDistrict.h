@@ -46,12 +46,12 @@ public:
     /// </summary>
     String getCode() const;
     void setCode(String const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     ResponseTimeFilterPostcodeDistrictProperties getProperties() const;
     void setProperties(ResponseTimeFilterPostcodeDistrictProperties const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterPostcodeDistrict& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterPostcodeDistrict& o);
 protected:

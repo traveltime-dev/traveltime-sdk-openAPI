@@ -60,7 +60,7 @@ void from_json(const nlohmann::json& j, RequestTimeFilterArrivalSearch& o)
     j.at("travel_time").get_to(o.m_Travel_time);
     j.at("arrival_time").get_to(o.m_Arrival_time);
     j.at("properties").get_to(o.m_Properties);
-    if(j.contains("range"))
+    if(j.find("range") != j.end())
     {
         j.at("range").get_to(o.m_Range);
         o.m_RangeIsSet = true;
@@ -74,11 +74,14 @@ std::string RequestTimeFilterArrivalSearch::getId() const
 void RequestTimeFilterArrivalSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::vector<std::string>& RequestTimeFilterArrivalSearch::getDepartureLocationIds()
 {
     return m_Departure_location_ids;
+}
+void RequestTimeFilterArrivalSearch::setDepartureLocationIds(std::vector<std::string> const& value)
+{
+    m_Departure_location_ids = value;
 }
 std::string RequestTimeFilterArrivalSearch::getArrivalLocationId() const
 {
@@ -87,7 +90,6 @@ std::string RequestTimeFilterArrivalSearch::getArrivalLocationId() const
 void RequestTimeFilterArrivalSearch::setArrivalLocationId(std::string const& value)
 {
     m_Arrival_location_id = value;
-    
 }
 RequestTransportation RequestTimeFilterArrivalSearch::getTransportation() const
 {
@@ -96,7 +98,6 @@ RequestTransportation RequestTimeFilterArrivalSearch::getTransportation() const
 void RequestTimeFilterArrivalSearch::setTransportation(RequestTransportation const& value)
 {
     m_Transportation = value;
-    
 }
 int32_t RequestTimeFilterArrivalSearch::getTravelTime() const
 {
@@ -105,7 +106,6 @@ int32_t RequestTimeFilterArrivalSearch::getTravelTime() const
 void RequestTimeFilterArrivalSearch::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 std::string RequestTimeFilterArrivalSearch::getArrivalTime() const
 {
@@ -114,11 +114,14 @@ std::string RequestTimeFilterArrivalSearch::getArrivalTime() const
 void RequestTimeFilterArrivalSearch::setArrivalTime(std::string const& value)
 {
     m_Arrival_time = value;
-    
 }
 std::vector<RequestTimeFilterProperty>& RequestTimeFilterArrivalSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestTimeFilterArrivalSearch::setProperties(std::vector<RequestTimeFilterProperty> const& value)
+{
+    m_Properties = value;
 }
 RequestRangeFull RequestTimeFilterArrivalSearch::getRange() const
 {

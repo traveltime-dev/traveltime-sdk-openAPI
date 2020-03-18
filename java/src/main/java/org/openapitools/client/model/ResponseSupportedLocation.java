@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseSupportedLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseSupportedLocation {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -37,7 +37,9 @@ public class ResponseSupportedLocation {
   @SerializedName(SERIALIZED_NAME_MAP_NAME)
   private String mapName;
 
+
   public ResponseSupportedLocation id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -47,15 +49,19 @@ public class ResponseSupportedLocation {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public ResponseSupportedLocation mapName(String mapName) {
+    
     this.mapName = mapName;
     return this;
   }
@@ -65,9 +71,11 @@ public class ResponseSupportedLocation {
    * @return mapName
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getMapName() {
     return mapName;
   }
+
 
   public void setMapName(String mapName) {
     this.mapName = mapName;

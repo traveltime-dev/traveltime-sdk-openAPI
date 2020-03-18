@@ -5,10 +5,10 @@ part 'response_geocoding_geometry.jser.dart';
 
 class ResponseGeocodingGeometry {
   
-  @Alias('type')
+  @Alias('type', isNullable: false,  )
   final String type;
   
-  @Alias('coordinates')
+  @Alias('coordinates', isNullable: false,  )
   final List<double> coordinates;
   
 

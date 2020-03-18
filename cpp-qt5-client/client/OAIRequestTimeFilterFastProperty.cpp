@@ -10,60 +10,52 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilterFastProperty.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilterFastProperty::OAIRequestTimeFilterFastProperty(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilterFastProperty::OAIRequestTimeFilterFastProperty() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilterFastProperty::~OAIRequestTimeFilterFastProperty() {
+OAIRequestTimeFilterFastProperty::~OAIRequestTimeFilterFastProperty() {}
 
-}
+void OAIRequestTimeFilterFastProperty::initializeModel() {
 
-void
-OAIRequestTimeFilterFastProperty::init() {
-    
     m_value_isSet = false;
     m_value_isValid = false;
     m_value = eOAIRequestTimeFilterFastProperty::INVALID_VALUE_OPENAPI_GENERATED;
 }
 
-void
-OAIRequestTimeFilterFastProperty::fromJson(QString jsonString) {
-     
+void OAIRequestTimeFilterFastProperty::fromJson(QString jsonString) {
+    
     if ( jsonString.compare("travel_time", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterFastProperty::TRAVEL_TIME;
-        m_value_isValid = true;
-    } 
+        m_value_isSet = m_value_isValid = true;
+    }
     else if ( jsonString.compare("fares", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestTimeFilterFastProperty::FARES;
-        m_value_isValid = true;
+        m_value_isSet = m_value_isValid = true;
     }
 }
 
-void
-OAIRequestTimeFilterFastProperty::fromJsonValue(QJsonValue json) {
-    
-    fromJson(json.toString());
+void OAIRequestTimeFilterFastProperty::fromJsonValue(QJsonValue json) {
+fromJson(json.toString());
 }
 
-QString
-OAIRequestTimeFilterFastProperty::asJson () const {
+QString OAIRequestTimeFilterFastProperty::asJson() const {
     
     QString val;
     switch (m_value){
@@ -72,15 +64,14 @@ OAIRequestTimeFilterFastProperty::asJson () const {
             break;
         case eOAIRequestTimeFilterFastProperty::FARES:
             val = "fares";
-            break; 
+            break;
         default:
             break;
     }
     return val;
 }
 
-QJsonValue
-OAIRequestTimeFilterFastProperty::asJsonValue() const {
+QJsonValue OAIRequestTimeFilterFastProperty::asJsonValue() const {
     
     return QJsonValue(asJson());
 }
@@ -94,17 +85,14 @@ void OAIRequestTimeFilterFastProperty::setValue(const OAIRequestTimeFilterFastPr
     m_value = value;
     m_value_isSet = true;
 }
-bool
-OAIRequestTimeFilterFastProperty::isSet() const {
+bool OAIRequestTimeFilterFastProperty::isSet() const {
     
     return m_value_isSet;
 }
 
-bool
-OAIRequestTimeFilterFastProperty::isValid() const {
+bool OAIRequestTimeFilterFastProperty::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_value_isValid;
 }
 
-}
-
+} // namespace OpenAPI

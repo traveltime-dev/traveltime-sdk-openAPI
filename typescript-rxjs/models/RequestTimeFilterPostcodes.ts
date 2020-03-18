@@ -22,13 +22,11 @@ import {
  */
 export interface RequestTimeFilterPostcodes {
     /**
-     * 
      * @type {Array<RequestTimeFilterPostcodesDepartureSearch>}
      * @memberof RequestTimeFilterPostcodes
      */
     departureSearches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
     /**
-     * 
      * @type {Array<RequestTimeFilterPostcodesArrivalSearch>}
      * @memberof RequestTimeFilterPostcodes
      */

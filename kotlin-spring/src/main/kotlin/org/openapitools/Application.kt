@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 
 
 @SpringBootApplication
-@ComponentScan(basePackages = ["org.openapitools", "traveltimeplatform.apis", "traveltimeplatform.models"])
+@ComponentScan(basePackages = ["org.openapitools", "org.openapitools.api", "org.openapitools.model"])
 class Application
 
 fun main(args: Array<String>) {

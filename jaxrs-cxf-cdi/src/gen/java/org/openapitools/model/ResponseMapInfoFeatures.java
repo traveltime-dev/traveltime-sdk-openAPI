@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.*;
 
 public class ResponseMapInfoFeatures   {
   
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   private Boolean fares;
 

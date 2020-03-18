@@ -7,13 +7,13 @@ part 'response_map_info_features.jser.dart';
 
 class ResponseMapInfoFeatures {
   
-  @Alias('public_transport')
+  @Alias('public_transport', isNullable: false,  )
   final ResponseMapInfoFeaturesPublicTransport publicTransport;
   
-  @Alias('fares')
+  @Alias('fares', isNullable: false,  )
   final bool fares;
   
-  @Alias('postcodes')
+  @Alias('postcodes', isNullable: false,  )
   final bool postcodes;
   
 

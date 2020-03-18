@@ -18,7 +18,7 @@ public class ResponseMapInfoMap   {
   
   private String name;
 
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
 
   /**

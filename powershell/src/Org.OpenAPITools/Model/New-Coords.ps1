@@ -10,10 +10,10 @@ function New-Coords {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.Coords' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.Coords' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.Coords -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.Coords -ArgumentList @(
             ${lat},
             ${lng}
         )

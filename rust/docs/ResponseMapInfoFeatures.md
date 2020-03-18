@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**public_transport** | [***::models::ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md) |  | [optional] 
+**public_transport** | Option<[**crate::models::ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md)> |  | [optional]
 **fares** | **bool** |  | 
 **postcodes** | **bool** |  | 
 

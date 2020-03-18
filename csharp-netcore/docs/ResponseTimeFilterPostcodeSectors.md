@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseTimeFilterPostcodeSectors
+# Org.OpenAPITools.Model.ResponseTimeFilterPostcodeSectors
 ## Properties
 
 Name | Type | Description | Notes

@@ -22,41 +22,38 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeMapProperties: public OAIObject {
+class OAIResponseTimeMapProperties : public OAIObject {
 public:
     OAIResponseTimeMapProperties();
     OAIResponseTimeMapProperties(QString json);
     ~OAIResponseTimeMapProperties() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     bool isIsOnlyWalking() const;
     void setIsOnlyWalking(const bool &is_only_walking);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     bool is_only_walking;
     bool m_is_only_walking_isSet;
     bool m_is_only_walking_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeMapProperties)
 
 #endif // OAIResponseTimeMapProperties_H

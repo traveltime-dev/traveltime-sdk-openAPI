@@ -19,22 +19,31 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseTimeMapProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeMapWktResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeMapWktResult.JSON_PROPERTY_SEARCH_ID,
+  ResponseTimeMapWktResult.JSON_PROPERTY_SHAPE,
+  ResponseTimeMapWktResult.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeMapWktResult   {
-  @JsonProperty("search_id")
+  public static final String JSON_PROPERTY_SEARCH_ID = "search_id";
+  @JsonProperty(JSON_PROPERTY_SEARCH_ID)
   private String searchId;
 
-  @JsonProperty("shape")
+  public static final String JSON_PROPERTY_SHAPE = "shape";
+  @JsonProperty(JSON_PROPERTY_SHAPE)
   private String shape;
 
-  @JsonProperty("properties")
-  private ResponseTimeMapProperties properties = null;
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapWktResult searchId(String searchId) {
     this.searchId = searchId;

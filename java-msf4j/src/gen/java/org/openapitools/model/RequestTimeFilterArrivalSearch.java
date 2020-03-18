@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTransportation;
 /**
  * RequestTimeFilterArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class RequestTimeFilterArrivalSearch   {
   @JsonProperty("id")
   private String id;
@@ -27,7 +27,7 @@ public class RequestTimeFilterArrivalSearch   {
   private String arrivalLocationId;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;
@@ -39,7 +39,7 @@ public class RequestTimeFilterArrivalSearch   {
   private List<RequestTimeFilterProperty> properties = new ArrayList<RequestTimeFilterProperty>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterArrivalSearch id(String id) {
     this.id = id;

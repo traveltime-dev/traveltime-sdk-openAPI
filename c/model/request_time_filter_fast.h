@@ -18,7 +18,7 @@
 
 typedef struct request_time_filter_fast_t {
     list_t *locations; //nonprimitive container
-    request_time_filter_fast_arrival_searches_t *arrival_searches; //model
+    struct request_time_filter_fast_arrival_searches_t *arrival_searches; //model
 
 } request_time_filter_fast_t;
 

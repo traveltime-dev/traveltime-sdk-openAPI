@@ -10,97 +10,84 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterPostcodes.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterPostcodes::OAIResponseTimeFilterPostcodes(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterPostcodes::OAIResponseTimeFilterPostcodes() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterPostcodes::~OAIResponseTimeFilterPostcodes() {
+OAIResponseTimeFilterPostcodes::~OAIResponseTimeFilterPostcodes() {}
 
-}
+void OAIResponseTimeFilterPostcodes::initializeModel() {
 
-void
-OAIResponseTimeFilterPostcodes::init() {
-    
     m_results_isSet = false;
     m_results_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterPostcodes::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterPostcodes::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterPostcodes::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseTimeFilterPostcodes::fromJsonObject(QJsonObject json) {
+
     m_results_isValid = ::OpenAPI::fromJsonValue(results, json[QString("results")]);
-    
+    m_results_isSet = !json[QString("results")].isNull() && m_results_isValid;
 }
 
-QString
-OAIResponseTimeFilterPostcodes::asJson () const {
+QString OAIResponseTimeFilterPostcodes::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterPostcodes::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterPostcodes::asJsonObject() const {
     QJsonObject obj;
-	
-    if(results.size() > 0){
+    if (results.size() > 0) {
         obj.insert(QString("results"), ::OpenAPI::toJsonValue(results));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseTimeFilterPostcodesResult>
-OAIResponseTimeFilterPostcodes::getResults() const {
+QList<OAIResponseTimeFilterPostcodesResult> OAIResponseTimeFilterPostcodes::getResults() const {
     return results;
 }
-void
-OAIResponseTimeFilterPostcodes::setResults(const QList<OAIResponseTimeFilterPostcodesResult> &results) {
+void OAIResponseTimeFilterPostcodes::setResults(const QList<OAIResponseTimeFilterPostcodesResult> &results) {
     this->results = results;
     this->m_results_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterPostcodes::isSet() const {
+bool OAIResponseTimeFilterPostcodes::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(results.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (results.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterPostcodes::isValid() const {
+bool OAIResponseTimeFilterPostcodes::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_results_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

@@ -11,13 +11,13 @@ part 'request_time_filter.jser.dart';
 
 class RequestTimeFilter {
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<RequestLocation> locations;
   
-  @Alias('departure_searches')
+  @Alias('departure_searches', isNullable: false,  )
   final List<RequestTimeFilterDepartureSearch> departureSearches;
   
-  @Alias('arrival_searches')
+  @Alias('arrival_searches', isNullable: false,  )
   final List<RequestTimeFilterArrivalSearch> arrivalSearches;
   
 

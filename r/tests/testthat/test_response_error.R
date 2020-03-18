@@ -34,7 +34,7 @@ test_that("documentation_link", {
 })
 
 test_that("additional_info", {
-  # tests for the property `additional_info` (character)
+  # tests for the property `additional_info` (map(array[character]))
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`additional_info`, "EXPECTED_RESULT")

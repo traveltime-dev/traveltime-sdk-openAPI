@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseError exposing (ResponseError, decoder, encode)
+module Data.ResponseError exposing (ResponseError, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -40,14 +40,30 @@ decoder =
 
 
 encode : ResponseError -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "http_status", Maybe.withDefault Encode.null (Maybe.map Encode.int model.httpStatus) )
-        , ( "error_code", Maybe.withDefault Encode.null (Maybe.map Encode.int model.errorCode) )
-        , ( "description", Maybe.withDefault Encode.null (Maybe.map Encode.string model.description) )
-        , ( "documentation_link", Maybe.withDefault Encode.null (Maybe.map Encode.string model.documentationLink) )
-        , ( "additional_info", Maybe.withDefault Encode.null (Maybe.map (Encode.dict identity (Encode.list Encode.string)) model.additionalInfo) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseError -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseError -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "http_status", Maybe.withDefault Encode.null (Maybe.map Encode.int model.httpStatus) )
+    , ( "error_code", Maybe.withDefault Encode.null (Maybe.map Encode.int model.errorCode) )
+    , ( "description", Maybe.withDefault Encode.null (Maybe.map Encode.string model.description) )
+    , ( "documentation_link", Maybe.withDefault Encode.null (Maybe.map Encode.string model.documentationLink) )
+    , ( "additional_info", Maybe.withDefault Encode.null (Maybe.map (Encode.dict identity (Encode.list Encode.string)) model.additionalInfo) )
+    ]
+
+
+
+toString : ResponseError -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

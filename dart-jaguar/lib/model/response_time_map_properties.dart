@@ -5,7 +5,7 @@ part 'response_time_map_properties.jser.dart';
 
 class ResponseTimeMapProperties {
   
-  @Alias('is_only_walking')
+  @Alias('is_only_walking', isNullable: false,  )
   final bool isOnlyWalking;
   
 

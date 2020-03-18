@@ -1,10 +1,10 @@
 import ammonite.ops._
 
-val swaggerCodegenVersion = "v4.0.0"
+val swaggerCodegenVersion = "v4.2.3"
 lazy val toolsDir = pwd/"tools"
 lazy val codegenDir = toolsDir/"openapi-generator"
 lazy val sdkOut = codegenDir/"out"
-lazy val defaultSpecLocation = "https://raw.githubusercontent.com/igeolise/traveltime-platform-openapi-specification/v1.1.1/traveltime-spec.yml"
+lazy val defaultSpecLocation = "https://raw.githubusercontent.com/igeolise/traveltime-platform-openapi-specification/v1.2.0/traveltime-spec.yml"
 
 val languages = List(
   "ada",
@@ -85,11 +85,9 @@ val languages = List(
   "jaxrs-spec",
   "kotlin-server",
   "kotlin-spring",
-  "nodejs-server",
   "php-laravel",
   "php-lumen",
   "php-silex",
-  "php-slim",
   "php-symfony",
   "php-ze-ph",
   "python-aiohttp",

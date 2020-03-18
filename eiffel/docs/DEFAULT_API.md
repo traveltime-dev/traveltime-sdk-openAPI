@@ -18,7 +18,7 @@ Feature | HTTP request | Description
 
 
 # **geocoding_reverse_search**
-> geocoding_reverse_search (focus_lat: REAL_64 ; focus_lng: REAL_64 ; within_country:  detachable STRING_32 ): detachable RESPONSE_GEOCODING
+> geocoding_reverse_search (lat: REAL_64 ; lng: REAL_64 ; within_country:  detachable STRING_32 ): detachable RESPONSE_GEOCODING
 	
 
 
@@ -28,8 +28,8 @@ Feature | HTTP request | Description
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus_lat** | **REAL_64**|  | [default to null]
- **focus_lng** | **REAL_64**|  | [default to null]
+ **lat** | **REAL_64**|  | [default to null]
+ **lng** | **REAL_64**|  | [default to null]
  **within_country** | **STRING_32**|  | [optional] [default to null]
 
 ### Return type
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocoding_search**
-> geocoding_search (query: STRING_32 ; within_country:  detachable STRING_32 ; focus_lat:  detachable REAL_64 ; focus_lng:  detachable REAL_64 ): detachable RESPONSE_GEOCODING
+> geocoding_search (query: STRING_32 ; focus_lat:  detachable REAL_64 ; focus_lng:  detachable REAL_64 ; within_country:  detachable STRING_32 ): detachable RESPONSE_GEOCODING
 	
 
 
@@ -59,9 +59,9 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **STRING_32**|  | [default to null]
- **within_country** | **STRING_32**|  | [optional] [default to null]
  **focus_lat** | **REAL_64**|  | [optional] [default to null]
  **focus_lng** | **REAL_64**|  | [optional] [default to null]
+ **within_country** | **STRING_32**|  | [optional] [default to null]
 
 ### Return type
 

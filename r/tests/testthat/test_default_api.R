@@ -8,8 +8,8 @@ api.instance <- DefaultApi$new()
 test_that("GeocodingReverseSearch", {
   # tests for GeocodingReverseSearch
   # base path: https://api.traveltimeapp.com
-  # @param numeric  focus.lat   
-  # @param numeric  focus.lng   
+  # @param numeric  lat   
+  # @param numeric  lng   
   # @param character  within.country    (optional)
   # @return [ResponseGeocoding]
 
@@ -21,9 +21,9 @@ test_that("GeocodingSearch", {
   # tests for GeocodingSearch
   # base path: https://api.traveltimeapp.com
   # @param character  query   
-  # @param character  within.country    (optional)
   # @param numeric  focus.lat    (optional)
   # @param numeric  focus.lng    (optional)
+  # @param character  within.country    (optional)
   # @return [ResponseGeocoding]
 
   # uncomment below to test the operation

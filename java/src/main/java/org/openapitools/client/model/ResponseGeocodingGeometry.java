@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * ResponseGeocodingGeometry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseGeocodingGeometry {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -39,7 +39,9 @@ public class ResponseGeocodingGeometry {
   @SerializedName(SERIALIZED_NAME_COORDINATES)
   private List<Double> coordinates = new ArrayList<Double>();
 
+
   public ResponseGeocodingGeometry type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -49,15 +51,19 @@ public class ResponseGeocodingGeometry {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public ResponseGeocodingGeometry coordinates(List<Double> coordinates) {
+    
     this.coordinates = coordinates;
     return this;
   }
@@ -72,9 +78,11 @@ public class ResponseGeocodingGeometry {
    * @return coordinates
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<Double> getCoordinates() {
     return coordinates;
   }
+
 
   public void setCoordinates(List<Double> coordinates) {
     this.coordinates = coordinates;

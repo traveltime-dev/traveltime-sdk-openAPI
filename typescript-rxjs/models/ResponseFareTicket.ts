@@ -17,19 +17,16 @@
  */
 export interface ResponseFareTicket {
     /**
-     * 
      * @type {string}
      * @memberof ResponseFareTicket
      */
     type: ResponseFareTicketTypeEnum;
     /**
-     * 
      * @type {number}
      * @memberof ResponseFareTicket
      */
     price: number;
     /**
-     * 
      * @type {string}
      * @memberof ResponseFareTicket
      */

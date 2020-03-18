@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestTimeFilterArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeFilterArrivalSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -49,7 +49,7 @@ public class RequestTimeFilterArrivalSearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -65,9 +65,11 @@ public class RequestTimeFilterArrivalSearch {
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
+
 
   public RequestTimeFilterArrivalSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -77,15 +79,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeFilterArrivalSearch departureLocationIds(List<String> departureLocationIds) {
+    
     this.departureLocationIds = departureLocationIds;
     return this;
   }
@@ -100,15 +106,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return departureLocationIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getDepartureLocationIds() {
     return departureLocationIds;
   }
+
 
   public void setDepartureLocationIds(List<String> departureLocationIds) {
     this.departureLocationIds = departureLocationIds;
   }
 
+
   public RequestTimeFilterArrivalSearch arrivalLocationId(String arrivalLocationId) {
+    
     this.arrivalLocationId = arrivalLocationId;
     return this;
   }
@@ -118,15 +128,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return arrivalLocationId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getArrivalLocationId() {
     return arrivalLocationId;
   }
+
 
   public void setArrivalLocationId(String arrivalLocationId) {
     this.arrivalLocationId = arrivalLocationId;
   }
 
+
   public RequestTimeFilterArrivalSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -136,15 +150,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeFilterArrivalSearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -156,15 +174,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeFilterArrivalSearch arrivalTime(OffsetDateTime arrivalTime) {
+    
     this.arrivalTime = arrivalTime;
     return this;
   }
@@ -174,15 +196,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return arrivalTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getArrivalTime() {
     return arrivalTime;
   }
+
 
   public void setArrivalTime(OffsetDateTime arrivalTime) {
     this.arrivalTime = arrivalTime;
   }
 
+
   public RequestTimeFilterArrivalSearch properties(List<RequestTimeFilterProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -197,15 +223,19 @@ public class RequestTimeFilterArrivalSearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestTimeFilterProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeFilterProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestTimeFilterArrivalSearch range(RequestRangeFull range) {
+    
     this.range = range;
     return this;
   }
@@ -214,10 +244,13 @@ public class RequestTimeFilterArrivalSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeFull getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeFull range) {
     this.range = range;

@@ -47,12 +47,12 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     Coords getCoords() const;
     void setCoords(Coords const& value);
-    
+
     friend void to_json(nlohmann::json& j, const RequestLocation& o);
     friend void from_json(const nlohmann::json& j, RequestLocation& o);
 protected:

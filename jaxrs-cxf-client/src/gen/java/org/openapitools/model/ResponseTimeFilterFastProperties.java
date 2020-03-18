@@ -18,7 +18,7 @@ public class ResponseTimeFilterFastProperties  {
   private Integer travelTime;
 
   @ApiModelProperty(value = "")
-  private ResponseFaresFast fares = null;
+  private ResponseFaresFast fares;
  /**
    * Get travelTime
    * @return travelTime

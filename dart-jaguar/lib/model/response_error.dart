@@ -5,19 +5,19 @@ part 'response_error.jser.dart';
 
 class ResponseError {
   
-  @Alias('http_status')
+  @Alias('http_status', isNullable: false,  )
   final int httpStatus;
   
-  @Alias('error_code')
+  @Alias('error_code', isNullable: false,  )
   final int errorCode;
   
-  @Alias('description')
+  @Alias('description', isNullable: false,  )
   final String description;
   
-  @Alias('documentation_link')
+  @Alias('documentation_link', isNullable: false,  )
   final String documentationLink;
   
-  @Alias('additional_info')
+  @Alias('additional_info', isNullable: false,  )
   final Map<String, List<String>> additionalInfo;
   
 

@@ -13,10 +13,10 @@ function New-ResponseFareTicket {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseFareTicket' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseFareTicket' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseFareTicket -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseFareTicket -ArgumentList @(
             ${type},
             ${price},
             ${currency}

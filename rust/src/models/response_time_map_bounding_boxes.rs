@@ -9,19 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapBoundingBoxes {
     #[serde(rename = "results")]
-    pub results: Vec<::models::ResponseTimeMapBoundingBoxesResult>,
+    pub results: Vec<crate::models::ResponseTimeMapBoundingBoxesResult>,
 }
 
 impl ResponseTimeMapBoundingBoxes {
-    pub fn new(results: Vec<::models::ResponseTimeMapBoundingBoxesResult>) -> ResponseTimeMapBoundingBoxes {
+    pub fn new(results: Vec<crate::models::ResponseTimeMapBoundingBoxesResult>) -> ResponseTimeMapBoundingBoxes {
         ResponseTimeMapBoundingBoxes {
-            results: results,
+            results,
         }
     }
 }
+
+

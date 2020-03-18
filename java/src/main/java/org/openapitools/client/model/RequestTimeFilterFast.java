@@ -31,7 +31,7 @@ import org.openapitools.client.model.RequestTimeFilterFastArrivalSearches;
 /**
  * RequestTimeFilterFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeFilterFast {
   public static final String SERIALIZED_NAME_LOCATIONS = "locations";
   @SerializedName(SERIALIZED_NAME_LOCATIONS)
@@ -39,9 +39,11 @@ public class RequestTimeFilterFast {
 
   public static final String SERIALIZED_NAME_ARRIVAL_SEARCHES = "arrival_searches";
   @SerializedName(SERIALIZED_NAME_ARRIVAL_SEARCHES)
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
+
 
   public RequestTimeFilterFast locations(List<RequestLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -56,15 +58,19 @@ public class RequestTimeFilterFast {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
   }
 
+
   public RequestTimeFilterFast arrivalSearches(RequestTimeFilterFastArrivalSearches arrivalSearches) {
+    
     this.arrivalSearches = arrivalSearches;
     return this;
   }
@@ -74,9 +80,11 @@ public class RequestTimeFilterFast {
    * @return arrivalSearches
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTimeFilterFastArrivalSearches getArrivalSearches() {
     return arrivalSearches;
   }
+
 
   public void setArrivalSearches(RequestTimeFilterFastArrivalSearches arrivalSearches) {
     this.arrivalSearches = arrivalSearches;

@@ -34,7 +34,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestTimeMapDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeMapDepartureSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -42,11 +42,11 @@ public class RequestTimeMapDepartureSearch {
 
   public static final String SERIALIZED_NAME_COORDS = "coords";
   @SerializedName(SERIALIZED_NAME_COORDS)
-  private Coords coords = null;
+  private Coords coords;
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -58,13 +58,15 @@ public class RequestTimeMapDepartureSearch {
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
+  private List<RequestTimeMapProperty> properties = null;
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
+
 
   public RequestTimeMapDepartureSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -74,15 +76,19 @@ public class RequestTimeMapDepartureSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeMapDepartureSearch coords(Coords coords) {
+    
     this.coords = coords;
     return this;
   }
@@ -92,15 +98,19 @@ public class RequestTimeMapDepartureSearch {
    * @return coords
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Coords getCoords() {
     return coords;
   }
+
 
   public void setCoords(Coords coords) {
     this.coords = coords;
   }
 
+
   public RequestTimeMapDepartureSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -110,15 +120,19 @@ public class RequestTimeMapDepartureSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeMapDepartureSearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -130,15 +144,19 @@ public class RequestTimeMapDepartureSearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeMapDepartureSearch departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -148,15 +166,19 @@ public class RequestTimeMapDepartureSearch {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public RequestTimeMapDepartureSearch properties(List<RequestTimeMapProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -173,16 +195,21 @@ public class RequestTimeMapDepartureSearch {
    * Get properties
    * @return properties
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeMapProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeMapProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestTimeMapDepartureSearch range(RequestRangeNoMaxResults range) {
+    
     this.range = range;
     return this;
   }
@@ -191,10 +218,13 @@ public class RequestTimeMapDepartureSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeNoMaxResults getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeNoMaxResults range) {
     this.range = range;

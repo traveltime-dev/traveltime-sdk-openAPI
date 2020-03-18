@@ -47,12 +47,12 @@ void to_json(nlohmann::json& j, const ResponseTimeFilterPostcodesProperties& o)
 
 void from_json(const nlohmann::json& j, ResponseTimeFilterPostcodesProperties& o)
 {
-    if(j.contains("travel_time"))
+    if(j.find("travel_time") != j.end())
     {
         j.at("travel_time").get_to(o.m_Travel_time);
         o.m_Travel_timeIsSet = true;
     } 
-    if(j.contains("distance"))
+    if(j.find("distance") != j.end())
     {
         j.at("distance").get_to(o.m_Distance);
         o.m_DistanceIsSet = true;

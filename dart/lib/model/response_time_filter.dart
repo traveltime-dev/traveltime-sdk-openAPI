@@ -12,11 +12,9 @@ class ResponseTimeFilter {
 
   ResponseTimeFilter.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['results'] == null) {
-      results = null;
-    } else {
-      results = ResponseTimeFilterResult.listFromJson(json['results']);
-    }
+    results = (json['results'] == null) ?
+      null :
+      ResponseTimeFilterResult.listFromJson(json['results']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseTimeFilter {
   }
 
   static List<ResponseTimeFilter> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilter>() : json.map((value) => new ResponseTimeFilter.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilter>() : json.map((value) => ResponseTimeFilter.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilter> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilter>();
+    var map = Map<String, ResponseTimeFilter>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilter.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilter.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilter-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilter>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilter>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilter.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

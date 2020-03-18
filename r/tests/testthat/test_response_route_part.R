@@ -48,7 +48,7 @@ test_that("travel_time", {
 })
 
 test_that("coords", {
-  # tests for the property `coords` (Coords)
+  # tests for the property `coords` (array[Coords])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`coords`, "EXPECTED_RESULT")

@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.RequestTimeFilterFastArrivalManyToOneSearch
+# Org.OpenAPITools.Model.RequestTimeFilterFastArrivalManyToOneSearch
 
 ## Properties
 
@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **ArrivalLocationId** | **string** |  | 
 **DepartureLocationIds** | **List&lt;string&gt;** |  | 
 **Transportation** | [**RequestTransportationFast**](RequestTransportationFast.md) |  | 
-**TravelTime** | **int?** |  | 
-**ArrivalTimePeriod** | [**RequestArrivalTimePeriod**](RequestArrivalTimePeriod.md) |  | 
+**TravelTime** | **int** |  | 
+**ArrivalTimePeriod** | **RequestArrivalTimePeriod** |  | 
 **Properties** | [**List&lt;RequestTimeFilterFastProperty&gt;**](RequestTimeFilterFastProperty.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

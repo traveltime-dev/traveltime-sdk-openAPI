@@ -9,23 +9,14 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum RequestTimeMapProperty {
+    #[serde(rename = "is_only_walking")]
+    IsOnlyWalking,
 
-#[derive(Debug, Serialize, Deserialize)]
-pub struct RequestTimeMapProperty {
 }
 
-impl RequestTimeMapProperty {
-    pub fn new() -> RequestTimeMapProperty {
-        RequestTimeMapProperty {
-        }
-    }
-}
-// TODO enum
-// List of RequestTimeMapProperty
-//const (
-//    
-//    
-//    
-//)
+
+
+

@@ -13,12 +13,12 @@
 
 #include "OAIResponseSupportedLocations.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,11 +75,11 @@ OAIResponseSupportedLocations::asJson () const {
 QJsonObject
 OAIResponseSupportedLocations::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(locations.size() > 0){
         obj.insert(QString("locations"), ::OpenAPI::toJsonValue(locations));
     } 
-	
+    
     if(unsupported_locations.size() > 0){
         obj.insert(QString("unsupported_locations"), ::OpenAPI::toJsonValue(unsupported_locations));
     } 

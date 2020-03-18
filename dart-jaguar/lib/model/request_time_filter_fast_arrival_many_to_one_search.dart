@@ -11,25 +11,29 @@ part 'request_time_filter_fast_arrival_many_to_one_search.jser.dart';
 
 class RequestTimeFilterFastArrivalManyToOneSearch {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('arrival_location_id')
+  @Alias('arrival_location_id', isNullable: false,  )
   final String arrivalLocationId;
   
-  @Alias('departure_location_ids')
+  @Alias('departure_location_ids', isNullable: false,  )
   final List<String> departureLocationIds;
   
-  @Alias('transportation')
+  @Alias('transportation', isNullable: false,  )
   final RequestTransportationFast transportation;
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('arrival_time_period')
+  @Alias('arrival_time_period', isNullable: false,
+          
+             processor:  const RequestArrivalTimePeriodFieldProcessor(),
+          
+  )
   final RequestArrivalTimePeriod arrivalTimePeriod;
   //enum arrivalTimePeriodEnum {  weekday_morning,  };
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<RequestTimeFilterFastProperty> properties;
   
 

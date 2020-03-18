@@ -26,11 +26,11 @@
 
 
 response_geocoding_t*
-DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double focus.lat ,double focus.lng ,char * within.country);
+DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double lat ,double lng ,char * within.country);
 
 
 response_geocoding_t*
-DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.country ,double focus.lat ,double focus.lng);
+DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,double focus.lat ,double focus.lng ,char * within.country);
 
 
 response_map_info_t*

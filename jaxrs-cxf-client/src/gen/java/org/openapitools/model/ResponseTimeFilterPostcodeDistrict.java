@@ -18,7 +18,7 @@ public class ResponseTimeFilterPostcodeDistrict  {
   private String code = null;
 
   @ApiModelProperty(required = true, value = "")
-  private ResponseTimeFilterPostcodeDistrictProperties properties = null;
+  private ResponseTimeFilterPostcodeDistrictProperties properties;
  /**
    * Get code
    * @return code

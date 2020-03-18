@@ -16,8 +16,8 @@
 
 
 typedef struct response_time_filter_postcode_district_properties_t {
-    response_travel_time_statistics_t *travel_time_reachable; //model
-    response_travel_time_statistics_t *travel_time_all; //model
+    struct response_travel_time_statistics_t *travel_time_reachable; //model
+    struct response_travel_time_statistics_t *travel_time_all; //model
     double coverage; //numeric
 
 } response_time_filter_postcode_district_properties_t;

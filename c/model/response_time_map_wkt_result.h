@@ -18,7 +18,7 @@
 typedef struct response_time_map_wkt_result_t {
     char *search_id; // string
     char *shape; // string
-    response_time_map_properties_t *properties; //model
+    struct response_time_map_properties_t *properties; //model
 
 } response_time_map_wkt_result_t;
 

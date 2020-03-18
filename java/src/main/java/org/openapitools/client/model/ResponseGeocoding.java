@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseGeocodingGeoJsonFeature;
 /**
  * ResponseGeocoding
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseGeocoding {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -40,7 +40,9 @@ public class ResponseGeocoding {
   @SerializedName(SERIALIZED_NAME_FEATURES)
   private List<ResponseGeocodingGeoJsonFeature> features = new ArrayList<ResponseGeocodingGeoJsonFeature>();
 
+
   public ResponseGeocoding type(String type) {
+    
     this.type = type;
     return this;
   }
@@ -50,15 +52,19 @@ public class ResponseGeocoding {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getType() {
     return type;
   }
+
 
   public void setType(String type) {
     this.type = type;
   }
 
+
   public ResponseGeocoding features(List<ResponseGeocodingGeoJsonFeature> features) {
+    
     this.features = features;
     return this;
   }
@@ -73,9 +79,11 @@ public class ResponseGeocoding {
    * @return features
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseGeocodingGeoJsonFeature> getFeatures() {
     return features;
   }
+
 
   public void setFeatures(List<ResponseGeocodingGeoJsonFeature> features) {
     this.features = features;

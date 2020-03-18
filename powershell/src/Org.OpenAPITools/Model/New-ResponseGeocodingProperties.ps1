@@ -47,15 +47,15 @@ function New-ResponseGeocodingProperties {
         [String]
         ${postcode},
         [Parameter(Position = 15, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseMapInfoFeatures]]
+        [Org.OpenAPITools.Model.ResponseMapInfoFeatures]
         ${features}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseGeocodingProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseGeocodingProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseGeocodingProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseGeocodingProperties -ArgumentList @(
             ${name},
             ${label},
             ${score},

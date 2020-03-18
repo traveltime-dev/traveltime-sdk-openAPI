@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeMapArrivalSearch.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -105,26 +105,26 @@ OAIRequestTimeMapArrivalSearch::asJson () const {
 QJsonObject
 OAIRequestTimeMapArrivalSearch::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(coords.isSet()){
+    if(coords.isSet()){
         obj.insert(QString("coords"), ::OpenAPI::toJsonValue(coords));
     }
-	if(transportation.isSet()){
+    if(transportation.isSet()){
         obj.insert(QString("transportation"), ::OpenAPI::toJsonValue(transportation));
     }
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(m_arrival_time_isSet){
+    if(m_arrival_time_isSet){
         obj.insert(QString("arrival_time"), ::OpenAPI::toJsonValue(arrival_time));
     }
-	
+    
     if(properties.size() > 0){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     } 
-	if(range.isSet()){
+    if(range.isSet()){
         obj.insert(QString("range"), ::OpenAPI::toJsonValue(range));
     }
     return obj;

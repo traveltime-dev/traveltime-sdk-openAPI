@@ -46,12 +46,12 @@ public:
     /// </summary>
     ResponseTransportationMode getMode() const;
     void setMode(ResponseTransportationMode const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getDistance() const;
     void setDistance(int32_t const value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseDistanceBreakdownItem& o);
     friend void from_json(const nlohmann::json& j, ResponseDistanceBreakdownItem& o);
 protected:

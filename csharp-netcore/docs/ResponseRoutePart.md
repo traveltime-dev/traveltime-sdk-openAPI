@@ -1,11 +1,11 @@
-# traveltimeplatform.Model.ResponseRoutePart
+# Org.OpenAPITools.Model.ResponseRoutePart
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** |  | 
 **Type** | **string** |  | 
-**Mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
+**Mode** | **ResponseTransportationMode** |  | 
 **Directions** | **string** |  | 
 **Distance** | **int** |  | 
 **TravelTime** | **int** |  | 

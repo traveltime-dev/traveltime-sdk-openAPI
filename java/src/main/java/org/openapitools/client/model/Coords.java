@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Coords
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class Coords {
   public static final String SERIALIZED_NAME_LAT = "lat";
   @SerializedName(SERIALIZED_NAME_LAT)
@@ -37,7 +37,9 @@ public class Coords {
   @SerializedName(SERIALIZED_NAME_LNG)
   private Double lng;
 
+
   public Coords lat(Double lat) {
+    
     this.lat = lat;
     return this;
   }
@@ -47,15 +49,19 @@ public class Coords {
    * @return lat
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getLat() {
     return lat;
   }
+
 
   public void setLat(Double lat) {
     this.lat = lat;
   }
 
+
   public Coords lng(Double lng) {
+    
     this.lng = lng;
     return this;
   }
@@ -65,9 +71,11 @@ public class Coords {
    * @return lng
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getLng() {
     return lng;
   }
+
 
   public void setLng(Double lng) {
     this.lng = lng;

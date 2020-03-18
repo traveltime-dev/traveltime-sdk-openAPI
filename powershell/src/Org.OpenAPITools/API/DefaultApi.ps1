@@ -3,10 +3,10 @@ function Invoke-DefaultApiGeocodingReverseSearch {
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
-        ${focusPeriodlat},
+        ${lat},
         [Parameter(Position = 1, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Double]
-        ${focusPeriodlng},
+        ${lng},
         [Parameter(Position = 2, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [String]
         ${withinPeriodcountry}
@@ -17,8 +17,8 @@ function Invoke-DefaultApiGeocodingReverseSearch {
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
         $Script:DefaultApi.GeocodingReverseSearch(
-            ${focusPeriodlat},
-            ${focusPeriodlng},
+            ${lat},
+            ${lng},
             ${withinPeriodcountry}
         )
     }
@@ -31,14 +31,14 @@ function Invoke-DefaultApiGeocodingSearch {
         [String]
         ${query},
         [Parameter(Position = 1, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
-        [String]
-        ${withinPeriodcountry},
-        [Parameter(Position = 2, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [Double]
         ${focusPeriodlat},
-        [Parameter(Position = 3, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [Parameter(Position = 2, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
         [Double]
-        ${focusPeriodlng}
+        ${focusPeriodlng},
+        [Parameter(Position = 3, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $false)]
+        [String]
+        ${withinPeriodcountry}
     )
 
     Process {
@@ -47,9 +47,9 @@ function Invoke-DefaultApiGeocodingSearch {
 
         $Script:DefaultApi.GeocodingSearch(
             ${query},
-            ${withinPeriodcountry},
             ${focusPeriodlat},
-            ${focusPeriodlng}
+            ${focusPeriodlng},
+            ${withinPeriodcountry}
         )
     }
 }
@@ -72,7 +72,7 @@ function Invoke-DefaultApiRoutes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestRoutes]
+        [Org.OpenAPITools.Model.RequestRoutes]
         ${requestRoutes}
     )
 
@@ -90,7 +90,7 @@ function Invoke-DefaultApiSupportedLocations {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestSupportedLocations]
+        [Org.OpenAPITools.Model.RequestSupportedLocations]
         ${requestSupportedLocations}
     )
 
@@ -108,7 +108,7 @@ function Invoke-DefaultApiTimeFilter {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilter]
+        [Org.OpenAPITools.Model.RequestTimeFilter]
         ${requestTimeFilter}
     )
 
@@ -126,7 +126,7 @@ function Invoke-DefaultApiTimeFilterFast {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterFast]
+        [Org.OpenAPITools.Model.RequestTimeFilterFast]
         ${requestTimeFilterFast}
     )
 
@@ -144,7 +144,7 @@ function Invoke-DefaultApiTimeFilterPostcodeDistricts {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterPostcodeDistricts]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodeDistricts]
         ${requestTimeFilterPostcodeDistricts}
     )
 
@@ -162,7 +162,7 @@ function Invoke-DefaultApiTimeFilterPostcodeSectors {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterPostcodeSectors]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectors]
         ${requestTimeFilterPostcodeSectors}
     )
 
@@ -180,7 +180,7 @@ function Invoke-DefaultApiTimeFilterPostcodes {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterPostcodes]
+        [Org.OpenAPITools.Model.RequestTimeFilterPostcodes]
         ${requestTimeFilterPostcodes}
     )
 
@@ -198,7 +198,7 @@ function Invoke-DefaultApiTimeMap {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeMap]
+        [Org.OpenAPITools.Model.RequestTimeMap]
         ${requestTimeMap}
     )
 

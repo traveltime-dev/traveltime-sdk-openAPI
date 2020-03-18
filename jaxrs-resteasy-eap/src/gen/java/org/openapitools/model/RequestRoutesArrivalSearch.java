@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTransportation;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T07:54:23.710Z[Etc/UTC]")
 public class RequestRoutesArrivalSearch   {
   
 
@@ -25,13 +25,13 @@ public class RequestRoutesArrivalSearch   {
 
   private String arrivalLocationId;
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Date arrivalTime;
 
   private List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
 
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   /**
    **/

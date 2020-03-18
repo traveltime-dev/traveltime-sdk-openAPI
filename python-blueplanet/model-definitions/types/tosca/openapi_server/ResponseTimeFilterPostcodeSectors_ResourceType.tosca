@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTimeFilterPostcodeSectors"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTimeFilterPostcodeSectors"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseTimeFilterPostcodeSectorsResult = openapi_server.resourceTypes.ResponseTimeFilterPostcodeSectorsResult
+}
+resourceTypes {
+
+  ResponseTimeFilterPostcodeSectors {
+    title = ResponseTimeFilterPostcodeSectors
+    description = ResponseTimeFilterPostcodeSectors
+    derivedFrom = Root
+    properties {
+        results {
+          type = array
+          items.type = ResponseTimeFilterPostcodeSectorsResult
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeFilterPostcodeSectors {
+    title = ResponseTimeFilterPostcodeSectors
+    description = ResponseTimeFilterPostcodeSectors
+    implements = openapi_server.resourceTypes.ResponseTimeFilterPostcodeSectors
+
+  }
+}

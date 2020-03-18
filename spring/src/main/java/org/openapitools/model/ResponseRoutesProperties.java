@@ -14,7 +14,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseRoutesProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T07:55:23.027Z[Etc/UTC]")
 
 public class ResponseRoutesProperties   {
   @JsonProperty("travel_time")
@@ -24,10 +24,10 @@ public class ResponseRoutesProperties   {
   private Integer distance;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseRoutesProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

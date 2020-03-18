@@ -47,11 +47,13 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseFaresBreakdownItem>& getBreakdown();
-        /// <summary>
+    void setBreakdown(std::vector<ResponseFaresBreakdownItem> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseFareTicket>& getTicketsTotal();
-    
+    void setTicketsTotal(std::vector<ResponseFareTicket> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseFares& o);
     friend void from_json(const nlohmann::json& j, ResponseFares& o);
 protected:

@@ -13,10 +13,10 @@ function New-RequestRangeFull {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestRangeFull' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestRangeFull' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestRangeFull -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestRangeFull -ArgumentList @(
             ${enabled},
             ${maxUnderscoreresults},
             ${width}

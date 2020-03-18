@@ -49,16 +49,17 @@ public:
     /// </summary>
     std::string getSearchId() const;
     void setSearchId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseBoundingBox>& getBoundingBoxes();
-        /// <summary>
+    void setBoundingBoxes(std::vector<ResponseBoundingBox> const& value);
+    /// <summary>
     /// 
     /// </summary>
     ResponseTimeMapProperties getProperties() const;
     void setProperties(ResponseTimeMapProperties const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseTimeMapBoundingBoxesResult& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeMapBoundingBoxesResult& o);
 protected:

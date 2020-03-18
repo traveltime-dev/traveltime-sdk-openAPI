@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeMapProperty: public OAIEnum {
@@ -47,7 +48,7 @@ public:
 
     OAIRequestTimeMapProperty::eOAIRequestTimeMapProperty getValue() const;
     void setValue(const OAIRequestTimeMapProperty::eOAIRequestTimeMapProperty& value);
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -60,5 +61,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeMapProperty)
 
 #endif // OAIRequestTimeMapProperty_H

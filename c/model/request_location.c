@@ -9,14 +9,14 @@ request_location_t *request_location_create(
     char *id,
     coords_t *coords
     ) {
-	request_location_t *request_location_local_var = malloc(sizeof(request_location_t));
+    request_location_t *request_location_local_var = malloc(sizeof(request_location_t));
     if (!request_location_local_var) {
         return NULL;
     }
-	request_location_local_var->id = id;
-	request_location_local_var->coords = coords;
+    request_location_local_var->id = id;
+    request_location_local_var->coords = coords;
 
-	return request_location_local_var;
+    return request_location_local_var;
 }
 
 
@@ -24,13 +24,13 @@ void request_location_free(request_location_t *request_location) {
     listEntry_t *listEntry;
     free(request_location->id);
     coords_free(request_location->coords);
-	free(request_location);
+    free(request_location);
 }
 
 cJSON *request_location_convertToJSON(request_location_t *request_location) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_location->id
+    // request_location->id
     if (!request_location->id) {
         goto fail;
     }
@@ -40,7 +40,7 @@ cJSON *request_location_convertToJSON(request_location_t *request_location) {
     }
 
 
-	// request_location->coords
+    // request_location->coords
     if (!request_location->coords) {
         goto fail;
     }
@@ -54,12 +54,12 @@ cJSON *request_location_convertToJSON(request_location_t *request_location) {
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_location_t *request_location_parseFromJSON(cJSON *request_locationJSON){

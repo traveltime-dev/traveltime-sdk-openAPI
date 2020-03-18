@@ -57,7 +57,6 @@ std::string ResponseFareTicket::getType() const
 void ResponseFareTicket::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 double ResponseFareTicket::getPrice() const
 {
@@ -66,7 +65,6 @@ double ResponseFareTicket::getPrice() const
 void ResponseFareTicket::setPrice(double const value)
 {
     m_Price = value;
-    
 }
 std::string ResponseFareTicket::getCurrency() const
 {
@@ -75,7 +73,6 @@ std::string ResponseFareTicket::getCurrency() const
 void ResponseFareTicket::setCurrency(std::string const& value)
 {
     m_Currency = value;
-    
 }
 
 }

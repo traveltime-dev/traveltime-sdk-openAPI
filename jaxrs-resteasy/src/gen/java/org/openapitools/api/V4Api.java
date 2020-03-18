@@ -45,7 +45,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2019-05-24T09:07:07.467Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T07:54:20.248Z[Etc/UTC]")
 public class V4Api  {
 
     @Inject V4ApiService service;
@@ -62,9 +62,9 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingReverseSearch( @NotNull  @QueryParam("focus.lat") Double focusLat, @NotNull  @QueryParam("focus.lng") Double focusLng,  @QueryParam("within.country") String withinCountry,@Context SecurityContext securityContext)
+    public Response geocodingReverseSearch( @NotNull  @QueryParam("lat") Double lat, @NotNull  @QueryParam("lng") Double lng,  @QueryParam("within.country") String withinCountry,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return service.geocodingReverseSearch(focusLat,focusLng,withinCountry,securityContext);
+        return service.geocodingReverseSearch(lat,lng,withinCountry,securityContext);
     }
     @GET
     @Path("/geocoding/search")
@@ -78,9 +78,9 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingSearch( @NotNull  @QueryParam("query") String query,  @QueryParam("within.country") String withinCountry,  @QueryParam("focus.lat") Double focusLat,  @QueryParam("focus.lng") Double focusLng,@Context SecurityContext securityContext)
+    public Response geocodingSearch( @NotNull  @QueryParam("query") String query,  @QueryParam("focus.lat") Double focusLat,  @QueryParam("focus.lng") Double focusLng,  @QueryParam("within.country") String withinCountry,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return service.geocodingSearch(query,withinCountry,focusLat,focusLng,securityContext);
+        return service.geocodingSearch(query,focusLat,focusLng,withinCountry,securityContext);
     }
     @GET
     @Path("/map-info")

@@ -21,9 +21,9 @@ public class ResponseRoutesProperties   {
 
   private Integer distance;
 
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
 
   /**

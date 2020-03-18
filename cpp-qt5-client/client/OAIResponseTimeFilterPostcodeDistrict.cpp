@@ -10,118 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseTimeFilterPostcodeDistrict.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseTimeFilterPostcodeDistrict::OAIResponseTimeFilterPostcodeDistrict(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseTimeFilterPostcodeDistrict::OAIResponseTimeFilterPostcodeDistrict() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseTimeFilterPostcodeDistrict::~OAIResponseTimeFilterPostcodeDistrict() {
+OAIResponseTimeFilterPostcodeDistrict::~OAIResponseTimeFilterPostcodeDistrict() {}
 
-}
+void OAIResponseTimeFilterPostcodeDistrict::initializeModel() {
 
-void
-OAIResponseTimeFilterPostcodeDistrict::init() {
-    
     m_code_isSet = false;
     m_code_isValid = false;
-    
+
     m_properties_isSet = false;
     m_properties_isValid = false;
-    }
+}
 
-void
-OAIResponseTimeFilterPostcodeDistrict::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseTimeFilterPostcodeDistrict::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseTimeFilterPostcodeDistrict::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseTimeFilterPostcodeDistrict::fromJsonObject(QJsonObject json) {
+
     m_code_isValid = ::OpenAPI::fromJsonValue(code, json[QString("code")]);
-    
-    
+    m_code_isSet = !json[QString("code")].isNull() && m_code_isValid;
+
     m_properties_isValid = ::OpenAPI::fromJsonValue(properties, json[QString("properties")]);
-    
-    
+    m_properties_isSet = !json[QString("properties")].isNull() && m_properties_isValid;
 }
 
-QString
-OAIResponseTimeFilterPostcodeDistrict::asJson () const {
+QString OAIResponseTimeFilterPostcodeDistrict::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseTimeFilterPostcodeDistrict::asJsonObject() const {
+QJsonObject OAIResponseTimeFilterPostcodeDistrict::asJsonObject() const {
     QJsonObject obj;
-	if(code.isSet()){
+    if (code.isSet()) {
         obj.insert(QString("code"), ::OpenAPI::toJsonValue(code));
     }
-	if(properties.isSet()){
+    if (properties.isSet()) {
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     }
     return obj;
 }
 
-
-String
-OAIResponseTimeFilterPostcodeDistrict::getCode() const {
+String OAIResponseTimeFilterPostcodeDistrict::getCode() const {
     return code;
 }
-void
-OAIResponseTimeFilterPostcodeDistrict::setCode(const String &code) {
+void OAIResponseTimeFilterPostcodeDistrict::setCode(const String &code) {
     this->code = code;
     this->m_code_isSet = true;
 }
 
-
-OAIResponseTimeFilterPostcodeDistrictProperties
-OAIResponseTimeFilterPostcodeDistrict::getProperties() const {
+OAIResponseTimeFilterPostcodeDistrictProperties OAIResponseTimeFilterPostcodeDistrict::getProperties() const {
     return properties;
 }
-void
-OAIResponseTimeFilterPostcodeDistrict::setProperties(const OAIResponseTimeFilterPostcodeDistrictProperties &properties) {
+void OAIResponseTimeFilterPostcodeDistrict::setProperties(const OAIResponseTimeFilterPostcodeDistrictProperties &properties) {
     this->properties = properties;
     this->m_properties_isSet = true;
 }
 
-bool
-OAIResponseTimeFilterPostcodeDistrict::isSet() const {
+bool OAIResponseTimeFilterPostcodeDistrict::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(code.isSet()){ isObjectUpdated = true; break;}
-    
-        if(properties.isSet()){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (code.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (properties.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseTimeFilterPostcodeDistrict::isValid() const {
+bool OAIResponseTimeFilterPostcodeDistrict::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_code_isValid && m_properties_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

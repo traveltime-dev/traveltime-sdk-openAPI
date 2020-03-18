@@ -22,49 +22,45 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestRangeNoMaxResults: public OAIObject {
+class OAIRequestRangeNoMaxResults : public OAIObject {
 public:
     OAIRequestRangeNoMaxResults();
     OAIRequestRangeNoMaxResults(QString json);
     ~OAIRequestRangeNoMaxResults() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     bool isEnabled() const;
     void setEnabled(const bool &enabled);
 
-    
     qint32 getWidth() const;
     void setWidth(const qint32 &width);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     bool enabled;
     bool m_enabled_isSet;
     bool m_enabled_isValid;
-    
+
     qint32 width;
     bool m_width_isSet;
     bool m_width_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestRangeNoMaxResults)
 
 #endif // OAIRequestRangeNoMaxResults_H

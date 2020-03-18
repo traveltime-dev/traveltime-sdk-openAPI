@@ -19,12 +19,16 @@
         char* type_ToString(type_e type);
 
         type_e type_FromString(char* type);
+                typedef enum  {  car, parking, boarding, walk, bike, train, rail_national, rail_overground, rail_underground, rail_dlr, bus, cable_car, plane, ferry, coach } mode_e;
+
+        char* mode_ToString(mode_e mode);
+
+        mode_e mode_FromString(char* mode);
 
 
 typedef struct response_route_part_t {
     char *id; // string
     type_e type; //enum
-    response_transportation_mode_e mode; //enum model
     char *directions; // string
     int distance; //numeric
     int travel_time; //numeric
@@ -44,7 +48,6 @@ typedef struct response_route_part_t {
 response_route_part_t *response_route_part_create(
     char *id,
     type_e type,
-    response_transportation_mode_e mode,
     char *directions,
     int distance,
     int travel_time,

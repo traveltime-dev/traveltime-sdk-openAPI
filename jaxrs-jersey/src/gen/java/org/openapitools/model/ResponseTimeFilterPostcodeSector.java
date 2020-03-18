@@ -19,19 +19,26 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseTimeFilterPostcodeSectorProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilterPostcodeSector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilterPostcodeSector.JSON_PROPERTY_CODE,
+  ResponseTimeFilterPostcodeSector.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSector   {
-  @JsonProperty("code")
+  public static final String JSON_PROPERTY_CODE = "code";
+  @JsonProperty(JSON_PROPERTY_CODE)
   private String code = null;
 
-  @JsonProperty("properties")
-  private ResponseTimeFilterPostcodeSectorProperties properties = null;
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  private ResponseTimeFilterPostcodeSectorProperties properties;
 
   public ResponseTimeFilterPostcodeSector code(String code) {
     this.code = code;

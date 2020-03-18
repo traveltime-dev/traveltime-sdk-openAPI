@@ -1,9 +1,9 @@
-# traveltimeplatform::RequestUnionOnIntersection
+# openapi::RequestUnionOnIntersection
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **character** |  | 
-**search_ids** | **character** |  | 
+**search_ids** | **array[character]** |  | 
 
 

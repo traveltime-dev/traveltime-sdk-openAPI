@@ -16,3 +16,4 @@ export type RequestTimeMapProperty = 'is_only_walking';
 export const RequestTimeMapProperty = {
     IsOnlyWalking: 'is_only_walking' as RequestTimeMapProperty
 };
+

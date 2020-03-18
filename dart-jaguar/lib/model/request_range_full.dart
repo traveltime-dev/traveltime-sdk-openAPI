@@ -5,13 +5,13 @@ part 'request_range_full.jser.dart';
 
 class RequestRangeFull {
   
-  @Alias('enabled')
+  @Alias('enabled', isNullable: false,  )
   final bool enabled;
   
-  @Alias('max_results')
+  @Alias('max_results', isNullable: false,  )
   final int maxResults;
   
-  @Alias('width')
+  @Alias('width', isNullable: false,  )
   final int width;
   
 

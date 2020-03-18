@@ -10,16 +10,22 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 
-export class ResponseTransportationMode {
-
-    static discriminator: string | undefined = undefined;
-
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return ResponseTransportationMode.attributeTypeMap;
-    }
+export enum ResponseTransportationMode {
+    Car = <any> 'car',
+    Parking = <any> 'parking',
+    Boarding = <any> 'boarding',
+    Walk = <any> 'walk',
+    Bike = <any> 'bike',
+    Train = <any> 'train',
+    RailNational = <any> 'rail_national',
+    RailOverground = <any> 'rail_overground',
+    RailUnderground = <any> 'rail_underground',
+    RailDlr = <any> 'rail_dlr',
+    Bus = <any> 'bus',
+    CableCar = <any> 'cable_car',
+    Plane = <any> 'plane',
+    Ferry = <any> 'ferry',
+    Coach = <any> 'coach'
 }
-

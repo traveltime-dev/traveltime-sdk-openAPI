@@ -17,7 +17,6 @@
  */
 export interface ResponseTimeMapProperties {
     /**
-     * 
      * @type {boolean}
      * @memberof ResponseTimeMapProperties
      */

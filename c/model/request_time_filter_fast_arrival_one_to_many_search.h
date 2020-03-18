@@ -15,15 +15,24 @@
 #include "request_time_filter_fast_property.h"
 #include "request_transportation_fast.h"
 
+                typedef enum  {  weekday_morning } arrival_time_period_e;
+
+        char* arrival_time_period_ToString(arrival_time_period_e arrival_time_period);
+
+        arrival_time_period_e arrival_time_period_FromString(char* arrival_time_period);
+                    typedef enum  {  travel_time, fares } properties_e;
+
+            char* properties_ToString(properties_e properties);
+
+            properties_e properties_FromString(char* properties);
 
 
 typedef struct request_time_filter_fast_arrival_one_to_many_search_t {
     char *id; // string
     char *departure_location_id; // string
     list_t *arrival_location_ids; //primitive container
-    request_transportation_fast_t *transportation; //model
+    struct request_transportation_fast_t *transportation; //model
     int travel_time; //numeric
-    request_arrival_time_period_e arrival_time_period; //enum model
     list_t *properties; //nonprimitive container
 
 } request_time_filter_fast_arrival_one_to_many_search_t;
@@ -34,7 +43,6 @@ request_time_filter_fast_arrival_one_to_many_search_t *request_time_filter_fast_
     list_t *arrival_location_ids,
     request_transportation_fast_t *transportation,
     int travel_time,
-    request_arrival_time_period_e arrival_time_period,
     list_t *properties
 );
 

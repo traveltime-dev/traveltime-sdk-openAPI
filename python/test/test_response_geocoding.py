@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_geocoding import ResponseGeocoding  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_geocoding import ResponseGeocoding  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseGeocoding(unittest.TestCase):
     """ResponseGeocoding unit test stubs"""
@@ -29,11 +29,87 @@ class TestResponseGeocoding(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseGeocoding
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_geocoding.ResponseGeocoding()  # noqa: E501
+        if include_optional :
+            return ResponseGeocoding(
+                type = '0', 
+                features = [
+                    openapi_client.models.response_geocoding_geo_json_feature.ResponseGeocodingGeoJsonFeature(
+                        type = '0', 
+                        geometry = openapi_client.models.response_geocoding_geometry.ResponseGeocodingGeometry(
+                            type = '0', 
+                            coordinates = [
+                                1.337
+                                ], ), 
+                        properties = openapi_client.models.response_geocoding_properties.ResponseGeocodingProperties(
+                            name = '0', 
+                            label = '0', 
+                            score = 1.337, 
+                            house_number = '0', 
+                            street = '0', 
+                            region = '0', 
+                            region_code = '0', 
+                            neighbourhood = '0', 
+                            county = '0', 
+                            macroregion = '0', 
+                            city = '0', 
+                            country = '0', 
+                            country_code = '0', 
+                            continent = '0', 
+                            postcode = '0', 
+                            features = openapi_client.models.response_map_info_features.ResponseMapInfoFeatures(
+                                public_transport = openapi_client.models.response_map_info_features_public_transport.ResponseMapInfoFeaturesPublicTransport(
+                                    date_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    date_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                                fares = True, 
+                                postcodes = True, ), ), )
+                    ]
+            )
+        else :
+            return ResponseGeocoding(
+                type = '0',
+                features = [
+                    openapi_client.models.response_geocoding_geo_json_feature.ResponseGeocodingGeoJsonFeature(
+                        type = '0', 
+                        geometry = openapi_client.models.response_geocoding_geometry.ResponseGeocodingGeometry(
+                            type = '0', 
+                            coordinates = [
+                                1.337
+                                ], ), 
+                        properties = openapi_client.models.response_geocoding_properties.ResponseGeocodingProperties(
+                            name = '0', 
+                            label = '0', 
+                            score = 1.337, 
+                            house_number = '0', 
+                            street = '0', 
+                            region = '0', 
+                            region_code = '0', 
+                            neighbourhood = '0', 
+                            county = '0', 
+                            macroregion = '0', 
+                            city = '0', 
+                            country = '0', 
+                            country_code = '0', 
+                            continent = '0', 
+                            postcode = '0', 
+                            features = openapi_client.models.response_map_info_features.ResponseMapInfoFeatures(
+                                public_transport = openapi_client.models.response_map_info_features_public_transport.ResponseMapInfoFeaturesPublicTransport(
+                                    date_start = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                                    date_end = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), ), 
+                                fares = True, 
+                                postcodes = True, ), ), )
+                    ],
+        )
+
     def testResponseGeocoding(self):
         """Test ResponseGeocoding"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_geocoding.ResponseGeocoding()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

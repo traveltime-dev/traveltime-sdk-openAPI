@@ -46,17 +46,17 @@ public:
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getPrice() const;
     void setPrice(double const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getCurrency() const;
     void setCurrency(std::string const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseFareTicket& o);
     friend void from_json(const nlohmann::json& j, ResponseFareTicket& o);
 protected:

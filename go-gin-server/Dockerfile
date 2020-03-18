@@ -6,10 +6,10 @@ COPY main.go .
 ENV CGO_ENABLED=0
 RUN go get -d -v ./...
 
-RUN go build -a -installsuffix cgo -o traveltimeplatform .
+RUN go build -a -installsuffix cgo -o openapi .
 
 FROM scratch AS runtime
 ENV GIN_MODE=release
-COPY --from=build /go/src/traveltimeplatform ./
+COPY --from=build /go/src/openapi ./
 EXPOSE 8080/tcp
-ENTRYPOINT ["./traveltimeplatform"]
+ENTRYPOINT ["./openapi"]

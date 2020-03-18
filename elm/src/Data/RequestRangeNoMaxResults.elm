@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestRangeNoMaxResults exposing (RequestRangeNoMaxResults, decoder, encode)
+module Data.RequestRangeNoMaxResults exposing (RequestRangeNoMaxResults, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -34,11 +34,27 @@ decoder =
 
 
 encode : RequestRangeNoMaxResults -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "enabled", Encode.bool model.enabled )
-        , ( "width", Encode.int model.width )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestRangeNoMaxResults -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestRangeNoMaxResults -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "enabled", Encode.bool model.enabled )
+    , ( "width", Encode.int model.width )
+    ]
+
+
+
+toString : RequestRangeNoMaxResults -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

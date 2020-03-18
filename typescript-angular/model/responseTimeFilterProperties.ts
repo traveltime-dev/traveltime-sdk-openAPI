@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { ResponseDistanceBreakdownItem } from './responseDistanceBreakdownItem';
 import { ResponseFares } from './responseFares';
+import { ResponseDistanceBreakdownItem } from './responseDistanceBreakdownItem';
 import { ResponseRoute } from './responseRoute';
 
 

@@ -47,6 +47,10 @@ std::vector<ResponseRoutesResult>& ResponseRoutes::getResults()
 {
     return m_Results;
 }
+void ResponseRoutes::setResults(std::vector<ResponseRoutesResult> const& value)
+{
+    m_Results = value;
+}
 
 }
 }

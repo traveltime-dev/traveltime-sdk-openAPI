@@ -18,26 +18,14 @@ class ResponseRoutesProperties {
 
   ResponseRoutesProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['distance'] == null) {
-      distance = null;
-    } else {
-          distance = json['distance'];
-    }
-    if (json['fares'] == null) {
-      fares = null;
-    } else {
-      fares = new ResponseFares.fromJson(json['fares']);
-    }
-    if (json['route'] == null) {
-      route = null;
-    } else {
-      route = new ResponseRoute.fromJson(json['route']);
-    }
+    travelTime = json['travel_time'];
+    distance = json['distance'];
+    fares = (json['fares'] == null) ?
+      null :
+      ResponseFares.fromJson(json['fares']);
+    route = (json['route'] == null) ?
+      null :
+      ResponseRoute.fromJson(json['route']);
   }
 
   Map<String, dynamic> toJson() {
@@ -54,15 +42,26 @@ class ResponseRoutesProperties {
   }
 
   static List<ResponseRoutesProperties> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseRoutesProperties>() : json.map((value) => new ResponseRoutesProperties.fromJson(value)).toList();
+    return json == null ? List<ResponseRoutesProperties>() : json.map((value) => ResponseRoutesProperties.fromJson(value)).toList();
   }
 
   static Map<String, ResponseRoutesProperties> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseRoutesProperties>();
+    var map = Map<String, ResponseRoutesProperties>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseRoutesProperties.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseRoutesProperties.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseRoutesProperties-objects as value to a dart map
+  static Map<String, List<ResponseRoutesProperties>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseRoutesProperties>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseRoutesProperties.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -67,21 +67,21 @@ public class DefaultApiVerticle extends AbstractVerticle {
             try {
                 // Workaround for #allParams section clearing the vendorExtensions map
                 String serviceId = "geocodingReverseSearch";
-                String focusLatParam = message.body().getString("focus.lat");
-                if(focusLatParam == null) {
-                    manageError(message, new MainApiException(400, "focus.lat is required"), serviceId);
+                String latParam = message.body().getString("lat");
+                if(latParam == null) {
+                    manageError(message, new MainApiException(400, "lat is required"), serviceId);
                     return;
                 }
-                Double focusLat = Json.mapper.readValue(focusLatParam, Double.class);
-                String focusLngParam = message.body().getString("focus.lng");
-                if(focusLngParam == null) {
-                    manageError(message, new MainApiException(400, "focus.lng is required"), serviceId);
+                Double lat = Json.mapper.readValue(latParam, Double.class);
+                String lngParam = message.body().getString("lng");
+                if(lngParam == null) {
+                    manageError(message, new MainApiException(400, "lng is required"), serviceId);
                     return;
                 }
-                Double focusLng = Json.mapper.readValue(focusLngParam, Double.class);
+                Double lng = Json.mapper.readValue(lngParam, Double.class);
                 String withinCountryParam = message.body().getString("within.country");
                 String withinCountry = (withinCountryParam == null) ? null : withinCountryParam;
-                service.geocodingReverseSearch(focusLat, focusLng, withinCountry, result -> {
+                service.geocodingReverseSearch(lat, lng, withinCountry, result -> {
                     if (result.succeeded())
                         message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
                     else {
@@ -106,13 +106,13 @@ public class DefaultApiVerticle extends AbstractVerticle {
                     return;
                 }
                 String query = queryParam;
-                String withinCountryParam = message.body().getString("within.country");
-                String withinCountry = (withinCountryParam == null) ? null : withinCountryParam;
                 String focusLatParam = message.body().getString("focus.lat");
                 Double focusLat = (focusLatParam == null) ? null : Json.mapper.readValue(focusLatParam, Double.class);
                 String focusLngParam = message.body().getString("focus.lng");
                 Double focusLng = (focusLngParam == null) ? null : Json.mapper.readValue(focusLngParam, Double.class);
-                service.geocodingSearch(query, withinCountry, focusLat, focusLng, result -> {
+                String withinCountryParam = message.body().getString("within.country");
+                String withinCountry = (withinCountryParam == null) ? null : withinCountryParam;
+                service.geocodingSearch(query, focusLat, focusLng, withinCountry, result -> {
                     if (result.succeeded())
                         message.reply(new JsonObject(Json.encode(result.result())).encodePrettily());
                     else {

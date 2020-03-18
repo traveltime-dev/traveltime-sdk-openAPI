@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * RequestRangeFull
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestRangeFull {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -41,7 +41,9 @@ public class RequestRangeFull {
   @SerializedName(SERIALIZED_NAME_WIDTH)
   private Integer width;
 
+
   public RequestRangeFull enabled(Boolean enabled) {
+    
     this.enabled = enabled;
     return this;
   }
@@ -51,15 +53,19 @@ public class RequestRangeFull {
    * @return enabled
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Boolean getEnabled() {
     return enabled;
   }
+
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
+
   public RequestRangeFull maxResults(Integer maxResults) {
+    
     this.maxResults = maxResults;
     return this;
   }
@@ -71,15 +77,19 @@ public class RequestRangeFull {
    * @return maxResults
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getMaxResults() {
     return maxResults;
   }
+
 
   public void setMaxResults(Integer maxResults) {
     this.maxResults = maxResults;
   }
 
+
   public RequestRangeFull width(Integer width) {
+    
     this.width = width;
     return this;
   }
@@ -91,9 +101,11 @@ public class RequestRangeFull {
    * @return width
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getWidth() {
     return width;
   }
+
 
   public void setWidth(Integer width) {
     this.width = width;

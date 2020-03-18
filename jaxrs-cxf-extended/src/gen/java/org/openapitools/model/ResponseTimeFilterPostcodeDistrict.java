@@ -15,6 +15,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseTimeFilterPostcodeDistrict  {
   
   @ApiModelProperty(required = true, value = "")
@@ -22,7 +23,7 @@ public class ResponseTimeFilterPostcodeDistrict  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseTimeFilterPostcodeDistrictProperties properties = null;
+  private ResponseTimeFilterPostcodeDistrictProperties properties;
  /**
   * Get code
   * @return code

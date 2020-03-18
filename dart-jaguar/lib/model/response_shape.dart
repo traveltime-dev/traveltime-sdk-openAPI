@@ -7,10 +7,10 @@ part 'response_shape.jser.dart';
 
 class ResponseShape {
   
-  @Alias('shell')
+  @Alias('shell', isNullable: false,  )
   final List<Coords> shell;
   
-  @Alias('holes')
+  @Alias('holes', isNullable: false,  )
   final List<List<Coords>> holes;
   
 

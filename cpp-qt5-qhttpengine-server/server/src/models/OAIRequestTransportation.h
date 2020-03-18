@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTransportation: public OAIObject {
@@ -65,7 +66,7 @@ public:
     void setBoardingTime(const qint32 &boarding_time);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -99,5 +100,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTransportation)
 
 #endif // OAIRequestTransportation_H

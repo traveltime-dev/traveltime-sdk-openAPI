@@ -53,11 +53,14 @@ std::string RequestUnionOnIntersection::getId() const
 void RequestUnionOnIntersection::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::vector<std::string>& RequestUnionOnIntersection::getSearchIds()
 {
     return m_Search_ids;
+}
+void RequestUnionOnIntersection::setSearchIds(std::vector<std::string> const& value)
+{
+    m_Search_ids = value;
 }
 
 }

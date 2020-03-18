@@ -18,7 +18,7 @@ class RequestTimeFilterArrivalSearch {
     
     String arrivalLocationId
     
-    RequestTransportation transportation = null
+    RequestTransportation transportation
     
     Integer travelTime
     
@@ -26,5 +26,5 @@ class RequestTimeFilterArrivalSearch {
     
     List<RequestTimeFilterProperty> properties = new ArrayList<RequestTimeFilterProperty>()
     
-    RequestRangeFull range = null
+    RequestRangeFull range
 }

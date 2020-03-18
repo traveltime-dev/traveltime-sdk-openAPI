@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestArrivalTimePeriod"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestArrivalTimePeriod"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestArrivalTimePeriod {
+    title = RequestArrivalTimePeriod
+    description = RequestArrivalTimePeriod
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestArrivalTimePeriod {
+    title = RequestArrivalTimePeriod
+    description = RequestArrivalTimePeriod
+    implements = openapi_server.resourceTypes.RequestArrivalTimePeriod
+
+  }
+}

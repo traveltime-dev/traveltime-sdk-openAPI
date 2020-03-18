@@ -10,252 +10,238 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilterArrivalSearch.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilterArrivalSearch::OAIRequestTimeFilterArrivalSearch(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilterArrivalSearch::OAIRequestTimeFilterArrivalSearch() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilterArrivalSearch::~OAIRequestTimeFilterArrivalSearch() {
+OAIRequestTimeFilterArrivalSearch::~OAIRequestTimeFilterArrivalSearch() {}
 
-}
+void OAIRequestTimeFilterArrivalSearch::initializeModel() {
 
-void
-OAIRequestTimeFilterArrivalSearch::init() {
-    
     m_id_isSet = false;
     m_id_isValid = false;
-    
+
     m_departure_location_ids_isSet = false;
     m_departure_location_ids_isValid = false;
-    
+
     m_arrival_location_id_isSet = false;
     m_arrival_location_id_isValid = false;
-    
+
     m_transportation_isSet = false;
     m_transportation_isValid = false;
-    
+
     m_travel_time_isSet = false;
     m_travel_time_isValid = false;
-    
+
     m_arrival_time_isSet = false;
     m_arrival_time_isValid = false;
-    
+
     m_properties_isSet = false;
     m_properties_isValid = false;
-    
+
     m_range_isSet = false;
     m_range_isValid = false;
-    }
+}
 
-void
-OAIRequestTimeFilterArrivalSearch::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestTimeFilterArrivalSearch::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestTimeFilterArrivalSearch::fromJsonObject(QJsonObject json) {
-    
+void OAIRequestTimeFilterArrivalSearch::fromJsonObject(QJsonObject json) {
+
     m_id_isValid = ::OpenAPI::fromJsonValue(id, json[QString("id")]);
-    
-    
-    
+    m_id_isSet = !json[QString("id")].isNull() && m_id_isValid;
+
     m_departure_location_ids_isValid = ::OpenAPI::fromJsonValue(departure_location_ids, json[QString("departure_location_ids")]);
-    
+    m_departure_location_ids_isSet = !json[QString("departure_location_ids")].isNull() && m_departure_location_ids_isValid;
+
     m_arrival_location_id_isValid = ::OpenAPI::fromJsonValue(arrival_location_id, json[QString("arrival_location_id")]);
-    
-    
+    m_arrival_location_id_isSet = !json[QString("arrival_location_id")].isNull() && m_arrival_location_id_isValid;
+
     m_transportation_isValid = ::OpenAPI::fromJsonValue(transportation, json[QString("transportation")]);
-    
-    
+    m_transportation_isSet = !json[QString("transportation")].isNull() && m_transportation_isValid;
+
     m_travel_time_isValid = ::OpenAPI::fromJsonValue(travel_time, json[QString("travel_time")]);
-    
-    
+    m_travel_time_isSet = !json[QString("travel_time")].isNull() && m_travel_time_isValid;
+
     m_arrival_time_isValid = ::OpenAPI::fromJsonValue(arrival_time, json[QString("arrival_time")]);
-    
-    
-    
+    m_arrival_time_isSet = !json[QString("arrival_time")].isNull() && m_arrival_time_isValid;
+
     m_properties_isValid = ::OpenAPI::fromJsonValue(properties, json[QString("properties")]);
-    
+    m_properties_isSet = !json[QString("properties")].isNull() && m_properties_isValid;
+
     m_range_isValid = ::OpenAPI::fromJsonValue(range, json[QString("range")]);
-    
-    
+    m_range_isSet = !json[QString("range")].isNull() && m_range_isValid;
 }
 
-QString
-OAIRequestTimeFilterArrivalSearch::asJson () const {
+QString OAIRequestTimeFilterArrivalSearch::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestTimeFilterArrivalSearch::asJsonObject() const {
+QJsonObject OAIRequestTimeFilterArrivalSearch::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if (m_id_isSet) {
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	
-    if(departure_location_ids.size() > 0){
+    if (departure_location_ids.size() > 0) {
         obj.insert(QString("departure_location_ids"), ::OpenAPI::toJsonValue(departure_location_ids));
-    } 
-	if(m_arrival_location_id_isSet){
+    }
+    if (m_arrival_location_id_isSet) {
         obj.insert(QString("arrival_location_id"), ::OpenAPI::toJsonValue(arrival_location_id));
     }
-	if(transportation.isSet()){
+    if (transportation.isSet()) {
         obj.insert(QString("transportation"), ::OpenAPI::toJsonValue(transportation));
     }
-	if(m_travel_time_isSet){
+    if (m_travel_time_isSet) {
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(m_arrival_time_isSet){
+    if (m_arrival_time_isSet) {
         obj.insert(QString("arrival_time"), ::OpenAPI::toJsonValue(arrival_time));
     }
-	
-    if(properties.size() > 0){
+    if (properties.size() > 0) {
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
-    } 
-	if(range.isSet()){
+    }
+    if (range.isSet()) {
         obj.insert(QString("range"), ::OpenAPI::toJsonValue(range));
     }
     return obj;
 }
 
-
-QString
-OAIRequestTimeFilterArrivalSearch::getId() const {
+QString OAIRequestTimeFilterArrivalSearch::getId() const {
     return id;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setId(const QString &id) {
+void OAIRequestTimeFilterArrivalSearch::setId(const QString &id) {
     this->id = id;
     this->m_id_isSet = true;
 }
 
-
-QList<QString>
-OAIRequestTimeFilterArrivalSearch::getDepartureLocationIds() const {
+QList<QString> OAIRequestTimeFilterArrivalSearch::getDepartureLocationIds() const {
     return departure_location_ids;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setDepartureLocationIds(const QList<QString> &departure_location_ids) {
+void OAIRequestTimeFilterArrivalSearch::setDepartureLocationIds(const QList<QString> &departure_location_ids) {
     this->departure_location_ids = departure_location_ids;
     this->m_departure_location_ids_isSet = true;
 }
 
-
-QString
-OAIRequestTimeFilterArrivalSearch::getArrivalLocationId() const {
+QString OAIRequestTimeFilterArrivalSearch::getArrivalLocationId() const {
     return arrival_location_id;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setArrivalLocationId(const QString &arrival_location_id) {
+void OAIRequestTimeFilterArrivalSearch::setArrivalLocationId(const QString &arrival_location_id) {
     this->arrival_location_id = arrival_location_id;
     this->m_arrival_location_id_isSet = true;
 }
 
-
-OAIRequestTransportation
-OAIRequestTimeFilterArrivalSearch::getTransportation() const {
+OAIRequestTransportation OAIRequestTimeFilterArrivalSearch::getTransportation() const {
     return transportation;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setTransportation(const OAIRequestTransportation &transportation) {
+void OAIRequestTimeFilterArrivalSearch::setTransportation(const OAIRequestTransportation &transportation) {
     this->transportation = transportation;
     this->m_transportation_isSet = true;
 }
 
-
-qint32
-OAIRequestTimeFilterArrivalSearch::getTravelTime() const {
+qint32 OAIRequestTimeFilterArrivalSearch::getTravelTime() const {
     return travel_time;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setTravelTime(const qint32 &travel_time) {
+void OAIRequestTimeFilterArrivalSearch::setTravelTime(const qint32 &travel_time) {
     this->travel_time = travel_time;
     this->m_travel_time_isSet = true;
 }
 
-
-QDateTime
-OAIRequestTimeFilterArrivalSearch::getArrivalTime() const {
+QDateTime OAIRequestTimeFilterArrivalSearch::getArrivalTime() const {
     return arrival_time;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setArrivalTime(const QDateTime &arrival_time) {
+void OAIRequestTimeFilterArrivalSearch::setArrivalTime(const QDateTime &arrival_time) {
     this->arrival_time = arrival_time;
     this->m_arrival_time_isSet = true;
 }
 
-
-QList<OAIRequestTimeFilterProperty>
-OAIRequestTimeFilterArrivalSearch::getProperties() const {
+QList<OAIRequestTimeFilterProperty> OAIRequestTimeFilterArrivalSearch::getProperties() const {
     return properties;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setProperties(const QList<OAIRequestTimeFilterProperty> &properties) {
+void OAIRequestTimeFilterArrivalSearch::setProperties(const QList<OAIRequestTimeFilterProperty> &properties) {
     this->properties = properties;
     this->m_properties_isSet = true;
 }
 
-
-OAIRequestRangeFull
-OAIRequestTimeFilterArrivalSearch::getRange() const {
+OAIRequestRangeFull OAIRequestTimeFilterArrivalSearch::getRange() const {
     return range;
 }
-void
-OAIRequestTimeFilterArrivalSearch::setRange(const OAIRequestRangeFull &range) {
+void OAIRequestTimeFilterArrivalSearch::setRange(const OAIRequestRangeFull &range) {
     this->range = range;
     this->m_range_isSet = true;
 }
 
-bool
-OAIRequestTimeFilterArrivalSearch::isSet() const {
+bool OAIRequestTimeFilterArrivalSearch::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_id_isSet){ isObjectUpdated = true; break;}
-    
-        if(departure_location_ids.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(m_arrival_location_id_isSet){ isObjectUpdated = true; break;}
-    
-        if(transportation.isSet()){ isObjectUpdated = true; break;}
-    
-        if(m_travel_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_arrival_time_isSet){ isObjectUpdated = true; break;}
-    
-        if(properties.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(range.isSet()){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (departure_location_ids.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_arrival_location_id_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (transportation.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_travel_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_arrival_time_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (properties.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (range.isSet()) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestTimeFilterArrivalSearch::isValid() const {
+bool OAIRequestTimeFilterArrivalSearch::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_id_isValid && m_departure_location_ids_isValid && m_arrival_location_id_isValid && m_transportation_isValid && m_travel_time_isValid && m_arrival_time_isValid && m_properties_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

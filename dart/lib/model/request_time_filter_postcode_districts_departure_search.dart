@@ -24,41 +24,23 @@ class RequestTimeFilterPostcodeDistrictsDepartureSearch {
 
   RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['transportation'] == null) {
-      transportation = null;
-    } else {
-      transportation = new RequestTransportation.fromJson(json['transportation']);
-    }
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['departure_time'] == null) {
-      departureTime = null;
-    } else {
-      departureTime = DateTime.parse(json['departure_time']);
-    }
-    if (json['reachable_postcodes_threshold'] == null) {
-      reachablePostcodesThreshold = null;
-    } else {
-          reachablePostcodesThreshold = json['reachable_postcodes_threshold'];
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = RequestTimeFilterPostcodeDistrictsProperty.listFromJson(json['properties']);
-    }
-    if (json['range'] == null) {
-      range = null;
-    } else {
-      range = new RequestRangeFull.fromJson(json['range']);
-    }
+    id = json['id'];
+    transportation = (json['transportation'] == null) ?
+      null :
+      RequestTransportation.fromJson(json['transportation']);
+    travelTime = json['travel_time'];
+    departureTime = (json['departure_time'] == null) ?
+      null :
+      DateTime.parse(json['departure_time']);
+    reachablePostcodesThreshold = (json['reachable_postcodes_threshold'] == null) ?
+      null :
+      json['reachable_postcodes_threshold'].toDouble();
+    properties = (json['properties'] == null) ?
+      null :
+      RequestTimeFilterPostcodeDistrictsProperty.listFromJson(json['properties']);
+    range = (json['range'] == null) ?
+      null :
+      RequestRangeFull.fromJson(json['range']);
   }
 
   Map<String, dynamic> toJson() {
@@ -81,15 +63,26 @@ class RequestTimeFilterPostcodeDistrictsDepartureSearch {
   }
 
   static List<RequestTimeFilterPostcodeDistrictsDepartureSearch> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterPostcodeDistrictsDepartureSearch>() : json.map((value) => new RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(value)).toList();
+    return json == null ? List<RequestTimeFilterPostcodeDistrictsDepartureSearch>() : json.map((value) => RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(value)).toList();
   }
 
   static Map<String, RequestTimeFilterPostcodeDistrictsDepartureSearch> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestTimeFilterPostcodeDistrictsDepartureSearch>();
+    var map = Map<String, RequestTimeFilterPostcodeDistrictsDepartureSearch>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterPostcodeDistrictsDepartureSearch.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestTimeFilterPostcodeDistrictsDepartureSearch-objects as value to a dart map
+  static Map<String, List<RequestTimeFilterPostcodeDistrictsDepartureSearch>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestTimeFilterPostcodeDistrictsDepartureSearch>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestTimeFilterPostcodeDistrictsDepartureSearch.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -9,10 +9,10 @@ part 'request_time_filter_fast.jser.dart';
 
 class RequestTimeFilterFast {
   
-  @Alias('locations')
+  @Alias('locations', isNullable: false,  )
   final List<RequestLocation> locations;
   
-  @Alias('arrival_searches')
+  @Alias('arrival_searches', isNullable: false,  )
   final RequestTimeFilterFastArrivalSearches arrivalSearches;
   
 

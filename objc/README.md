@@ -161,14 +161,14 @@ OAIDefaultConfiguration *apiConfig = [OAIDefaultConfiguration sharedConfig];
 //[apiConfig setApiKeyPrefix:@"Bearer" forApiKeyIdentifier:@"X-Application-Id"];
 
 
-NSNumber* *focusLat = @56; // 
-NSNumber* *focusLng = @56; // 
+NSNumber* *lat = @56; // 
+NSNumber* *lng = @56; // 
 NSString* *withinCountry = @"withinCountry_example"; //  (optional)
 
 OAIDefaultApi *apiInstance = [[OAIDefaultApi alloc] init];
 
-[apiInstance geocodingReverseSearchWithFocusLat:focusLat
-    focusLng:focusLng
+[apiInstance geocodingReverseSearchWithLat:lat
+    lng:lng
     withinCountry:withinCountry
               completionHandler: ^(OAIResponseGeocoding* output, NSError* error) {
                             if (output) {

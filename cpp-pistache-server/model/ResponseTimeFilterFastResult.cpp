@@ -55,15 +55,22 @@ std::string ResponseTimeFilterFastResult::getSearchId() const
 void ResponseTimeFilterFastResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::vector<ResponseTimeFilterFastLocation>& ResponseTimeFilterFastResult::getLocations()
 {
     return m_Locations;
 }
+void ResponseTimeFilterFastResult::setLocations(std::vector<ResponseTimeFilterFastLocation> const& value)
+{
+    m_Locations = value;
+}
 std::vector<std::string>& ResponseTimeFilterFastResult::getUnreachable()
 {
     return m_Unreachable;
+}
+void ResponseTimeFilterFastResult::setUnreachable(std::vector<std::string> const& value)
+{
+    m_Unreachable = value;
 }
 
 }

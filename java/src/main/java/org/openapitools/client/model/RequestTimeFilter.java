@@ -32,7 +32,7 @@ import org.openapitools.client.model.RequestTimeFilterDepartureSearch;
 /**
  * RequestTimeFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeFilter {
   public static final String SERIALIZED_NAME_LOCATIONS = "locations";
   @SerializedName(SERIALIZED_NAME_LOCATIONS)
@@ -40,13 +40,15 @@ public class RequestTimeFilter {
 
   public static final String SERIALIZED_NAME_DEPARTURE_SEARCHES = "departure_searches";
   @SerializedName(SERIALIZED_NAME_DEPARTURE_SEARCHES)
-  private List<RequestTimeFilterDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterDepartureSearch>();
+  private List<RequestTimeFilterDepartureSearch> departureSearches = null;
 
   public static final String SERIALIZED_NAME_ARRIVAL_SEARCHES = "arrival_searches";
   @SerializedName(SERIALIZED_NAME_ARRIVAL_SEARCHES)
-  private List<RequestTimeFilterArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterArrivalSearch>();
+  private List<RequestTimeFilterArrivalSearch> arrivalSearches = null;
+
 
   public RequestTimeFilter locations(List<RequestLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -61,15 +63,19 @@ public class RequestTimeFilter {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
   }
 
+
   public RequestTimeFilter departureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
+    
     this.departureSearches = departureSearches;
     return this;
   }
@@ -86,16 +92,21 @@ public class RequestTimeFilter {
    * Get departureSearches
    * @return departureSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeFilterDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
 
   public void setDepartureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
   }
 
+
   public RequestTimeFilter arrivalSearches(List<RequestTimeFilterArrivalSearch> arrivalSearches) {
+    
     this.arrivalSearches = arrivalSearches;
     return this;
   }
@@ -112,10 +123,13 @@ public class RequestTimeFilter {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeFilterArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
 
   public void setArrivalSearches(List<RequestTimeFilterArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;

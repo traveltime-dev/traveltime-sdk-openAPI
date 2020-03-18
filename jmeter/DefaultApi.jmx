@@ -138,19 +138,19 @@
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="geocodingReverseSearch - ${testCase}" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments">
-              <elementProp name="focusPeriodlat" elementType="HTTPArgument">
+              <elementProp name="lat" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${focusPeriodlat}</stringProp>
+                <stringProp name="Argument.value">${lat}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">focusPeriodlat</stringProp>
+                <stringProp name="Argument.name">lat</stringProp>
               </elementProp>
-              <elementProp name="focusPeriodlng" elementType="HTTPArgument">
+              <elementProp name="lng" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${focusPeriodlng}</stringProp>
+                <stringProp name="Argument.value">${lng}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">focusPeriodlng</stringProp>
+                <stringProp name="Argument.name">lng</stringProp>
               </elementProp>
               <elementProp name="withinPeriodcountry" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
@@ -232,13 +232,6 @@
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">query</stringProp>
               </elementProp>
-              <elementProp name="withinPeriodcountry" elementType="HTTPArgument">
-                <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${withinPeriodcountry}</stringProp>
-                <stringProp name="Argument.metadata">=</stringProp>
-                <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                <stringProp name="Argument.name">withinPeriodcountry</stringProp>
-              </elementProp>
               <elementProp name="focusPeriodlat" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">${focusPeriodlat}</stringProp>
@@ -252,6 +245,13 @@
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">focusPeriodlng</stringProp>
+              </elementProp>
+              <elementProp name="withinPeriodcountry" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${withinPeriodcountry}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">withinPeriodcountry</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>

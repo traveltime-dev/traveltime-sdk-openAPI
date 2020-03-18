@@ -14,7 +14,7 @@ import org.openapitools.model.RequestTimeFilterFastArrivalOneToManySearch;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2019-05-24T09:06:45.077Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T07:53:50.580Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalSearches   {
   @JsonProperty("many_to_one")
   private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = null;

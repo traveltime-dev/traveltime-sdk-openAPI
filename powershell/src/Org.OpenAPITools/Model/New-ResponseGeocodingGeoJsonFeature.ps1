@@ -5,18 +5,18 @@ function New-ResponseGeocodingGeoJsonFeature {
         [String]
         ${type},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseGeocodingGeometry]
+        [Org.OpenAPITools.Model.ResponseGeocodingGeometry]
         ${geometry},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseGeocodingProperties]
+        [Org.OpenAPITools.Model.ResponseGeocodingProperties]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseGeocodingGeoJsonFeature' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseGeocodingGeoJsonFeature' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseGeocodingGeoJsonFeature -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseGeocodingGeoJsonFeature -ArgumentList @(
             ${type},
             ${geometry},
             ${properties}

@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseShape
+# openapi::ResponseShape
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shell** | [**Coords**](Coords.md) |  | 
-**holes** | [**Coords**](array.md) |  | 
+**shell** | [**array[Coords]**](Coords.md) |  | 
+**holes** | [**array[array[Coords]]**](array.md) |  | 
 
 

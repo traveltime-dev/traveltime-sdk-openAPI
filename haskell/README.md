@@ -58,7 +58,7 @@ main = do
 
 ## Creating a Server
 
-In order to create a server, you must use the `runTravelTimePlatformServer` function. However, you unlike the client, in which case you *got* a `TravelTimePlatformBackend`
+In order to create a server, you must use the `runTravelTimePlatformMiddlewareServer` function. However, you unlike the client, in which case you *got* a `TravelTimePlatformBackend`
 from the library, you must instead *provide* a `TravelTimePlatformBackend`. For example, if you have defined handler functions for all the
 functions in `TravelTimePlatform.Handlers`, you can write:
 
@@ -66,14 +66,24 @@ functions in `TravelTimePlatform.Handlers`, you can write:
 {-# LANGUAGE RecordWildCards #-}
 
 import TravelTimePlatform.API
+-- required dependency: wai
+import Network.Wai (Middleware)
+-- required dependency: wai-extra
+import Network.Wai.Middleware.RequestLogger (logStdout)
 
 -- A module you wrote yourself, containing all handlers needed for the TravelTimePlatformBackend type.
 import TravelTimePlatform.Handlers
+
+-- If you would like to not use any middlewares you could use runTravelTimePlatformServer instead
+
+-- Combined middlewares
+requestMiddlewares :: Middleware
+requestMiddlewares = logStdout
 
 -- Run a TravelTimePlatform server on localhost:8080
 main :: IO ()
 main = do
   let server = TravelTimePlatformBackend{..}
       config = Config "http://localhost:8080/"
-  runTravelTimePlatformServer config server
+  runTravelTimePlatformMiddlewareServer config requestMiddlewares server
 ```

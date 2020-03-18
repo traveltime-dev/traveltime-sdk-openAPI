@@ -4,6 +4,23 @@
 #include "request_routes_departure_search.h"
 
 
+    char* propertiesrequest_routes_departure_search_ToString(properties_e properties){
+        char *propertiesArray[] =  { "travel_time","distance","fares","route" };
+        return propertiesArray[properties - 1];
+    }
+
+    properties_e propertiesrequest_routes_departure_search_FromString(char* properties){
+    int stringToReturn = 0;
+    char *propertiesArray[] =  { "travel_time","distance","fares","route" };
+    size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(properties, propertiesArray[stringToReturn]) == 0) {
+            return stringToReturn + 1;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
 
 request_routes_departure_search_t *request_routes_departure_search_create(
     char *id,
@@ -14,19 +31,19 @@ request_routes_departure_search_t *request_routes_departure_search_create(
     list_t *properties,
     request_range_full_t *range
     ) {
-	request_routes_departure_search_t *request_routes_departure_search_local_var = malloc(sizeof(request_routes_departure_search_t));
+    request_routes_departure_search_t *request_routes_departure_search_local_var = malloc(sizeof(request_routes_departure_search_t));
     if (!request_routes_departure_search_local_var) {
         return NULL;
     }
-	request_routes_departure_search_local_var->id = id;
-	request_routes_departure_search_local_var->departure_location_id = departure_location_id;
-	request_routes_departure_search_local_var->arrival_location_ids = arrival_location_ids;
-	request_routes_departure_search_local_var->transportation = transportation;
-	request_routes_departure_search_local_var->departure_time = departure_time;
-	request_routes_departure_search_local_var->properties = properties;
-	request_routes_departure_search_local_var->range = range;
+    request_routes_departure_search_local_var->id = id;
+    request_routes_departure_search_local_var->departure_location_id = departure_location_id;
+    request_routes_departure_search_local_var->arrival_location_ids = arrival_location_ids;
+    request_routes_departure_search_local_var->transportation = transportation;
+    request_routes_departure_search_local_var->departure_time = departure_time;
+    request_routes_departure_search_local_var->properties = properties;
+    request_routes_departure_search_local_var->range = range;
 
-	return request_routes_departure_search_local_var;
+    return request_routes_departure_search_local_var;
 }
 
 
@@ -34,24 +51,24 @@ void request_routes_departure_search_free(request_routes_departure_search_t *req
     listEntry_t *listEntry;
     free(request_routes_departure_search->id);
     free(request_routes_departure_search->departure_location_id);
-	list_ForEach(listEntry, request_routes_departure_search->arrival_location_ids) {
-		free(listEntry->data);
-	}
-	list_free(request_routes_departure_search->arrival_location_ids);
+    list_ForEach(listEntry, request_routes_departure_search->arrival_location_ids) {
+        free(listEntry->data);
+    }
+    list_free(request_routes_departure_search->arrival_location_ids);
     request_transportation_free(request_routes_departure_search->transportation);
     free(request_routes_departure_search->departure_time);
-	list_ForEach(listEntry, request_routes_departure_search->properties) {
-		request_routes_property_free(listEntry->data);
-	}
-	list_free(request_routes_departure_search->properties);
+    list_ForEach(listEntry, request_routes_departure_search->properties) {
+        request_routes_property_free(listEntry->data);
+    }
+    list_free(request_routes_departure_search->properties);
     request_range_full_free(request_routes_departure_search->range);
-	free(request_routes_departure_search);
+    free(request_routes_departure_search);
 }
 
 cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_search_t *request_routes_departure_search) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_routes_departure_search->id
+    // request_routes_departure_search->id
     if (!request_routes_departure_search->id) {
         goto fail;
     }
@@ -61,7 +78,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->departure_location_id
+    // request_routes_departure_search->departure_location_id
     if (!request_routes_departure_search->departure_location_id) {
         goto fail;
     }
@@ -71,17 +88,17 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->arrival_location_ids
+    // request_routes_departure_search->arrival_location_ids
     if (!request_routes_departure_search->arrival_location_ids) {
         goto fail;
     }
     
-	cJSON *arrival_location_ids = cJSON_AddArrayToObject(item, "arrival_location_ids");
-	if(arrival_location_ids == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *arrival_location_ids = cJSON_AddArrayToObject(item, "arrival_location_ids");
+    if(arrival_location_ids == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *arrival_location_idsListEntry;
+    listEntry_t *arrival_location_idsListEntry;
     list_ForEach(arrival_location_idsListEntry, request_routes_departure_search->arrival_location_ids) {
     if(cJSON_AddStringToObject(arrival_location_ids, "", (char*)arrival_location_idsListEntry->data) == NULL)
     {
@@ -90,7 +107,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->transportation
+    // request_routes_departure_search->transportation
     if (!request_routes_departure_search->transportation) {
         goto fail;
     }
@@ -105,7 +122,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->departure_time
+    // request_routes_departure_search->departure_time
     if (!request_routes_departure_search->departure_time) {
         goto fail;
     }
@@ -115,7 +132,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->properties
+    // request_routes_departure_search->properties
     
     cJSON *properties = cJSON_AddArrayToObject(item, "properties");
     if(properties == NULL) {
@@ -134,7 +151,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
 
 
-	// request_routes_departure_search->range
+    // request_routes_departure_search->range
     if(request_routes_departure_search->range) { 
     cJSON *range_local_JSON = request_range_full_convertToJSON(request_routes_departure_search->range);
     if(range_local_JSON == NULL) {
@@ -146,12 +163,12 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_routes_departure_search_t *request_routes_departure_search_parseFromJSON(cJSON *request_routes_departure_searchJSON){

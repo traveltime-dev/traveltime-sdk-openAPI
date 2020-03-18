@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseDistanceBreakdownItem
+# Org.OpenAPITools.Model.ResponseDistanceBreakdownItem
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
-**Distance** | **int?** |  | 
+**Mode** | **ResponseTransportationMode** |  | 
+**Distance** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

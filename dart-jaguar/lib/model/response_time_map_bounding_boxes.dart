@@ -7,7 +7,7 @@ part 'response_time_map_bounding_boxes.jser.dart';
 
 class ResponseTimeMapBoundingBoxes {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseTimeMapBoundingBoxesResult> results;
   
 

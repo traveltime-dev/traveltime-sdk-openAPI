@@ -17,25 +17,21 @@
  */
 export interface ResponseTravelTimeStatistics {
     /**
-     * 
      * @type {number}
      * @memberof ResponseTravelTimeStatistics
      */
     min: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTravelTimeStatistics
      */
     max: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTravelTimeStatistics
      */
     mean: number;
     /**
-     * 
      * @type {number}
      * @memberof ResponseTravelTimeStatistics
      */

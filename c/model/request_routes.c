@@ -10,39 +10,39 @@ request_routes_t *request_routes_create(
     list_t *departure_searches,
     list_t *arrival_searches
     ) {
-	request_routes_t *request_routes_local_var = malloc(sizeof(request_routes_t));
+    request_routes_t *request_routes_local_var = malloc(sizeof(request_routes_t));
     if (!request_routes_local_var) {
         return NULL;
     }
-	request_routes_local_var->locations = locations;
-	request_routes_local_var->departure_searches = departure_searches;
-	request_routes_local_var->arrival_searches = arrival_searches;
+    request_routes_local_var->locations = locations;
+    request_routes_local_var->departure_searches = departure_searches;
+    request_routes_local_var->arrival_searches = arrival_searches;
 
-	return request_routes_local_var;
+    return request_routes_local_var;
 }
 
 
 void request_routes_free(request_routes_t *request_routes) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_routes->locations) {
-		request_location_free(listEntry->data);
-	}
-	list_free(request_routes->locations);
-	list_ForEach(listEntry, request_routes->departure_searches) {
-		request_routes_departure_search_free(listEntry->data);
-	}
-	list_free(request_routes->departure_searches);
-	list_ForEach(listEntry, request_routes->arrival_searches) {
-		request_routes_arrival_search_free(listEntry->data);
-	}
-	list_free(request_routes->arrival_searches);
-	free(request_routes);
+    list_ForEach(listEntry, request_routes->locations) {
+        request_location_free(listEntry->data);
+    }
+    list_free(request_routes->locations);
+    list_ForEach(listEntry, request_routes->departure_searches) {
+        request_routes_departure_search_free(listEntry->data);
+    }
+    list_free(request_routes->departure_searches);
+    list_ForEach(listEntry, request_routes->arrival_searches) {
+        request_routes_arrival_search_free(listEntry->data);
+    }
+    list_free(request_routes->arrival_searches);
+    free(request_routes);
 }
 
 cJSON *request_routes_convertToJSON(request_routes_t *request_routes) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_routes->locations
+    // request_routes->locations
     if (!request_routes->locations) {
         goto fail;
     }
@@ -64,7 +64,7 @@ cJSON *request_routes_convertToJSON(request_routes_t *request_routes) {
     }
 
 
-	// request_routes->departure_searches
+    // request_routes->departure_searches
     if(request_routes->departure_searches) { 
     cJSON *departure_searches = cJSON_AddArrayToObject(item, "departure_searches");
     if(departure_searches == NULL) {
@@ -84,7 +84,7 @@ cJSON *request_routes_convertToJSON(request_routes_t *request_routes) {
      } 
 
 
-	// request_routes->arrival_searches
+    // request_routes->arrival_searches
     if(request_routes->arrival_searches) { 
     cJSON *arrival_searches = cJSON_AddArrayToObject(item, "arrival_searches");
     if(arrival_searches == NULL) {
@@ -103,12 +103,12 @@ cJSON *request_routes_convertToJSON(request_routes_t *request_routes) {
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_routes_t *request_routes_parseFromJSON(cJSON *request_routesJSON){

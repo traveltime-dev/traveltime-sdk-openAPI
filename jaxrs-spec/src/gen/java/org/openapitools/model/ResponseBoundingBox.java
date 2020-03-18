@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public class ResponseBoundingBox   {
   
-  private @Valid ResponseBox envelope = null;
+  private @Valid ResponseBox envelope;
   private @Valid List<ResponseBox> boxes = new ArrayList<ResponseBox>();
 
   /**

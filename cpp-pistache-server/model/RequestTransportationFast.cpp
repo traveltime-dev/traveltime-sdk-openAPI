@@ -51,7 +51,6 @@ std::string RequestTransportationFast::getType() const
 void RequestTransportationFast::setType(std::string const& value)
 {
     m_Type = value;
-    
 }
 
 }

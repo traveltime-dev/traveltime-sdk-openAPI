@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **kotlin.String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **kotlin.Int** |  | 
-**departureTime** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
+**departureTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **reachablePostcodesThreshold** | **kotlin.Double** |  | 
 **properties** | [**kotlin.Array&lt;RequestTimeFilterPostcodeDistrictsProperty&gt;**](RequestTimeFilterPostcodeDistrictsProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]

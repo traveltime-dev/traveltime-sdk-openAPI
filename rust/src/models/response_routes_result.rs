@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseRoutesResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
     #[serde(rename = "locations")]
-    pub locations: Vec<::models::ResponseRoutesLocation>,
+    pub locations: Vec<crate::models::ResponseRoutesLocation>,
     #[serde(rename = "unreachable")]
     pub unreachable: Vec<String>,
 }
 
 impl ResponseRoutesResult {
-    pub fn new(search_id: String, locations: Vec<::models::ResponseRoutesLocation>, unreachable: Vec<String>) -> ResponseRoutesResult {
+    pub fn new(search_id: String, locations: Vec<crate::models::ResponseRoutesLocation>, unreachable: Vec<String>) -> ResponseRoutesResult {
         ResponseRoutesResult {
-            search_id: search_id,
-            locations: locations,
-            unreachable: unreachable,
+            search_id,
+            locations,
+            unreachable,
         }
     }
 }
+
+

@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTransportationFast: public OAIObject {
@@ -45,7 +46,7 @@ public:
     void setType(const QString &type);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -59,5 +60,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTransportationFast)
 
 #endif // OAIRequestTransportationFast_H

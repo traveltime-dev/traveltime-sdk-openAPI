@@ -13,12 +13,12 @@
 
 #include "OAIResponseGeocodingGeoJsonFeature.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIResponseGeocodingGeoJsonFeature::asJson () const {
 QJsonObject
 OAIResponseGeocodingGeoJsonFeature::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(geometry.isSet()){
+    if(geometry.isSet()){
         obj.insert(QString("geometry"), ::OpenAPI::toJsonValue(geometry));
     }
-	if(properties.isSet()){
+    if(properties.isSet()){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     }
     return obj;

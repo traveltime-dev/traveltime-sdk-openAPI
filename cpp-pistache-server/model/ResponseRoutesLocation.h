@@ -48,11 +48,12 @@ public:
     /// </summary>
     std::string getId() const;
     void setId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseRoutesProperties>& getProperties();
-    
+    void setProperties(std::vector<ResponseRoutesProperties> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseRoutesLocation& o);
     friend void from_json(const nlohmann::json& j, ResponseRoutesLocation& o);
 protected:

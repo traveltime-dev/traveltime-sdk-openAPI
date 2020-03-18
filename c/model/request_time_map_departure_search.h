@@ -16,16 +16,21 @@
 #include "request_time_map_property.h"
 #include "request_transportation.h"
 
+                    typedef enum  {  is_only_walking } properties_e;
+
+            char* properties_ToString(properties_e properties);
+
+            properties_e properties_FromString(char* properties);
 
 
 typedef struct request_time_map_departure_search_t {
     char *id; // string
-    coords_t *coords; //model
-    request_transportation_t *transportation; //model
+    struct coords_t *coords; //model
+    struct request_transportation_t *transportation; //model
     int travel_time; //numeric
     char *departure_time; //date time
     list_t *properties; //nonprimitive container
-    request_range_no_max_results_t *range; //model
+    struct request_range_no_max_results_t *range; //model
 
 } request_time_map_departure_search_t;
 

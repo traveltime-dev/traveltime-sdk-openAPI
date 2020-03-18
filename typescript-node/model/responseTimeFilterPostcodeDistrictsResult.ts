@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseTimeFilterPostcodeDistrict } from './responseTimeFilterPostcodeDistrict';
 
 export class ResponseTimeFilterPostcodeDistrictsResult {

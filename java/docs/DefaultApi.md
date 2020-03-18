@@ -19,43 +19,52 @@ Method | HTTP request | Description
 
 <a name="geocodingReverseSearch"></a>
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-Double focusLat = 3.4D; // Double | 
-Double focusLng = 3.4D; // Double | 
-String withinCountry = "withinCountry_example"; // String | 
-try {
-    ResponseGeocoding result = apiInstance.geocodingReverseSearch(focusLat, focusLng, withinCountry);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#geocodingReverseSearch");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    Double lat = 3.4D; // Double | 
+    Double lng = 3.4D; // Double | 
+    String withinCountry = "withinCountry_example"; // String | 
+    try {
+      ResponseGeocoding result = apiInstance.geocodingReverseSearch(lat, lng, withinCountry);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#geocodingReverseSearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -63,8 +72,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusLat** | **Double**|  |
- **focusLng** | **Double**|  |
+ **lat** | **Double**|  |
+ **lng** | **Double**|  |
  **withinCountry** | **String**|  | [optional]
 
 ### Return type
@@ -80,46 +89,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="geocodingSearch"></a>
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, withinCountry, focusLat, focusLng)
+> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
 
 
 
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-String query = "query_example"; // String | 
-String withinCountry = "withinCountry_example"; // String | 
-Double focusLat = 3.4D; // Double | 
-Double focusLng = 3.4D; // Double | 
-try {
-    ResponseGeocoding result = apiInstance.geocodingSearch(query, withinCountry, focusLat, focusLng);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#geocodingSearch");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    String query = "query_example"; // String | 
+    Double focusLat = 3.4D; // Double | 
+    Double focusLng = 3.4D; // Double | 
+    String withinCountry = "withinCountry_example"; // String | 
+    try {
+      ResponseGeocoding result = apiInstance.geocodingSearch(query, focusLat, focusLng, withinCountry);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#geocodingSearch");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -128,9 +152,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  |
- **withinCountry** | **String**|  | [optional]
  **focusLat** | **Double**|  | [optional]
  **focusLng** | **Double**|  | [optional]
+ **withinCountry** | **String**|  | [optional]
 
 ### Return type
 
@@ -144,6 +168,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 <a name="mapInfo"></a>
 # **mapInfo**
@@ -154,33 +184,42 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-try {
-    ResponseMapInfo result = apiInstance.mapInfo();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#mapInfo");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    try {
+      ResponseMapInfo result = apiInstance.mapInfo();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#mapInfo");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -200,6 +239,12 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="routes"></a>
 # **routes**
 > ResponseRoutes routes(requestRoutes)
@@ -209,34 +254,43 @@ This endpoint does not need any parameter.
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestRoutes requestRoutes = new RequestRoutes(); // RequestRoutes | 
-try {
-    ResponseRoutes result = apiInstance.routes(requestRoutes);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#routes");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestRoutes requestRoutes = new RequestRoutes(); // RequestRoutes | 
+    try {
+      ResponseRoutes result = apiInstance.routes(requestRoutes);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#routes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -259,6 +313,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="supportedLocations"></a>
 # **supportedLocations**
 > ResponseSupportedLocations supportedLocations(requestSupportedLocations)
@@ -268,34 +328,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestSupportedLocations requestSupportedLocations = new RequestSupportedLocations(); // RequestSupportedLocations | 
-try {
-    ResponseSupportedLocations result = apiInstance.supportedLocations(requestSupportedLocations);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#supportedLocations");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestSupportedLocations requestSupportedLocations = new RequestSupportedLocations(); // RequestSupportedLocations | 
+    try {
+      ResponseSupportedLocations result = apiInstance.supportedLocations(requestSupportedLocations);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#supportedLocations");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -318,6 +387,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeFilter"></a>
 # **timeFilter**
 > ResponseTimeFilter timeFilter(requestTimeFilter)
@@ -327,34 +402,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeFilter requestTimeFilter = new RequestTimeFilter(); // RequestTimeFilter | 
-try {
-    ResponseTimeFilter result = apiInstance.timeFilter(requestTimeFilter);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeFilter");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeFilter requestTimeFilter = new RequestTimeFilter(); // RequestTimeFilter | 
+    try {
+      ResponseTimeFilter result = apiInstance.timeFilter(requestTimeFilter);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeFilter");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -377,6 +461,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeFilterFast"></a>
 # **timeFilterFast**
 > ResponseTimeFilterFast timeFilterFast(requestTimeFilterFast)
@@ -386,34 +476,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeFilterFast requestTimeFilterFast = new RequestTimeFilterFast(); // RequestTimeFilterFast | 
-try {
-    ResponseTimeFilterFast result = apiInstance.timeFilterFast(requestTimeFilterFast);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeFilterFast");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeFilterFast requestTimeFilterFast = new RequestTimeFilterFast(); // RequestTimeFilterFast | 
+    try {
+      ResponseTimeFilterFast result = apiInstance.timeFilterFast(requestTimeFilterFast);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeFilterFast");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -436,6 +535,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeFilterPostcodeDistricts"></a>
 # **timeFilterPostcodeDistricts**
 > ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts)
@@ -445,34 +550,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts = new RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
-try {
-    ResponseTimeFilterPostcodeDistricts result = apiInstance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeFilterPostcodeDistricts");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts = new RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
+    try {
+      ResponseTimeFilterPostcodeDistricts result = apiInstance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeFilterPostcodeDistricts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -495,6 +609,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeFilterPostcodeSectors"></a>
 # **timeFilterPostcodeSectors**
 > ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors)
@@ -504,34 +624,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors = new RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
-try {
-    ResponseTimeFilterPostcodeSectors result = apiInstance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeFilterPostcodeSectors");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors = new RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
+    try {
+      ResponseTimeFilterPostcodeSectors result = apiInstance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeFilterPostcodeSectors");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -554,6 +683,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeFilterPostcodes"></a>
 # **timeFilterPostcodes**
 > ResponseTimeFilterPostcodes timeFilterPostcodes(requestTimeFilterPostcodes)
@@ -563,34 +698,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeFilterPostcodes requestTimeFilterPostcodes = new RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
-try {
-    ResponseTimeFilterPostcodes result = apiInstance.timeFilterPostcodes(requestTimeFilterPostcodes);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeFilterPostcodes");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeFilterPostcodes requestTimeFilterPostcodes = new RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
+    try {
+      ResponseTimeFilterPostcodes result = apiInstance.timeFilterPostcodes(requestTimeFilterPostcodes);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeFilterPostcodes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -613,6 +757,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 <a name="timeMap"></a>
 # **timeMap**
 > ResponseTimeMap timeMap(requestTimeMap)
@@ -622,34 +772,43 @@ Name | Type | Description  | Notes
 ### Example
 ```java
 // Import classes:
-//import org.openapitools.client.ApiClient;
-//import org.openapitools.client.ApiException;
-//import org.openapitools.client.Configuration;
-//import org.openapitools.client.auth.*;
-//import org.openapitools.client.api.DefaultApi;
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.DefaultApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.traveltimeapp.com");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApiKey
-ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
-ApiKey.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApiKey.setApiKeyPrefix("Token");
+    // Configure API key authorization: ApplicationId
+    ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
+    ApplicationId.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApplicationId.setApiKeyPrefix("Token");
 
-// Configure API key authorization: ApplicationId
-ApiKeyAuth ApplicationId = (ApiKeyAuth) defaultClient.getAuthentication("ApplicationId");
-ApplicationId.setApiKey("YOUR API KEY");
-// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-//ApplicationId.setApiKeyPrefix("Token");
-
-DefaultApi apiInstance = new DefaultApi();
-RequestTimeMap requestTimeMap = new RequestTimeMap(); // RequestTimeMap | 
-try {
-    ResponseTimeMap result = apiInstance.timeMap(requestTimeMap);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling DefaultApi#timeMap");
-    e.printStackTrace();
+    DefaultApi apiInstance = new DefaultApi(defaultClient);
+    RequestTimeMap requestTimeMap = new RequestTimeMap(); // RequestTimeMap | 
+    try {
+      ResponseTimeMap result = apiInstance.timeMap(requestTimeMap);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling DefaultApi#timeMap");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -671,4 +830,10 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 

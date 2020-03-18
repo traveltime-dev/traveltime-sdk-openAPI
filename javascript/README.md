@@ -22,7 +22,7 @@ Then install it via:
 npm install travel_time_platform_api --save
 ```
 
-Finaly, you need to build the module:
+Finally, you need to build the module:
 
 ```shell
 npm run build
@@ -48,7 +48,7 @@ To use the link you just defined in your project, switch to the directory you wa
 npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 ```
 
-Finaly, you need to build the module:
+Finally, you need to build the module:
 
 ```shell
 npm run build
@@ -113,8 +113,8 @@ ApplicationId.apiKey = "YOUR API KEY"
 //ApplicationId.apiKeyPrefix['X-Application-Id'] = "Token"
 
 var api = new TravelTimePlatformApi.DefaultApi()
-var focusLat = 3.4; // {Number} 
-var focusLng = 3.4; // {Number} 
+var lat = 3.4; // {Number} 
+var lng = 3.4; // {Number} 
 var opts = {
   'withinCountry': "withinCountry_example" // {String} 
 };
@@ -125,7 +125,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.geocodingReverseSearch(focusLat, focusLng, opts, callback);
+api.geocodingReverseSearch(lat, lng, opts, callback);
 
 ```
 

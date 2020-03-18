@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseTimeMapWkt
+# openapi::ResponseTimeMapWkt
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**ResponseTimeMapWktResult**](ResponseTimeMapWktResult.md) |  | 
+**results** | [**array[ResponseTimeMapWktResult]**](ResponseTimeMapWktResult.md) |  | 
 
 

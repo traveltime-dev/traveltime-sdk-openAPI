@@ -5,16 +5,16 @@ part 'response_travel_time_statistics.jser.dart';
 
 class ResponseTravelTimeStatistics {
   
-  @Alias('min')
+  @Alias('min', isNullable: false,  )
   final int min;
   
-  @Alias('max')
+  @Alias('max', isNullable: false,  )
   final int max;
   
-  @Alias('mean')
+  @Alias('mean', isNullable: false,  )
   final int mean;
   
-  @Alias('median')
+  @Alias('median', isNullable: false,  )
   final int median;
   
 

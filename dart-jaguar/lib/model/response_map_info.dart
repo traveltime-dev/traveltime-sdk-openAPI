@@ -7,7 +7,7 @@ part 'response_map_info.jser.dart';
 
 class ResponseMapInfo {
   
-  @Alias('maps')
+  @Alias('maps', isNullable: false,  )
   final List<ResponseMapInfoMap> maps;
   
 

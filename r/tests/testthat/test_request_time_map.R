@@ -6,28 +6,28 @@ context("Test RequestTimeMap")
 model.instance <- RequestTimeMap$new()
 
 test_that("departure_searches", {
-  # tests for the property `departure_searches` (RequestTimeMapDepartureSearch)
+  # tests for the property `departure_searches` (array[RequestTimeMapDepartureSearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`departure_searches`, "EXPECTED_RESULT")
 })
 
 test_that("arrival_searches", {
-  # tests for the property `arrival_searches` (RequestTimeMapArrivalSearch)
+  # tests for the property `arrival_searches` (array[RequestTimeMapArrivalSearch])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`arrival_searches`, "EXPECTED_RESULT")
 })
 
 test_that("unions", {
-  # tests for the property `unions` (RequestUnionOnIntersection)
+  # tests for the property `unions` (array[RequestUnionOnIntersection])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`unions`, "EXPECTED_RESULT")
 })
 
 test_that("intersections", {
-  # tests for the property `intersections` (RequestUnionOnIntersection)
+  # tests for the property `intersections` (array[RequestUnionOnIntersection])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`intersections`, "EXPECTED_RESULT")

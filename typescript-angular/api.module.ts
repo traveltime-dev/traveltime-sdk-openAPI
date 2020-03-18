@@ -9,8 +9,7 @@ import { DefaultService } from './api/default.service';
   imports:      [],
   declarations: [],
   exports:      [],
-  providers: [
-    DefaultService ]
+  providers: []
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {

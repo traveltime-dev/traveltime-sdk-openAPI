@@ -16,21 +16,13 @@ class ResponseTimeFilterResult {
 
   ResponseTimeFilterResult.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['search_id'] == null) {
-      searchId = null;
-    } else {
-          searchId = json['search_id'];
-    }
-    if (json['locations'] == null) {
-      locations = null;
-    } else {
-      locations = ResponseTimeFilterLocation.listFromJson(json['locations']);
-    }
-    if (json['unreachable'] == null) {
-      unreachable = null;
-    } else {
-      unreachable = (json['unreachable'] as List).cast<String>();
-    }
+    searchId = json['search_id'];
+    locations = (json['locations'] == null) ?
+      null :
+      ResponseTimeFilterLocation.listFromJson(json['locations']);
+    unreachable = (json['unreachable'] == null) ?
+      null :
+      (json['unreachable'] as List).cast<String>();
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +37,26 @@ class ResponseTimeFilterResult {
   }
 
   static List<ResponseTimeFilterResult> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterResult>() : json.map((value) => new ResponseTimeFilterResult.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterResult>() : json.map((value) => ResponseTimeFilterResult.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterResult> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterResult>();
+    var map = Map<String, ResponseTimeFilterResult>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterResult.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterResult.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterResult-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterResult>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterResult>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterResult.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

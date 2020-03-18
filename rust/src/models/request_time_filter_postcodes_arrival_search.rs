@@ -9,34 +9,35 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilterPostcodesArrivalSearch {
     #[serde(rename = "id")]
     pub id: String,
     #[serde(rename = "transportation")]
-    pub transportation: ::models::RequestTransportation,
+    pub transportation: crate::models::RequestTransportation,
     #[serde(rename = "travel_time")]
     pub travel_time: i32,
     #[serde(rename = "arrival_time")]
     pub arrival_time: String,
     #[serde(rename = "properties")]
-    pub properties: Vec<::models::RequestTimeFilterPostcodesProperty>,
-    #[serde(rename = "range")]
-    pub range: Option<::models::RequestRangeFull>,
+    pub properties: Vec<crate::models::RequestTimeFilterPostcodesProperty>,
+    #[serde(rename = "range", skip_serializing_if = "Option::is_none")]
+    pub range: Option<crate::models::RequestRangeFull>,
 }
 
 impl RequestTimeFilterPostcodesArrivalSearch {
-    pub fn new(id: String, transportation: ::models::RequestTransportation, travel_time: i32, arrival_time: String, properties: Vec<::models::RequestTimeFilterPostcodesProperty>) -> RequestTimeFilterPostcodesArrivalSearch {
+    pub fn new(id: String, transportation: crate::models::RequestTransportation, travel_time: i32, arrival_time: String, properties: Vec<crate::models::RequestTimeFilterPostcodesProperty>) -> RequestTimeFilterPostcodesArrivalSearch {
         RequestTimeFilterPostcodesArrivalSearch {
-            id: id,
-            transportation: transportation,
-            travel_time: travel_time,
-            arrival_time: arrival_time,
-            properties: properties,
+            id,
+            transportation,
+            travel_time,
+            arrival_time,
+            properties,
             range: None,
         }
     }
 }
+
+

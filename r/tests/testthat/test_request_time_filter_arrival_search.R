@@ -13,7 +13,7 @@ test_that("id", {
 })
 
 test_that("departure_location_ids", {
-  # tests for the property `departure_location_ids` (character)
+  # tests for the property `departure_location_ids` (array[character])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`departure_location_ids`, "EXPECTED_RESULT")
@@ -48,7 +48,7 @@ test_that("arrival_time", {
 })
 
 test_that("properties", {
-  # tests for the property `properties` (RequestTimeFilterProperty)
+  # tests for the property `properties` (array[RequestTimeFilterProperty])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`properties`, "EXPECTED_RESULT")

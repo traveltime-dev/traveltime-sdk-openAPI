@@ -20,31 +20,13 @@ class ResponseError {
 
   ResponseError.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['http_status'] == null) {
-      httpStatus = null;
-    } else {
-          httpStatus = json['http_status'];
-    }
-    if (json['error_code'] == null) {
-      errorCode = null;
-    } else {
-          errorCode = json['error_code'];
-    }
-    if (json['description'] == null) {
-      description = null;
-    } else {
-          description = json['description'];
-    }
-    if (json['documentation_link'] == null) {
-      documentationLink = null;
-    } else {
-          documentationLink = json['documentation_link'];
-    }
-    if (json['additional_info'] == null) {
-      additionalInfo = null;
-    } else {
-      additionalInfo = List.mapFromJson(json['additional_info']);
-    }
+    httpStatus = json['http_status'];
+    errorCode = json['error_code'];
+    description = json['description'];
+    documentationLink = json['documentation_link'];
+    additionalInfo = (json['additional_info'] == null) ?
+      null :
+      .mapListFromJson(json['additional_info']);
   }
 
   Map<String, dynamic> toJson() {
@@ -63,15 +45,26 @@ class ResponseError {
   }
 
   static List<ResponseError> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseError>() : json.map((value) => new ResponseError.fromJson(value)).toList();
+    return json == null ? List<ResponseError>() : json.map((value) => ResponseError.fromJson(value)).toList();
   }
 
   static Map<String, ResponseError> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseError>();
+    var map = Map<String, ResponseError>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseError.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseError.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseError-objects as value to a dart map
+  static Map<String, List<ResponseError>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseError>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseError.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

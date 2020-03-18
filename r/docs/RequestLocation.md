@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestLocation
+# openapi::RequestLocation
 
 ## Properties
 Name | Type | Description | Notes

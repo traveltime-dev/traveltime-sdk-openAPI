@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeMapWktResult {
     #[serde(rename = "search_id")]
     pub search_id: String,
     #[serde(rename = "shape")]
     pub shape: String,
     #[serde(rename = "properties")]
-    pub properties: ::models::ResponseTimeMapProperties,
+    pub properties: crate::models::ResponseTimeMapProperties,
 }
 
 impl ResponseTimeMapWktResult {
-    pub fn new(search_id: String, shape: String, properties: ::models::ResponseTimeMapProperties) -> ResponseTimeMapWktResult {
+    pub fn new(search_id: String, shape: String, properties: crate::models::ResponseTimeMapProperties) -> ResponseTimeMapWktResult {
         ResponseTimeMapWktResult {
-            search_id: search_id,
-            shape: shape,
-            properties: properties,
+            search_id,
+            shape,
+            properties,
         }
     }
 }
+
+

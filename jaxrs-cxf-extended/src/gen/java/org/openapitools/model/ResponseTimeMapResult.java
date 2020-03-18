@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseTimeMapResult  {
   
   @ApiModelProperty(required = true, value = "")
@@ -29,7 +30,7 @@ public class ResponseTimeMapResult  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
  /**
   * Get searchId
   * @return searchId

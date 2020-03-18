@@ -13,12 +13,12 @@
 
 #include "OAIRequestTimeFilterFastArrivalOneToManySearch.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -105,26 +105,26 @@ OAIRequestTimeFilterFastArrivalOneToManySearch::asJson () const {
 QJsonObject
 OAIRequestTimeFilterFastArrivalOneToManySearch::asJsonObject() const {
     QJsonObject obj;
-	if(m_id_isSet){
+    if(m_id_isSet){
         obj.insert(QString("id"), ::OpenAPI::toJsonValue(id));
     }
-	if(m_departure_location_id_isSet){
+    if(m_departure_location_id_isSet){
         obj.insert(QString("departure_location_id"), ::OpenAPI::toJsonValue(departure_location_id));
     }
-	
+    
     if(arrival_location_ids.size() > 0){
         obj.insert(QString("arrival_location_ids"), ::OpenAPI::toJsonValue(arrival_location_ids));
     } 
-	if(transportation.isSet()){
+    if(transportation.isSet()){
         obj.insert(QString("transportation"), ::OpenAPI::toJsonValue(transportation));
     }
-	if(m_travel_time_isSet){
+    if(m_travel_time_isSet){
         obj.insert(QString("travel_time"), ::OpenAPI::toJsonValue(travel_time));
     }
-	if(arrival_time_period.isSet()){
+    if(arrival_time_period.isSet()){
         obj.insert(QString("arrival_time_period"), ::OpenAPI::toJsonValue(arrival_time_period));
     }
-	
+    
     if(properties.size() > 0){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     } 

@@ -25,7 +25,7 @@ Method | HTTP request | Description
 ### Example
 
 ```bash
- geocodingReverseSearch  focus.lat=value  focus.lng=value  within.country=value
+ geocodingReverseSearch  lat=value  lng=value  within.country=value
 ```
 
 ### Parameters
@@ -33,8 +33,8 @@ Method | HTTP request | Description
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focusPeriodlat** | **float** |  | [default to null]
- **focusPeriodlng** | **float** |  | [default to null]
+ **lat** | **float** |  | [default to null]
+ **lng** | **float** |  | [default to null]
  **withinPeriodcountry** | **string** |  | [optional] [default to null]
 
 ### Return type
@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 ### Example
 
 ```bash
- geocodingSearch  query=value  within.country=value  focus.lat=value  focus.lng=value
+ geocodingSearch  query=value  focus.lat=value  focus.lng=value  within.country=value
 ```
 
 ### Parameters
@@ -69,9 +69,9 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **string** |  | [default to null]
- **withinPeriodcountry** | **string** |  | [optional] [default to null]
  **focusPeriodlat** | **float** |  | [optional] [default to null]
  **focusPeriodlng** | **float** |  | [optional] [default to null]
+ **withinPeriodcountry** | **string** |  | [optional] [default to null]
 
 ### Return type
 

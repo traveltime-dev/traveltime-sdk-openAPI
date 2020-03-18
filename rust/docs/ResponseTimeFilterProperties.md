@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**travel_time** | **i32** |  | [optional] 
-**distance** | **i32** |  | [optional] 
-**distance_breakdown** | [**Vec<::models::ResponseDistanceBreakdownItem>**](ResponseDistanceBreakdownItem.md) |  | [optional] 
-**fares** | [***::models::ResponseFares**](ResponseFares.md) |  | [optional] 
-**route** | [***::models::ResponseRoute**](ResponseRoute.md) |  | [optional] 
+**travel_time** | Option<**i32**> |  | [optional]
+**distance** | Option<**i32**> |  | [optional]
+**distance_breakdown** | Option<[**Vec<crate::models::ResponseDistanceBreakdownItem>**](ResponseDistanceBreakdownItem.md)> |  | [optional]
+**fares** | Option<[**crate::models::ResponseFares**](ResponseFares.md)> |  | [optional]
+**route** | Option<[**crate::models::ResponseRoute**](ResponseRoute.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

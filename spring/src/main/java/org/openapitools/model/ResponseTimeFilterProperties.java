@@ -17,7 +17,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2019-05-24T09:07:54.982Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T07:55:23.027Z[Etc/UTC]")
 
 public class ResponseTimeFilterProperties   {
   @JsonProperty("travel_time")
@@ -31,10 +31,10 @@ public class ResponseTimeFilterProperties   {
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseTimeFilterProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

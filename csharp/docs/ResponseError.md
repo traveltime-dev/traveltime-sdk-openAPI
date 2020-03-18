@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseError
+# Org.OpenAPITools.Model.ResponseError
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HttpStatus** | **int?** |  | [optional] 
-**ErrorCode** | **int?** |  | [optional] 
+**HttpStatus** | **int** |  | [optional] 
+**ErrorCode** | **int** |  | [optional] 
 **Description** | **string** |  | [optional] 
 **DocumentationLink** | **string** |  | [optional] 
 **AdditionalInfo** | **Dictionary&lt;string, List&lt;string&gt;&gt;** |  | [optional] 

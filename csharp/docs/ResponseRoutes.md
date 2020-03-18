@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseRoutes
+# Org.OpenAPITools.Model.ResponseRoutes
 
 ## Properties
 

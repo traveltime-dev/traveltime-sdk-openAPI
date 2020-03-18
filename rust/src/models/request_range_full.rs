@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestRangeFull {
     #[serde(rename = "enabled")]
     pub enabled: bool,
@@ -25,9 +24,11 @@ pub struct RequestRangeFull {
 impl RequestRangeFull {
     pub fn new(enabled: bool, max_results: i32, width: i32) -> RequestRangeFull {
         RequestRangeFull {
-            enabled: enabled,
-            max_results: max_results,
-            width: width,
+            enabled,
+            max_results,
+            width,
         }
     }
 }
+
+

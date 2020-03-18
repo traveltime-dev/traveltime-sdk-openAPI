@@ -11,28 +11,28 @@ part 'request_time_filter_arrival_search.jser.dart';
 
 class RequestTimeFilterArrivalSearch {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('departure_location_ids')
+  @Alias('departure_location_ids', isNullable: false,  )
   final List<String> departureLocationIds;
   
-  @Alias('arrival_location_id')
+  @Alias('arrival_location_id', isNullable: false,  )
   final String arrivalLocationId;
   
-  @Alias('transportation')
+  @Alias('transportation', isNullable: false,  )
   final RequestTransportation transportation;
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('arrival_time')
+  @Alias('arrival_time', isNullable: false,  )
   final DateTime arrivalTime;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<RequestTimeFilterProperty> properties;
   
-  @Alias('range')
+  @Alias('range', isNullable: false,  )
   final RequestRangeFull range;
   
 

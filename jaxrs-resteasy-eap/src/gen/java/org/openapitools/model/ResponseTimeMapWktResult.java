@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseTimeMapProperties;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T07:54:23.710Z[Etc/UTC]")
 public class ResponseTimeMapWktResult   {
   
 
@@ -18,7 +18,7 @@ public class ResponseTimeMapWktResult   {
 
   private String shape;
 
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
   /**
    **/

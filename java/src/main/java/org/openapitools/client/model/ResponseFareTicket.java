@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseFareTicket
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseFareTicket {
   /**
    * Gets or Sets type
@@ -74,7 +74,7 @@ public class ResponseFareTicket {
 
       @Override
       public TypeEnum read(final JsonReader jsonReader) throws IOException {
-        String value = jsonReader.nextString();
+        String value =  jsonReader.nextString();
         return TypeEnum.fromValue(value);
       }
     }
@@ -92,7 +92,9 @@ public class ResponseFareTicket {
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private String currency;
 
+
   public ResponseFareTicket type(TypeEnum type) {
+    
     this.type = type;
     return this;
   }
@@ -102,15 +104,19 @@ public class ResponseFareTicket {
    * @return type
   **/
   @ApiModelProperty(required = true, value = "")
+
   public TypeEnum getType() {
     return type;
   }
+
 
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
+
   public ResponseFareTicket price(Double price) {
+    
     this.price = price;
     return this;
   }
@@ -120,15 +126,19 @@ public class ResponseFareTicket {
    * @return price
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Double getPrice() {
     return price;
   }
+
 
   public void setPrice(Double price) {
     this.price = price;
   }
 
+
   public ResponseFareTicket currency(String currency) {
+    
     this.currency = currency;
     return this;
   }
@@ -138,9 +148,11 @@ public class ResponseFareTicket {
    * @return currency
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getCurrency() {
     return currency;
   }
+
 
   public void setCurrency(String currency) {
     this.currency = currency;

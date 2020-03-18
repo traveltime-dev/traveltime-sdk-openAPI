@@ -14,6 +14,11 @@
 #include "response_fare_ticket.h"
 #include "response_transportation_mode.h"
 
+                    typedef enum  {  car, parking, boarding, walk, bike, train, rail_national, rail_overground, rail_underground, rail_dlr, bus, cable_car, plane, ferry, coach } modes_e;
+
+            char* modes_ToString(modes_e modes);
+
+            modes_e modes_FromString(char* modes);
 
 
 typedef struct response_fares_breakdown_item_t {

@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestUnionOnIntersection: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setSearchIds(const QList<QString> &search_ids);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestUnionOnIntersection)
 
 #endif // OAIRequestUnionOnIntersection_H

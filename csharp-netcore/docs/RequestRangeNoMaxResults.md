@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestRangeNoMaxResults
+# Org.OpenAPITools.Model.RequestRangeNoMaxResults
 ## Properties
 
 Name | Type | Description | Notes

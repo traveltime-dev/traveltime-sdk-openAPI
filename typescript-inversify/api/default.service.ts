@@ -12,35 +12,35 @@
 /* tslint:disable:no-unused-variable member-ordering */
 
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+
+import { map } from "rxjs/operators";
 import IHttpClient from "../IHttpClient";
 import { inject, injectable } from "inversify";
 import { IAPIConfiguration } from "../IAPIConfiguration";
 import { Headers } from "../Headers";
 import HttpResponse from "../HttpResponse";
 
-import { RequestRoutes } from '../model/requestRoutes';
-import { RequestSupportedLocations } from '../model/requestSupportedLocations';
-import { RequestTimeFilter } from '../model/requestTimeFilter';
-import { RequestTimeFilterFast } from '../model/requestTimeFilterFast';
-import { RequestTimeFilterPostcodeDistricts } from '../model/requestTimeFilterPostcodeDistricts';
-import { RequestTimeFilterPostcodeSectors } from '../model/requestTimeFilterPostcodeSectors';
-import { RequestTimeFilterPostcodes } from '../model/requestTimeFilterPostcodes';
-import { RequestTimeMap } from '../model/requestTimeMap';
-import { ResponseError } from '../model/responseError';
-import { ResponseGeocoding } from '../model/responseGeocoding';
-import { ResponseMapInfo } from '../model/responseMapInfo';
-import { ResponseRoutes } from '../model/responseRoutes';
-import { ResponseSupportedLocations } from '../model/responseSupportedLocations';
-import { ResponseTimeFilter } from '../model/responseTimeFilter';
-import { ResponseTimeFilterFast } from '../model/responseTimeFilterFast';
-import { ResponseTimeFilterPostcodeDistricts } from '../model/responseTimeFilterPostcodeDistricts';
-import { ResponseTimeFilterPostcodeSectors } from '../model/responseTimeFilterPostcodeSectors';
-import { ResponseTimeFilterPostcodes } from '../model/responseTimeFilterPostcodes';
-import { ResponseTimeMap } from '../model/responseTimeMap';
+import { RequestRoutes } from "../model/requestRoutes";
+import { RequestSupportedLocations } from "../model/requestSupportedLocations";
+import { RequestTimeFilter } from "../model/requestTimeFilter";
+import { RequestTimeFilterFast } from "../model/requestTimeFilterFast";
+import { RequestTimeFilterPostcodeDistricts } from "../model/requestTimeFilterPostcodeDistricts";
+import { RequestTimeFilterPostcodeSectors } from "../model/requestTimeFilterPostcodeSectors";
+import { RequestTimeFilterPostcodes } from "../model/requestTimeFilterPostcodes";
+import { RequestTimeMap } from "../model/requestTimeMap";
+import { ResponseError } from "../model/responseError";
+import { ResponseGeocoding } from "../model/responseGeocoding";
+import { ResponseMapInfo } from "../model/responseMapInfo";
+import { ResponseRoutes } from "../model/responseRoutes";
+import { ResponseSupportedLocations } from "../model/responseSupportedLocations";
+import { ResponseTimeFilter } from "../model/responseTimeFilter";
+import { ResponseTimeFilterFast } from "../model/responseTimeFilterFast";
+import { ResponseTimeFilterPostcodeDistricts } from "../model/responseTimeFilterPostcodeDistricts";
+import { ResponseTimeFilterPostcodeSectors } from "../model/responseTimeFilterPostcodeSectors";
+import { ResponseTimeFilterPostcodes } from "../model/responseTimeFilterPostcodes";
+import { ResponseTimeMap } from "../model/responseTimeMap";
 
-import { COLLECTION_FORMATS }  from '../variables';
+import { COLLECTION_FORMATS }  from "../variables";
 
 
 
@@ -57,28 +57,28 @@ export class DefaultService {
     /**
      * 
      * 
-     * @param focusLat 
-     * @param focusLng 
+     * @param lat 
+     * @param lng 
      * @param withinCountry 
      
      */
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe?: 'body', headers?: Headers): Observable<ResponseGeocoding>;
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseGeocoding>>;
-    public geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!focusLat){
-            throw new Error('Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe?: 'body', headers?: Headers): Observable<ResponseGeocoding>;
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseGeocoding>>;
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (lat === null || lat === undefined){
+            throw new Error('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
 
-        if (!focusLng){
-            throw new Error('Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+        if (lng === null || lng === undefined){
+            throw new Error('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
         let queryParameters: string[] = [];
-        if (focusLat !== undefined) {
-            queryParameters.push("focusLat="+encodeURIComponent(String(focusLat)));
+        if (lat !== undefined) {
+            queryParameters.push("lat="+encodeURIComponent(String(lat)));
         }
-        if (focusLng !== undefined) {
-            queryParameters.push("focusLng="+encodeURIComponent(String(focusLng)));
+        if (lng !== undefined) {
+            queryParameters.push("lng="+encodeURIComponent(String(lng)));
         }
         if (withinCountry !== undefined) {
             queryParameters.push("withinCountry="+encodeURIComponent(String(withinCountry)));
@@ -96,7 +96,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseGeocoding>> = this.httpClient.get(`${this.basePath}/v4/geocoding/reverse?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseGeocoding>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseGeocoding>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -106,15 +108,15 @@ export class DefaultService {
      * 
      * 
      * @param query 
-     * @param withinCountry 
      * @param focusLat 
      * @param focusLng 
+     * @param withinCountry 
      
      */
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe?: 'body', headers?: Headers): Observable<ResponseGeocoding>;
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseGeocoding>>;
-    public geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!query){
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe?: 'body', headers?: Headers): Observable<ResponseGeocoding>;
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseGeocoding>>;
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, observe: any = 'body', headers: Headers = {}): Observable<any> {
+        if (query === null || query === undefined){
             throw new Error('Required parameter query was null or undefined when calling geocodingSearch.');
         }
 
@@ -122,14 +124,14 @@ export class DefaultService {
         if (query !== undefined) {
             queryParameters.push("query="+encodeURIComponent(String(query)));
         }
-        if (withinCountry !== undefined) {
-            queryParameters.push("withinCountry="+encodeURIComponent(String(withinCountry)));
-        }
         if (focusLat !== undefined) {
             queryParameters.push("focusLat="+encodeURIComponent(String(focusLat)));
         }
         if (focusLng !== undefined) {
             queryParameters.push("focusLng="+encodeURIComponent(String(focusLng)));
+        }
+        if (withinCountry !== undefined) {
+            queryParameters.push("withinCountry="+encodeURIComponent(String(withinCountry)));
         }
 
         // authentication (ApiKey) required
@@ -144,7 +146,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseGeocoding>> = this.httpClient.get(`${this.basePath}/v4/geocoding/search?${queryParameters.join('&')}`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseGeocoding>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseGeocoding>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -170,7 +174,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseMapInfo>> = this.httpClient.get(`${this.basePath}/v4/map-info`, headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseMapInfo>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseMapInfo>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -185,7 +191,7 @@ export class DefaultService {
     public routes(requestRoutes: RequestRoutes, observe?: 'body', headers?: Headers): Observable<ResponseRoutes>;
     public routes(requestRoutes: RequestRoutes, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseRoutes>>;
     public routes(requestRoutes: RequestRoutes, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestRoutes){
+        if (requestRoutes === null || requestRoutes === undefined){
             throw new Error('Required parameter requestRoutes was null or undefined when calling routes.');
         }
 
@@ -202,7 +208,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseRoutes>> = this.httpClient.post(`${this.basePath}/v4/routes`, requestRoutes , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseRoutes>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseRoutes>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -217,7 +225,7 @@ export class DefaultService {
     public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'body', headers?: Headers): Observable<ResponseSupportedLocations>;
     public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseSupportedLocations>>;
     public supportedLocations(requestSupportedLocations: RequestSupportedLocations, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestSupportedLocations){
+        if (requestSupportedLocations === null || requestSupportedLocations === undefined){
             throw new Error('Required parameter requestSupportedLocations was null or undefined when calling supportedLocations.');
         }
 
@@ -234,7 +242,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseSupportedLocations>> = this.httpClient.post(`${this.basePath}/v4/supported-locations`, requestSupportedLocations , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseSupportedLocations>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseSupportedLocations>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -249,7 +259,7 @@ export class DefaultService {
     public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'body', headers?: Headers): Observable<ResponseTimeFilter>;
     public timeFilter(requestTimeFilter: RequestTimeFilter, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeFilter>>;
     public timeFilter(requestTimeFilter: RequestTimeFilter, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeFilter){
+        if (requestTimeFilter === null || requestTimeFilter === undefined){
             throw new Error('Required parameter requestTimeFilter was null or undefined when calling timeFilter.');
         }
 
@@ -266,7 +276,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseTimeFilter>> = this.httpClient.post(`${this.basePath}/v4/time-filter`, requestTimeFilter , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeFilter>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeFilter>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -281,7 +293,7 @@ export class DefaultService {
     public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'body', headers?: Headers): Observable<ResponseTimeFilterFast>;
     public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeFilterFast>>;
     public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeFilterFast){
+        if (requestTimeFilterFast === null || requestTimeFilterFast === undefined){
             throw new Error('Required parameter requestTimeFilterFast was null or undefined when calling timeFilterFast.');
         }
 
@@ -298,7 +310,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseTimeFilterFast>> = this.httpClient.post(`${this.basePath}/v4/time-filter/fast`, requestTimeFilterFast , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeFilterFast>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeFilterFast>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -313,7 +327,7 @@ export class DefaultService {
     public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'body', headers?: Headers): Observable<ResponseTimeFilterPostcodeDistricts>;
     public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeFilterPostcodeDistricts>>;
     public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeFilterPostcodeDistricts){
+        if (requestTimeFilterPostcodeDistricts === null || requestTimeFilterPostcodeDistricts === undefined){
             throw new Error('Required parameter requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
         }
 
@@ -330,7 +344,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseTimeFilterPostcodeDistricts>> = this.httpClient.post(`${this.basePath}/v4/time-filter/postcode-districts`, requestTimeFilterPostcodeDistricts , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeFilterPostcodeDistricts>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeFilterPostcodeDistricts>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -345,7 +361,7 @@ export class DefaultService {
     public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'body', headers?: Headers): Observable<ResponseTimeFilterPostcodeSectors>;
     public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeFilterPostcodeSectors>>;
     public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeFilterPostcodeSectors){
+        if (requestTimeFilterPostcodeSectors === null || requestTimeFilterPostcodeSectors === undefined){
             throw new Error('Required parameter requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
         }
 
@@ -362,7 +378,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseTimeFilterPostcodeSectors>> = this.httpClient.post(`${this.basePath}/v4/time-filter/postcode-sectors`, requestTimeFilterPostcodeSectors , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeFilterPostcodeSectors>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeFilterPostcodeSectors>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -377,7 +395,7 @@ export class DefaultService {
     public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'body', headers?: Headers): Observable<ResponseTimeFilterPostcodes>;
     public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeFilterPostcodes>>;
     public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeFilterPostcodes){
+        if (requestTimeFilterPostcodes === null || requestTimeFilterPostcodes === undefined){
             throw new Error('Required parameter requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
         }
 
@@ -394,7 +412,9 @@ export class DefaultService {
 
         const response: Observable<HttpResponse<ResponseTimeFilterPostcodes>> = this.httpClient.post(`${this.basePath}/v4/time-filter/postcodes`, requestTimeFilterPostcodes , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeFilterPostcodes>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeFilterPostcodes>(httpResponse.response))
+               );
         }
         return response;
     }
@@ -409,7 +429,7 @@ export class DefaultService {
     public timeMap(requestTimeMap: RequestTimeMap, observe?: 'body', headers?: Headers): Observable<ResponseTimeMap>;
     public timeMap(requestTimeMap: RequestTimeMap, observe?: 'response', headers?: Headers): Observable<HttpResponse<ResponseTimeMap>>;
     public timeMap(requestTimeMap: RequestTimeMap, observe: any = 'body', headers: Headers = {}): Observable<any> {
-        if (!requestTimeMap){
+        if (requestTimeMap === null || requestTimeMap === undefined){
             throw new Error('Required parameter requestTimeMap was null or undefined when calling timeMap.');
         }
 
@@ -421,12 +441,14 @@ export class DefaultService {
         if (this.APIConfiguration.apiKeys && this.APIConfiguration.apiKeys["X-Application-Id"]) {
             headers['X-Application-Id'] = this.APIConfiguration.apiKeys["X-Application-Id"];
         }
-        headers['Accept'] = 'application/json';
+        headers['Accept'] = 'application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json';
         headers['Content-Type'] = 'application/json';
 
         const response: Observable<HttpResponse<ResponseTimeMap>> = this.httpClient.post(`${this.basePath}/v4/time-map`, requestTimeMap , headers);
         if (observe == 'body') {
-               return response.map(httpResponse => <ResponseTimeMap>(httpResponse.response));
+               return response.pipe(
+                   map(httpResponse => <ResponseTimeMap>(httpResponse.response))
+               );
         }
         return response;
     }

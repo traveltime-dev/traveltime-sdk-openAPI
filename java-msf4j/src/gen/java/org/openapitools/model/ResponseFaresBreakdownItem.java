@@ -13,7 +13,7 @@ import org.openapitools.model.ResponseTransportationMode;
 /**
  * ResponseFaresBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class ResponseFaresBreakdownItem   {
   @JsonProperty("modes")
   private List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>();

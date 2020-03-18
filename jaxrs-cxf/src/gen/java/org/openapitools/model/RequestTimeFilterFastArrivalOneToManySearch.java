@@ -31,7 +31,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;

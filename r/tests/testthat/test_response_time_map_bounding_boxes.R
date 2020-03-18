@@ -6,7 +6,7 @@ context("Test ResponseTimeMapBoundingBoxes")
 model.instance <- ResponseTimeMapBoundingBoxes$new()
 
 test_that("results", {
-  # tests for the property `results` (ResponseTimeMapBoundingBoxesResult)
+  # tests for the property `results` (array[ResponseTimeMapBoundingBoxesResult])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`results`, "EXPECTED_RESULT")

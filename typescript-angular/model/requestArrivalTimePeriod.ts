@@ -16,3 +16,4 @@ export type RequestArrivalTimePeriod = 'weekday_morning';
 export const RequestArrivalTimePeriod = {
     WeekdayMorning: 'weekday_morning' as RequestArrivalTimePeriod
 };
+

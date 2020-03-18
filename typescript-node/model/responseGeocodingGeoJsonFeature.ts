@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseGeocodingGeometry } from './responseGeocodingGeometry';
 import { ResponseGeocodingProperties } from './responseGeocodingProperties';
 

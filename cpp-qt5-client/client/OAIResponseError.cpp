@@ -10,198 +10,184 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseError.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseError::OAIResponseError(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseError::OAIResponseError() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseError::~OAIResponseError() {
+OAIResponseError::~OAIResponseError() {}
 
-}
+void OAIResponseError::initializeModel() {
 
-void
-OAIResponseError::init() {
-    
     m_http_status_isSet = false;
     m_http_status_isValid = false;
-    
+
     m_error_code_isSet = false;
     m_error_code_isValid = false;
-    
+
     m_description_isSet = false;
     m_description_isValid = false;
-    
+
     m_documentation_link_isSet = false;
     m_documentation_link_isValid = false;
-    
+
     m_additional_info_isSet = false;
     m_additional_info_isValid = false;
-    }
+}
 
-void
-OAIResponseError::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseError::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseError::fromJsonObject(QJsonObject json) {
-    
+void OAIResponseError::fromJsonObject(QJsonObject json) {
+
     m_http_status_isValid = ::OpenAPI::fromJsonValue(http_status, json[QString("http_status")]);
-    
-    
+    m_http_status_isSet = !json[QString("http_status")].isNull() && m_http_status_isValid;
+
     m_error_code_isValid = ::OpenAPI::fromJsonValue(error_code, json[QString("error_code")]);
-    
-    
+    m_error_code_isSet = !json[QString("error_code")].isNull() && m_error_code_isValid;
+
     m_description_isValid = ::OpenAPI::fromJsonValue(description, json[QString("description")]);
-    
-    
+    m_description_isSet = !json[QString("description")].isNull() && m_description_isValid;
+
     m_documentation_link_isValid = ::OpenAPI::fromJsonValue(documentation_link, json[QString("documentation_link")]);
-    
-    
-    
-    
+    m_documentation_link_isSet = !json[QString("documentation_link")].isNull() && m_documentation_link_isValid;
+
     if(json["additional_info"].isObject()){
         auto varmap = json["additional_info"].toObject().toVariantMap();
         m_additional_info_isValid = true;
         if(varmap.count() > 0){
             for(auto val : varmap.keys()){
                 QList<QString> item;
-    		    auto jval = QJsonValue::fromVariant(varmap.value(val));
+                auto jval = QJsonValue::fromVariant(varmap.value(val));
                 m_additional_info_isValid &= ::OpenAPI::fromJsonValue(item, jval);
+                m_additional_info_isSet &= !jval.isNull() && m_additional_info_isValid;
                 additional_info.insert(additional_info.end(), val, item);
             }
         }
     }
-    
 }
 
-QString
-OAIResponseError::asJson () const {
+QString OAIResponseError::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseError::asJsonObject() const {
+QJsonObject OAIResponseError::asJsonObject() const {
     QJsonObject obj;
-	if(m_http_status_isSet){
+    if (m_http_status_isSet) {
         obj.insert(QString("http_status"), ::OpenAPI::toJsonValue(http_status));
     }
-	if(m_error_code_isSet){
+    if (m_error_code_isSet) {
         obj.insert(QString("error_code"), ::OpenAPI::toJsonValue(error_code));
     }
-	if(m_description_isSet){
+    if (m_description_isSet) {
         obj.insert(QString("description"), ::OpenAPI::toJsonValue(description));
     }
-	if(m_documentation_link_isSet){
+    if (m_documentation_link_isSet) {
         obj.insert(QString("documentation_link"), ::OpenAPI::toJsonValue(documentation_link));
     }
-	
-    if(additional_info.size() > 0){
+    if (additional_info.size() > 0) {
         
         obj.insert(QString("additional_info"), toJsonValue(additional_info));
-    } 
+    }
     return obj;
 }
 
-
-qint32
-OAIResponseError::getHttpStatus() const {
+qint32 OAIResponseError::getHttpStatus() const {
     return http_status;
 }
-void
-OAIResponseError::setHttpStatus(const qint32 &http_status) {
+void OAIResponseError::setHttpStatus(const qint32 &http_status) {
     this->http_status = http_status;
     this->m_http_status_isSet = true;
 }
 
-
-qint32
-OAIResponseError::getErrorCode() const {
+qint32 OAIResponseError::getErrorCode() const {
     return error_code;
 }
-void
-OAIResponseError::setErrorCode(const qint32 &error_code) {
+void OAIResponseError::setErrorCode(const qint32 &error_code) {
     this->error_code = error_code;
     this->m_error_code_isSet = true;
 }
 
-
-QString
-OAIResponseError::getDescription() const {
+QString OAIResponseError::getDescription() const {
     return description;
 }
-void
-OAIResponseError::setDescription(const QString &description) {
+void OAIResponseError::setDescription(const QString &description) {
     this->description = description;
     this->m_description_isSet = true;
 }
 
-
-QString
-OAIResponseError::getDocumentationLink() const {
+QString OAIResponseError::getDocumentationLink() const {
     return documentation_link;
 }
-void
-OAIResponseError::setDocumentationLink(const QString &documentation_link) {
+void OAIResponseError::setDocumentationLink(const QString &documentation_link) {
     this->documentation_link = documentation_link;
     this->m_documentation_link_isSet = true;
 }
 
-
-QMap<QString, QList<QString>>
-OAIResponseError::getAdditionalInfo() const {
+QMap<QString, QList<QString>> OAIResponseError::getAdditionalInfo() const {
     return additional_info;
 }
-void
-OAIResponseError::setAdditionalInfo(const QMap<QString, QList<QString>> &additional_info) {
+void OAIResponseError::setAdditionalInfo(const QMap<QString, QList<QString>> &additional_info) {
     this->additional_info = additional_info;
     this->m_additional_info_isSet = true;
 }
 
-bool
-OAIResponseError::isSet() const {
+bool OAIResponseError::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(m_http_status_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_error_code_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_description_isSet){ isObjectUpdated = true; break;}
-    
-        if(m_documentation_link_isSet){ isObjectUpdated = true; break;}
-    
-        if(additional_info.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (m_http_status_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_error_code_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_description_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (m_documentation_link_isSet) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (additional_info.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseError::isValid() const {
+bool OAIResponseError::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }
 
-}
-
+} // namespace OpenAPI

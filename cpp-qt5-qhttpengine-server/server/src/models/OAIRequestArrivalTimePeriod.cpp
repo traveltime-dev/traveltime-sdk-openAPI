@@ -13,12 +13,12 @@
 
 #include "OAIRequestArrivalTimePeriod.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,7 +45,7 @@ OAIRequestArrivalTimePeriod::init() {
 
 void
 OAIRequestArrivalTimePeriod::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("weekday_morning", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestArrivalTimePeriod::WEEKDAY_MORNING;
         m_value_isValid = true;
@@ -65,7 +65,7 @@ OAIRequestArrivalTimePeriod::asJson () const {
     switch (m_value){
         case eOAIRequestArrivalTimePeriod::WEEKDAY_MORNING:
             val = "weekday_morning";
-            break; 
+            break;
         default:
             break;
     }

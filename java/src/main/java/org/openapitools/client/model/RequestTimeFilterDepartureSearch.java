@@ -33,7 +33,7 @@ import org.threeten.bp.OffsetDateTime;
 /**
  * RequestTimeFilterDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeFilterDepartureSearch {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -49,7 +49,7 @@ public class RequestTimeFilterDepartureSearch {
 
   public static final String SERIALIZED_NAME_TRANSPORTATION = "transportation";
   @SerializedName(SERIALIZED_NAME_TRANSPORTATION)
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)
@@ -65,9 +65,11 @@ public class RequestTimeFilterDepartureSearch {
 
   public static final String SERIALIZED_NAME_RANGE = "range";
   @SerializedName(SERIALIZED_NAME_RANGE)
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
+
 
   public RequestTimeFilterDepartureSearch id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -77,15 +79,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public RequestTimeFilterDepartureSearch departureLocationId(String departureLocationId) {
+    
     this.departureLocationId = departureLocationId;
     return this;
   }
@@ -95,15 +101,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return departureLocationId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getDepartureLocationId() {
     return departureLocationId;
   }
+
 
   public void setDepartureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
   }
 
+
   public RequestTimeFilterDepartureSearch arrivalLocationIds(List<String> arrivalLocationIds) {
+    
     this.arrivalLocationIds = arrivalLocationIds;
     return this;
   }
@@ -118,15 +128,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return arrivalLocationIds
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
+
 
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
   }
 
+
   public RequestTimeFilterDepartureSearch transportation(RequestTransportation transportation) {
+    
     this.transportation = transportation;
     return this;
   }
@@ -136,15 +150,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return transportation
   **/
   @ApiModelProperty(required = true, value = "")
+
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
 
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
   }
 
+
   public RequestTimeFilterDepartureSearch travelTime(Integer travelTime) {
+    
     this.travelTime = travelTime;
     return this;
   }
@@ -156,15 +174,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return travelTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getTravelTime() {
     return travelTime;
   }
+
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
   }
 
+
   public RequestTimeFilterDepartureSearch departureTime(OffsetDateTime departureTime) {
+    
     this.departureTime = departureTime;
     return this;
   }
@@ -174,15 +196,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return departureTime
   **/
   @ApiModelProperty(required = true, value = "")
+
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
+
 
   public void setDepartureTime(OffsetDateTime departureTime) {
     this.departureTime = departureTime;
   }
 
+
   public RequestTimeFilterDepartureSearch properties(List<RequestTimeFilterProperty> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -197,15 +223,19 @@ public class RequestTimeFilterDepartureSearch {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestTimeFilterProperty> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<RequestTimeFilterProperty> properties) {
     this.properties = properties;
   }
 
+
   public RequestTimeFilterDepartureSearch range(RequestRangeFull range) {
+    
     this.range = range;
     return this;
   }
@@ -214,10 +244,13 @@ public class RequestTimeFilterDepartureSearch {
    * Get range
    * @return range
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public RequestRangeFull getRange() {
     return range;
   }
+
 
   public void setRange(RequestRangeFull range) {
     this.range = range;

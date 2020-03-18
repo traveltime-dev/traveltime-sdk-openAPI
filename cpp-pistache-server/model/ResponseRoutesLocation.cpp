@@ -53,11 +53,14 @@ std::string ResponseRoutesLocation::getId() const
 void ResponseRoutesLocation::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::vector<ResponseRoutesProperties>& ResponseRoutesLocation::getProperties()
 {
     return m_Properties;
+}
+void ResponseRoutesLocation::setProperties(std::vector<ResponseRoutesProperties> const& value)
+{
+    m_Properties = value;
 }
 
 }

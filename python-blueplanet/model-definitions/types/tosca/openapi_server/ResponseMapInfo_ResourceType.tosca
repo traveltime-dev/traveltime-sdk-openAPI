@@ -1,0 +1,37 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseMapInfo"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseMapInfo"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseMapInfoMap = openapi_server.resourceTypes.ResponseMapInfoMap
+}
+resourceTypes {
+
+  ResponseMapInfo {
+    title = ResponseMapInfo
+    description = ResponseMapInfo
+    derivedFrom = Root
+    properties {
+        maps {
+          type = array
+          items.type = ResponseMapInfoMap
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseMapInfo {
+    title = ResponseMapInfo
+    description = ResponseMapInfo
+    implements = openapi_server.resourceTypes.ResponseMapInfo
+
+  }
+}

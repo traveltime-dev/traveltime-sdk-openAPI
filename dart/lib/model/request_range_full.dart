@@ -16,21 +16,9 @@ class RequestRangeFull {
 
   RequestRangeFull.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['enabled'] == null) {
-      enabled = null;
-    } else {
-          enabled = json['enabled'];
-    }
-    if (json['max_results'] == null) {
-      maxResults = null;
-    } else {
-          maxResults = json['max_results'];
-    }
-    if (json['width'] == null) {
-      width = null;
-    } else {
-          width = json['width'];
-    }
+    enabled = json['enabled'];
+    maxResults = json['max_results'];
+    width = json['width'];
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +33,26 @@ class RequestRangeFull {
   }
 
   static List<RequestRangeFull> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestRangeFull>() : json.map((value) => new RequestRangeFull.fromJson(value)).toList();
+    return json == null ? List<RequestRangeFull>() : json.map((value) => RequestRangeFull.fromJson(value)).toList();
   }
 
   static Map<String, RequestRangeFull> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, RequestRangeFull>();
+    var map = Map<String, RequestRangeFull>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new RequestRangeFull.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = RequestRangeFull.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of RequestRangeFull-objects as value to a dart map
+  static Map<String, List<RequestRangeFull>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<RequestRangeFull>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = RequestRangeFull.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseMapInfoFeatures;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseGeocodingProperties   {
   
   private String name;
@@ -23,7 +23,7 @@ public class ResponseGeocodingProperties   {
   private String countryCode;
   private String continent;
   private String postcode;
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties () {
 

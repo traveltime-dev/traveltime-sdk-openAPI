@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { RequestRangeFull } from './requestRangeFull';
 import { RequestTimeFilterPostcodesProperty } from './requestTimeFilterPostcodesProperty';
 import { RequestTransportation } from './requestTransportation';

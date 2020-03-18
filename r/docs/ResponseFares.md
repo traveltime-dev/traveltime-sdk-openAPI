@@ -1,9 +1,9 @@
-# traveltimeplatform::ResponseFares
+# openapi::ResponseFares
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**breakdown** | [**ResponseFaresBreakdownItem**](ResponseFaresBreakdownItem.md) |  | 
-**tickets_total** | [**ResponseFareTicket**](ResponseFareTicket.md) |  | 
+**breakdown** | [**array[ResponseFaresBreakdownItem]**](ResponseFaresBreakdownItem.md) |  | 
+**tickets_total** | [**array[ResponseFareTicket]**](ResponseFareTicket.md) |  | 
 
 

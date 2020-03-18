@@ -18,8 +18,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class ResponseGeocodingGeoJsonFeature   {
   
   private @Valid String type;
-  private @Valid ResponseGeocodingGeometry geometry = null;
-  private @Valid ResponseGeocodingProperties properties = null;
+  private @Valid ResponseGeocodingGeometry geometry;
+  private @Valid ResponseGeocodingProperties properties;
 
   /**
    **/

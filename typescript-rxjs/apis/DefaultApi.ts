@@ -12,7 +12,7 @@
  */
 
 import { Observable } from 'rxjs';
-import { BaseAPI, RequiredError, HttpHeaders, HttpQuery, COLLECTION_FORMATS } from '../runtime';
+import { BaseAPI, HttpHeaders, HttpQuery, throwIfNullOrUndefined } from '../runtime';
 import {
     RequestRoutes,
     RequestSupportedLocations,
@@ -36,16 +36,16 @@ import {
 } from '../models';
 
 export interface GeocodingReverseSearchRequest {
-    focusLat: number;
-    focusLng: number;
+    lat: number;
+    lng: number;
     withinCountry?: string;
 }
 
 export interface GeocodingSearchRequest {
     query: string;
-    withinCountry?: string;
     focusLat?: number;
     focusLng?: number;
+    withinCountry?: string;
 }
 
 export interface RoutesRequest {
@@ -87,351 +87,221 @@ export class DefaultApi extends BaseAPI {
 
     /**
      */
-    geocodingReverseSearch(requestParameters: GeocodingReverseSearchRequest): Observable<ResponseGeocoding> {
-        if (requestParameters.focusLat === null || requestParameters.focusLat === undefined) {
-            throw new RequiredError('focusLat','Required parameter requestParameters.focusLat was null or undefined when calling geocodingReverseSearch.');
-        }
+    geocodingReverseSearch = ({ lat, lng, withinCountry }: GeocodingReverseSearchRequest): Observable<ResponseGeocoding> => {
+        throwIfNullOrUndefined(lat, 'geocodingReverseSearch');
+        throwIfNullOrUndefined(lng, 'geocodingReverseSearch');
 
-        if (requestParameters.focusLng === null || requestParameters.focusLng === undefined) {
-            throw new RequiredError('focusLng','Required parameter requestParameters.focusLng was null or undefined when calling geocodingReverseSearch.');
-        }
+        const headers: HttpHeaders = {
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
-        const queryParameters: HttpQuery = {};
+        const query: HttpQuery = { // required parameters are used directly since they are already checked by throwIfNullOrUndefined
+            'lat': lat,
+            'lng': lng,
+        };
 
-        if (requestParameters.focusLat !== undefined && requestParameters.focusLat !== null) {
-            queryParameters['focus.lat'] = requestParameters.focusLat;
-        }
-
-        if (requestParameters.focusLng !== undefined && requestParameters.focusLng !== null) {
-            queryParameters['focus.lng'] = requestParameters.focusLng;
-        }
-
-        if (requestParameters.withinCountry !== undefined && requestParameters.withinCountry !== null) {
-            queryParameters['within.country'] = requestParameters.withinCountry;
-        }
-
-        const headerParameters: HttpHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        if (withinCountry != null) { query['within.country'] = withinCountry; }
 
         return this.request<ResponseGeocoding>({
-            path: `/v4/geocoding/reverse`,
+            path: '/v4/geocoding/reverse',
             method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
+            headers,
+            query,
         });
-    }
+    };
 
     /**
      */
-    geocodingSearch(requestParameters: GeocodingSearchRequest): Observable<ResponseGeocoding> {
-        if (requestParameters.query === null || requestParameters.query === undefined) {
-            throw new RequiredError('query','Required parameter requestParameters.query was null or undefined when calling geocodingSearch.');
-        }
+    geocodingSearch = ({ query: queryAlias, focusLat, focusLng, withinCountry }: GeocodingSearchRequest): Observable<ResponseGeocoding> => {
+        throwIfNullOrUndefined(queryAlias, 'geocodingSearch');
 
-        const queryParameters: HttpQuery = {};
+        const headers: HttpHeaders = {
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
-        if (requestParameters.query !== undefined && requestParameters.query !== null) {
-            queryParameters['query'] = requestParameters.query;
-        }
+        const query: HttpQuery = { // required parameters are used directly since they are already checked by throwIfNullOrUndefined
+            'query': queryAlias,
+        };
 
-        if (requestParameters.withinCountry !== undefined && requestParameters.withinCountry !== null) {
-            queryParameters['within.country'] = requestParameters.withinCountry;
-        }
-
-        if (requestParameters.focusLat !== undefined && requestParameters.focusLat !== null) {
-            queryParameters['focus.lat'] = requestParameters.focusLat;
-        }
-
-        if (requestParameters.focusLng !== undefined && requestParameters.focusLng !== null) {
-            queryParameters['focus.lng'] = requestParameters.focusLng;
-        }
-
-        const headerParameters: HttpHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        if (focusLat != null) { query['focus.lat'] = focusLat; }
+        if (focusLng != null) { query['focus.lng'] = focusLng; }
+        if (withinCountry != null) { query['within.country'] = withinCountry; }
 
         return this.request<ResponseGeocoding>({
-            path: `/v4/geocoding/search`,
+            path: '/v4/geocoding/search',
             method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
+            headers,
+            query,
         });
-    }
+    };
 
     /**
      */
-    mapInfo(): Observable<ResponseMapInfo> {
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+    mapInfo = (): Observable<ResponseMapInfo> => {
+        const headers: HttpHeaders = {
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseMapInfo>({
-            path: `/v4/map-info`,
+            path: '/v4/map-info',
             method: 'GET',
-            headers: headerParameters,
-            query: queryParameters,
+            headers,
         });
-    }
+    };
 
     /**
      */
-    routes(requestParameters: RoutesRequest): Observable<ResponseRoutes> {
-        if (requestParameters.requestRoutes === null || requestParameters.requestRoutes === undefined) {
-            throw new RequiredError('requestRoutes','Required parameter requestParameters.requestRoutes was null or undefined when calling routes.');
-        }
+    routes = ({ requestRoutes }: RoutesRequest): Observable<ResponseRoutes> => {
+        throwIfNullOrUndefined(requestRoutes, 'routes');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseRoutes>({
-            path: `/v4/routes`,
+            path: '/v4/routes',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestRoutes,
+            headers,
+            body: requestRoutes,
         });
-    }
+    };
 
     /**
      */
-    supportedLocations(requestParameters: SupportedLocationsRequest): Observable<ResponseSupportedLocations> {
-        if (requestParameters.requestSupportedLocations === null || requestParameters.requestSupportedLocations === undefined) {
-            throw new RequiredError('requestSupportedLocations','Required parameter requestParameters.requestSupportedLocations was null or undefined when calling supportedLocations.');
-        }
+    supportedLocations = ({ requestSupportedLocations }: SupportedLocationsRequest): Observable<ResponseSupportedLocations> => {
+        throwIfNullOrUndefined(requestSupportedLocations, 'supportedLocations');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseSupportedLocations>({
-            path: `/v4/supported-locations`,
+            path: '/v4/supported-locations',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestSupportedLocations,
+            headers,
+            body: requestSupportedLocations,
         });
-    }
+    };
 
     /**
      */
-    timeFilter(requestParameters: TimeFilterRequest): Observable<ResponseTimeFilter> {
-        if (requestParameters.requestTimeFilter === null || requestParameters.requestTimeFilter === undefined) {
-            throw new RequiredError('requestTimeFilter','Required parameter requestParameters.requestTimeFilter was null or undefined when calling timeFilter.');
-        }
+    timeFilter = ({ requestTimeFilter }: TimeFilterRequest): Observable<ResponseTimeFilter> => {
+        throwIfNullOrUndefined(requestTimeFilter, 'timeFilter');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeFilter>({
-            path: `/v4/time-filter`,
+            path: '/v4/time-filter',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeFilter,
+            headers,
+            body: requestTimeFilter,
         });
-    }
+    };
 
     /**
      */
-    timeFilterFast(requestParameters: TimeFilterFastRequest): Observable<ResponseTimeFilterFast> {
-        if (requestParameters.requestTimeFilterFast === null || requestParameters.requestTimeFilterFast === undefined) {
-            throw new RequiredError('requestTimeFilterFast','Required parameter requestParameters.requestTimeFilterFast was null or undefined when calling timeFilterFast.');
-        }
+    timeFilterFast = ({ requestTimeFilterFast }: TimeFilterFastRequest): Observable<ResponseTimeFilterFast> => {
+        throwIfNullOrUndefined(requestTimeFilterFast, 'timeFilterFast');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeFilterFast>({
-            path: `/v4/time-filter/fast`,
+            path: '/v4/time-filter/fast',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeFilterFast,
+            headers,
+            body: requestTimeFilterFast,
         });
-    }
+    };
 
     /**
      */
-    timeFilterPostcodeDistricts(requestParameters: TimeFilterPostcodeDistrictsRequest): Observable<ResponseTimeFilterPostcodeDistricts> {
-        if (requestParameters.requestTimeFilterPostcodeDistricts === null || requestParameters.requestTimeFilterPostcodeDistricts === undefined) {
-            throw new RequiredError('requestTimeFilterPostcodeDistricts','Required parameter requestParameters.requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
-        }
+    timeFilterPostcodeDistricts = ({ requestTimeFilterPostcodeDistricts }: TimeFilterPostcodeDistrictsRequest): Observable<ResponseTimeFilterPostcodeDistricts> => {
+        throwIfNullOrUndefined(requestTimeFilterPostcodeDistricts, 'timeFilterPostcodeDistricts');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeFilterPostcodeDistricts>({
-            path: `/v4/time-filter/postcode-districts`,
+            path: '/v4/time-filter/postcode-districts',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeFilterPostcodeDistricts,
+            headers,
+            body: requestTimeFilterPostcodeDistricts,
         });
-    }
+    };
 
     /**
      */
-    timeFilterPostcodeSectors(requestParameters: TimeFilterPostcodeSectorsRequest): Observable<ResponseTimeFilterPostcodeSectors> {
-        if (requestParameters.requestTimeFilterPostcodeSectors === null || requestParameters.requestTimeFilterPostcodeSectors === undefined) {
-            throw new RequiredError('requestTimeFilterPostcodeSectors','Required parameter requestParameters.requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
-        }
+    timeFilterPostcodeSectors = ({ requestTimeFilterPostcodeSectors }: TimeFilterPostcodeSectorsRequest): Observable<ResponseTimeFilterPostcodeSectors> => {
+        throwIfNullOrUndefined(requestTimeFilterPostcodeSectors, 'timeFilterPostcodeSectors');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeFilterPostcodeSectors>({
-            path: `/v4/time-filter/postcode-sectors`,
+            path: '/v4/time-filter/postcode-sectors',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeFilterPostcodeSectors,
+            headers,
+            body: requestTimeFilterPostcodeSectors,
         });
-    }
+    };
 
     /**
      */
-    timeFilterPostcodes(requestParameters: TimeFilterPostcodesRequest): Observable<ResponseTimeFilterPostcodes> {
-        if (requestParameters.requestTimeFilterPostcodes === null || requestParameters.requestTimeFilterPostcodes === undefined) {
-            throw new RequiredError('requestTimeFilterPostcodes','Required parameter requestParameters.requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
-        }
+    timeFilterPostcodes = ({ requestTimeFilterPostcodes }: TimeFilterPostcodesRequest): Observable<ResponseTimeFilterPostcodes> => {
+        throwIfNullOrUndefined(requestTimeFilterPostcodes, 'timeFilterPostcodes');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeFilterPostcodes>({
-            path: `/v4/time-filter/postcodes`,
+            path: '/v4/time-filter/postcodes',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeFilterPostcodes,
+            headers,
+            body: requestTimeFilterPostcodes,
         });
-    }
+    };
 
     /**
      */
-    timeMap(requestParameters: TimeMapRequest): Observable<ResponseTimeMap> {
-        if (requestParameters.requestTimeMap === null || requestParameters.requestTimeMap === undefined) {
-            throw new RequiredError('requestTimeMap','Required parameter requestParameters.requestTimeMap was null or undefined when calling timeMap.');
-        }
+    timeMap = ({ requestTimeMap }: TimeMapRequest): Observable<ResponseTimeMap> => {
+        throwIfNullOrUndefined(requestTimeMap, 'timeMap');
 
-        const queryParameters: HttpQuery = {};
-
-        const headerParameters: HttpHeaders = {};
-
-        headerParameters['Content-Type'] = 'application/json';
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Api-Key"] = this.configuration.apiKey("X-Api-Key"); // ApiKey authentication
-        }
-
-        if (this.configuration && this.configuration.apiKey) {
-            headerParameters["X-Application-Id"] = this.configuration.apiKey("X-Application-Id"); // ApplicationId authentication
-        }
+        const headers: HttpHeaders = {
+            'Content-Type': 'application/json',
+            ...(this.configuration.apiKey && { 'X-Api-Key': this.configuration.apiKey('X-Api-Key') }), // ApiKey authentication
+            ...(this.configuration.apiKey && { 'X-Application-Id': this.configuration.apiKey('X-Application-Id') }), // ApplicationId authentication
+        };
 
         return this.request<ResponseTimeMap>({
-            path: `/v4/time-map`,
+            path: '/v4/time-map',
             method: 'POST',
-            headers: headerParameters,
-            query: queryParameters,
-            body: requestParameters.requestTimeMap,
+            headers,
+            body: requestTimeMap,
         });
-    }
+    };
 
 }

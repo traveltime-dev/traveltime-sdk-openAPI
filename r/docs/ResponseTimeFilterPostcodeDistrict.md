@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseTimeFilterPostcodeDistrict
+# openapi::ResponseTimeFilterPostcodeDistrict
 
 ## Properties
 Name | Type | Description | Notes

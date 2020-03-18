@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseMapInfoMap {
     /**
-     * 
      * @type {string}
      * @memberof ResponseMapInfoMap
      */
     name: string;
     /**
-     * 
      * @type {ResponseMapInfoFeatures}
      * @memberof ResponseMapInfoMap
      */

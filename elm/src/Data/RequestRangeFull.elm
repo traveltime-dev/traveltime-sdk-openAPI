@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestRangeFull exposing (RequestRangeFull, decoder, encode)
+module Data.RequestRangeFull exposing (RequestRangeFull, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -36,12 +36,28 @@ decoder =
 
 
 encode : RequestRangeFull -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "enabled", Encode.bool model.enabled )
-        , ( "max_results", Encode.int model.maxResults )
-        , ( "width", Encode.int model.width )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestRangeFull -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestRangeFull -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "enabled", Encode.bool model.enabled )
+    , ( "max_results", Encode.int model.maxResults )
+    , ( "width", Encode.int model.width )
+    ]
+
+
+
+toString : RequestRangeFull -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

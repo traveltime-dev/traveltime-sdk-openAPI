@@ -21,53 +21,49 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseFareTicket.h"
 #include "OAIResponseFaresBreakdownItem.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseFares: public OAIObject {
+class OAIResponseFares : public OAIObject {
 public:
     OAIResponseFares();
     OAIResponseFares(QString json);
     ~OAIResponseFares() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIResponseFaresBreakdownItem> getBreakdown() const;
     void setBreakdown(const QList<OAIResponseFaresBreakdownItem> &breakdown);
 
-    
     QList<OAIResponseFareTicket> getTicketsTotal() const;
     void setTicketsTotal(const QList<OAIResponseFareTicket> &tickets_total);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIResponseFaresBreakdownItem> breakdown;
     bool m_breakdown_isSet;
     bool m_breakdown_isValid;
-    
+
     QList<OAIResponseFareTicket> tickets_total;
     bool m_tickets_total_isSet;
     bool m_tickets_total_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseFares)
 
 #endif // OAIResponseFares_H

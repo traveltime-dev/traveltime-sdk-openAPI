@@ -49,16 +49,17 @@ public:
     /// </summary>
     std::string getSearchId() const;
     void setSearchId(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseShape>& getShapes();
-        /// <summary>
+    void setShapes(std::vector<ResponseShape> const& value);
+    /// <summary>
     /// 
     /// </summary>
     ResponseTimeMapProperties getProperties() const;
     void setProperties(ResponseTimeMapProperties const& value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseTimeMapResult& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeMapResult& o);
 protected:

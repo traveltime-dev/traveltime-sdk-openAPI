@@ -10,15 +10,15 @@ import org.openapitools.server.api.model.RequestRangeFull;
 import org.openapitools.server.api.model.RequestTimeFilterPostcodesProperty;
 import org.openapitools.server.api.model.RequestTransportation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class RequestTimeFilterPostcodesDepartureSearch   {
   
   private String id;
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
   private Integer travelTime;
   private OffsetDateTime departureTime;
   private List<RequestTimeFilterPostcodesProperty> properties = new ArrayList<>();
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestTimeFilterPostcodesDepartureSearch () {
 

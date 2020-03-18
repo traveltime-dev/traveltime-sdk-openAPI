@@ -41,7 +41,7 @@ test_that("reachable_postcodes_threshold", {
 })
 
 test_that("properties", {
-  # tests for the property `properties` (RequestTimeFilterPostcodeDistrictsProperty)
+  # tests for the property `properties` (array[RequestTimeFilterPostcodeDistrictsProperty])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`properties`, "EXPECTED_RESULT")

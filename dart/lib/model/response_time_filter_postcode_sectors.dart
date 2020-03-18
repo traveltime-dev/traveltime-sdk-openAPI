@@ -12,11 +12,9 @@ class ResponseTimeFilterPostcodeSectors {
 
   ResponseTimeFilterPostcodeSectors.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['results'] == null) {
-      results = null;
-    } else {
-      results = ResponseTimeFilterPostcodeSectorsResult.listFromJson(json['results']);
-    }
+    results = (json['results'] == null) ?
+      null :
+      ResponseTimeFilterPostcodeSectorsResult.listFromJson(json['results']);
   }
 
   Map<String, dynamic> toJson() {
@@ -27,15 +25,26 @@ class ResponseTimeFilterPostcodeSectors {
   }
 
   static List<ResponseTimeFilterPostcodeSectors> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterPostcodeSectors>() : json.map((value) => new ResponseTimeFilterPostcodeSectors.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterPostcodeSectors>() : json.map((value) => ResponseTimeFilterPostcodeSectors.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterPostcodeSectors> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterPostcodeSectors>();
+    var map = Map<String, ResponseTimeFilterPostcodeSectors>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterPostcodeSectors.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterPostcodeSectors.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterPostcodeSectors-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterPostcodeSectors>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterPostcodeSectors>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterPostcodeSectors.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

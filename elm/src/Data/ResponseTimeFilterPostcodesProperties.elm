@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeFilterPostcodesProperties exposing (ResponseTimeFilterPostcodesProperties, decoder, encode)
+module Data.ResponseTimeFilterPostcodesProperties exposing (ResponseTimeFilterPostcodesProperties, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -34,11 +34,27 @@ decoder =
 
 
 encode : ResponseTimeFilterPostcodesProperties -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
-        , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeFilterPostcodesProperties -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeFilterPostcodesProperties -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "travel_time", Maybe.withDefault Encode.null (Maybe.map Encode.int model.travelTime) )
+    , ( "distance", Maybe.withDefault Encode.null (Maybe.map Encode.int model.distance) )
+    ]
+
+
+
+toString : ResponseTimeFilterPostcodesProperties -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

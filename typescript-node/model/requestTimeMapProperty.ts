@@ -10,16 +10,8 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 
-export class RequestTimeMapProperty {
-
-    static discriminator: string | undefined = undefined;
-
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return RequestTimeMapProperty.attributeTypeMap;
-    }
+export enum RequestTimeMapProperty {
+    IsOnlyWalking = <any> 'is_only_walking'
 }
-

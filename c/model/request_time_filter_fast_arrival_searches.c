@@ -9,34 +9,34 @@ request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_se
     list_t *many_to_one,
     list_t *one_to_many
     ) {
-	request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches_local_var = malloc(sizeof(request_time_filter_fast_arrival_searches_t));
+    request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches_local_var = malloc(sizeof(request_time_filter_fast_arrival_searches_t));
     if (!request_time_filter_fast_arrival_searches_local_var) {
         return NULL;
     }
-	request_time_filter_fast_arrival_searches_local_var->many_to_one = many_to_one;
-	request_time_filter_fast_arrival_searches_local_var->one_to_many = one_to_many;
+    request_time_filter_fast_arrival_searches_local_var->many_to_one = many_to_one;
+    request_time_filter_fast_arrival_searches_local_var->one_to_many = one_to_many;
 
-	return request_time_filter_fast_arrival_searches_local_var;
+    return request_time_filter_fast_arrival_searches_local_var;
 }
 
 
 void request_time_filter_fast_arrival_searches_free(request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_time_filter_fast_arrival_searches->many_to_one) {
-		request_time_filter_fast_arrival_many_to_one_search_free(listEntry->data);
-	}
-	list_free(request_time_filter_fast_arrival_searches->many_to_one);
-	list_ForEach(listEntry, request_time_filter_fast_arrival_searches->one_to_many) {
-		request_time_filter_fast_arrival_one_to_many_search_free(listEntry->data);
-	}
-	list_free(request_time_filter_fast_arrival_searches->one_to_many);
-	free(request_time_filter_fast_arrival_searches);
+    list_ForEach(listEntry, request_time_filter_fast_arrival_searches->many_to_one) {
+        request_time_filter_fast_arrival_many_to_one_search_free(listEntry->data);
+    }
+    list_free(request_time_filter_fast_arrival_searches->many_to_one);
+    list_ForEach(listEntry, request_time_filter_fast_arrival_searches->one_to_many) {
+        request_time_filter_fast_arrival_one_to_many_search_free(listEntry->data);
+    }
+    list_free(request_time_filter_fast_arrival_searches->one_to_many);
+    free(request_time_filter_fast_arrival_searches);
 }
 
 cJSON *request_time_filter_fast_arrival_searches_convertToJSON(request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_time_filter_fast_arrival_searches->many_to_one
+    // request_time_filter_fast_arrival_searches->many_to_one
     if(request_time_filter_fast_arrival_searches->many_to_one) { 
     cJSON *many_to_one = cJSON_AddArrayToObject(item, "many_to_one");
     if(many_to_one == NULL) {
@@ -56,7 +56,7 @@ cJSON *request_time_filter_fast_arrival_searches_convertToJSON(request_time_filt
      } 
 
 
-	// request_time_filter_fast_arrival_searches->one_to_many
+    // request_time_filter_fast_arrival_searches->one_to_many
     if(request_time_filter_fast_arrival_searches->one_to_many) { 
     cJSON *one_to_many = cJSON_AddArrayToObject(item, "one_to_many");
     if(one_to_many == NULL) {
@@ -75,12 +75,12 @@ cJSON *request_time_filter_fast_arrival_searches_convertToJSON(request_time_filt
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches_parseFromJSON(cJSON *request_time_filter_fast_arrival_searchesJSON){

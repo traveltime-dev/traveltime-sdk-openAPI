@@ -10,28 +10,28 @@ response_map_info_features_t *response_map_info_features_create(
     int fares,
     int postcodes
     ) {
-	response_map_info_features_t *response_map_info_features_local_var = malloc(sizeof(response_map_info_features_t));
+    response_map_info_features_t *response_map_info_features_local_var = malloc(sizeof(response_map_info_features_t));
     if (!response_map_info_features_local_var) {
         return NULL;
     }
-	response_map_info_features_local_var->public_transport = public_transport;
-	response_map_info_features_local_var->fares = fares;
-	response_map_info_features_local_var->postcodes = postcodes;
+    response_map_info_features_local_var->public_transport = public_transport;
+    response_map_info_features_local_var->fares = fares;
+    response_map_info_features_local_var->postcodes = postcodes;
 
-	return response_map_info_features_local_var;
+    return response_map_info_features_local_var;
 }
 
 
 void response_map_info_features_free(response_map_info_features_t *response_map_info_features) {
     listEntry_t *listEntry;
     response_map_info_features_public_transport_free(response_map_info_features->public_transport);
-	free(response_map_info_features);
+    free(response_map_info_features);
 }
 
 cJSON *response_map_info_features_convertToJSON(response_map_info_features_t *response_map_info_features) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_map_info_features->public_transport
+    // response_map_info_features->public_transport
     if(response_map_info_features->public_transport) { 
     cJSON *public_transport_local_JSON = response_map_info_features_public_transport_convertToJSON(response_map_info_features->public_transport);
     if(public_transport_local_JSON == NULL) {
@@ -44,7 +44,7 @@ cJSON *response_map_info_features_convertToJSON(response_map_info_features_t *re
      } 
 
 
-	// response_map_info_features->fares
+    // response_map_info_features->fares
     if (!response_map_info_features->fares) {
         goto fail;
     }
@@ -54,7 +54,7 @@ cJSON *response_map_info_features_convertToJSON(response_map_info_features_t *re
     }
 
 
-	// response_map_info_features->postcodes
+    // response_map_info_features->postcodes
     if (!response_map_info_features->postcodes) {
         goto fail;
     }
@@ -63,12 +63,12 @@ cJSON *response_map_info_features_convertToJSON(response_map_info_features_t *re
     goto fail; //Bool
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_map_info_features_t *response_map_info_features_parseFromJSON(cJSON *response_map_info_featuresJSON){

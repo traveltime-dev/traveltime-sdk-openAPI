@@ -26,7 +26,7 @@ class DefaultApi {
     String versionPath = ""
     ApiUtils apiUtils = new ApiUtils();
 
-    def geocodingReverseSearch ( Double focusLat, Double focusLng, String withinCountry, Closure onSuccess, Closure onFailure)  {
+    def geocodingReverseSearch ( Double lat, Double lng, String withinCountry, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v4/geocoding/reverse"
 
         // params
@@ -35,23 +35,20 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
-        if (focusLat == null) {
-            throw new RuntimeException("missing required params focusLat")
+        if (lat == null) {
+            throw new RuntimeException("missing required params lat")
         }
-        
         // verify required params are set
-        if (focusLng == null) {
-            throw new RuntimeException("missing required params focusLng")
+        if (lng == null) {
+            throw new RuntimeException("missing required params lng")
         }
-        
 
-        if (focusLat != null) {
-            queryParams.put("focus.lat", focusLat)
+        if (lat != null) {
+            queryParams.put("lat", lat)
         }
-        if (focusLng != null) {
-            queryParams.put("focus.lng", focusLng)
+        if (lng != null) {
+            queryParams.put("lng", lng)
         }
         if (withinCountry != null) {
             queryParams.put("within.country", withinCountry)
@@ -66,7 +63,7 @@ class DefaultApi {
 
     }
 
-    def geocodingSearch ( String query, String withinCountry, Double focusLat, Double focusLng, Closure onSuccess, Closure onFailure)  {
+    def geocodingSearch ( String query, Double focusLat, Double focusLng, String withinCountry, Closure onSuccess, Closure onFailure)  {
         String resourcePath = "/v4/geocoding/search"
 
         // params
@@ -75,24 +72,22 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (query == null) {
             throw new RuntimeException("missing required params query")
         }
-        
 
         if (query != null) {
             queryParams.put("query", query)
-        }
-        if (withinCountry != null) {
-            queryParams.put("within.country", withinCountry)
         }
         if (focusLat != null) {
             queryParams.put("focus.lat", focusLat)
         }
         if (focusLng != null) {
             queryParams.put("focus.lng", focusLng)
+        }
+        if (withinCountry != null) {
+            queryParams.put("within.country", withinCountry)
         }
 
 
@@ -113,7 +108,6 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
 
 
 
@@ -134,24 +128,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestRoutes == null) {
             throw new RuntimeException("missing required params requestRoutes")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestRoutes
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestRoutes", requestRoutes)
-        }
+        bodyParams = requestRoutes
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -169,24 +154,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestSupportedLocations == null) {
             throw new RuntimeException("missing required params requestSupportedLocations")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestSupportedLocations
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestSupportedLocations", requestSupportedLocations)
-        }
+        bodyParams = requestSupportedLocations
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -204,24 +180,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeFilter == null) {
             throw new RuntimeException("missing required params requestTimeFilter")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeFilter
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeFilter", requestTimeFilter)
-        }
+        bodyParams = requestTimeFilter
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -239,24 +206,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeFilterFast == null) {
             throw new RuntimeException("missing required params requestTimeFilterFast")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeFilterFast
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeFilterFast", requestTimeFilterFast)
-        }
+        bodyParams = requestTimeFilterFast
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -274,24 +232,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeFilterPostcodeDistricts == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodeDistricts")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeFilterPostcodeDistricts
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeFilterPostcodeDistricts", requestTimeFilterPostcodeDistricts)
-        }
+        bodyParams = requestTimeFilterPostcodeDistricts
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -309,24 +258,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeFilterPostcodeSectors == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodeSectors")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeFilterPostcodeSectors
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeFilterPostcodeSectors", requestTimeFilterPostcodeSectors)
-        }
+        bodyParams = requestTimeFilterPostcodeSectors
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -344,24 +284,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeFilterPostcodes == null) {
             throw new RuntimeException("missing required params requestTimeFilterPostcodes")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeFilterPostcodes
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeFilterPostcodes", requestTimeFilterPostcodes)
-        }
+        bodyParams = requestTimeFilterPostcodes
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,
@@ -379,24 +310,15 @@ class DefaultApi {
         def bodyParams
         def contentType
 
-        
         // verify required params are set
         if (requestTimeMap == null) {
             throw new RuntimeException("missing required params requestTimeMap")
         }
-        
 
 
 
         contentType = 'application/json';
-        // only one body parameter
-        if (1 == 1) {
-            bodyParams = requestTimeMap
-        }
-        // array of body parameters
-        else {
-            bodyParams.put("RequestTimeMap", requestTimeMap)
-        }
+        bodyParams = requestTimeMap
 
 
         apiUtils.invokeApi(onSuccess, onFailure, basePath, versionPath, resourcePath, queryParams, headerParams, bodyParams, contentType,

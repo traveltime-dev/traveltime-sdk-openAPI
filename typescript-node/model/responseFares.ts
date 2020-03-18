@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseFareTicket } from './responseFareTicket';
 import { ResponseFaresBreakdownItem } from './responseFaresBreakdownItem';
 

@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseTimeFilterFastLocation;
 /**
  * ResponseTimeFilterFastResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterFastResult {
   public static final String SERIALIZED_NAME_SEARCH_ID = "search_id";
   @SerializedName(SERIALIZED_NAME_SEARCH_ID)
@@ -44,7 +44,9 @@ public class ResponseTimeFilterFastResult {
   @SerializedName(SERIALIZED_NAME_UNREACHABLE)
   private List<String> unreachable = new ArrayList<String>();
 
+
   public ResponseTimeFilterFastResult searchId(String searchId) {
+    
     this.searchId = searchId;
     return this;
   }
@@ -54,15 +56,19 @@ public class ResponseTimeFilterFastResult {
    * @return searchId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getSearchId() {
     return searchId;
   }
+
 
   public void setSearchId(String searchId) {
     this.searchId = searchId;
   }
 
+
   public ResponseTimeFilterFastResult locations(List<ResponseTimeFilterFastLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -77,15 +83,19 @@ public class ResponseTimeFilterFastResult {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterFastLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<ResponseTimeFilterFastLocation> locations) {
     this.locations = locations;
   }
 
+
   public ResponseTimeFilterFastResult unreachable(List<String> unreachable) {
+    
     this.unreachable = unreachable;
     return this;
   }
@@ -100,9 +110,11 @@ public class ResponseTimeFilterFastResult {
    * @return unreachable
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<String> getUnreachable() {
     return unreachable;
   }
+
 
   public void setUnreachable(List<String> unreachable) {
     this.unreachable = unreachable;

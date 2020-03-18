@@ -15,11 +15,12 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseMapInfoFeatures  {
   
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   @ApiModelProperty(required = true, value = "")
   private Boolean fares;

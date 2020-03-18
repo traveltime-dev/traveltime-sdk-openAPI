@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseMapInfoFeaturesPublicTransport: public OAIObject {
@@ -49,7 +50,7 @@ public:
     void setDateEnd(const QDateTime &date_end);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -67,5 +68,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseMapInfoFeaturesPublicTransport)
 
 #endif // OAIResponseMapInfoFeaturesPublicTransport_H

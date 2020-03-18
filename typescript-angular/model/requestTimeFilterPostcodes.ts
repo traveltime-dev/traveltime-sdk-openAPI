@@ -9,8 +9,8 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestTimeFilterPostcodesArrivalSearch } from './requestTimeFilterPostcodesArrivalSearch';
 import { RequestTimeFilterPostcodesDepartureSearch } from './requestTimeFilterPostcodesDepartureSearch';
+import { RequestTimeFilterPostcodesArrivalSearch } from './requestTimeFilterPostcodesArrivalSearch';
 
 
 export interface RequestTimeFilterPostcodes { 

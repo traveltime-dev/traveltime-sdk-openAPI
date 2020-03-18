@@ -29,6 +29,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterFast: public OAIObject {
@@ -51,7 +52,7 @@ public:
     void setArrivalSearches(const OAIRequestTimeFilterFastArrivalSearches &arrival_searches);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -69,5 +70,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFast)
 
 #endif // OAIRequestTimeFilterFast_H

@@ -14,7 +14,7 @@ import org.openapitools.model.ResponseRoute;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2019-05-24T09:07:09.676Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T07:54:23.710Z[Etc/UTC]")
 public class ResponseTimeFilterProperties   {
   
 
@@ -24,9 +24,9 @@ public class ResponseTimeFilterProperties   {
 
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = new ArrayList<ResponseDistanceBreakdownItem>();
 
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   /**
    **/

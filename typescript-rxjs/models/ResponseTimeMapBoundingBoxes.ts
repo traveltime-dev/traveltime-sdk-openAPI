@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseTimeMapBoundingBoxes {
     /**
-     * 
      * @type {Array<ResponseTimeMapBoundingBoxesResult>}
      * @memberof ResponseTimeMapBoundingBoxes
      */

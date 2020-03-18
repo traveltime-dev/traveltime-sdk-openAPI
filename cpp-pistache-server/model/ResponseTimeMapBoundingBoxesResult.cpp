@@ -55,11 +55,14 @@ std::string ResponseTimeMapBoundingBoxesResult::getSearchId() const
 void ResponseTimeMapBoundingBoxesResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::vector<ResponseBoundingBox>& ResponseTimeMapBoundingBoxesResult::getBoundingBoxes()
 {
     return m_Bounding_boxes;
+}
+void ResponseTimeMapBoundingBoxesResult::setBoundingBoxes(std::vector<ResponseBoundingBox> const& value)
+{
+    m_Bounding_boxes = value;
 }
 ResponseTimeMapProperties ResponseTimeMapBoundingBoxesResult::getProperties() const
 {
@@ -68,7 +71,6 @@ ResponseTimeMapProperties ResponseTimeMapBoundingBoxesResult::getProperties() co
 void ResponseTimeMapBoundingBoxesResult::setProperties(ResponseTimeMapProperties const& value)
 {
     m_Properties = value;
-    
 }
 
 }

@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class RequestRoutesProperty {
   /// The underlying value of this enum member.
   final String value;
@@ -11,16 +10,18 @@ class RequestRoutesProperty {
   static const RequestRoutesProperty distance_ = const RequestRoutesProperty._internal("distance");
   static const RequestRoutesProperty fares_ = const RequestRoutesProperty._internal("fares");
   static const RequestRoutesProperty route_ = const RequestRoutesProperty._internal("route");
+
+  static RequestRoutesProperty fromJson(String value) {
+    return new RequestRoutesPropertyTypeTransformer().decode(value);
+  }
 }
 
-class RequestRoutesPropertyTypeTransformer extends TypeTransformer<RequestRoutesProperty> {
+class RequestRoutesPropertyTypeTransformer {
 
-  @override
   dynamic encode(RequestRoutesProperty data) {
     return data.value;
   }
 
-  @override
   RequestRoutesProperty decode(dynamic data) {
     switch (data) {
       case "travel_time": return RequestRoutesProperty.travelTime_;

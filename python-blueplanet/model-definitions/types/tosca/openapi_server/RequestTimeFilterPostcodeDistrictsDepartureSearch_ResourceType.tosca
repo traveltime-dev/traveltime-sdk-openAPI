@@ -1,0 +1,69 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterPostcodeDistrictsDepartureSearch"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodeDistrictsDepartureSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = openapi_server.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodeDistrictsProperty = openapi_server.resourceTypes.RequestTimeFilterPostcodeDistrictsProperty
+  RequestTransportation = openapi_server.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodeDistrictsDepartureSearch {
+    title = RequestTimeFilterPostcodeDistrictsDepartureSearch
+    description = RequestTimeFilterPostcodeDistrictsDepartureSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        departure_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        reachable_postcodes_threshold {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodeDistrictsProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodeDistrictsDepartureSearch {
+    title = RequestTimeFilterPostcodeDistrictsDepartureSearch
+    description = RequestTimeFilterPostcodeDistrictsDepartureSearch
+    implements = openapi_server.resourceTypes.RequestTimeFilterPostcodeDistrictsDepartureSearch
+
+  }
+}

@@ -28,10 +28,10 @@ public class ResponseTimeFilterProperties  {
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
   @ApiModelProperty(value = "")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @ApiModelProperty(value = "")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
  /**
    * Get travelTime
    * @return travelTime

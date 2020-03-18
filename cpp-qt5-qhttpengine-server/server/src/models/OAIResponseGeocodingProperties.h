@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseGeocodingProperties: public OAIObject {
@@ -106,7 +107,7 @@ public:
     void setFeatures(const OAIResponseMapInfoFeatures &features);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -180,5 +181,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseGeocodingProperties)
 
 #endif // OAIResponseGeocodingProperties_H

@@ -10,120 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIRequestTimeFilterFastArrivalSearches.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIRequestTimeFilterFastArrivalSearches::OAIRequestTimeFilterFastArrivalSearches(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIRequestTimeFilterFastArrivalSearches::OAIRequestTimeFilterFastArrivalSearches() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIRequestTimeFilterFastArrivalSearches::~OAIRequestTimeFilterFastArrivalSearches() {
+OAIRequestTimeFilterFastArrivalSearches::~OAIRequestTimeFilterFastArrivalSearches() {}
 
-}
+void OAIRequestTimeFilterFastArrivalSearches::initializeModel() {
 
-void
-OAIRequestTimeFilterFastArrivalSearches::init() {
-    
     m_many_to_one_isSet = false;
     m_many_to_one_isValid = false;
-    
+
     m_one_to_many_isSet = false;
     m_one_to_many_isValid = false;
-    }
+}
 
-void
-OAIRequestTimeFilterFastArrivalSearches::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIRequestTimeFilterFastArrivalSearches::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIRequestTimeFilterFastArrivalSearches::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIRequestTimeFilterFastArrivalSearches::fromJsonObject(QJsonObject json) {
+
     m_many_to_one_isValid = ::OpenAPI::fromJsonValue(many_to_one, json[QString("many_to_one")]);
-    
-    
+    m_many_to_one_isSet = !json[QString("many_to_one")].isNull() && m_many_to_one_isValid;
+
     m_one_to_many_isValid = ::OpenAPI::fromJsonValue(one_to_many, json[QString("one_to_many")]);
-    
+    m_one_to_many_isSet = !json[QString("one_to_many")].isNull() && m_one_to_many_isValid;
 }
 
-QString
-OAIRequestTimeFilterFastArrivalSearches::asJson () const {
+QString OAIRequestTimeFilterFastArrivalSearches::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIRequestTimeFilterFastArrivalSearches::asJsonObject() const {
+QJsonObject OAIRequestTimeFilterFastArrivalSearches::asJsonObject() const {
     QJsonObject obj;
-	
-    if(many_to_one.size() > 0){
+    if (many_to_one.size() > 0) {
         obj.insert(QString("many_to_one"), ::OpenAPI::toJsonValue(many_to_one));
-    } 
-	
-    if(one_to_many.size() > 0){
+    }
+    if (one_to_many.size() > 0) {
         obj.insert(QString("one_to_many"), ::OpenAPI::toJsonValue(one_to_many));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIRequestTimeFilterFastArrivalManyToOneSearch>
-OAIRequestTimeFilterFastArrivalSearches::getManyToOne() const {
+QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> OAIRequestTimeFilterFastArrivalSearches::getManyToOne() const {
     return many_to_one;
 }
-void
-OAIRequestTimeFilterFastArrivalSearches::setManyToOne(const QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> &many_to_one) {
+void OAIRequestTimeFilterFastArrivalSearches::setManyToOne(const QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> &many_to_one) {
     this->many_to_one = many_to_one;
     this->m_many_to_one_isSet = true;
 }
 
-
-QList<OAIRequestTimeFilterFastArrivalOneToManySearch>
-OAIRequestTimeFilterFastArrivalSearches::getOneToMany() const {
+QList<OAIRequestTimeFilterFastArrivalOneToManySearch> OAIRequestTimeFilterFastArrivalSearches::getOneToMany() const {
     return one_to_many;
 }
-void
-OAIRequestTimeFilterFastArrivalSearches::setOneToMany(const QList<OAIRequestTimeFilterFastArrivalOneToManySearch> &one_to_many) {
+void OAIRequestTimeFilterFastArrivalSearches::setOneToMany(const QList<OAIRequestTimeFilterFastArrivalOneToManySearch> &one_to_many) {
     this->one_to_many = one_to_many;
     this->m_one_to_many_isSet = true;
 }
 
-bool
-OAIRequestTimeFilterFastArrivalSearches::isSet() const {
+bool OAIRequestTimeFilterFastArrivalSearches::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(many_to_one.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(one_to_many.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (many_to_one.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (one_to_many.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIRequestTimeFilterFastArrivalSearches::isValid() const {
+bool OAIRequestTimeFilterFastArrivalSearches::isValid() const {
     // only required properties are required for the object to be considered valid
     return true;
 }
 
-}
-
+} // namespace OpenAPI

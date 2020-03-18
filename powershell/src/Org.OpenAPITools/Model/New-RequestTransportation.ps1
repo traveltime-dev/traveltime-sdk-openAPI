@@ -22,10 +22,10 @@ function New-RequestTransportation {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTransportation' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTransportation' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTransportation -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTransportation -ArgumentList @(
             ${type},
             ${ptUnderscorechangeUnderscoredelay},
             ${walkingUnderscoretime},

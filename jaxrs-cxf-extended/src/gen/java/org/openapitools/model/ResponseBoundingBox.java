@@ -17,11 +17,12 @@ import javax.xml.bind.annotation.XmlEnumValue;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 public class ResponseBoundingBox  {
   
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @ApiModelProperty(required = true, value = "")
   @Valid

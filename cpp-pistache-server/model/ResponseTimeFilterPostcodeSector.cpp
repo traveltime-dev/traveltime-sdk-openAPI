@@ -52,7 +52,6 @@ String ResponseTimeFilterPostcodeSector::getCode() const
 void ResponseTimeFilterPostcodeSector::setCode(String const& value)
 {
     m_Code = value;
-    
 }
 ResponseTimeFilterPostcodeSectorProperties ResponseTimeFilterPostcodeSector::getProperties() const
 {
@@ -61,7 +60,6 @@ ResponseTimeFilterPostcodeSectorProperties ResponseTimeFilterPostcodeSector::get
 void ResponseTimeFilterPostcodeSector::setProperties(ResponseTimeFilterPostcodeSectorProperties const& value)
 {
     m_Properties = value;
-    
 }
 
 }

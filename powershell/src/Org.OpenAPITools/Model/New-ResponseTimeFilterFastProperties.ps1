@@ -5,15 +5,15 @@ function New-ResponseTimeFilterFastProperties {
         [System.Nullable[Int32]]
         ${travelUnderscoretime},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseFaresFast]]
+        [Org.OpenAPITools.Model.ResponseFaresFast]
         ${fares}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterFastProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterFastProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterFastProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterFastProperties -ArgumentList @(
             ${travelUnderscoretime},
             ${fares}
         )

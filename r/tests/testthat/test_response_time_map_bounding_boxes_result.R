@@ -13,7 +13,7 @@ test_that("search_id", {
 })
 
 test_that("bounding_boxes", {
-  # tests for the property `bounding_boxes` (ResponseBoundingBox)
+  # tests for the property `bounding_boxes` (array[ResponseBoundingBox])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`bounding_boxes`, "EXPECTED_RESULT")

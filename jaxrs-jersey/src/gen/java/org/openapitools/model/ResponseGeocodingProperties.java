@@ -19,61 +19,96 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.model.ResponseMapInfoFeatures;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseGeocodingProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseGeocodingProperties.JSON_PROPERTY_NAME,
+  ResponseGeocodingProperties.JSON_PROPERTY_LABEL,
+  ResponseGeocodingProperties.JSON_PROPERTY_SCORE,
+  ResponseGeocodingProperties.JSON_PROPERTY_HOUSE_NUMBER,
+  ResponseGeocodingProperties.JSON_PROPERTY_STREET,
+  ResponseGeocodingProperties.JSON_PROPERTY_REGION,
+  ResponseGeocodingProperties.JSON_PROPERTY_REGION_CODE,
+  ResponseGeocodingProperties.JSON_PROPERTY_NEIGHBOURHOOD,
+  ResponseGeocodingProperties.JSON_PROPERTY_COUNTY,
+  ResponseGeocodingProperties.JSON_PROPERTY_MACROREGION,
+  ResponseGeocodingProperties.JSON_PROPERTY_CITY,
+  ResponseGeocodingProperties.JSON_PROPERTY_COUNTRY,
+  ResponseGeocodingProperties.JSON_PROPERTY_COUNTRY_CODE,
+  ResponseGeocodingProperties.JSON_PROPERTY_CONTINENT,
+  ResponseGeocodingProperties.JSON_PROPERTY_POSTCODE,
+  ResponseGeocodingProperties.JSON_PROPERTY_FEATURES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
-  @JsonProperty("name")
+  public static final String JSON_PROPERTY_NAME = "name";
+  @JsonProperty(JSON_PROPERTY_NAME)
   private String name;
 
-  @JsonProperty("label")
+  public static final String JSON_PROPERTY_LABEL = "label";
+  @JsonProperty(JSON_PROPERTY_LABEL)
   private String label;
 
-  @JsonProperty("score")
+  public static final String JSON_PROPERTY_SCORE = "score";
+  @JsonProperty(JSON_PROPERTY_SCORE)
   private Double score;
 
-  @JsonProperty("house_number")
+  public static final String JSON_PROPERTY_HOUSE_NUMBER = "house_number";
+  @JsonProperty(JSON_PROPERTY_HOUSE_NUMBER)
   private String houseNumber;
 
-  @JsonProperty("street")
+  public static final String JSON_PROPERTY_STREET = "street";
+  @JsonProperty(JSON_PROPERTY_STREET)
   private String street;
 
-  @JsonProperty("region")
+  public static final String JSON_PROPERTY_REGION = "region";
+  @JsonProperty(JSON_PROPERTY_REGION)
   private String region;
 
-  @JsonProperty("region_code")
+  public static final String JSON_PROPERTY_REGION_CODE = "region_code";
+  @JsonProperty(JSON_PROPERTY_REGION_CODE)
   private String regionCode;
 
-  @JsonProperty("neighbourhood")
+  public static final String JSON_PROPERTY_NEIGHBOURHOOD = "neighbourhood";
+  @JsonProperty(JSON_PROPERTY_NEIGHBOURHOOD)
   private String neighbourhood;
 
-  @JsonProperty("county")
+  public static final String JSON_PROPERTY_COUNTY = "county";
+  @JsonProperty(JSON_PROPERTY_COUNTY)
   private String county;
 
-  @JsonProperty("macroregion")
+  public static final String JSON_PROPERTY_MACROREGION = "macroregion";
+  @JsonProperty(JSON_PROPERTY_MACROREGION)
   private String macroregion;
 
-  @JsonProperty("city")
+  public static final String JSON_PROPERTY_CITY = "city";
+  @JsonProperty(JSON_PROPERTY_CITY)
   private String city;
 
-  @JsonProperty("country")
+  public static final String JSON_PROPERTY_COUNTRY = "country";
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
   private String country;
 
-  @JsonProperty("country_code")
+  public static final String JSON_PROPERTY_COUNTRY_CODE = "country_code";
+  @JsonProperty(JSON_PROPERTY_COUNTRY_CODE)
   private String countryCode;
 
-  @JsonProperty("continent")
+  public static final String JSON_PROPERTY_CONTINENT = "continent";
+  @JsonProperty(JSON_PROPERTY_CONTINENT)
   private String continent;
 
-  @JsonProperty("postcode")
+  public static final String JSON_PROPERTY_POSTCODE = "postcode";
+  @JsonProperty(JSON_PROPERTY_POSTCODE)
   private String postcode;
 
-  @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  public static final String JSON_PROPERTY_FEATURES = "features";
+  @JsonProperty(JSON_PROPERTY_FEATURES)
+  private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties name(String name) {
     this.name = name;

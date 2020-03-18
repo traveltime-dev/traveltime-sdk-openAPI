@@ -13,12 +13,12 @@
 
 #include "OAIResponseMapInfoFeatures.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIResponseMapInfoFeatures::asJson () const {
 QJsonObject
 OAIResponseMapInfoFeatures::asJsonObject() const {
     QJsonObject obj;
-	if(public_transport.isSet()){
+    if(public_transport.isSet()){
         obj.insert(QString("public_transport"), ::OpenAPI::toJsonValue(public_transport));
     }
-	if(m_fares_isSet){
+    if(m_fares_isSet){
         obj.insert(QString("fares"), ::OpenAPI::toJsonValue(fares));
     }
-	if(m_postcodes_isSet){
+    if(m_postcodes_isSet){
         obj.insert(QString("postcodes"), ::OpenAPI::toJsonValue(postcodes));
     }
     return obj;

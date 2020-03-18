@@ -12,35 +12,35 @@ response_time_filter_properties_t *response_time_filter_properties_create(
     response_fares_t *fares,
     response_route_t *route
     ) {
-	response_time_filter_properties_t *response_time_filter_properties_local_var = malloc(sizeof(response_time_filter_properties_t));
+    response_time_filter_properties_t *response_time_filter_properties_local_var = malloc(sizeof(response_time_filter_properties_t));
     if (!response_time_filter_properties_local_var) {
         return NULL;
     }
-	response_time_filter_properties_local_var->travel_time = travel_time;
-	response_time_filter_properties_local_var->distance = distance;
-	response_time_filter_properties_local_var->distance_breakdown = distance_breakdown;
-	response_time_filter_properties_local_var->fares = fares;
-	response_time_filter_properties_local_var->route = route;
+    response_time_filter_properties_local_var->travel_time = travel_time;
+    response_time_filter_properties_local_var->distance = distance;
+    response_time_filter_properties_local_var->distance_breakdown = distance_breakdown;
+    response_time_filter_properties_local_var->fares = fares;
+    response_time_filter_properties_local_var->route = route;
 
-	return response_time_filter_properties_local_var;
+    return response_time_filter_properties_local_var;
 }
 
 
 void response_time_filter_properties_free(response_time_filter_properties_t *response_time_filter_properties) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_filter_properties->distance_breakdown) {
-		response_distance_breakdown_item_free(listEntry->data);
-	}
-	list_free(response_time_filter_properties->distance_breakdown);
+    list_ForEach(listEntry, response_time_filter_properties->distance_breakdown) {
+        response_distance_breakdown_item_free(listEntry->data);
+    }
+    list_free(response_time_filter_properties->distance_breakdown);
     response_fares_free(response_time_filter_properties->fares);
     response_route_free(response_time_filter_properties->route);
-	free(response_time_filter_properties);
+    free(response_time_filter_properties);
 }
 
 cJSON *response_time_filter_properties_convertToJSON(response_time_filter_properties_t *response_time_filter_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_properties->travel_time
+    // response_time_filter_properties->travel_time
     if(response_time_filter_properties->travel_time) { 
     if(cJSON_AddNumberToObject(item, "travel_time", response_time_filter_properties->travel_time) == NULL) {
     goto fail; //Numeric
@@ -48,7 +48,7 @@ cJSON *response_time_filter_properties_convertToJSON(response_time_filter_proper
      } 
 
 
-	// response_time_filter_properties->distance
+    // response_time_filter_properties->distance
     if(response_time_filter_properties->distance) { 
     if(cJSON_AddNumberToObject(item, "distance", response_time_filter_properties->distance) == NULL) {
     goto fail; //Numeric
@@ -56,7 +56,7 @@ cJSON *response_time_filter_properties_convertToJSON(response_time_filter_proper
      } 
 
 
-	// response_time_filter_properties->distance_breakdown
+    // response_time_filter_properties->distance_breakdown
     if(response_time_filter_properties->distance_breakdown) { 
     cJSON *distance_breakdown = cJSON_AddArrayToObject(item, "distance_breakdown");
     if(distance_breakdown == NULL) {
@@ -76,7 +76,7 @@ cJSON *response_time_filter_properties_convertToJSON(response_time_filter_proper
      } 
 
 
-	// response_time_filter_properties->fares
+    // response_time_filter_properties->fares
     if(response_time_filter_properties->fares) { 
     cJSON *fares_local_JSON = response_fares_convertToJSON(response_time_filter_properties->fares);
     if(fares_local_JSON == NULL) {
@@ -89,7 +89,7 @@ cJSON *response_time_filter_properties_convertToJSON(response_time_filter_proper
      } 
 
 
-	// response_time_filter_properties->route
+    // response_time_filter_properties->route
     if(response_time_filter_properties->route) { 
     cJSON *route_local_JSON = response_route_convertToJSON(response_time_filter_properties->route);
     if(route_local_JSON == NULL) {
@@ -101,12 +101,12 @@ cJSON *response_time_filter_properties_convertToJSON(response_time_filter_proper
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_properties_t *response_time_filter_properties_parseFromJSON(cJSON *response_time_filter_propertiesJSON){

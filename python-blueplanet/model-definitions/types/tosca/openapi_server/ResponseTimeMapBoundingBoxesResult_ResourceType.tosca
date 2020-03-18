@@ -1,0 +1,48 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTimeMapBoundingBoxesResult"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTimeMapBoundingBoxesResult"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseBoundingBox = openapi_server.resourceTypes.ResponseBoundingBox
+  ResponseTimeMapProperties = openapi_server.resourceTypes.ResponseTimeMapProperties
+}
+resourceTypes {
+
+  ResponseTimeMapBoundingBoxesResult {
+    title = ResponseTimeMapBoundingBoxesResult
+    description = ResponseTimeMapBoundingBoxesResult
+    derivedFrom = Root
+    properties {
+        search_id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        bounding_boxes {
+          type = array
+          items.type = ResponseBoundingBox
+          description = ""
+          optional = true
+        }
+        properties {
+          type = ResponseTimeMapProperties
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTimeMapBoundingBoxesResult {
+    title = ResponseTimeMapBoundingBoxesResult
+    description = ResponseTimeMapBoundingBoxesResult
+    implements = openapi_server.resourceTypes.ResponseTimeMapBoundingBoxesResult
+
+  }
+}

@@ -43,7 +43,7 @@ import javax.validation.constraints.*;
 @Api(description = "the v4 API")
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2019-05-24T09:07:00.658Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSCXFCDIServerCodegen", date = "2020-03-18T07:54:09.249Z[Etc/UTC]")
 
 public class V4Api  {
 
@@ -63,8 +63,8 @@ public class V4Api  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingReverseSearch( @NotNull @ApiParam(value = "",required=true)  @QueryParam("focus.lat") Double focusLat,  @NotNull @ApiParam(value = "",required=true)  @QueryParam("focus.lng") Double focusLng, @ApiParam(value = "")  @QueryParam("within.country") String withinCountry) {
-        return delegate.geocodingReverseSearch(focusLat, focusLng, withinCountry, securityContext);
+    public Response geocodingReverseSearch( @NotNull @ApiParam(value = "",required=true)  @QueryParam("lat") Double lat,  @NotNull @ApiParam(value = "",required=true)  @QueryParam("lng") Double lng, @ApiParam(value = "")  @QueryParam("within.country") String withinCountry) {
+        return delegate.geocodingReverseSearch(lat, lng, withinCountry, securityContext);
     }
 
     @GET
@@ -78,8 +78,8 @@ public class V4Api  {
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingSearch( @NotNull @ApiParam(value = "",required=true)  @QueryParam("query") String query, @ApiParam(value = "")  @QueryParam("within.country") String withinCountry, @ApiParam(value = "")  @QueryParam("focus.lat") Double focusLat, @ApiParam(value = "")  @QueryParam("focus.lng") Double focusLng) {
-        return delegate.geocodingSearch(query, withinCountry, focusLat, focusLng, securityContext);
+    public Response geocodingSearch( @NotNull @ApiParam(value = "",required=true)  @QueryParam("query") String query, @ApiParam(value = "")  @QueryParam("focus.lat") Double focusLat, @ApiParam(value = "")  @QueryParam("focus.lng") Double focusLng, @ApiParam(value = "")  @QueryParam("within.country") String withinCountry) {
+        return delegate.geocodingSearch(query, focusLat, focusLng, withinCountry, securityContext);
     }
 
     @GET

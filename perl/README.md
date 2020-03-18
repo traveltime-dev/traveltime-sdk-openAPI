@@ -442,12 +442,12 @@ my $api_instance = WWW::OpenAPIClient::->new(
     #api_key_prefix => {'X-Application-Id' => 'Bearer'},
 );
 
-my $focus/lat = 3.4; # double | 
-my $focus/lng = 3.4; # double | 
+my $lat = 3.4; # double | 
+my $lng = 3.4; # double | 
 my $within/country = "within/country_example"; # string | 
 
 eval {
-    my $result = $api_instance->geocoding_reverse_search(focus/lat => $focus/lat, focus/lng => $focus/lng, within/country => $within/country);
+    my $result = $api_instance->geocoding_reverse_search(lat => $lat, lng => $lng, within/country => $within/country);
     print Dumper($result);
 };
 if ($@) {

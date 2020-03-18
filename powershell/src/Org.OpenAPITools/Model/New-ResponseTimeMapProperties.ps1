@@ -7,10 +7,10 @@ function New-ResponseTimeMapProperties {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeMapProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeMapProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeMapProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeMapProperties -ArgumentList @(
             ${isUnderscoreonlyUnderscorewalking}
         )
     }

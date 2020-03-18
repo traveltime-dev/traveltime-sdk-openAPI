@@ -30,6 +30,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseRoutePart: public OAIObject {
@@ -108,7 +109,7 @@ public:
     void setNumStops(const qint32 &num_stops);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -182,5 +183,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseRoutePart)
 
 #endif // OAIResponseRoutePart_H

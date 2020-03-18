@@ -42,86 +42,26 @@ class ResponseGeocodingProperties {
 
   ResponseGeocodingProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['name'] == null) {
-      name = null;
-    } else {
-          name = json['name'];
-    }
-    if (json['label'] == null) {
-      label = null;
-    } else {
-          label = json['label'];
-    }
-    if (json['score'] == null) {
-      score = null;
-    } else {
-          score = json['score'];
-    }
-    if (json['house_number'] == null) {
-      houseNumber = null;
-    } else {
-          houseNumber = json['house_number'];
-    }
-    if (json['street'] == null) {
-      street = null;
-    } else {
-          street = json['street'];
-    }
-    if (json['region'] == null) {
-      region = null;
-    } else {
-          region = json['region'];
-    }
-    if (json['region_code'] == null) {
-      regionCode = null;
-    } else {
-          regionCode = json['region_code'];
-    }
-    if (json['neighbourhood'] == null) {
-      neighbourhood = null;
-    } else {
-          neighbourhood = json['neighbourhood'];
-    }
-    if (json['county'] == null) {
-      county = null;
-    } else {
-          county = json['county'];
-    }
-    if (json['macroregion'] == null) {
-      macroregion = null;
-    } else {
-          macroregion = json['macroregion'];
-    }
-    if (json['city'] == null) {
-      city = null;
-    } else {
-          city = json['city'];
-    }
-    if (json['country'] == null) {
-      country = null;
-    } else {
-          country = json['country'];
-    }
-    if (json['country_code'] == null) {
-      countryCode = null;
-    } else {
-          countryCode = json['country_code'];
-    }
-    if (json['continent'] == null) {
-      continent = null;
-    } else {
-          continent = json['continent'];
-    }
-    if (json['postcode'] == null) {
-      postcode = null;
-    } else {
-          postcode = json['postcode'];
-    }
-    if (json['features'] == null) {
-      features = null;
-    } else {
-      features = new ResponseMapInfoFeatures.fromJson(json['features']);
-    }
+    name = json['name'];
+    label = json['label'];
+    score = (json['score'] == null) ?
+      null :
+      json['score'].toDouble();
+    houseNumber = json['house_number'];
+    street = json['street'];
+    region = json['region'];
+    regionCode = json['region_code'];
+    neighbourhood = json['neighbourhood'];
+    county = json['county'];
+    macroregion = json['macroregion'];
+    city = json['city'];
+    country = json['country'];
+    countryCode = json['country_code'];
+    continent = json['continent'];
+    postcode = json['postcode'];
+    features = (json['features'] == null) ?
+      null :
+      ResponseMapInfoFeatures.fromJson(json['features']);
   }
 
   Map<String, dynamic> toJson() {
@@ -162,15 +102,26 @@ class ResponseGeocodingProperties {
   }
 
   static List<ResponseGeocodingProperties> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseGeocodingProperties>() : json.map((value) => new ResponseGeocodingProperties.fromJson(value)).toList();
+    return json == null ? List<ResponseGeocodingProperties>() : json.map((value) => ResponseGeocodingProperties.fromJson(value)).toList();
   }
 
   static Map<String, ResponseGeocodingProperties> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseGeocodingProperties>();
+    var map = Map<String, ResponseGeocodingProperties>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseGeocodingProperties.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseGeocodingProperties.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseGeocodingProperties-objects as value to a dart map
+  static Map<String, List<ResponseGeocodingProperties>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseGeocodingProperties>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseGeocodingProperties.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

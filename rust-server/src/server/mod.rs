@@ -5,11 +5,9 @@ extern crate native_tls;
 extern crate hyper_tls;
 extern crate openssl;
 extern crate mime;
-extern crate uuid;
 extern crate chrono;
 extern crate percent_encoding;
 extern crate url;
-
 
 use std::sync::Arc;
 use std::marker::PhantomData;
@@ -19,9 +17,7 @@ use hyper::{Request, Response, Error, StatusCode};
 use hyper::header::{Headers, ContentType};
 use self::url::form_urlencoded;
 use mimetypes;
-
 use serde_json;
-
 
 #[allow(unused_imports)]
 use std::collections::{HashMap, BTreeMap};
@@ -35,6 +31,7 @@ use std::collections::BTreeSet;
 pub use swagger::auth::Authorization;
 use swagger::{ApiError, XSpanId, XSpanIdString, Has, RequestParser};
 use swagger::auth::Scopes;
+use swagger::headers::SafeHeaders;
 
 use {Api,
      GeocodingReverseSearchResponse,
@@ -60,7 +57,7 @@ mod paths {
     extern crate regex;
 
     lazy_static! {
-        pub static ref GLOBAL_REGEX_SET: regex::RegexSet = regex::RegexSet::new(&[
+        pub static ref GLOBAL_REGEX_SET: regex::RegexSet = regex::RegexSet::new(vec![
             r"^/v4/geocoding/reverse$",
             r"^/v4/geocoding/search$",
             r"^/v4/map-info$",
@@ -139,7 +136,7 @@ where
     type Request = (Request, C);
     type Response = Response;
     type Error = Error;
-    type Future = Box<Future<Item=Response, Error=Error>>;
+    type Future = Box<dyn Future<Item=Response, Error=Error>>;
 
     fn call(&self, (req, mut context): Self::Request) -> Self::Future {
         let api_impl = self.api_impl.clone();
@@ -153,7 +150,7 @@ where
             // GeocodingReverseSearch - GET /v4/geocoding/reverse
             &hyper::Method::Get if path.matched(paths::ID_V4_GEOCODING_REVERSE) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -161,48 +158,36 @@ where
                     };
 
                 }
-
-
-
-
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
-                let param_focus_lat = query_params.iter().filter(|e| e.0 == "focus.lat").map(|e| e.1.to_owned())
-
+                let param_lat = query_params.iter().filter(|e| e.0 == "lat").map(|e| e.1.to_owned())
                     .nth(0);
-                let param_focus_lat = match param_focus_lat {
-                    Some(param_focus_lat) => match param_focus_lat.parse::<f64>() {
-                        Ok(param_focus_lat) => param_focus_lat,
-                        Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse query parameter focus.lat - doesn't match schema: {}", e)))),
+                let param_lat = match param_lat {
+                    Some(param_lat) => match param_lat.parse::<f64>() {
+                        Ok(param_lat) => param_lat,
+                        Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse query parameter lat - doesn't match schema: {}", e)))),
                     },
-                    None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required query parameter focus.lat"))),
+                    None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required query parameter lat"))),
                 };
-                let param_focus_lng = query_params.iter().filter(|e| e.0 == "focus.lng").map(|e| e.1.to_owned())
-
+                let param_lng = query_params.iter().filter(|e| e.0 == "lng").map(|e| e.1.to_owned())
                     .nth(0);
-                let param_focus_lng = match param_focus_lng {
-                    Some(param_focus_lng) => match param_focus_lng.parse::<f64>() {
-                        Ok(param_focus_lng) => param_focus_lng,
-                        Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse query parameter focus.lng - doesn't match schema: {}", e)))),
+                let param_lng = match param_lng {
+                    Some(param_lng) => match param_lng.parse::<f64>() {
+                        Ok(param_lng) => param_lng,
+                        Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse query parameter lng - doesn't match schema: {}", e)))),
                     },
-                    None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required query parameter focus.lng"))),
+                    None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required query parameter lng"))),
                 };
                 let param_within_country = query_params.iter().filter(|e| e.0 == "within.country").map(|e| e.1.to_owned())
-
                     .nth(0);
 
                 let param_within_country = param_within_country.and_then(|param_within_country| param_within_country.parse::<>().ok());
-
-
-
                 Box::new({
                         {{
-
-                                Box::new(api_impl.geocoding_reverse_search(param_focus_lat, param_focus_lng, param_within_country, &context)
+                                Box::new(api_impl.geocoding_reverse_search(param_lat, param_lng, param_within_country, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         match result {
                                             Ok(rsp) => match rsp {
@@ -216,9 +201,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::GEOCODING_REVERSE_SEARCH_MATCH_A_QUERY_STRING_TO_GEOGRAPHIC_COORDINATES.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 GeocodingReverseSearchResponse::TheJsonBodyReturnedUponError
@@ -231,9 +214,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::GEOCODING_REVERSE_SEARCH_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -248,18 +229,14 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
                         }}
-                }) as Box<Future<Item=Response, Error=Error>>
-
-
+                }) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // GeocodingSearch - GET /v4/geocoding/search
             &hyper::Method::Get if path.matched(paths::ID_V4_GEOCODING_SEARCH) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -267,15 +244,9 @@ where
                     };
 
                 }
-
-
-
-
-
                 // Query parameters (note that non-required or collection query parameters will ignore garbage values, rather than causing a 400 response)
                 let query_params = form_urlencoded::parse(uri.query().unwrap_or_default().as_bytes()).collect::<Vec<_>>();
                 let param_query = query_params.iter().filter(|e| e.0 == "query").map(|e| e.1.to_owned())
-
                     .nth(0);
                 let param_query = match param_query {
                     Some(param_query) => match param_query.parse::<String>() {
@@ -284,31 +255,24 @@ where
                     },
                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required query parameter query"))),
                 };
-                let param_within_country = query_params.iter().filter(|e| e.0 == "within.country").map(|e| e.1.to_owned())
-
-                    .nth(0);
-
-                let param_within_country = param_within_country.and_then(|param_within_country| param_within_country.parse::<>().ok());
                 let param_focus_lat = query_params.iter().filter(|e| e.0 == "focus.lat").map(|e| e.1.to_owned())
-
                     .nth(0);
 
                 let param_focus_lat = param_focus_lat.and_then(|param_focus_lat| param_focus_lat.parse::<>().ok());
                 let param_focus_lng = query_params.iter().filter(|e| e.0 == "focus.lng").map(|e| e.1.to_owned())
-
                     .nth(0);
 
                 let param_focus_lng = param_focus_lng.and_then(|param_focus_lng| param_focus_lng.parse::<>().ok());
+                let param_within_country = query_params.iter().filter(|e| e.0 == "within.country").map(|e| e.1.to_owned())
+                    .nth(0);
 
-
-
+                let param_within_country = param_within_country.and_then(|param_within_country| param_within_country.parse::<>().ok());
                 Box::new({
                         {{
-
-                                Box::new(api_impl.geocoding_search(param_query, param_within_country, param_focus_lat, param_focus_lng, &context)
+                                Box::new(api_impl.geocoding_search(param_query, param_focus_lat, param_focus_lng, param_within_country, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         match result {
                                             Ok(rsp) => match rsp {
@@ -322,9 +286,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::GEOCODING_SEARCH_MATCH_A_QUERY_STRING_TO_GEOGRAPHIC_COORDINATES.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 GeocodingSearchResponse::TheJsonBodyReturnedUponError
@@ -337,9 +299,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::GEOCODING_SEARCH_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -354,18 +314,14 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
                         }}
-                }) as Box<Future<Item=Response, Error=Error>>
-
-
+                }) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // MapInfo - GET /v4/map-info
             &hyper::Method::Get if path.matched(paths::ID_V4_MAP_INFO) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -373,20 +329,12 @@ where
                     };
 
                 }
-
-
-
-
-
-
-
                 Box::new({
                         {{
-
                                 Box::new(api_impl.map_info(&context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         match result {
                                             Ok(rsp) => match rsp {
@@ -400,9 +348,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::MAP_INFO_RETURNS_INFORMATION_ABOUT_CURRENTLY_SUPPORTED_COUNTRIES.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 MapInfoResponse::TheJsonBodyReturnedUponError
@@ -415,9 +361,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::MAP_INFO_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -432,18 +376,14 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
                         }}
-                }) as Box<Future<Item=Response, Error=Error>>
-
-
+                }) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // Routes - POST /v4/routes
             &hyper::Method::Post if path.matched(paths::ID_V4_ROUTES) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -451,25 +391,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_routes: Option<models::RequestRoutes> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -477,7 +408,6 @@ where
                                         Ok(param_request_routes) => param_request_routes,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestRoutes - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -485,12 +415,10 @@ where
                                     Some(param_request_routes) => param_request_routes,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestRoutes"))),
                                 };
-
-
                                 Box::new(api_impl.routes(param_request_routes, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -508,9 +436,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::ROUTES_RETURNS_ROUTING_INFORMATION_BETWEEN_SOURCE_AND_DESTINATIONS.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 RoutesResponse::TheJsonBodyReturnedUponError
@@ -523,9 +449,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::ROUTES_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -540,21 +464,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestRoutes: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // SupportedLocations - POST /v4/supported-locations
             &hyper::Method::Post if path.matched(paths::ID_V4_SUPPORTED_LOCATIONS) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -562,25 +482,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_supported_locations: Option<models::RequestSupportedLocations> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -588,7 +499,6 @@ where
                                         Ok(param_request_supported_locations) => param_request_supported_locations,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestSupportedLocations - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -596,12 +506,10 @@ where
                                     Some(param_request_supported_locations) => param_request_supported_locations,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestSupportedLocations"))),
                                 };
-
-
                                 Box::new(api_impl.supported_locations(param_request_supported_locations, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -619,9 +527,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::SUPPORTED_LOCATIONS_FIND_OUT_WHAT_POINTS_ARE_SUPPORTED_BY_OUR_API.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 SupportedLocationsResponse::TheJsonBodyReturnedUponError
@@ -634,9 +540,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::SUPPORTED_LOCATIONS_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -651,21 +555,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestSupportedLocations: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeFilter - POST /v4/time-filter
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_FILTER) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -673,25 +573,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_filter: Option<models::RequestTimeFilter> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -699,7 +590,6 @@ where
                                         Ok(param_request_time_filter) => param_request_time_filter,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeFilter - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -707,12 +597,10 @@ where
                                     Some(param_request_time_filter) => param_request_time_filter,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeFilter"))),
                                 };
-
-
                                 Box::new(api_impl.time_filter(param_request_time_filter, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -730,9 +618,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_GIVEN_ORIGIN_AND_DESTINATION_POINTS_FILTER_OUT_POINTS_THAT_CANNOT_BE_REACHED_WITHIN_SPECIFIED_TIME_LIMIT.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeFilterResponse::TheJsonBodyReturnedUponError
@@ -745,9 +631,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -762,21 +646,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeFilter: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeFilterFast - POST /v4/time-filter/fast
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_FILTER_FAST) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -784,25 +664,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_filter_fast: Option<models::RequestTimeFilterFast> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -810,7 +681,6 @@ where
                                         Ok(param_request_time_filter_fast) => param_request_time_filter_fast,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeFilterFast - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -818,12 +688,10 @@ where
                                     Some(param_request_time_filter_fast) => param_request_time_filter_fast,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeFilterFast"))),
                                 };
-
-
                                 Box::new(api_impl.time_filter_fast(param_request_time_filter_fast, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -841,9 +709,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_FAST_A_VERY_FAST_VERSION_OF_TIME_FILTER.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeFilterFastResponse::TheJsonBodyReturnedUponError
@@ -856,9 +722,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_FAST_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -873,21 +737,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeFilterFast: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeFilterPostcodeDistricts - POST /v4/time-filter/postcode-districts
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_FILTER_POSTCODE_DISTRICTS) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -895,25 +755,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_filter_postcode_districts: Option<models::RequestTimeFilterPostcodeDistricts> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -921,7 +772,6 @@ where
                                         Ok(param_request_time_filter_postcode_districts) => param_request_time_filter_postcode_districts,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeFilterPostcodeDistricts - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -929,12 +779,10 @@ where
                                     Some(param_request_time_filter_postcode_districts) => param_request_time_filter_postcode_districts,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeFilterPostcodeDistricts"))),
                                 };
-
-
                                 Box::new(api_impl.time_filter_postcode_districts(param_request_time_filter_postcode_districts, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -952,9 +800,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODE_DISTRICTS_FIND_DISTRICTS_THAT_HAVE_A_CERTAIN_COVERAGE_FROM_ORIGIN_AND_GET_STATISTICS_ABOUT_POSTCODES_WITHIN_SUCH_DISTRICTS.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeFilterPostcodeDistrictsResponse::TheJsonBodyReturnedUponError
@@ -967,9 +813,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODE_DISTRICTS_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -984,21 +828,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeFilterPostcodeDistricts: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeFilterPostcodeSectors - POST /v4/time-filter/postcode-sectors
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_FILTER_POSTCODE_SECTORS) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -1006,25 +846,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_filter_postcode_sectors: Option<models::RequestTimeFilterPostcodeSectors> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -1032,7 +863,6 @@ where
                                         Ok(param_request_time_filter_postcode_sectors) => param_request_time_filter_postcode_sectors,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeFilterPostcodeSectors - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -1040,12 +870,10 @@ where
                                     Some(param_request_time_filter_postcode_sectors) => param_request_time_filter_postcode_sectors,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeFilterPostcodeSectors"))),
                                 };
-
-
                                 Box::new(api_impl.time_filter_postcode_sectors(param_request_time_filter_postcode_sectors, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -1063,9 +891,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODE_SECTORS_FIND_SECTORS_THAT_HAVE_A_CERTAIN_COVERAGE_FROM_ORIGIN_AND_GET_STATISTICS_ABOUT_POSTCODES_WITHIN_SUCH_SECTORS.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeFilterPostcodeSectorsResponse::TheJsonBodyReturnedUponError
@@ -1078,9 +904,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODE_SECTORS_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -1095,21 +919,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeFilterPostcodeSectors: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeFilterPostcodes - POST /v4/time-filter/postcodes
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_FILTER_POSTCODES) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -1117,25 +937,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_filter_postcodes: Option<models::RequestTimeFilterPostcodes> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -1143,7 +954,6 @@ where
                                         Ok(param_request_time_filter_postcodes) => param_request_time_filter_postcodes,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeFilterPostcodes - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -1151,12 +961,10 @@ where
                                     Some(param_request_time_filter_postcodes) => param_request_time_filter_postcodes,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeFilterPostcodes"))),
                                 };
-
-
                                 Box::new(api_impl.time_filter_postcodes(param_request_time_filter_postcodes, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -1174,9 +982,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODES_FIND_REACHABLE_POSTCODES_FROM_ORIGIN_AND_GET_STATISTICS_ABOUT_SUCH_POSTCODES.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeFilterPostcodesResponse::TheJsonBodyReturnedUponError
@@ -1189,9 +995,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_FILTER_POSTCODES_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -1206,21 +1010,17 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeFilterPostcodes: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
-
 
             // TimeMap - POST /v4/time-map
             &hyper::Method::Post if path.matched(paths::ID_V4_TIME_MAP) => {
                 {
-                    let authorization = match (&context as &Has<Option<Authorization>>).get() {
+                    let authorization = match (&context as &dyn Has<Option<Authorization>>).get() {
                         &Some(ref authorization) => authorization,
                         &None => return Box::new(future::ok(Response::new()
                                                 .with_status(StatusCode::Forbidden)
@@ -1228,25 +1028,16 @@ where
                     };
 
                 }
-
-
-
-
-
-
                 // Body parameters (note that non-required body parameters will ignore garbage
                 // values, rather than causing a 400 response). Produce warning header and logs for
                 // any unused fields.
                 Box::new(body.concat2()
-                    .then(move |result| -> Box<Future<Item=Response, Error=Error>> {
+                    .then(move |result| -> Box<dyn Future<Item=Response, Error=Error>> {
                         match result {
                             Ok(body) => {
-
                                 let mut unused_elements = Vec::new();
                                 let param_request_time_map: Option<models::RequestTimeMap> = if !body.is_empty() {
-
                                     let deserializer = &mut serde_json::Deserializer::from_slice(&*body);
-
                                     match serde_ignored::deserialize(deserializer, |path| {
                                             warn!("Ignoring unknown field in body: {}", path);
                                             unused_elements.push(path.to_string());
@@ -1254,7 +1045,6 @@ where
                                         Ok(param_request_time_map) => param_request_time_map,
                                         Err(e) => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't parse body parameter RequestTimeMap - doesn't match schema: {}", e)))),
                                     }
-
                                 } else {
                                     None
                                 };
@@ -1262,12 +1052,10 @@ where
                                     Some(param_request_time_map) => param_request_time_map,
                                     None => return Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body("Missing required body parameter RequestTimeMap"))),
                                 };
-
-
                                 Box::new(api_impl.time_map(param_request_time_map, &context)
                                     .then(move |result| {
                                         let mut response = Response::new();
-                                        response.headers_mut().set(XSpanId((&context as &Has<XSpanIdString>).get().0.to_string()));
+                                        response.headers_mut().set(XSpanId((&context as &dyn Has<XSpanIdString>).get().0.to_string()));
 
                                         if !unused_elements.is_empty() {
                                             response.headers_mut().set(Warning(format!("Ignoring unknown fields in body: {:?}", unused_elements)));
@@ -1285,9 +1073,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_MAP_GIVEN_ORIGIN_COORDINATES.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                                 TimeMapResponse::TheJsonBodyReturnedUponError
@@ -1300,9 +1086,7 @@ where
 
                                                     response.headers_mut().set(ContentType(mimetypes::responses::TIME_MAP_THE_JSON_BODY_RETURNED_UPON_ERROR.clone()));
 
-
                                                     let body = serde_json::to_string(&body).expect("impossible to fail to serialize");
-
                                                     response.set_body(body);
                                                 },
                                             },
@@ -1317,18 +1101,14 @@ where
                                         future::ok(response)
                                     }
                                 ))
-
-
                             },
                             Err(e) => Box::new(future::ok(Response::new().with_status(StatusCode::BadRequest).with_body(format!("Couldn't read body parameter RequestTimeMap: {}", e)))),
                         }
                     })
-                ) as Box<Future<Item=Response, Error=Error>>
-
+                ) as Box<dyn Future<Item=Response, Error=Error>>
             },
 
-
-            _ => Box::new(future::ok(Response::new().with_status(StatusCode::NotFound))) as Box<Future<Item=Response, Error=Error>>,
+            _ => Box::new(future::ok(Response::new().with_status(StatusCode::NotFound))) as Box<dyn Future<Item=Response, Error=Error>>,
         }
     }
 }
@@ -1342,6 +1122,7 @@ impl<T, C> Clone for Service<T, C>
         }
     }
 }
+
 
 /// Request parser for `Api`.
 pub struct ApiRequestParser;

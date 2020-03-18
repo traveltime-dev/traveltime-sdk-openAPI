@@ -21,7 +21,6 @@ import {
  */
 export interface ResponseTimeFilterPostcodes {
     /**
-     * 
      * @type {Array<ResponseTimeFilterPostcodesResult>}
      * @memberof ResponseTimeFilterPostcodes
      */

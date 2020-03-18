@@ -29,7 +29,7 @@ public class RequestRoutesArrivalSearch  {
   private String arrivalLocationId;
 
   @ApiModelProperty(required = true, value = "")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Date arrivalTime;
@@ -38,7 +38,7 @@ public class RequestRoutesArrivalSearch  {
   private List<RequestRoutesProperty> properties = new ArrayList<RequestRoutesProperty>();
 
   @ApiModelProperty(value = "")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
  /**
    * Get id
    * @return id

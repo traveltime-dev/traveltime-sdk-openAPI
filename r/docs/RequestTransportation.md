@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestTransportation
+# openapi::RequestTransportation
 
 ## Properties
 Name | Type | Description | Notes

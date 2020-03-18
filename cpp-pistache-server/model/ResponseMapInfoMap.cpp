@@ -53,7 +53,6 @@ std::string ResponseMapInfoMap::getName() const
 void ResponseMapInfoMap::setName(std::string const& value)
 {
     m_Name = value;
-    
 }
 ResponseMapInfoFeatures ResponseMapInfoMap::getFeatures() const
 {
@@ -62,7 +61,6 @@ ResponseMapInfoFeatures ResponseMapInfoMap::getFeatures() const
 void ResponseMapInfoMap::setFeatures(ResponseMapInfoFeatures const& value)
 {
     m_Features = value;
-    
 }
 
 }

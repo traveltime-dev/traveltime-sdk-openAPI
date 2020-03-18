@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterPostcodeDistrictsArrivalSearch exposing (RequestTimeFilterPostcodeDistrictsArrivalSearch, decoder, encode)
+module Data.RequestTimeFilterPostcodeDistrictsArrivalSearch exposing (RequestTimeFilterPostcodeDistrictsArrivalSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTransportation as RequestTransportation exposing (RequestTransportation)
 import DateTime exposing (DateTime)
@@ -48,16 +48,32 @@ decoder =
 
 
 encode : RequestTimeFilterPostcodeDistrictsArrivalSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "transportation", RequestTransportation.encode model.transportation )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "arrival_time", DateTime.encode model.arrivalTime )
-        , ( "reachable_postcodes_threshold", Encode.float model.reachablePostcodesThreshold )
-        , ( "properties", (Encode.list RequestTimeFilterPostcodeDistrictsProperty.encode) model.properties )
-        , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterPostcodeDistrictsArrivalSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterPostcodeDistrictsArrivalSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "transportation", RequestTransportation.encode model.transportation )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "arrival_time", DateTime.encode model.arrivalTime )
+    , ( "reachable_postcodes_threshold", Encode.float model.reachablePostcodesThreshold )
+    , ( "properties", (Encode.list RequestTimeFilterPostcodeDistrictsProperty.encode) model.properties )
+    , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+    ]
+
+
+
+toString : RequestTimeFilterPostcodeDistrictsArrivalSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

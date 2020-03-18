@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<RequestLocation>& getLocations();
-    
+    void setLocations(std::vector<RequestLocation> const& value);
+
     friend void to_json(nlohmann::json& j, const RequestSupportedLocations& o);
     friend void from_json(const nlohmann::json& j, RequestSupportedLocations& o);
 protected:

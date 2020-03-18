@@ -7,18 +7,18 @@ class DefaultApi {
 
   DefaultApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  /// 
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseGeocoding> geocodingReverseSearch(double focusLat, double focusLng, { String withinCountry }) async {
+  Future<Response> geocodingReverseSearchWithHttpInfo(double lat, double lng, { String withinCountry }) async {
     Object postBody;
 
     // verify required params are set
-    if(focusLat == null) {
-     throw new ApiException(400, "Missing required param: focusLat");
+    if(lat == null) {
+     throw ApiException(400, "Missing required param: lat");
     }
-    if(focusLng == null) {
-     throw new ApiException(400, "Missing required param: focusLng");
+    if(lng == null) {
+     throw ApiException(400, "Missing required param: lng");
     }
 
     // create path and map variables
@@ -28,8 +28,8 @@ class DefaultApi {
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lat", focusLat));
-      queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lng", focusLng));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "lat", lat));
+      queryParams.addAll(_convertParametersForCollectionFormat("", "lng", lng));
     if(withinCountry != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "within.country", withinCountry));
     }
@@ -41,7 +41,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -56,24 +56,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseGeocoding> geocodingReverseSearch(double lat, double lng, { String withinCountry }) async {
+    Response response = await geocodingReverseSearchWithHttpInfo(lat, lng,  withinCountry: withinCountry );
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseGeocoding> geocodingSearch(String query, { String withinCountry, double focusLat, double focusLng }) async {
+  Future<Response> geocodingSearchWithHttpInfo(String query, { double focusLat, double focusLng, String withinCountry }) async {
     Object postBody;
 
     // verify required params are set
     if(query == null) {
-     throw new ApiException(400, "Missing required param: query");
+     throw ApiException(400, "Missing required param: query");
     }
 
     // create path and map variables
@@ -84,14 +92,14 @@ class DefaultApi {
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
       queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
-    if(withinCountry != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "within.country", withinCountry));
-    }
     if(focusLat != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lat", focusLat));
     }
     if(focusLng != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lng", focusLng));
+    }
+    if(withinCountry != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "within.country", withinCountry));
     }
 
     List<String> contentTypes = [];
@@ -101,7 +109,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -116,19 +124,27 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseGeocoding> geocodingSearch(String query, { double focusLat, double focusLng, String withinCountry }) async {
+    Response response = await geocodingSearchWithHttpInfo(query,  focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry );
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseMapInfo> mapInfo() async {
+  Future<Response> mapInfoWithHttpInfo() async {
     Object postBody;
 
     // verify required params are set
@@ -148,7 +164,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -163,24 +179,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseMapInfo> mapInfo() async {
+    Response response = await mapInfoWithHttpInfo();
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseMapInfo') as ResponseMapInfo;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseRoutes> routes(RequestRoutes requestRoutes) async {
+  Future<Response> routesWithHttpInfo(RequestRoutes requestRoutes) async {
     Object postBody = requestRoutes;
 
     // verify required params are set
     if(requestRoutes == null) {
-     throw new ApiException(400, "Missing required param: requestRoutes");
+     throw ApiException(400, "Missing required param: requestRoutes");
     }
 
     // create path and map variables
@@ -198,7 +222,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -213,24 +237,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseRoutes> routes(RequestRoutes requestRoutes) async {
+    Response response = await routesWithHttpInfo(requestRoutes);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseRoutes') as ResponseRoutes;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseSupportedLocations> supportedLocations(RequestSupportedLocations requestSupportedLocations) async {
+  Future<Response> supportedLocationsWithHttpInfo(RequestSupportedLocations requestSupportedLocations) async {
     Object postBody = requestSupportedLocations;
 
     // verify required params are set
     if(requestSupportedLocations == null) {
-     throw new ApiException(400, "Missing required param: requestSupportedLocations");
+     throw ApiException(400, "Missing required param: requestSupportedLocations");
     }
 
     // create path and map variables
@@ -248,7 +280,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -263,24 +295,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseSupportedLocations> supportedLocations(RequestSupportedLocations requestSupportedLocations) async {
+    Response response = await supportedLocationsWithHttpInfo(requestSupportedLocations);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseSupportedLocations') as ResponseSupportedLocations;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeFilter> timeFilter(RequestTimeFilter requestTimeFilter) async {
+  Future<Response> timeFilterWithHttpInfo(RequestTimeFilter requestTimeFilter) async {
     Object postBody = requestTimeFilter;
 
     // verify required params are set
     if(requestTimeFilter == null) {
-     throw new ApiException(400, "Missing required param: requestTimeFilter");
+     throw ApiException(400, "Missing required param: requestTimeFilter");
     }
 
     // create path and map variables
@@ -298,7 +338,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -313,24 +353,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeFilter> timeFilter(RequestTimeFilter requestTimeFilter) async {
+    Response response = await timeFilterWithHttpInfo(requestTimeFilter);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilter') as ResponseTimeFilter;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeFilterFast> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) async {
+  Future<Response> timeFilterFastWithHttpInfo(RequestTimeFilterFast requestTimeFilterFast) async {
     Object postBody = requestTimeFilterFast;
 
     // verify required params are set
     if(requestTimeFilterFast == null) {
-     throw new ApiException(400, "Missing required param: requestTimeFilterFast");
+     throw ApiException(400, "Missing required param: requestTimeFilterFast");
     }
 
     // create path and map variables
@@ -348,7 +396,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -363,24 +411,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeFilterFast> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) async {
+    Response response = await timeFilterFastWithHttpInfo(requestTimeFilterFast);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterFast') as ResponseTimeFilterFast;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
+  Future<Response> timeFilterPostcodeDistrictsWithHttpInfo(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
     Object postBody = requestTimeFilterPostcodeDistricts;
 
     // verify required params are set
     if(requestTimeFilterPostcodeDistricts == null) {
-     throw new ApiException(400, "Missing required param: requestTimeFilterPostcodeDistricts");
+     throw ApiException(400, "Missing required param: requestTimeFilterPostcodeDistricts");
     }
 
     // create path and map variables
@@ -398,7 +454,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -413,24 +469,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
+    Response response = await timeFilterPostcodeDistrictsWithHttpInfo(requestTimeFilterPostcodeDistricts);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeDistricts') as ResponseTimeFilterPostcodeDistricts;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
+  Future<Response> timeFilterPostcodeSectorsWithHttpInfo(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
     Object postBody = requestTimeFilterPostcodeSectors;
 
     // verify required params are set
     if(requestTimeFilterPostcodeSectors == null) {
-     throw new ApiException(400, "Missing required param: requestTimeFilterPostcodeSectors");
+     throw ApiException(400, "Missing required param: requestTimeFilterPostcodeSectors");
     }
 
     // create path and map variables
@@ -448,7 +512,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -463,24 +527,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
+    Response response = await timeFilterPostcodeSectorsWithHttpInfo(requestTimeFilterPostcodeSectors);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeSectors') as ResponseTimeFilterPostcodeSectors;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
+  Future<Response> timeFilterPostcodesWithHttpInfo(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
     Object postBody = requestTimeFilterPostcodes;
 
     // verify required params are set
     if(requestTimeFilterPostcodes == null) {
-     throw new ApiException(400, "Missing required param: requestTimeFilterPostcodes");
+     throw ApiException(400, "Missing required param: requestTimeFilterPostcodes");
     }
 
     // create path and map variables
@@ -498,7 +570,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -513,24 +585,32 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
+    Response response = await timeFilterPostcodesWithHttpInfo(requestTimeFilterPostcodes);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodes') as ResponseTimeFilterPostcodes;
     } else {
       return null;
     }
   }
-  /// 
+
+  ///  with HTTP info returned
   ///
   /// 
-  Future<ResponseTimeMap> timeMap(RequestTimeMap requestTimeMap) async {
+  Future<Response> timeMapWithHttpInfo(RequestTimeMap requestTimeMap) async {
     Object postBody = requestTimeMap;
 
     // verify required params are set
     if(requestTimeMap == null) {
-     throw new ApiException(400, "Missing required param: requestTimeMap");
+     throw ApiException(400, "Missing required param: requestTimeMap");
     }
 
     // create path and map variables
@@ -548,7 +628,7 @@ class DefaultApi {
 
     if(contentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
+      MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
         postBody = mp;
     }
@@ -563,13 +643,21 @@ class DefaultApi {
                                              formParams,
                                              contentType,
                                              authNames);
+    return response;
+  }
 
+  /// 
+  ///
+  /// 
+  Future<ResponseTimeMap> timeMap(RequestTimeMap requestTimeMap) async {
+    Response response = await timeMapWithHttpInfo(requestTimeMap);
     if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
       return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeMap') as ResponseTimeMap;
     } else {
       return null;
     }
   }
+
 }

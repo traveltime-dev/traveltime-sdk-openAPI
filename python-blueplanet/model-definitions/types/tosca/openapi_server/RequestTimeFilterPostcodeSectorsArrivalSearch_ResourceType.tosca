@@ -1,0 +1,69 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterPostcodeSectorsArrivalSearch"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodeSectorsArrivalSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = openapi_server.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodeSectorsProperty = openapi_server.resourceTypes.RequestTimeFilterPostcodeSectorsProperty
+  RequestTransportation = openapi_server.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodeSectorsArrivalSearch {
+    title = RequestTimeFilterPostcodeSectorsArrivalSearch
+    description = RequestTimeFilterPostcodeSectorsArrivalSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        arrival_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        reachable_postcodes_threshold {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodeSectorsProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodeSectorsArrivalSearch {
+    title = RequestTimeFilterPostcodeSectorsArrivalSearch
+    description = RequestTimeFilterPostcodeSectorsArrivalSearch
+    implements = openapi_server.resourceTypes.RequestTimeFilterPostcodeSectorsArrivalSearch
+
+  }
+}

@@ -21,7 +21,7 @@ public class ResponseTimeMapResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseShape> shapes = new ArrayList<ResponseShape>();
-  private @Valid ResponseTimeMapProperties properties = null;
+  private @Valid ResponseTimeMapProperties properties;
 
   /**
    **/

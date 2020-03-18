@@ -6,12 +6,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseGeocodingGeometry;
 import org.openapitools.server.api.model.ResponseGeocodingProperties;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseGeocodingGeoJsonFeature   {
   
   private String type;
-  private ResponseGeocodingGeometry geometry = null;
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingGeometry geometry;
+  private ResponseGeocodingProperties properties;
 
   public ResponseGeocodingGeoJsonFeature () {
 

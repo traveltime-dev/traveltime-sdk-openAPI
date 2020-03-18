@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestSupportedLocations
+# Org.OpenAPITools.Model.RequestSupportedLocations
 ## Properties
 
 Name | Type | Description | Notes

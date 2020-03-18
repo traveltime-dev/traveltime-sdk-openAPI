@@ -13,12 +13,12 @@
 
 #include "OAICoords.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAICoords::asJson () const {
 QJsonObject
 OAICoords::asJsonObject() const {
     QJsonObject obj;
-	if(m_lat_isSet){
+    if(m_lat_isSet){
         obj.insert(QString("lat"), ::OpenAPI::toJsonValue(lat));
     }
-	if(m_lng_isSet){
+    if(m_lng_isSet){
         obj.insert(QString("lng"), ::OpenAPI::toJsonValue(lng));
     }
     return obj;

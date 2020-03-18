@@ -5,10 +5,10 @@ part 'request_range_no_max_results.jser.dart';
 
 class RequestRangeNoMaxResults {
   
-  @Alias('enabled')
+  @Alias('enabled', isNullable: false,  )
   final bool enabled;
   
-  @Alias('width')
+  @Alias('width', isNullable: false,  )
   final int width;
   
 

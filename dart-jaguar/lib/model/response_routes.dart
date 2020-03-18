@@ -7,7 +7,7 @@ part 'response_routes.jser.dart';
 
 class ResponseRoutes {
   
-  @Alias('results')
+  @Alias('results', isNullable: false,  )
   final List<ResponseRoutesResult> results;
   
 

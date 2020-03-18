@@ -8,15 +8,15 @@ function New-ResponseTimeMapWktResult {
         [String]
         ${shape},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTimeMapProperties]
+        [Org.OpenAPITools.Model.ResponseTimeMapProperties]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeMapWktResult' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeMapWktResult' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeMapWktResult -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeMapWktResult -ArgumentList @(
             ${searchUnderscoreid},
             ${shape},
             ${properties}

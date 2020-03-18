@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class RequestArrivalTimePeriod {
   /// The underlying value of this enum member.
   final String value;
@@ -8,16 +7,18 @@ class RequestArrivalTimePeriod {
   const RequestArrivalTimePeriod._internal(this.value);
 
   static const RequestArrivalTimePeriod weekdayMorning_ = const RequestArrivalTimePeriod._internal("weekday_morning");
+
+  static RequestArrivalTimePeriod fromJson(String value) {
+    return new RequestArrivalTimePeriodTypeTransformer().decode(value);
+  }
 }
 
-class RequestArrivalTimePeriodTypeTransformer extends TypeTransformer<RequestArrivalTimePeriod> {
+class RequestArrivalTimePeriodTypeTransformer {
 
-  @override
   dynamic encode(RequestArrivalTimePeriod data) {
     return data.value;
   }
 
-  @override
   RequestArrivalTimePeriod decode(dynamic data) {
     switch (data) {
       case "weekday_morning": return RequestArrivalTimePeriod.weekdayMorning_;

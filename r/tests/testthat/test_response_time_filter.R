@@ -6,7 +6,7 @@ context("Test ResponseTimeFilter")
 model.instance <- ResponseTimeFilter$new()
 
 test_that("results", {
-  # tests for the property `results` (ResponseTimeFilterResult)
+  # tests for the property `results` (array[ResponseTimeFilterResult])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`results`, "EXPECTED_RESULT")

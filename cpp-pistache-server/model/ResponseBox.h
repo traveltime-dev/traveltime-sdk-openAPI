@@ -45,22 +45,22 @@ public:
     /// </summary>
     double getMinLat() const;
     void setMinLat(double const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getMaxLat() const;
     void setMaxLat(double const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getMinLng() const;
     void setMinLng(double const value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     double getMaxLng() const;
     void setMaxLng(double const value);
-    
+
     friend void to_json(nlohmann::json& j, const ResponseBox& o);
     friend void from_json(const nlohmann::json& j, ResponseBox& o);
 protected:

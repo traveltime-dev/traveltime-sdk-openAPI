@@ -10,5 +10,5 @@ class ResponseMapInfoMap {
     
     String name
     
-    ResponseMapInfoFeatures features = null
+    ResponseMapInfoFeatures features
 }

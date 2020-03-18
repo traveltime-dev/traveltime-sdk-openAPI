@@ -22,12 +22,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class RequestTimeFilterPostcodeDistrictsArrivalSearch   {
   
   private @Valid String id;
-  private @Valid RequestTransportation transportation = null;
+  private @Valid RequestTransportation transportation;
   private @Valid Integer travelTime;
   private @Valid Date arrivalTime;
   private @Valid Double reachablePostcodesThreshold;
   private @Valid List<RequestTimeFilterPostcodeDistrictsProperty> properties = new ArrayList<RequestTimeFilterPostcodeDistrictsProperty>();
-  private @Valid RequestRangeFull range = null;
+  private @Valid RequestRangeFull range;
 
   /**
    **/

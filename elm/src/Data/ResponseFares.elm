@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseFares exposing (ResponseFares, decoder, encode)
+module Data.ResponseFares exposing (ResponseFares, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseFaresBreakdownItem as ResponseFaresBreakdownItem exposing (ResponseFaresBreakdownItem)
 import Data.ResponseFareTicket as ResponseFareTicket exposing (ResponseFareTicket)
@@ -36,11 +36,27 @@ decoder =
 
 
 encode : ResponseFares -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "breakdown", (Encode.list ResponseFaresBreakdownItem.encode) model.breakdown )
-        , ( "tickets_total", (Encode.list ResponseFareTicket.encode) model.ticketsTotal )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseFares -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseFares -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "breakdown", (Encode.list ResponseFaresBreakdownItem.encode) model.breakdown )
+    , ( "tickets_total", (Encode.list ResponseFareTicket.encode) model.ticketsTotal )
+    ]
+
+
+
+toString : ResponseFares -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -1,10 +1,10 @@
-//! Main binary entry point for traveltimeplatform implementation.
+//! Main binary entry point for openapi_client implementation.
 
 #![allow(missing_docs)]
 
 // Imports required by this file.
 // extern crate <name of this crate>;
-extern crate traveltimeplatform;
+extern crate openapi_client;
 extern crate swagger;
 extern crate hyper;
 extern crate openssl;
@@ -14,13 +14,12 @@ extern crate tokio_tls;
 extern crate clap;
 
 // Imports required by server library.
-// extern crate traveltimeplatform;
+// extern crate openapi_client;
 // extern crate swagger;
 extern crate futures;
 extern crate chrono;
 #[macro_use]
 extern crate error_chain;
-
 
 use openssl::x509::X509_FILETYPE_PEM;
 use openssl::ssl::{SslAcceptorBuilder, SslMethod};
@@ -55,7 +54,7 @@ fn main() {
         .get_matches();
 
     let service_fn =
-        traveltimeplatform::server::context::NewAddContext::<_, EmptyContext>::new(
+        openapi_client::server::context::NewAddContext::<_, EmptyContext>::new(
             AllowAllAuthenticator::new(
                 server_lib::NewService::new(),
                 "cosmo"

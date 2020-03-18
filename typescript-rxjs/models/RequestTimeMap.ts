@@ -23,25 +23,21 @@ import {
  */
 export interface RequestTimeMap {
     /**
-     * 
      * @type {Array<RequestTimeMapDepartureSearch>}
      * @memberof RequestTimeMap
      */
     departureSearches?: Array<RequestTimeMapDepartureSearch>;
     /**
-     * 
      * @type {Array<RequestTimeMapArrivalSearch>}
      * @memberof RequestTimeMap
      */
     arrivalSearches?: Array<RequestTimeMapArrivalSearch>;
     /**
-     * 
      * @type {Array<RequestUnionOnIntersection>}
      * @memberof RequestTimeMap
      */
     unions?: Array<RequestUnionOnIntersection>;
     /**
-     * 
      * @type {Array<RequestUnionOnIntersection>}
      * @memberof RequestTimeMap
      */

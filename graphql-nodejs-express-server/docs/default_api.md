@@ -19,12 +19,12 @@ Method | HTTP request | Description
 
 <a name="GeocodingReverseSearch"></a>
 # **GeocodingReverseSearch**
-> ResponseGeocoding GeocodingReverseSearch(focusLat, focusLng, withinCountry)
+> ResponseGeocoding GeocodingReverseSearch(lat, lng, withinCountry)
 
 
 <a name="GeocodingSearch"></a>
 # **GeocodingSearch**
-> ResponseGeocoding GeocodingSearch(Query_, withinCountry, focusLat, focusLng)
+> ResponseGeocoding GeocodingSearch(Query_, focusLat, focusLng, withinCountry)
 
 
 <a name="MapInfo"></a>

@@ -7,10 +7,10 @@ part 'response_time_filter_location.jser.dart';
 
 class ResponseTimeFilterLocation {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<ResponseTimeFilterProperties> properties;
   
 

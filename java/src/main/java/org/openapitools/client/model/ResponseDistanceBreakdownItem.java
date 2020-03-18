@@ -28,7 +28,7 @@ import org.openapitools.client.model.ResponseTransportationMode;
 /**
  * ResponseDistanceBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseDistanceBreakdownItem {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
@@ -38,7 +38,9 @@ public class ResponseDistanceBreakdownItem {
   @SerializedName(SERIALIZED_NAME_DISTANCE)
   private Integer distance;
 
+
   public ResponseDistanceBreakdownItem mode(ResponseTransportationMode mode) {
+    
     this.mode = mode;
     return this;
   }
@@ -48,15 +50,19 @@ public class ResponseDistanceBreakdownItem {
    * @return mode
   **/
   @ApiModelProperty(required = true, value = "")
+
   public ResponseTransportationMode getMode() {
     return mode;
   }
+
 
   public void setMode(ResponseTransportationMode mode) {
     this.mode = mode;
   }
 
+
   public ResponseDistanceBreakdownItem distance(Integer distance) {
+    
     this.distance = distance;
     return this;
   }
@@ -66,9 +72,11 @@ public class ResponseDistanceBreakdownItem {
    * @return distance
   **/
   @ApiModelProperty(required = true, value = "")
+
   public Integer getDistance() {
     return distance;
   }
+
 
   public void setDistance(Integer distance) {
     this.distance = distance;

@@ -5,15 +5,15 @@ function New-ResponseTimeFilterFastLocation {
         [String]
         ${id},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.ResponseTimeFilterFastProperties[]]
+        [Org.OpenAPITools.Model.ResponseTimeFilterFastProperties[]]
         ${properties}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterFastLocation' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterFastLocation' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterFastLocation -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterFastLocation -ArgumentList @(
             ${id},
             ${properties}
         )

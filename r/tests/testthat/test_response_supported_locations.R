@@ -6,14 +6,14 @@ context("Test ResponseSupportedLocations")
 model.instance <- ResponseSupportedLocations$new()
 
 test_that("locations", {
-  # tests for the property `locations` (ResponseSupportedLocation)
+  # tests for the property `locations` (array[ResponseSupportedLocation])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`locations`, "EXPECTED_RESULT")
 })
 
 test_that("unsupported_locations", {
-  # tests for the property `unsupported_locations` (character)
+  # tests for the property `unsupported_locations` (array[character])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`unsupported_locations`, "EXPECTED_RESULT")

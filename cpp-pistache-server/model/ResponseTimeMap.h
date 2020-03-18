@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseTimeMapResult>& getResults();
-    
+    void setResults(std::vector<ResponseTimeMapResult> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeMap& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeMap& o);
 protected:

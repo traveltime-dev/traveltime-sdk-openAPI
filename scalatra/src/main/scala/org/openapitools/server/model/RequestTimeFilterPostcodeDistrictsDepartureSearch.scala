@@ -10,7 +10,7 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import org.joda.time.DateTime
 
 case class RequestTimeFilterPostcodeDistrictsDepartureSearch(
   id: String,
@@ -19,7 +19,7 @@ case class RequestTimeFilterPostcodeDistrictsDepartureSearch(
 
   travelUnderscoretime: Int,
 
-  departureUnderscoretime: Date,
+  departureUnderscoretime: DateTime,
 
   reachableUnderscorepostcodesUnderscorethreshold: Double,
 

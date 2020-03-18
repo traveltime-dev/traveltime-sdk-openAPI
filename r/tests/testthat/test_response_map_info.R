@@ -6,7 +6,7 @@ context("Test ResponseMapInfo")
 model.instance <- ResponseMapInfo$new()
 
 test_that("maps", {
-  # tests for the property `maps` (ResponseMapInfoMap)
+  # tests for the property `maps` (array[ResponseMapInfoMap])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`maps`, "EXPECTED_RESULT")

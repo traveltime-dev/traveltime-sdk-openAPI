@@ -21,95 +21,86 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestArrivalTimePeriod.h"
 #include "OAIRequestTimeFilterFastProperty.h"
 #include "OAIRequestTransportationFast.h"
 #include <QList>
 #include <QString>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterFastArrivalManyToOneSearch: public OAIObject {
+class OAIRequestTimeFilterFastArrivalManyToOneSearch : public OAIObject {
 public:
     OAIRequestTimeFilterFastArrivalManyToOneSearch();
     OAIRequestTimeFilterFastArrivalManyToOneSearch(QString json);
     ~OAIRequestTimeFilterFastArrivalManyToOneSearch() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QString getId() const;
     void setId(const QString &id);
 
-    
     QString getArrivalLocationId() const;
     void setArrivalLocationId(const QString &arrival_location_id);
 
-    
     QList<QString> getDepartureLocationIds() const;
     void setDepartureLocationIds(const QList<QString> &departure_location_ids);
 
-    
     OAIRequestTransportationFast getTransportation() const;
     void setTransportation(const OAIRequestTransportationFast &transportation);
 
-    
     qint32 getTravelTime() const;
     void setTravelTime(const qint32 &travel_time);
 
-    
     OAIRequestArrivalTimePeriod getArrivalTimePeriod() const;
     void setArrivalTimePeriod(const OAIRequestArrivalTimePeriod &arrival_time_period);
 
-    
     QList<OAIRequestTimeFilterFastProperty> getProperties() const;
     void setProperties(const QList<OAIRequestTimeFilterFastProperty> &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QString id;
     bool m_id_isSet;
     bool m_id_isValid;
-    
+
     QString arrival_location_id;
     bool m_arrival_location_id_isSet;
     bool m_arrival_location_id_isValid;
-    
+
     QList<QString> departure_location_ids;
     bool m_departure_location_ids_isSet;
     bool m_departure_location_ids_isValid;
-    
+
     OAIRequestTransportationFast transportation;
     bool m_transportation_isSet;
     bool m_transportation_isValid;
-    
+
     qint32 travel_time;
     bool m_travel_time_isSet;
     bool m_travel_time_isValid;
-    
+
     OAIRequestArrivalTimePeriod arrival_time_period;
     bool m_arrival_time_period_isSet;
     bool m_arrival_time_period_isValid;
-    
+
     QList<OAIRequestTimeFilterFastProperty> properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFastArrivalManyToOneSearch)
 
 #endif // OAIRequestTimeFilterFastArrivalManyToOneSearch_H

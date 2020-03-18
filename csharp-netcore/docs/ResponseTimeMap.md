@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseTimeMap
+# Org.OpenAPITools.Model.ResponseTimeMap
 ## Properties
 
 Name | Type | Description | Notes

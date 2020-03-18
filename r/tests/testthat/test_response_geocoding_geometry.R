@@ -13,7 +13,7 @@ test_that("type", {
 })
 
 test_that("coordinates", {
-  # tests for the property `coordinates` (numeric)
+  # tests for the property `coordinates` (array[numeric])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`coordinates`, "EXPECTED_RESULT")

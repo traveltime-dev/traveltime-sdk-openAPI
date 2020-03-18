@@ -16,10 +16,10 @@ package body .Servers is
    overriding
    procedure Geocoding_Reverse_Search
       (Server : in out Server_Type;
-       Focus_Periodlat : in double;
-       Focus_Periodlng : in double;
+       Lat : in double;
+       Lng : in double;
        Within_Periodcountry : in Swagger.Nullable_UString;
-       Result  : out .Models.ResponseGeocodingType;
+       Result  : out .Models.ResponseGeocoding_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -30,10 +30,10 @@ package body .Servers is
    procedure Geocoding_Search
       (Server : in out Server_Type;
        Query : in Swagger.UString;
-       Within_Periodcountry : in Swagger.Nullable_UString;
        Focus_Periodlat : in double;
        Focus_Periodlng : in double;
-       Result  : out .Models.ResponseGeocodingType;
+       Within_Periodcountry : in Swagger.Nullable_UString;
+       Result  : out .Models.ResponseGeocoding_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -44,7 +44,7 @@ package body .Servers is
    procedure Map_Info
       (Server : in out Server_Type
        ;
-       Result  : out .Models.ResponseMapInfoType;
+       Result  : out .Models.ResponseMapInfo_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -54,8 +54,8 @@ package body .Servers is
    overriding
    procedure Routes
       (Server : in out Server_Type;
-       Request_Routes_Type : in RequestRoutesType;
-       Result  : out .Models.ResponseRoutesType;
+       Request_Routes_Type : in RequestRoutes_Type;
+       Result  : out .Models.ResponseRoutes_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -65,8 +65,8 @@ package body .Servers is
    overriding
    procedure Supported_Locations
       (Server : in out Server_Type;
-       Request_Supported_Locations_Type : in RequestSupportedLocationsType;
-       Result  : out .Models.ResponseSupportedLocationsType;
+       Request_Supported_Locations_Type : in RequestSupportedLocations_Type;
+       Result  : out .Models.ResponseSupportedLocations_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -76,8 +76,8 @@ package body .Servers is
    overriding
    procedure Time_Filter
       (Server : in out Server_Type;
-       Request_Time_Filter_Type : in RequestTimeFilterType;
-       Result  : out .Models.ResponseTimeFilterType;
+       Request_Time_Filter_Type : in RequestTimeFilter_Type;
+       Result  : out .Models.ResponseTimeFilter_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -87,8 +87,8 @@ package body .Servers is
    overriding
    procedure Time_Filter_Fast
       (Server : in out Server_Type;
-       Request_Time_Filter_Fast_Type : in RequestTimeFilterFastType;
-       Result  : out .Models.ResponseTimeFilterFastType;
+       Request_Time_Filter_Fast_Type : in RequestTimeFilterFast_Type;
+       Result  : out .Models.ResponseTimeFilterFast_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -98,8 +98,8 @@ package body .Servers is
    overriding
    procedure Time_Filter_Postcode_Districts
       (Server : in out Server_Type;
-       Request_Time_Filter_Postcode_Districts_Type : in RequestTimeFilterPostcodeDistrictsType;
-       Result  : out .Models.ResponseTimeFilterPostcodeDistrictsType;
+       Request_Time_Filter_Postcode_Districts_Type : in RequestTimeFilterPostcodeDistricts_Type;
+       Result  : out .Models.ResponseTimeFilterPostcodeDistricts_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -109,8 +109,8 @@ package body .Servers is
    overriding
    procedure Time_Filter_Postcode_Sectors
       (Server : in out Server_Type;
-       Request_Time_Filter_Postcode_Sectors_Type : in RequestTimeFilterPostcodeSectorsType;
-       Result  : out .Models.ResponseTimeFilterPostcodeSectorsType;
+       Request_Time_Filter_Postcode_Sectors_Type : in RequestTimeFilterPostcodeSectors_Type;
+       Result  : out .Models.ResponseTimeFilterPostcodeSectors_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -120,8 +120,8 @@ package body .Servers is
    overriding
    procedure Time_Filter_Postcodes
       (Server : in out Server_Type;
-       Request_Time_Filter_Postcodes_Type : in RequestTimeFilterPostcodesType;
-       Result  : out .Models.ResponseTimeFilterPostcodesType;
+       Request_Time_Filter_Postcodes_Type : in RequestTimeFilterPostcodes_Type;
+       Result  : out .Models.ResponseTimeFilterPostcodes_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;
@@ -131,8 +131,8 @@ package body .Servers is
    overriding
    procedure Time_Map
       (Server : in out Server_Type;
-       Request_Time_Map_Type : in RequestTimeMapType;
-       Result  : out .Models.ResponseTimeMapType;
+       Request_Time_Map_Type : in RequestTimeMap_Type;
+       Result  : out .Models.ResponseTimeMap_Type;
        Context : in out Swagger.Servers.Context_Type) is
    begin
       null;

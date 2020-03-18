@@ -21,19 +21,16 @@ import {
  */
 export interface ResponseRoute {
     /**
-     * 
      * @type {Date}
      * @memberof ResponseRoute
      */
     departureTime: Date;
     /**
-     * 
      * @type {Date}
      * @memberof ResponseRoute
      */
     arrivalTime: Date;
     /**
-     * 
      * @type {Array<ResponseRoutePart>}
      * @memberof ResponseRoute
      */

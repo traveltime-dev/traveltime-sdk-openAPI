@@ -10,33 +10,33 @@ response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_resu
     list_t *bounding_boxes,
     response_time_map_properties_t *properties
     ) {
-	response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result_local_var = malloc(sizeof(response_time_map_bounding_boxes_result_t));
+    response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result_local_var = malloc(sizeof(response_time_map_bounding_boxes_result_t));
     if (!response_time_map_bounding_boxes_result_local_var) {
         return NULL;
     }
-	response_time_map_bounding_boxes_result_local_var->search_id = search_id;
-	response_time_map_bounding_boxes_result_local_var->bounding_boxes = bounding_boxes;
-	response_time_map_bounding_boxes_result_local_var->properties = properties;
+    response_time_map_bounding_boxes_result_local_var->search_id = search_id;
+    response_time_map_bounding_boxes_result_local_var->bounding_boxes = bounding_boxes;
+    response_time_map_bounding_boxes_result_local_var->properties = properties;
 
-	return response_time_map_bounding_boxes_result_local_var;
+    return response_time_map_bounding_boxes_result_local_var;
 }
 
 
 void response_time_map_bounding_boxes_result_free(response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result) {
     listEntry_t *listEntry;
     free(response_time_map_bounding_boxes_result->search_id);
-	list_ForEach(listEntry, response_time_map_bounding_boxes_result->bounding_boxes) {
-		response_bounding_box_free(listEntry->data);
-	}
-	list_free(response_time_map_bounding_boxes_result->bounding_boxes);
+    list_ForEach(listEntry, response_time_map_bounding_boxes_result->bounding_boxes) {
+        response_bounding_box_free(listEntry->data);
+    }
+    list_free(response_time_map_bounding_boxes_result->bounding_boxes);
     response_time_map_properties_free(response_time_map_bounding_boxes_result->properties);
-	free(response_time_map_bounding_boxes_result);
+    free(response_time_map_bounding_boxes_result);
 }
 
 cJSON *response_time_map_bounding_boxes_result_convertToJSON(response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map_bounding_boxes_result->search_id
+    // response_time_map_bounding_boxes_result->search_id
     if (!response_time_map_bounding_boxes_result->search_id) {
         goto fail;
     }
@@ -46,7 +46,7 @@ cJSON *response_time_map_bounding_boxes_result_convertToJSON(response_time_map_b
     }
 
 
-	// response_time_map_bounding_boxes_result->bounding_boxes
+    // response_time_map_bounding_boxes_result->bounding_boxes
     if (!response_time_map_bounding_boxes_result->bounding_boxes) {
         goto fail;
     }
@@ -68,7 +68,7 @@ cJSON *response_time_map_bounding_boxes_result_convertToJSON(response_time_map_b
     }
 
 
-	// response_time_map_bounding_boxes_result->properties
+    // response_time_map_bounding_boxes_result->properties
     if (!response_time_map_bounding_boxes_result->properties) {
         goto fail;
     }
@@ -82,12 +82,12 @@ cJSON *response_time_map_bounding_boxes_result_convertToJSON(response_time_map_b
     goto fail;
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result_parseFromJSON(cJSON *response_time_map_bounding_boxes_resultJSON){

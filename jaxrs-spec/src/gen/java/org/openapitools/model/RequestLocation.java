@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class RequestLocation   {
   
   private @Valid String id;
-  private @Valid Coords coords = null;
+  private @Valid Coords coords;
 
   /**
    **/

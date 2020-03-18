@@ -14,16 +14,8 @@ class ResponseTimeFilterPostcodesProperties {
 
   ResponseTimeFilterPostcodesProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['distance'] == null) {
-      distance = null;
-    } else {
-          distance = json['distance'];
-    }
+    travelTime = json['travel_time'];
+    distance = json['distance'];
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +28,26 @@ class ResponseTimeFilterPostcodesProperties {
   }
 
   static List<ResponseTimeFilterPostcodesProperties> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterPostcodesProperties>() : json.map((value) => new ResponseTimeFilterPostcodesProperties.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterPostcodesProperties>() : json.map((value) => ResponseTimeFilterPostcodesProperties.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterPostcodesProperties> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterPostcodesProperties>();
+    var map = Map<String, ResponseTimeFilterPostcodesProperties>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterPostcodesProperties.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterPostcodesProperties.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterPostcodesProperties-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterPostcodesProperties>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterPostcodesProperties>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterPostcodesProperties.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class ResponseTimeFilterFastProperties   {
   
   private @Valid Integer travelTime;
-  private @Valid ResponseFaresFast fares = null;
+  private @Valid ResponseFaresFast fares;
 
   /**
    **/

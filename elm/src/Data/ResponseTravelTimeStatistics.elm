@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTravelTimeStatistics exposing (ResponseTravelTimeStatistics, decoder, encode)
+module Data.ResponseTravelTimeStatistics exposing (ResponseTravelTimeStatistics, decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -38,13 +38,29 @@ decoder =
 
 
 encode : ResponseTravelTimeStatistics -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "min", Encode.int model.min )
-        , ( "max", Encode.int model.max )
-        , ( "mean", Encode.int model.mean )
-        , ( "median", Encode.int model.median )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTravelTimeStatistics -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTravelTimeStatistics -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "min", Encode.int model.min )
+    , ( "max", Encode.int model.max )
+    , ( "mean", Encode.int model.mean )
+    , ( "median", Encode.int model.median )
+    ]
+
+
+
+toString : ResponseTravelTimeStatistics -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

@@ -39,26 +39,26 @@ function Get-FunctionsToExport {
 
 $ScriptDir = Split-Path $script:MyInvocation.MyCommand.Path
 $ClientPath = ("$ScriptDir\csharp\OpenAPIClient" | Resolve-Path).ProviderPath
-$FunctionPath = 'API', 'Model' | ForEach-Object {Join-Path "$ScriptDir\src\traveltimeplatform\" $_}
-$BinPath = "$ScriptDir\src\traveltimeplatform\Bin"
+$FunctionPath = 'API', 'Model' | ForEach-Object {Join-Path "$ScriptDir\src\Org.OpenAPITools\" $_}
+$BinPath = "$ScriptDir\src\Org.OpenAPITools\Bin"
 
 Start-Process -FilePath "$ClientPath\build.bat" -WorkingDirectory $ClientPath -Wait -NoNewWindow
 
-if (!(Test-Path "$ScriptDir\src\traveltimeplatform\Bin" -PathType Container)) {
-    New-Item "$ScriptDir\src\traveltimeplatform\Bin" -ItemType Directory > $null
+if (!(Test-Path "$ScriptDir\src\Org.OpenAPITools\Bin" -PathType Container)) {
+    New-Item "$ScriptDir\src\Org.OpenAPITools\Bin" -ItemType Directory > $null
 }
 
 Copy-Item "$ClientPath\bin\*.dll" $BinPath
 
 $Manifest = @{
-    Path = "$ScriptDir\src\traveltimeplatform\traveltimeplatform.psd1"
+    Path = "$ScriptDir\src\Org.OpenAPITools\Org.OpenAPITools.psd1"
 
     Author = 'OpenAPI Generator Team'
     CompanyName = 'openapitools.org'
-    Description = 'traveltimeplatform - the PowerShell module for TravelTime Platform API'
+    Description = 'Org.OpenAPITools - the PowerShell module for TravelTime Platform API'
 
-    RootModule = 'traveltimeplatform.psm1'
-    Guid = '{D3AFC33D-A94A-4133-9BAB-A89D7FEF79B3}' # Has to be static, otherwise each new build will be considered different module
+    RootModule = 'Org.OpenAPITools.psm1'
+    Guid = '{7281D880-3C53-4846-BDC1-EAF281931354}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '3.0'
 
@@ -78,9 +78,9 @@ $Manifest = @{
     # Kirk Munro recommends against it:
     # https://www.sapien.com/blog/2016/02/15/use-prefixes-to-prevent-command-name-collision/#comment-20820
     #
-    # If not, we'd need to generate functions name with prefix.
+    # If not, we'd need to generate functions name with prefix. For examples,
     #
-    # DefaultCommandPrefix = 'PetStore'
+    # DefaultCommandPrefix = 'DefaultApi'
 }
 
 New-ModuleManifest @Manifest

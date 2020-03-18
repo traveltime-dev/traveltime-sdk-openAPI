@@ -15,9 +15,9 @@ class RequestTimeMapDepartureSearch {
     
     String id
     
-    Coords coords = null
+    Coords coords
     
-    RequestTransportation transportation = null
+    RequestTransportation transportation
     
     Integer travelTime
     
@@ -25,5 +25,5 @@ class RequestTimeMapDepartureSearch {
     
     List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>()
     
-    RequestRangeNoMaxResults range = null
+    RequestRangeNoMaxResults range
 }

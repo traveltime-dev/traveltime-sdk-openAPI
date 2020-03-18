@@ -22,13 +22,11 @@ import {
  */
 export interface RequestTimeFilterFastArrivalSearches {
     /**
-     * 
      * @type {Array<RequestTimeFilterFastArrivalManyToOneSearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */
     manyToOne?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
     /**
-     * 
      * @type {Array<RequestTimeFilterFastArrivalOneToManySearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */

@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseMapInfoMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T07:53:58.336Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseMapInfoMap   {
@@ -17,7 +17,7 @@ public class ResponseMapInfoMap   {
   private String name;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseMapInfoMap name(String name) {
     this.name = name;

@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseTimeFilterPostcodesProperties;
 /**
  * ResponseTimeFilterPostcode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterPostcode {
   public static final String SERIALIZED_NAME_CODE = "code";
   @SerializedName(SERIALIZED_NAME_CODE)
@@ -40,7 +40,9 @@ public class ResponseTimeFilterPostcode {
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
   private List<ResponseTimeFilterPostcodesProperties> properties = new ArrayList<ResponseTimeFilterPostcodesProperties>();
 
+
   public ResponseTimeFilterPostcode code(String code) {
+    
     this.code = code;
     return this;
   }
@@ -50,15 +52,19 @@ public class ResponseTimeFilterPostcode {
    * @return code
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getCode() {
     return code;
   }
+
 
   public void setCode(String code) {
     this.code = code;
   }
 
+
   public ResponseTimeFilterPostcode properties(List<ResponseTimeFilterPostcodesProperties> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -73,9 +79,11 @@ public class ResponseTimeFilterPostcode {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterPostcodesProperties> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<ResponseTimeFilterPostcodesProperties> properties) {
     this.properties = properties;

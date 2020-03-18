@@ -14,16 +14,10 @@ class ResponseTimeFilterFastProperties {
 
   ResponseTimeFilterFastProperties.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['travel_time'] == null) {
-      travelTime = null;
-    } else {
-          travelTime = json['travel_time'];
-    }
-    if (json['fares'] == null) {
-      fares = null;
-    } else {
-      fares = new ResponseFaresFast.fromJson(json['fares']);
-    }
+    travelTime = json['travel_time'];
+    fares = (json['fares'] == null) ?
+      null :
+      ResponseFaresFast.fromJson(json['fares']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +30,26 @@ class ResponseTimeFilterFastProperties {
   }
 
   static List<ResponseTimeFilterFastProperties> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterFastProperties>() : json.map((value) => new ResponseTimeFilterFastProperties.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterFastProperties>() : json.map((value) => ResponseTimeFilterFastProperties.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterFastProperties> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterFastProperties>();
+    var map = Map<String, ResponseTimeFilterFastProperties>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterFastProperties.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterFastProperties.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterFastProperties-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterFastProperties>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterFastProperties>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterFastProperties.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

@@ -20,7 +20,7 @@ import org.threeten.bp.OffsetDateTime;
  * RequestRoutesArrivalSearch
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
 
 public class RequestRoutesArrivalSearch   {
   @JsonProperty("id")
@@ -34,7 +34,7 @@ public class RequestRoutesArrivalSearch   {
   private String arrivalLocationId;
 
   @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @JsonProperty("arrival_time")
   private OffsetDateTime arrivalTime;
@@ -44,7 +44,7 @@ public class RequestRoutesArrivalSearch   {
   private List<RequestRoutesProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
 
   public RequestRoutesArrivalSearch id(String id) {
     this.id = id;

@@ -46,7 +46,7 @@ public:
     /// </summary>
     std::string getType() const;
     void setType(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     int32_t getPtChangeDelay() const;

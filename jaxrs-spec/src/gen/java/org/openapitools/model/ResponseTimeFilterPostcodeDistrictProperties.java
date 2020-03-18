@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   
-  private @Valid ResponseTravelTimeStatistics travelTimeReachable = null;
-  private @Valid ResponseTravelTimeStatistics travelTimeAll = null;
+  private @Valid ResponseTravelTimeStatistics travelTimeReachable;
+  private @Valid ResponseTravelTimeStatistics travelTimeAll;
   private @Valid Double coverage;
 
   /**

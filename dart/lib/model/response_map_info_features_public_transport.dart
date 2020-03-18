@@ -14,16 +14,12 @@ class ResponseMapInfoFeaturesPublicTransport {
 
   ResponseMapInfoFeaturesPublicTransport.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['date_start'] == null) {
-      dateStart = null;
-    } else {
-      dateStart = DateTime.parse(json['date_start']);
-    }
-    if (json['date_end'] == null) {
-      dateEnd = null;
-    } else {
-      dateEnd = DateTime.parse(json['date_end']);
-    }
+    dateStart = (json['date_start'] == null) ?
+      null :
+      DateTime.parse(json['date_start']);
+    dateEnd = (json['date_end'] == null) ?
+      null :
+      DateTime.parse(json['date_end']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +32,26 @@ class ResponseMapInfoFeaturesPublicTransport {
   }
 
   static List<ResponseMapInfoFeaturesPublicTransport> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseMapInfoFeaturesPublicTransport>() : json.map((value) => new ResponseMapInfoFeaturesPublicTransport.fromJson(value)).toList();
+    return json == null ? List<ResponseMapInfoFeaturesPublicTransport>() : json.map((value) => ResponseMapInfoFeaturesPublicTransport.fromJson(value)).toList();
   }
 
   static Map<String, ResponseMapInfoFeaturesPublicTransport> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseMapInfoFeaturesPublicTransport>();
+    var map = Map<String, ResponseMapInfoFeaturesPublicTransport>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfoFeaturesPublicTransport.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfoFeaturesPublicTransport.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseMapInfoFeaturesPublicTransport-objects as value to a dart map
+  static Map<String, List<ResponseMapInfoFeaturesPublicTransport>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseMapInfoFeaturesPublicTransport>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseMapInfoFeaturesPublicTransport.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

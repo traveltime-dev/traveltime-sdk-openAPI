@@ -10,120 +10,106 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseSupportedLocations.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseSupportedLocations::OAIResponseSupportedLocations(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseSupportedLocations::OAIResponseSupportedLocations() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseSupportedLocations::~OAIResponseSupportedLocations() {
+OAIResponseSupportedLocations::~OAIResponseSupportedLocations() {}
 
-}
+void OAIResponseSupportedLocations::initializeModel() {
 
-void
-OAIResponseSupportedLocations::init() {
-    
     m_locations_isSet = false;
     m_locations_isValid = false;
-    
+
     m_unsupported_locations_isSet = false;
     m_unsupported_locations_isValid = false;
-    }
+}
 
-void
-OAIResponseSupportedLocations::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseSupportedLocations::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseSupportedLocations::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseSupportedLocations::fromJsonObject(QJsonObject json) {
+
     m_locations_isValid = ::OpenAPI::fromJsonValue(locations, json[QString("locations")]);
-    
-    
+    m_locations_isSet = !json[QString("locations")].isNull() && m_locations_isValid;
+
     m_unsupported_locations_isValid = ::OpenAPI::fromJsonValue(unsupported_locations, json[QString("unsupported_locations")]);
-    
+    m_unsupported_locations_isSet = !json[QString("unsupported_locations")].isNull() && m_unsupported_locations_isValid;
 }
 
-QString
-OAIResponseSupportedLocations::asJson () const {
+QString OAIResponseSupportedLocations::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseSupportedLocations::asJsonObject() const {
+QJsonObject OAIResponseSupportedLocations::asJsonObject() const {
     QJsonObject obj;
-	
-    if(locations.size() > 0){
+    if (locations.size() > 0) {
         obj.insert(QString("locations"), ::OpenAPI::toJsonValue(locations));
-    } 
-	
-    if(unsupported_locations.size() > 0){
+    }
+    if (unsupported_locations.size() > 0) {
         obj.insert(QString("unsupported_locations"), ::OpenAPI::toJsonValue(unsupported_locations));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseSupportedLocation>
-OAIResponseSupportedLocations::getLocations() const {
+QList<OAIResponseSupportedLocation> OAIResponseSupportedLocations::getLocations() const {
     return locations;
 }
-void
-OAIResponseSupportedLocations::setLocations(const QList<OAIResponseSupportedLocation> &locations) {
+void OAIResponseSupportedLocations::setLocations(const QList<OAIResponseSupportedLocation> &locations) {
     this->locations = locations;
     this->m_locations_isSet = true;
 }
 
-
-QList<QString>
-OAIResponseSupportedLocations::getUnsupportedLocations() const {
+QList<QString> OAIResponseSupportedLocations::getUnsupportedLocations() const {
     return unsupported_locations;
 }
-void
-OAIResponseSupportedLocations::setUnsupportedLocations(const QList<QString> &unsupported_locations) {
+void OAIResponseSupportedLocations::setUnsupportedLocations(const QList<QString> &unsupported_locations) {
     this->unsupported_locations = unsupported_locations;
     this->m_unsupported_locations_isSet = true;
 }
 
-bool
-OAIResponseSupportedLocations::isSet() const {
+bool OAIResponseSupportedLocations::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(locations.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(unsupported_locations.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (locations.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (unsupported_locations.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseSupportedLocations::isValid() const {
+bool OAIResponseSupportedLocations::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_locations_isValid && m_unsupported_locations_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

@@ -21,15 +21,20 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseTimeFilterResult;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeFilter
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeFilter.JSON_PROPERTY_RESULTS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeFilter   {
-  @JsonProperty("results")
+  public static final String JSON_PROPERTY_RESULTS = "results";
+  @JsonProperty(JSON_PROPERTY_RESULTS)
   private List<ResponseTimeFilterResult> results = new ArrayList<ResponseTimeFilterResult>();
 
   public ResponseTimeFilter results(List<ResponseTimeFilterResult> results) {

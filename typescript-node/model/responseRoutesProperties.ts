@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseFares } from './responseFares';
 import { ResponseRoute } from './responseRoute';
 

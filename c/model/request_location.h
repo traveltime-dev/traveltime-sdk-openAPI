@@ -17,7 +17,7 @@
 
 typedef struct request_location_t {
     char *id; // string
-    coords_t *coords; //model
+    struct coords_t *coords; //model
 
 } request_location_t;
 

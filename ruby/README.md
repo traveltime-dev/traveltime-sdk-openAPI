@@ -70,14 +70,14 @@ OpenapiClient.configure do |config|
 end
 
 api_instance = OpenapiClient::DefaultApi.new
-focus_lat = 3.4 # Float | 
-focus_lng = 3.4 # Float | 
+lat = 3.4 # Float | 
+lng = 3.4 # Float | 
 opts = {
   within_country: 'within_country_example' # String | 
 }
 
 begin
-  result = api_instance.geocoding_reverse_search(focus_lat, focus_lng, opts)
+  result = api_instance.geocoding_reverse_search(lat, lng, opts)
   p result
 rescue OpenapiClient::ApiError => e
   puts "Exception when calling DefaultApi->geocoding_reverse_search: #{e}"

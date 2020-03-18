@@ -28,7 +28,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch  {
   private List<String> departureLocationIds = new ArrayList<String>();
 
   @ApiModelProperty(required = true, value = "")
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;

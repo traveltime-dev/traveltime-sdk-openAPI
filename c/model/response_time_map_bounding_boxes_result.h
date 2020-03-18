@@ -19,7 +19,7 @@
 typedef struct response_time_map_bounding_boxes_result_t {
     char *search_id; // string
     list_t *bounding_boxes; //nonprimitive container
-    response_time_map_properties_t *properties; //model
+    struct response_time_map_properties_t *properties; //model
 
 } response_time_map_bounding_boxes_result_t;
 

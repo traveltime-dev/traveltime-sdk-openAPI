@@ -22,10 +22,10 @@ public class ResponseRoutesProperties  {
   private Integer distance;
 
   @ApiModelProperty(value = "")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @ApiModelProperty(value = "")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
  /**
    * Get travelTime
    * @return travelTime

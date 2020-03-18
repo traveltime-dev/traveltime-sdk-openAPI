@@ -9,10 +9,10 @@ part 'request_time_filter_postcode_districts.jser.dart';
 
 class RequestTimeFilterPostcodeDistricts {
   
-  @Alias('departure_searches')
+  @Alias('departure_searches', isNullable: false,  )
   final List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches;
   
-  @Alias('arrival_searches')
+  @Alias('arrival_searches', isNullable: false,  )
   final List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches;
   
 

@@ -1,0 +1,50 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseTravelTimeStatistics"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseTravelTimeStatistics"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  ResponseTravelTimeStatistics {
+    title = ResponseTravelTimeStatistics
+    description = ResponseTravelTimeStatistics
+    derivedFrom = Root
+    properties {
+        min {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        max {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        mean {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        median {
+          type =  integer
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseTravelTimeStatistics {
+    title = ResponseTravelTimeStatistics
+    description = ResponseTravelTimeStatistics
+    implements = openapi_server.resourceTypes.ResponseTravelTimeStatistics
+
+  }
+}

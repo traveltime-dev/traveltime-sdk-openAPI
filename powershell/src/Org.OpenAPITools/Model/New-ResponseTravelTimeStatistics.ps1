@@ -16,10 +16,10 @@ function New-ResponseTravelTimeStatistics {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTravelTimeStatistics' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTravelTimeStatistics' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTravelTimeStatistics -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTravelTimeStatistics -ArgumentList @(
             ${min},
             ${max},
             ${mean},

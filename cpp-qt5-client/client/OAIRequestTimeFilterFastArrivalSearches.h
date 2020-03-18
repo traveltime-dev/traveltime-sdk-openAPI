@@ -21,53 +21,49 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestTimeFilterFastArrivalManyToOneSearch.h"
 #include "OAIRequestTimeFilterFastArrivalOneToManySearch.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterFastArrivalSearches: public OAIObject {
+class OAIRequestTimeFilterFastArrivalSearches : public OAIObject {
 public:
     OAIRequestTimeFilterFastArrivalSearches();
     OAIRequestTimeFilterFastArrivalSearches(QString json);
     ~OAIRequestTimeFilterFastArrivalSearches() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() const;
     void setManyToOne(const QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> &many_to_one);
 
-    
     QList<OAIRequestTimeFilterFastArrivalOneToManySearch> getOneToMany() const;
     void setOneToMany(const QList<OAIRequestTimeFilterFastArrivalOneToManySearch> &one_to_many);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIRequestTimeFilterFastArrivalManyToOneSearch> many_to_one;
     bool m_many_to_one_isSet;
     bool m_many_to_one_isValid;
-    
+
     QList<OAIRequestTimeFilterFastArrivalOneToManySearch> one_to_many;
     bool m_one_to_many_isSet;
     bool m_one_to_many_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFastArrivalSearches)
 
 #endif // OAIRequestTimeFilterFastArrivalSearches_H

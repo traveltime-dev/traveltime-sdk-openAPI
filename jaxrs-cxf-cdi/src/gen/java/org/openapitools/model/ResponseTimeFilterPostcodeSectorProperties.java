@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.*;
 
 public class ResponseTimeFilterPostcodeSectorProperties   {
   
-  private ResponseTravelTimeStatistics travelTimeReachable = null;
+  private ResponseTravelTimeStatistics travelTimeReachable;
 
-  private ResponseTravelTimeStatistics travelTimeAll = null;
+  private ResponseTravelTimeStatistics travelTimeAll;
 
   private Double coverage;
 

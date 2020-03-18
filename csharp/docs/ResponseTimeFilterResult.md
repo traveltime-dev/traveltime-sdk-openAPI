@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseTimeFilterResult
+# Org.OpenAPITools.Model.ResponseTimeFilterResult
 
 ## Properties
 

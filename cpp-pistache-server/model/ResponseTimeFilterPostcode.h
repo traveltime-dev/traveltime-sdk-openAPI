@@ -47,11 +47,12 @@ public:
     /// </summary>
     String getCode() const;
     void setCode(String const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseTimeFilterPostcodesProperties>& getProperties();
-    
+    void setProperties(std::vector<ResponseTimeFilterPostcodesProperties> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseTimeFilterPostcode& o);
     friend void from_json(const nlohmann::json& j, ResponseTimeFilterPostcode& o);
 protected:

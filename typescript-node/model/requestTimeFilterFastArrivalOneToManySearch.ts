@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { RequestArrivalTimePeriod } from './requestArrivalTimePeriod';
 import { RequestTimeFilterFastProperty } from './requestTimeFilterFastProperty';
 import { RequestTransportationFast } from './requestTransportationFast';

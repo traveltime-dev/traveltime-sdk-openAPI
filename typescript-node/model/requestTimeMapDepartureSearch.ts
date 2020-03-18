@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { Coords } from './coords';
 import { RequestRangeNoMaxResults } from './requestRangeNoMaxResults';
 import { RequestTimeMapProperty } from './requestTimeMapProperty';

@@ -23,10 +23,10 @@ DefaultApiImpl::DefaultApiImpl(std::shared_ptr<Pistache::Rest::Router> rtr)
     : DefaultApi(rtr)
     { }
 
-void DefaultApiImpl::geocoding_reverse_search(const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) {
+void DefaultApiImpl::geocoding_reverse_search(const Pistache::Optional<double> &lat, const Pistache::Optional<double> &lng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
-void DefaultApiImpl::geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<std::string> &withinPeriodcountry, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, Pistache::Http::ResponseWriter &response) {
+void DefaultApiImpl::geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response) {
     response.send(Pistache::Http::Code::Ok, "Do some magic\n");
 }
 void DefaultApiImpl::map_info(Pistache::Http::ResponseWriter &response) {

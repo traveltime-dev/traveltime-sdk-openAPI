@@ -9,10 +9,9 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseMapInfoFeaturesPublicTransport {
     #[serde(rename = "date_start")]
     pub date_start: String,
@@ -23,8 +22,10 @@ pub struct ResponseMapInfoFeaturesPublicTransport {
 impl ResponseMapInfoFeaturesPublicTransport {
     pub fn new(date_start: String, date_end: String) -> ResponseMapInfoFeaturesPublicTransport {
         ResponseMapInfoFeaturesPublicTransport {
-            date_start: date_start,
-            date_end: date_end,
+            date_start,
+            date_end,
         }
     }
 }
+
+

@@ -8,29 +8,29 @@
 request_supported_locations_t *request_supported_locations_create(
     list_t *locations
     ) {
-	request_supported_locations_t *request_supported_locations_local_var = malloc(sizeof(request_supported_locations_t));
+    request_supported_locations_t *request_supported_locations_local_var = malloc(sizeof(request_supported_locations_t));
     if (!request_supported_locations_local_var) {
         return NULL;
     }
-	request_supported_locations_local_var->locations = locations;
+    request_supported_locations_local_var->locations = locations;
 
-	return request_supported_locations_local_var;
+    return request_supported_locations_local_var;
 }
 
 
 void request_supported_locations_free(request_supported_locations_t *request_supported_locations) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, request_supported_locations->locations) {
-		request_location_free(listEntry->data);
-	}
-	list_free(request_supported_locations->locations);
-	free(request_supported_locations);
+    list_ForEach(listEntry, request_supported_locations->locations) {
+        request_location_free(listEntry->data);
+    }
+    list_free(request_supported_locations->locations);
+    free(request_supported_locations);
 }
 
 cJSON *request_supported_locations_convertToJSON(request_supported_locations_t *request_supported_locations) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_supported_locations->locations
+    // request_supported_locations->locations
     if (!request_supported_locations->locations) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *request_supported_locations_convertToJSON(request_supported_locations_t *
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_supported_locations_t *request_supported_locations_parseFromJSON(cJSON *request_supported_locationsJSON){

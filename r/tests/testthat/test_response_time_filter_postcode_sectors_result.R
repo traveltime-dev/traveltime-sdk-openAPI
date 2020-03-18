@@ -13,7 +13,7 @@ test_that("search_id", {
 })
 
 test_that("sectors", {
-  # tests for the property `sectors` (ResponseTimeFilterPostcodeSector)
+  # tests for the property `sectors` (array[ResponseTimeFilterPostcodeSector])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`sectors`, "EXPECTED_RESULT")

@@ -11,25 +11,25 @@ part 'request_routes_departure_search.jser.dart';
 
 class RequestRoutesDepartureSearch {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('departure_location_id')
+  @Alias('departure_location_id', isNullable: false,  )
   final String departureLocationId;
   
-  @Alias('arrival_location_ids')
+  @Alias('arrival_location_ids', isNullable: false,  )
   final List<String> arrivalLocationIds;
   
-  @Alias('transportation')
+  @Alias('transportation', isNullable: false,  )
   final RequestTransportation transportation;
   
-  @Alias('departure_time')
+  @Alias('departure_time', isNullable: false,  )
   final DateTime departureTime;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<RequestRoutesProperty> properties;
   
-  @Alias('range')
+  @Alias('range', isNullable: false,  )
   final RequestRangeFull range;
   
 

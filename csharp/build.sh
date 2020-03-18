@@ -40,23 +40,23 @@ if ! type nuget &>/dev/null; then
 fi
 
 mozroots --import --sync
-${nuget_cmd} install src/traveltimeplatform/packages.config -o packages;
+${nuget_cmd} install src/Org.OpenAPITools/packages.config -o packages;
 
 echo "[INFO] Copy DLLs to the 'bin' folder"
 mkdir -p bin;
-cp packages/Newtonsoft.Json.10.0.3/lib/net45/Newtonsoft.Json.dll bin/Newtonsoft.Json.dll;
+cp packages/Newtonsoft.Json.12.0.1/lib/net45/Newtonsoft.Json.dll bin/Newtonsoft.Json.dll;
 cp packages/RestSharp.105.1.0/lib/net45/RestSharp.dll bin/RestSharp.dll;
-cp packages/JsonSubTypes.1.2.0/lib/net45/JsonSubTypes.dll bin/JsonSubTypes.dll
+cp packages/JsonSubTypes.1.5.2/lib/net45/JsonSubTypes.dll bin/JsonSubTypes.dll
 
-echo "[INFO] Run 'mcs' to build bin/traveltimeplatform.dll"
+echo "[INFO] Run 'mcs' to build bin/Org.OpenAPITools.dll"
 mcs -langversion:${langversion} -sdk:${sdk} -r:bin/Newtonsoft.Json.dll,bin/JsonSubTypes.dll,\
 bin/RestSharp.dll,\
 System.ComponentModel.DataAnnotations.dll,\
 System.Runtime.Serialization.dll \
 -target:library \
--out:bin/traveltimeplatform.dll \
--recurse:'src/traveltimeplatform/*.cs' \
--doc:bin/traveltimeplatform.xml \
+-out:bin/Org.OpenAPITools.dll \
+-recurse:'src/Org.OpenAPITools/*.cs' \
+-doc:bin/Org.OpenAPITools.xml \
 -platform:anycpu
 
 if [ $? -ne 0 ]
@@ -64,5 +64,5 @@ then
   echo "[ERROR] Compilation failed with exit code $?"
   exit 1
 else
-  echo "[INFO] bin/traveltimeplatform.dll was created successfully"
+  echo "[INFO] bin/Org.OpenAPITools.dll was created successfully"
 fi

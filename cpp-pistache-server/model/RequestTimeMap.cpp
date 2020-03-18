@@ -39,34 +39,34 @@ void RequestTimeMap::validate()
 void to_json(nlohmann::json& j, const RequestTimeMap& o)
 {
     j = nlohmann::json();
-    if(o.departureSearchesIsSet())
+    if(o.departureSearchesIsSet() || !o.m_Departure_searches.empty())
         j["departure_searches"] = o.m_Departure_searches;
-    if(o.arrivalSearchesIsSet())
+    if(o.arrivalSearchesIsSet() || !o.m_Arrival_searches.empty())
         j["arrival_searches"] = o.m_Arrival_searches;
-    if(o.unionsIsSet())
+    if(o.unionsIsSet() || !o.m_Unions.empty())
         j["unions"] = o.m_Unions;
-    if(o.intersectionsIsSet())
+    if(o.intersectionsIsSet() || !o.m_Intersections.empty())
         j["intersections"] = o.m_Intersections;
 }
 
 void from_json(const nlohmann::json& j, RequestTimeMap& o)
 {
-    if(j.contains("departure_searches"))
+    if(j.find("departure_searches") != j.end())
     {
         j.at("departure_searches").get_to(o.m_Departure_searches);
         o.m_Departure_searchesIsSet = true;
     } 
-    if(j.contains("arrival_searches"))
+    if(j.find("arrival_searches") != j.end())
     {
         j.at("arrival_searches").get_to(o.m_Arrival_searches);
         o.m_Arrival_searchesIsSet = true;
     } 
-    if(j.contains("unions"))
+    if(j.find("unions") != j.end())
     {
         j.at("unions").get_to(o.m_Unions);
         o.m_UnionsIsSet = true;
     } 
-    if(j.contains("intersections"))
+    if(j.find("intersections") != j.end())
     {
         j.at("intersections").get_to(o.m_Intersections);
         o.m_IntersectionsIsSet = true;
@@ -76,6 +76,11 @@ void from_json(const nlohmann::json& j, RequestTimeMap& o)
 std::vector<RequestTimeMapDepartureSearch>& RequestTimeMap::getDepartureSearches()
 {
     return m_Departure_searches;
+}
+void RequestTimeMap::setDepartureSearches(std::vector<RequestTimeMapDepartureSearch> const& value)
+{
+    m_Departure_searches = value;
+    m_Departure_searchesIsSet = true;
 }
 bool RequestTimeMap::departureSearchesIsSet() const
 {
@@ -89,6 +94,11 @@ std::vector<RequestTimeMapArrivalSearch>& RequestTimeMap::getArrivalSearches()
 {
     return m_Arrival_searches;
 }
+void RequestTimeMap::setArrivalSearches(std::vector<RequestTimeMapArrivalSearch> const& value)
+{
+    m_Arrival_searches = value;
+    m_Arrival_searchesIsSet = true;
+}
 bool RequestTimeMap::arrivalSearchesIsSet() const
 {
     return m_Arrival_searchesIsSet;
@@ -101,6 +111,11 @@ std::vector<RequestUnionOnIntersection>& RequestTimeMap::getUnions()
 {
     return m_Unions;
 }
+void RequestTimeMap::setUnions(std::vector<RequestUnionOnIntersection> const& value)
+{
+    m_Unions = value;
+    m_UnionsIsSet = true;
+}
 bool RequestTimeMap::unionsIsSet() const
 {
     return m_UnionsIsSet;
@@ -112,6 +127,11 @@ void RequestTimeMap::unsetUnions()
 std::vector<RequestUnionOnIntersection>& RequestTimeMap::getIntersections()
 {
     return m_Intersections;
+}
+void RequestTimeMap::setIntersections(std::vector<RequestUnionOnIntersection> const& value)
+{
+    m_Intersections = value;
+    m_IntersectionsIsSet = true;
 }
 bool RequestTimeMap::intersectionsIsSet() const
 {

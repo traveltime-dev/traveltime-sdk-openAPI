@@ -28,6 +28,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseTimeFilterPostcode: public OAIObject {
@@ -50,7 +51,7 @@ public:
     void setProperties(const QList<OAIResponseTimeFilterPostcodesProperties> &properties);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -68,5 +69,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterPostcode)
 
 #endif // OAIResponseTimeFilterPostcode_H

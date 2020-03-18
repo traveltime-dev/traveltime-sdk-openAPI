@@ -10,16 +10,12 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 
-export class RequestTimeFilterProperty {
-
-    static discriminator: string | undefined = undefined;
-
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return RequestTimeFilterProperty.attributeTypeMap;
-    }
+export enum RequestTimeFilterProperty {
+    TravelTime = <any> 'travel_time',
+    Distance = <any> 'distance',
+    DistanceBreakdown = <any> 'distance_breakdown',
+    Fares = <any> 'fares',
+    Route = <any> 'route'
 }
-

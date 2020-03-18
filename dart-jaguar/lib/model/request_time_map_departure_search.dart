@@ -13,25 +13,25 @@ part 'request_time_map_departure_search.jser.dart';
 
 class RequestTimeMapDepartureSearch {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('coords')
+  @Alias('coords', isNullable: false,  )
   final Coords coords;
   
-  @Alias('transportation')
+  @Alias('transportation', isNullable: false,  )
   final RequestTransportation transportation;
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('departure_time')
+  @Alias('departure_time', isNullable: false,  )
   final DateTime departureTime;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<RequestTimeMapProperty> properties;
   
-  @Alias('range')
+  @Alias('range', isNullable: false,  )
   final RequestRangeNoMaxResults range;
   
 

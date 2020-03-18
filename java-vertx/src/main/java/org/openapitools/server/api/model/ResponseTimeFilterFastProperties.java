@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.openapitools.server.api.model.ResponseFaresFast;
 
-@JsonInclude(JsonInclude.Include.NON_NULL) 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterFastProperties   {
   
   private Integer travelTime;
-  private ResponseFaresFast fares = null;
+  private ResponseFaresFast fares;
 
   public ResponseTimeFilterFastProperties () {
 

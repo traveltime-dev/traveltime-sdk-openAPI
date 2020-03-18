@@ -48,16 +48,19 @@ public:
     /// 
     /// </summary>
     std::vector<RequestLocation>& getLocations();
-        /// <summary>
+    void setLocations(std::vector<RequestLocation> const& value);
+    /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterDepartureSearch>& getDepartureSearches();
+    void setDepartureSearches(std::vector<RequestTimeFilterDepartureSearch> const& value);
     bool departureSearchesIsSet() const;
     void unsetDeparture_searches();
     /// <summary>
     /// 
     /// </summary>
     std::vector<RequestTimeFilterArrivalSearch>& getArrivalSearches();
+    void setArrivalSearches(std::vector<RequestTimeFilterArrivalSearch> const& value);
     bool arrivalSearchesIsSet() const;
     void unsetArrival_searches();
 

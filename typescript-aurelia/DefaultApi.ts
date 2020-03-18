@@ -39,8 +39,8 @@ import {
  * geocodingReverseSearch - parameters interface
  */
 export interface IGeocodingReverseSearchParams {
-  focusLat: number;
-  focusLng: number;
+  lat: number;
+  lng: number;
   withinCountry?: string;
 }
 
@@ -49,9 +49,9 @@ export interface IGeocodingReverseSearchParams {
  */
 export interface IGeocodingSearchParams {
   query: string;
-  withinCountry?: string;
   focusLat?: number;
   focusLng?: number;
+  withinCountry?: string;
 }
 
 /**
@@ -133,14 +133,14 @@ export class DefaultApi extends Api {
   }
 
   /**
-   * @param params.focusLat 
-   * @param params.focusLng 
+   * @param params.lat 
+   * @param params.lng 
    * @param params.withinCountry 
    */
   async geocodingReverseSearch(params: IGeocodingReverseSearchParams): Promise<ResponseGeocoding> {
     // Verify required parameters are set
-    this.ensureParamIsSet('geocodingReverseSearch', params, 'focusLat');
-    this.ensureParamIsSet('geocodingReverseSearch', params, 'focusLng');
+    this.ensureParamIsSet('geocodingReverseSearch', params, 'lat');
+    this.ensureParamIsSet('geocodingReverseSearch', params, 'lng');
 
     // Create URL to call
     const url = `${this.basePath}/v4/geocoding/reverse`;
@@ -150,8 +150,8 @@ export class DefaultApi extends Api {
       .asGet()
       // Set query parameters
       .withParams({ 
-        'focus.lat': params['focusLat'],
-        'focus.lng': params['focusLng'],
+        'lat': params['lat'],
+        'lng': params['lng'],
         'within.country': params['withinCountry'],
       })
 
@@ -172,9 +172,9 @@ export class DefaultApi extends Api {
 
   /**
    * @param params.query 
-   * @param params.withinCountry 
    * @param params.focusLat 
    * @param params.focusLng 
+   * @param params.withinCountry 
    */
   async geocodingSearch(params: IGeocodingSearchParams): Promise<ResponseGeocoding> {
     // Verify required parameters are set
@@ -189,9 +189,9 @@ export class DefaultApi extends Api {
       // Set query parameters
       .withParams({ 
         'query': params['query'],
-        'within.country': params['withinCountry'],
         'focus.lat': params['focusLat'],
         'focus.lng': params['focusLng'],
+        'within.country': params['withinCountry'],
       })
 
       // Authentication 'ApiKey' required

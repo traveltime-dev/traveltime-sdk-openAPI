@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestRoutesArrivalSearch
+# Org.OpenAPITools.Model.RequestRoutesArrivalSearch
 ## Properties
 
 Name | Type | Description | Notes

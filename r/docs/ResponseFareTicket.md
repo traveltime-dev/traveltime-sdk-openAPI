@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseFareTicket
+# openapi::ResponseFareTicket
 
 ## Properties
 Name | Type | Description | Notes

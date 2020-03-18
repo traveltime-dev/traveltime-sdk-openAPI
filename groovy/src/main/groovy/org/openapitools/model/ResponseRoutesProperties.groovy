@@ -13,7 +13,7 @@ class ResponseRoutesProperties {
     
     Integer distance
     
-    ResponseFares fares = null
+    ResponseFares fares
     
-    ResponseRoute route = null
+    ResponseRoute route
 }

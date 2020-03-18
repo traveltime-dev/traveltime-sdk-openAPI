@@ -19,7 +19,7 @@ import java.util.List;
  * RequestTimeFilterFastArrivalOneToManySearch
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
 
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   @JsonProperty("id")
@@ -33,7 +33,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   private List<String> arrivalLocationIds = new ArrayList<>();
 
   @JsonProperty("transportation")
-  private RequestTransportationFast transportation = null;
+  private RequestTransportationFast transportation;
 
   @JsonProperty("travel_time")
   private Integer travelTime;

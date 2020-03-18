@@ -27,6 +27,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIResponseDistanceBreakdownItem: public OAIObject {
@@ -49,7 +50,7 @@ public:
     void setDistance(const qint32 &distance);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -67,5 +68,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseDistanceBreakdownItem)
 
 #endif // OAIResponseDistanceBreakdownItem_H

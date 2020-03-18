@@ -10,7 +10,7 @@
  */
 
 package org.openapitools.server.model
-import java.util.Date
+import org.joda.time.DateTime
 
 case class RequestTimeFilterArrivalSearch(
   id: String,
@@ -23,7 +23,7 @@ case class RequestTimeFilterArrivalSearch(
 
   travelUnderscoretime: Int,
 
-  arrivalUnderscoretime: Date,
+  arrivalUnderscoretime: DateTime,
 
   properties: List[RequestTimeFilterProperty],
 

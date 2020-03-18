@@ -54,7 +54,6 @@ std::string ResponseSupportedLocation::getId() const
 void ResponseSupportedLocation::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 std::string ResponseSupportedLocation::getMapName() const
 {
@@ -63,7 +62,6 @@ std::string ResponseSupportedLocation::getMapName() const
 void ResponseSupportedLocation::setMapName(std::string const& value)
 {
     m_Map_name = value;
-    
 }
 
 }

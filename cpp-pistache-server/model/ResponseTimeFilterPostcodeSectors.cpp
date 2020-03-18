@@ -47,6 +47,10 @@ std::vector<ResponseTimeFilterPostcodeSectorsResult>& ResponseTimeFilterPostcode
 {
     return m_Results;
 }
+void ResponseTimeFilterPostcodeSectors::setResults(std::vector<ResponseTimeFilterPostcodeSectorsResult> const& value)
+{
+    m_Results = value;
+}
 
 }
 }

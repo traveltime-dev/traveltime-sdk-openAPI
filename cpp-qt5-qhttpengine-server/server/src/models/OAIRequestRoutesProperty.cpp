@@ -13,12 +13,12 @@
 
 #include "OAIRequestRoutesProperty.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -45,19 +45,19 @@ OAIRequestRoutesProperty::init() {
 
 void
 OAIRequestRoutesProperty::fromJson(QString jsonString) {
-     
+    
     if ( jsonString.compare("travel_time", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestRoutesProperty::TRAVEL_TIME;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("distance", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestRoutesProperty::DISTANCE;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("fares", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestRoutesProperty::FARES;
         m_value_isValid = true;
-    } 
+    }
     else if ( jsonString.compare("route", Qt::CaseInsensitive) == 0) {
         m_value = eOAIRequestRoutesProperty::ROUTE;
         m_value_isValid = true;
@@ -86,7 +86,7 @@ OAIRequestRoutesProperty::asJson () const {
             break;
         case eOAIRequestRoutesProperty::ROUTE:
             val = "route";
-            break; 
+            break;
         default:
             break;
     }

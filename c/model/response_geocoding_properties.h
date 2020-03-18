@@ -31,7 +31,7 @@ typedef struct response_geocoding_properties_t {
     char *country_code; // string
     char *continent; // string
     char *postcode; // string
-    response_map_info_features_t *features; //model
+    struct response_map_info_features_t *features; //model
 
 } response_geocoding_properties_t;
 

@@ -22,21 +22,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.openapitools.model.ResponseRoutePart;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseRoute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseRoute.JSON_PROPERTY_DEPARTURE_TIME,
+  ResponseRoute.JSON_PROPERTY_ARRIVAL_TIME,
+  ResponseRoute.JSON_PROPERTY_PARTS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseRoute   {
-  @JsonProperty("departure_time")
+  public static final String JSON_PROPERTY_DEPARTURE_TIME = "departure_time";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_TIME)
   private Date departureTime;
 
-  @JsonProperty("arrival_time")
+  public static final String JSON_PROPERTY_ARRIVAL_TIME = "arrival_time";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_TIME)
   private Date arrivalTime;
 
-  @JsonProperty("parts")
+  public static final String JSON_PROPERTY_PARTS = "parts";
+  @JsonProperty(JSON_PROPERTY_PARTS)
   private List<ResponseRoutePart> parts = new ArrayList<ResponseRoutePart>();
 
   public ResponseRoute departureTime(Date departureTime) {

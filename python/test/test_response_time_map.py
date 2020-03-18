@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_time_map import ResponseTimeMap  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_time_map import ResponseTimeMap  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseTimeMap(unittest.TestCase):
     """ResponseTimeMap unit test stubs"""
@@ -29,11 +29,65 @@ class TestResponseTimeMap(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseTimeMap
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_time_map.ResponseTimeMap()  # noqa: E501
+        if include_optional :
+            return ResponseTimeMap(
+                results = [
+                    openapi_client.models.response_time_map_result.ResponseTimeMapResult(
+                        search_id = '0', 
+                        shapes = [
+                            openapi_client.models.response_shape.ResponseShape(
+                                shell = [
+                                    openapi_client.models.coords.Coords(
+                                        lat = 1.337, 
+                                        lng = 1.337, )
+                                    ], 
+                                holes = [
+                                    [
+                                        openapi_client.models.coords.Coords(
+                                            lat = 1.337, 
+                                            lng = 1.337, )
+                                        ]
+                                    ], )
+                            ], 
+                        properties = openapi_client.models.response_time_map_properties.ResponseTimeMapProperties(
+                            is_only_walking = True, ), )
+                    ]
+            )
+        else :
+            return ResponseTimeMap(
+                results = [
+                    openapi_client.models.response_time_map_result.ResponseTimeMapResult(
+                        search_id = '0', 
+                        shapes = [
+                            openapi_client.models.response_shape.ResponseShape(
+                                shell = [
+                                    openapi_client.models.coords.Coords(
+                                        lat = 1.337, 
+                                        lng = 1.337, )
+                                    ], 
+                                holes = [
+                                    [
+                                        openapi_client.models.coords.Coords(
+                                            lat = 1.337, 
+                                            lng = 1.337, )
+                                        ]
+                                    ], )
+                            ], 
+                        properties = openapi_client.models.response_time_map_properties.ResponseTimeMapProperties(
+                            is_only_walking = True, ), )
+                    ],
+        )
+
     def testResponseTimeMap(self):
         """Test ResponseTimeMap"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_time_map.ResponseTimeMap()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

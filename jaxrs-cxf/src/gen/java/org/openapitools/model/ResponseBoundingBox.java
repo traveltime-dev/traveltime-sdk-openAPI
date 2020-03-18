@@ -20,7 +20,7 @@ public class ResponseBoundingBox  {
   
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private ResponseBox envelope = null;
+  private ResponseBox envelope;
 
   @ApiModelProperty(required = true, value = "")
   @Valid

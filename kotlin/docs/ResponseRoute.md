@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departureTime** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
-**arrivalTime** | [**java.time.LocalDateTime**](java.time.LocalDateTime.md) |  | 
+**departureTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
+**arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **parts** | [**kotlin.Array&lt;ResponseRoutePart&gt;**](ResponseRoutePart.md) |  | 
 
 

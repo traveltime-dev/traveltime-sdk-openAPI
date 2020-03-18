@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_fare_ticket import ResponseFareTicket  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_fare_ticket import ResponseFareTicket  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseFareTicket(unittest.TestCase):
     """ResponseFareTicket unit test stubs"""
@@ -29,11 +29,29 @@ class TestResponseFareTicket(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseFareTicket
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_fare_ticket.ResponseFareTicket()  # noqa: E501
+        if include_optional :
+            return ResponseFareTicket(
+                type = 'single', 
+                price = 1.337, 
+                currency = '0'
+            )
+        else :
+            return ResponseFareTicket(
+                type = 'single',
+                price = 1.337,
+                currency = '0',
+        )
+
     def testResponseFareTicket(self):
         """Test ResponseFareTicket"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_fare_ticket.ResponseFareTicket()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

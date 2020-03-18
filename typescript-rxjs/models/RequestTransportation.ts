@@ -17,37 +17,31 @@
  */
 export interface RequestTransportation {
     /**
-     * 
      * @type {string}
      * @memberof RequestTransportation
      */
     type: RequestTransportationTypeEnum;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
     ptChangeDelay?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
     walkingTime?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
     drivingTimeToStation?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */
     parkingTime?: number;
     /**
-     * 
      * @type {number}
      * @memberof RequestTransportation
      */

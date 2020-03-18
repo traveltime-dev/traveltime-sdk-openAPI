@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestRoutesArrivalSearch exposing (RequestRoutesArrivalSearch, decoder, encode)
+module Data.RequestRoutesArrivalSearch exposing (RequestRoutesArrivalSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTransportation as RequestTransportation exposing (RequestTransportation)
 import DateTime exposing (DateTime)
@@ -48,16 +48,32 @@ decoder =
 
 
 encode : RequestRoutesArrivalSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "departure_location_ids", (Encode.list Encode.string) model.departureLocationIds )
-        , ( "arrival_location_id", Encode.string model.arrivalLocationId )
-        , ( "transportation", RequestTransportation.encode model.transportation )
-        , ( "arrival_time", DateTime.encode model.arrivalTime )
-        , ( "properties", (Encode.list RequestRoutesProperty.encode) model.properties )
-        , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestRoutesArrivalSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestRoutesArrivalSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "departure_location_ids", (Encode.list Encode.string) model.departureLocationIds )
+    , ( "arrival_location_id", Encode.string model.arrivalLocationId )
+    , ( "transportation", RequestTransportation.encode model.transportation )
+    , ( "arrival_time", DateTime.encode model.arrivalTime )
+    , ( "properties", (Encode.list RequestRoutesProperty.encode) model.properties )
+    , ( "range", Maybe.withDefault Encode.null (Maybe.map RequestRangeFull.encode model.range) )
+    ]
+
+
+
+toString : RequestRoutesArrivalSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

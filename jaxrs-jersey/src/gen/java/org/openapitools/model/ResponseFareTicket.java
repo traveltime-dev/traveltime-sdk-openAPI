@@ -19,13 +19,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseFareTicket
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseFareTicket.JSON_PROPERTY_TYPE,
+  ResponseFareTicket.JSON_PROPERTY_PRICE,
+  ResponseFareTicket.JSON_PROPERTY_CURRENCY
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseFareTicket   {
   /**
    * Gets or Sets type
@@ -62,13 +68,16 @@ public class ResponseFareTicket   {
     }
   }
 
-  @JsonProperty("type")
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
   private TypeEnum type;
 
-  @JsonProperty("price")
+  public static final String JSON_PROPERTY_PRICE = "price";
+  @JsonProperty(JSON_PROPERTY_PRICE)
   private Double price;
 
-  @JsonProperty("currency")
+  public static final String JSON_PROPERTY_CURRENCY = "currency";
+  @JsonProperty(JSON_PROPERTY_CURRENCY)
   private String currency;
 
   public ResponseFareTicket type(TypeEnum type) {

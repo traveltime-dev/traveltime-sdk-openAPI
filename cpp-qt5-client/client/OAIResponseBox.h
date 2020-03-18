@@ -22,65 +22,59 @@
 #include <QJsonObject>
 
 
-
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseBox: public OAIObject {
+class OAIResponseBox : public OAIObject {
 public:
     OAIResponseBox();
     OAIResponseBox(QString json);
     ~OAIResponseBox() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     double getMinLat() const;
     void setMinLat(const double &min_lat);
 
-    
     double getMaxLat() const;
     void setMaxLat(const double &max_lat);
 
-    
     double getMinLng() const;
     void setMinLng(const double &min_lng);
 
-    
     double getMaxLng() const;
     void setMaxLng(const double &max_lng);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     double min_lat;
     bool m_min_lat_isSet;
     bool m_min_lat_isValid;
-    
+
     double max_lat;
     bool m_max_lat_isSet;
     bool m_max_lat_isValid;
-    
+
     double min_lng;
     bool m_min_lng_isSet;
     bool m_min_lng_isValid;
-    
+
     double max_lng;
     bool m_max_lng_isSet;
     bool m_max_lng_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseBox)
 
 #endif // OAIResponseBox_H

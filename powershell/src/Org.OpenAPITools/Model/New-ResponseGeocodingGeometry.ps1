@@ -10,10 +10,10 @@ function New-ResponseGeocodingGeometry {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseGeocodingGeometry' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseGeocodingGeometry' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseGeocodingGeometry -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseGeocodingGeometry -ArgumentList @(
             ${type},
             ${coordinates}
         )

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMapWktResult exposing (ResponseTimeMapWktResult, decoder, encode)
+module Data.ResponseTimeMapWktResult exposing (ResponseTimeMapWktResult, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeMapProperties as ResponseTimeMapProperties exposing (ResponseTimeMapProperties)
 import Dict exposing (Dict)
@@ -37,12 +37,28 @@ decoder =
 
 
 encode : ResponseTimeMapWktResult -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "search_id", Encode.string model.searchId )
-        , ( "shape", Encode.string model.shape )
-        , ( "properties", ResponseTimeMapProperties.encode model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMapWktResult -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMapWktResult -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "search_id", Encode.string model.searchId )
+    , ( "shape", Encode.string model.shape )
+    , ( "properties", ResponseTimeMapProperties.encode model.properties )
+    ]
+
+
+
+toString : ResponseTimeMapWktResult -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

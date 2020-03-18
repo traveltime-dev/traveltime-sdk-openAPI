@@ -17,3 +17,4 @@ export const RequestTimeFilterPostcodesProperty = {
     TravelTime: 'travel_time' as RequestTimeFilterPostcodesProperty,
     Distance: 'distance' as RequestTimeFilterPostcodesProperty
 };
+

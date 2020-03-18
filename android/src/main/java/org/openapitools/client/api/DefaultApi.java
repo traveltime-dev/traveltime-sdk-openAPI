@@ -76,22 +76,22 @@ public class DefaultApi {
   /**
   * 
   * 
-   * @param focusLat 
-   * @param focusLng 
+   * @param lat 
+   * @param lng 
    * @param withinCountry 
    * @return ResponseGeocoding
   */
-  public ResponseGeocoding geocodingReverseSearch (Double focusLat, Double focusLng, String withinCountry) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ResponseGeocoding geocodingReverseSearch (Double lat, Double lng, String withinCountry) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'focusLat' is set
-    if (focusLat == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'focusLat' when calling geocodingReverseSearch",
-        new ApiException(400, "Missing the required parameter 'focusLat' when calling geocodingReverseSearch"));
+    // verify the required parameter 'lat' is set
+    if (lat == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'lat' when calling geocodingReverseSearch",
+        new ApiException(400, "Missing the required parameter 'lat' when calling geocodingReverseSearch"));
     }
-    // verify the required parameter 'focusLng' is set
-    if (focusLng == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'focusLng' when calling geocodingReverseSearch",
-        new ApiException(400, "Missing the required parameter 'focusLng' when calling geocodingReverseSearch"));
+    // verify the required parameter 'lng' is set
+    if (lng == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'lng' when calling geocodingReverseSearch",
+        new ApiException(400, "Missing the required parameter 'lng' when calling geocodingReverseSearch"));
     }
 
     // create path and map variables
@@ -103,8 +103,8 @@ public class DefaultApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lat", focusLat));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lng", focusLng));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lat", lat));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lng", lng));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
     String[] contentTypes = {
     };
@@ -148,20 +148,20 @@ public class DefaultApi {
       /**
    * 
    * 
-   * @param focusLat    * @param focusLng    * @param withinCountry 
+   * @param lat    * @param lng    * @param withinCountry 
   */
-  public void geocodingReverseSearch (Double focusLat, Double focusLng, String withinCountry, final Response.Listener<ResponseGeocoding> responseListener, final Response.ErrorListener errorListener) {
+  public void geocodingReverseSearch (Double lat, Double lng, String withinCountry, final Response.Listener<ResponseGeocoding> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'focusLat' is set
-    if (focusLat == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'focusLat' when calling geocodingReverseSearch",
-        new ApiException(400, "Missing the required parameter 'focusLat' when calling geocodingReverseSearch"));
+    // verify the required parameter 'lat' is set
+    if (lat == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'lat' when calling geocodingReverseSearch",
+        new ApiException(400, "Missing the required parameter 'lat' when calling geocodingReverseSearch"));
     }
-    // verify the required parameter 'focusLng' is set
-    if (focusLng == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'focusLng' when calling geocodingReverseSearch",
-        new ApiException(400, "Missing the required parameter 'focusLng' when calling geocodingReverseSearch"));
+    // verify the required parameter 'lng' is set
+    if (lng == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'lng' when calling geocodingReverseSearch",
+        new ApiException(400, "Missing the required parameter 'lng' when calling geocodingReverseSearch"));
     }
 
     // create path and map variables
@@ -174,8 +174,8 @@ public class DefaultApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
 
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lat", focusLat));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lng", focusLng));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lat", lat));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "lng", lng));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
 
 
@@ -222,12 +222,12 @@ public class DefaultApi {
   * 
   * 
    * @param query 
-   * @param withinCountry 
    * @param focusLat 
    * @param focusLng 
+   * @param withinCountry 
    * @return ResponseGeocoding
   */
-  public ResponseGeocoding geocodingSearch (String query, String withinCountry, Double focusLat, Double focusLng) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ResponseGeocoding geocodingSearch (String query, Double focusLat, Double focusLng, String withinCountry) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
     // verify the required parameter 'query' is set
     if (query == null) {
@@ -245,9 +245,9 @@ public class DefaultApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     queryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lat", focusLat));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lng", focusLng));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -290,9 +290,9 @@ public class DefaultApi {
       /**
    * 
    * 
-   * @param query    * @param withinCountry    * @param focusLat    * @param focusLng 
+   * @param query    * @param focusLat    * @param focusLng    * @param withinCountry 
   */
-  public void geocodingSearch (String query, String withinCountry, Double focusLat, Double focusLng, final Response.Listener<ResponseGeocoding> responseListener, final Response.ErrorListener errorListener) {
+  public void geocodingSearch (String query, Double focusLat, Double focusLng, String withinCountry, final Response.Listener<ResponseGeocoding> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
     // verify the required parameter 'query' is set
@@ -312,9 +312,9 @@ public class DefaultApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
     queryParams.addAll(ApiInvoker.parameterToPairs("", "query", query));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lat", focusLat));
     queryParams.addAll(ApiInvoker.parameterToPairs("", "focus.lng", focusLng));
+    queryParams.addAll(ApiInvoker.parameterToPairs("", "within.country", withinCountry));
 
 
     String[] contentTypes = {

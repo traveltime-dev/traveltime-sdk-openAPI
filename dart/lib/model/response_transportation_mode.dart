@@ -1,6 +1,5 @@
 part of openapi.api;
 
-@Entity()
 class ResponseTransportationMode {
   /// The underlying value of this enum member.
   final String value;
@@ -22,16 +21,18 @@ class ResponseTransportationMode {
   static const ResponseTransportationMode plane_ = const ResponseTransportationMode._internal("plane");
   static const ResponseTransportationMode ferry_ = const ResponseTransportationMode._internal("ferry");
   static const ResponseTransportationMode coach_ = const ResponseTransportationMode._internal("coach");
+
+  static ResponseTransportationMode fromJson(String value) {
+    return new ResponseTransportationModeTypeTransformer().decode(value);
+  }
 }
 
-class ResponseTransportationModeTypeTransformer extends TypeTransformer<ResponseTransportationMode> {
+class ResponseTransportationModeTypeTransformer {
 
-  @override
   dynamic encode(ResponseTransportationMode data) {
     return data.value;
   }
 
-  @override
   ResponseTransportationMode decode(dynamic data) {
     switch (data) {
       case "car": return ResponseTransportationMode.car_;

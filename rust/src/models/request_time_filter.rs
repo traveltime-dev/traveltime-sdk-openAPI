@@ -9,25 +9,26 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct RequestTimeFilter {
     #[serde(rename = "locations")]
-    pub locations: Vec<::models::RequestLocation>,
-    #[serde(rename = "departure_searches")]
-    pub departure_searches: Option<Vec<::models::RequestTimeFilterDepartureSearch>>,
-    #[serde(rename = "arrival_searches")]
-    pub arrival_searches: Option<Vec<::models::RequestTimeFilterArrivalSearch>>,
+    pub locations: Vec<crate::models::RequestLocation>,
+    #[serde(rename = "departure_searches", skip_serializing_if = "Option::is_none")]
+    pub departure_searches: Option<Vec<crate::models::RequestTimeFilterDepartureSearch>>,
+    #[serde(rename = "arrival_searches", skip_serializing_if = "Option::is_none")]
+    pub arrival_searches: Option<Vec<crate::models::RequestTimeFilterArrivalSearch>>,
 }
 
 impl RequestTimeFilter {
-    pub fn new(locations: Vec<::models::RequestLocation>) -> RequestTimeFilter {
+    pub fn new(locations: Vec<crate::models::RequestLocation>) -> RequestTimeFilter {
         RequestTimeFilter {
-            locations: locations,
+            locations,
             departure_searches: None,
             arrival_searches: None,
         }
     }
 }
+
+

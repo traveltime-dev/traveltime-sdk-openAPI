@@ -15,5 +15,5 @@ class ResponseTimeMapBoundingBoxesResult {
     
     List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>()
     
-    ResponseTimeMapProperties properties = null
+    ResponseTimeMapProperties properties
 }

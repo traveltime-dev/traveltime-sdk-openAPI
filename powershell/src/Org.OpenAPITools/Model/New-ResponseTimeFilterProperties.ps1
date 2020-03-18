@@ -8,21 +8,21 @@ function New-ResponseTimeFilterProperties {
         [System.Nullable[Int32]]
         ${distance},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseDistanceBreakdownItem[]]]
+        [Org.OpenAPITools.Model.ResponseDistanceBreakdownItem[]]
         ${distanceUnderscorebreakdown},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseFares]]
+        [Org.OpenAPITools.Model.ResponseFares]
         ${fares},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseRoute]]
+        [Org.OpenAPITools.Model.ResponseRoute]
         ${route}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterProperties -ArgumentList @(
             ${travelUnderscoretime},
             ${distance},
             ${distanceUnderscorebreakdown},

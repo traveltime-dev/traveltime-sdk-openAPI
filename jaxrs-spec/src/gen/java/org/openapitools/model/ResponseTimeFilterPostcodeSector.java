@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class ResponseTimeFilterPostcodeSector   {
   
   private @Valid String code = null;
-  private @Valid ResponseTimeFilterPostcodeSectorProperties properties = null;
+  private @Valid ResponseTimeFilterPostcodeSectorProperties properties;
 
   /**
    **/

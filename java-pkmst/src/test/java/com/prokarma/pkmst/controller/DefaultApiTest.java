@@ -67,10 +67,10 @@ public class DefaultApiTest {
      */
     @Test
     public void geocodingReverseSearchTest() throws Exception {
-        Double focusLat = null;
-        Double focusLng = null;
+        Double lat = null;
+        Double lng = null;
         String withinCountry = null;
-    ResponseEntity<ResponseGeocoding> response = api.geocodingReverseSearch(focusLat, focusLng, withinCountry , accept);
+    ResponseEntity<ResponseGeocoding> response = api.geocodingReverseSearch(lat, lng, withinCountry , accept);
 
         // TODO: test validations
     }
@@ -86,10 +86,10 @@ public class DefaultApiTest {
     @Test
     public void geocodingSearchTest() throws Exception {
         String query = null;
-        String withinCountry = null;
         Double focusLat = null;
         Double focusLng = null;
-    ResponseEntity<ResponseGeocoding> response = api.geocodingSearch(query, withinCountry, focusLat, focusLng , accept);
+        String withinCountry = null;
+    ResponseEntity<ResponseGeocoding> response = api.geocodingSearch(query, focusLat, focusLng, withinCountry , accept);
 
         // TODO: test validations
     }

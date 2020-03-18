@@ -9,31 +9,31 @@ response_routes_location_t *response_routes_location_create(
     char *id,
     list_t *properties
     ) {
-	response_routes_location_t *response_routes_location_local_var = malloc(sizeof(response_routes_location_t));
+    response_routes_location_t *response_routes_location_local_var = malloc(sizeof(response_routes_location_t));
     if (!response_routes_location_local_var) {
         return NULL;
     }
-	response_routes_location_local_var->id = id;
-	response_routes_location_local_var->properties = properties;
+    response_routes_location_local_var->id = id;
+    response_routes_location_local_var->properties = properties;
 
-	return response_routes_location_local_var;
+    return response_routes_location_local_var;
 }
 
 
 void response_routes_location_free(response_routes_location_t *response_routes_location) {
     listEntry_t *listEntry;
     free(response_routes_location->id);
-	list_ForEach(listEntry, response_routes_location->properties) {
-		response_routes_properties_free(listEntry->data);
-	}
-	list_free(response_routes_location->properties);
-	free(response_routes_location);
+    list_ForEach(listEntry, response_routes_location->properties) {
+        response_routes_properties_free(listEntry->data);
+    }
+    list_free(response_routes_location->properties);
+    free(response_routes_location);
 }
 
 cJSON *response_routes_location_convertToJSON(response_routes_location_t *response_routes_location) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_routes_location->id
+    // response_routes_location->id
     if (!response_routes_location->id) {
         goto fail;
     }
@@ -43,7 +43,7 @@ cJSON *response_routes_location_convertToJSON(response_routes_location_t *respon
     }
 
 
-	// response_routes_location->properties
+    // response_routes_location->properties
     if (!response_routes_location->properties) {
         goto fail;
     }
@@ -64,12 +64,12 @@ cJSON *response_routes_location_convertToJSON(response_routes_location_t *respon
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_routes_location_t *response_routes_location_parseFromJSON(cJSON *response_routes_locationJSON){

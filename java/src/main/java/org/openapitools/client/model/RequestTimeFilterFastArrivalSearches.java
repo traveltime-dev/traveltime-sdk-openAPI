@@ -31,17 +31,19 @@ import org.openapitools.client.model.RequestTimeFilterFastArrivalOneToManySearch
 /**
  * RequestTimeFilterFastArrivalSearches
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalSearches {
   public static final String SERIALIZED_NAME_MANY_TO_ONE = "many_to_one";
   @SerializedName(SERIALIZED_NAME_MANY_TO_ONE)
-  private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = new ArrayList<RequestTimeFilterFastArrivalManyToOneSearch>();
+  private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = null;
 
   public static final String SERIALIZED_NAME_ONE_TO_MANY = "one_to_many";
   @SerializedName(SERIALIZED_NAME_ONE_TO_MANY)
-  private List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = new ArrayList<RequestTimeFilterFastArrivalOneToManySearch>();
+  private List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = null;
+
 
   public RequestTimeFilterFastArrivalSearches manyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {
+    
     this.manyToOne = manyToOne;
     return this;
   }
@@ -58,16 +60,21 @@ public class RequestTimeFilterFastArrivalSearches {
    * Get manyToOne
    * @return manyToOne
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() {
     return manyToOne;
   }
+
 
   public void setManyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {
     this.manyToOne = manyToOne;
   }
 
+
   public RequestTimeFilterFastArrivalSearches oneToMany(List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany) {
+    
     this.oneToMany = oneToMany;
     return this;
   }
@@ -84,10 +91,13 @@ public class RequestTimeFilterFastArrivalSearches {
    * Get oneToMany
    * @return oneToMany
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public List<RequestTimeFilterFastArrivalOneToManySearch> getOneToMany() {
     return oneToMany;
   }
+
 
   public void setOneToMany(List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany) {
     this.oneToMany = oneToMany;

@@ -11,7 +11,7 @@ function New-RequestTimeFilterArrivalSearch {
         [String]
         ${arrivalUnderscorelocationUnderscoreid},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTransportation]
+        [Org.OpenAPITools.Model.RequestTransportation]
         ${transportation},
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
         [Int32]
@@ -20,18 +20,18 @@ function New-RequestTimeFilterArrivalSearch {
         [System.DateTime]
         ${arrivalUnderscoretime},
         [Parameter(Position = 6, ValueFromPipelineByPropertyName = $true, Mandatory = $true)]
-        [traveltimeplatform.Model.RequestTimeFilterProperty[]]
+        [Org.OpenAPITools.Model.RequestTimeFilterProperty[]]
         ${properties},
         [Parameter(Position = 7, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.RequestRangeFull]]
+        [Org.OpenAPITools.Model.RequestRangeFull]
         ${range}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.RequestTimeFilterArrivalSearch' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.RequestTimeFilterArrivalSearch' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.RequestTimeFilterArrivalSearch -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.RequestTimeFilterArrivalSearch -ArgumentList @(
             ${id},
             ${departureUnderscorelocationUnderscoreids},
             ${arrivalUnderscorelocationUnderscoreid},

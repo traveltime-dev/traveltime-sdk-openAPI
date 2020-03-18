@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { RequestTransportation } from './requestTransportation';
 import { RequestRangeFull } from './requestRangeFull';
 import { RequestTimeFilterProperty } from './requestTimeFilterProperty';
-import { RequestTransportation } from './requestTransportation';
 
 
 export interface RequestTimeFilterDepartureSearch { 

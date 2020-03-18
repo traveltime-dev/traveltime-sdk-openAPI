@@ -30,3 +30,4 @@ export const ResponseTransportationMode = {
     Ferry: 'ferry' as ResponseTransportationMode,
     Coach: 'coach' as ResponseTransportationMode
 };
+

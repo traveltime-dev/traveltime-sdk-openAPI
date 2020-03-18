@@ -30,13 +30,15 @@ import org.openapitools.client.model.RequestLocation;
 /**
  * RequestSupportedLocations
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class RequestSupportedLocations {
   public static final String SERIALIZED_NAME_LOCATIONS = "locations";
   @SerializedName(SERIALIZED_NAME_LOCATIONS)
   private List<RequestLocation> locations = new ArrayList<RequestLocation>();
 
+
   public RequestSupportedLocations locations(List<RequestLocation> locations) {
+    
     this.locations = locations;
     return this;
   }
@@ -51,9 +53,11 @@ public class RequestSupportedLocations {
    * @return locations
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<RequestLocation> getLocations() {
     return locations;
   }
+
 
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;

@@ -21,53 +21,49 @@
 
 #include <QJsonObject>
 
-
 #include "OAIRequestLocation.h"
 #include "OAIRequestTimeFilterFastArrivalSearches.h"
 #include <QList>
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIRequestTimeFilterFast: public OAIObject {
+class OAIRequestTimeFilterFast : public OAIObject {
 public:
     OAIRequestTimeFilterFast();
     OAIRequestTimeFilterFast(QString json);
     ~OAIRequestTimeFilterFast() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     QList<OAIRequestLocation> getLocations() const;
     void setLocations(const QList<OAIRequestLocation> &locations);
 
-    
     OAIRequestTimeFilterFastArrivalSearches getArrivalSearches() const;
     void setArrivalSearches(const OAIRequestTimeFilterFastArrivalSearches &arrival_searches);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     QList<OAIRequestLocation> locations;
     bool m_locations_isSet;
     bool m_locations_isValid;
-    
+
     OAIRequestTimeFilterFastArrivalSearches arrival_searches;
     bool m_arrival_searches_isSet;
     bool m_arrival_searches_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFast)
 
 #endif // OAIRequestTimeFilterFast_H

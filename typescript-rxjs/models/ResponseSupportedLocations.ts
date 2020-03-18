@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseSupportedLocations {
     /**
-     * 
      * @type {Array<ResponseSupportedLocation>}
      * @memberof ResponseSupportedLocations
      */
     locations: Array<ResponseSupportedLocation>;
     /**
-     * 
      * @type {Array<string>}
      * @memberof ResponseSupportedLocations
      */

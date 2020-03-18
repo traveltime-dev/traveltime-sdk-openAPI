@@ -2521,14 +2521,14 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
          * 
          * @throws {RequiredError}
          */
-        geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, options: RequestOptions): FetchArgs {
-            // verify required parameter 'focusLat' is not null or undefined
-            if (focusLat === null || focusLat === undefined) {
-                throw new RequiredError('focusLat','Required parameter focusLat was null or undefined when calling geocodingReverseSearch.');
+        geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, options: RequestOptions): FetchArgs {
+            // verify required parameter 'lat' is not null or undefined
+            if (lat === null || lat === undefined) {
+                throw new RequiredError('lat','Required parameter lat was null or undefined when calling geocodingReverseSearch.');
             }
-            // verify required parameter 'focusLng' is not null or undefined
-            if (focusLng === null || focusLng === undefined) {
-                throw new RequiredError('focusLng','Required parameter focusLng was null or undefined when calling geocodingReverseSearch.');
+            // verify required parameter 'lng' is not null or undefined
+            if (lng === null || lng === undefined) {
+                throw new RequiredError('lng','Required parameter lng was null or undefined when calling geocodingReverseSearch.');
             }
             const localVarPath = `/v4/geocoding/reverse`;
             const localVarUrlObj = url.parse(localVarPath, true);
@@ -2552,12 +2552,12 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
                 localVarHeaderParameter["X-Application-Id"] = localVarApiKeyValue;
             }
 
-            if (focusLat !== undefined) {
-                localVarQueryParameter['focus.lat'] = ((focusLat:any):string);
+            if (lat !== undefined) {
+                localVarQueryParameter['lat'] = ((lat:any):string);
             }
 
-            if (focusLng !== undefined) {
-                localVarQueryParameter['focus.lng'] = ((focusLng:any):string);
+            if (lng !== undefined) {
+                localVarQueryParameter['lng'] = ((lng:any):string);
             }
 
             if (withinCountry !== undefined) {
@@ -2578,7 +2578,7 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
          * 
          * @throws {RequiredError}
          */
-        geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, options: RequestOptions): FetchArgs {
+        geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options: RequestOptions): FetchArgs {
             // verify required parameter 'query' is not null or undefined
             if (query === null || query === undefined) {
                 throw new RequiredError('query','Required parameter query was null or undefined when calling geocodingSearch.');
@@ -2609,16 +2609,16 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
                 localVarQueryParameter['query'] = ((query:any):string);
             }
 
-            if (withinCountry !== undefined) {
-                localVarQueryParameter['within.country'] = ((withinCountry:any):string);
-            }
-
             if (focusLat !== undefined) {
                 localVarQueryParameter['focus.lat'] = ((focusLat:any):string);
             }
 
             if (focusLng !== undefined) {
                 localVarQueryParameter['focus.lng'] = ((focusLng:any):string);
+            }
+
+            if (withinCountry !== undefined) {
+                localVarQueryParameter['within.country'] = ((withinCountry:any):string);
             }
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -3032,9 +3032,9 @@ export const DefaultApiFetchParamCreator = function (configuration?: Configurati
 };
 
 export type DefaultApiType = { 
-    geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, options?: RequestOptions): Promise<ResponseGeocoding>,
+    geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, options?: RequestOptions): Promise<ResponseGeocoding>,
 
-    geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, options?: RequestOptions): Promise<ResponseGeocoding>,
+    geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options?: RequestOptions): Promise<ResponseGeocoding>,
 
     mapInfo(options?: RequestOptions): Promise<ResponseMapInfo>,
 
@@ -3066,8 +3066,8 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * 
          * @throws {RequiredError}
          */
-        geocodingReverseSearch(focusLat: number, focusLng: number, withinCountry?: string, options?: RequestOptions = {}): Promise<ResponseGeocoding> {
-            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).geocodingReverseSearch(focusLat, focusLng, withinCountry, options);
+        geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, options?: RequestOptions = {}): Promise<ResponseGeocoding> {
+            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).geocodingReverseSearch(lat, lng, withinCountry, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();
@@ -3080,8 +3080,8 @@ export const DefaultApi = function(configuration?: Configuration, fetch: FetchAP
          * 
          * @throws {RequiredError}
          */
-        geocodingSearch(query: string, withinCountry?: string, focusLat?: number, focusLng?: number, options?: RequestOptions = {}): Promise<ResponseGeocoding> {
-            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).geocodingSearch(query, withinCountry, focusLat, focusLng, options);
+        geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options?: RequestOptions = {}): Promise<ResponseGeocoding> {
+            const localVarFetchArgs = DefaultApiFetchParamCreator(configuration).geocodingSearch(query, focusLat, focusLng, withinCountry, options);
             return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                 if (response.status >= 200 && response.status < 300) {
                     return response.json();

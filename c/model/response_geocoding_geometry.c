@@ -9,31 +9,31 @@ response_geocoding_geometry_t *response_geocoding_geometry_create(
     char *type,
     list_t *coordinates
     ) {
-	response_geocoding_geometry_t *response_geocoding_geometry_local_var = malloc(sizeof(response_geocoding_geometry_t));
+    response_geocoding_geometry_t *response_geocoding_geometry_local_var = malloc(sizeof(response_geocoding_geometry_t));
     if (!response_geocoding_geometry_local_var) {
         return NULL;
     }
-	response_geocoding_geometry_local_var->type = type;
-	response_geocoding_geometry_local_var->coordinates = coordinates;
+    response_geocoding_geometry_local_var->type = type;
+    response_geocoding_geometry_local_var->coordinates = coordinates;
 
-	return response_geocoding_geometry_local_var;
+    return response_geocoding_geometry_local_var;
 }
 
 
 void response_geocoding_geometry_free(response_geocoding_geometry_t *response_geocoding_geometry) {
     listEntry_t *listEntry;
     free(response_geocoding_geometry->type);
-	list_ForEach(listEntry, response_geocoding_geometry->coordinates) {
-		free(listEntry->data);
-	}
-	list_free(response_geocoding_geometry->coordinates);
-	free(response_geocoding_geometry);
+    list_ForEach(listEntry, response_geocoding_geometry->coordinates) {
+        free(listEntry->data);
+    }
+    list_free(response_geocoding_geometry->coordinates);
+    free(response_geocoding_geometry);
 }
 
 cJSON *response_geocoding_geometry_convertToJSON(response_geocoding_geometry_t *response_geocoding_geometry) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_geocoding_geometry->type
+    // response_geocoding_geometry->type
     if (!response_geocoding_geometry->type) {
         goto fail;
     }
@@ -43,17 +43,17 @@ cJSON *response_geocoding_geometry_convertToJSON(response_geocoding_geometry_t *
     }
 
 
-	// response_geocoding_geometry->coordinates
+    // response_geocoding_geometry->coordinates
     if (!response_geocoding_geometry->coordinates) {
         goto fail;
     }
     
-	cJSON *coordinates = cJSON_AddArrayToObject(item, "coordinates");
-	if(coordinates == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *coordinates = cJSON_AddArrayToObject(item, "coordinates");
+    if(coordinates == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *coordinatesListEntry;
+    listEntry_t *coordinatesListEntry;
     list_ForEach(coordinatesListEntry, response_geocoding_geometry->coordinates) {
     if(cJSON_AddNumberToObject(coordinates, "", *(double *)coordinatesListEntry->data) == NULL)
     {
@@ -61,12 +61,12 @@ cJSON *response_geocoding_geometry_convertToJSON(response_geocoding_geometry_t *
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_geocoding_geometry_t *response_geocoding_geometry_parseFromJSON(cJSON *response_geocoding_geometryJSON){

@@ -23,12 +23,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class RequestTimeMapArrivalSearch   {
   
   private @Valid String id;
-  private @Valid Coords coords = null;
-  private @Valid RequestTransportation transportation = null;
+  private @Valid Coords coords;
+  private @Valid RequestTransportation transportation;
   private @Valid Integer travelTime;
   private @Valid Date arrivalTime;
   private @Valid List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
-  private @Valid RequestRangeNoMaxResults range = null;
+  private @Valid RequestRangeNoMaxResults range;
 
   /**
    **/

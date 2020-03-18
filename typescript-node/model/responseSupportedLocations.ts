@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 import { ResponseSupportedLocation } from './responseSupportedLocation';
 
 export class ResponseSupportedLocations {

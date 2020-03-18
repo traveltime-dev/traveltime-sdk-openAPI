@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseFaresFast
+# openapi::ResponseFaresFast
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tickets_total** | [**ResponseFareTicket**](ResponseFareTicket.md) |  | 
+**tickets_total** | [**array[ResponseFareTicket]**](ResponseFareTicket.md) |  | 
 
 

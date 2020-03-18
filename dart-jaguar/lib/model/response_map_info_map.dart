@@ -7,10 +7,10 @@ part 'response_map_info_map.jser.dart';
 
 class ResponseMapInfoMap {
   
-  @Alias('name')
+  @Alias('name', isNullable: false,  )
   final String name;
   
-  @Alias('features')
+  @Alias('features', isNullable: false,  )
   final ResponseMapInfoFeatures features;
   
 

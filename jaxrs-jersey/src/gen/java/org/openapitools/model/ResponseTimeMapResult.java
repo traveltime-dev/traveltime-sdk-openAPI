@@ -22,22 +22,31 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseShape;
 import org.openapitools.model.ResponseTimeMapProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseTimeMapResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseTimeMapResult.JSON_PROPERTY_SEARCH_ID,
+  ResponseTimeMapResult.JSON_PROPERTY_SHAPES,
+  ResponseTimeMapResult.JSON_PROPERTY_PROPERTIES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseTimeMapResult   {
-  @JsonProperty("search_id")
+  public static final String JSON_PROPERTY_SEARCH_ID = "search_id";
+  @JsonProperty(JSON_PROPERTY_SEARCH_ID)
   private String searchId;
 
-  @JsonProperty("shapes")
+  public static final String JSON_PROPERTY_SHAPES = "shapes";
+  @JsonProperty(JSON_PROPERTY_SHAPES)
   private List<ResponseShape> shapes = new ArrayList<ResponseShape>();
 
-  @JsonProperty("properties")
-  private ResponseTimeMapProperties properties = null;
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapResult searchId(String searchId) {
     this.searchId = searchId;

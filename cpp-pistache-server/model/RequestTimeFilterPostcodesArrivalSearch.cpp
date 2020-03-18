@@ -55,7 +55,7 @@ void from_json(const nlohmann::json& j, RequestTimeFilterPostcodesArrivalSearch&
     j.at("travel_time").get_to(o.m_Travel_time);
     j.at("arrival_time").get_to(o.m_Arrival_time);
     j.at("properties").get_to(o.m_Properties);
-    if(j.contains("range"))
+    if(j.find("range") != j.end())
     {
         j.at("range").get_to(o.m_Range);
         o.m_RangeIsSet = true;
@@ -69,7 +69,6 @@ std::string RequestTimeFilterPostcodesArrivalSearch::getId() const
 void RequestTimeFilterPostcodesArrivalSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 RequestTransportation RequestTimeFilterPostcodesArrivalSearch::getTransportation() const
 {
@@ -78,7 +77,6 @@ RequestTransportation RequestTimeFilterPostcodesArrivalSearch::getTransportation
 void RequestTimeFilterPostcodesArrivalSearch::setTransportation(RequestTransportation const& value)
 {
     m_Transportation = value;
-    
 }
 int32_t RequestTimeFilterPostcodesArrivalSearch::getTravelTime() const
 {
@@ -87,7 +85,6 @@ int32_t RequestTimeFilterPostcodesArrivalSearch::getTravelTime() const
 void RequestTimeFilterPostcodesArrivalSearch::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 std::string RequestTimeFilterPostcodesArrivalSearch::getArrivalTime() const
 {
@@ -96,11 +93,14 @@ std::string RequestTimeFilterPostcodesArrivalSearch::getArrivalTime() const
 void RequestTimeFilterPostcodesArrivalSearch::setArrivalTime(std::string const& value)
 {
     m_Arrival_time = value;
-    
 }
 std::vector<RequestTimeFilterPostcodesProperty>& RequestTimeFilterPostcodesArrivalSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestTimeFilterPostcodesArrivalSearch::setProperties(std::vector<RequestTimeFilterPostcodesProperty> const& value)
+{
+    m_Properties = value;
 }
 RequestRangeFull RequestTimeFilterPostcodesArrivalSearch::getRange() const
 {

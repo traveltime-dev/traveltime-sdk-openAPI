@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseTimeMapBoundingBoxes
+# openapi::ResponseTimeMapBoundingBoxes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**ResponseTimeMapBoundingBoxesResult**](ResponseTimeMapBoundingBoxesResult.md) |  | 
+**results** | [**array[ResponseTimeMapBoundingBoxesResult]**](ResponseTimeMapBoundingBoxesResult.md) |  | 
 
 

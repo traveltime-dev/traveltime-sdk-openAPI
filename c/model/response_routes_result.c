@@ -10,36 +10,36 @@ response_routes_result_t *response_routes_result_create(
     list_t *locations,
     list_t *unreachable
     ) {
-	response_routes_result_t *response_routes_result_local_var = malloc(sizeof(response_routes_result_t));
+    response_routes_result_t *response_routes_result_local_var = malloc(sizeof(response_routes_result_t));
     if (!response_routes_result_local_var) {
         return NULL;
     }
-	response_routes_result_local_var->search_id = search_id;
-	response_routes_result_local_var->locations = locations;
-	response_routes_result_local_var->unreachable = unreachable;
+    response_routes_result_local_var->search_id = search_id;
+    response_routes_result_local_var->locations = locations;
+    response_routes_result_local_var->unreachable = unreachable;
 
-	return response_routes_result_local_var;
+    return response_routes_result_local_var;
 }
 
 
 void response_routes_result_free(response_routes_result_t *response_routes_result) {
     listEntry_t *listEntry;
     free(response_routes_result->search_id);
-	list_ForEach(listEntry, response_routes_result->locations) {
-		response_routes_location_free(listEntry->data);
-	}
-	list_free(response_routes_result->locations);
-	list_ForEach(listEntry, response_routes_result->unreachable) {
-		free(listEntry->data);
-	}
-	list_free(response_routes_result->unreachable);
-	free(response_routes_result);
+    list_ForEach(listEntry, response_routes_result->locations) {
+        response_routes_location_free(listEntry->data);
+    }
+    list_free(response_routes_result->locations);
+    list_ForEach(listEntry, response_routes_result->unreachable) {
+        free(listEntry->data);
+    }
+    list_free(response_routes_result->unreachable);
+    free(response_routes_result);
 }
 
 cJSON *response_routes_result_convertToJSON(response_routes_result_t *response_routes_result) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_routes_result->search_id
+    // response_routes_result->search_id
     if (!response_routes_result->search_id) {
         goto fail;
     }
@@ -49,7 +49,7 @@ cJSON *response_routes_result_convertToJSON(response_routes_result_t *response_r
     }
 
 
-	// response_routes_result->locations
+    // response_routes_result->locations
     if (!response_routes_result->locations) {
         goto fail;
     }
@@ -71,17 +71,17 @@ cJSON *response_routes_result_convertToJSON(response_routes_result_t *response_r
     }
 
 
-	// response_routes_result->unreachable
+    // response_routes_result->unreachable
     if (!response_routes_result->unreachable) {
         goto fail;
     }
     
-	cJSON *unreachable = cJSON_AddArrayToObject(item, "unreachable");
-	if(unreachable == NULL) {
-		goto fail; //primitive container
-	}
+    cJSON *unreachable = cJSON_AddArrayToObject(item, "unreachable");
+    if(unreachable == NULL) {
+        goto fail; //primitive container
+    }
 
-	listEntry_t *unreachableListEntry;
+    listEntry_t *unreachableListEntry;
     list_ForEach(unreachableListEntry, response_routes_result->unreachable) {
     if(cJSON_AddStringToObject(unreachable, "", (char*)unreachableListEntry->data) == NULL)
     {
@@ -89,12 +89,12 @@ cJSON *response_routes_result_convertToJSON(response_routes_result_t *response_r
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_routes_result_t *response_routes_result_parseFromJSON(cJSON *response_routes_resultJSON){

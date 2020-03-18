@@ -23,7 +23,7 @@ public class RequestTimeFilterPostcodeSectorsArrivalSearch  {
   private String id;
 
   @ApiModelProperty(required = true, value = "")
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;
@@ -38,7 +38,7 @@ public class RequestTimeFilterPostcodeSectorsArrivalSearch  {
   private List<RequestTimeFilterPostcodeSectorsProperty> properties = new ArrayList<RequestTimeFilterPostcodeSectorsProperty>();
 
   @ApiModelProperty(value = "")
-  private RequestRangeFull range = null;
+  private RequestRangeFull range;
  /**
    * Get id
    * @return id

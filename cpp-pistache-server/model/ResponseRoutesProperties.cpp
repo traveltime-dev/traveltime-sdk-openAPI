@@ -53,22 +53,22 @@ void to_json(nlohmann::json& j, const ResponseRoutesProperties& o)
 
 void from_json(const nlohmann::json& j, ResponseRoutesProperties& o)
 {
-    if(j.contains("travel_time"))
+    if(j.find("travel_time") != j.end())
     {
         j.at("travel_time").get_to(o.m_Travel_time);
         o.m_Travel_timeIsSet = true;
     } 
-    if(j.contains("distance"))
+    if(j.find("distance") != j.end())
     {
         j.at("distance").get_to(o.m_Distance);
         o.m_DistanceIsSet = true;
     } 
-    if(j.contains("fares"))
+    if(j.find("fares") != j.end())
     {
         j.at("fares").get_to(o.m_Fares);
         o.m_FaresIsSet = true;
     } 
-    if(j.contains("route"))
+    if(j.find("route") != j.end())
     {
         j.at("route").get_to(o.m_Route);
         o.m_RouteIsSet = true;

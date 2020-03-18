@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**Vec<::models::ResponseTimeFilterPostcodesResult>**](ResponseTimeFilterPostcodesResult.md) |  | 
+**results** | [**Vec<crate::models::ResponseTimeFilterPostcodesResult>**](ResponseTimeFilterPostcodesResult.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

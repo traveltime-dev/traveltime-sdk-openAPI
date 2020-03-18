@@ -10,16 +10,8 @@
  * Do not edit the class manually.
  */
 
+import { RequestFile } from '../api';
 
-export class RequestArrivalTimePeriod {
-
-    static discriminator: string | undefined = undefined;
-
-    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-
-    static getAttributeTypeMap() {
-        return RequestArrivalTimePeriod.attributeTypeMap;
-    }
+export enum RequestArrivalTimePeriod {
+    WeekdayMorning = <any> 'weekday_morning'
 }
-

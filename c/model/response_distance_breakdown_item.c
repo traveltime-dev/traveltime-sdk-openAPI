@@ -4,43 +4,51 @@
 #include "response_distance_breakdown_item.h"
 
 
+    char* moderesponse_distance_breakdown_item_ToString(mode_e mode){
+    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+        return modeArray[mode];
+    }
+
+    mode_e moderesponse_distance_breakdown_item_FromString(char* mode){
+    int stringToReturn = 0;
+    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+    size_t sizeofArray = sizeof(modeArray) / sizeof(modeArray[0]);
+    while(stringToReturn < sizeofArray) {
+        if(strcmp(mode, modeArray[stringToReturn]) == 0) {
+            return stringToReturn;
+        }
+        stringToReturn++;
+    }
+    return 0;
+    }
 
 response_distance_breakdown_item_t *response_distance_breakdown_item_create(
-    response_transportation_mode_e mode,
     int distance
     ) {
-	response_distance_breakdown_item_t *response_distance_breakdown_item_local_var = malloc(sizeof(response_distance_breakdown_item_t));
+    response_distance_breakdown_item_t *response_distance_breakdown_item_local_var = malloc(sizeof(response_distance_breakdown_item_t));
     if (!response_distance_breakdown_item_local_var) {
         return NULL;
     }
-	response_distance_breakdown_item_local_var->mode = mode;
-	response_distance_breakdown_item_local_var->distance = distance;
+    response_distance_breakdown_item_local_var->mode = mode;
+    response_distance_breakdown_item_local_var->distance = distance;
 
-	return response_distance_breakdown_item_local_var;
+    return response_distance_breakdown_item_local_var;
 }
 
 
 void response_distance_breakdown_item_free(response_distance_breakdown_item_t *response_distance_breakdown_item) {
     listEntry_t *listEntry;
-	free(response_distance_breakdown_item);
+    free(response_distance_breakdown_item);
 }
 
 cJSON *response_distance_breakdown_item_convertToJSON(response_distance_breakdown_item_t *response_distance_breakdown_item) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_distance_breakdown_item->mode
+    // response_distance_breakdown_item->mode
     
-    cJSON *mode_enum_local_JSON = response_transportation_mode_convertToJSON(response_distance_breakdown_item->mode);
-    if(mode_enum_local_JSON == NULL) {
-    goto fail; // enum
-    }
-    cJSON_AddItemToObject(item, "mode", mode_enum_local_JSON);
-    if(item->child == NULL) {
-    goto fail;
-    }
 
 
-	// response_distance_breakdown_item->distance
+    // response_distance_breakdown_item->distance
     if (!response_distance_breakdown_item->distance) {
         goto fail;
     }
@@ -49,12 +57,12 @@ cJSON *response_distance_breakdown_item_convertToJSON(response_distance_breakdow
     goto fail; //Numeric
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_distance_breakdown_item_t *response_distance_breakdown_item_parseFromJSON(cJSON *response_distance_breakdown_itemJSON){
@@ -67,9 +75,6 @@ response_distance_breakdown_item_t *response_distance_breakdown_item_parseFromJS
         goto end;
     }
 
-    response_transportation_mode_e mode_local_nonprim_enum;
-    
-    mode_local_nonprim_enum = response_transportation_mode_parseFromJSON(mode); //enum model
 
     // response_distance_breakdown_item->distance
     cJSON *distance = cJSON_GetObjectItemCaseSensitive(response_distance_breakdown_itemJSON, "distance");
@@ -85,7 +90,6 @@ response_distance_breakdown_item_t *response_distance_breakdown_item_parseFromJS
 
 
     response_distance_breakdown_item_local_var = response_distance_breakdown_item_create (
-        mode_local_nonprim_enum,
         distance->valuedouble
         );
 

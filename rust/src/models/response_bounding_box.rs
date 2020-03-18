@@ -9,22 +9,23 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseBoundingBox {
     #[serde(rename = "envelope")]
-    pub envelope: ::models::ResponseBox,
+    pub envelope: crate::models::ResponseBox,
     #[serde(rename = "boxes")]
-    pub boxes: Vec<::models::ResponseBox>,
+    pub boxes: Vec<crate::models::ResponseBox>,
 }
 
 impl ResponseBoundingBox {
-    pub fn new(envelope: ::models::ResponseBox, boxes: Vec<::models::ResponseBox>) -> ResponseBoundingBox {
+    pub fn new(envelope: crate::models::ResponseBox, boxes: Vec<crate::models::ResponseBox>) -> ResponseBoundingBox {
         ResponseBoundingBox {
-            envelope: envelope,
-            boxes: boxes,
+            envelope,
+            boxes,
         }
     }
 }
+
+

@@ -8,29 +8,29 @@
 response_time_map_bounding_boxes_t *response_time_map_bounding_boxes_create(
     list_t *results
     ) {
-	response_time_map_bounding_boxes_t *response_time_map_bounding_boxes_local_var = malloc(sizeof(response_time_map_bounding_boxes_t));
+    response_time_map_bounding_boxes_t *response_time_map_bounding_boxes_local_var = malloc(sizeof(response_time_map_bounding_boxes_t));
     if (!response_time_map_bounding_boxes_local_var) {
         return NULL;
     }
-	response_time_map_bounding_boxes_local_var->results = results;
+    response_time_map_bounding_boxes_local_var->results = results;
 
-	return response_time_map_bounding_boxes_local_var;
+    return response_time_map_bounding_boxes_local_var;
 }
 
 
 void response_time_map_bounding_boxes_free(response_time_map_bounding_boxes_t *response_time_map_bounding_boxes) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_map_bounding_boxes->results) {
-		response_time_map_bounding_boxes_result_free(listEntry->data);
-	}
-	list_free(response_time_map_bounding_boxes->results);
-	free(response_time_map_bounding_boxes);
+    list_ForEach(listEntry, response_time_map_bounding_boxes->results) {
+        response_time_map_bounding_boxes_result_free(listEntry->data);
+    }
+    list_free(response_time_map_bounding_boxes->results);
+    free(response_time_map_bounding_boxes);
 }
 
 cJSON *response_time_map_bounding_boxes_convertToJSON(response_time_map_bounding_boxes_t *response_time_map_bounding_boxes) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map_bounding_boxes->results
+    // response_time_map_bounding_boxes->results
     if (!response_time_map_bounding_boxes->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_time_map_bounding_boxes_convertToJSON(response_time_map_bounding
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_bounding_boxes_t *response_time_map_bounding_boxes_parseFromJSON(cJSON *response_time_map_bounding_boxesJSON){

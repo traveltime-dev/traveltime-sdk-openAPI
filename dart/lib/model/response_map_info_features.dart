@@ -16,21 +16,11 @@ class ResponseMapInfoFeatures {
 
   ResponseMapInfoFeatures.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['public_transport'] == null) {
-      publicTransport = null;
-    } else {
-      publicTransport = new ResponseMapInfoFeaturesPublicTransport.fromJson(json['public_transport']);
-    }
-    if (json['fares'] == null) {
-      fares = null;
-    } else {
-          fares = json['fares'];
-    }
-    if (json['postcodes'] == null) {
-      postcodes = null;
-    } else {
-          postcodes = json['postcodes'];
-    }
+    publicTransport = (json['public_transport'] == null) ?
+      null :
+      ResponseMapInfoFeaturesPublicTransport.fromJson(json['public_transport']);
+    fares = json['fares'];
+    postcodes = json['postcodes'];
   }
 
   Map<String, dynamic> toJson() {
@@ -45,15 +35,26 @@ class ResponseMapInfoFeatures {
   }
 
   static List<ResponseMapInfoFeatures> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseMapInfoFeatures>() : json.map((value) => new ResponseMapInfoFeatures.fromJson(value)).toList();
+    return json == null ? List<ResponseMapInfoFeatures>() : json.map((value) => ResponseMapInfoFeatures.fromJson(value)).toList();
   }
 
   static Map<String, ResponseMapInfoFeatures> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseMapInfoFeatures>();
+    var map = Map<String, ResponseMapInfoFeatures>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseMapInfoFeatures.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfoFeatures.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseMapInfoFeatures-objects as value to a dart map
+  static Map<String, List<ResponseMapInfoFeatures>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseMapInfoFeatures>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseMapInfoFeatures.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

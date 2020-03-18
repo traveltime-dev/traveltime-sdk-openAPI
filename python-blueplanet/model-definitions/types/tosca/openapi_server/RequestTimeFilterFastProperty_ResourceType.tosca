@@ -1,0 +1,30 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterFastProperty"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterFastProperty"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestTimeFilterFastProperty {
+    title = RequestTimeFilterFastProperty
+    description = RequestTimeFilterFastProperty
+    derivedFrom = Root
+    properties {
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterFastProperty {
+    title = RequestTimeFilterFastProperty
+    description = RequestTimeFilterFastProperty
+    implements = openapi_server.resourceTypes.RequestTimeFilterFastProperty
+
+  }
+}

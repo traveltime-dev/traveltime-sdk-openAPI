@@ -14,16 +14,10 @@ class ResponseTimeFilterPostcodeSector {
 
   ResponseTimeFilterPostcodeSector.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['code'] == null) {
-      code = null;
-    } else {
-          code = json['code'];
-    }
-    if (json['properties'] == null) {
-      properties = null;
-    } else {
-      properties = new ResponseTimeFilterPostcodeSectorProperties.fromJson(json['properties']);
-    }
+    code = json['code'];
+    properties = (json['properties'] == null) ?
+      null :
+      ResponseTimeFilterPostcodeSectorProperties.fromJson(json['properties']);
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +30,26 @@ class ResponseTimeFilterPostcodeSector {
   }
 
   static List<ResponseTimeFilterPostcodeSector> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseTimeFilterPostcodeSector>() : json.map((value) => new ResponseTimeFilterPostcodeSector.fromJson(value)).toList();
+    return json == null ? List<ResponseTimeFilterPostcodeSector>() : json.map((value) => ResponseTimeFilterPostcodeSector.fromJson(value)).toList();
   }
 
   static Map<String, ResponseTimeFilterPostcodeSector> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseTimeFilterPostcodeSector>();
+    var map = Map<String, ResponseTimeFilterPostcodeSector>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseTimeFilterPostcodeSector.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterPostcodeSector.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseTimeFilterPostcodeSector-objects as value to a dart map
+  static Map<String, List<ResponseTimeFilterPostcodeSector>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseTimeFilterPostcodeSector>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseTimeFilterPostcodeSector.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

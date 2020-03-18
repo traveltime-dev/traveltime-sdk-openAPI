@@ -20,15 +20,15 @@ import model.ResponseTimeFilterPostcodeSectors
 import model.ResponseTimeFilterPostcodes
 import model.ResponseTimeMap
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2019-05-24T09:07:50.761Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T07:55:16.100Z[Etc/UTC]")
 trait DefaultApi {
   /**
     */
-  def geocodingReverseSearch(focusPeriodlat: Double, focusPeriodlng: Double, withinPeriodcountry: Option[String]): ResponseGeocoding
+  def geocodingReverseSearch(lat: Double, lng: Double, withinPeriodcountry: Option[String]): ResponseGeocoding
 
   /**
     */
-  def geocodingSearch(query: String, withinPeriodcountry: Option[String], focusPeriodlat: Option[Double], focusPeriodlng: Option[Double]): ResponseGeocoding
+  def geocodingSearch(query: String, focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], withinPeriodcountry: Option[String]): ResponseGeocoding
 
   /**
     */

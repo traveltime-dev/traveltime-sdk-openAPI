@@ -9,9 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { RequestRangeFull } from './requestRangeFull';
-import { RequestRoutesProperty } from './requestRoutesProperty';
 import { RequestTransportation } from './requestTransportation';
+import { RequestRoutesProperty } from './requestRoutesProperty';
+import { RequestRangeFull } from './requestRangeFull';
 
 
 export interface RequestRoutesArrivalSearch { 

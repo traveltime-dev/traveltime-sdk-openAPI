@@ -21,51 +21,47 @@
 
 #include <QJsonObject>
 
-
 #include "OAIResponseTimeFilterPostcodeDistrictProperties.h"
 
-#include "OAIObject.h"
 #include "OAIEnum.h"
+#include "OAIObject.h"
 
 namespace OpenAPI {
 
-class OAIResponseTimeFilterPostcodeDistrict: public OAIObject {
+class OAIResponseTimeFilterPostcodeDistrict : public OAIObject {
 public:
     OAIResponseTimeFilterPostcodeDistrict();
     OAIResponseTimeFilterPostcodeDistrict(QString json);
     ~OAIResponseTimeFilterPostcodeDistrict() override;
 
-    QString asJson () const override;
+    QString asJson() const override;
     QJsonObject asJsonObject() const override;
     void fromJsonObject(QJsonObject json) override;
     void fromJson(QString jsonString) override;
 
-    
     String getCode() const;
     void setCode(const String &code);
 
-    
     OAIResponseTimeFilterPostcodeDistrictProperties getProperties() const;
     void setProperties(const OAIResponseTimeFilterPostcodeDistrictProperties &properties);
 
-    
-    
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
 private:
-    void init();
-    
+    void initializeModel();
+
     String code;
     bool m_code_isSet;
     bool m_code_isValid;
-    
+
     OAIResponseTimeFilterPostcodeDistrictProperties properties;
     bool m_properties_isSet;
     bool m_properties_isValid;
-    
-    };
+};
 
-}
+} // namespace OpenAPI
+
+Q_DECLARE_METATYPE(OpenAPI::OAIResponseTimeFilterPostcodeDistrict)
 
 #endif // OAIResponseTimeFilterPostcodeDistrict_H

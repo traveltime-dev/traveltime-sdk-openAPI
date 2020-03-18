@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTimeMap exposing (ResponseTimeMap, decoder, encode)
+module Data.ResponseTimeMap exposing (ResponseTimeMap, decoder, encode, encodeWithTag, toString)
 
 import Data.ResponseTimeMapResult as ResponseTimeMapResult exposing (ResponseTimeMapResult)
 import Dict exposing (Dict)
@@ -33,10 +33,26 @@ decoder =
 
 
 encode : ResponseTimeMap -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "results", (Encode.list ResponseTimeMapResult.encode) model.results )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseTimeMap -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseTimeMap -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "results", (Encode.list ResponseTimeMapResult.encode) model.results )
+    ]
+
+
+
+toString : ResponseTimeMap -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

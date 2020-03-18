@@ -17,13 +17,11 @@
  */
 export interface ResponseSupportedLocation {
     /**
-     * 
      * @type {string}
      * @memberof ResponseSupportedLocation
      */
     id: string;
     /**
-     * 
      * @type {string}
      * @memberof ResponseSupportedLocation
      */

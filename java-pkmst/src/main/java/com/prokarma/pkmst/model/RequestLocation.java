@@ -15,14 +15,14 @@ import io.swagger.annotations.ApiModelProperty;
  * RequestLocation
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2019-05-24T09:06:49.586Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
 
 public class RequestLocation   {
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("coords")
-  private Coords coords = null;
+  private Coords coords;
 
   public RequestLocation id(String id) {
     this.id = id;

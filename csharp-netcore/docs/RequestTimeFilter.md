@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestTimeFilter
+# Org.OpenAPITools.Model.RequestTimeFilter
 ## Properties
 
 Name | Type | Description | Notes

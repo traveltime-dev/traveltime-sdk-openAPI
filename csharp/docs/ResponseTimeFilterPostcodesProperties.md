@@ -1,12 +1,12 @@
 
-# traveltimeplatform.Model.ResponseTimeFilterPostcodesProperties
+# Org.OpenAPITools.Model.ResponseTimeFilterPostcodesProperties
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TravelTime** | **int?** |  | [optional] 
-**Distance** | **int?** |  | [optional] 
+**TravelTime** | **int** |  | [optional] 
+**Distance** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

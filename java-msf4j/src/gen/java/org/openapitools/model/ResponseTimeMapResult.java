@@ -13,7 +13,7 @@ import org.openapitools.model.ResponseTimeMapProperties;
 /**
  * ResponseTimeMapResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class ResponseTimeMapResult   {
   @JsonProperty("search_id")
   private String searchId;
@@ -22,7 +22,7 @@ public class ResponseTimeMapResult   {
   private List<ResponseShape> shapes = new ArrayList<ResponseShape>();
 
   @JsonProperty("properties")
-  private ResponseTimeMapProperties properties = null;
+  private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapResult searchId(String searchId) {
     this.searchId = searchId;

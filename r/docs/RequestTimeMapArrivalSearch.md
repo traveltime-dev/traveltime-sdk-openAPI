@@ -1,4 +1,4 @@
-# traveltimeplatform::RequestTimeMapArrivalSearch
+# openapi::RequestTimeMapArrivalSearch
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travel_time** | **integer** |  | 
 **arrival_time** | **character** |  | 
-**properties** | [**RequestTimeMapProperty**](RequestTimeMapProperty.md) |  | [optional] 
+**properties** | [**array[RequestTimeMapProperty]**](RequestTimeMapProperty.md) |  | [optional] 
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
 
 

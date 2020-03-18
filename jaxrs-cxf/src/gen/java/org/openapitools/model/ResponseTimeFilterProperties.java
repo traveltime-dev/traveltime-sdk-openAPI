@@ -32,11 +32,11 @@ public class ResponseTimeFilterProperties  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @ApiModelProperty(value = "")
   @Valid
-  private ResponseRoute route = null;
+  private ResponseRoute route;
  /**
    * Get travelTime
    * @return travelTime

@@ -8,9 +8,9 @@ import org.openapitools.model.ResponseTravelTimeStatistics;
 @Canonical
 class ResponseTimeFilterPostcodeSectorProperties {
     
-    ResponseTravelTimeStatistics travelTimeReachable = null
+    ResponseTravelTimeStatistics travelTimeReachable
     
-    ResponseTravelTimeStatistics travelTimeAll = null
+    ResponseTravelTimeStatistics travelTimeAll
     
     Double coverage
 }

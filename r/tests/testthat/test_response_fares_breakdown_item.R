@@ -6,21 +6,21 @@ context("Test ResponseFaresBreakdownItem")
 model.instance <- ResponseFaresBreakdownItem$new()
 
 test_that("modes", {
-  # tests for the property `modes` (ResponseTransportationMode)
+  # tests for the property `modes` (array[ResponseTransportationMode])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`modes`, "EXPECTED_RESULT")
 })
 
 test_that("route_part_ids", {
-  # tests for the property `route_part_ids` (integer)
+  # tests for the property `route_part_ids` (array[integer])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`route_part_ids`, "EXPECTED_RESULT")
 })
 
 test_that("tickets", {
-  # tests for the property `tickets` (ResponseFareTicket)
+  # tests for the property `tickets` (array[ResponseFareTicket])
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`tickets`, "EXPECTED_RESULT")

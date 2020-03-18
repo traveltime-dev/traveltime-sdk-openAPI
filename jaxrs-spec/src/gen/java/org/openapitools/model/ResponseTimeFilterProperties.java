@@ -23,8 +23,8 @@ public class ResponseTimeFilterProperties   {
   private @Valid Integer travelTime;
   private @Valid Integer distance;
   private @Valid List<ResponseDistanceBreakdownItem> distanceBreakdown = new ArrayList<ResponseDistanceBreakdownItem>();
-  private @Valid ResponseFares fares = null;
-  private @Valid ResponseRoute route = null;
+  private @Valid ResponseFares fares;
+  private @Valid ResponseRoute route;
 
   /**
    **/

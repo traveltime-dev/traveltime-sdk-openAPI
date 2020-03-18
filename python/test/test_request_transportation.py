@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.request_transportation import RequestTransportation  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.request_transportation import RequestTransportation  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestRequestTransportation(unittest.TestCase):
     """RequestTransportation unit test stubs"""
@@ -29,11 +29,30 @@ class TestRequestTransportation(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test RequestTransportation
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.request_transportation.RequestTransportation()  # noqa: E501
+        if include_optional :
+            return RequestTransportation(
+                type = 'cycling', 
+                pt_change_delay = 56, 
+                walking_time = 56, 
+                driving_time_to_station = 56, 
+                parking_time = 56, 
+                boarding_time = 56
+            )
+        else :
+            return RequestTransportation(
+                type = 'cycling',
+        )
+
     def testRequestTransportation(self):
         """Test RequestTransportation"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.request_transportation.RequestTransportation()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

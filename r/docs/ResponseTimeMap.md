@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseTimeMap
+# openapi::ResponseTimeMap
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**ResponseTimeMapResult**](ResponseTimeMapResult.md) |  | 
+**results** | [**array[ResponseTimeMapResult]**](ResponseTimeMapResult.md) |  | 
 
 

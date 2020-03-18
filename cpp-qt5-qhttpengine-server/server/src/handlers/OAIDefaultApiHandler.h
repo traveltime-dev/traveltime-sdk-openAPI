@@ -48,8 +48,8 @@ public:
 
 
 public slots:
-    virtual void geocodingReverseSearch(double focus_lat, double focus_lng, QString within_country);
-    virtual void geocodingSearch(QString query, QString within_country, double focus_lat, double focus_lng);
+    virtual void geocodingReverseSearch(double lat, double lng, QString within_country);
+    virtual void geocodingSearch(QString query, double focus_lat, double focus_lng, QString within_country);
     virtual void mapInfo();
     virtual void routes(OAIRequestRoutes oai_request_routes);
     virtual void supportedLocations(OAIRequestSupportedLocations oai_request_supported_locations);

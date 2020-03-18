@@ -13,12 +13,12 @@
 
 #include "OAIResponseMapInfoMap.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseMapInfoMap::asJson () const {
 QJsonObject
 OAIResponseMapInfoMap::asJsonObject() const {
     QJsonObject obj;
-	if(m_name_isSet){
+    if(m_name_isSet){
         obj.insert(QString("name"), ::OpenAPI::toJsonValue(name));
     }
-	if(features.isSet()){
+    if(features.isSet()){
         obj.insert(QString("features"), ::OpenAPI::toJsonValue(features));
     }
     return obj;

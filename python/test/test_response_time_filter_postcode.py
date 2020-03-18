@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_time_filter_postcode import ResponseTimeFilterPostcode  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_time_filter_postcode import ResponseTimeFilterPostcode  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseTimeFilterPostcode(unittest.TestCase):
     """ResponseTimeFilterPostcode unit test stubs"""
@@ -29,11 +29,35 @@ class TestResponseTimeFilterPostcode(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseTimeFilterPostcode
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_time_filter_postcode.ResponseTimeFilterPostcode()  # noqa: E501
+        if include_optional :
+            return ResponseTimeFilterPostcode(
+                code = null, 
+                properties = [
+                    openapi_client.models.response_time_filter_postcodes_properties.ResponseTimeFilterPostcodesProperties(
+                        travel_time = 56, 
+                        distance = 56, )
+                    ]
+            )
+        else :
+            return ResponseTimeFilterPostcode(
+                code = null,
+                properties = [
+                    openapi_client.models.response_time_filter_postcodes_properties.ResponseTimeFilterPostcodesProperties(
+                        travel_time = 56, 
+                        distance = 56, )
+                    ],
+        )
+
     def testResponseTimeFilterPostcode(self):
         """Test ResponseTimeFilterPostcode"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_time_filter_postcode.ResponseTimeFilterPostcode()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

@@ -12,5 +12,5 @@ class ResponseTimeMapWktResult {
     
     String shape
     
-    ResponseTimeMapProperties properties = null
+    ResponseTimeMapProperties properties
 }

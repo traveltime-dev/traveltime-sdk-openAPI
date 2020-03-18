@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseFareTicket exposing (ResponseFareTicket, Type(..), decoder, encode)
+module Data.ResponseFareTicket exposing (ResponseFareTicket, Type(..), decoder, encode, encodeWithTag, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -44,13 +44,28 @@ decoder =
 
 
 encode : ResponseFareTicket -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "type", encodeType model.type_ )
-        , ( "price", Encode.float model.price )
-        , ( "currency", Encode.string model.currency )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> ResponseFareTicket -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : ResponseFareTicket -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "type", encodeType model.type_ )
+    , ( "price", Encode.float model.price )
+    , ( "currency", Encode.string model.currency )
+    ]
+
+
+
+toString : ResponseFareTicket -> String
+toString =
+    Encode.encode 0 << encode
+
 
 
 
@@ -92,6 +107,7 @@ encodeType model =
 
         Year ->
             Encode.string "year"
+
 
 
 

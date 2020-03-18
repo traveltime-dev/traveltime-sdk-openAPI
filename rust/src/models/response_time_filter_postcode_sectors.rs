@@ -9,19 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseTimeFilterPostcodeSectors {
     #[serde(rename = "results")]
-    pub results: Vec<::models::ResponseTimeFilterPostcodeSectorsResult>,
+    pub results: Vec<crate::models::ResponseTimeFilterPostcodeSectorsResult>,
 }
 
 impl ResponseTimeFilterPostcodeSectors {
-    pub fn new(results: Vec<::models::ResponseTimeFilterPostcodeSectorsResult>) -> ResponseTimeFilterPostcodeSectors {
+    pub fn new(results: Vec<crate::models::ResponseTimeFilterPostcodeSectorsResult>) -> ResponseTimeFilterPostcodeSectors {
         ResponseTimeFilterPostcodeSectors {
-            results: results,
+            results,
         }
     }
 }
+
+

@@ -1,0 +1,47 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseGeocodingGeoJsonFeature"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseGeocodingGeoJsonFeature"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseGeocodingGeometry = openapi_server.resourceTypes.ResponseGeocodingGeometry
+  ResponseGeocodingProperties = openapi_server.resourceTypes.ResponseGeocodingProperties
+}
+resourceTypes {
+
+  ResponseGeocodingGeoJsonFeature {
+    title = ResponseGeocodingGeoJsonFeature
+    description = ResponseGeocodingGeoJsonFeature
+    derivedFrom = Root
+    properties {
+        type {
+          type =  string
+          description = ""
+          optional = true
+        }
+        geometry {
+          type = ResponseGeocodingGeometry
+          description = ""
+          optional = true
+        }
+        properties {
+          type = ResponseGeocodingProperties
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseGeocodingGeoJsonFeature {
+    title = ResponseGeocodingGeoJsonFeature
+    description = ResponseGeocodingGeoJsonFeature
+    implements = openapi_server.resourceTypes.ResponseGeocodingGeoJsonFeature
+
+  }
+}

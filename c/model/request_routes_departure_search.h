@@ -15,16 +15,21 @@
 #include "request_routes_property.h"
 #include "request_transportation.h"
 
+                    typedef enum  {  travel_time, distance, fares, route } properties_e;
+
+            char* properties_ToString(properties_e properties);
+
+            properties_e properties_FromString(char* properties);
 
 
 typedef struct request_routes_departure_search_t {
     char *id; // string
     char *departure_location_id; // string
     list_t *arrival_location_ids; //primitive container
-    request_transportation_t *transportation; //model
+    struct request_transportation_t *transportation; //model
     char *departure_time; //date time
     list_t *properties; //nonprimitive container
-    request_range_full_t *range; //model
+    struct request_range_full_t *range; //model
 
 } request_routes_departure_search_t;
 

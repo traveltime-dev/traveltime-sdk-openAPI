@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.ResponseFaresBreakdownItem
+# Org.OpenAPITools.Model.ResponseFaresBreakdownItem
 ## Properties
 
 Name | Type | Description | Notes

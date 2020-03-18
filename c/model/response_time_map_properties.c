@@ -8,37 +8,37 @@
 response_time_map_properties_t *response_time_map_properties_create(
     int is_only_walking
     ) {
-	response_time_map_properties_t *response_time_map_properties_local_var = malloc(sizeof(response_time_map_properties_t));
+    response_time_map_properties_t *response_time_map_properties_local_var = malloc(sizeof(response_time_map_properties_t));
     if (!response_time_map_properties_local_var) {
         return NULL;
     }
-	response_time_map_properties_local_var->is_only_walking = is_only_walking;
+    response_time_map_properties_local_var->is_only_walking = is_only_walking;
 
-	return response_time_map_properties_local_var;
+    return response_time_map_properties_local_var;
 }
 
 
 void response_time_map_properties_free(response_time_map_properties_t *response_time_map_properties) {
     listEntry_t *listEntry;
-	free(response_time_map_properties);
+    free(response_time_map_properties);
 }
 
 cJSON *response_time_map_properties_convertToJSON(response_time_map_properties_t *response_time_map_properties) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_map_properties->is_only_walking
+    // response_time_map_properties->is_only_walking
     if(response_time_map_properties->is_only_walking) { 
     if(cJSON_AddBoolToObject(item, "is_only_walking", response_time_map_properties->is_only_walking) == NULL) {
     goto fail; //Bool
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_map_properties_t *response_time_map_properties_parseFromJSON(cJSON *response_time_map_propertiesJSON){

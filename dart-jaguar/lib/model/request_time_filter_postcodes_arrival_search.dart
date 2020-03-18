@@ -11,22 +11,22 @@ part 'request_time_filter_postcodes_arrival_search.jser.dart';
 
 class RequestTimeFilterPostcodesArrivalSearch {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('transportation')
+  @Alias('transportation', isNullable: false,  )
   final RequestTransportation transportation;
   
-  @Alias('travel_time')
+  @Alias('travel_time', isNullable: false,  )
   final int travelTime;
   
-  @Alias('arrival_time')
+  @Alias('arrival_time', isNullable: false,  )
   final DateTime arrivalTime;
   
-  @Alias('properties')
+  @Alias('properties', isNullable: false,  )
   final List<RequestTimeFilterPostcodesProperty> properties;
   
-  @Alias('range')
+  @Alias('range', isNullable: false,  )
   final RequestRangeFull range;
   
 

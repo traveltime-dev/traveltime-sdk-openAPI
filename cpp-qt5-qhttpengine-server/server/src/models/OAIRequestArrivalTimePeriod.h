@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestArrivalTimePeriod: public OAIEnum {
@@ -47,7 +48,7 @@ public:
 
     OAIRequestArrivalTimePeriod::eOAIRequestArrivalTimePeriod getValue() const;
     void setValue(const OAIRequestArrivalTimePeriod::eOAIRequestArrivalTimePeriod& value);
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -60,5 +61,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestArrivalTimePeriod)
 
 #endif // OAIRequestArrivalTimePeriod_H

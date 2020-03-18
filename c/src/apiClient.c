@@ -12,7 +12,8 @@ size_t writeDataCallback(void *buffer, size_t size, size_t nmemb, void *userp);
 apiClient_t *apiClient_create() {
     curl_global_init(CURL_GLOBAL_ALL);
     apiClient_t *apiClient = malloc(sizeof(apiClient_t));
-    apiClient->basePath = "https://api.traveltimeapp.com";
+    apiClient->basePath = strdup("https://api.traveltimeapp.com");
+    apiClient->caPath = NULL;
     apiClient->dataReceived = NULL;
     apiClient->response_code = 0;
     apiClient->apiKeys = NULL;
@@ -21,11 +22,86 @@ apiClient_t *apiClient_create() {
     return apiClient;
 }
 
+apiClient_t *apiClient_create_with_base_path(const char *basePath
+, const char *caPath
+, list_t *apiKeys
+, list_t *apiKeys
+) {
+    curl_global_init(CURL_GLOBAL_ALL);
+    apiClient_t *apiClient = malloc(sizeof(apiClient_t));
+    if(basePath){
+        apiClient->basePath = strdup(basePath);
+    }else{
+        apiClient->basePath = strdup("https://api.traveltimeapp.com");
+    }
+
+    if(caPath){
+        apiClient->caPath = strdup(caPath);
+    }else{
+        apiClient->caPath = NULL;
+    }
+
+    apiClient->dataReceived = NULL;
+    apiClient->response_code = 0;
+    if(apiKeys!= NULL) {
+        apiClient->apiKeys = list_create();
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiKeys) {
+            keyValuePair_t *pair = listEntry->data;
+            keyValuePair_t *pairDup = keyValuePair_create(strdup(pair->key), strdup(pair->value));
+            list_addElement(apiClient->apiKeys, pairDup);
+        }
+    }else{
+        apiClient->apiKeys = NULL;
+    }
+    if(apiKeys!= NULL) {
+        apiClient->apiKeys = list_create();
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiKeys) {
+            keyValuePair_t *pair = listEntry->data;
+            keyValuePair_t *pairDup = keyValuePair_create(strdup(pair->key), strdup(pair->value));
+            list_addElement(apiClient->apiKeys, pairDup);
+        }
+    }else{
+        apiClient->apiKeys = NULL;
+    }
+
+    return apiClient;
+}
+
 void apiClient_free(apiClient_t *apiClient) {
-    if(apiClient->accessToken) {
+    if(apiClient->basePath) {
+        free(apiClient->basePath);
+    }
+    if(apiClient->caPath) {
+        free(apiClient->caPath);
+    }
+    if(apiClient->apiKeys) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiClient->apiKeys) {
+            keyValuePair_t *pair = listEntry->data;
+            if(pair->key){
+                free(pair->key);
+            }
+            if(pair->value){
+                free(pair->value);
+            }
+            keyValuePair_free(pair);
+        }
         list_free(apiClient->apiKeys);
     }
-    if(apiClient->accessToken) {
+    if(apiClient->apiKeys) {
+        listEntry_t *listEntry = NULL;
+        list_ForEach(listEntry, apiClient->apiKeys) {
+            keyValuePair_t *pair = listEntry->data;
+            if(pair->key){
+                free(pair->key);
+            }
+            if(pair->value){
+                free(pair->value);
+            }
+            keyValuePair_free(pair);
+        }
         list_free(apiClient->apiKeys);
     }
     free(apiClient);
@@ -287,6 +363,17 @@ void apiClient_invoke(apiClient_t    *apiClient,
                 free(headerValueToWrite);
             }
         }
+
+        if( strstr(apiClient->basePath, "https") != NULL ){
+            if (apiClient->caPath) {
+                curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, true);
+                curl_easy_setopt(handle, CURLOPT_CAINFO, apiClient->caPath);
+            } else {
+                curl_easy_setopt(handle, CURLOPT_SSL_VERIFYPEER, false);
+                curl_easy_setopt(handle, CURLOPT_SSL_VERIFYHOST, false);
+            }
+        }
+
         // this would only be generated for apiKey authentication
         if (apiClient->apiKeys != NULL)
         {

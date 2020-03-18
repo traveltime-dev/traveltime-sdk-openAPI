@@ -10,6 +10,8 @@
 
 use std::rc::Rc;
 use std::borrow::Borrow;
+#[allow(unused_imports)]
+use std::option::Option;
 
 use hyper;
 use serde_json;
@@ -25,29 +27,28 @@ pub struct DefaultApiClient<C: hyper::client::Connect> {
 impl<C: hyper::client::Connect> DefaultApiClient<C> {
     pub fn new(configuration: Rc<configuration::Configuration<C>>) -> DefaultApiClient<C> {
         DefaultApiClient {
-            configuration: configuration,
+            configuration,
         }
     }
 }
 
 pub trait DefaultApi {
-    fn geocoding_reverse_search(&self, focus_lat: f64, focus_lng: f64, within_country: &str) -> Box<Future<Item = ::models::ResponseGeocoding, Error = Error<serde_json::Value>>>;
-    fn geocoding_search(&self, query: &str, within_country: &str, focus_lat: f64, focus_lng: f64) -> Box<Future<Item = ::models::ResponseGeocoding, Error = Error<serde_json::Value>>>;
-    fn map_info(&self, ) -> Box<Future<Item = ::models::ResponseMapInfo, Error = Error<serde_json::Value>>>;
-    fn routes(&self, request_routes: ::models::RequestRoutes) -> Box<Future<Item = ::models::ResponseRoutes, Error = Error<serde_json::Value>>>;
-    fn supported_locations(&self, request_supported_locations: ::models::RequestSupportedLocations) -> Box<Future<Item = ::models::ResponseSupportedLocations, Error = Error<serde_json::Value>>>;
-    fn time_filter(&self, request_time_filter: ::models::RequestTimeFilter) -> Box<Future<Item = ::models::ResponseTimeFilter, Error = Error<serde_json::Value>>>;
-    fn time_filter_fast(&self, request_time_filter_fast: ::models::RequestTimeFilterFast) -> Box<Future<Item = ::models::ResponseTimeFilterFast, Error = Error<serde_json::Value>>>;
-    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: ::models::RequestTimeFilterPostcodeDistricts) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodeDistricts, Error = Error<serde_json::Value>>>;
-    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: ::models::RequestTimeFilterPostcodeSectors) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodeSectors, Error = Error<serde_json::Value>>>;
-    fn time_filter_postcodes(&self, request_time_filter_postcodes: ::models::RequestTimeFilterPostcodes) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodes, Error = Error<serde_json::Value>>>;
-    fn time_map(&self, request_time_map: ::models::RequestTimeMap) -> Box<Future<Item = ::models::ResponseTimeMap, Error = Error<serde_json::Value>>>;
+    fn geocoding_reverse_search(&self, lat: f64, lng: f64, within_country: Option<&str>) -> Box<dyn Future<Item = crate::models::ResponseGeocoding, Error = Error<serde_json::Value>>>;
+    fn geocoding_search(&self, query: &str, focus_lat: Option<f64>, focus_lng: Option<f64>, within_country: Option<&str>) -> Box<dyn Future<Item = crate::models::ResponseGeocoding, Error = Error<serde_json::Value>>>;
+    fn map_info(&self, ) -> Box<dyn Future<Item = crate::models::ResponseMapInfo, Error = Error<serde_json::Value>>>;
+    fn routes(&self, request_routes: crate::models::RequestRoutes) -> Box<dyn Future<Item = crate::models::ResponseRoutes, Error = Error<serde_json::Value>>>;
+    fn supported_locations(&self, request_supported_locations: crate::models::RequestSupportedLocations) -> Box<dyn Future<Item = crate::models::ResponseSupportedLocations, Error = Error<serde_json::Value>>>;
+    fn time_filter(&self, request_time_filter: crate::models::RequestTimeFilter) -> Box<dyn Future<Item = crate::models::ResponseTimeFilter, Error = Error<serde_json::Value>>>;
+    fn time_filter_fast(&self, request_time_filter_fast: crate::models::RequestTimeFilterFast) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterFast, Error = Error<serde_json::Value>>>;
+    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: crate::models::RequestTimeFilterPostcodeDistricts) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodeDistricts, Error = Error<serde_json::Value>>>;
+    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: crate::models::RequestTimeFilterPostcodeSectors) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodeSectors, Error = Error<serde_json::Value>>>;
+    fn time_filter_postcodes(&self, request_time_filter_postcodes: crate::models::RequestTimeFilterPostcodes) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodes, Error = Error<serde_json::Value>>>;
+    fn time_map(&self, request_time_map: crate::models::RequestTimeMap) -> Box<dyn Future<Item = crate::models::ResponseTimeMap, Error = Error<serde_json::Value>>>;
 }
 
-
 impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
-    fn geocoding_reverse_search(&self, focus_lat: f64, focus_lng: f64, within_country: &str) -> Box<Future<Item = ::models::ResponseGeocoding, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Get, "/v4/geocoding/reverse".to_string())
+    fn geocoding_reverse_search(&self, lat: f64, lng: f64, within_country: Option<&str>) -> Box<dyn Future<Item = crate::models::ResponseGeocoding, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Get, "/v4/geocoding/reverse".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -58,14 +59,18 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_query_param("focus.lat".to_string(), focus_lat.to_string())
-            .with_query_param("focus.lng".to_string(), focus_lng.to_string())
-            .with_query_param("within.country".to_string(), within_country.to_string())
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_query_param("lat".to_string(), lat.to_string());
+        req = req.with_query_param("lng".to_string(), lng.to_string());
+        if let Some(ref s) = within_country {
+            req = req.with_query_param("within.country".to_string(), s.to_string());
+        }
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn geocoding_search(&self, query: &str, within_country: &str, focus_lat: f64, focus_lng: f64) -> Box<Future<Item = ::models::ResponseGeocoding, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Get, "/v4/geocoding/search".to_string())
+    fn geocoding_search(&self, query: &str, focus_lat: Option<f64>, focus_lng: Option<f64>, within_country: Option<&str>) -> Box<dyn Future<Item = crate::models::ResponseGeocoding, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Get, "/v4/geocoding/search".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -76,15 +81,23 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_query_param("query".to_string(), query.to_string())
-            .with_query_param("within.country".to_string(), within_country.to_string())
-            .with_query_param("focus.lat".to_string(), focus_lat.to_string())
-            .with_query_param("focus.lng".to_string(), focus_lng.to_string())
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_query_param("query".to_string(), query.to_string());
+        if let Some(ref s) = focus_lat {
+            req = req.with_query_param("focus.lat".to_string(), s.to_string());
+        }
+        if let Some(ref s) = focus_lng {
+            req = req.with_query_param("focus.lng".to_string(), s.to_string());
+        }
+        if let Some(ref s) = within_country {
+            req = req.with_query_param("within.country".to_string(), s.to_string());
+        }
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn map_info(&self, ) -> Box<Future<Item = ::models::ResponseMapInfo, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Get, "/v4/map-info".to_string())
+    fn map_info(&self, ) -> Box<dyn Future<Item = crate::models::ResponseMapInfo, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Get, "/v4/map-info".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -95,11 +108,13 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .execute(self.configuration.borrow())
+        ;
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn routes(&self, request_routes: ::models::RequestRoutes) -> Box<Future<Item = ::models::ResponseRoutes, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/routes".to_string())
+    fn routes(&self, request_routes: crate::models::RequestRoutes) -> Box<dyn Future<Item = crate::models::ResponseRoutes, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/routes".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -110,12 +125,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_routes)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_routes);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn supported_locations(&self, request_supported_locations: ::models::RequestSupportedLocations) -> Box<Future<Item = ::models::ResponseSupportedLocations, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/supported-locations".to_string())
+    fn supported_locations(&self, request_supported_locations: crate::models::RequestSupportedLocations) -> Box<dyn Future<Item = crate::models::ResponseSupportedLocations, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/supported-locations".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -126,12 +143,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_supported_locations)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_supported_locations);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_filter(&self, request_time_filter: ::models::RequestTimeFilter) -> Box<Future<Item = ::models::ResponseTimeFilter, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter".to_string())
+    fn time_filter(&self, request_time_filter: crate::models::RequestTimeFilter) -> Box<dyn Future<Item = crate::models::ResponseTimeFilter, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -142,12 +161,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_filter)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_filter);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_filter_fast(&self, request_time_filter_fast: ::models::RequestTimeFilterFast) -> Box<Future<Item = ::models::ResponseTimeFilterFast, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/fast".to_string())
+    fn time_filter_fast(&self, request_time_filter_fast: crate::models::RequestTimeFilterFast) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterFast, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/fast".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -158,12 +179,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_filter_fast)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_filter_fast);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: ::models::RequestTimeFilterPostcodeDistricts) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodeDistricts, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcode-districts".to_string())
+    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: crate::models::RequestTimeFilterPostcodeDistricts) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodeDistricts, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcode-districts".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -174,12 +197,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_filter_postcode_districts)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_filter_postcode_districts);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: ::models::RequestTimeFilterPostcodeSectors) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodeSectors, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcode-sectors".to_string())
+    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: crate::models::RequestTimeFilterPostcodeSectors) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodeSectors, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcode-sectors".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -190,12 +215,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_filter_postcode_sectors)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_filter_postcode_sectors);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_filter_postcodes(&self, request_time_filter_postcodes: ::models::RequestTimeFilterPostcodes) -> Box<Future<Item = ::models::ResponseTimeFilterPostcodes, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcodes".to_string())
+    fn time_filter_postcodes(&self, request_time_filter_postcodes: crate::models::RequestTimeFilterPostcodes) -> Box<dyn Future<Item = crate::models::ResponseTimeFilterPostcodes, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-filter/postcodes".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -206,12 +233,14 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_filter_postcodes)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_filter_postcodes);
+
+        req.execute(self.configuration.borrow())
     }
 
-    fn time_map(&self, request_time_map: ::models::RequestTimeMap) -> Box<Future<Item = ::models::ResponseTimeMap, Error = Error<serde_json::Value>>> {
-        __internal_request::Request::new(hyper::Method::Post, "/v4/time-map".to_string())
+    fn time_map(&self, request_time_map: crate::models::RequestTimeMap) -> Box<dyn Future<Item = crate::models::ResponseTimeMap, Error = Error<serde_json::Value>>> {
+        let mut req = __internal_request::Request::new(hyper::Method::Post, "/v4/time-map".to_string())
             .with_auth(__internal_request::Auth::ApiKey(__internal_request::ApiKey{
                 in_header: true,
                 in_query: false,
@@ -222,8 +251,10 @@ impl<C: hyper::client::Connect>DefaultApi for DefaultApiClient<C> {
                 in_query: false,
                 param_name: "X-Application-Id".to_owned(),
             }))
-            .with_body_param(request_time_map)
-            .execute(self.configuration.borrow())
+        ;
+        req = req.with_body_param(request_time_map);
+
+        req.execute(self.configuration.borrow())
     }
 
 }

@@ -1,4 +1,4 @@
-# traveltimeplatform.Model.RequestTimeMapProperty
+# Org.OpenAPITools.Model.RequestTimeMapProperty
 ## Properties
 
 Name | Type | Description | Notes

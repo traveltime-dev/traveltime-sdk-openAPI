@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterFastProperty: public OAIEnum {
@@ -48,7 +49,7 @@ public:
 
     OAIRequestTimeFilterFastProperty::eOAIRequestTimeFilterFastProperty getValue() const;
     void setValue(const OAIRequestTimeFilterFastProperty::eOAIRequestTimeFilterFastProperty& value);
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -61,5 +62,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFastProperty)
 
 #endif // OAIRequestTimeFilterFastProperty_H

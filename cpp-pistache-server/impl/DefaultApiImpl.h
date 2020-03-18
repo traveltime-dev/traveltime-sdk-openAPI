@@ -62,8 +62,8 @@ public:
     DefaultApiImpl(std::shared_ptr<Pistache::Rest::Router>);
     ~DefaultApiImpl() {}
 
-    void geocoding_reverse_search(const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response);
-    void geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<std::string> &withinPeriodcountry, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, Pistache::Http::ResponseWriter &response);
+    void geocoding_reverse_search(const Pistache::Optional<double> &lat, const Pistache::Optional<double> &lng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response);
+    void geocoding_search(const Pistache::Optional<std::string> &query, const Pistache::Optional<double> &focusPeriodlat, const Pistache::Optional<double> &focusPeriodlng, const Pistache::Optional<std::string> &withinPeriodcountry, Pistache::Http::ResponseWriter &response);
     void map_info(Pistache::Http::ResponseWriter &response);
     void routes(const RequestRoutes &requestRoutes, Pistache::Http::ResponseWriter &response);
     void supported_locations(const RequestSupportedLocations &requestSupportedLocations, Pistache::Http::ResponseWriter &response);

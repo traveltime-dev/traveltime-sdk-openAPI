@@ -2,7 +2,7 @@
 
 The library in `lib` provides auto-generated-from-OpenAPI [http-client](https://www.stackage.org/lts-10.0/package/http-client-0.5.7.1) bindings to the TravelTime Platform API API.
 
-OpenApi Version: 3.0.2
+OpenApi Version: 3.0.3
 
 ## Installation
 
@@ -66,6 +66,7 @@ These options allow some customization of the code generation process.
 | configType                      | Set the name of the type used for configuration                                                                               |          | TravelTimePlatformConfig                      |
 | dateFormat                      | format string used to parse/render a date                                                                                     | %Y-%m-%d | %Y-%m-%d                      |
 | dateTimeFormat                  | format string used to parse/render a datetime. (Defaults to [formatISO8601Millis][1] when not provided)                       |          |                   |
+| dateTimeParseFormat             | overrides the format string used to parse a datetime                                                                          |          |              |
 | generateEnums                   | Generate specific datatypes for OpenAPI enums                                                                                 | true     | true                   |
 | generateFormUrlEncodedInstances | Generate FromForm/ToForm instances for models used by x-www-form-urlencoded operations (model fields must be primitive types) | true     | true |
 | generateLenses                  | Generate Lens optics for Models                                                                                               | true     | true                  |

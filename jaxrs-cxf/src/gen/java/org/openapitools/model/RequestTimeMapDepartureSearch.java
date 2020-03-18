@@ -27,11 +27,11 @@ public class RequestTimeMapDepartureSearch  {
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private Coords coords = null;
+  private Coords coords;
 
   @ApiModelProperty(required = true, value = "")
   @Valid
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   @ApiModelProperty(required = true, value = "")
   private Integer travelTime;
@@ -45,7 +45,7 @@ public class RequestTimeMapDepartureSearch  {
 
   @ApiModelProperty(value = "")
   @Valid
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
  /**
    * Get id
    * @return id

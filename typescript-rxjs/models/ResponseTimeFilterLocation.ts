@@ -21,13 +21,11 @@ import {
  */
 export interface ResponseTimeFilterLocation {
     /**
-     * 
      * @type {string}
      * @memberof ResponseTimeFilterLocation
      */
     id: string;
     /**
-     * 
      * @type {Array<ResponseTimeFilterProperties>}
      * @memberof ResponseTimeFilterLocation
      */

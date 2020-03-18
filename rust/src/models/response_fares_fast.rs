@@ -9,19 +9,20 @@
  */
 
 
-#[allow(unused_imports)]
-use serde_json::Value;
 
-#[derive(Debug, Serialize, Deserialize)]
+
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ResponseFaresFast {
     #[serde(rename = "tickets_total")]
-    pub tickets_total: Vec<::models::ResponseFareTicket>,
+    pub tickets_total: Vec<crate::models::ResponseFareTicket>,
 }
 
 impl ResponseFaresFast {
-    pub fn new(tickets_total: Vec<::models::ResponseFareTicket>) -> ResponseFaresFast {
+    pub fn new(tickets_total: Vec<crate::models::ResponseFareTicket>) -> ResponseFaresFast {
         ResponseFaresFast {
-            tickets_total: tickets_total,
+            tickets_total,
         }
     }
 }
+
+

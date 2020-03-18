@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseBox;
 @Canonical
 class ResponseBoundingBox {
     
-    ResponseBox envelope = null
+    ResponseBox envelope
     
     List<ResponseBox> boxes = new ArrayList<ResponseBox>()
 }

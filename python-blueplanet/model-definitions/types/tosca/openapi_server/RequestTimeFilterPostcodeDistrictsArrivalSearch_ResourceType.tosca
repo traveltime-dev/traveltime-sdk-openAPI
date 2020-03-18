@@ -1,0 +1,69 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestTimeFilterPostcodeDistrictsArrivalSearch"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestTimeFilterPostcodeDistrictsArrivalSearch"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestRangeFull = openapi_server.resourceTypes.RequestRangeFull
+  RequestTimeFilterPostcodeDistrictsProperty = openapi_server.resourceTypes.RequestTimeFilterPostcodeDistrictsProperty
+  RequestTransportation = openapi_server.resourceTypes.RequestTransportation
+}
+resourceTypes {
+
+  RequestTimeFilterPostcodeDistrictsArrivalSearch {
+    title = RequestTimeFilterPostcodeDistrictsArrivalSearch
+    description = RequestTimeFilterPostcodeDistrictsArrivalSearch
+    derivedFrom = Root
+    properties {
+        id {
+          type =  string
+          description = ""
+          optional = true
+        }
+        transportation {
+          type = RequestTransportation
+          description = ""
+          optional = true
+        }
+        travel_time {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        arrival_time {
+          type =  string
+          description = ""
+          optional = true
+        }
+        reachable_postcodes_threshold {
+          type =  integer
+          description = ""
+          optional = true
+        }
+        properties {
+          type = array
+          items.type = RequestTimeFilterPostcodeDistrictsProperty
+          description = ""
+          optional = true
+        }
+        range {
+          type = RequestRangeFull
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestTimeFilterPostcodeDistrictsArrivalSearch {
+    title = RequestTimeFilterPostcodeDistrictsArrivalSearch
+    description = RequestTimeFilterPostcodeDistrictsArrivalSearch
+    implements = openapi_server.resourceTypes.RequestTimeFilterPostcodeDistrictsArrivalSearch
+
+  }
+}

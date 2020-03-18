@@ -53,7 +53,6 @@ ResponseTransportationMode ResponseDistanceBreakdownItem::getMode() const
 void ResponseDistanceBreakdownItem::setMode(ResponseTransportationMode const& value)
 {
     m_Mode = value;
-    
 }
 int32_t ResponseDistanceBreakdownItem::getDistance() const
 {
@@ -62,7 +61,6 @@ int32_t ResponseDistanceBreakdownItem::getDistance() const
 void ResponseDistanceBreakdownItem::setDistance(int32_t const value)
 {
     m_Distance = value;
-    
 }
 
 }

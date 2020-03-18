@@ -1,8 +1,8 @@
-# traveltimeplatform::ResponseRoutes
+# openapi::ResponseRoutes
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**ResponseRoutesResult**](ResponseRoutesResult.md) |  | 
+**results** | [**array[ResponseRoutesResult]**](ResponseRoutesResult.md) |  | 
 
 

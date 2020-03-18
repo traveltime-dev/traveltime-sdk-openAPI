@@ -1,15 +1,15 @@
 #![allow(missing_docs, unused_variables, trivial_casts)]
 
-extern crate traveltimeplatform;
+extern crate openapi_client;
 #[allow(unused_extern_crates)]
 extern crate futures;
 #[allow(unused_extern_crates)]
 #[macro_use]
 extern crate swagger;
 #[allow(unused_extern_crates)]
-extern crate uuid;
 extern crate clap;
 extern crate tokio_core;
+extern crate uuid;
 
 use swagger::{ContextBuilder, EmptyContext, XSpanIdString, Has, Push, AuthData};
 
@@ -17,7 +17,7 @@ use swagger::{ContextBuilder, EmptyContext, XSpanIdString, Has, Push, AuthData};
 use futures::{Future, future, Stream, stream};
 use tokio_core::reactor;
 #[allow(unused_imports)]
-use traveltimeplatform::{ApiNoContext, ContextWrapperExt,
+use openapi_client::{ApiNoContext, ContextWrapperExt,
                       ApiError,
                       GeocodingReverseSearchResponse,
                       GeocodingSearchResponse,
@@ -67,11 +67,11 @@ fn main() {
                            matches.value_of("port").unwrap());
     let client = if matches.is_present("https") {
         // Using Simple HTTPS
-        traveltimeplatform::Client::try_new_https(core.handle(), &base_url, "examples/ca.pem")
+        openapi_client::Client::try_new_https(core.handle(), &base_url, "examples/ca.pem")
             .expect("Failed to create HTTPS client")
     } else {
         // Using HTTP
-        traveltimeplatform::Client::try_new_http(core.handle(), &base_url)
+        openapi_client::Client::try_new_http(core.handle(), &base_url)
             .expect("Failed to create HTTP client")
     };
 
@@ -83,65 +83,65 @@ fn main() {
 
         Some("GeocodingReverseSearch") => {
             let result = core.run(client.geocoding_reverse_search(1.2, 1.2, Some("within_country_example".to_string())));
-            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
          },
 
         Some("GeocodingSearch") => {
-            let result = core.run(client.geocoding_search("query_example".to_string(), Some("within_country_example".to_string()), Some(1.2), Some(1.2)));
-            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+            let result = core.run(client.geocoding_search("query_example".to_string(), Some(1.2), Some(1.2), Some("within_country_example".to_string())));
+            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
          },
 
         Some("MapInfo") => {
             let result = core.run(client.map_info());
-            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+            println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
          },
 
         // Disabled because there's no example.
         // Some("Routes") => {
         //     let result = core.run(client.routes(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("SupportedLocations") => {
         //     let result = core.run(client.supported_locations(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeFilter") => {
         //     let result = core.run(client.time_filter(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeFilterFast") => {
         //     let result = core.run(client.time_filter_fast(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeFilterPostcodeDistricts") => {
         //     let result = core.run(client.time_filter_postcode_districts(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeFilterPostcodeSectors") => {
         //     let result = core.run(client.time_filter_postcode_sectors(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeFilterPostcodes") => {
         //     let result = core.run(client.time_filter_postcodes(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         // Disabled because there's no example.
         // Some("TimeMap") => {
         //     let result = core.run(client.time_map(???));
-        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &Has<XSpanIdString>).get().clone());
+        //     println!("{:?} (X-Span-ID: {:?})", result, (client.context() as &dyn Has<XSpanIdString>).get().clone());
         //  },
 
         _ => {

@@ -11,16 +11,16 @@ import org.openapitools.model.ResponseGeocodingProperties;
 /**
  * ResponseGeocodingGeoJsonFeature
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class ResponseGeocodingGeoJsonFeature   {
   @JsonProperty("type")
   private String type;
 
   @JsonProperty("geometry")
-  private ResponseGeocodingGeometry geometry = null;
+  private ResponseGeocodingGeometry geometry;
 
   @JsonProperty("properties")
-  private ResponseGeocodingProperties properties = null;
+  private ResponseGeocodingProperties properties;
 
   public ResponseGeocodingGeoJsonFeature type(String type) {
     this.type = type;

@@ -1,4 +1,4 @@
-# traveltimeplatform.DefaultApi
+# openapi_client.DefaultApi
 
 All URIs are relative to *https://api.traveltimeapp.com*
 
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **geocoding_reverse_search**
-> ResponseGeocoding geocoding_reverse_search(focus_lat, focus_lng, within_country=within_country)
+> ResponseGeocoding geocoding_reverse_search(lat, lng, within_country=within_country)
 
 
 
@@ -28,70 +28,78 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-focus_lat = 3.4 # float | 
-focus_lng = 3.4 # float | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    lat = 3.4 # float | 
+lng = 3.4 # float | 
 within_country = 'within_country_example' # str |  (optional)
 
-try:
-    api_response = api_instance.geocoding_reverse_search(focus_lat, focus_lng, within_country=within_country)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->geocoding_reverse_search: %s\n" % e)
+    try:
+        api_response = api_instance.geocoding_reverse_search(lat, lng, within_country=within_country)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->geocoding_reverse_search: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-focus_lat = 3.4 # float | 
-focus_lng = 3.4 # float | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    lat = 3.4 # float | 
+lng = 3.4 # float | 
 within_country = 'within_country_example' # str |  (optional)
 
-try:
-    api_response = api_instance.geocoding_reverse_search(focus_lat, focus_lng, within_country=within_country)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->geocoding_reverse_search: %s\n" % e)
+    try:
+        api_response = api_instance.geocoding_reverse_search(lat, lng, within_country=within_country)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->geocoding_reverse_search: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **focus_lat** | **float**|  | 
- **focus_lng** | **float**|  | 
+ **lat** | **float**|  | 
+ **lng** | **float**|  | 
  **within_country** | **str**|  | [optional] 
 
 ### Return type
@@ -107,10 +115,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocoding_search**
-> ResponseGeocoding geocoding_search(query, within_country=within_country, focus_lat=focus_lat, focus_lng=focus_lng)
+> ResponseGeocoding geocoding_search(query, focus_lat=focus_lat, focus_lng=focus_lng, within_country=within_country)
 
 
 
@@ -120,64 +134,72 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-query = 'query_example' # str | 
-within_country = 'within_country_example' # str |  (optional)
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    query = 'query_example' # str | 
 focus_lat = 3.4 # float |  (optional)
 focus_lng = 3.4 # float |  (optional)
+within_country = 'within_country_example' # str |  (optional)
 
-try:
-    api_response = api_instance.geocoding_search(query, within_country=within_country, focus_lat=focus_lat, focus_lng=focus_lng)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->geocoding_search: %s\n" % e)
+    try:
+        api_response = api_instance.geocoding_search(query, focus_lat=focus_lat, focus_lng=focus_lng, within_country=within_country)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->geocoding_search: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-query = 'query_example' # str | 
-within_country = 'within_country_example' # str |  (optional)
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    query = 'query_example' # str | 
 focus_lat = 3.4 # float |  (optional)
 focus_lng = 3.4 # float |  (optional)
+within_country = 'within_country_example' # str |  (optional)
 
-try:
-    api_response = api_instance.geocoding_search(query, within_country=within_country, focus_lat=focus_lat, focus_lng=focus_lng)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->geocoding_search: %s\n" % e)
+    try:
+        api_response = api_instance.geocoding_search(query, focus_lat=focus_lat, focus_lng=focus_lng, within_country=within_country)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->geocoding_search: %s\n" % e)
 ```
 
 ### Parameters
@@ -185,9 +207,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **str**|  | 
- **within_country** | **str**|  | [optional] 
  **focus_lat** | **float**|  | [optional] 
  **focus_lng** | **float**|  | [optional] 
+ **within_country** | **str**|  | [optional] 
 
 ### Return type
 
@@ -201,6 +223,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -215,56 +243,64 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-
-try:
-    api_response = api_instance.map_info()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->map_info: %s\n" % e)
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    
+    try:
+        api_response = api_instance.map_info()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->map_info: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-
-try:
-    api_response = api_instance.map_info()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->map_info: %s\n" % e)
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    
+    try:
+        api_response = api_instance.map_info()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->map_info: %s\n" % e)
 ```
 
 ### Parameters
@@ -283,6 +319,12 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **routes**
@@ -296,58 +338,66 @@ This endpoint does not need any parameter.
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_routes = traveltimeplatform.RequestRoutes() # RequestRoutes | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_routes = openapi_client.RequestRoutes() # RequestRoutes | 
 
-try:
-    api_response = api_instance.routes(request_routes)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->routes: %s\n" % e)
+    try:
+        api_response = api_instance.routes(request_routes)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->routes: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_routes = traveltimeplatform.RequestRoutes() # RequestRoutes | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_routes = openapi_client.RequestRoutes() # RequestRoutes | 
 
-try:
-    api_response = api_instance.routes(request_routes)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->routes: %s\n" % e)
+    try:
+        api_response = api_instance.routes(request_routes)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->routes: %s\n" % e)
 ```
 
 ### Parameters
@@ -369,6 +419,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **supported_locations**
@@ -382,58 +438,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_supported_locations = traveltimeplatform.RequestSupportedLocations() # RequestSupportedLocations | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_supported_locations = openapi_client.RequestSupportedLocations() # RequestSupportedLocations | 
 
-try:
-    api_response = api_instance.supported_locations(request_supported_locations)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->supported_locations: %s\n" % e)
+    try:
+        api_response = api_instance.supported_locations(request_supported_locations)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->supported_locations: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_supported_locations = traveltimeplatform.RequestSupportedLocations() # RequestSupportedLocations | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_supported_locations = openapi_client.RequestSupportedLocations() # RequestSupportedLocations | 
 
-try:
-    api_response = api_instance.supported_locations(request_supported_locations)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->supported_locations: %s\n" % e)
+    try:
+        api_response = api_instance.supported_locations(request_supported_locations)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->supported_locations: %s\n" % e)
 ```
 
 ### Parameters
@@ -455,6 +519,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_filter**
@@ -468,58 +538,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter = traveltimeplatform.RequestTimeFilter() # RequestTimeFilter | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter = openapi_client.RequestTimeFilter() # RequestTimeFilter | 
 
-try:
-    api_response = api_instance.time_filter(request_time_filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter(request_time_filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter = traveltimeplatform.RequestTimeFilter() # RequestTimeFilter | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter = openapi_client.RequestTimeFilter() # RequestTimeFilter | 
 
-try:
-    api_response = api_instance.time_filter(request_time_filter)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter(request_time_filter)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter: %s\n" % e)
 ```
 
 ### Parameters
@@ -541,6 +619,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_filter_fast**
@@ -554,58 +638,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_fast = traveltimeplatform.RequestTimeFilterFast() # RequestTimeFilterFast | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_fast = openapi_client.RequestTimeFilterFast() # RequestTimeFilterFast | 
 
-try:
-    api_response = api_instance.time_filter_fast(request_time_filter_fast)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_fast: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_fast(request_time_filter_fast)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_fast: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_fast = traveltimeplatform.RequestTimeFilterFast() # RequestTimeFilterFast | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_fast = openapi_client.RequestTimeFilterFast() # RequestTimeFilterFast | 
 
-try:
-    api_response = api_instance.time_filter_fast(request_time_filter_fast)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_fast: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_fast(request_time_filter_fast)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_fast: %s\n" % e)
 ```
 
 ### Parameters
@@ -627,6 +719,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_filter_postcode_districts**
@@ -640,58 +738,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcode_districts = traveltimeplatform.RequestTimeFilterPostcodeDistricts() # RequestTimeFilterPostcodeDistricts | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcode_districts = openapi_client.RequestTimeFilterPostcodeDistricts() # RequestTimeFilterPostcodeDistricts | 
 
-try:
-    api_response = api_instance.time_filter_postcode_districts(request_time_filter_postcode_districts)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcode_districts: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcode_districts(request_time_filter_postcode_districts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcode_districts: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcode_districts = traveltimeplatform.RequestTimeFilterPostcodeDistricts() # RequestTimeFilterPostcodeDistricts | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcode_districts = openapi_client.RequestTimeFilterPostcodeDistricts() # RequestTimeFilterPostcodeDistricts | 
 
-try:
-    api_response = api_instance.time_filter_postcode_districts(request_time_filter_postcode_districts)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcode_districts: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcode_districts(request_time_filter_postcode_districts)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcode_districts: %s\n" % e)
 ```
 
 ### Parameters
@@ -713,6 +819,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_filter_postcode_sectors**
@@ -726,58 +838,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcode_sectors = traveltimeplatform.RequestTimeFilterPostcodeSectors() # RequestTimeFilterPostcodeSectors | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcode_sectors = openapi_client.RequestTimeFilterPostcodeSectors() # RequestTimeFilterPostcodeSectors | 
 
-try:
-    api_response = api_instance.time_filter_postcode_sectors(request_time_filter_postcode_sectors)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcode_sectors: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcode_sectors(request_time_filter_postcode_sectors)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcode_sectors: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcode_sectors = traveltimeplatform.RequestTimeFilterPostcodeSectors() # RequestTimeFilterPostcodeSectors | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcode_sectors = openapi_client.RequestTimeFilterPostcodeSectors() # RequestTimeFilterPostcodeSectors | 
 
-try:
-    api_response = api_instance.time_filter_postcode_sectors(request_time_filter_postcode_sectors)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcode_sectors: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcode_sectors(request_time_filter_postcode_sectors)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcode_sectors: %s\n" % e)
 ```
 
 ### Parameters
@@ -799,6 +919,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_filter_postcodes**
@@ -812,58 +938,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcodes = traveltimeplatform.RequestTimeFilterPostcodes() # RequestTimeFilterPostcodes | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcodes = openapi_client.RequestTimeFilterPostcodes() # RequestTimeFilterPostcodes | 
 
-try:
-    api_response = api_instance.time_filter_postcodes(request_time_filter_postcodes)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcodes: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcodes(request_time_filter_postcodes)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcodes: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_filter_postcodes = traveltimeplatform.RequestTimeFilterPostcodes() # RequestTimeFilterPostcodes | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_filter_postcodes = openapi_client.RequestTimeFilterPostcodes() # RequestTimeFilterPostcodes | 
 
-try:
-    api_response = api_instance.time_filter_postcodes(request_time_filter_postcodes)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_filter_postcodes: %s\n" % e)
+    try:
+        api_response = api_instance.time_filter_postcodes(request_time_filter_postcodes)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_filter_postcodes: %s\n" % e)
 ```
 
 ### Parameters
@@ -885,6 +1019,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **time_map**
@@ -898,58 +1038,66 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_map = traveltimeplatform.RequestTimeMap() # RequestTimeMap | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_map = openapi_client.RequestTimeMap() # RequestTimeMap | 
 
-try:
-    api_response = api_instance.time_map(request_time_map)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_map: %s\n" % e)
+    try:
+        api_response = api_instance.time_map(request_time_map)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_map: %s\n" % e)
 ```
 
 * Api Key Authentication (ApplicationId):
 ```python
 from __future__ import print_function
 import time
-import traveltimeplatform
-from traveltimeplatform.rest import ApiException
+import openapi_client
+from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApiKey
 configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = traveltimeplatform.Configuration()
+configuration = openapi_client.Configuration()
 # Configure API key authorization: ApplicationId
 configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
 
-# create an instance of the API class
-api_instance = traveltimeplatform.DefaultApi(traveltimeplatform.ApiClient(configuration))
-request_time_map = traveltimeplatform.RequestTimeMap() # RequestTimeMap | 
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.DefaultApi(api_client)
+    request_time_map = openapi_client.RequestTimeMap() # RequestTimeMap | 
 
-try:
-    api_response = api_instance.time_map(request_time_map)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DefaultApi->time_map: %s\n" % e)
+    try:
+        api_response = api_instance.time_map(request_time_map)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DefaultApi->time_map: %s\n" % e)
 ```
 
 ### Parameters
@@ -970,6 +1118,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

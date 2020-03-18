@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseTimeMapProperties
+# openapi::ResponseTimeMapProperties
 
 ## Properties
 Name | Type | Description | Notes

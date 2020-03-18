@@ -12,7 +12,7 @@
 }while(0)
 
 response_geocoding_t*
-DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double focus.lat ,double focus.lng ,char * within.country)
+DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double lat ,double lng ,char * within.country)
 {
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
@@ -30,27 +30,27 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double focus.lat ,doub
 
 
     // query parameters
-    char *keyQuery_focus.lat;
-    double valueQuery_focus.lat;
-    keyValuePair_t *keyPairQuery_focus.lat = 0;
-    if (focus.lat)
+    char *keyQuery_lat;
+    double valueQuery_lat;
+    keyValuePair_t *keyPairQuery_lat = 0;
+    if (lat)
     {
-        keyQuery_focus.lat = strdup("focus.lat");
-        valueQuery_focus.lat = (focus.lat);
-        keyPairQuery_focus.lat = keyValuePair_create(keyQuery_focus.lat, &valueQuery_focus.lat);
-        list_addElement(localVarQueryParameters,keyPairQuery_focus.lat);
+        keyQuery_lat = strdup("lat");
+        valueQuery_lat = (lat);
+        keyPairQuery_lat = keyValuePair_create(keyQuery_lat, &valueQuery_lat);
+        list_addElement(localVarQueryParameters,keyPairQuery_lat);
     }
 
     // query parameters
-    char *keyQuery_focus.lng;
-    double valueQuery_focus.lng;
-    keyValuePair_t *keyPairQuery_focus.lng = 0;
-    if (focus.lng)
+    char *keyQuery_lng;
+    double valueQuery_lng;
+    keyValuePair_t *keyPairQuery_lng = 0;
+    if (lng)
     {
-        keyQuery_focus.lng = strdup("focus.lng");
-        valueQuery_focus.lng = (focus.lng);
-        keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
-        list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
+        keyQuery_lng = strdup("lng");
+        valueQuery_lng = (lng);
+        keyPairQuery_lng = keyValuePair_create(keyQuery_lng, &valueQuery_lng);
+        list_addElement(localVarQueryParameters,keyPairQuery_lng);
     }
 
     // query parameters
@@ -99,10 +99,10 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient ,double focus.lat ,doub
     list_free(localVarHeaderType);
     
     free(localVarPath);
-    free(keyQuery_focus.lat);
-    keyValuePair_free(keyPairQuery_focus.lat);
-    free(keyQuery_focus.lng);
-    keyValuePair_free(keyPairQuery_focus.lng);
+    free(keyQuery_lat);
+    keyValuePair_free(keyPairQuery_lat);
+    free(keyQuery_lng);
+    keyValuePair_free(keyPairQuery_lng);
     free(keyQuery_within.country);
     free(valueQuery_within.country);
     keyValuePair_free(keyPairQuery_within.country);
@@ -113,7 +113,7 @@ end:
 }
 
 response_geocoding_t*
-DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.country ,double focus.lat ,double focus.lng)
+DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,double focus.lat ,double focus.lng ,char * within.country)
 {
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
@@ -143,18 +143,6 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.c
     }
 
     // query parameters
-    char *keyQuery_within.country;
-    char * valueQuery_within.country;
-    keyValuePair_t *keyPairQuery_within.country = 0;
-    if (within.country)
-    {
-        keyQuery_within.country = strdup("within.country");
-        valueQuery_within.country = strdup((within.country));
-        keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
-        list_addElement(localVarQueryParameters,keyPairQuery_within.country);
-    }
-
-    // query parameters
     char *keyQuery_focus.lat;
     double valueQuery_focus.lat;
     keyValuePair_t *keyPairQuery_focus.lat = 0;
@@ -176,6 +164,18 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.c
         valueQuery_focus.lng = (focus.lng);
         keyPairQuery_focus.lng = keyValuePair_create(keyQuery_focus.lng, &valueQuery_focus.lng);
         list_addElement(localVarQueryParameters,keyPairQuery_focus.lng);
+    }
+
+    // query parameters
+    char *keyQuery_within.country;
+    char * valueQuery_within.country;
+    keyValuePair_t *keyPairQuery_within.country = 0;
+    if (within.country)
+    {
+        keyQuery_within.country = strdup("within.country");
+        valueQuery_within.country = strdup((within.country));
+        keyPairQuery_within.country = keyValuePair_create(keyQuery_within.country, valueQuery_within.country);
+        list_addElement(localVarQueryParameters,keyPairQuery_within.country);
     }
     list_addElement(localVarHeaderType,"application/json"); //produces
     apiClient_invoke(apiClient,
@@ -215,13 +215,13 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient ,char * query ,char * within.c
     free(keyQuery_query);
     free(valueQuery_query);
     keyValuePair_free(keyPairQuery_query);
-    free(keyQuery_within.country);
-    free(valueQuery_within.country);
-    keyValuePair_free(keyPairQuery_within.country);
     free(keyQuery_focus.lat);
     keyValuePair_free(keyPairQuery_focus.lat);
     free(keyQuery_focus.lng);
     keyValuePair_free(keyPairQuery_focus.lng);
+    free(keyQuery_within.country);
+    free(valueQuery_within.country);
+    keyValuePair_free(keyPairQuery_within.country);
     return elementToReturn;
 end:
     return NULL;

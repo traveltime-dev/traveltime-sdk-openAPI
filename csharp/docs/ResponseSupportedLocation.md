@@ -1,5 +1,5 @@
 
-# traveltimeplatform.Model.ResponseSupportedLocation
+# Org.OpenAPITools.Model.ResponseSupportedLocation
 
 ## Properties
 

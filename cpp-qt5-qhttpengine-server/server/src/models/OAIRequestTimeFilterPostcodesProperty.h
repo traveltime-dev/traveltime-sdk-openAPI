@@ -26,6 +26,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterPostcodesProperty: public OAIEnum {
@@ -48,7 +49,7 @@ public:
 
     OAIRequestTimeFilterPostcodesProperty::eOAIRequestTimeFilterPostcodesProperty getValue() const;
     void setValue(const OAIRequestTimeFilterPostcodesProperty::eOAIRequestTimeFilterPostcodesProperty& value);
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -61,5 +62,7 @@ private:
 };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterPostcodesProperty)
 
 #endif // OAIRequestTimeFilterPostcodesProperty_H

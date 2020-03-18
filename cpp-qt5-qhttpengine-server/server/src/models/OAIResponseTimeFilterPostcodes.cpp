@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeFilterPostcodes.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -69,7 +69,7 @@ OAIResponseTimeFilterPostcodes::asJson () const {
 QJsonObject
 OAIResponseTimeFilterPostcodes::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(results.size() > 0){
         obj.insert(QString("results"), ::OpenAPI::toJsonValue(results));
     } 

@@ -14,16 +14,8 @@ class ResponseSupportedLocation {
 
   ResponseSupportedLocation.fromJson(Map<String, dynamic> json) {
     if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['map_name'] == null) {
-      mapName = null;
-    } else {
-          mapName = json['map_name'];
-    }
+    id = json['id'];
+    mapName = json['map_name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -36,15 +28,26 @@ class ResponseSupportedLocation {
   }
 
   static List<ResponseSupportedLocation> listFromJson(List<dynamic> json) {
-    return json == null ? new List<ResponseSupportedLocation>() : json.map((value) => new ResponseSupportedLocation.fromJson(value)).toList();
+    return json == null ? List<ResponseSupportedLocation>() : json.map((value) => ResponseSupportedLocation.fromJson(value)).toList();
   }
 
   static Map<String, ResponseSupportedLocation> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, ResponseSupportedLocation>();
+    var map = Map<String, ResponseSupportedLocation>();
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new ResponseSupportedLocation.fromJson(value));
+      json.forEach((String key, dynamic value) => map[key] = ResponseSupportedLocation.fromJson(value));
     }
     return map;
+  }
+
+  // maps a json object with a list of ResponseSupportedLocation-objects as value to a dart map
+  static Map<String, List<ResponseSupportedLocation>> mapListFromJson(Map<String, dynamic> json) {
+    var map = Map<String, List<ResponseSupportedLocation>>();
+     if (json != null && json.isNotEmpty) {
+       json.forEach((String key, dynamic value) {
+         map[key] = ResponseSupportedLocation.listFromJson(value);
+       });
+     }
+     return map;
   }
 }
 

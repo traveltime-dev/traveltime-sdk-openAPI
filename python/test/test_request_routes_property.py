@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.request_routes_property import RequestRoutesProperty  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.request_routes_property import RequestRoutesProperty  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestRequestRoutesProperty(unittest.TestCase):
     """RequestRoutesProperty unit test stubs"""
@@ -29,11 +29,23 @@ class TestRequestRoutesProperty(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test RequestRoutesProperty
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.request_routes_property.RequestRoutesProperty()  # noqa: E501
+        if include_optional :
+            return RequestRoutesProperty(
+            )
+        else :
+            return RequestRoutesProperty(
+        )
+
     def testRequestRoutesProperty(self):
         """Test RequestRoutesProperty"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.request_routes_property.RequestRoutesProperty()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

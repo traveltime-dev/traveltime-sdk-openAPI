@@ -58,7 +58,7 @@ void from_json(const nlohmann::json& j, RequestTimeFilterPostcodeDistrictsDepart
     j.at("departure_time").get_to(o.m_Departure_time);
     j.at("reachable_postcodes_threshold").get_to(o.m_Reachable_postcodes_threshold);
     j.at("properties").get_to(o.m_Properties);
-    if(j.contains("range"))
+    if(j.find("range") != j.end())
     {
         j.at("range").get_to(o.m_Range);
         o.m_RangeIsSet = true;
@@ -72,7 +72,6 @@ std::string RequestTimeFilterPostcodeDistrictsDepartureSearch::getId() const
 void RequestTimeFilterPostcodeDistrictsDepartureSearch::setId(std::string const& value)
 {
     m_Id = value;
-    
 }
 RequestTransportation RequestTimeFilterPostcodeDistrictsDepartureSearch::getTransportation() const
 {
@@ -81,7 +80,6 @@ RequestTransportation RequestTimeFilterPostcodeDistrictsDepartureSearch::getTran
 void RequestTimeFilterPostcodeDistrictsDepartureSearch::setTransportation(RequestTransportation const& value)
 {
     m_Transportation = value;
-    
 }
 int32_t RequestTimeFilterPostcodeDistrictsDepartureSearch::getTravelTime() const
 {
@@ -90,7 +88,6 @@ int32_t RequestTimeFilterPostcodeDistrictsDepartureSearch::getTravelTime() const
 void RequestTimeFilterPostcodeDistrictsDepartureSearch::setTravelTime(int32_t const value)
 {
     m_Travel_time = value;
-    
 }
 std::string RequestTimeFilterPostcodeDistrictsDepartureSearch::getDepartureTime() const
 {
@@ -99,7 +96,6 @@ std::string RequestTimeFilterPostcodeDistrictsDepartureSearch::getDepartureTime(
 void RequestTimeFilterPostcodeDistrictsDepartureSearch::setDepartureTime(std::string const& value)
 {
     m_Departure_time = value;
-    
 }
 double RequestTimeFilterPostcodeDistrictsDepartureSearch::getReachablePostcodesThreshold() const
 {
@@ -108,11 +104,14 @@ double RequestTimeFilterPostcodeDistrictsDepartureSearch::getReachablePostcodesT
 void RequestTimeFilterPostcodeDistrictsDepartureSearch::setReachablePostcodesThreshold(double const value)
 {
     m_Reachable_postcodes_threshold = value;
-    
 }
 std::vector<RequestTimeFilterPostcodeDistrictsProperty>& RequestTimeFilterPostcodeDistrictsDepartureSearch::getProperties()
 {
     return m_Properties;
+}
+void RequestTimeFilterPostcodeDistrictsDepartureSearch::setProperties(std::vector<RequestTimeFilterPostcodeDistrictsProperty> const& value)
+{
+    m_Properties = value;
 }
 RequestRangeFull RequestTimeFilterPostcodeDistrictsDepartureSearch::getRange() const
 {

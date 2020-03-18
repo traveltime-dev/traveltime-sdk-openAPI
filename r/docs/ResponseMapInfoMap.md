@@ -1,4 +1,4 @@
-# traveltimeplatform::ResponseMapInfoMap
+# openapi::ResponseMapInfoMap
 
 ## Properties
 Name | Type | Description | Notes

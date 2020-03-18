@@ -13,12 +13,12 @@
 
 #include "OAIResponseTimeFilterPostcodeDistrict.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseTimeFilterPostcodeDistrict::asJson () const {
 QJsonObject
 OAIResponseTimeFilterPostcodeDistrict::asJsonObject() const {
     QJsonObject obj;
-	if(code.isSet()){
+    if(code.isSet()){
         obj.insert(QString("code"), ::OpenAPI::toJsonValue(code));
     }
-	if(properties.isSet()){
+    if(properties.isSet()){
         obj.insert(QString("properties"), ::OpenAPI::toJsonValue(properties));
     }
     return obj;

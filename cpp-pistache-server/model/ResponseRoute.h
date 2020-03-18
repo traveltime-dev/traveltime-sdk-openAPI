@@ -48,16 +48,17 @@ public:
     /// </summary>
     std::string getDepartureTime() const;
     void setDepartureTime(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::string getArrivalTime() const;
     void setArrivalTime(std::string const& value);
-        /// <summary>
+    /// <summary>
     /// 
     /// </summary>
     std::vector<ResponseRoutePart>& getParts();
-    
+    void setParts(std::vector<ResponseRoutePart> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseRoute& o);
     friend void from_json(const nlohmann::json& j, ResponseRoute& o);
 protected:

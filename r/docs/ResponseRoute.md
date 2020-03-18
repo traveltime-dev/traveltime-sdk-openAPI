@@ -1,10 +1,10 @@
-# traveltimeplatform::ResponseRoute
+# openapi::ResponseRoute
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **departure_time** | **character** |  | 
 **arrival_time** | **character** |  | 
-**parts** | [**ResponseRoutePart**](ResponseRoutePart.md) |  | 
+**parts** | [**array[ResponseRoutePart]**](ResponseRoutePart.md) |  | 
 
 

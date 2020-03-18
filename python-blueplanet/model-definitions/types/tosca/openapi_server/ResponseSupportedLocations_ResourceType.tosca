@@ -1,0 +1,43 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server ResponseSupportedLocations"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a ResponseSupportedLocations"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  ResponseSupportedLocation = openapi_server.resourceTypes.ResponseSupportedLocation
+}
+resourceTypes {
+
+  ResponseSupportedLocations {
+    title = ResponseSupportedLocations
+    description = ResponseSupportedLocations
+    derivedFrom = Root
+    properties {
+        locations {
+          type = array
+          items.type = ResponseSupportedLocation
+          description = ""
+          optional = true
+        }
+        unsupported_locations {
+          type = array
+          items.type =  string
+          description = ""
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  ResponseSupportedLocations {
+    title = ResponseSupportedLocations
+    description = ResponseSupportedLocations
+    implements = openapi_server.resourceTypes.ResponseSupportedLocations
+
+  }
+}

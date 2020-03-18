@@ -10,143 +10,128 @@
  * Do not edit the class manually.
  */
 
-
 #include "OAIResponseFaresBreakdownItem.h"
 
-#include "OAIHelpers.h"
-
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QObject>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
 OAIResponseFaresBreakdownItem::OAIResponseFaresBreakdownItem(QString json) {
-    this->init();
+    this->initializeModel();
     this->fromJson(json);
 }
 
 OAIResponseFaresBreakdownItem::OAIResponseFaresBreakdownItem() {
-    this->init();
+    this->initializeModel();
 }
 
-OAIResponseFaresBreakdownItem::~OAIResponseFaresBreakdownItem() {
+OAIResponseFaresBreakdownItem::~OAIResponseFaresBreakdownItem() {}
 
-}
+void OAIResponseFaresBreakdownItem::initializeModel() {
 
-void
-OAIResponseFaresBreakdownItem::init() {
-    
     m_modes_isSet = false;
     m_modes_isValid = false;
-    
+
     m_route_part_ids_isSet = false;
     m_route_part_ids_isValid = false;
-    
+
     m_tickets_isSet = false;
     m_tickets_isValid = false;
-    }
+}
 
-void
-OAIResponseFaresBreakdownItem::fromJson(QString jsonString) {
-    QByteArray array (jsonString.toStdString().c_str());
+void OAIResponseFaresBreakdownItem::fromJson(QString jsonString) {
+    QByteArray array(jsonString.toStdString().c_str());
     QJsonDocument doc = QJsonDocument::fromJson(array);
     QJsonObject jsonObject = doc.object();
     this->fromJsonObject(jsonObject);
 }
 
-void
-OAIResponseFaresBreakdownItem::fromJsonObject(QJsonObject json) {
-    
-    
+void OAIResponseFaresBreakdownItem::fromJsonObject(QJsonObject json) {
+
     m_modes_isValid = ::OpenAPI::fromJsonValue(modes, json[QString("modes")]);
-    
-    
+    m_modes_isSet = !json[QString("modes")].isNull() && m_modes_isValid;
+
     m_route_part_ids_isValid = ::OpenAPI::fromJsonValue(route_part_ids, json[QString("route_part_ids")]);
-    
-    
+    m_route_part_ids_isSet = !json[QString("route_part_ids")].isNull() && m_route_part_ids_isValid;
+
     m_tickets_isValid = ::OpenAPI::fromJsonValue(tickets, json[QString("tickets")]);
-    
+    m_tickets_isSet = !json[QString("tickets")].isNull() && m_tickets_isValid;
 }
 
-QString
-OAIResponseFaresBreakdownItem::asJson () const {
+QString OAIResponseFaresBreakdownItem::asJson() const {
     QJsonObject obj = this->asJsonObject();
     QJsonDocument doc(obj);
     QByteArray bytes = doc.toJson();
     return QString(bytes);
 }
 
-QJsonObject
-OAIResponseFaresBreakdownItem::asJsonObject() const {
+QJsonObject OAIResponseFaresBreakdownItem::asJsonObject() const {
     QJsonObject obj;
-	
-    if(modes.size() > 0){
+    if (modes.size() > 0) {
         obj.insert(QString("modes"), ::OpenAPI::toJsonValue(modes));
-    } 
-	
-    if(route_part_ids.size() > 0){
+    }
+    if (route_part_ids.size() > 0) {
         obj.insert(QString("route_part_ids"), ::OpenAPI::toJsonValue(route_part_ids));
-    } 
-	
-    if(tickets.size() > 0){
+    }
+    if (tickets.size() > 0) {
         obj.insert(QString("tickets"), ::OpenAPI::toJsonValue(tickets));
-    } 
+    }
     return obj;
 }
 
-
-QList<OAIResponseTransportationMode>
-OAIResponseFaresBreakdownItem::getModes() const {
+QList<OAIResponseTransportationMode> OAIResponseFaresBreakdownItem::getModes() const {
     return modes;
 }
-void
-OAIResponseFaresBreakdownItem::setModes(const QList<OAIResponseTransportationMode> &modes) {
+void OAIResponseFaresBreakdownItem::setModes(const QList<OAIResponseTransportationMode> &modes) {
     this->modes = modes;
     this->m_modes_isSet = true;
 }
 
-
-QList<qint32>
-OAIResponseFaresBreakdownItem::getRoutePartIds() const {
+QList<qint32> OAIResponseFaresBreakdownItem::getRoutePartIds() const {
     return route_part_ids;
 }
-void
-OAIResponseFaresBreakdownItem::setRoutePartIds(const QList<qint32> &route_part_ids) {
+void OAIResponseFaresBreakdownItem::setRoutePartIds(const QList<qint32> &route_part_ids) {
     this->route_part_ids = route_part_ids;
     this->m_route_part_ids_isSet = true;
 }
 
-
-QList<OAIResponseFareTicket>
-OAIResponseFaresBreakdownItem::getTickets() const {
+QList<OAIResponseFareTicket> OAIResponseFaresBreakdownItem::getTickets() const {
     return tickets;
 }
-void
-OAIResponseFaresBreakdownItem::setTickets(const QList<OAIResponseFareTicket> &tickets) {
+void OAIResponseFaresBreakdownItem::setTickets(const QList<OAIResponseFareTicket> &tickets) {
     this->tickets = tickets;
     this->m_tickets_isSet = true;
 }
 
-bool
-OAIResponseFaresBreakdownItem::isSet() const {
+bool OAIResponseFaresBreakdownItem::isSet() const {
     bool isObjectUpdated = false;
-    do{ 
-        if(modes.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(route_part_ids.size() > 0){ isObjectUpdated = true; break;}
-    
-        if(tickets.size() > 0){ isObjectUpdated = true; break;}
-    }while(false);
+    do {
+        if (modes.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (route_part_ids.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+
+        if (tickets.size() > 0) {
+            isObjectUpdated = true;
+            break;
+        }
+    } while (false);
     return isObjectUpdated;
 }
 
-bool
-OAIResponseFaresBreakdownItem::isValid() const {
+bool OAIResponseFaresBreakdownItem::isValid() const {
     // only required properties are required for the object to be considered valid
     return m_modes_isValid && m_route_part_ids_isValid && m_tickets_isValid && true;
 }
 
-}
-
+} // namespace OpenAPI

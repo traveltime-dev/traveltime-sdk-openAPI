@@ -24,13 +24,13 @@ inherit
 feature -- API Access
 
 
-	geocoding_reverse_search (focus_lat: REAL_64; focus_lng: REAL_64; within_country: STRING_32): detachable RESPONSE_GEOCODING
+	geocoding_reverse_search (lat: REAL_64; lng: REAL_64; within_country: STRING_32): detachable RESPONSE_GEOCODING
 			-- 
 			-- 
 			-- 
-			-- argument: focus_lat  (required)
+			-- argument: lat  (required)
 			-- 
-			-- argument: focus_lng  (required)
+			-- argument: lng  (required)
 			-- 
 			-- argument: within_country  (optional, default to null)
 			-- 
@@ -46,8 +46,8 @@ feature -- API Access
 			create l_request
 			
 			l_path := "/v4/geocoding/reverse"
-			l_request.fill_query_params(api_client.parameter_to_tuple("", "focus.lat", focus_lat));
-			l_request.fill_query_params(api_client.parameter_to_tuple("", "focus.lng", focus_lng));
+			l_request.fill_query_params(api_client.parameter_to_tuple("", "lat", lat));
+			l_request.fill_query_params(api_client.parameter_to_tuple("", "lng", lng));
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "within.country", within_country));
 
 
@@ -66,17 +66,17 @@ feature -- API Access
 			end
 		end	
 
-	geocoding_search (query: STRING_32; within_country: STRING_32; focus_lat: REAL_64; focus_lng: REAL_64): detachable RESPONSE_GEOCODING
+	geocoding_search (query: STRING_32; focus_lat: REAL_64; focus_lng: REAL_64; within_country: STRING_32): detachable RESPONSE_GEOCODING
 			-- 
 			-- 
 			-- 
 			-- argument: query  (required)
 			-- 
-			-- argument: within_country  (optional, default to null)
-			-- 
 			-- argument: focus_lat  (optional, default to null)
 			-- 
 			-- argument: focus_lng  (optional, default to null)
+			-- 
+			-- argument: within_country  (optional, default to null)
 			-- 
 			-- 
 			-- Result RESPONSE_GEOCODING
@@ -91,9 +91,9 @@ feature -- API Access
 			
 			l_path := "/v4/geocoding/search"
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "query", query));
-			l_request.fill_query_params(api_client.parameter_to_tuple("", "within.country", within_country));
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "focus.lat", focus_lat));
 			l_request.fill_query_params(api_client.parameter_to_tuple("", "focus.lng", focus_lng));
+			l_request.fill_query_params(api_client.parameter_to_tuple("", "within.country", within_country));
 
 
 			if attached {STRING} api_client.select_header_accept (<<"application/json">>)  as l_accept then

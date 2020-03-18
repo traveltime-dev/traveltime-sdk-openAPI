@@ -13,12 +13,12 @@
 
 #include "OAIResponseShape.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -84,11 +84,11 @@ OAIResponseShape::asJson () const {
 QJsonObject
 OAIResponseShape::asJsonObject() const {
     QJsonObject obj;
-	
+    
     if(shell.size() > 0){
         obj.insert(QString("shell"), ::OpenAPI::toJsonValue(shell));
     } 
-	
+    
     if(holes.size() > 0){
         
         obj.insert(QString("holes"), toJsonValue(holes));

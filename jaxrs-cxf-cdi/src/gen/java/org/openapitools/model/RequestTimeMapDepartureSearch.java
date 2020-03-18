@@ -23,9 +23,9 @@ public class RequestTimeMapDepartureSearch   {
   
   private String id;
 
-  private Coords coords = null;
+  private Coords coords;
 
-  private RequestTransportation transportation = null;
+  private RequestTransportation transportation;
 
   private Integer travelTime;
 
@@ -33,7 +33,7 @@ public class RequestTimeMapDepartureSearch   {
 
   private List<RequestTimeMapProperty> properties = null;
 
-  private RequestRangeNoMaxResults range = null;
+  private RequestRangeNoMaxResults range;
 
 
   /**

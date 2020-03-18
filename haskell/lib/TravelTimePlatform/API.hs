@@ -19,6 +19,7 @@ module TravelTimePlatform.API
   , TravelTimePlatformBackend(..)
   , createTravelTimePlatformClient
   , runTravelTimePlatformServer
+  , runTravelTimePlatformMiddlewareServer
   , runTravelTimePlatformClient
   , runTravelTimePlatformClientWithManager
   , callTravelTimePlatform
@@ -51,6 +52,7 @@ import           GHC.Generics                       (Generic)
 import           Network.HTTP.Client                (Manager, newManager)
 import           Network.HTTP.Client.TLS            (tlsManagerSettings)
 import           Network.HTTP.Types.Method          (methodOptions)
+import           Network.Wai                        (Middleware)
 import qualified Network.Wai.Handler.Warp           as Warp
 import           Servant                            (ServerError, serve)
 import           Servant.API
@@ -59,7 +61,8 @@ import           Servant.Client                     (ClientEnv, Scheme (Http), C
                                                      mkClientEnv, parseBaseUrl)
 import           Servant.Client.Core                (baseUrlPort, baseUrlHost)
 import           Servant.Client.Internal.HttpClient (ClientM (..))
-import           Servant.Server                     (Handler (..))
+import           Servant.Server                     (Handler (..), Application)
+import           Servant.Server.StaticFiles         (serveDirectoryFileServer)
 import           Web.FormUrlEncoded
 import           Web.HttpApiData
 
@@ -118,8 +121,8 @@ formatSeparatedQueryList char = T.intercalate (T.singleton char) . map toQueryPa
 
 -- | Servant type-level API, generated from the OpenAPI spec for TravelTimePlatform.
 type TravelTimePlatformAPI
-    =    "v4" :> "geocoding" :> "reverse" :> QueryParam "focus.lat" Double :> QueryParam "focus.lng" Double :> QueryParam "within.country" Text :> Verb 'GET 200 '[JSON] ResponseGeocoding -- 'geocodingReverseSearch' route
-    :<|> "v4" :> "geocoding" :> "search" :> QueryParam "query" Text :> QueryParam "within.country" Text :> QueryParam "focus.lat" Double :> QueryParam "focus.lng" Double :> Verb 'GET 200 '[JSON] ResponseGeocoding -- 'geocodingSearch' route
+    =    "v4" :> "geocoding" :> "reverse" :> QueryParam "lat" Double :> QueryParam "lng" Double :> QueryParam "within.country" Text :> Verb 'GET 200 '[JSON] ResponseGeocoding -- 'geocodingReverseSearch' route
+    :<|> "v4" :> "geocoding" :> "search" :> QueryParam "query" Text :> QueryParam "focus.lat" Double :> QueryParam "focus.lng" Double :> QueryParam "within.country" Text :> Verb 'GET 200 '[JSON] ResponseGeocoding -- 'geocodingSearch' route
     :<|> "v4" :> "map-info" :> Verb 'GET 200 '[JSON] ResponseMapInfo -- 'mapInfo' route
     :<|> "v4" :> "routes" :> ReqBody '[JSON] RequestRoutes :> Verb 'POST 200 '[JSON] ResponseRoutes -- 'routes' route
     :<|> "v4" :> "supported-locations" :> ReqBody '[JSON] RequestSupportedLocations :> Verb 'POST 200 '[JSON] ResponseSupportedLocations -- 'supportedLocations' route
@@ -129,6 +132,7 @@ type TravelTimePlatformAPI
     :<|> "v4" :> "time-filter" :> "postcode-sectors" :> ReqBody '[JSON] RequestTimeFilterPostcodeSectors :> Verb 'POST 200 '[JSON] ResponseTimeFilterPostcodeSectors -- 'timeFilterPostcodeSectors' route
     :<|> "v4" :> "time-filter" :> "postcodes" :> ReqBody '[JSON] RequestTimeFilterPostcodes :> Verb 'POST 200 '[JSON] ResponseTimeFilterPostcodes -- 'timeFilterPostcodes' route
     :<|> "v4" :> "time-map" :> ReqBody '[JSON] RequestTimeMap :> Verb 'POST 200 '[JSON] ResponseTimeMap -- 'timeMap' route
+    :<|> Raw 
 
 
 -- | Server or client configuration, specifying the host and port to query or serve on.
@@ -146,10 +150,10 @@ newtype TravelTimePlatformClientError = TravelTimePlatformClientError ClientErro
 -- | Backend for TravelTimePlatform.
 -- The backend can be used both for the client and the server. The client generated from the TravelTimePlatform OpenAPI spec
 -- is a backend that executes actions by sending HTTP requests (see @createTravelTimePlatformClient@). Alternatively, provided
--- a backend, the API can be served using @runTravelTimePlatformServer@.
+-- a backend, the API can be served using @runTravelTimePlatformMiddlewareServer@.
 data TravelTimePlatformBackend m = TravelTimePlatformBackend
   { geocodingReverseSearch :: Maybe Double -> Maybe Double -> Maybe Text -> m ResponseGeocoding{- ^  -}
-  , geocodingSearch :: Maybe Text -> Maybe Text -> Maybe Double -> Maybe Double -> m ResponseGeocoding{- ^  -}
+  , geocodingSearch :: Maybe Text -> Maybe Double -> Maybe Double -> Maybe Text -> m ResponseGeocoding{- ^  -}
   , mapInfo :: m ResponseMapInfo{- ^  -}
   , routes :: RequestRoutes -> m ResponseRoutes{- ^  -}
   , supportedLocations :: RequestSupportedLocations -> m ResponseSupportedLocations{- ^  -}
@@ -192,7 +196,8 @@ createTravelTimePlatformClient = TravelTimePlatformBackend{..}
      (coerce -> timeFilterPostcodeDistricts) :<|>
      (coerce -> timeFilterPostcodeSectors) :<|>
      (coerce -> timeFilterPostcodes) :<|>
-     (coerce -> timeMap)) = client (Proxy :: Proxy TravelTimePlatformAPI)
+     (coerce -> timeMap) :<|>
+     _) = client (Proxy :: Proxy TravelTimePlatformAPI)
 
 -- | Run requests in the TravelTimePlatformClient monad.
 runTravelTimePlatformClient :: Config -> TravelTimePlatformClient a -> ExceptT ClientError IO a
@@ -217,16 +222,26 @@ callTravelTimePlatform env f = do
     Left err       -> throwM (TravelTimePlatformClientError err)
     Right response -> pure response
 
+
+requestMiddlewareId :: Application -> Application
+requestMiddlewareId a = a
+
 -- | Run the TravelTimePlatform server at the provided host and port.
 runTravelTimePlatformServer
   :: (MonadIO m, MonadThrow m)
   => Config -> TravelTimePlatformBackend (ExceptT ServerError IO) -> m ()
-runTravelTimePlatformServer Config{..} backend = do
+runTravelTimePlatformServer config backend = runTravelTimePlatformMiddlewareServer config requestMiddlewareId backend
+
+-- | Run the TravelTimePlatform server at the provided host and port.
+runTravelTimePlatformMiddlewareServer
+  :: (MonadIO m, MonadThrow m)
+  => Config -> Middleware -> TravelTimePlatformBackend (ExceptT ServerError IO) -> m ()
+runTravelTimePlatformMiddlewareServer Config{..} middleware backend = do
   url <- parseBaseUrl configUrl
   let warpSettings = Warp.defaultSettings
         & Warp.setPort (baseUrlPort url)
         & Warp.setHost (fromString $ baseUrlHost url)
-  liftIO $ Warp.runSettings warpSettings $ serve (Proxy :: Proxy TravelTimePlatformAPI) (serverFromBackend backend)
+  liftIO $ Warp.runSettings warpSettings $ middleware $ serve (Proxy :: Proxy TravelTimePlatformAPI) (serverFromBackend backend)
   where
     serverFromBackend TravelTimePlatformBackend{..} =
       (coerce geocodingReverseSearch :<|>
@@ -239,4 +254,5 @@ runTravelTimePlatformServer Config{..} backend = do
        coerce timeFilterPostcodeDistricts :<|>
        coerce timeFilterPostcodeSectors :<|>
        coerce timeFilterPostcodes :<|>
-       coerce timeMap)
+       coerce timeMap :<|>
+       serveDirectoryFileServer "static")

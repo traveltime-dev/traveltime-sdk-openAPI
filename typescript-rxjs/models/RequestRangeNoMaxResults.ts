@@ -17,13 +17,11 @@
  */
 export interface RequestRangeNoMaxResults {
     /**
-     * 
      * @type {boolean}
      * @memberof RequestRangeNoMaxResults
      */
     enabled: boolean;
     /**
-     * 
      * @type {number}
      * @memberof RequestRangeNoMaxResults
      */

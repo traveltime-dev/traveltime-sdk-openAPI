@@ -30,30 +30,30 @@ request_transportation_t *request_transportation_create(
     int parking_time,
     int boarding_time
     ) {
-	request_transportation_t *request_transportation_local_var = malloc(sizeof(request_transportation_t));
+    request_transportation_t *request_transportation_local_var = malloc(sizeof(request_transportation_t));
     if (!request_transportation_local_var) {
         return NULL;
     }
-	request_transportation_local_var->type = type;
-	request_transportation_local_var->pt_change_delay = pt_change_delay;
-	request_transportation_local_var->walking_time = walking_time;
-	request_transportation_local_var->driving_time_to_station = driving_time_to_station;
-	request_transportation_local_var->parking_time = parking_time;
-	request_transportation_local_var->boarding_time = boarding_time;
+    request_transportation_local_var->type = type;
+    request_transportation_local_var->pt_change_delay = pt_change_delay;
+    request_transportation_local_var->walking_time = walking_time;
+    request_transportation_local_var->driving_time_to_station = driving_time_to_station;
+    request_transportation_local_var->parking_time = parking_time;
+    request_transportation_local_var->boarding_time = boarding_time;
 
-	return request_transportation_local_var;
+    return request_transportation_local_var;
 }
 
 
 void request_transportation_free(request_transportation_t *request_transportation) {
     listEntry_t *listEntry;
-	free(request_transportation);
+    free(request_transportation);
 }
 
 cJSON *request_transportation_convertToJSON(request_transportation_t *request_transportation) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// request_transportation->type
+    // request_transportation->type
     
     if(cJSON_AddStringToObject(item, "type", typerequest_transportation_ToString(request_transportation->type)) == NULL)
     {
@@ -61,7 +61,7 @@ cJSON *request_transportation_convertToJSON(request_transportation_t *request_tr
     }
 
 
-	// request_transportation->pt_change_delay
+    // request_transportation->pt_change_delay
     if(request_transportation->pt_change_delay) { 
     if(cJSON_AddNumberToObject(item, "pt_change_delay", request_transportation->pt_change_delay) == NULL) {
     goto fail; //Numeric
@@ -69,7 +69,7 @@ cJSON *request_transportation_convertToJSON(request_transportation_t *request_tr
      } 
 
 
-	// request_transportation->walking_time
+    // request_transportation->walking_time
     if(request_transportation->walking_time) { 
     if(cJSON_AddNumberToObject(item, "walking_time", request_transportation->walking_time) == NULL) {
     goto fail; //Numeric
@@ -77,7 +77,7 @@ cJSON *request_transportation_convertToJSON(request_transportation_t *request_tr
      } 
 
 
-	// request_transportation->driving_time_to_station
+    // request_transportation->driving_time_to_station
     if(request_transportation->driving_time_to_station) { 
     if(cJSON_AddNumberToObject(item, "driving_time_to_station", request_transportation->driving_time_to_station) == NULL) {
     goto fail; //Numeric
@@ -85,7 +85,7 @@ cJSON *request_transportation_convertToJSON(request_transportation_t *request_tr
      } 
 
 
-	// request_transportation->parking_time
+    // request_transportation->parking_time
     if(request_transportation->parking_time) { 
     if(cJSON_AddNumberToObject(item, "parking_time", request_transportation->parking_time) == NULL) {
     goto fail; //Numeric
@@ -93,19 +93,19 @@ cJSON *request_transportation_convertToJSON(request_transportation_t *request_tr
      } 
 
 
-	// request_transportation->boarding_time
+    // request_transportation->boarding_time
     if(request_transportation->boarding_time) { 
     if(cJSON_AddNumberToObject(item, "boarding_time", request_transportation->boarding_time) == NULL) {
     goto fail; //Numeric
     }
      } 
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 request_transportation_t *request_transportation_parseFromJSON(cJSON *request_transportationJSON){

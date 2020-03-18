@@ -16,7 +16,7 @@
 
 
 typedef struct response_map_info_features_t {
-    response_map_info_features_public_transport_t *public_transport; //model
+    struct response_map_info_features_public_transport_t *public_transport; //model
     int fares; //boolean
     int postcodes; //boolean
 

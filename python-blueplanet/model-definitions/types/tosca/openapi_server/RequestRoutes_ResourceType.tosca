@@ -1,0 +1,51 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestRoutes"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestRoutes"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+  RequestLocation = openapi_server.resourceTypes.RequestLocation
+  RequestRoutesArrivalSearch = openapi_server.resourceTypes.RequestRoutesArrivalSearch
+  RequestRoutesDepartureSearch = openapi_server.resourceTypes.RequestRoutesDepartureSearch
+}
+resourceTypes {
+
+  RequestRoutes {
+    title = RequestRoutes
+    description = RequestRoutes
+    derivedFrom = Root
+    properties {
+        locations {
+          type = array
+          items.type = RequestLocation
+          description = ""
+          optional = true
+        }
+        departure_searches {
+          type = array
+          items.type = RequestRoutesDepartureSearch
+          description = ""
+          optional = false
+        }
+        arrival_searches {
+          type = array
+          items.type = RequestRoutesArrivalSearch
+          description = ""
+          optional = false
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestRoutes {
+    title = RequestRoutes
+    description = RequestRoutes
+    implements = openapi_server.resourceTypes.RequestRoutes
+
+  }
+}

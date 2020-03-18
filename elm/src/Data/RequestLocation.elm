@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestLocation exposing (RequestLocation, decoder, encode)
+module Data.RequestLocation exposing (RequestLocation, decoder, encode, encodeWithTag, toString)
 
 import Data.Coords as Coords exposing (Coords)
 import Dict exposing (Dict)
@@ -35,11 +35,27 @@ decoder =
 
 
 encode : RequestLocation -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "coords", Coords.encode model.coords )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestLocation -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestLocation -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "coords", Coords.encode model.coords )
+    ]
+
+
+
+toString : RequestLocation -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

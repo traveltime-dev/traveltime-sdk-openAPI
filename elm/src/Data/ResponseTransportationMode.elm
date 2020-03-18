@@ -11,7 +11,7 @@
 -}
 
 
-module Data.ResponseTransportationMode exposing (ResponseTransportationMode(..), decoder, encode)
+module Data.ResponseTransportationMode exposing (ResponseTransportationMode(..), decoder, encode, toString)
 
 import Dict exposing (Dict)
 import Json.Decode as Decode exposing (Decoder)
@@ -142,5 +142,57 @@ encode model =
 
         Coach ->
             Encode.string "coach"
+
+
+
+
+toString : ResponseTransportationMode -> String
+toString model =
+    case model of
+        Car ->
+            "car"
+
+        Parking ->
+            "parking"
+
+        Boarding ->
+            "boarding"
+
+        Walk ->
+            "walk"
+
+        Bike ->
+            "bike"
+
+        Train ->
+            "train"
+
+        RailNational ->
+            "rail_national"
+
+        RailOverground ->
+            "rail_overground"
+
+        RailUnderground ->
+            "rail_underground"
+
+        RailDlr ->
+            "rail_dlr"
+
+        Bus ->
+            "bus"
+
+        CableCar ->
+            "cable_car"
+
+        Plane ->
+            "plane"
+
+        Ferry ->
+            "ferry"
+
+        Coach ->
+            "coach"
+
 
 

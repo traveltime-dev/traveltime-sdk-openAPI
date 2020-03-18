@@ -13,12 +13,12 @@
 
 #include "OAIResponseMapInfoFeaturesPublicTransport.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -75,10 +75,10 @@ OAIResponseMapInfoFeaturesPublicTransport::asJson () const {
 QJsonObject
 OAIResponseMapInfoFeaturesPublicTransport::asJsonObject() const {
     QJsonObject obj;
-	if(m_date_start_isSet){
+    if(m_date_start_isSet){
         obj.insert(QString("date_start"), ::OpenAPI::toJsonValue(date_start));
     }
-	if(m_date_end_isSet){
+    if(m_date_end_isSet){
         obj.insert(QString("date_end"), ::OpenAPI::toJsonValue(date_end));
     }
     return obj;

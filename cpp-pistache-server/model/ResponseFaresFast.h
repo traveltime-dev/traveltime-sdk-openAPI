@@ -46,7 +46,8 @@ public:
     /// 
     /// </summary>
     std::vector<ResponseFareTicket>& getTicketsTotal();
-    
+    void setTicketsTotal(std::vector<ResponseFareTicket> const& value);
+
     friend void to_json(nlohmann::json& j, const ResponseFaresFast& o);
     friend void from_json(const nlohmann::json& j, ResponseFaresFast& o);
 protected:

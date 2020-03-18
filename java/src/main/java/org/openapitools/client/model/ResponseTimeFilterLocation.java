@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseTimeFilterProperties;
 /**
  * ResponseTimeFilterLocation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterLocation {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -40,7 +40,9 @@ public class ResponseTimeFilterLocation {
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
   private List<ResponseTimeFilterProperties> properties = new ArrayList<ResponseTimeFilterProperties>();
 
+
   public ResponseTimeFilterLocation id(String id) {
+    
     this.id = id;
     return this;
   }
@@ -50,15 +52,19 @@ public class ResponseTimeFilterLocation {
    * @return id
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getId() {
     return id;
   }
+
 
   public void setId(String id) {
     this.id = id;
   }
 
+
   public ResponseTimeFilterLocation properties(List<ResponseTimeFilterProperties> properties) {
+    
     this.properties = properties;
     return this;
   }
@@ -73,9 +79,11 @@ public class ResponseTimeFilterLocation {
    * @return properties
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterProperties> getProperties() {
     return properties;
   }
+
 
   public void setProperties(List<ResponseTimeFilterProperties> properties) {
     this.properties = properties;

@@ -48,7 +48,7 @@ import javax.validation.Valid;
 
 
 @io.swagger.annotations.Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class V4Api  {
    private final V4ApiService delegate;
 
@@ -85,12 +85,12 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingReverseSearch(@ApiParam(value = "",required=true)@QueryParam("focus.lat") Double focusLat
-,@ApiParam(value = "",required=true)@QueryParam("focus.lng") Double focusLng
-,@ApiParam(value = "")@QueryParam("within.country") String withinCountry
+    public Response geocodingReverseSearch(@ApiParam(value = "", required = true) @QueryParam("lat") @NotNull  Double lat
+,@ApiParam(value = "", required = true) @QueryParam("lng") @NotNull  Double lng
+,@ApiParam(value = "") @QueryParam("within.country")  String withinCountry
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.geocodingReverseSearch(focusLat, focusLng, withinCountry, securityContext);
+        return delegate.geocodingReverseSearch(lat, lng, withinCountry, securityContext);
     }
     @GET
     @Path("/geocoding/search")
@@ -104,13 +104,13 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response geocodingSearch(@ApiParam(value = "",required=true)@QueryParam("query") String query
-,@ApiParam(value = "")@QueryParam("within.country") String withinCountry
-,@ApiParam(value = "")@QueryParam("focus.lat") Double focusLat
-,@ApiParam(value = "")@QueryParam("focus.lng") Double focusLng
+    public Response geocodingSearch(@ApiParam(value = "", required = true) @QueryParam("query") @NotNull  String query
+,@ApiParam(value = "") @QueryParam("focus.lat")  Double focusLat
+,@ApiParam(value = "") @QueryParam("focus.lng")  Double focusLng
+,@ApiParam(value = "") @QueryParam("within.country")  String withinCountry
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
-        return delegate.geocodingSearch(query, withinCountry, focusLat, focusLng, securityContext);
+        return delegate.geocodingSearch(query, focusLat, focusLng, withinCountry, securityContext);
     }
     @GET
     @Path("/map-info")
@@ -140,7 +140,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)", response = ResponseRoutes.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response routes(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestRoutes requestRoutes
+    public Response routes(@ApiParam(value = "", required = true) @NotNull @Valid  RequestRoutes requestRoutes
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.routes(requestRoutes, securityContext);
@@ -157,7 +157,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)", response = ResponseSupportedLocations.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response supportedLocations(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestSupportedLocations requestSupportedLocations
+    public Response supportedLocations(@ApiParam(value = "", required = true) @NotNull @Valid  RequestSupportedLocations requestSupportedLocations
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.supportedLocations(requestSupportedLocations, securityContext);
@@ -174,7 +174,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)", response = ResponseTimeFilter.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeFilter(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeFilter requestTimeFilter
+    public Response timeFilter(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeFilter requestTimeFilter
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeFilter(requestTimeFilter, securityContext);
@@ -191,7 +191,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)", response = ResponseTimeFilterFast.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeFilterFast(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeFilterFast requestTimeFilterFast
+    public Response timeFilterFast(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeFilterFast requestTimeFilterFast
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeFilterFast(requestTimeFilterFast, securityContext);
@@ -208,7 +208,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)", response = ResponseTimeFilterPostcodeDistricts.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeFilterPostcodeDistricts(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts
+    public Response timeFilterPostcodeDistricts(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts, securityContext);
@@ -225,7 +225,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)", response = ResponseTimeFilterPostcodeSectors.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeFilterPostcodeSectors(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors
+    public Response timeFilterPostcodeSectors(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors, securityContext);
@@ -242,7 +242,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)", response = ResponseTimeFilterPostcodes.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeFilterPostcodes(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeFilterPostcodes requestTimeFilterPostcodes
+    public Response timeFilterPostcodes(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeFilterPostcodes requestTimeFilterPostcodes
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeFilterPostcodes(requestTimeFilterPostcodes, securityContext);
@@ -259,7 +259,7 @@ public class V4Api  {
         @io.swagger.annotations.ApiResponse(code = 200, message = "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)", response = ResponseTimeMap.class),
         
         @io.swagger.annotations.ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)", response = ResponseError.class) })
-    public Response timeMap(@ApiParam(value = "" ,required=true) @NotNull @Valid RequestTimeMap requestTimeMap
+    public Response timeMap(@ApiParam(value = "", required = true) @NotNull @Valid  RequestTimeMap requestTimeMap
 ,@Context SecurityContext securityContext)
     throws NotFoundException {
         return delegate.timeMap(requestTimeMap, securityContext);

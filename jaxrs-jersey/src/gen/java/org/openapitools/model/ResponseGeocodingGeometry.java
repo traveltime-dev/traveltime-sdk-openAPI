@@ -20,18 +20,25 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseGeocodingGeometry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseGeocodingGeometry.JSON_PROPERTY_TYPE,
+  ResponseGeocodingGeometry.JSON_PROPERTY_COORDINATES
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseGeocodingGeometry   {
-  @JsonProperty("type")
+  public static final String JSON_PROPERTY_TYPE = "type";
+  @JsonProperty(JSON_PROPERTY_TYPE)
   private String type;
 
-  @JsonProperty("coordinates")
+  public static final String JSON_PROPERTY_COORDINATES = "coordinates";
+  @JsonProperty(JSON_PROPERTY_COORDINATES)
   private List<Double> coordinates = new ArrayList<Double>();
 
   public ResponseGeocodingGeometry type(String type) {

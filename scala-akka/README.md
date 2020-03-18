@@ -193,3 +193,4 @@ Authentication schemes defined for the API:
 ## Author
 
 support@igeolise.com
+

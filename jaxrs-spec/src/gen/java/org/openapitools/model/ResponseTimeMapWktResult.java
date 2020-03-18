@@ -18,7 +18,7 @@ public class ResponseTimeMapWktResult   {
   
   private @Valid String searchId;
   private @Valid String shape;
-  private @Valid ResponseTimeMapProperties properties = null;
+  private @Valid ResponseTimeMapProperties properties;
 
   /**
    **/

@@ -31,6 +31,7 @@
 #include "OAIObject.h"
 #include "OAIEnum.h"
 
+
 namespace OpenAPI {
 
 class OAIRequestTimeFilterFastArrivalManyToOneSearch: public OAIObject {
@@ -73,7 +74,7 @@ public:
     void setProperties(const QList<OAIRequestTimeFilterFastProperty> &properties);
 
     
-    
+
     virtual bool isSet() const override;
     virtual bool isValid() const override;
 
@@ -111,5 +112,7 @@ private:
     };
 
 }
+
+Q_DECLARE_METATYPE(OpenAPI::OAIRequestTimeFilterFastArrivalManyToOneSearch)
 
 #endif // OAIRequestTimeFilterFastArrivalManyToOneSearch_H

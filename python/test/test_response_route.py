@@ -14,11 +14,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
-import traveltimeplatform
-from traveltimeplatform.models.response_route import ResponseRoute  # noqa: E501
-from traveltimeplatform.rest import ApiException
-
+import openapi_client
+from openapi_client.models.response_route import ResponseRoute  # noqa: E501
+from openapi_client.rest import ApiException
 
 class TestResponseRoute(unittest.TestCase):
     """ResponseRoute unit test stubs"""
@@ -29,11 +29,73 @@ class TestResponseRoute(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test ResponseRoute
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = openapi_client.models.response_route.ResponseRoute()  # noqa: E501
+        if include_optional :
+            return ResponseRoute(
+                departure_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                arrival_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                parts = [
+                    openapi_client.models.response_route_part.ResponseRoutePart(
+                        id = '0', 
+                        type = 'basic', 
+                        mode = 'car', 
+                        directions = '0', 
+                        distance = 56, 
+                        travel_time = 56, 
+                        coords = [
+                            openapi_client.models.coords.Coords(
+                                lat = 1.337, 
+                                lng = 1.337, )
+                            ], 
+                        direction = '0', 
+                        road = '0', 
+                        turn = '0', 
+                        line = '0', 
+                        departure_station = '0', 
+                        arrival_station = '0', 
+                        departs_at = '0', 
+                        arrives_at = '0', 
+                        num_stops = 56, )
+                    ]
+            )
+        else :
+            return ResponseRoute(
+                departure_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                arrival_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                parts = [
+                    openapi_client.models.response_route_part.ResponseRoutePart(
+                        id = '0', 
+                        type = 'basic', 
+                        mode = 'car', 
+                        directions = '0', 
+                        distance = 56, 
+                        travel_time = 56, 
+                        coords = [
+                            openapi_client.models.coords.Coords(
+                                lat = 1.337, 
+                                lng = 1.337, )
+                            ], 
+                        direction = '0', 
+                        road = '0', 
+                        turn = '0', 
+                        line = '0', 
+                        departure_station = '0', 
+                        arrival_station = '0', 
+                        departs_at = '0', 
+                        arrives_at = '0', 
+                        num_stops = 56, )
+                    ],
+        )
+
     def testResponseRoute(self):
         """Test ResponseRoute"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = traveltimeplatform.models.response_route.ResponseRoute()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

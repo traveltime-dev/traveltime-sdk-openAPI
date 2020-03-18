@@ -13,12 +13,12 @@
 
 #include "OAIResponseFareTicket.h"
 
-#include "OAIHelpers.h"
-
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QObject>
 #include <QDebug>
+
+#include "OAIHelpers.h"
 
 namespace OpenAPI {
 
@@ -81,13 +81,13 @@ OAIResponseFareTicket::asJson () const {
 QJsonObject
 OAIResponseFareTicket::asJsonObject() const {
     QJsonObject obj;
-	if(m_type_isSet){
+    if(m_type_isSet){
         obj.insert(QString("type"), ::OpenAPI::toJsonValue(type));
     }
-	if(m_price_isSet){
+    if(m_price_isSet){
         obj.insert(QString("price"), ::OpenAPI::toJsonValue(price));
     }
-	if(m_currency_isSet){
+    if(m_currency_isSet){
         obj.insert(QString("currency"), ::OpenAPI::toJsonValue(currency));
     }
     return obj;

@@ -27,28 +27,28 @@ response_fare_ticket_t *response_fare_ticket_create(
     double price,
     char *currency
     ) {
-	response_fare_ticket_t *response_fare_ticket_local_var = malloc(sizeof(response_fare_ticket_t));
+    response_fare_ticket_t *response_fare_ticket_local_var = malloc(sizeof(response_fare_ticket_t));
     if (!response_fare_ticket_local_var) {
         return NULL;
     }
-	response_fare_ticket_local_var->type = type;
-	response_fare_ticket_local_var->price = price;
-	response_fare_ticket_local_var->currency = currency;
+    response_fare_ticket_local_var->type = type;
+    response_fare_ticket_local_var->price = price;
+    response_fare_ticket_local_var->currency = currency;
 
-	return response_fare_ticket_local_var;
+    return response_fare_ticket_local_var;
 }
 
 
 void response_fare_ticket_free(response_fare_ticket_t *response_fare_ticket) {
     listEntry_t *listEntry;
     free(response_fare_ticket->currency);
-	free(response_fare_ticket);
+    free(response_fare_ticket);
 }
 
 cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_ticket) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_fare_ticket->type
+    // response_fare_ticket->type
     
     if(cJSON_AddStringToObject(item, "type", typeresponse_fare_ticket_ToString(response_fare_ticket->type)) == NULL)
     {
@@ -56,7 +56,7 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     }
 
 
-	// response_fare_ticket->price
+    // response_fare_ticket->price
     if (!response_fare_ticket->price) {
         goto fail;
     }
@@ -66,7 +66,7 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     }
 
 
-	// response_fare_ticket->currency
+    // response_fare_ticket->currency
     if (!response_fare_ticket->currency) {
         goto fail;
     }
@@ -75,12 +75,12 @@ cJSON *response_fare_ticket_convertToJSON(response_fare_ticket_t *response_fare_
     goto fail; //String
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_fare_ticket_t *response_fare_ticket_parseFromJSON(cJSON *response_fare_ticketJSON){

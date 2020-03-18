@@ -6,49 +6,39 @@
 
 
 response_time_filter_postcode_t *response_time_filter_postcode_create(
-    char_t *code,
     list_t *properties
     ) {
-	response_time_filter_postcode_t *response_time_filter_postcode_local_var = malloc(sizeof(response_time_filter_postcode_t));
+    response_time_filter_postcode_t *response_time_filter_postcode_local_var = malloc(sizeof(response_time_filter_postcode_t));
     if (!response_time_filter_postcode_local_var) {
         return NULL;
     }
-	response_time_filter_postcode_local_var->code = code;
-	response_time_filter_postcode_local_var->properties = properties;
+    response_time_filter_postcode_local_var->code = code;
+    response_time_filter_postcode_local_var->properties = properties;
 
-	return response_time_filter_postcode_local_var;
+    return response_time_filter_postcode_local_var;
 }
 
 
 void response_time_filter_postcode_free(response_time_filter_postcode_t *response_time_filter_postcode) {
     listEntry_t *listEntry;
-    string_free(response_time_filter_postcode->code);
-	list_ForEach(listEntry, response_time_filter_postcode->properties) {
-		response_time_filter_postcodes_properties_free(listEntry->data);
-	}
-	list_free(response_time_filter_postcode->properties);
-	free(response_time_filter_postcode);
+    list_ForEach(listEntry, response_time_filter_postcode->properties) {
+        response_time_filter_postcodes_properties_free(listEntry->data);
+    }
+    list_free(response_time_filter_postcode->properties);
+    free(response_time_filter_postcode);
 }
 
 cJSON *response_time_filter_postcode_convertToJSON(response_time_filter_postcode_t *response_time_filter_postcode) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcode->code
+    // response_time_filter_postcode->code
     if (!response_time_filter_postcode->code) {
         goto fail;
     }
     
-    cJSON *code_local_JSON = string_convertToJSON(response_time_filter_postcode->code);
-    if(code_local_JSON == NULL) {
-    goto fail; //model
-    }
-    cJSON_AddItemToObject(item, "code", code_local_JSON);
-    if(item->child == NULL) {
-    goto fail;
-    }
 
 
-	// response_time_filter_postcode->properties
+    // response_time_filter_postcode->properties
     if (!response_time_filter_postcode->properties) {
         goto fail;
     }
@@ -69,12 +59,12 @@ cJSON *response_time_filter_postcode_convertToJSON(response_time_filter_postcode
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJSON *response_time_filter_postcodeJSON){
@@ -87,9 +77,6 @@ response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJS
         goto end;
     }
 
-    string_t *code_local_nonprim = NULL;
-    
-    code_local_nonprim = string_parseFromJSON(code); //nonprimitive
 
     // response_time_filter_postcode->properties
     cJSON *properties = cJSON_GetObjectItemCaseSensitive(response_time_filter_postcodeJSON, "properties");
@@ -118,7 +105,6 @@ response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJS
 
 
     response_time_filter_postcode_local_var = response_time_filter_postcode_create (
-        code_local_nonprim,
         propertiesList
         );
 

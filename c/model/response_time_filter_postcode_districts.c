@@ -8,29 +8,29 @@
 response_time_filter_postcode_districts_t *response_time_filter_postcode_districts_create(
     list_t *results
     ) {
-	response_time_filter_postcode_districts_t *response_time_filter_postcode_districts_local_var = malloc(sizeof(response_time_filter_postcode_districts_t));
+    response_time_filter_postcode_districts_t *response_time_filter_postcode_districts_local_var = malloc(sizeof(response_time_filter_postcode_districts_t));
     if (!response_time_filter_postcode_districts_local_var) {
         return NULL;
     }
-	response_time_filter_postcode_districts_local_var->results = results;
+    response_time_filter_postcode_districts_local_var->results = results;
 
-	return response_time_filter_postcode_districts_local_var;
+    return response_time_filter_postcode_districts_local_var;
 }
 
 
 void response_time_filter_postcode_districts_free(response_time_filter_postcode_districts_t *response_time_filter_postcode_districts) {
     listEntry_t *listEntry;
-	list_ForEach(listEntry, response_time_filter_postcode_districts->results) {
-		response_time_filter_postcode_districts_result_free(listEntry->data);
-	}
-	list_free(response_time_filter_postcode_districts->results);
-	free(response_time_filter_postcode_districts);
+    list_ForEach(listEntry, response_time_filter_postcode_districts->results) {
+        response_time_filter_postcode_districts_result_free(listEntry->data);
+    }
+    list_free(response_time_filter_postcode_districts->results);
+    free(response_time_filter_postcode_districts);
 }
 
 cJSON *response_time_filter_postcode_districts_convertToJSON(response_time_filter_postcode_districts_t *response_time_filter_postcode_districts) {
-	cJSON *item = cJSON_CreateObject();
+    cJSON *item = cJSON_CreateObject();
 
-	// response_time_filter_postcode_districts->results
+    // response_time_filter_postcode_districts->results
     if (!response_time_filter_postcode_districts->results) {
         goto fail;
     }
@@ -51,12 +51,12 @@ cJSON *response_time_filter_postcode_districts_convertToJSON(response_time_filte
     }
     }
 
-	return item;
+    return item;
 fail:
-	if (item) {
+    if (item) {
         cJSON_Delete(item);
     }
-	return NULL;
+    return NULL;
 }
 
 response_time_filter_postcode_districts_t *response_time_filter_postcode_districts_parseFromJSON(cJSON *response_time_filter_postcode_districtsJSON){

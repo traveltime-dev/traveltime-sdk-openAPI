@@ -19,8 +19,8 @@ public class ResponseRoutesProperties   {
   
   private @Valid Integer travelTime;
   private @Valid Integer distance;
-  private @Valid ResponseFares fares = null;
-  private @Valid ResponseRoute route = null;
+  private @Valid ResponseFares fares;
+  private @Valid ResponseRoute route;
 
   /**
    **/

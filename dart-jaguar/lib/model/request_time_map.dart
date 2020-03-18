@@ -11,16 +11,16 @@ part 'request_time_map.jser.dart';
 
 class RequestTimeMap {
   
-  @Alias('departure_searches')
+  @Alias('departure_searches', isNullable: false,  )
   final List<RequestTimeMapDepartureSearch> departureSearches;
   
-  @Alias('arrival_searches')
+  @Alias('arrival_searches', isNullable: false,  )
   final List<RequestTimeMapArrivalSearch> arrivalSearches;
   
-  @Alias('unions')
+  @Alias('unions', isNullable: false,  )
   final List<RequestUnionOnIntersection> unions;
   
-  @Alias('intersections')
+  @Alias('intersections', isNullable: false,  )
   final List<RequestUnionOnIntersection> intersections;
   
 

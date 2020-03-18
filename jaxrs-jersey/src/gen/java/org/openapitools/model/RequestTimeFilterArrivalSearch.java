@@ -24,37 +24,56 @@ import java.util.List;
 import org.openapitools.model.RequestRangeFull;
 import org.openapitools.model.RequestTimeFilterProperty;
 import org.openapitools.model.RequestTransportation;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * RequestTimeFilterArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_ID,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_DEPARTURE_LOCATION_IDS,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_ARRIVAL_LOCATION_ID,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_TRANSPORTATION,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_TRAVEL_TIME,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_ARRIVAL_TIME,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_PROPERTIES,
+  RequestTimeFilterArrivalSearch.JSON_PROPERTY_RANGE
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class RequestTimeFilterArrivalSearch   {
-  @JsonProperty("id")
+  public static final String JSON_PROPERTY_ID = "id";
+  @JsonProperty(JSON_PROPERTY_ID)
   private String id;
 
-  @JsonProperty("departure_location_ids")
+  public static final String JSON_PROPERTY_DEPARTURE_LOCATION_IDS = "departure_location_ids";
+  @JsonProperty(JSON_PROPERTY_DEPARTURE_LOCATION_IDS)
   private List<String> departureLocationIds = new ArrayList<String>();
 
-  @JsonProperty("arrival_location_id")
+  public static final String JSON_PROPERTY_ARRIVAL_LOCATION_ID = "arrival_location_id";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_LOCATION_ID)
   private String arrivalLocationId;
 
-  @JsonProperty("transportation")
-  private RequestTransportation transportation = null;
+  public static final String JSON_PROPERTY_TRANSPORTATION = "transportation";
+  @JsonProperty(JSON_PROPERTY_TRANSPORTATION)
+  private RequestTransportation transportation;
 
-  @JsonProperty("travel_time")
+  public static final String JSON_PROPERTY_TRAVEL_TIME = "travel_time";
+  @JsonProperty(JSON_PROPERTY_TRAVEL_TIME)
   private Integer travelTime;
 
-  @JsonProperty("arrival_time")
+  public static final String JSON_PROPERTY_ARRIVAL_TIME = "arrival_time";
+  @JsonProperty(JSON_PROPERTY_ARRIVAL_TIME)
   private Date arrivalTime;
 
-  @JsonProperty("properties")
+  public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @JsonProperty(JSON_PROPERTY_PROPERTIES)
   private List<RequestTimeFilterProperty> properties = new ArrayList<RequestTimeFilterProperty>();
 
-  @JsonProperty("range")
-  private RequestRangeFull range = null;
+  public static final String JSON_PROPERTY_RANGE = "range";
+  @JsonProperty(JSON_PROPERTY_RANGE)
+  private RequestRangeFull range;
 
   public RequestTimeFilterArrivalSearch id(String id) {
     this.id = id;

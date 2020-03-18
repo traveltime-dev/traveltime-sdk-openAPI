@@ -24,27 +24,27 @@ import model.ResponseTimeFilterPostcodeSectors
 import model.ResponseTimeFilterPostcodes
 import model.ResponseTimeMap
 
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2019-05-24T09:07:50.761Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T07:55:16.100Z[Etc/UTC]")
 @Singleton
 class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) extends AbstractController(cc) {
   /**
-    * GET /v4/geocoding/reverse?focusPeriodlat=[value]&focusPeriodlng=[value]&withinPeriodcountry=[value]
+    * GET /v4/geocoding/reverse?lat=[value]&lng=[value]&withinPeriodcountry=[value]
     */
   def geocodingReverseSearch(): Action[AnyContent] = Action { request =>
     def executeApi(): ResponseGeocoding = {
-      val focusPeriodlat = request.getQueryString("focus.lat")
+      val lat = request.getQueryString("lat")
         .map(value => value.toDouble)
         .getOrElse {
-          throw new OpenApiExceptions.MissingRequiredParameterException("focus.lat", "query string")
+          throw new OpenApiExceptions.MissingRequiredParameterException("lat", "query string")
         }
-      val focusPeriodlng = request.getQueryString("focus.lng")
+      val lng = request.getQueryString("lng")
         .map(value => value.toDouble)
         .getOrElse {
-          throw new OpenApiExceptions.MissingRequiredParameterException("focus.lng", "query string")
+          throw new OpenApiExceptions.MissingRequiredParameterException("lng", "query string")
         }
       val withinPeriodcountry = request.getQueryString("within.country")
         
-      api.geocodingReverseSearch(focusPeriodlat, focusPeriodlng, withinPeriodcountry)
+      api.geocodingReverseSearch(lat, lng, withinPeriodcountry)
     }
 
     val result = executeApi()
@@ -53,7 +53,7 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
   }
 
   /**
-    * GET /v4/geocoding/search?query=[value]&withinPeriodcountry=[value]&focusPeriodlat=[value]&focusPeriodlng=[value]
+    * GET /v4/geocoding/search?query=[value]&focusPeriodlat=[value]&focusPeriodlng=[value]&withinPeriodcountry=[value]
     */
   def geocodingSearch(): Action[AnyContent] = Action { request =>
     def executeApi(): ResponseGeocoding = {
@@ -61,13 +61,13 @@ class DefaultApiController @Inject()(cc: ControllerComponents, api: DefaultApi) 
         .getOrElse {
           throw new OpenApiExceptions.MissingRequiredParameterException("query", "query string")
         }
-      val withinPeriodcountry = request.getQueryString("within.country")
-        
       val focusPeriodlat = request.getQueryString("focus.lat")
         .map(value => value.toDouble)
       val focusPeriodlng = request.getQueryString("focus.lng")
         .map(value => value.toDouble)
-      api.geocodingSearch(query, withinPeriodcountry, focusPeriodlat, focusPeriodlng)
+      val withinPeriodcountry = request.getQueryString("within.country")
+        
+      api.geocodingSearch(query, focusPeriodlat, focusPeriodlng, withinPeriodcountry)
     }
 
     val result = executeApi()

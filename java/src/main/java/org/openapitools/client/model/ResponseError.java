@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * ResponseError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseError {
   public static final String SERIALIZED_NAME_HTTP_STATUS = "http_status";
   @SerializedName(SERIALIZED_NAME_HTTP_STATUS)
@@ -50,9 +50,11 @@ public class ResponseError {
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFO = "additional_info";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFO)
-  private Map<String, List<String>> additionalInfo = new HashMap<String, List<String>>();
+  private Map<String, List<String>> additionalInfo = null;
+
 
   public ResponseError httpStatus(Integer httpStatus) {
+    
     this.httpStatus = httpStatus;
     return this;
   }
@@ -61,16 +63,21 @@ public class ResponseError {
    * Get httpStatus
    * @return httpStatus
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getHttpStatus() {
     return httpStatus;
   }
+
 
   public void setHttpStatus(Integer httpStatus) {
     this.httpStatus = httpStatus;
   }
 
+
   public ResponseError errorCode(Integer errorCode) {
+    
     this.errorCode = errorCode;
     return this;
   }
@@ -79,16 +86,21 @@ public class ResponseError {
    * Get errorCode
    * @return errorCode
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Integer getErrorCode() {
     return errorCode;
   }
+
 
   public void setErrorCode(Integer errorCode) {
     this.errorCode = errorCode;
   }
 
+
   public ResponseError description(String description) {
+    
     this.description = description;
     return this;
   }
@@ -97,16 +109,21 @@ public class ResponseError {
    * Get description
    * @return description
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDescription() {
     return description;
   }
+
 
   public void setDescription(String description) {
     this.description = description;
   }
 
+
   public ResponseError documentationLink(String documentationLink) {
+    
     this.documentationLink = documentationLink;
     return this;
   }
@@ -115,16 +132,21 @@ public class ResponseError {
    * Get documentationLink
    * @return documentationLink
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDocumentationLink() {
     return documentationLink;
   }
+
 
   public void setDocumentationLink(String documentationLink) {
     this.documentationLink = documentationLink;
   }
 
+
   public ResponseError additionalInfo(Map<String, List<String>> additionalInfo) {
+    
     this.additionalInfo = additionalInfo;
     return this;
   }
@@ -141,10 +163,13 @@ public class ResponseError {
    * Get additionalInfo
    * @return additionalInfo
   **/
+  @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public Map<String, List<String>> getAdditionalInfo() {
     return additionalInfo;
   }
+
 
   public void setAdditionalInfo(Map<String, List<String>> additionalInfo) {
     this.additionalInfo = additionalInfo;

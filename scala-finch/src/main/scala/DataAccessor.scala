@@ -1,4 +1,4 @@
-package traveltimeplatform
+package org.openapitools
 
 // TODO: properly handle custom imports
 import java.io._
@@ -18,13 +18,13 @@ trait DataAccessor {
         * 
         * @return A ResponseGeocoding
         */
-        def Default_geocodingReverseSearch(focusPeriodlat: Double, focusPeriodlng: Double, withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String): Either[CommonError,ResponseGeocoding] = Left(TODO)
+        def Default_geocodingReverseSearch(lat: Double, lng: Double, withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String): Either[CommonError,ResponseGeocoding] = Left(TODO)
 
         /**
         * 
         * @return A ResponseGeocoding
         */
-        def Default_geocodingSearch(query: String, withinPeriodcountry: Option[String], focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], authParamApiKey: String, authParamApplicationId: String): Either[CommonError,ResponseGeocoding] = Left(TODO)
+        def Default_geocodingSearch(query: String, focusPeriodlat: Option[Double], focusPeriodlng: Option[Double], withinPeriodcountry: Option[String], authParamApiKey: String, authParamApplicationId: String): Either[CommonError,ResponseGeocoding] = Left(TODO)
 
         /**
         * 

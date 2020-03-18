@@ -56,7 +56,6 @@ std::string ResponseTimeMapWktResult::getSearchId() const
 void ResponseTimeMapWktResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::string ResponseTimeMapWktResult::getShape() const
 {
@@ -65,7 +64,6 @@ std::string ResponseTimeMapWktResult::getShape() const
 void ResponseTimeMapWktResult::setShape(std::string const& value)
 {
     m_Shape = value;
-    
 }
 ResponseTimeMapProperties ResponseTimeMapWktResult::getProperties() const
 {
@@ -74,7 +72,6 @@ ResponseTimeMapProperties ResponseTimeMapWktResult::getProperties() const
 void ResponseTimeMapWktResult::setProperties(ResponseTimeMapProperties const& value)
 {
     m_Properties = value;
-    
 }
 
 }

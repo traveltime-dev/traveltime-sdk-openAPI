@@ -18,8 +18,8 @@
 
 typedef struct response_geocoding_geo_json_feature_t {
     char *type; // string
-    response_geocoding_geometry_t *geometry; //model
-    response_geocoding_properties_t *properties; //model
+    struct response_geocoding_geometry_t *geometry; //model
+    struct response_geocoding_properties_t *properties; //model
 
 } response_geocoding_geo_json_feature_t;
 

@@ -8,18 +8,18 @@ function New-ResponseRoutesProperties {
         [System.Nullable[Int32]]
         ${distance},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseFares]]
+        [Org.OpenAPITools.Model.ResponseFares]
         ${fares},
         [Parameter(Position = 3, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseRoute]]
+        [Org.OpenAPITools.Model.ResponseRoute]
         ${route}
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseRoutesProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseRoutesProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseRoutesProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseRoutesProperties -ArgumentList @(
             ${travelUnderscoretime},
             ${distance},
             ${fares},

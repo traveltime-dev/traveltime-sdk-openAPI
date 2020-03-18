@@ -2,10 +2,10 @@ function New-ResponseTimeFilterPostcodeSectorProperties {
     [CmdletBinding()]
     Param (
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseTravelTimeStatistics]]
+        [Org.OpenAPITools.Model.ResponseTravelTimeStatistics]
         ${travelUnderscoretimeUnderscorereachable},
         [Parameter(Position = 1, ValueFromPipelineByPropertyName = $true)]
-        [System.Nullable[traveltimeplatform.Model.ResponseTravelTimeStatistics]]
+        [Org.OpenAPITools.Model.ResponseTravelTimeStatistics]
         ${travelUnderscoretimeUnderscoreall},
         [Parameter(Position = 2, ValueFromPipelineByPropertyName = $true)]
         [System.Nullable[Double]]
@@ -13,10 +13,10 @@ function New-ResponseTimeFilterPostcodeSectorProperties {
     )
 
     Process {
-        'Creating object: traveltimeplatform.Model.ResponseTimeFilterPostcodeSectorProperties' | Write-Verbose
+        'Creating object: Org.OpenAPITools.Model.ResponseTimeFilterPostcodeSectorProperties' | Write-Verbose
         $PSBoundParameters | Out-DebugParameter | Write-Debug
 
-        New-Object -TypeName traveltimeplatform.Model.ResponseTimeFilterPostcodeSectorProperties -ArgumentList @(
+        New-Object -TypeName Org.OpenAPITools.Model.ResponseTimeFilterPostcodeSectorProperties -ArgumentList @(
             ${travelUnderscoretimeUnderscorereachable},
             ${travelUnderscoretimeUnderscoreall},
             ${coverage}

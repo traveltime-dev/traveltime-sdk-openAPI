@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseMapInfoFeatures;
 /**
  * ResponseGeocodingProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2019-05-24T09:06:47.339Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-03-18T07:53:52.909Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
   @JsonProperty("name")
   private String name;
@@ -58,7 +58,7 @@ public class ResponseGeocodingProperties   {
   private String postcode;
 
   @JsonProperty("features")
-  private ResponseMapInfoFeatures features = null;
+  private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties name(String name) {
     this.name = name;

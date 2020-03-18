@@ -55,15 +55,22 @@ std::string ResponseRoutesResult::getSearchId() const
 void ResponseRoutesResult::setSearchId(std::string const& value)
 {
     m_Search_id = value;
-    
 }
 std::vector<ResponseRoutesLocation>& ResponseRoutesResult::getLocations()
 {
     return m_Locations;
 }
+void ResponseRoutesResult::setLocations(std::vector<ResponseRoutesLocation> const& value)
+{
+    m_Locations = value;
+}
 std::vector<std::string>& ResponseRoutesResult::getUnreachable()
 {
     return m_Unreachable;
+}
+void ResponseRoutesResult::setUnreachable(std::vector<std::string> const& value)
+{
+    m_Unreachable = value;
 }
 
 }

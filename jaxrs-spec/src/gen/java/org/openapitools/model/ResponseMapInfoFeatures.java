@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 public class ResponseMapInfoFeatures   {
   
-  private @Valid ResponseMapInfoFeaturesPublicTransport publicTransport = null;
+  private @Valid ResponseMapInfoFeaturesPublicTransport publicTransport;
   private @Valid Boolean fares;
   private @Valid Boolean postcodes;
 

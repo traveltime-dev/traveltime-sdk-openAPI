@@ -21,18 +21,25 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.ResponseSupportedLocation;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
 /**
  * ResponseSupportedLocations
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2019-05-24T09:07:05.199Z[Etc/UTC]")
+@JsonPropertyOrder({
+  ResponseSupportedLocations.JSON_PROPERTY_LOCATIONS,
+  ResponseSupportedLocations.JSON_PROPERTY_UNSUPPORTED_LOCATIONS
+})
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
 public class ResponseSupportedLocations   {
-  @JsonProperty("locations")
+  public static final String JSON_PROPERTY_LOCATIONS = "locations";
+  @JsonProperty(JSON_PROPERTY_LOCATIONS)
   private List<ResponseSupportedLocation> locations = new ArrayList<ResponseSupportedLocation>();
 
-  @JsonProperty("unsupported_locations")
+  public static final String JSON_PROPERTY_UNSUPPORTED_LOCATIONS = "unsupported_locations";
+  @JsonProperty(JSON_PROPERTY_UNSUPPORTED_LOCATIONS)
   private List<String> unsupportedLocations = new ArrayList<String>();
 
   public ResponseSupportedLocations locations(List<ResponseSupportedLocation> locations) {

@@ -11,7 +11,7 @@
 -}
 
 
-module Data.RequestTimeFilterFastArrivalManyToOneSearch exposing (RequestTimeFilterFastArrivalManyToOneSearch, decoder, encode)
+module Data.RequestTimeFilterFastArrivalManyToOneSearch exposing (RequestTimeFilterFastArrivalManyToOneSearch, decoder, encode, encodeWithTag, toString)
 
 import Data.RequestTransportationFast as RequestTransportationFast exposing (RequestTransportationFast)
 import Data.RequestArrivalTimePeriod as RequestArrivalTimePeriod exposing (RequestArrivalTimePeriod)
@@ -47,16 +47,32 @@ decoder =
 
 
 encode : RequestTimeFilterFastArrivalManyToOneSearch -> Encode.Value
-encode model =
-    Encode.object
-        [ ( "id", Encode.string model.id )
-        , ( "arrival_location_id", Encode.string model.arrivalLocationId )
-        , ( "departure_location_ids", (Encode.list Encode.string) model.departureLocationIds )
-        , ( "transportation", RequestTransportationFast.encode model.transportation )
-        , ( "travel_time", Encode.int model.travelTime )
-        , ( "arrival_time_period", RequestArrivalTimePeriod.encode model.arrivalTimePeriod )
-        , ( "properties", (Encode.list RequestTimeFilterFastProperty.encode) model.properties )
+encode =
+    Encode.object << encodePairs
 
-        ]
+
+encodeWithTag : ( String, String ) -> RequestTimeFilterFastArrivalManyToOneSearch -> Encode.Value
+encodeWithTag (tagField, tag) model =
+    Encode.object <| encodePairs model ++ [ ( tagField, Encode.string tag ) ]
+
+
+encodePairs : RequestTimeFilterFastArrivalManyToOneSearch -> List (String, Encode.Value)
+encodePairs model =
+    [ ( "id", Encode.string model.id )
+    , ( "arrival_location_id", Encode.string model.arrivalLocationId )
+    , ( "departure_location_ids", (Encode.list Encode.string) model.departureLocationIds )
+    , ( "transportation", RequestTransportationFast.encode model.transportation )
+    , ( "travel_time", Encode.int model.travelTime )
+    , ( "arrival_time_period", RequestArrivalTimePeriod.encode model.arrivalTimePeriod )
+    , ( "properties", (Encode.list RequestTimeFilterFastProperty.encode) model.properties )
+    ]
+
+
+
+toString : RequestTimeFilterFastArrivalManyToOneSearch -> String
+toString =
+    Encode.encode 0 << encode
+
+
 
 

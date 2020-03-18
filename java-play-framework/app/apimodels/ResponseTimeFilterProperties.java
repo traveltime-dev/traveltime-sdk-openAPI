@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T07:53:58.336Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeFilterProperties   {
@@ -27,10 +27,10 @@ public class ResponseTimeFilterProperties   {
   private List<ResponseDistanceBreakdownItem> distanceBreakdown = null;
 
   @JsonProperty("fares")
-  private ResponseFares fares = null;
+  private ResponseFares fares;
 
   @JsonProperty("route")
-  private ResponseRoute route = null;
+  private ResponseRoute route;
 
   public ResponseTimeFilterProperties travelTime(Integer travelTime) {
     this.travelTime = travelTime;

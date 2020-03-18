@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2019-05-24T09:06:51.855Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-03-18T07:53:58.336Z[Etc/UTC]")
 
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterFast   {
@@ -20,7 +20,7 @@ public class RequestTimeFilterFast   {
   private List<RequestLocation> locations = new ArrayList<>();
 
   @JsonProperty("arrival_searches")
-  private RequestTimeFilterFastArrivalSearches arrivalSearches = null;
+  private RequestTimeFilterFastArrivalSearches arrivalSearches;
 
   public RequestTimeFilterFast locations(List<RequestLocation> locations) {
     this.locations = locations;

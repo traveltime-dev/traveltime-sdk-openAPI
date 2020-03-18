@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseTimeFilterPostcodeSector;
 /**
  * ResponseTimeFilterPostcodeSectorsResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2019-05-24T09:05:14.246Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSectorsResult {
   public static final String SERIALIZED_NAME_SEARCH_ID = "search_id";
   @SerializedName(SERIALIZED_NAME_SEARCH_ID)
@@ -40,7 +40,9 @@ public class ResponseTimeFilterPostcodeSectorsResult {
   @SerializedName(SERIALIZED_NAME_SECTORS)
   private List<ResponseTimeFilterPostcodeSector> sectors = new ArrayList<ResponseTimeFilterPostcodeSector>();
 
+
   public ResponseTimeFilterPostcodeSectorsResult searchId(String searchId) {
+    
     this.searchId = searchId;
     return this;
   }
@@ -50,15 +52,19 @@ public class ResponseTimeFilterPostcodeSectorsResult {
    * @return searchId
   **/
   @ApiModelProperty(required = true, value = "")
+
   public String getSearchId() {
     return searchId;
   }
+
 
   public void setSearchId(String searchId) {
     this.searchId = searchId;
   }
 
+
   public ResponseTimeFilterPostcodeSectorsResult sectors(List<ResponseTimeFilterPostcodeSector> sectors) {
+    
     this.sectors = sectors;
     return this;
   }
@@ -73,9 +79,11 @@ public class ResponseTimeFilterPostcodeSectorsResult {
    * @return sectors
   **/
   @ApiModelProperty(required = true, value = "")
+
   public List<ResponseTimeFilterPostcodeSector> getSectors() {
     return sectors;
   }
+
 
   public void setSectors(List<ResponseTimeFilterPostcodeSector> sectors) {
     this.sectors = sectors;

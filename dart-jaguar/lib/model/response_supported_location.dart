@@ -5,10 +5,10 @@ part 'response_supported_location.jser.dart';
 
 class ResponseSupportedLocation {
   
-  @Alias('id')
+  @Alias('id', isNullable: false,  )
   final String id;
   
-  @Alias('map_name')
+  @Alias('map_name', isNullable: false,  )
   final String mapName;
   
 

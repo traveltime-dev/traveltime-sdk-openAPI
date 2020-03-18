@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseMapInfoMap (
     @Json(name = "name")
-    val name: kotlin.String,
+    val name: kotlin.String
+,
     @Json(name = "features")
     val features: ResponseMapInfoFeatures
-) 
 
-
+)
 

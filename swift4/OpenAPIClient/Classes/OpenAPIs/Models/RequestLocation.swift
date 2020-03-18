@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestLocation: Codable { 
 
-public struct RequestLocation: Codable {
 
     public var id: String
     public var coords: Coords
@@ -19,6 +19,4 @@ public struct RequestLocation: Codable {
         self.coords = coords
     }
 
-
 }
-

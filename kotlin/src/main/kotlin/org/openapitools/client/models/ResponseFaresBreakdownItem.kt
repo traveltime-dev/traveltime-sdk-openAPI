@@ -24,12 +24,13 @@ import com.squareup.moshi.Json
 
 data class ResponseFaresBreakdownItem (
     @Json(name = "modes")
-    val modes: kotlin.Array<ResponseTransportationMode>,
+    val modes: kotlin.Array<ResponseTransportationMode>
+,
     @Json(name = "route_part_ids")
-    val routePartIds: kotlin.Array<kotlin.Int>,
+    val routePartIds: kotlin.Array<kotlin.Int>
+,
     @Json(name = "tickets")
     val tickets: kotlin.Array<ResponseFareTicket>
-) 
 
-
+)
 

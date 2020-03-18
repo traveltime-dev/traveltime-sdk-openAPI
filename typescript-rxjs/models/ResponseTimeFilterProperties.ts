@@ -26,7 +26,7 @@ export interface ResponseTimeFilterProperties {
      * @type {number}
      * @memberof ResponseTimeFilterProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * @type {number}
      * @memberof ResponseTimeFilterProperties
@@ -36,7 +36,7 @@ export interface ResponseTimeFilterProperties {
      * @type {Array<ResponseDistanceBreakdownItem>}
      * @memberof ResponseTimeFilterProperties
      */
-    distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
     /**
      * @type {ResponseFares}
      * @memberof ResponseTimeFilterProperties

@@ -96,7 +96,7 @@ class ResponseTimeFilterFastProperties
      *
      * @return OpenAPI\Server\Model\ResponseFaresFast|null
      */
-    public function getFares()
+    public function getFares(): ?ResponseFaresFast
     {
         return $this->fares;
     }
@@ -108,7 +108,7 @@ class ResponseTimeFilterFastProperties
      *
      * @return $this
      */
-    public function setFares(ResponseFaresFast $fares = null)
+    public function setFares(ResponseFaresFast $fares = null): ?ResponseFaresFast
     {
         $this->fares = $fares;
 

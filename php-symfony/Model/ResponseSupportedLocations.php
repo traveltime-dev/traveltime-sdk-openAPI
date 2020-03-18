@@ -78,7 +78,7 @@ class ResponseSupportedLocations
      *
      * @return OpenAPI\Server\Model\ResponseSupportedLocation[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->locations;
     }
@@ -90,7 +90,7 @@ class ResponseSupportedLocations
      *
      * @return $this
      */
-    public function setLocations(array $locations)
+    public function setLocations(array $locations): array
     {
         $this->locations = $locations;
 
@@ -102,7 +102,7 @@ class ResponseSupportedLocations
      *
      * @return string[]
      */
-    public function getUnsupportedLocations()
+    public function getUnsupportedLocations(): array
     {
         return $this->unsupportedLocations;
     }
@@ -114,7 +114,7 @@ class ResponseSupportedLocations
      *
      * @return $this
      */
-    public function setUnsupportedLocations(array $unsupportedLocations)
+    public function setUnsupportedLocations(array $unsupportedLocations): array
     {
         $this->unsupportedLocations = $unsupportedLocations;
 

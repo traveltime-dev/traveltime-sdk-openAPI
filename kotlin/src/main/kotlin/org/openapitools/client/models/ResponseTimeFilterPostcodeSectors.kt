@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class ResponseTimeFilterPostcodeSectors (
     @Json(name = "results")
     val results: kotlin.Array<ResponseTimeFilterPostcodeSectorsResult>
-) 
 
-
+)
 

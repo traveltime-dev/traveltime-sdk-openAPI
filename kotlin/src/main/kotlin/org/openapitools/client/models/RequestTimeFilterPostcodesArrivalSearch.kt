@@ -28,18 +28,22 @@ import com.squareup.moshi.Json
 
 data class RequestTimeFilterPostcodesArrivalSearch (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "transportation")
-    val transportation: RequestTransportation,
+    val transportation: RequestTransportation
+,
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int,
+    val travelTime: kotlin.Int
+,
     @Json(name = "arrival_time")
-    val arrivalTime: java.time.OffsetDateTime,
+    val arrivalTime: java.time.OffsetDateTime
+,
     @Json(name = "properties")
-    val properties: kotlin.Array<RequestTimeFilterPostcodesProperty>,
+    val properties: kotlin.Array<RequestTimeFilterPostcodesProperty>
+,
     @Json(name = "range")
     val range: RequestRangeFull? = null
-) 
 
-
+)
 

@@ -4,14 +4,14 @@
 #include "request_routes_departure_search.h"
 
 
-    char* propertiesrequest_routes_departure_search_ToString(properties_e properties){
-        char *propertiesArray[] =  { "travel_time","distance","fares","route" };
-        return propertiesArray[properties - 1];
-    }
+char* propertiesrequest_routes_departure_search_ToString(traveltime_platform_api_request_routes_departure_search__e properties) {
+	char *propertiesArray[] =  { "NULL", "travel_time", "distance", "fares", "route" };
+	return propertiesArray[properties - 1];
+}
 
-    properties_e propertiesrequest_routes_departure_search_FromString(char* properties){
+traveltime_platform_api_request_routes_departure_search__e propertiesrequest_routes_departure_search_FromString(char* properties) {
     int stringToReturn = 0;
-    char *propertiesArray[] =  { "travel_time","distance","fares","route" };
+    char *propertiesArray[] =  { "NULL", "travel_time", "distance", "fares", "route" };
     size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(properties, propertiesArray[stringToReturn]) == 0) {
@@ -20,7 +20,7 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 request_routes_departure_search_t *request_routes_departure_search_create(
     char *id,
@@ -142,7 +142,7 @@ cJSON *request_routes_departure_search_convertToJSON(request_routes_departure_se
     listEntry_t *propertiesListEntry;
     if (request_routes_departure_search->properties) {
     list_ForEach(propertiesListEntry, request_routes_departure_search->properties) {
-    cJSON *itemLocal = request_routes_property_convertToJSON((request_routes_property_e)propertiesListEntry->data);
+    cJSON *itemLocal = request_routes_property_convertToJSON((traveltime_platform_api_request_routes_departure_search__e)propertiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -264,7 +264,7 @@ request_routes_departure_search_t *request_routes_departure_search_parseFromJSON
         if(!cJSON_IsObject(properties_local_nonprimitive)){
             goto end;
         }
-        request_routes_property_e propertiesItem = request_routes_property_parseFromJSON(properties_local_nonprimitive);
+        request_routes_departure_search_request_routes_property_e propertiesItem = request_routes_property_parseFromJSON(properties_local_nonprimitive);
 
         list_addElement(propertiesList, (void *)propertiesItem);
     }

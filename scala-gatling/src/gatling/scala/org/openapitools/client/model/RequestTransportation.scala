@@ -4,17 +4,17 @@ package org.openapitools.client.model
 
 case class RequestTransportation (
     _type: String,
-    _ptUnderscorechangeUnderscoredelay: Option[Integer],
-    _walkingUnderscoretime: Option[Integer],
-    _drivingUnderscoretimeUnderscoretoUnderscorestation: Option[Integer],
-    _parkingUnderscoretime: Option[Integer],
-    _boardingUnderscoretime: Option[Integer]
+    _ptChangeDelay: Option[Integer],
+    _walkingTime: Option[Integer],
+    _drivingTimeToStation: Option[Integer],
+    _parkingTime: Option[Integer],
+    _boardingTime: Option[Integer]
 )
 object RequestTransportation {
-    def toStringBody(var_type: Object, var_ptUnderscorechangeUnderscoredelay: Object, var_walkingUnderscoretime: Object, var_drivingUnderscoretimeUnderscoretoUnderscorestation: Object, var_parkingUnderscoretime: Object, var_boardingUnderscoretime: Object) =
+    def toStringBody(var_type: Object, var_ptChangeDelay: Object, var_walkingTime: Object, var_drivingTimeToStation: Object, var_parkingTime: Object, var_boardingTime: Object) =
         s"""
         | {
-        | "type":$var_type,"ptUnderscorechangeUnderscoredelay":$var_ptUnderscorechangeUnderscoredelay,"walkingUnderscoretime":$var_walkingUnderscoretime,"drivingUnderscoretimeUnderscoretoUnderscorestation":$var_drivingUnderscoretimeUnderscoretoUnderscorestation,"parkingUnderscoretime":$var_parkingUnderscoretime,"boardingUnderscoretime":$var_boardingUnderscoretime
+        | "type":$var_type,"ptChangeDelay":$var_ptChangeDelay,"walkingTime":$var_walkingTime,"drivingTimeToStation":$var_drivingTimeToStation,"parkingTime":$var_parkingTime,"boardingTime":$var_boardingTime
         | }
         """.stripMargin
 }

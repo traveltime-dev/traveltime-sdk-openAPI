@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestRoutes: Codable { 
 
-public struct RequestRoutes: Codable {
 
     public var locations: [RequestLocation]
     public var departureSearches: [RequestRoutesDepartureSearch]?
@@ -27,6 +27,4 @@ public struct RequestRoutes: Codable {
         case arrivalSearches = "arrival_searches"
     }
 
-
 }
-

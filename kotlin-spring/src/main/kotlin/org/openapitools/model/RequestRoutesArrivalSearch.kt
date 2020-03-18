@@ -23,27 +23,27 @@ import javax.validation.constraints.Size
  * @param properties 
  * @param range 
  */
-data class RequestRoutesArrivalSearch (
+data class RequestRoutesArrivalSearch(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull @get:Size(min=1,max=2) 
-        @JsonProperty("departure_location_ids") val departureLocationIds: kotlin.collections.List<kotlin.String>,
+    @get:NotNull @get:Size(min=1,max=2) 
+    @JsonProperty("departure_location_ids") val departureLocationIds: kotlin.collections.List<kotlin.String>,
 
-        @get:NotNull 
-        @JsonProperty("arrival_location_id") val arrivalLocationId: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("arrival_location_id") val arrivalLocationId: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("transportation") val transportation: RequestTransportation,
+    @get:NotNull 
+    @JsonProperty("transportation") val transportation: RequestTransportation,
 
-        @get:NotNull 
-        @JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
+    @get:NotNull 
+    @JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: kotlin.collections.List<RequestRoutesProperty>,
+    @get:NotNull 
+    @JsonProperty("properties") val properties: kotlin.collections.List<RequestRoutesProperty>,
 
-        @JsonProperty("range") val range: RequestRangeFull? = null
+    @JsonProperty("range") val range: RequestRangeFull? = null
 ) {
 
 }

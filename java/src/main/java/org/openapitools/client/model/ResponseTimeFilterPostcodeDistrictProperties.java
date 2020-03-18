@@ -28,7 +28,7 @@ import org.openapitools.client.model.ResponseTravelTimeStatistics;
 /**
  * ResponseTimeFilterPostcodeDistrictProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrictProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME_REACHABLE = "travel_time_reachable";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME_REACHABLE)

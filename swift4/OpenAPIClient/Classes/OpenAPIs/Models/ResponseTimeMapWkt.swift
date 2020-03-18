@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeMapWkt: Codable { 
 
-public struct ResponseTimeMapWkt: Codable {
 
     public var results: [ResponseTimeMapWktResult]
 
@@ -17,6 +17,4 @@ public struct ResponseTimeMapWkt: Codable {
         self.results = results
     }
 
-
 }
-

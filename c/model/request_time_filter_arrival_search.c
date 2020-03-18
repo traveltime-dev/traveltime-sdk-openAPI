@@ -4,14 +4,14 @@
 #include "request_time_filter_arrival_search.h"
 
 
-    char* propertiesrequest_time_filter_arrival_search_ToString(properties_e properties){
-        char *propertiesArray[] =  { "travel_time","distance","distance_breakdown","fares","route" };
-        return propertiesArray[properties - 1];
-    }
+char* propertiesrequest_time_filter_arrival_search_ToString(traveltime_platform_api_request_time_filter_arrival_search__e properties) {
+	char *propertiesArray[] =  { "NULL", "travel_time", "distance", "distance_breakdown", "fares", "route" };
+	return propertiesArray[properties - 1];
+}
 
-    properties_e propertiesrequest_time_filter_arrival_search_FromString(char* properties){
+traveltime_platform_api_request_time_filter_arrival_search__e propertiesrequest_time_filter_arrival_search_FromString(char* properties) {
     int stringToReturn = 0;
-    char *propertiesArray[] =  { "travel_time","distance","distance_breakdown","fares","route" };
+    char *propertiesArray[] =  { "NULL", "travel_time", "distance", "distance_breakdown", "fares", "route" };
     size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(properties, propertiesArray[stringToReturn]) == 0) {
@@ -20,7 +20,7 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 request_time_filter_arrival_search_t *request_time_filter_arrival_search_create(
     char *id,
@@ -154,7 +154,7 @@ cJSON *request_time_filter_arrival_search_convertToJSON(request_time_filter_arri
     listEntry_t *propertiesListEntry;
     if (request_time_filter_arrival_search->properties) {
     list_ForEach(propertiesListEntry, request_time_filter_arrival_search->properties) {
-    cJSON *itemLocal = request_time_filter_property_convertToJSON((request_time_filter_property_e)propertiesListEntry->data);
+    cJSON *itemLocal = request_time_filter_property_convertToJSON((traveltime_platform_api_request_time_filter_arrival_search__e)propertiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -288,7 +288,7 @@ request_time_filter_arrival_search_t *request_time_filter_arrival_search_parseFr
         if(!cJSON_IsObject(properties_local_nonprimitive)){
             goto end;
         }
-        request_time_filter_property_e propertiesItem = request_time_filter_property_parseFromJSON(properties_local_nonprimitive);
+        request_time_filter_arrival_search_request_time_filter_property_e propertiesItem = request_time_filter_property_parseFromJSON(properties_local_nonprimitive);
 
         list_addElement(propertiesList, (void *)propertiesItem);
     }

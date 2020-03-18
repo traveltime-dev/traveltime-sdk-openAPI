@@ -14,11 +14,11 @@ import * as models from './models';
 
 export interface RequestTransportation {
     "type": RequestTransportation.TypeEnum;
-    "ptChangeDelay"?: number;
-    "walkingTime"?: number;
-    "drivingTimeToStation"?: number;
-    "parkingTime"?: number;
-    "boardingTime"?: number;
+    "pt_change_delay"?: number;
+    "walking_time"?: number;
+    "driving_time_to_station"?: number;
+    "parking_time"?: number;
+    "boarding_time"?: number;
 }
 
 export namespace RequestTransportation {

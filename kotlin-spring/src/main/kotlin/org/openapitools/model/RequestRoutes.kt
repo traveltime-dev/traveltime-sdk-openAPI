@@ -19,14 +19,14 @@ import javax.validation.constraints.Size
  * @param departureSearches 
  * @param arrivalSearches 
  */
-data class RequestRoutes (
+data class RequestRoutes(
 
-        @get:NotNull @get:Size(min=1) 
-        @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
+    @get:NotNull @get:Size(min=1) 
+    @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
 @get:Size(max=10) 
-        @JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestRoutesDepartureSearch>? = null,
+    @JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestRoutesDepartureSearch>? = null,
 @get:Size(max=10) 
-        @JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestRoutesArrivalSearch>? = null
+    @JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestRoutesArrivalSearch>? = null
 ) {
 
 }

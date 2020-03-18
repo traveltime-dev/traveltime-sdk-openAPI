@@ -12,8 +12,8 @@
 package org.openapitools.server.model
 
 case class RequestTimeFilterFastArrivalSearches(
-  manyUnderscoretoUnderscoreone: Option[List[RequestTimeFilterFastArrivalManyToOneSearch]],
+  manyToOne: Option[List[RequestTimeFilterFastArrivalManyToOneSearch]],
 
-  oneUnderscoretoUnderscoremany: Option[List[RequestTimeFilterFastArrivalOneToManySearch]]
+  oneToMany: Option[List[RequestTimeFilterFastArrivalOneToManySearch]]
 
  )

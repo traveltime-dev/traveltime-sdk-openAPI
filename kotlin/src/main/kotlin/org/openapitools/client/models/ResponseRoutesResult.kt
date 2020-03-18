@@ -23,12 +23,13 @@ import com.squareup.moshi.Json
 
 data class ResponseRoutesResult (
     @Json(name = "search_id")
-    val searchId: kotlin.String,
+    val searchId: kotlin.String
+,
     @Json(name = "locations")
-    val locations: kotlin.Array<ResponseRoutesLocation>,
+    val locations: kotlin.Array<ResponseRoutesLocation>
+,
     @Json(name = "unreachable")
     val unreachable: kotlin.Array<kotlin.String>
-) 
 
-
+)
 

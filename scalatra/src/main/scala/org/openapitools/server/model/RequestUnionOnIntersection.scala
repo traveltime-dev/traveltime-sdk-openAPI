@@ -14,6 +14,6 @@ package org.openapitools.server.model
 case class RequestUnionOnIntersection(
   id: String,
 
-  searchUnderscoreids: List[String]
+  searchIds: List[String]
 
  )

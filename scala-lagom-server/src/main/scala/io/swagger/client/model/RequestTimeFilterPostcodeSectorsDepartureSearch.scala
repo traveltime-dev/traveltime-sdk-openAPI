@@ -12,13 +12,13 @@
 
 package io.swagger.client.model
 import play.api.libs.json._
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterPostcodeSectorsDepartureSearch (
                   id: String,
                   transportation: RequestTransportation,
                   travelTime: Int,
-                  departureTime: DateTime,
+                  departureTime: OffsetDateTime,
                   reachablePostcodesThreshold: Double,
                   properties: Seq[RequestTimeFilterPostcodeSectorsProperty],
                   range: Option[RequestRangeFull]

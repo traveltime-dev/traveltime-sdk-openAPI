@@ -17,9 +17,9 @@ export interface RequestTimeFilterPostcodesDepartureSearch {
 
     transportation: models.RequestTransportation;
 
-    travelTime: number;
+    travel_time: number;
 
-    departureTime: Date;
+    departure_time: string;
 
     properties: Array<models.RequestTimeFilterPostcodesProperty>;
 

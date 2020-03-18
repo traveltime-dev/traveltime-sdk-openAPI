@@ -30,5 +30,5 @@ export interface ResponseFares {
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFares
      */
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }

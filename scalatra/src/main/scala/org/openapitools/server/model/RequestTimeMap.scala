@@ -12,9 +12,9 @@
 package org.openapitools.server.model
 
 case class RequestTimeMap(
-  departureUnderscoresearches: Option[List[RequestTimeMapDepartureSearch]],
+  departureSearches: Option[List[RequestTimeMapDepartureSearch]],
 
-  arrivalUnderscoresearches: Option[List[RequestTimeMapArrivalSearch]],
+  arrivalSearches: Option[List[RequestTimeMapArrivalSearch]],
 
   unions: Option[List[RequestUnionOnIntersection]],
 

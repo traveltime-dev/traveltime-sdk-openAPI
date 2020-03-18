@@ -14,7 +14,7 @@ import { ResponseRoute } from './responseRoute';
 
 
 export interface ResponseRoutesProperties { 
-    travelTime?: number;
+    travel_time?: number;
     distance?: number;
     fares?: ResponseFares;
     route?: ResponseRoute;

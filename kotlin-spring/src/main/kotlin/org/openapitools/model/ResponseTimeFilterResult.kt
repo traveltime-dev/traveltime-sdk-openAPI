@@ -17,16 +17,16 @@ import javax.validation.constraints.Size
  * @param locations 
  * @param unreachable 
  */
-data class ResponseTimeFilterResult (
+data class ResponseTimeFilterResult(
 
-        @get:NotNull 
-        @JsonProperty("search_id") val searchId: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("search_id") val searchId: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("locations") val locations: kotlin.collections.List<ResponseTimeFilterLocation>,
+    @get:NotNull 
+    @JsonProperty("locations") val locations: kotlin.collections.List<ResponseTimeFilterLocation>,
 
-        @get:NotNull 
-        @JsonProperty("unreachable") val unreachable: kotlin.collections.List<kotlin.String>
+    @get:NotNull 
+    @JsonProperty("unreachable") val unreachable: kotlin.collections.List<kotlin.String>
 ) {
 
 }

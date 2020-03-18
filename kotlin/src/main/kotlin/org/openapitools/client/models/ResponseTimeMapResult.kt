@@ -24,12 +24,13 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeMapResult (
     @Json(name = "search_id")
-    val searchId: kotlin.String,
+    val searchId: kotlin.String
+,
     @Json(name = "shapes")
-    val shapes: kotlin.Array<ResponseShape>,
+    val shapes: kotlin.Array<ResponseShape>
+,
     @Json(name = "properties")
     val properties: ResponseTimeMapProperties
-) 
 
-
+)
 

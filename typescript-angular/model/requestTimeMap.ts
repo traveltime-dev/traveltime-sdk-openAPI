@@ -15,8 +15,8 @@ import { RequestTimeMapArrivalSearch } from './requestTimeMapArrivalSearch';
 
 
 export interface RequestTimeMap { 
-    departureSearches?: Array<RequestTimeMapDepartureSearch>;
-    arrivalSearches?: Array<RequestTimeMapArrivalSearch>;
+    departure_searches?: Array<RequestTimeMapDepartureSearch>;
+    arrival_searches?: Array<RequestTimeMapArrivalSearch>;
     unions?: Array<RequestUnionOnIntersection>;
     intersections?: Array<RequestUnionOnIntersection>;
 }

@@ -17,16 +17,16 @@ import javax.validation.constraints.Size
  * @param shape 
  * @param properties 
  */
-data class ResponseTimeMapWktResult (
+data class ResponseTimeMapWktResult(
 
-        @get:NotNull 
-        @JsonProperty("search_id") val searchId: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("search_id") val searchId: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("shape") val shape: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("shape") val shape: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: ResponseTimeMapProperties
+    @get:NotNull 
+    @JsonProperty("properties") val properties: ResponseTimeMapProperties
 ) {
 
 }

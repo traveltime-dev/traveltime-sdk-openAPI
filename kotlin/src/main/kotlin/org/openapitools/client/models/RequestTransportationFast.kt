@@ -21,14 +21,14 @@ import com.squareup.moshi.Json
 data class RequestTransportationFast (
     @Json(name = "type")
     val type: RequestTransportationFast.Type
-) 
 
+) {
 
-{
     /**
     * 
     * Values: publicTransport,driving,drivingPlusPublicTransport
     */
+    
     
     enum class Type(val value: kotlin.String){
         @Json(name = "public_transport") publicTransport("public_transport"),

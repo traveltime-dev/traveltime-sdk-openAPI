@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseRoutes: Codable { 
 
-public struct ResponseRoutes: Codable {
 
     public var results: [ResponseRoutesResult]
 
@@ -17,6 +17,4 @@ public struct ResponseRoutes: Codable {
         self.results = results
     }
 
-
 }
-

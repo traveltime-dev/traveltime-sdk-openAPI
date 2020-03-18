@@ -100,7 +100,7 @@ class ResponseGeocoding
      *
      * @return OpenAPI\Server\Model\ResponseGeocodingGeoJsonFeature[]
      */
-    public function getFeatures()
+    public function getFeatures(): array
     {
         return $this->features;
     }
@@ -112,7 +112,7 @@ class ResponseGeocoding
      *
      * @return $this
      */
-    public function setFeatures(array $features)
+    public function setFeatures(array $features): array
     {
         $this->features = $features;
 

@@ -14,14 +14,14 @@ package org.openapitools.server.model
 case class RequestTransportation(
   `type`: String,
 
-  ptUnderscorechangeUnderscoredelay: Option[Int],
+  ptChangeDelay: Option[Int],
 
-  walkingUnderscoretime: Option[Int],
+  walkingTime: Option[Int],
 
-  drivingUnderscoretimeUnderscoretoUnderscorestation: Option[Int],
+  drivingTimeToStation: Option[Int],
 
-  parkingUnderscoretime: Option[Int],
+  parkingTime: Option[Int],
 
-  boardingUnderscoretime: Option[Int]
+  boardingTime: Option[Int]
 
  )

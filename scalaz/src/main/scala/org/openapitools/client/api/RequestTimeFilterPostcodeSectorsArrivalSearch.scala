@@ -8,7 +8,7 @@ import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
 
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 import RequestTimeFilterPostcodeSectorsArrivalSearch._
 
@@ -16,7 +16,7 @@ case class RequestTimeFilterPostcodeSectorsArrivalSearch (
   id: String,
 transportation: RequestTransportation,
 travelTime: Integer,
-arrivalTime: DateTime,
+arrivalTime: OffsetDateTime,
 reachablePostcodesThreshold: Double,
 properties: List[RequestTimeFilterPostcodeSectorsProperty],
 range: Option[RequestRangeFull])

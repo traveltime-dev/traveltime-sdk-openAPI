@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseRoutesLocation (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "properties")
     val properties: kotlin.Array<ResponseRoutesProperties>
-) 
 
-
+)
 

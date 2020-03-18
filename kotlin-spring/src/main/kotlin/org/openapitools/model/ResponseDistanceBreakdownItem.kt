@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param mode 
  * @param distance 
  */
-data class ResponseDistanceBreakdownItem (
+data class ResponseDistanceBreakdownItem(
 
-        @get:NotNull 
-        @JsonProperty("mode") val mode: ResponseTransportationMode,
+    @get:NotNull 
+    @JsonProperty("mode") val mode: ResponseTransportationMode,
 
-        @get:NotNull 
-        @JsonProperty("distance") val distance: kotlin.Int
+    @get:NotNull 
+    @JsonProperty("distance") val distance: kotlin.Int
 ) {
 
 }

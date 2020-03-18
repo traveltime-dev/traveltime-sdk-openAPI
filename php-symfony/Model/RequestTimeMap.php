@@ -98,7 +98,7 @@ class RequestTimeMap
      *
      * @return OpenAPI\Server\Model\RequestTimeMapDepartureSearch[]|null
      */
-    public function getDepartureSearches()
+    public function getDepartureSearches(): ?array
     {
         return $this->departureSearches;
     }
@@ -110,7 +110,7 @@ class RequestTimeMap
      *
      * @return $this
      */
-    public function setDepartureSearches(array $departureSearches = null)
+    public function setDepartureSearches(array $departureSearches = null): ?array
     {
         $this->departureSearches = $departureSearches;
 
@@ -122,7 +122,7 @@ class RequestTimeMap
      *
      * @return OpenAPI\Server\Model\RequestTimeMapArrivalSearch[]|null
      */
-    public function getArrivalSearches()
+    public function getArrivalSearches(): ?array
     {
         return $this->arrivalSearches;
     }
@@ -134,7 +134,7 @@ class RequestTimeMap
      *
      * @return $this
      */
-    public function setArrivalSearches(array $arrivalSearches = null)
+    public function setArrivalSearches(array $arrivalSearches = null): ?array
     {
         $this->arrivalSearches = $arrivalSearches;
 
@@ -146,7 +146,7 @@ class RequestTimeMap
      *
      * @return OpenAPI\Server\Model\RequestUnionOnIntersection[]|null
      */
-    public function getUnions()
+    public function getUnions(): ?array
     {
         return $this->unions;
     }
@@ -158,7 +158,7 @@ class RequestTimeMap
      *
      * @return $this
      */
-    public function setUnions(array $unions = null)
+    public function setUnions(array $unions = null): ?array
     {
         $this->unions = $unions;
 
@@ -170,7 +170,7 @@ class RequestTimeMap
      *
      * @return OpenAPI\Server\Model\RequestUnionOnIntersection[]|null
      */
-    public function getIntersections()
+    public function getIntersections(): ?array
     {
         return $this->intersections;
     }
@@ -182,7 +182,7 @@ class RequestTimeMap
      *
      * @return $this
      */
-    public function setIntersections(array $intersections = null)
+    public function setIntersections(array $intersections = null): ?array
     {
         $this->intersections = $intersections;
 

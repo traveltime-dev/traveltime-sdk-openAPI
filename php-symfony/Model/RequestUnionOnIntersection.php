@@ -100,7 +100,7 @@ class RequestUnionOnIntersection
      *
      * @return string[]
      */
-    public function getSearchIds()
+    public function getSearchIds(): array
     {
         return $this->searchIds;
     }
@@ -112,7 +112,7 @@ class RequestUnionOnIntersection
      *
      * @return $this
      */
-    public function setSearchIds(array $searchIds)
+    public function setSearchIds(array $searchIds): array
     {
         $this->searchIds = $searchIds;
 

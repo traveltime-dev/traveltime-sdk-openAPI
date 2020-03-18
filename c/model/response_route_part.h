@@ -14,21 +14,27 @@
 #include "coords.h"
 #include "response_transportation_mode.h"
 
-                typedef enum  {  basic, start_end, road, public_transport } type_e;
+// Enum TYPE for response_route_part
 
-        char* type_ToString(type_e type);
+typedef enum  { traveltime_platform_api_response_route_part_TYPE_NULL = 0, traveltime_platform_api_response_route_part_TYPE_basic, traveltime_platform_api_response_route_part_TYPE_start_end, traveltime_platform_api_response_route_part_TYPE_road, traveltime_platform_api_response_route_part_TYPE_public_transport } traveltime_platform_api_response_route_part_TYPE_e;
 
-        type_e type_FromString(char* type);
-                typedef enum  {  car, parking, boarding, walk, bike, train, rail_national, rail_overground, rail_underground, rail_dlr, bus, cable_car, plane, ferry, coach } mode_e;
+char* response_route_part_type_ToString(traveltime_platform_api_response_route_part_TYPE_e type);
 
-        char* mode_ToString(mode_e mode);
+traveltime_platform_api_response_route_part_TYPE_e response_route_part_type_FromString(char* type);
 
-        mode_e mode_FromString(char* mode);
+// Enum  for response_route_part
+
+typedef enum  { traveltime_platform_api_response_route_part__NULL = 0, traveltime_platform_api_response_route_part__car, traveltime_platform_api_response_route_part__parking, traveltime_platform_api_response_route_part__boarding, traveltime_platform_api_response_route_part__walk, traveltime_platform_api_response_route_part__bike, traveltime_platform_api_response_route_part__train, traveltime_platform_api_response_route_part__rail_national, traveltime_platform_api_response_route_part__rail_overground, traveltime_platform_api_response_route_part__rail_underground, traveltime_platform_api_response_route_part__rail_dlr, traveltime_platform_api_response_route_part__bus, traveltime_platform_api_response_route_part__cable_car, traveltime_platform_api_response_route_part__plane, traveltime_platform_api_response_route_part__ferry, traveltime_platform_api_response_route_part__coach } traveltime_platform_api_response_route_part__e;
+
+char* response_route_part_mode_ToString(traveltime_platform_api_response_route_part__e mode);
+
+traveltime_platform_api_response_route_part__e response_route_part_mode_FromString(char* mode);
+
 
 
 typedef struct response_route_part_t {
     char *id; // string
-    type_e type; //enum
+    traveltime_platform_api_response_route_part_TYPE_e type; //enum
     char *directions; // string
     int distance; //numeric
     int travel_time; //numeric
@@ -47,7 +53,7 @@ typedef struct response_route_part_t {
 
 response_route_part_t *response_route_part_create(
     char *id,
-    type_e type,
+    traveltime_platform_api_response_route_part_TYPE_e type,
     char *directions,
     int distance,
     int travel_time,

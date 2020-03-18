@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class ResponseTimeFilter (
     @Json(name = "results")
     val results: kotlin.Array<ResponseTimeFilterResult>
-) 
 
-
+)
 

@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class RequestTimeFilterFastArrivalSearches (
     @Json(name = "many_to_one")
-    val manyToOne: kotlin.Array<RequestTimeFilterFastArrivalManyToOneSearch>? = null,
+    val manyToOne: kotlin.Array<RequestTimeFilterFastArrivalManyToOneSearch>? = null
+,
     @Json(name = "one_to_many")
     val oneToMany: kotlin.Array<RequestTimeFilterFastArrivalOneToManySearch>? = null
-) 
 
-
+)
 

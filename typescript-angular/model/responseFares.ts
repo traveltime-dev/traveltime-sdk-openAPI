@@ -15,6 +15,6 @@ import { ResponseFareTicket } from './responseFareTicket';
 
 export interface ResponseFares { 
     breakdown: Array<ResponseFaresBreakdownItem>;
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }
 

@@ -10,18 +10,18 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestRoutesDepartureSearch(
   id: String,
 
-  departureUnderscorelocationUnderscoreid: String,
+  departureLocationId: String,
 
-  arrivalUnderscorelocationUnderscoreids: List[String],
+  arrivalLocationIds: List[String],
 
   transportation: RequestTransportation,
 
-  departureUnderscoretime: DateTime,
+  departureTime: OffsetDateTime,
 
   properties: List[RequestRoutesProperty],
 

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseSupportedLocations: Codable { 
 
-public struct ResponseSupportedLocations: Codable {
 
     public var locations: [ResponseSupportedLocation]
     public var unsupportedLocations: [String]
@@ -24,6 +24,4 @@ public struct ResponseSupportedLocations: Codable {
         case unsupportedLocations = "unsupported_locations"
     }
 
-
 }
-

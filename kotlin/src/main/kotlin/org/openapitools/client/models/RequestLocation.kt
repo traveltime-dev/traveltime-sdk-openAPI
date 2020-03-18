@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class RequestLocation (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "coords")
     val coords: Coords
-) 
 
-
+)
 

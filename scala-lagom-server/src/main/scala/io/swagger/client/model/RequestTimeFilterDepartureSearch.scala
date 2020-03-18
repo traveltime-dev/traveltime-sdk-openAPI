@@ -12,7 +12,7 @@
 
 package io.swagger.client.model
 import play.api.libs.json._
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterDepartureSearch (
                   id: String,
@@ -20,7 +20,7 @@ case class RequestTimeFilterDepartureSearch (
                   arrivalLocationIds: Seq[String],
                   transportation: RequestTransportation,
                   travelTime: Int,
-                  departureTime: DateTime,
+                  departureTime: OffsetDateTime,
                   properties: Seq[RequestTimeFilterProperty],
                   range: Option[RequestRangeFull]
 )

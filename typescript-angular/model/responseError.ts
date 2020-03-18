@@ -12,10 +12,10 @@
 
 
 export interface ResponseError { 
-    httpStatus?: number;
-    errorCode?: number;
+    http_status?: number;
+    error_code?: number;
     description?: string;
-    documentationLink?: string;
-    additionalInfo?: { [key: string]: Array<string>; };
+    documentation_link?: string;
+    additional_info?: { [key: string]: Array<string>; };
 }
 

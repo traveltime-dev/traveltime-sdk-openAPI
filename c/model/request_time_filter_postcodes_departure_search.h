@@ -15,11 +15,14 @@
 #include "request_time_filter_postcodes_property.h"
 #include "request_transportation.h"
 
-                    typedef enum  {  travel_time, distance } properties_e;
+// Enum  for request_time_filter_postcodes_departure_search
 
-            char* properties_ToString(properties_e properties);
+typedef enum  { traveltime_platform_api_request_time_filter_postcodes_departure_search__NULL = 0, traveltime_platform_api_request_time_filter_postcodes_departure_search__travel_time, traveltime_platform_api_request_time_filter_postcodes_departure_search__distance } traveltime_platform_api_request_time_filter_postcodes_departure_search__e;
 
-            properties_e properties_FromString(char* properties);
+char* request_time_filter_postcodes_departure_search_properties_ToString(traveltime_platform_api_request_time_filter_postcodes_departure_search__e properties);
+
+traveltime_platform_api_request_time_filter_postcodes_departure_search__e request_time_filter_postcodes_departure_search_properties_FromString(char* properties);
+
 
 
 typedef struct request_time_filter_postcodes_departure_search_t {

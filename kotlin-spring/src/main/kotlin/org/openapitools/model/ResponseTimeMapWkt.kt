@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param results 
  */
-data class ResponseTimeMapWkt (
+data class ResponseTimeMapWkt(
 
-        @get:NotNull 
-        @JsonProperty("results") val results: kotlin.collections.List<ResponseTimeMapWktResult>
+    @get:NotNull 
+    @JsonProperty("results") val results: kotlin.collections.List<ResponseTimeMapWktResult>
 ) {
 
 }

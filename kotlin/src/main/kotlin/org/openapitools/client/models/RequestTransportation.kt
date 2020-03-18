@@ -25,25 +25,30 @@ import com.squareup.moshi.Json
 
 data class RequestTransportation (
     @Json(name = "type")
-    val type: RequestTransportation.Type,
+    val type: RequestTransportation.Type
+,
     @Json(name = "pt_change_delay")
-    val ptChangeDelay: kotlin.Int? = null,
+    val ptChangeDelay: kotlin.Int? = null
+,
     @Json(name = "walking_time")
-    val walkingTime: kotlin.Int? = null,
+    val walkingTime: kotlin.Int? = null
+,
     @Json(name = "driving_time_to_station")
-    val drivingTimeToStation: kotlin.Int? = null,
+    val drivingTimeToStation: kotlin.Int? = null
+,
     @Json(name = "parking_time")
-    val parkingTime: kotlin.Int? = null,
+    val parkingTime: kotlin.Int? = null
+,
     @Json(name = "boarding_time")
     val boardingTime: kotlin.Int? = null
-) 
 
+) {
 
-{
     /**
     * 
     * Values: cycling,driving,drivingPlusTrain,publicTransport,walking,coach,bus,train,ferry,drivingPlusFerry,cyclingPlusFerry
     */
+    
     
     enum class Type(val value: kotlin.String){
         @Json(name = "cycling") cycling("cycling"),

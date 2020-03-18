@@ -11,15 +11,14 @@
  */
 package org.openapitools.client.model
 
+import java.time.OffsetDateTime
 import org.openapitools.client.core.ApiModel
-import org.joda.time.DateTime
-import java.util.UUID
 
 case class RequestTimeFilterPostcodeSectorsDepartureSearch (
   id: String,
   transportation: RequestTransportation,
   travelTime: Int,
-  departureTime: DateTime,
+  departureTime: OffsetDateTime,
   reachablePostcodesThreshold: Double,
   properties: Seq[RequestTimeFilterPostcodeSectorsProperty],
   range: Option[RequestRangeFull] = None

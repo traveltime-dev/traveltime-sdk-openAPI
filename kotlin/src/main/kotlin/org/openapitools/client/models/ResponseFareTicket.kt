@@ -22,19 +22,21 @@ import com.squareup.moshi.Json
 
 data class ResponseFareTicket (
     @Json(name = "type")
-    val type: ResponseFareTicket.Type,
+    val type: ResponseFareTicket.Type
+,
     @Json(name = "price")
-    val price: kotlin.Double,
+    val price: kotlin.Double
+,
     @Json(name = "currency")
     val currency: kotlin.String
-) 
 
+) {
 
-{
     /**
     * 
     * Values: single,week,month,year
     */
+    
     
     enum class Type(val value: kotlin.String){
         @Json(name = "single") single("single"),

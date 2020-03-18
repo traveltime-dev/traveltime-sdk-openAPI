@@ -17,16 +17,16 @@ import javax.validation.constraints.Size
  * @param arrivalTime 
  * @param parts 
  */
-data class ResponseRoute (
+data class ResponseRoute(
 
-        @get:NotNull 
-        @JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
+    @get:NotNull 
+    @JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
 
-        @get:NotNull 
-        @JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
+    @get:NotNull 
+    @JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
 
-        @get:NotNull 
-        @JsonProperty("parts") val parts: kotlin.collections.List<ResponseRoutePart>
+    @get:NotNull 
+    @JsonProperty("parts") val parts: kotlin.collections.List<ResponseRoutePart>
 ) {
 
 }

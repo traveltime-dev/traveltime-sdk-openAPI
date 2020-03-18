@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class ResponseFares (
     @Json(name = "breakdown")
-    val breakdown: kotlin.Array<ResponseFaresBreakdownItem>,
+    val breakdown: kotlin.Array<ResponseFaresBreakdownItem>
+,
     @Json(name = "tickets_total")
     val ticketsTotal: kotlin.Array<ResponseFareTicket>
-) 
 
-
+)
 

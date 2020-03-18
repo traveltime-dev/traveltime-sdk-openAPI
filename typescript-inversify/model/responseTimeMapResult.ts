@@ -14,7 +14,7 @@ import { ResponseTimeMapProperties } from './responseTimeMapProperties';
 
 
 export interface ResponseTimeMapResult { 
-    searchId: string;
+    search_id: string;
     shapes: Array<ResponseShape>;
     properties: ResponseTimeMapProperties;
 }

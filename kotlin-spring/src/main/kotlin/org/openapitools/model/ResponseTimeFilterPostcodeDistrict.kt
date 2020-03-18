@@ -17,13 +17,13 @@ import javax.validation.constraints.Size
  * @param code 
  * @param properties 
  */
-data class ResponseTimeFilterPostcodeDistrict (
+data class ResponseTimeFilterPostcodeDistrict(
 
-        @get:NotNull 
-        @JsonProperty("code") val code: String,
+    @get:NotNull 
+    @JsonProperty("code") val code: String,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: ResponseTimeFilterPostcodeDistrictProperties
+    @get:NotNull 
+    @JsonProperty("properties") val properties: ResponseTimeFilterPostcodeDistrictProperties
 ) {
 
 }

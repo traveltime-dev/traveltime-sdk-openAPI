@@ -22,24 +22,24 @@ import javax.validation.constraints.Size
  * @param properties 
  * @param range 
  */
-data class RequestTimeFilterPostcodesDepartureSearch (
+data class RequestTimeFilterPostcodesDepartureSearch(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("transportation") val transportation: RequestTransportation,
+    @get:NotNull 
+    @JsonProperty("transportation") val transportation: RequestTransportation,
 
-        @get:NotNull @get:Min(60) @get:Max(14400) 
-        @JsonProperty("travel_time") val travelTime: kotlin.Int,
+    @get:NotNull @get:Min(60) @get:Max(14400) 
+    @JsonProperty("travel_time") val travelTime: kotlin.Int,
 
-        @get:NotNull 
-        @JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
+    @get:NotNull 
+    @JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: kotlin.collections.List<RequestTimeFilterPostcodesProperty>,
+    @get:NotNull 
+    @JsonProperty("properties") val properties: kotlin.collections.List<RequestTimeFilterPostcodesProperty>,
 
-        @JsonProperty("range") val range: RequestRangeFull? = null
+    @JsonProperty("range") val range: RequestRangeFull? = null
 ) {
 
 }

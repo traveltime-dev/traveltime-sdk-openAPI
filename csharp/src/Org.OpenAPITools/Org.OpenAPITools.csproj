@@ -12,7 +12,7 @@ Contact: support@igeolise.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50F2D3F8-965A-4C0E-9A9B-FDEC8B12962A}</ProjectGuid>
+    <ProjectGuid>{EE7E1524-1C3F-414D-A10B-081069153385}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.OpenAPITools</RootNamespace>

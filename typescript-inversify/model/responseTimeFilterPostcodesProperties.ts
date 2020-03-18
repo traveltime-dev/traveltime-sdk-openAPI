@@ -12,6 +12,6 @@
 
 
 export interface ResponseTimeFilterPostcodesProperties { 
-    travelTime?: number;
+    travel_time?: number;
     distance?: number;
 }

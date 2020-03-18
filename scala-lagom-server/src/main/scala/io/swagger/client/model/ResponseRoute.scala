@@ -12,11 +12,11 @@
 
 package io.swagger.client.model
 import play.api.libs.json._
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class ResponseRoute (
-                  departureTime: DateTime,
-                  arrivalTime: DateTime,
+                  departureTime: OffsetDateTime,
+                  arrivalTime: OffsetDateTime,
                   parts: Seq[ResponseRoutePart]
 )
 

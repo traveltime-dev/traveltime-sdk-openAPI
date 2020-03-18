@@ -3,17 +3,17 @@ package org.openapitools.client.model
 
 
 case class ResponseError (
-    _httpUnderscorestatus: Option[Integer],
-    _errorUnderscorecode: Option[Integer],
+    _httpStatus: Option[Integer],
+    _errorCode: Option[Integer],
     _description: Option[String],
-    _documentationUnderscorelink: Option[String],
-    _additionalUnderscoreinfo: Option[Map[String, List[String]]]
+    _documentationLink: Option[String],
+    _additionalInfo: Option[Map[String, List[String]]]
 )
 object ResponseError {
-    def toStringBody(var_httpUnderscorestatus: Object, var_errorUnderscorecode: Object, var_description: Object, var_documentationUnderscorelink: Object, var_additionalUnderscoreinfo: Object) =
+    def toStringBody(var_httpStatus: Object, var_errorCode: Object, var_description: Object, var_documentationLink: Object, var_additionalInfo: Object) =
         s"""
         | {
-        | "httpUnderscorestatus":$var_httpUnderscorestatus,"errorUnderscorecode":$var_errorUnderscorecode,"description":$var_description,"documentationUnderscorelink":$var_documentationUnderscorelink,"additionalUnderscoreinfo":$var_additionalUnderscoreinfo
+        | "httpStatus":$var_httpStatus,"errorCode":$var_errorCode,"description":$var_description,"documentationLink":$var_documentationLink,"additionalInfo":$var_additionalInfo
         | }
         """.stripMargin
 }

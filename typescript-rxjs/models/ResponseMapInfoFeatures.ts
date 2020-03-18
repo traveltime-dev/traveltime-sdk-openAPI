@@ -24,7 +24,7 @@ export interface ResponseMapInfoFeatures {
      * @type {ResponseMapInfoFeaturesPublicTransport}
      * @memberof ResponseMapInfoFeatures
      */
-    publicTransport?: ResponseMapInfoFeaturesPublicTransport;
+    public_transport?: ResponseMapInfoFeaturesPublicTransport;
     /**
      * @type {boolean}
      * @memberof ResponseMapInfoFeatures

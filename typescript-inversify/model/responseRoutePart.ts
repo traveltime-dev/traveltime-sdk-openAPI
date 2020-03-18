@@ -19,17 +19,17 @@ export interface ResponseRoutePart {
     mode: ResponseTransportationMode;
     directions: string;
     distance: number;
-    travelTime: number;
+    travel_time: number;
     coords: Array<Coords>;
     direction?: string;
     road?: string;
     turn?: string;
     line?: string;
-    departureStation?: string;
-    arrivalStation?: string;
-    departsAt?: string;
-    arrivesAt?: string;
-    numStops?: number;
+    departure_station?: string;
+    arrival_station?: string;
+    departs_at?: string;
+    arrives_at?: string;
+    num_stops?: number;
 }
 export namespace ResponseRoutePart {
     export type TypeEnum = 'basic' | 'start_end' | 'road' | 'public_transport';

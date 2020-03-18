@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeMapBoundingBoxesResult: Codable { 
 
-public struct ResponseTimeMapBoundingBoxesResult: Codable {
 
     public var searchId: String
     public var boundingBoxes: [ResponseBoundingBox]
@@ -27,6 +27,4 @@ public struct ResponseTimeMapBoundingBoxesResult: Codable {
         case properties
     }
 
-
 }
-

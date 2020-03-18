@@ -13,11 +13,11 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterProperties {
-    travelTime?: number;
+    travel_time?: number;
 
     distance?: number;
 
-    distanceBreakdown?: Array<models.ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<models.ResponseDistanceBreakdownItem>;
 
     fares?: models.ResponseFares;
 

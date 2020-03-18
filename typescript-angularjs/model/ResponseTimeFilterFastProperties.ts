@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterFastProperties {
-    "travelTime"?: number;
+    "travel_time"?: number;
     "fares"?: models.ResponseFaresFast;
 }
 

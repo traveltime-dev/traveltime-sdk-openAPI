@@ -12,8 +12,8 @@
 package org.openapitools.server.model
 
 case class RequestTimeFilterPostcodes(
-  departureUnderscoresearches: Option[List[RequestTimeFilterPostcodesDepartureSearch]],
+  departureSearches: Option[List[RequestTimeFilterPostcodesDepartureSearch]],
 
-  arrivalUnderscoresearches: Option[List[RequestTimeFilterPostcodesArrivalSearch]]
+  arrivalSearches: Option[List[RequestTimeFilterPostcodesArrivalSearch]]
 
  )

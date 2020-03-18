@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseTimeMapResult(
-  searchUnderscoreid: String,
+  searchId: String,
 
   shapes: List[ResponseShape],
 

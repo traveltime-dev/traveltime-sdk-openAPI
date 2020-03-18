@@ -22,12 +22,13 @@ import com.squareup.moshi.Json
 
 data class RequestRangeFull (
     @Json(name = "enabled")
-    val enabled: kotlin.Boolean,
+    val enabled: kotlin.Boolean
+,
     @Json(name = "max_results")
-    val maxResults: kotlin.Int,
+    val maxResults: kotlin.Int
+,
     @Json(name = "width")
     val width: kotlin.Int
-) 
 
-
+)
 

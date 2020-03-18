@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * ResponseFareTicket
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseFareTicket {
   /**
    * Gets or Sets type

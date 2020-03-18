@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseTimeFilterFastResult(
-  searchUnderscoreid: String,
+  searchId: String,
 
   locations: List[ResponseTimeFilterFastLocation],
 

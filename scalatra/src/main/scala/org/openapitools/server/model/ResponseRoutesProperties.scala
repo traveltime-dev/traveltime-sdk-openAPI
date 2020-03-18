@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseRoutesProperties(
-  travelUnderscoretime: Option[Int],
+  travelTime: Option[Int],
 
   distance: Option[Int],
 

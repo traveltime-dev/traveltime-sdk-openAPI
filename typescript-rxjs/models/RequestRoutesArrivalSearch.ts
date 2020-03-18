@@ -31,22 +31,22 @@ export interface RequestRoutesArrivalSearch {
      * @type {Array<string>}
      * @memberof RequestRoutesArrivalSearch
      */
-    departureLocationIds: Array<string>;
+    departure_location_ids: Array<string>;
     /**
      * @type {string}
      * @memberof RequestRoutesArrivalSearch
      */
-    arrivalLocationId: string;
+    arrival_location_id: string;
     /**
      * @type {RequestTransportation}
      * @memberof RequestRoutesArrivalSearch
      */
     transportation: RequestTransportation;
     /**
-     * @type {Date}
+     * @type {string}
      * @memberof RequestRoutesArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: string;
     /**
      * @type {Array<RequestRoutesProperty>}
      * @memberof RequestRoutesArrivalSearch

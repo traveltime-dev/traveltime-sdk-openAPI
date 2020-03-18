@@ -14,8 +14,8 @@ package org.openapitools.server.model
 case class RequestTimeFilter(
   locations: List[RequestLocation],
 
-  departureUnderscoresearches: Option[List[RequestTimeFilterDepartureSearch]],
+  departureSearches: Option[List[RequestTimeFilterDepartureSearch]],
 
-  arrivalUnderscoresearches: Option[List[RequestTimeFilterArrivalSearch]]
+  arrivalSearches: Option[List[RequestTimeFilterArrivalSearch]]
 
  )

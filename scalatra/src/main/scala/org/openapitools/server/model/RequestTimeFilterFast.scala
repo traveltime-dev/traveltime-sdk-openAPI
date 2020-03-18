@@ -14,6 +14,6 @@ package org.openapitools.server.model
 case class RequestTimeFilterFast(
   locations: List[RequestLocation],
 
-  arrivalUnderscoresearches: RequestTimeFilterFastArrivalSearches
+  arrivalSearches: RequestTimeFilterFastArrivalSearches
 
  )

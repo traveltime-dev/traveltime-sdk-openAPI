@@ -25,14 +25,16 @@ import com.squareup.moshi.Json
 
 data class ResponseRoutesProperties (
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int? = null,
+    val travelTime: kotlin.Int? = null
+,
     @Json(name = "distance")
-    val distance: kotlin.Int? = null,
+    val distance: kotlin.Int? = null
+,
     @Json(name = "fares")
-    val fares: ResponseFares? = null,
+    val fares: ResponseFares? = null
+,
     @Json(name = "route")
     val route: ResponseRoute? = null
-) 
 
-
+)
 

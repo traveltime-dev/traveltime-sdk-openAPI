@@ -20,5 +20,5 @@ export interface ResponseTimeMapProperties {
      * @type {boolean}
      * @memberof ResponseTimeMapProperties
      */
-    isOnlyWalking?: boolean;
+    is_only_walking?: boolean;
 }

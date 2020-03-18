@@ -23,7 +23,7 @@ export interface ResponseRoutePart {
 
     distance: number;
 
-    travelTime: number;
+    travel_time: number;
 
     coords: Array<models.Coords>;
 
@@ -35,15 +35,15 @@ export interface ResponseRoutePart {
 
     line?: string;
 
-    departureStation?: string;
+    departure_station?: string;
 
-    arrivalStation?: string;
+    arrival_station?: string;
 
-    departsAt?: string;
+    departs_at?: string;
 
-    arrivesAt?: string;
+    arrives_at?: string;
 
-    numStops?: number;
+    num_stops?: number;
 
 }
 export namespace ResponseRoutePart {

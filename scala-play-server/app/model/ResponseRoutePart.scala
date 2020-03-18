@@ -5,24 +5,24 @@ import play.api.libs.json._
 /**
   * Represents the Swagger definition for ResponseRoutePart.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T07:55:16.100Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T08:51:49.713Z[Etc/UTC]")
 case class ResponseRoutePart(
   id: String,
   `type`: ResponseRoutePart.Type.Value,
   mode: ResponseTransportationMode,
   directions: String,
   distance: Int,
-  travelUnderscoretime: Int,
+  travelTime: Int,
   coords: List[Coords],
   direction: Option[String],
   road: Option[String],
   turn: Option[String],
   line: Option[String],
-  departureUnderscorestation: Option[String],
-  arrivalUnderscorestation: Option[String],
-  departsUnderscoreat: Option[String],
-  arrivesUnderscoreat: Option[String],
-  numUnderscorestops: Option[Int]
+  departureStation: Option[String],
+  arrivalStation: Option[String],
+  departsAt: Option[String],
+  arrivesAt: Option[String],
+  numStops: Option[Int]
 )
 
 object ResponseRoutePart {

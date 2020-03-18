@@ -12,11 +12,11 @@
 
 package io.swagger.client.model
 import play.api.libs.json._
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class ResponseMapInfoFeaturesPublicTransport (
-                  dateStart: DateTime,
-                  dateEnd: DateTime
+                  dateStart: OffsetDateTime,
+                  dateEnd: OffsetDateTime
 )
 
 object ResponseMapInfoFeaturesPublicTransport {

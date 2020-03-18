@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestRangeFull: Codable { 
 
-public struct RequestRangeFull: Codable {
 
     public var enabled: Bool
     public var maxResults: Int
@@ -27,6 +27,4 @@ public struct RequestRangeFull: Codable {
         case width
     }
 
-
 }
-

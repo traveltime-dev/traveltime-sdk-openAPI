@@ -65,7 +65,7 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
                 put("lat", listOf(lat.toString()))
                 put("lng", listOf(lng.toString()))
                 if (withinPeriodCountry != null) {
-                    put("withinPeriodCountry", listOf(withinPeriodCountry.toString()))
+                    put("within.country", listOf(withinPeriodCountry.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -86,11 +86,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -115,13 +115,13 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             .apply {
                 put("query", listOf(query.toString()))
                 if (focusPeriodLat != null) {
-                    put("focusPeriodLat", listOf(focusPeriodLat.toString()))
+                    put("focus.lat", listOf(focusPeriodLat.toString()))
                 }
                 if (focusPeriodLng != null) {
-                    put("focusPeriodLng", listOf(focusPeriodLng.toString()))
+                    put("focus.lng", listOf(focusPeriodLng.toString()))
                 }
                 if (withinPeriodCountry != null) {
-                    put("withinPeriodCountry", listOf(withinPeriodCountry.toString()))
+                    put("within.country", listOf(withinPeriodCountry.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -142,11 +142,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -182,11 +182,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -223,11 +223,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -264,11 +264,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -305,11 +305,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -346,11 +346,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -387,11 +387,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -428,11 +428,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -469,11 +469,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }
@@ -510,11 +510,11 @@ class DefaultApi(basePath: kotlin.String = "https://api.traveltimeapp.com") : Ap
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
-                throw ClientException(localVarError.body as? String ?: "Client error", localVarError.statusCode)
+                throw ClientException("Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
-                throw ServerException(localVarError.message ?: "Server error", localVarError.statusCode)
+                throw ServerException("Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}", localVarError.statusCode, localVarResponse)
             }
         }
     }

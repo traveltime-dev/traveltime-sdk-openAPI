@@ -3,13 +3,13 @@ package org.openapitools.client.model
 
 
 case class ResponseTimeMapProperties (
-    _isUnderscoreonlyUnderscorewalking: Option[Boolean]
+    _isOnlyWalking: Option[Boolean]
 )
 object ResponseTimeMapProperties {
-    def toStringBody(var_isUnderscoreonlyUnderscorewalking: Object) =
+    def toStringBody(var_isOnlyWalking: Object) =
         s"""
         | {
-        | "isUnderscoreonlyUnderscorewalking":$var_isUnderscoreonlyUnderscorewalking
+        | "isOnlyWalking":$var_isOnlyWalking
         | }
         """.stripMargin
 }

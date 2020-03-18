@@ -19,6 +19,7 @@ import com.squareup.moshi.Json
 * Values: travelTime,distance
 */
 
+
 enum class RequestTimeFilterPostcodesProperty(val value: kotlin.String){
 
 
@@ -30,6 +31,14 @@ enum class RequestTimeFilterPostcodesProperty(val value: kotlin.String){
     distance("distance");
 
 
+
+	/**
+	This override toString avoids using the enum var name and uses the actual api value instead.
+	In cases the var name and value are different, the client would send incorrect enums to the server.
+	**/
+	override fun toString(): String {
+        return value
+    }
 
 }
 

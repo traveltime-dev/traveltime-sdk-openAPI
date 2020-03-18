@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param ticketsTotal 
  */
-data class ResponseFaresFast (
+data class ResponseFaresFast(
 
-        @get:NotNull 
-        @JsonProperty("tickets_total") val ticketsTotal: kotlin.collections.List<ResponseFareTicket>
+    @get:NotNull 
+    @JsonProperty("tickets_total") val ticketsTotal: kotlin.collections.List<ResponseFareTicket>
 ) {
 
 }

@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param searchId 
  * @param postcodes 
  */
-data class ResponseTimeFilterPostcodesResult (
+data class ResponseTimeFilterPostcodesResult(
 
-        @get:NotNull 
-        @JsonProperty("search_id") val searchId: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("search_id") val searchId: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("postcodes") val postcodes: kotlin.collections.List<ResponseTimeFilterPostcode>
+    @get:NotNull 
+    @JsonProperty("postcodes") val postcodes: kotlin.collections.List<ResponseTimeFilterPostcode>
 ) {
 
 }

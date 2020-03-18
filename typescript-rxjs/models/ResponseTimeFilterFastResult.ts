@@ -24,7 +24,7 @@ export interface ResponseTimeFilterFastResult {
      * @type {string}
      * @memberof ResponseTimeFilterFastResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * @type {Array<ResponseTimeFilterFastLocation>}
      * @memberof ResponseTimeFilterFastResult

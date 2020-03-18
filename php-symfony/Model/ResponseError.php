@@ -79,7 +79,7 @@ class ResponseError
      * @Assert\All({
      *   @Assert\Type("string")
      * })
-     * @Type("array<string>")
+     * @Type("array<string, string>")
      */
     protected $additionalInfo;
 
@@ -197,7 +197,7 @@ class ResponseError
      *
      * @return string[]|null
      */
-    public function getAdditionalInfo()
+    public function getAdditionalInfo(): ?array
     {
         return $this->additionalInfo;
     }
@@ -209,7 +209,7 @@ class ResponseError
      *
      * @return $this
      */
-    public function setAdditionalInfo(array $additionalInfo = null)
+    public function setAdditionalInfo(array $additionalInfo = null): ?array
     {
         $this->additionalInfo = $additionalInfo;
 

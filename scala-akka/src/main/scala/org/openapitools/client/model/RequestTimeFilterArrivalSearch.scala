@@ -11,9 +11,8 @@
  */
 package org.openapitools.client.model
 
+import java.time.OffsetDateTime
 import org.openapitools.client.core.ApiModel
-import org.joda.time.DateTime
-import java.util.UUID
 
 case class RequestTimeFilterArrivalSearch (
   id: String,
@@ -21,7 +20,7 @@ case class RequestTimeFilterArrivalSearch (
   arrivalLocationId: String,
   transportation: RequestTransportation,
   travelTime: Int,
-  arrivalTime: DateTime,
+  arrivalTime: OffsetDateTime,
   properties: Seq[RequestTimeFilterProperty],
   range: Option[RequestRangeFull] = None
 ) extends ApiModel

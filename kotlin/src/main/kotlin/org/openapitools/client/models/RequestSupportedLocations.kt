@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class RequestSupportedLocations (
     @Json(name = "locations")
     val locations: kotlin.Array<RequestLocation>
-) 
 
-
+)
 

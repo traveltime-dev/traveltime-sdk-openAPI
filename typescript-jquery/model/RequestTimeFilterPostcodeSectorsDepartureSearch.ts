@@ -17,11 +17,11 @@ export interface RequestTimeFilterPostcodeSectorsDepartureSearch {
 
     transportation: models.RequestTransportation;
 
-    travelTime: number;
+    travel_time: number;
 
-    departureTime: Date;
+    departure_time: string;
 
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
 
     properties: Array<models.RequestTimeFilterPostcodeSectorsProperty>;
 

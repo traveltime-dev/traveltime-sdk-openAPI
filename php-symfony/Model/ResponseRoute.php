@@ -86,7 +86,7 @@ class ResponseRoute
      *
      * @return \DateTime
      */
-    public function getDepartureTime()
+    public function getDepartureTime(): \DateTime
     {
         return $this->departureTime;
     }
@@ -98,7 +98,7 @@ class ResponseRoute
      *
      * @return $this
      */
-    public function setDepartureTime(\DateTime $departureTime)
+    public function setDepartureTime(\DateTime $departureTime): \DateTime
     {
         $this->departureTime = $departureTime;
 
@@ -110,7 +110,7 @@ class ResponseRoute
      *
      * @return \DateTime
      */
-    public function getArrivalTime()
+    public function getArrivalTime(): \DateTime
     {
         return $this->arrivalTime;
     }
@@ -122,7 +122,7 @@ class ResponseRoute
      *
      * @return $this
      */
-    public function setArrivalTime(\DateTime $arrivalTime)
+    public function setArrivalTime(\DateTime $arrivalTime): \DateTime
     {
         $this->arrivalTime = $arrivalTime;
 
@@ -134,7 +134,7 @@ class ResponseRoute
      *
      * @return OpenAPI\Server\Model\ResponseRoutePart[]
      */
-    public function getParts()
+    public function getParts(): array
     {
         return $this->parts;
     }
@@ -146,7 +146,7 @@ class ResponseRoute
      *
      * @return $this
      */
-    public function setParts(array $parts)
+    public function setParts(array $parts): array
     {
         $this->parts = $parts;
 

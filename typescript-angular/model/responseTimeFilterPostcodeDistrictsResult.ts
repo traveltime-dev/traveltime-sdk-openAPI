@@ -13,7 +13,7 @@ import { ResponseTimeFilterPostcodeDistrict } from './responseTimeFilterPostcode
 
 
 export interface ResponseTimeFilterPostcodeDistrictsResult { 
-    searchId: string;
+    search_id: string;
     districts: Array<ResponseTimeFilterPostcodeDistrict>;
 }
 

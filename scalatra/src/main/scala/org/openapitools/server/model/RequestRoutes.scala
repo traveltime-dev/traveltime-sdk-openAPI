@@ -14,8 +14,8 @@ package org.openapitools.server.model
 case class RequestRoutes(
   locations: List[RequestLocation],
 
-  departureUnderscoresearches: Option[List[RequestRoutesDepartureSearch]],
+  departureSearches: Option[List[RequestRoutesDepartureSearch]],
 
-  arrivalUnderscoresearches: Option[List[RequestRoutesArrivalSearch]]
+  arrivalSearches: Option[List[RequestRoutesArrivalSearch]]
 
  )

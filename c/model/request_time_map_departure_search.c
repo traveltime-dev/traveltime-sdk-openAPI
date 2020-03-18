@@ -4,14 +4,14 @@
 #include "request_time_map_departure_search.h"
 
 
-    char* propertiesrequest_time_map_departure_search_ToString(properties_e properties){
-        char *propertiesArray[] =  { "is_only_walking" };
-        return propertiesArray[properties - 1];
-    }
+char* propertiesrequest_time_map_departure_search_ToString(traveltime_platform_api_request_time_map_departure_search__e properties) {
+	char *propertiesArray[] =  { "NULL", "is_only_walking" };
+	return propertiesArray[properties - 1];
+}
 
-    properties_e propertiesrequest_time_map_departure_search_FromString(char* properties){
+traveltime_platform_api_request_time_map_departure_search__e propertiesrequest_time_map_departure_search_FromString(char* properties) {
     int stringToReturn = 0;
-    char *propertiesArray[] =  { "is_only_walking" };
+    char *propertiesArray[] =  { "NULL", "is_only_walking" };
     size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(properties, propertiesArray[stringToReturn]) == 0) {
@@ -20,7 +20,7 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 request_time_map_departure_search_t *request_time_map_departure_search_create(
     char *id,
@@ -134,7 +134,7 @@ cJSON *request_time_map_departure_search_convertToJSON(request_time_map_departur
     listEntry_t *propertiesListEntry;
     if (request_time_map_departure_search->properties) {
     list_ForEach(propertiesListEntry, request_time_map_departure_search->properties) {
-    cJSON *itemLocal = request_time_map_property_convertToJSON((request_time_map_property_e)propertiesListEntry->data);
+    cJSON *itemLocal = request_time_map_property_convertToJSON((traveltime_platform_api_request_time_map_departure_search__e)propertiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -240,7 +240,7 @@ request_time_map_departure_search_t *request_time_map_departure_search_parseFrom
         if(!cJSON_IsObject(properties_local_nonprimitive)){
             goto end;
         }
-        request_time_map_property_e propertiesItem = request_time_map_property_parseFromJSON(properties_local_nonprimitive);
+        request_time_map_departure_search_request_time_map_property_e propertiesItem = request_time_map_property_parseFromJSON(properties_local_nonprimitive);
 
         list_addElement(propertiesList, (void *)propertiesItem);
     }

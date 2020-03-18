@@ -13,7 +13,7 @@ import org.openapitools.model.RequestTimeFilterFastArrivalOneToManySearch;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T07:54:20.248Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-03-18T08:51:06.736Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalSearches   {
   
   private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = new ArrayList<RequestTimeFilterFastArrivalManyToOneSearch>();

@@ -4,14 +4,14 @@
 #include "request_transportation.h"
 
 
-    char* typerequest_transportation_ToString(type_e type){
-    char *typeArray[] =  { "cycling","driving","driving+train","public_transport","walking","coach","bus","train","ferry","driving+ferry","cycling+ferry" };
-        return typeArray[type];
-    }
+char* typerequest_transportation_ToString(traveltime_platform_api_request_transportation_TYPE_e type) {
+    char* typeArray[] =  { "NULL", "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" };
+	return typeArray[type];
+}
 
-    type_e typerequest_transportation_FromString(char* type){
+traveltime_platform_api_request_transportation_TYPE_e typerequest_transportation_FromString(char* type){
     int stringToReturn = 0;
-    char *typeArray[] =  { "cycling","driving","driving+train","public_transport","walking","coach","bus","train","ferry","driving+ferry","cycling+ferry" };
+    char *typeArray[] =  { "NULL", "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(type, typeArray[stringToReturn]) == 0) {
@@ -20,10 +20,10 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 request_transportation_t *request_transportation_create(
-    type_e type,
+    traveltime_platform_api_request_transportation_TYPE_e type,
     int pt_change_delay,
     int walking_time,
     int driving_time_to_station,
@@ -118,7 +118,7 @@ request_transportation_t *request_transportation_parseFromJSON(cJSON *request_tr
         goto end;
     }
 
-    type_e typeVariable;
+    traveltime_platform_api_request_transportation_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

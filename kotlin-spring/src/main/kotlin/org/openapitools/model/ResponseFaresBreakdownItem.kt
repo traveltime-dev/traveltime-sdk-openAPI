@@ -18,16 +18,16 @@ import javax.validation.constraints.Size
  * @param routePartIds 
  * @param tickets 
  */
-data class ResponseFaresBreakdownItem (
+data class ResponseFaresBreakdownItem(
 
-        @get:NotNull 
-        @JsonProperty("modes") val modes: kotlin.collections.List<ResponseTransportationMode>,
+    @get:NotNull 
+    @JsonProperty("modes") val modes: kotlin.collections.List<ResponseTransportationMode>,
 
-        @get:NotNull 
-        @JsonProperty("route_part_ids") val routePartIds: kotlin.collections.List<kotlin.Int>,
+    @get:NotNull 
+    @JsonProperty("route_part_ids") val routePartIds: kotlin.collections.List<kotlin.Int>,
 
-        @get:NotNull 
-        @JsonProperty("tickets") val tickets: kotlin.collections.List<ResponseFareTicket>
+    @get:NotNull 
+    @JsonProperty("tickets") val tickets: kotlin.collections.List<ResponseFareTicket>
 ) {
 
 }

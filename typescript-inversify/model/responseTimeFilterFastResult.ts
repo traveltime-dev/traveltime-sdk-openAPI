@@ -13,7 +13,7 @@ import { ResponseTimeFilterFastLocation } from './responseTimeFilterFastLocation
 
 
 export interface ResponseTimeFilterFastResult { 
-    searchId: string;
+    search_id: string;
     locations: Array<ResponseTimeFilterFastLocation>;
     unreachable: Array<string>;
 }

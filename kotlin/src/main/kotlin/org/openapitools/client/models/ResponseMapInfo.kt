@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class ResponseMapInfo (
     @Json(name = "maps")
     val maps: kotlin.Array<ResponseMapInfoMap>
-) 
 
-
+)
 

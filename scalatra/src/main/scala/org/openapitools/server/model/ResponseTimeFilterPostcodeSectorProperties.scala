@@ -12,9 +12,9 @@
 package org.openapitools.server.model
 
 case class ResponseTimeFilterPostcodeSectorProperties(
-  travelUnderscoretimeUnderscorereachable: Option[ResponseTravelTimeStatistics],
+  travelTimeReachable: Option[ResponseTravelTimeStatistics],
 
-  travelUnderscoretimeUnderscoreall: Option[ResponseTravelTimeStatistics],
+  travelTimeAll: Option[ResponseTravelTimeStatistics],
 
   coverage: Option[Double]
 

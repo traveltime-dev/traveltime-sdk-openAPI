@@ -12,11 +12,11 @@
 package org.openapitools.server.model
 
 case class ResponseTimeFilterProperties(
-  travelUnderscoretime: Option[Int],
+  travelTime: Option[Int],
 
   distance: Option[Int],
 
-  distanceUnderscorebreakdown: Option[List[ResponseDistanceBreakdownItem]],
+  distanceBreakdown: Option[List[ResponseDistanceBreakdownItem]],
 
   fares: Option[ResponseFares],
 

@@ -4,14 +4,14 @@
 #include "response_fares_breakdown_item.h"
 
 
-    char* modesresponse_fares_breakdown_item_ToString(modes_e modes){
-        char *modesArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
-        return modesArray[modes - 1];
-    }
+char* modesresponse_fares_breakdown_item_ToString(traveltime_platform_api_response_fares_breakdown_item__e modes) {
+	char *modesArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
+	return modesArray[modes - 1];
+}
 
-    modes_e modesresponse_fares_breakdown_item_FromString(char* modes){
+traveltime_platform_api_response_fares_breakdown_item__e modesresponse_fares_breakdown_item_FromString(char* modes) {
     int stringToReturn = 0;
-    char *modesArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+    char *modesArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(modesArray) / sizeof(modesArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(modes, modesArray[stringToReturn]) == 0) {
@@ -20,7 +20,7 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 response_fares_breakdown_item_t *response_fares_breakdown_item_create(
     list_t *modes,
@@ -69,7 +69,7 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
     listEntry_t *modesListEntry;
     if (response_fares_breakdown_item->modes) {
     list_ForEach(modesListEntry, response_fares_breakdown_item->modes) {
-    cJSON *itemLocal = response_transportation_mode_convertToJSON((response_transportation_mode_e)modesListEntry->data);
+    cJSON *itemLocal = response_transportation_mode_convertToJSON((traveltime_platform_api_response_fares_breakdown_item__e)modesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }
@@ -150,7 +150,7 @@ response_fares_breakdown_item_t *response_fares_breakdown_item_parseFromJSON(cJS
         if(!cJSON_IsObject(modes_local_nonprimitive)){
             goto end;
         }
-        response_transportation_mode_e modesItem = response_transportation_mode_parseFromJSON(modes_local_nonprimitive);
+        response_fares_breakdown_item_response_transportation_mode_e modesItem = response_transportation_mode_parseFromJSON(modes_local_nonprimitive);
 
         list_addElement(modesList, (void *)modesItem);
     }

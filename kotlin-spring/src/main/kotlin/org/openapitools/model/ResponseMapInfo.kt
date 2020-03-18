@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param maps 
  */
-data class ResponseMapInfo (
+data class ResponseMapInfo(
 
-        @get:NotNull 
-        @JsonProperty("maps") val maps: kotlin.collections.List<ResponseMapInfoMap>
+    @get:NotNull 
+    @JsonProperty("maps") val maps: kotlin.collections.List<ResponseMapInfoMap>
 ) {
 
 }

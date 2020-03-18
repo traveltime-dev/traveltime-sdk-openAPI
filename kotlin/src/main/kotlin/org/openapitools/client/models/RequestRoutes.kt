@@ -25,12 +25,13 @@ import com.squareup.moshi.Json
 
 data class RequestRoutes (
     @Json(name = "locations")
-    val locations: kotlin.Array<RequestLocation>,
+    val locations: kotlin.Array<RequestLocation>
+,
     @Json(name = "departure_searches")
-    val departureSearches: kotlin.Array<RequestRoutesDepartureSearch>? = null,
+    val departureSearches: kotlin.Array<RequestRoutesDepartureSearch>? = null
+,
     @Json(name = "arrival_searches")
     val arrivalSearches: kotlin.Array<RequestRoutesArrivalSearch>? = null
-) 
 
-
+)
 

@@ -13,7 +13,7 @@ import { ResponseTimeMapProperties } from './responseTimeMapProperties';
 
 
 export interface ResponseTimeMapWktResult { 
-    searchId: string;
+    search_id: string;
     shape: string;
     properties: ResponseTimeMapProperties;
 }

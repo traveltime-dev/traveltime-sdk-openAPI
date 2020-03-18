@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseShape (
     @Json(name = "shell")
-    val shell: kotlin.Array<Coords>,
+    val shell: kotlin.Array<Coords>
+,
     @Json(name = "holes")
     val holes: kotlin.Array<kotlin.Array<Coords>>
-) 
 
-
+)
 

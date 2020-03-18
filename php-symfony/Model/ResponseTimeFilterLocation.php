@@ -100,7 +100,7 @@ class ResponseTimeFilterLocation
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterProperties[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -112,7 +112,7 @@ class ResponseTimeFilterLocation
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 

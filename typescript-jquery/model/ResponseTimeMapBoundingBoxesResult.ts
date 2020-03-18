@@ -13,9 +13,9 @@
 import * as models from './models';
 
 export interface ResponseTimeMapBoundingBoxesResult {
-    searchId: string;
+    search_id: string;
 
-    boundingBoxes: Array<models.ResponseBoundingBox>;
+    bounding_boxes: Array<models.ResponseBoundingBox>;
 
     properties: models.ResponseTimeMapProperties;
 

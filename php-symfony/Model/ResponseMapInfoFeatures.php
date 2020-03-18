@@ -83,7 +83,7 @@ class ResponseMapInfoFeatures
      *
      * @return OpenAPI\Server\Model\ResponseMapInfoFeaturesPublicTransport|null
      */
-    public function getPublicTransport()
+    public function getPublicTransport(): ?ResponseMapInfoFeaturesPublicTransport
     {
         return $this->publicTransport;
     }
@@ -95,7 +95,7 @@ class ResponseMapInfoFeatures
      *
      * @return $this
      */
-    public function setPublicTransport(ResponseMapInfoFeaturesPublicTransport $publicTransport = null)
+    public function setPublicTransport(ResponseMapInfoFeaturesPublicTransport $publicTransport = null): ?ResponseMapInfoFeaturesPublicTransport
     {
         $this->publicTransport = $publicTransport;
 

@@ -31,7 +31,7 @@ import javax.validation.Valid;
   ResponseTimeFilterPostcodeDistrictProperties.JSON_PROPERTY_TRAVEL_TIME_ALL,
   ResponseTimeFilterPostcodeDistrictProperties.JSON_PROPERTY_COVERAGE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   public static final String JSON_PROPERTY_TRAVEL_TIME_REACHABLE = "travel_time_reachable";
   @JsonProperty(JSON_PROPERTY_TRAVEL_TIME_REACHABLE)

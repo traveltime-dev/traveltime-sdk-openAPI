@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseFares: Codable { 
 
-public struct ResponseFares: Codable {
 
     public var breakdown: [ResponseFaresBreakdownItem]
     public var ticketsTotal: [ResponseFareTicket]
@@ -24,6 +24,4 @@ public struct ResponseFares: Codable {
         case ticketsTotal = "tickets_total"
     }
 
-
 }
-

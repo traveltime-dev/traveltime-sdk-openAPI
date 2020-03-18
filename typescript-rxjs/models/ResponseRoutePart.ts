@@ -50,7 +50,7 @@ export interface ResponseRoutePart {
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * @type {Array<Coords>}
      * @memberof ResponseRoutePart
@@ -80,27 +80,27 @@ export interface ResponseRoutePart {
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departureStation?: string;
+    departure_station?: string;
     /**
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivalStation?: string;
+    arrival_station?: string;
     /**
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departsAt?: string;
+    departs_at?: string;
     /**
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivesAt?: string;
+    arrives_at?: string;
     /**
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    numStops?: number;
+    num_stops?: number;
 }
 
 /**

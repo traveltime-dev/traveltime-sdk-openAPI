@@ -25,7 +25,7 @@ export interface RequestRangeFull {
      * @type {number}
      * @memberof RequestRangeFull
      */
-    maxResults: number;
+    max_results: number;
     /**
      * @type {number}
      * @memberof RequestRangeFull

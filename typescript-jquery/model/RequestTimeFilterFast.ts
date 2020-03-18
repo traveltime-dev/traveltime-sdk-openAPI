@@ -15,6 +15,6 @@ import * as models from './models';
 export interface RequestTimeFilterFast {
     locations: Array<models.RequestLocation>;
 
-    arrivalSearches: models.RequestTimeFilterFastArrivalSearches;
+    arrival_searches: models.RequestTimeFilterFastArrivalSearches;
 
 }

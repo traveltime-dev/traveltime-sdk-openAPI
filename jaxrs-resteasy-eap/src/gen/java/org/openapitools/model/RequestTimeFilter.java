@@ -14,7 +14,7 @@ import org.openapitools.model.RequestTimeFilterDepartureSearch;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T07:54:23.710Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
 public class RequestTimeFilter   {
   
 

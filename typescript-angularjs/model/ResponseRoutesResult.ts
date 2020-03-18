@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseRoutesResult {
-    "searchId": string;
+    "search_id": string;
     "locations": Array<models.ResponseRoutesLocation>;
     "unreachable": Array<string>;
 }

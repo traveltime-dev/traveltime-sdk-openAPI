@@ -4,14 +4,14 @@
 #include "response_route_part.h"
 
 
-    char* typeresponse_route_part_ToString(type_e type){
-    char *typeArray[] =  { "basic","start_end","road","public_transport" };
-        return typeArray[type];
-    }
+char* typeresponse_route_part_ToString(traveltime_platform_api_response_route_part_TYPE_e type) {
+    char* typeArray[] =  { "NULL", "basic", "start_end", "road", "public_transport" };
+	return typeArray[type];
+}
 
-    type_e typeresponse_route_part_FromString(char* type){
+traveltime_platform_api_response_route_part_TYPE_e typeresponse_route_part_FromString(char* type){
     int stringToReturn = 0;
-    char *typeArray[] =  { "basic","start_end","road","public_transport" };
+    char *typeArray[] =  { "NULL", "basic", "start_end", "road", "public_transport" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(type, typeArray[stringToReturn]) == 0) {
@@ -20,15 +20,15 @@
         stringToReturn++;
     }
     return 0;
-    }
-    char* moderesponse_route_part_ToString(mode_e mode){
-    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
-        return modeArray[mode];
-    }
+}
+char* moderesponse_route_part_ToString(traveltime_platform_api_response_route_part__e mode) {
+    char* modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
+	return modeArray[mode];
+}
 
-    mode_e moderesponse_route_part_FromString(char* mode){
+traveltime_platform_api_response_route_part__e moderesponse_route_part_FromString(char* mode){
     int stringToReturn = 0;
-    char *modeArray[] =  { "car","parking","boarding","walk","bike","train","rail_national","rail_overground","rail_underground","rail_dlr","bus","cable_car","plane","ferry","coach" };
+    char *modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(modeArray) / sizeof(modeArray[0]);
     while(stringToReturn < sizeofArray) {
         if(strcmp(mode, modeArray[stringToReturn]) == 0) {
@@ -37,11 +37,11 @@
         stringToReturn++;
     }
     return 0;
-    }
+}
 
 response_route_part_t *response_route_part_create(
     char *id,
-    type_e type,
+    traveltime_platform_api_response_route_part_TYPE_e type,
     char *directions,
     int distance,
     int travel_time,
@@ -278,7 +278,7 @@ response_route_part_t *response_route_part_parseFromJSON(cJSON *response_route_p
         goto end;
     }
 
-    type_e typeVariable;
+    traveltime_platform_api_response_route_part_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

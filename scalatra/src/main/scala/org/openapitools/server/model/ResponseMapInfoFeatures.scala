@@ -12,7 +12,7 @@
 package org.openapitools.server.model
 
 case class ResponseMapInfoFeatures(
-  publicUnderscoretransport: Option[ResponseMapInfoFeaturesPublicTransport],
+  publicTransport: Option[ResponseMapInfoFeaturesPublicTransport],
 
   fares: Boolean,
 

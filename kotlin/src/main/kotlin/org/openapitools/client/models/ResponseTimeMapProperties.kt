@@ -21,7 +21,6 @@ import com.squareup.moshi.Json
 data class ResponseTimeMapProperties (
     @Json(name = "is_only_walking")
     val isOnlyWalking: kotlin.Boolean? = null
-) 
 
-
+)
 

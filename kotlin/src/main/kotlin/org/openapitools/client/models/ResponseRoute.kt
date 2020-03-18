@@ -23,12 +23,13 @@ import com.squareup.moshi.Json
 
 data class ResponseRoute (
     @Json(name = "departure_time")
-    val departureTime: java.time.OffsetDateTime,
+    val departureTime: java.time.OffsetDateTime
+,
     @Json(name = "arrival_time")
-    val arrivalTime: java.time.OffsetDateTime,
+    val arrivalTime: java.time.OffsetDateTime
+,
     @Json(name = "parts")
     val parts: kotlin.Array<ResponseRoutePart>
-) 
 
-
+)
 

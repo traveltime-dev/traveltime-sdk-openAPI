@@ -15,5 +15,5 @@ import { RequestTimeFilterFastArrivalSearches } from './requestTimeFilterFastArr
 
 export interface RequestTimeFilterFast { 
     locations: Array<RequestLocation>;
-    arrivalSearches: RequestTimeFilterFastArrivalSearches;
+    arrival_searches: RequestTimeFilterFastArrivalSearches;
 }

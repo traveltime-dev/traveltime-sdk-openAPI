@@ -23,12 +23,13 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeFilterPostcodeSectorProperties (
     @Json(name = "travel_time_reachable")
-    val travelTimeReachable: ResponseTravelTimeStatistics? = null,
+    val travelTimeReachable: ResponseTravelTimeStatistics? = null
+,
     @Json(name = "travel_time_all")
-    val travelTimeAll: ResponseTravelTimeStatistics? = null,
+    val travelTimeAll: ResponseTravelTimeStatistics? = null
+,
     @Json(name = "coverage")
     val coverage: kotlin.Double? = null
-) 
 
-
+)
 

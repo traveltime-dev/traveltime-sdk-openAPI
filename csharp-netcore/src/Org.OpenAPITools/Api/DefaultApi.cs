@@ -674,29 +674,11 @@ namespace Org.OpenAPITools.Api
             var localVarAccept = Org.OpenAPITools.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lat", lat))
-            {
-                foreach (var _kvpValue in _kvp.Value)
-                {
-                    localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                }
-            }
-            foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lng", lng))
-            {
-                foreach (var _kvpValue in _kvp.Value)
-                {
-                    localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lat", lat));
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lng", lng));
             if (withinCountry != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry));
             }
 
             // authentication (ApiKey) required
@@ -764,29 +746,11 @@ namespace Org.OpenAPITools.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lat", lat))
-            {
-                foreach (var _kvpValue in _kvp.Value)
-                {
-                    localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                }
-            }
-            foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lng", lng))
-            {
-                foreach (var _kvpValue in _kvp.Value)
-                {
-                    localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                }
-            }
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lat", lat));
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "lng", lng));
             if (withinCountry != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry));
             }
 
             // authentication (ApiKey) required
@@ -861,43 +825,19 @@ namespace Org.OpenAPITools.Api
 
             if (query != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "query", query))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
             if (focusLat != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lat", focusLat))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lat", focusLat));
             }
             if (focusLng != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lng", focusLng))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lng", focusLng));
             }
             if (withinCountry != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry));
             }
 
             // authentication (ApiKey) required
@@ -973,43 +913,19 @@ namespace Org.OpenAPITools.Api
             
             if (query != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "query", query))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
             if (focusLat != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lat", focusLat))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lat", focusLat));
             }
             if (focusLng != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lng", focusLng))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "focus.lng", focusLng));
             }
             if (withinCountry != null)
             {
-                foreach (var _kvp in Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry))
-                {
-                    foreach (var _kvpValue in _kvp.Value)
-                    {
-                        localVarRequestOptions.QueryParameters.Add(_kvp.Key, _kvpValue);
-                    }
-                }
+                localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "within.country", withinCountry));
             }
 
             // authentication (ApiKey) required

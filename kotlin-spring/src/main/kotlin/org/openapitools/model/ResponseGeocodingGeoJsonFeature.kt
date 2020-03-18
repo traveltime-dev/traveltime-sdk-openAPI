@@ -18,16 +18,16 @@ import javax.validation.constraints.Size
  * @param geometry 
  * @param properties 
  */
-data class ResponseGeocodingGeoJsonFeature (
+data class ResponseGeocodingGeoJsonFeature(
 
-        @get:NotNull 
-        @JsonProperty("type") val type: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("type") val type: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("geometry") val geometry: ResponseGeocodingGeometry,
+    @get:NotNull 
+    @JsonProperty("geometry") val geometry: ResponseGeocodingGeometry,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: ResponseGeocodingProperties
+    @get:NotNull 
+    @JsonProperty("properties") val properties: ResponseGeocodingProperties
 ) {
 
 }

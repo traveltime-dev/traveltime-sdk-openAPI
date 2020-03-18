@@ -31,10 +31,10 @@ export interface RequestRoutes {
      * @type {Array<RequestRoutesDepartureSearch>}
      * @memberof RequestRoutes
      */
-    departureSearches?: Array<RequestRoutesDepartureSearch>;
+    departure_searches?: Array<RequestRoutesDepartureSearch>;
     /**
      * @type {Array<RequestRoutesArrivalSearch>}
      * @memberof RequestRoutes
      */
-    arrivalSearches?: Array<RequestRoutesArrivalSearch>;
+    arrival_searches?: Array<RequestRoutesArrivalSearch>;
 }

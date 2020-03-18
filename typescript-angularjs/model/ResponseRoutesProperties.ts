@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseRoutesProperties {
-    "travelTime"?: number;
+    "travel_time"?: number;
     "distance"?: number;
     "fares"?: models.ResponseFares;
     "route"?: models.ResponseRoute;

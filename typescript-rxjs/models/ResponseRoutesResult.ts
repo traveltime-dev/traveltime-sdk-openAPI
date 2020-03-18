@@ -24,7 +24,7 @@ export interface ResponseRoutesResult {
      * @type {string}
      * @memberof ResponseRoutesResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * @type {Array<ResponseRoutesLocation>}
      * @memberof ResponseRoutesResult

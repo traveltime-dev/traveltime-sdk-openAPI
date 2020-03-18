@@ -16,11 +16,11 @@ import javax.validation.constraints.Size
  * @param travelTime 
  * @param fares 
  */
-data class ResponseTimeFilterFastProperties (
+data class ResponseTimeFilterFastProperties(
 
-        @JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
+    @JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
 
-        @JsonProperty("fares") val fares: ResponseFaresFast? = null
+    @JsonProperty("fares") val fares: ResponseFaresFast? = null
 ) {
 
 }

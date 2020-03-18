@@ -24,12 +24,13 @@ import com.squareup.moshi.Json
 
 data class ResponseGeocodingGeoJsonFeature (
     @Json(name = "type")
-    val type: kotlin.String,
+    val type: kotlin.String
+,
     @Json(name = "geometry")
-    val geometry: ResponseGeocodingGeometry,
+    val geometry: ResponseGeocodingGeometry
+,
     @Json(name = "properties")
     val properties: ResponseGeocodingProperties
-) 
 
-
+)
 

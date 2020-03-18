@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeFilterLocation (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "properties")
     val properties: kotlin.Array<ResponseTimeFilterProperties>
-) 
 
-
+)
 

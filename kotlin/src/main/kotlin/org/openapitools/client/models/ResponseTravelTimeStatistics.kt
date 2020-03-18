@@ -23,14 +23,16 @@ import com.squareup.moshi.Json
 
 data class ResponseTravelTimeStatistics (
     @Json(name = "min")
-    val min: kotlin.Int,
+    val min: kotlin.Int
+,
     @Json(name = "max")
-    val max: kotlin.Int,
+    val max: kotlin.Int
+,
     @Json(name = "mean")
-    val mean: kotlin.Int,
+    val mean: kotlin.Int
+,
     @Json(name = "median")
     val median: kotlin.Int
-) 
 
-
+)
 

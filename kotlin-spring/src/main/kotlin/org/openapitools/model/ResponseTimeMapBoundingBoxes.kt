@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param results 
  */
-data class ResponseTimeMapBoundingBoxes (
+data class ResponseTimeMapBoundingBoxes(
 
-        @get:NotNull 
-        @JsonProperty("results") val results: kotlin.collections.List<ResponseTimeMapBoundingBoxesResult>
+    @get:NotNull 
+    @JsonProperty("results") val results: kotlin.collections.List<ResponseTimeMapBoundingBoxesResult>
 ) {
 
 }

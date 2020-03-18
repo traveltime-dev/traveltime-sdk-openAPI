@@ -26,14 +26,16 @@ import com.squareup.moshi.Json
 
 data class RequestTimeMap (
     @Json(name = "departure_searches")
-    val departureSearches: kotlin.Array<RequestTimeMapDepartureSearch>? = null,
+    val departureSearches: kotlin.Array<RequestTimeMapDepartureSearch>? = null
+,
     @Json(name = "arrival_searches")
-    val arrivalSearches: kotlin.Array<RequestTimeMapArrivalSearch>? = null,
+    val arrivalSearches: kotlin.Array<RequestTimeMapArrivalSearch>? = null
+,
     @Json(name = "unions")
-    val unions: kotlin.Array<RequestUnionOnIntersection>? = null,
+    val unions: kotlin.Array<RequestUnionOnIntersection>? = null
+,
     @Json(name = "intersections")
     val intersections: kotlin.Array<RequestUnionOnIntersection>? = null
-) 
 
-
+)
 

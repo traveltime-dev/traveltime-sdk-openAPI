@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param envelope 
  * @param boxes 
  */
-data class ResponseBoundingBox (
+data class ResponseBoundingBox(
 
-        @get:NotNull 
-        @JsonProperty("envelope") val envelope: ResponseBox,
+    @get:NotNull 
+    @JsonProperty("envelope") val envelope: ResponseBox,
 
-        @get:NotNull 
-        @JsonProperty("boxes") val boxes: kotlin.collections.List<ResponseBox>
+    @get:NotNull 
+    @JsonProperty("boxes") val boxes: kotlin.collections.List<ResponseBox>
 ) {
 
 }

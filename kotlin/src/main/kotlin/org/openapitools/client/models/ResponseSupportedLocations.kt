@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseSupportedLocations (
     @Json(name = "locations")
-    val locations: kotlin.Array<ResponseSupportedLocation>,
+    val locations: kotlin.Array<ResponseSupportedLocation>
+,
     @Json(name = "unsupported_locations")
     val unsupportedLocations: kotlin.Array<kotlin.String>
-) 
 
-
+)
 

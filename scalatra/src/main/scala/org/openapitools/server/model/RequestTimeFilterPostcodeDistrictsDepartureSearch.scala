@@ -10,18 +10,18 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterPostcodeDistrictsDepartureSearch(
   id: String,
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  departureUnderscoretime: DateTime,
+  departureTime: OffsetDateTime,
 
-  reachableUnderscorepostcodesUnderscorethreshold: Double,
+  reachablePostcodesThreshold: Double,
 
   properties: List[RequestTimeFilterPostcodeDistrictsProperty],
 

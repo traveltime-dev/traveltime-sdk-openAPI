@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param results 
  */
-data class ResponseRoutes (
+data class ResponseRoutes(
 
-        @get:NotNull 
-        @JsonProperty("results") val results: kotlin.collections.List<ResponseRoutesResult>
+    @get:NotNull 
+    @JsonProperty("results") val results: kotlin.collections.List<ResponseRoutesResult>
 ) {
 
 }

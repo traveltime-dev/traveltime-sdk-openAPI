@@ -98,7 +98,7 @@ class RequestLocation
      *
      * @return OpenAPI\Server\Model\Coords
      */
-    public function getCoords()
+    public function getCoords(): Coords
     {
         return $this->coords;
     }
@@ -110,7 +110,7 @@ class RequestLocation
      *
      * @return $this
      */
-    public function setCoords(Coords $coords)
+    public function setCoords(Coords $coords): Coords
     {
         $this->coords = $coords;
 

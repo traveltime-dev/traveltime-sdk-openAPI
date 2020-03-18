@@ -17,19 +17,19 @@ import javax.validation.constraints.Size
  * @param minLng 
  * @param maxLng 
  */
-data class ResponseBox (
+data class ResponseBox(
 
-        @get:NotNull 
-        @JsonProperty("min_lat") val minLat: kotlin.Double,
+    @get:NotNull 
+    @JsonProperty("min_lat") val minLat: kotlin.Double,
 
-        @get:NotNull 
-        @JsonProperty("max_lat") val maxLat: kotlin.Double,
+    @get:NotNull 
+    @JsonProperty("max_lat") val maxLat: kotlin.Double,
 
-        @get:NotNull 
-        @JsonProperty("min_lng") val minLng: kotlin.Double,
+    @get:NotNull 
+    @JsonProperty("min_lng") val minLng: kotlin.Double,
 
-        @get:NotNull 
-        @JsonProperty("max_lng") val maxLng: kotlin.Double
+    @get:NotNull 
+    @JsonProperty("max_lng") val maxLng: kotlin.Double
 ) {
 
 }

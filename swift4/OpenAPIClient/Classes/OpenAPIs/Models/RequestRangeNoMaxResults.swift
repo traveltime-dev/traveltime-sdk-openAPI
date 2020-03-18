@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestRangeNoMaxResults: Codable { 
 
-public struct RequestRangeNoMaxResults: Codable {
 
     public var enabled: Bool
     public var width: Int
@@ -19,6 +19,4 @@ public struct RequestRangeNoMaxResults: Codable {
         self.width = width
     }
 
-
 }
-

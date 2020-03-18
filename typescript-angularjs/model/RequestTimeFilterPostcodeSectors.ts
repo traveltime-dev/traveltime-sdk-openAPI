@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface RequestTimeFilterPostcodeSectors {
-    "departureSearches"?: Array<models.RequestTimeFilterPostcodeSectorsDepartureSearch>;
-    "arrivalSearches"?: Array<models.RequestTimeFilterPostcodeSectorsArrivalSearch>;
+    "departure_searches"?: Array<models.RequestTimeFilterPostcodeSectorsDepartureSearch>;
+    "arrival_searches"?: Array<models.RequestTimeFilterPostcodeSectorsArrivalSearch>;
 }
 

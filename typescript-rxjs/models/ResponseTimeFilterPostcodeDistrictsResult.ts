@@ -24,7 +24,7 @@ export interface ResponseTimeFilterPostcodeDistrictsResult {
      * @type {string}
      * @memberof ResponseTimeFilterPostcodeDistrictsResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * @type {Array<ResponseTimeFilterPostcodeDistrict>}
      * @memberof ResponseTimeFilterPostcodeDistrictsResult

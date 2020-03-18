@@ -25,10 +25,10 @@ export interface RequestTimeFilterFastArrivalSearches {
      * @type {Array<RequestTimeFilterFastArrivalManyToOneSearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */
-    manyToOne?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
+    many_to_one?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
     /**
      * @type {Array<RequestTimeFilterFastArrivalOneToManySearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */
-    oneToMany?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
+    one_to_many?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
 }

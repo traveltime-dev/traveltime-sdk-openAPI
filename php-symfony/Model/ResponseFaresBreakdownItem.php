@@ -90,7 +90,7 @@ class ResponseFaresBreakdownItem
      *
      * @return OpenAPI\Server\Model\ResponseTransportationMode[]
      */
-    public function getModes()
+    public function getModes(): array
     {
         return $this->modes;
     }
@@ -102,7 +102,7 @@ class ResponseFaresBreakdownItem
      *
      * @return $this
      */
-    public function setModes(array $modes)
+    public function setModes(array $modes): array
     {
         $this->modes = $modes;
 
@@ -114,7 +114,7 @@ class ResponseFaresBreakdownItem
      *
      * @return int[]
      */
-    public function getRoutePartIds()
+    public function getRoutePartIds(): array
     {
         return $this->routePartIds;
     }
@@ -126,7 +126,7 @@ class ResponseFaresBreakdownItem
      *
      * @return $this
      */
-    public function setRoutePartIds(array $routePartIds)
+    public function setRoutePartIds(array $routePartIds): array
     {
         $this->routePartIds = $routePartIds;
 
@@ -138,7 +138,7 @@ class ResponseFaresBreakdownItem
      *
      * @return OpenAPI\Server\Model\ResponseFareTicket[]
      */
-    public function getTickets()
+    public function getTickets(): array
     {
         return $this->tickets;
     }
@@ -150,7 +150,7 @@ class ResponseFaresBreakdownItem
      *
      * @return $this
      */
-    public function setTickets(array $tickets)
+    public function setTickets(array $tickets): array
     {
         $this->tickets = $tickets;
 

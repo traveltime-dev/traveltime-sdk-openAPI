@@ -108,7 +108,7 @@ class ResponseGeocodingGeoJsonFeature
      *
      * @return OpenAPI\Server\Model\ResponseGeocodingGeometry
      */
-    public function getGeometry()
+    public function getGeometry(): ResponseGeocodingGeometry
     {
         return $this->geometry;
     }
@@ -120,7 +120,7 @@ class ResponseGeocodingGeoJsonFeature
      *
      * @return $this
      */
-    public function setGeometry(ResponseGeocodingGeometry $geometry)
+    public function setGeometry(ResponseGeocodingGeometry $geometry): ResponseGeocodingGeometry
     {
         $this->geometry = $geometry;
 
@@ -132,7 +132,7 @@ class ResponseGeocodingGeoJsonFeature
      *
      * @return OpenAPI\Server\Model\ResponseGeocodingProperties
      */
-    public function getProperties()
+    public function getProperties(): ResponseGeocodingProperties
     {
         return $this->properties;
     }
@@ -144,7 +144,7 @@ class ResponseGeocodingGeoJsonFeature
      *
      * @return $this
      */
-    public function setProperties(ResponseGeocodingProperties $properties)
+    public function setProperties(ResponseGeocodingProperties $properties): ResponseGeocodingProperties
     {
         $this->properties = $properties;
 

@@ -4,13 +4,13 @@ package org.openapitools.client.model
 
 case class ResponseFares (
     _breakdown: List[ResponseFaresBreakdownItem],
-    _ticketsUnderscoretotal: List[ResponseFareTicket]
+    _ticketsTotal: List[ResponseFareTicket]
 )
 object ResponseFares {
-    def toStringBody(var_breakdown: Object, var_ticketsUnderscoretotal: Object) =
+    def toStringBody(var_breakdown: Object, var_ticketsTotal: Object) =
         s"""
         | {
-        | "breakdown":$var_breakdown,"ticketsUnderscoretotal":$var_ticketsUnderscoretotal
+        | "breakdown":$var_breakdown,"ticketsTotal":$var_ticketsTotal
         | }
         """.stripMargin
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterFastResult: Codable { 
 
-public struct ResponseTimeFilterFastResult: Codable {
 
     public var searchId: String
     public var locations: [ResponseTimeFilterFastLocation]
@@ -27,6 +27,4 @@ public struct ResponseTimeFilterFastResult: Codable {
         case unreachable
     }
 
-
 }
-

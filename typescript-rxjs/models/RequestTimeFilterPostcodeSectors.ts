@@ -25,10 +25,10 @@ export interface RequestTimeFilterPostcodeSectors {
      * @type {Array<RequestTimeFilterPostcodeSectorsDepartureSearch>}
      * @memberof RequestTimeFilterPostcodeSectors
      */
-    departureSearches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
     /**
      * @type {Array<RequestTimeFilterPostcodeSectorsArrivalSearch>}
      * @memberof RequestTimeFilterPostcodeSectors
      */
-    arrivalSearches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
 }

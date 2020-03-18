@@ -80,7 +80,7 @@ cJSON *response_error_convertToJSON(response_error_t *response_error) {
     if(additional_info == NULL) {
         goto fail; //primitive map container
     }
-    cJSON *localMapObject = cJSON_CreateObject(); //Memory free to be implemented in user code
+    cJSON *localMapObject = additional_info;
     listEntry_t *additional_infoListEntry;
     if (response_error->additional_info) {
     list_ForEach(additional_infoListEntry, response_error->additional_info) {
@@ -89,7 +89,6 @@ cJSON *response_error_convertToJSON(response_error_t *response_error) {
         {
             goto fail;
         }
-        cJSON_AddItemToObject(additional_info,"", localMapObject);
     }
     }
      } 
@@ -154,11 +153,12 @@ response_error_t *response_error_parseFromJSON(cJSON *response_errorJSON){
     keyValuePair_t *localMapKeyPair;
     cJSON_ArrayForEach(additional_info_local_map, additional_info)
     {
-        if(!cJSON_IsNumber(additional_info_local_map))
+		cJSON *localMapObject = additional_info_local_map;
+        if(!cJSON_IsNumber(localMapObject))
         {
             goto end;
         }
-        localMapKeyPair = keyValuePair_create(strdup(additional_info_local_map->string),&additional_info_local_map->valuedouble );
+        localMapKeyPair = keyValuePair_create(strdup(localMapObject->string),&localMapObject->valuedouble );
         list_addElement(additional_infoList , localMapKeyPair);
     }
     }

@@ -13,12 +13,12 @@
 import * as models from './models';
 
 export interface ResponseBox {
-    minLat: number;
+    min_lat: number;
 
-    maxLat: number;
+    max_lat: number;
 
-    minLng: number;
+    min_lng: number;
 
-    maxLng: number;
+    max_lng: number;
 
 }

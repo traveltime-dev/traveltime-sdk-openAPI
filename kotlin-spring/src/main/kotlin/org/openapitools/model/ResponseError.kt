@@ -18,17 +18,17 @@ import javax.validation.constraints.Size
  * @param documentationLink 
  * @param additionalInfo 
  */
-data class ResponseError (
+data class ResponseError(
 
-        @JsonProperty("http_status") val httpStatus: kotlin.Int? = null,
+    @JsonProperty("http_status") val httpStatus: kotlin.Int? = null,
 
-        @JsonProperty("error_code") val errorCode: kotlin.Int? = null,
+    @JsonProperty("error_code") val errorCode: kotlin.Int? = null,
 
-        @JsonProperty("description") val description: kotlin.String? = null,
+    @JsonProperty("description") val description: kotlin.String? = null,
 
-        @JsonProperty("documentation_link") val documentationLink: kotlin.String? = null,
+    @JsonProperty("documentation_link") val documentationLink: kotlin.String? = null,
 
-        @JsonProperty("additional_info") val additionalInfo: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null
+    @JsonProperty("additional_info") val additionalInfo: kotlin.collections.Map<kotlin.String, kotlin.collections.List<kotlin.String>>? = null
 ) {
 
 }

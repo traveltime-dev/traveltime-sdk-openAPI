@@ -133,7 +133,7 @@ export type RequestRangeFull = {
      * @type {number}
      * @memberof RequestRangeFull
      */
-    maxResults: number;
+    max_results: number;
     /**
      * 
      * @type {number}
@@ -179,13 +179,13 @@ export type RequestRoutes = {
      * @type {Array<RequestRoutesDepartureSearch>}
      * @memberof RequestRoutes
      */
-    departureSearches?: Array<RequestRoutesDepartureSearch>;
+    departure_searches?: Array<RequestRoutesDepartureSearch>;
     /**
      * 
      * @type {Array<RequestRoutesArrivalSearch>}
      * @memberof RequestRoutes
      */
-    arrivalSearches?: Array<RequestRoutesArrivalSearch>;
+    arrival_searches?: Array<RequestRoutesArrivalSearch>;
 }
 
 
@@ -205,13 +205,13 @@ export type RequestRoutesArrivalSearch = {
      * @type {Array<string>}
      * @memberof RequestRoutesArrivalSearch
      */
-    departureLocationIds: Array<string>;
+    departure_location_ids: Array<string>;
     /**
      * 
      * @type {string}
      * @memberof RequestRoutesArrivalSearch
      */
-    arrivalLocationId: string;
+    arrival_location_id: string;
     /**
      * 
      * @type {RequestTransportation}
@@ -223,7 +223,7 @@ export type RequestRoutesArrivalSearch = {
      * @type {Date}
      * @memberof RequestRoutesArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {Array<RequestRoutesProperty>}
@@ -255,13 +255,13 @@ export type RequestRoutesDepartureSearch = {
      * @type {string}
      * @memberof RequestRoutesDepartureSearch
      */
-    departureLocationId: string;
+    departure_location_id: string;
     /**
      * 
      * @type {Array<string>}
      * @memberof RequestRoutesDepartureSearch
      */
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
     /**
      * 
      * @type {RequestTransportation}
@@ -273,7 +273,7 @@ export type RequestRoutesDepartureSearch = {
      * @type {Date}
      * @memberof RequestRoutesDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {Array<RequestRoutesProperty>}
@@ -326,13 +326,13 @@ export type RequestTimeFilter = {
      * @type {Array<RequestTimeFilterDepartureSearch>}
      * @memberof RequestTimeFilter
      */
-    departureSearches?: Array<RequestTimeFilterDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterDepartureSearch>;
     /**
      * 
      * @type {Array<RequestTimeFilterArrivalSearch>}
      * @memberof RequestTimeFilter
      */
-    arrivalSearches?: Array<RequestTimeFilterArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterArrivalSearch>;
 }
 
 
@@ -352,13 +352,13 @@ export type RequestTimeFilterArrivalSearch = {
      * @type {Array<string>}
      * @memberof RequestTimeFilterArrivalSearch
      */
-    departureLocationIds: Array<string>;
+    departure_location_ids: Array<string>;
     /**
      * 
      * @type {string}
      * @memberof RequestTimeFilterArrivalSearch
      */
-    arrivalLocationId: string;
+    arrival_location_id: string;
     /**
      * 
      * @type {RequestTransportation}
@@ -370,13 +370,13 @@ export type RequestTimeFilterArrivalSearch = {
      * @type {number}
      * @memberof RequestTimeFilterArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {Array<RequestTimeFilterProperty>}
@@ -408,13 +408,13 @@ export type RequestTimeFilterDepartureSearch = {
      * @type {string}
      * @memberof RequestTimeFilterDepartureSearch
      */
-    departureLocationId: string;
+    departure_location_id: string;
     /**
      * 
      * @type {Array<string>}
      * @memberof RequestTimeFilterDepartureSearch
      */
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
     /**
      * 
      * @type {RequestTransportation}
@@ -426,13 +426,13 @@ export type RequestTimeFilterDepartureSearch = {
      * @type {number}
      * @memberof RequestTimeFilterDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {Array<RequestTimeFilterProperty>}
@@ -464,7 +464,7 @@ export type RequestTimeFilterFast = {
      * @type {RequestTimeFilterFastArrivalSearches}
      * @memberof RequestTimeFilterFast
      */
-    arrivalSearches: RequestTimeFilterFastArrivalSearches;
+    arrival_searches: RequestTimeFilterFastArrivalSearches;
 }
 
 
@@ -484,13 +484,13 @@ export type RequestTimeFilterFastArrivalManyToOneSearch = {
      * @type {string}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
-    arrivalLocationId: string;
+    arrival_location_id: string;
     /**
      * 
      * @type {Array<string>}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
-    departureLocationIds: Array<string>;
+    departure_location_ids: Array<string>;
     /**
      * 
      * @type {RequestTransportationFast}
@@ -502,13 +502,13 @@ export type RequestTimeFilterFastArrivalManyToOneSearch = {
      * @type {number}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {RequestArrivalTimePeriod}
      * @memberof RequestTimeFilterFastArrivalManyToOneSearch
      */
-    arrivalTimePeriod: RequestArrivalTimePeriod;
+    arrival_time_period: RequestArrivalTimePeriod;
     /**
      * 
      * @type {Array<RequestTimeFilterFastProperty>}
@@ -534,13 +534,13 @@ export type RequestTimeFilterFastArrivalOneToManySearch = {
      * @type {string}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    departureLocationId: string;
+    departure_location_id: string;
     /**
      * 
      * @type {Array<string>}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
     /**
      * 
      * @type {RequestTransportationFast}
@@ -552,13 +552,13 @@ export type RequestTimeFilterFastArrivalOneToManySearch = {
      * @type {number}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {RequestArrivalTimePeriod}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    arrivalTimePeriod: RequestArrivalTimePeriod;
+    arrival_time_period: RequestArrivalTimePeriod;
     /**
      * 
      * @type {Array<RequestTimeFilterFastProperty>}
@@ -578,13 +578,13 @@ export type RequestTimeFilterFastArrivalSearches = {
      * @type {Array<RequestTimeFilterFastArrivalManyToOneSearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */
-    manyToOne?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
+    many_to_one?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
     /**
      * 
      * @type {Array<RequestTimeFilterFastArrivalOneToManySearch>}
      * @memberof RequestTimeFilterFastArrivalSearches
      */
-    oneToMany?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
+    one_to_many?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
 }
 
 
@@ -605,13 +605,13 @@ export type RequestTimeFilterPostcodeDistricts = {
      * @type {Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>}
      * @memberof RequestTimeFilterPostcodeDistricts
      */
-    departureSearches?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>}
      * @memberof RequestTimeFilterPostcodeDistricts
      */
-    arrivalSearches?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
 }
 
 
@@ -637,19 +637,19 @@ export type RequestTimeFilterPostcodeDistrictsArrivalSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeDistrictsProperty>}
@@ -687,19 +687,19 @@ export type RequestTimeFilterPostcodeDistrictsDepartureSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsDepartureSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeDistrictsProperty>}
@@ -732,13 +732,13 @@ export type RequestTimeFilterPostcodeSectors = {
      * @type {Array<RequestTimeFilterPostcodeSectorsDepartureSearch>}
      * @memberof RequestTimeFilterPostcodeSectors
      */
-    departureSearches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeSectorsArrivalSearch>}
      * @memberof RequestTimeFilterPostcodeSectors
      */
-    arrivalSearches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
 }
 
 
@@ -764,19 +764,19 @@ export type RequestTimeFilterPostcodeSectorsArrivalSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodeSectorsArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodeSectorsArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeSectorsArrivalSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeSectorsProperty>}
@@ -814,19 +814,19 @@ export type RequestTimeFilterPostcodeSectorsDepartureSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodeSectorsDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodeSectorsDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {number}
      * @memberof RequestTimeFilterPostcodeSectorsDepartureSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodeSectorsProperty>}
@@ -859,13 +859,13 @@ export type RequestTimeFilterPostcodes = {
      * @type {Array<RequestTimeFilterPostcodesDepartureSearch>}
      * @memberof RequestTimeFilterPostcodes
      */
-    departureSearches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodesArrivalSearch>}
      * @memberof RequestTimeFilterPostcodes
      */
-    arrivalSearches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
 }
 
 
@@ -891,13 +891,13 @@ export type RequestTimeFilterPostcodesArrivalSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodesArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodesArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodesProperty>}
@@ -935,13 +935,13 @@ export type RequestTimeFilterPostcodesDepartureSearch = {
      * @type {number}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {Array<RequestTimeFilterPostcodesProperty>}
@@ -981,13 +981,13 @@ export type RequestTimeMap = {
      * @type {Array<RequestTimeMapDepartureSearch>}
      * @memberof RequestTimeMap
      */
-    departureSearches?: Array<RequestTimeMapDepartureSearch>;
+    departure_searches?: Array<RequestTimeMapDepartureSearch>;
     /**
      * 
      * @type {Array<RequestTimeMapArrivalSearch>}
      * @memberof RequestTimeMap
      */
-    arrivalSearches?: Array<RequestTimeMapArrivalSearch>;
+    arrival_searches?: Array<RequestTimeMapArrivalSearch>;
     /**
      * 
      * @type {Array<RequestUnionOnIntersection>}
@@ -1031,13 +1031,13 @@ export type RequestTimeMapArrivalSearch = {
      * @type {number}
      * @memberof RequestTimeMapArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeMapArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {Array<RequestTimeMapProperty>}
@@ -1081,13 +1081,13 @@ export type RequestTimeMapDepartureSearch = {
      * @type {number}
      * @memberof RequestTimeMapDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Date}
      * @memberof RequestTimeMapDepartureSearch
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {Array<RequestTimeMapProperty>}
@@ -1128,31 +1128,31 @@ export type RequestTransportation = {
      * @type {number}
      * @memberof RequestTransportation
      */
-    ptChangeDelay?: number;
+    pt_change_delay?: number;
     /**
      * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    walkingTime?: number;
+    walking_time?: number;
     /**
      * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    drivingTimeToStation?: number;
+    driving_time_to_station?: number;
     /**
      * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    parkingTime?: number;
+    parking_time?: number;
     /**
      * 
      * @type {number}
      * @memberof RequestTransportation
      */
-    boardingTime?: number;
+    boarding_time?: number;
 }
 
 
@@ -1188,7 +1188,7 @@ export type RequestUnionOnIntersection = {
      * @type {Array<string>}
      * @memberof RequestUnionOnIntersection
      */
-    searchIds: Array<string>;
+    search_ids: Array<string>;
 }
 
 
@@ -1222,25 +1222,25 @@ export type ResponseBox = {
      * @type {number}
      * @memberof ResponseBox
      */
-    minLat: number;
+    min_lat: number;
     /**
      * 
      * @type {number}
      * @memberof ResponseBox
      */
-    maxLat: number;
+    max_lat: number;
     /**
      * 
      * @type {number}
      * @memberof ResponseBox
      */
-    minLng: number;
+    min_lng: number;
     /**
      * 
      * @type {number}
      * @memberof ResponseBox
      */
-    maxLng: number;
+    max_lng: number;
 }
 
 
@@ -1274,13 +1274,13 @@ export type ResponseError = {
      * @type {number}
      * @memberof ResponseError
      */
-    httpStatus?: number;
+    http_status?: number;
     /**
      * 
      * @type {number}
      * @memberof ResponseError
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * 
      * @type {string}
@@ -1292,13 +1292,13 @@ export type ResponseError = {
      * @type {string}
      * @memberof ResponseError
      */
-    documentationLink?: string;
+    documentation_link?: string;
     /**
      * 
      * @type {{ [key: string]: Array<string>; }}
      * @memberof ResponseError
      */
-    additionalInfo?: { [key: string]: Array<string>; };
+    additional_info?: { [key: string]: Array<string>; };
 }
 
 
@@ -1346,7 +1346,7 @@ export type ResponseFares = {
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFares
      */
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }
 
 
@@ -1366,7 +1366,7 @@ export type ResponseFaresBreakdownItem = {
      * @type {Array<number>}
      * @memberof ResponseFaresBreakdownItem
      */
-    routePartIds: Array<number>;
+    route_part_ids: Array<number>;
     /**
      * 
      * @type {Array<ResponseFareTicket>}
@@ -1386,7 +1386,7 @@ export type ResponseFaresFast = {
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFaresFast
      */
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }
 
 
@@ -1484,7 +1484,7 @@ export type ResponseGeocodingProperties = {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    houseNumber?: string;
+    house_number?: string;
     /**
      * 
      * @type {string}
@@ -1502,7 +1502,7 @@ export type ResponseGeocodingProperties = {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    regionCode?: string;
+    region_code?: string;
     /**
      * 
      * @type {string}
@@ -1538,7 +1538,7 @@ export type ResponseGeocodingProperties = {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    countryCode?: string;
+    country_code?: string;
     /**
      * 
      * @type {string}
@@ -1584,7 +1584,7 @@ export type ResponseMapInfoFeatures = {
      * @type {ResponseMapInfoFeaturesPublicTransport}
      * @memberof ResponseMapInfoFeatures
      */
-    publicTransport?: ResponseMapInfoFeaturesPublicTransport;
+    public_transport?: ResponseMapInfoFeaturesPublicTransport;
     /**
      * 
      * @type {boolean}
@@ -1610,13 +1610,13 @@ export type ResponseMapInfoFeaturesPublicTransport = {
      * @type {Date}
      * @memberof ResponseMapInfoFeaturesPublicTransport
      */
-    dateStart: Date;
+    date_start: Date;
     /**
      * 
      * @type {Date}
      * @memberof ResponseMapInfoFeaturesPublicTransport
      */
-    dateEnd: Date;
+    date_end: Date;
 }
 
 
@@ -1650,13 +1650,13 @@ export type ResponseRoute = {
      * @type {Date}
      * @memberof ResponseRoute
      */
-    departureTime: Date;
+    departure_time: Date;
     /**
      * 
      * @type {Date}
      * @memberof ResponseRoute
      */
-    arrivalTime: Date;
+    arrival_time: Date;
     /**
      * 
      * @type {Array<ResponseRoutePart>}
@@ -1708,7 +1708,7 @@ export type ResponseRoutePart = {
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * 
      * @type {Array<Coords>}
@@ -1744,31 +1744,31 @@ export type ResponseRoutePart = {
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departureStation?: string;
+    departure_station?: string;
     /**
      * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivalStation?: string;
+    arrival_station?: string;
     /**
      * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    departsAt?: string;
+    departs_at?: string;
     /**
      * 
      * @type {string}
      * @memberof ResponseRoutePart
      */
-    arrivesAt?: string;
+    arrives_at?: string;
     /**
      * 
      * @type {number}
      * @memberof ResponseRoutePart
      */
-    numStops?: number;
+    num_stops?: number;
 }
 
 
@@ -1816,7 +1816,7 @@ export type ResponseRoutesProperties = {
      * @type {number}
      * @memberof ResponseRoutesProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * 
      * @type {number}
@@ -1848,7 +1848,7 @@ export type ResponseRoutesResult = {
      * @type {string}
      * @memberof ResponseRoutesResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseRoutesLocation>}
@@ -1900,7 +1900,7 @@ export type ResponseSupportedLocation = {
      * @type {string}
      * @memberof ResponseSupportedLocation
      */
-    mapName: string;
+    map_name: string;
 }
 
 
@@ -1920,7 +1920,7 @@ export type ResponseSupportedLocations = {
      * @type {Array<string>}
      * @memberof ResponseSupportedLocations
      */
-    unsupportedLocations: Array<string>;
+    unsupported_locations: Array<string>;
 }
 
 
@@ -1982,7 +1982,7 @@ export type ResponseTimeFilterFastProperties = {
      * @type {number}
      * @memberof ResponseTimeFilterFastProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * 
      * @type {ResponseFaresFast}
@@ -2002,7 +2002,7 @@ export type ResponseTimeFilterFastResult = {
      * @type {string}
      * @memberof ResponseTimeFilterFastResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseTimeFilterFastLocation>}
@@ -2088,13 +2088,13 @@ export type ResponseTimeFilterPostcodeDistrictProperties = {
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeDistrictProperties
      */
-    travelTimeReachable?: ResponseTravelTimeStatistics;
+    travel_time_reachable?: ResponseTravelTimeStatistics;
     /**
      * 
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeDistrictProperties
      */
-    travelTimeAll?: ResponseTravelTimeStatistics;
+    travel_time_all?: ResponseTravelTimeStatistics;
     /**
      * 
      * @type {number}
@@ -2128,7 +2128,7 @@ export type ResponseTimeFilterPostcodeDistrictsResult = {
      * @type {string}
      * @memberof ResponseTimeFilterPostcodeDistrictsResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseTimeFilterPostcodeDistrict>}
@@ -2168,13 +2168,13 @@ export type ResponseTimeFilterPostcodeSectorProperties = {
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeSectorProperties
      */
-    travelTimeReachable?: ResponseTravelTimeStatistics;
+    travel_time_reachable?: ResponseTravelTimeStatistics;
     /**
      * 
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeSectorProperties
      */
-    travelTimeAll?: ResponseTravelTimeStatistics;
+    travel_time_all?: ResponseTravelTimeStatistics;
     /**
      * 
      * @type {number}
@@ -2208,7 +2208,7 @@ export type ResponseTimeFilterPostcodeSectorsResult = {
      * @type {string}
      * @memberof ResponseTimeFilterPostcodeSectorsResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseTimeFilterPostcodeSector>}
@@ -2242,7 +2242,7 @@ export type ResponseTimeFilterPostcodesProperties = {
      * @type {number}
      * @memberof ResponseTimeFilterPostcodesProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * 
      * @type {number}
@@ -2262,7 +2262,7 @@ export type ResponseTimeFilterPostcodesResult = {
      * @type {string}
      * @memberof ResponseTimeFilterPostcodesResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseTimeFilterPostcode>}
@@ -2282,7 +2282,7 @@ export type ResponseTimeFilterProperties = {
      * @type {number}
      * @memberof ResponseTimeFilterProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * 
      * @type {number}
@@ -2294,7 +2294,7 @@ export type ResponseTimeFilterProperties = {
      * @type {Array<ResponseDistanceBreakdownItem>}
      * @memberof ResponseTimeFilterProperties
      */
-    distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
     /**
      * 
      * @type {ResponseFares}
@@ -2320,7 +2320,7 @@ export type ResponseTimeFilterResult = {
      * @type {string}
      * @memberof ResponseTimeFilterResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseTimeFilterLocation>}
@@ -2374,13 +2374,13 @@ export type ResponseTimeMapBoundingBoxesResult = {
      * @type {string}
      * @memberof ResponseTimeMapBoundingBoxesResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseBoundingBox>}
      * @memberof ResponseTimeMapBoundingBoxesResult
      */
-    boundingBoxes: Array<ResponseBoundingBox>;
+    bounding_boxes: Array<ResponseBoundingBox>;
     /**
      * 
      * @type {ResponseTimeMapProperties}
@@ -2400,7 +2400,7 @@ export type ResponseTimeMapProperties = {
      * @type {boolean}
      * @memberof ResponseTimeMapProperties
      */
-    isOnlyWalking?: boolean;
+    is_only_walking?: boolean;
 }
 
 
@@ -2414,7 +2414,7 @@ export type ResponseTimeMapResult = {
      * @type {string}
      * @memberof ResponseTimeMapResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {Array<ResponseShape>}
@@ -2454,7 +2454,7 @@ export type ResponseTimeMapWktResult = {
      * @type {string}
      * @memberof ResponseTimeMapWktResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * 
      * @type {string}

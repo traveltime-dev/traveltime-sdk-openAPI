@@ -66,7 +66,7 @@ class ResponseFaresFast
      *
      * @return OpenAPI\Server\Model\ResponseFareTicket[]
      */
-    public function getTicketsTotal()
+    public function getTicketsTotal(): array
     {
         return $this->ticketsTotal;
     }
@@ -78,7 +78,7 @@ class ResponseFaresFast
      *
      * @return $this
      */
-    public function setTicketsTotal(array $ticketsTotal)
+    public function setTicketsTotal(array $ticketsTotal): array
     {
         $this->ticketsTotal = $ticketsTotal;
 

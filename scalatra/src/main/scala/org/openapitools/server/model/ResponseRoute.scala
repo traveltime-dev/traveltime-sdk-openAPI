@@ -10,12 +10,12 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class ResponseRoute(
-  departureUnderscoretime: DateTime,
+  departureTime: OffsetDateTime,
 
-  arrivalUnderscoretime: DateTime,
+  arrivalTime: OffsetDateTime,
 
   parts: List[ResponseRoutePart]
 

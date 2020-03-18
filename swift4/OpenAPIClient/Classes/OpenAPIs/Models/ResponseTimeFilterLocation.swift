@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeFilterLocation: Codable { 
 
-public struct ResponseTimeFilterLocation: Codable {
 
     public var id: String
     public var properties: [ResponseTimeFilterProperties]
@@ -19,6 +19,4 @@ public struct ResponseTimeFilterLocation: Codable {
         self.properties = properties
     }
 
-
 }
-

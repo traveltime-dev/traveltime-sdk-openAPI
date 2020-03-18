@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param locations 
  * @param unsupportedLocations 
  */
-data class ResponseSupportedLocations (
+data class ResponseSupportedLocations(
 
-        @get:NotNull 
-        @JsonProperty("locations") val locations: kotlin.collections.List<ResponseSupportedLocation>,
+    @get:NotNull 
+    @JsonProperty("locations") val locations: kotlin.collections.List<ResponseSupportedLocation>,
 
-        @get:NotNull 
-        @JsonProperty("unsupported_locations") val unsupportedLocations: kotlin.collections.List<kotlin.String>
+    @get:NotNull 
+    @JsonProperty("unsupported_locations") val unsupportedLocations: kotlin.collections.List<kotlin.String>
 ) {
 
 }

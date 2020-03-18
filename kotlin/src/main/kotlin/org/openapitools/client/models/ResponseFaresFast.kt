@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class ResponseFaresFast (
     @Json(name = "tickets_total")
     val ticketsTotal: kotlin.Array<ResponseFareTicket>
-) 
 
-
+)
 

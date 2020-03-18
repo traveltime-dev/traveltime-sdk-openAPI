@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeMap: Codable { 
 
-public struct RequestTimeMap: Codable {
 
     public var departureSearches: [RequestTimeMapDepartureSearch]?
     public var arrivalSearches: [RequestTimeMapArrivalSearch]?
@@ -30,6 +30,4 @@ public struct RequestTimeMap: Codable {
         case intersections
     }
 
-
 }
-

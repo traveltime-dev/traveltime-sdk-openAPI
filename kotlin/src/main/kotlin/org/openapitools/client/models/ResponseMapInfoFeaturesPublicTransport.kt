@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class ResponseMapInfoFeaturesPublicTransport (
     @Json(name = "date_start")
-    val dateStart: java.time.OffsetDateTime,
+    val dateStart: java.time.OffsetDateTime
+,
     @Json(name = "date_end")
     val dateEnd: java.time.OffsetDateTime
-) 
 
-
+)
 

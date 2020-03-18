@@ -23,14 +23,16 @@ import com.squareup.moshi.Json
 
 data class ResponseBox (
     @Json(name = "min_lat")
-    val minLat: kotlin.Double,
+    val minLat: kotlin.Double
+,
     @Json(name = "max_lat")
-    val maxLat: kotlin.Double,
+    val maxLat: kotlin.Double
+,
     @Json(name = "min_lng")
-    val minLng: kotlin.Double,
+    val minLng: kotlin.Double
+,
     @Json(name = "max_lng")
     val maxLng: kotlin.Double
-) 
 
-
+)
 

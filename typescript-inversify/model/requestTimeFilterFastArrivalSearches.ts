@@ -14,6 +14,6 @@ import { RequestTimeFilterFastArrivalOneToManySearch } from './requestTimeFilter
 
 
 export interface RequestTimeFilterFastArrivalSearches { 
-    manyToOne?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
-    oneToMany?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
+    many_to_one?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
+    one_to_many?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
 }

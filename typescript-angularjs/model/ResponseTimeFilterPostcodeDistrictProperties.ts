@@ -13,8 +13,8 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterPostcodeDistrictProperties {
-    "travelTimeReachable"?: models.ResponseTravelTimeStatistics;
-    "travelTimeAll"?: models.ResponseTravelTimeStatistics;
+    "travel_time_reachable"?: models.ResponseTravelTimeStatistics;
+    "travel_time_all"?: models.ResponseTravelTimeStatistics;
     "coverage"?: number;
 }
 

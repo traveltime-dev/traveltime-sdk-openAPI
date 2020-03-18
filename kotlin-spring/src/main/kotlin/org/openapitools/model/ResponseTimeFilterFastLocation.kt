@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param id 
  * @param properties 
  */
-data class ResponseTimeFilterFastLocation (
+data class ResponseTimeFilterFastLocation(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: kotlin.collections.List<ResponseTimeFilterFastProperties>
+    @get:NotNull 
+    @JsonProperty("properties") val properties: kotlin.collections.List<ResponseTimeFilterFastProperties>
 ) {
 
 }

@@ -14,9 +14,9 @@ import javax.validation.constraints.Size
  * 
  * @param isOnlyWalking 
  */
-data class ResponseTimeMapProperties (
+data class ResponseTimeMapProperties(
 
-        @JsonProperty("is_only_walking") val isOnlyWalking: kotlin.Boolean? = null
+    @JsonProperty("is_only_walking") val isOnlyWalking: kotlin.Boolean? = null
 ) {
 
 }

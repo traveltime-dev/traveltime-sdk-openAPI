@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseMapInfoFeaturesPublicTransport: Codable { 
 
-public struct ResponseMapInfoFeaturesPublicTransport: Codable {
 
     public var dateStart: Date
     public var dateEnd: Date
@@ -24,6 +24,4 @@ public struct ResponseMapInfoFeaturesPublicTransport: Codable {
         case dateEnd = "date_end"
     }
 
-
 }
-

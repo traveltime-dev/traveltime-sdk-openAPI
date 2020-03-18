@@ -13,6 +13,6 @@
 import * as models from './models';
 
 export interface ResponseFaresFast {
-    ticketsTotal: Array<models.ResponseFareTicket>;
+    tickets_total: Array<models.ResponseFareTicket>;
 
 }

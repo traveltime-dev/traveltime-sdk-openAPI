@@ -14,7 +14,7 @@ import * as models from './models';
 
 export interface ResponseFaresBreakdownItem {
     "modes": Array<models.ResponseTransportationMode>;
-    "routePartIds": Array<number>;
+    "route_part_ids": Array<number>;
     "tickets": Array<models.ResponseFareTicket>;
 }
 

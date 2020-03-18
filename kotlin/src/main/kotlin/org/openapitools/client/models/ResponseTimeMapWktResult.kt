@@ -23,12 +23,13 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeMapWktResult (
     @Json(name = "search_id")
-    val searchId: kotlin.String,
+    val searchId: kotlin.String
+,
     @Json(name = "shape")
-    val shape: kotlin.String,
+    val shape: kotlin.String
+,
     @Json(name = "properties")
     val properties: ResponseTimeMapProperties
-) 
 
-
+)
 

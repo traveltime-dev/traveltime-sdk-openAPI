@@ -36,17 +36,17 @@ export interface RequestTimeFilterPostcodeDistrictsArrivalSearch {
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * @type {Date}
+     * @type {string}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    arrivalTime: Date;
+    arrival_time: string;
     /**
      * @type {number}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch
      */
-    reachablePostcodesThreshold: number;
+    reachable_postcodes_threshold: number;
     /**
      * @type {Array<RequestTimeFilterPostcodeDistrictsProperty>}
      * @memberof RequestTimeFilterPostcodeDistrictsArrivalSearch

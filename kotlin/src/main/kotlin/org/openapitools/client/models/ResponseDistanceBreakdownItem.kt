@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseDistanceBreakdownItem (
     @Json(name = "mode")
-    val mode: ResponseTransportationMode,
+    val mode: ResponseTransportationMode
+,
     @Json(name = "distance")
     val distance: kotlin.Int
-) 
 
-
+)
 

@@ -3,13 +3,13 @@ package org.openapitools.client.model
 
 
 case class ResponseFaresFast (
-    _ticketsUnderscoretotal: List[ResponseFareTicket]
+    _ticketsTotal: List[ResponseFareTicket]
 )
 object ResponseFaresFast {
-    def toStringBody(var_ticketsUnderscoretotal: Object) =
+    def toStringBody(var_ticketsTotal: Object) =
         s"""
         | {
-        | "ticketsUnderscoretotal":$var_ticketsUnderscoretotal
+        | "ticketsTotal":$var_ticketsTotal
         | }
         """.stripMargin
 }

@@ -39,7 +39,7 @@ export interface ResponseGeocodingProperties {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    houseNumber?: string;
+    house_number?: string;
     /**
      * @type {string}
      * @memberof ResponseGeocodingProperties
@@ -54,7 +54,7 @@ export interface ResponseGeocodingProperties {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    regionCode?: string;
+    region_code?: string;
     /**
      * @type {string}
      * @memberof ResponseGeocodingProperties
@@ -84,7 +84,7 @@ export interface ResponseGeocodingProperties {
      * @type {string}
      * @memberof ResponseGeocodingProperties
      */
-    countryCode?: string;
+    country_code?: string;
     /**
      * @type {string}
      * @memberof ResponseGeocodingProperties

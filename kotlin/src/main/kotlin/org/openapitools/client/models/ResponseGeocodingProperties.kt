@@ -36,38 +36,52 @@ import com.squareup.moshi.Json
 
 data class ResponseGeocodingProperties (
     @Json(name = "name")
-    val name: kotlin.String,
+    val name: kotlin.String
+,
     @Json(name = "label")
-    val label: kotlin.String,
+    val label: kotlin.String
+,
     @Json(name = "score")
-    val score: kotlin.Double? = null,
+    val score: kotlin.Double? = null
+,
     @Json(name = "house_number")
-    val houseNumber: kotlin.String? = null,
+    val houseNumber: kotlin.String? = null
+,
     @Json(name = "street")
-    val street: kotlin.String? = null,
+    val street: kotlin.String? = null
+,
     @Json(name = "region")
-    val region: kotlin.String? = null,
+    val region: kotlin.String? = null
+,
     @Json(name = "region_code")
-    val regionCode: kotlin.String? = null,
+    val regionCode: kotlin.String? = null
+,
     @Json(name = "neighbourhood")
-    val neighbourhood: kotlin.String? = null,
+    val neighbourhood: kotlin.String? = null
+,
     @Json(name = "county")
-    val county: kotlin.String? = null,
+    val county: kotlin.String? = null
+,
     @Json(name = "macroregion")
-    val macroregion: kotlin.String? = null,
+    val macroregion: kotlin.String? = null
+,
     @Json(name = "city")
-    val city: kotlin.String? = null,
+    val city: kotlin.String? = null
+,
     @Json(name = "country")
-    val country: kotlin.String? = null,
+    val country: kotlin.String? = null
+,
     @Json(name = "country_code")
-    val countryCode: kotlin.String? = null,
+    val countryCode: kotlin.String? = null
+,
     @Json(name = "continent")
-    val continent: kotlin.String? = null,
+    val continent: kotlin.String? = null
+,
     @Json(name = "postcode")
-    val postcode: kotlin.String? = null,
+    val postcode: kotlin.String? = null
+,
     @Json(name = "features")
     val features: ResponseMapInfoFeatures? = null
-) 
 
-
+)
 

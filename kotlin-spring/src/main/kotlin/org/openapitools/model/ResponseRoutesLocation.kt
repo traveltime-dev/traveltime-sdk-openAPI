@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param id 
  * @param properties 
  */
-data class ResponseRoutesLocation (
+data class ResponseRoutesLocation(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: kotlin.collections.List<ResponseRoutesProperties>
+    @get:NotNull 
+    @JsonProperty("properties") val properties: kotlin.collections.List<ResponseRoutesProperties>
 ) {
 
 }

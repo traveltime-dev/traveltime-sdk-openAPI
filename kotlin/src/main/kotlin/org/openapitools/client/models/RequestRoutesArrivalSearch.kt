@@ -29,20 +29,25 @@ import com.squareup.moshi.Json
 
 data class RequestRoutesArrivalSearch (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "departure_location_ids")
-    val departureLocationIds: kotlin.Array<kotlin.String>,
+    val departureLocationIds: kotlin.Array<kotlin.String>
+,
     @Json(name = "arrival_location_id")
-    val arrivalLocationId: kotlin.String,
+    val arrivalLocationId: kotlin.String
+,
     @Json(name = "transportation")
-    val transportation: RequestTransportation,
+    val transportation: RequestTransportation
+,
     @Json(name = "arrival_time")
-    val arrivalTime: java.time.OffsetDateTime,
+    val arrivalTime: java.time.OffsetDateTime
+,
     @Json(name = "properties")
-    val properties: kotlin.Array<RequestRoutesProperty>,
+    val properties: kotlin.Array<RequestRoutesProperty>
+,
     @Json(name = "range")
     val range: RequestRangeFull? = null
-) 
 
-
+)
 

@@ -4,13 +4,13 @@ package org.openapitools.client.model
 
 case class ResponseSupportedLocation (
     _id: String,
-    _mapUnderscorename: String
+    _mapName: String
 )
 object ResponseSupportedLocation {
-    def toStringBody(var_id: Object, var_mapUnderscorename: Object) =
+    def toStringBody(var_id: Object, var_mapName: Object) =
         s"""
         | {
-        | "id":$var_id,"mapUnderscorename":$var_mapUnderscorename
+        | "id":$var_id,"mapName":$var_mapName
         | }
         """.stripMargin
 }

@@ -24,5 +24,5 @@ export interface ResponseFaresFast {
      * @type {Array<ResponseFareTicket>}
      * @memberof ResponseFaresFast
      */
-    ticketsTotal: Array<ResponseFareTicket>;
+    tickets_total: Array<ResponseFareTicket>;
 }

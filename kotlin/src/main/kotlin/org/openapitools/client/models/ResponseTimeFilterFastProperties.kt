@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeFilterFastProperties (
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int? = null,
+    val travelTime: kotlin.Int? = null
+,
     @Json(name = "fares")
     val fares: ResponseFaresFast? = null
-) 
 
-
+)
 

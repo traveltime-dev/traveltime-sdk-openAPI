@@ -15,13 +15,13 @@ import javax.validation.constraints.Size
  * @param lat 
  * @param lng 
  */
-data class Coords (
+data class Coords(
 
-        @get:NotNull 
-        @JsonProperty("lat") val lat: kotlin.Double,
+    @get:NotNull 
+    @JsonProperty("lat") val lat: kotlin.Double,
 
-        @get:NotNull 
-        @JsonProperty("lng") val lng: kotlin.Double
+    @get:NotNull 
+    @JsonProperty("lng") val lng: kotlin.Double
 ) {
 
 }

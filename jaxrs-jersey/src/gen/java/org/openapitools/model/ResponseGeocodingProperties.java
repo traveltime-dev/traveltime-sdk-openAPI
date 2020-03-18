@@ -44,7 +44,7 @@ import javax.validation.Valid;
   ResponseGeocodingProperties.JSON_PROPERTY_POSTCODE,
   ResponseGeocodingProperties.JSON_PROPERTY_FEATURES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseGeocodingProperties   {
   public static final String JSON_PROPERTY_NAME = "name";
   @JsonProperty(JSON_PROPERTY_NAME)

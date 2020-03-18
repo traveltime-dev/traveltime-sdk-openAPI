@@ -10,11 +10,11 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class ResponseMapInfoFeaturesPublicTransport(
-  dateUnderscorestart: DateTime,
+  dateStart: OffsetDateTime,
 
-  dateUnderscoreend: DateTime
+  dateEnd: OffsetDateTime
 
  )

@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseTimeFilterPostcodesProperties {
-    "travelTime"?: number;
+    "travel_time"?: number;
     "distance"?: number;
 }
 

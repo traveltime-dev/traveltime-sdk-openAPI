@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class RequestTimeFilterFast (
     @Json(name = "locations")
-    val locations: kotlin.Array<RequestLocation>,
+    val locations: kotlin.Array<RequestLocation>
+,
     @Json(name = "arrival_searches")
     val arrivalSearches: RequestTimeFilterFastArrivalSearches
-) 
 
-
+)
 

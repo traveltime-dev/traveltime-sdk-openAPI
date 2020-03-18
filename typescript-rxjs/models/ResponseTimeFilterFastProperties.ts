@@ -24,7 +24,7 @@ export interface ResponseTimeFilterFastProperties {
      * @type {number}
      * @memberof ResponseTimeFilterFastProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * @type {ResponseFaresFast}
      * @memberof ResponseTimeFilterFastProperties

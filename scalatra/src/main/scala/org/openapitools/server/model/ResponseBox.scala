@@ -12,12 +12,12 @@
 package org.openapitools.server.model
 
 case class ResponseBox(
-  minUnderscorelat: Double,
+  minLat: Double,
 
-  maxUnderscorelat: Double,
+  maxLat: Double,
 
-  minUnderscorelng: Double,
+  minLng: Double,
 
-  maxUnderscorelng: Double
+  maxLng: Double
 
  )

@@ -15,16 +15,22 @@
 #include "request_time_filter_fast_property.h"
 #include "request_transportation_fast.h"
 
-                typedef enum  {  weekday_morning } arrival_time_period_e;
+// Enum  for request_time_filter_fast_arrival_many_to_one_search
 
-        char* arrival_time_period_ToString(arrival_time_period_e arrival_time_period);
+typedef enum  { traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__NULL = 0, traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__weekday_morning } traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e;
 
-        arrival_time_period_e arrival_time_period_FromString(char* arrival_time_period);
-                    typedef enum  {  travel_time, fares } properties_e;
+char* request_time_filter_fast_arrival_many_to_one_search_arrival_time_period_ToString(traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e arrival_time_period);
 
-            char* properties_ToString(properties_e properties);
+traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e request_time_filter_fast_arrival_many_to_one_search_arrival_time_period_FromString(char* arrival_time_period);
 
-            properties_e properties_FromString(char* properties);
+// Enum  for request_time_filter_fast_arrival_many_to_one_search
+
+typedef enum  { traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__NULL = 0, traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__travel_time, traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__fares } traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e;
+
+char* request_time_filter_fast_arrival_many_to_one_search_properties_ToString(traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e properties);
+
+traveltime_platform_api_request_time_filter_fast_arrival_many_to_one_search__e request_time_filter_fast_arrival_many_to_one_search_properties_FromString(char* properties);
+
 
 
 typedef struct request_time_filter_fast_arrival_many_to_one_search_t {

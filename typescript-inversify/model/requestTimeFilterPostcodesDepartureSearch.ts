@@ -17,8 +17,8 @@ import { RequestTransportation } from './requestTransportation';
 export interface RequestTimeFilterPostcodesDepartureSearch { 
     id: string;
     transportation: RequestTransportation;
-    travelTime: number;
-    departureTime: Date;
+    travel_time: number;
+    departure_time: string;
     properties: Array<RequestTimeFilterPostcodesProperty>;
     range?: RequestRangeFull;
 }

@@ -13,14 +13,14 @@
 import * as models from './models';
 
 export interface ResponseError {
-    httpStatus?: number;
+    http_status?: number;
 
-    errorCode?: number;
+    error_code?: number;
 
     description?: string;
 
-    documentationLink?: string;
+    documentation_link?: string;
 
-    additionalInfo?: { [key: string]: Array<string>; };
+    additional_info?: { [key: string]: Array<string>; };
 
 }

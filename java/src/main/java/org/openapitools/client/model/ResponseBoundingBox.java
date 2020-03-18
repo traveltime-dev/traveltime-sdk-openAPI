@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseBox;
 /**
  * ResponseBoundingBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseBoundingBox {
   public static final String SERIALIZED_NAME_ENVELOPE = "envelope";
   @SerializedName(SERIALIZED_NAME_ENVELOPE)

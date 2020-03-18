@@ -15,8 +15,8 @@ import * as models from './models';
 export interface RequestRoutes {
     locations: Array<models.RequestLocation>;
 
-    departureSearches?: Array<models.RequestRoutesDepartureSearch>;
+    departure_searches?: Array<models.RequestRoutesDepartureSearch>;
 
-    arrivalSearches?: Array<models.RequestRoutesArrivalSearch>;
+    arrival_searches?: Array<models.RequestRoutesArrivalSearch>;
 
 }

@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseGeocodingGeometry: Codable { 
 
-public struct ResponseGeocodingGeometry: Codable {
 
     public var type: String
     public var coordinates: [Double]
@@ -19,6 +19,4 @@ public struct ResponseGeocodingGeometry: Codable {
         self.coordinates = coordinates
     }
 
-
 }
-

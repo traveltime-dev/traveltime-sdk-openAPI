@@ -25,7 +25,7 @@ export interface ResponseRoutesProperties {
      * @type {number}
      * @memberof ResponseRoutesProperties
      */
-    travelTime?: number;
+    travel_time?: number;
     /**
      * @type {number}
      * @memberof ResponseRoutesProperties

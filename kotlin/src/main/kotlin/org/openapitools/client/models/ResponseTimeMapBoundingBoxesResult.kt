@@ -24,12 +24,13 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeMapBoundingBoxesResult (
     @Json(name = "search_id")
-    val searchId: kotlin.String,
+    val searchId: kotlin.String
+,
     @Json(name = "bounding_boxes")
-    val boundingBoxes: kotlin.Array<ResponseBoundingBox>,
+    val boundingBoxes: kotlin.Array<ResponseBoundingBox>
+,
     @Json(name = "properties")
     val properties: ResponseTimeMapProperties
-) 
 
-
+)
 

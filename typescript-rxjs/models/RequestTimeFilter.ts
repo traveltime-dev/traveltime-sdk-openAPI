@@ -31,10 +31,10 @@ export interface RequestTimeFilter {
      * @type {Array<RequestTimeFilterDepartureSearch>}
      * @memberof RequestTimeFilter
      */
-    departureSearches?: Array<RequestTimeFilterDepartureSearch>;
+    departure_searches?: Array<RequestTimeFilterDepartureSearch>;
     /**
      * @type {Array<RequestTimeFilterArrivalSearch>}
      * @memberof RequestTimeFilter
      */
-    arrivalSearches?: Array<RequestTimeFilterArrivalSearch>;
+    arrival_searches?: Array<RequestTimeFilterArrivalSearch>;
 }

@@ -100,7 +100,7 @@ class ResponseGeocodingGeometry
      *
      * @return double[]
      */
-    public function getCoordinates()
+    public function getCoordinates(): array
     {
         return $this->coordinates;
     }
@@ -112,7 +112,7 @@ class ResponseGeocodingGeometry
      *
      * @return $this
      */
-    public function setCoordinates(array $coordinates)
+    public function setCoordinates(array $coordinates): array
     {
         $this->coordinates = $coordinates;
 

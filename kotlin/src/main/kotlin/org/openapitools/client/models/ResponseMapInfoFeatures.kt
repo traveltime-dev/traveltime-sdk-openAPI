@@ -23,12 +23,13 @@ import com.squareup.moshi.Json
 
 data class ResponseMapInfoFeatures (
     @Json(name = "fares")
-    val fares: kotlin.Boolean,
+    val fares: kotlin.Boolean
+,
     @Json(name = "postcodes")
-    val postcodes: kotlin.Boolean,
+    val postcodes: kotlin.Boolean
+,
     @Json(name = "public_transport")
     val publicTransport: ResponseMapInfoFeaturesPublicTransport? = null
-) 
 
-
+)
 

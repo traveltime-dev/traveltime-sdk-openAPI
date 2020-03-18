@@ -15,13 +15,13 @@ import javax.validation.constraints.Size
  * @param id 
  * @param mapName 
  */
-data class ResponseSupportedLocation (
+data class ResponseSupportedLocation(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("map_name") val mapName: kotlin.String
+    @get:NotNull 
+    @JsonProperty("map_name") val mapName: kotlin.String
 ) {
 
 }

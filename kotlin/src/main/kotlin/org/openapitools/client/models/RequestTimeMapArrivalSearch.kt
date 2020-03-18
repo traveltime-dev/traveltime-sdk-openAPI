@@ -30,20 +30,25 @@ import com.squareup.moshi.Json
 
 data class RequestTimeMapArrivalSearch (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "coords")
-    val coords: Coords,
+    val coords: Coords
+,
     @Json(name = "transportation")
-    val transportation: RequestTransportation,
+    val transportation: RequestTransportation
+,
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int,
+    val travelTime: kotlin.Int
+,
     @Json(name = "arrival_time")
-    val arrivalTime: java.time.OffsetDateTime,
+    val arrivalTime: java.time.OffsetDateTime
+,
     @Json(name = "properties")
-    val properties: kotlin.Array<RequestTimeMapProperty>? = null,
+    val properties: kotlin.Array<RequestTimeMapProperty>? = null
+,
     @Json(name = "range")
     val range: RequestRangeNoMaxResults? = null
-) 
 
-
+)
 

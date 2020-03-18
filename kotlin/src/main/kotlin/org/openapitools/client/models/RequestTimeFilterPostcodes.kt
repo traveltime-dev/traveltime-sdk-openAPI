@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class RequestTimeFilterPostcodes (
     @Json(name = "departure_searches")
-    val departureSearches: kotlin.Array<RequestTimeFilterPostcodesDepartureSearch>? = null,
+    val departureSearches: kotlin.Array<RequestTimeFilterPostcodesDepartureSearch>? = null
+,
     @Json(name = "arrival_searches")
     val arrivalSearches: kotlin.Array<RequestTimeFilterPostcodesArrivalSearch>? = null
-) 
 
-
+)
 

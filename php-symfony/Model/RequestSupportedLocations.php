@@ -66,7 +66,7 @@ class RequestSupportedLocations
      *
      * @return OpenAPI\Server\Model\RequestLocation[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->locations;
     }
@@ -78,7 +78,7 @@ class RequestSupportedLocations
      *
      * @return $this
      */
-    public function setLocations(array $locations)
+    public function setLocations(array $locations): array
     {
         $this->locations = $locations;
 

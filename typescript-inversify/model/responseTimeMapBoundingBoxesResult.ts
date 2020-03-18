@@ -14,7 +14,7 @@ import { ResponseTimeMapProperties } from './responseTimeMapProperties';
 
 
 export interface ResponseTimeMapBoundingBoxesResult { 
-    searchId: string;
-    boundingBoxes: Array<ResponseBoundingBox>;
+    search_id: string;
+    bounding_boxes: Array<ResponseBoundingBox>;
     properties: ResponseTimeMapProperties;
 }

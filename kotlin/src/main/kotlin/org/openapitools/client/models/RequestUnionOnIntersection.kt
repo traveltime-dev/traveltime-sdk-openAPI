@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class RequestUnionOnIntersection (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "search_ids")
     val searchIds: kotlin.Array<kotlin.String>
-) 
 
-
+)
 

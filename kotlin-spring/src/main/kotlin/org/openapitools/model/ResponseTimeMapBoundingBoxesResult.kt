@@ -18,16 +18,16 @@ import javax.validation.constraints.Size
  * @param boundingBoxes 
  * @param properties 
  */
-data class ResponseTimeMapBoundingBoxesResult (
+data class ResponseTimeMapBoundingBoxesResult(
 
-        @get:NotNull 
-        @JsonProperty("search_id") val searchId: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("search_id") val searchId: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("bounding_boxes") val boundingBoxes: kotlin.collections.List<ResponseBoundingBox>,
+    @get:NotNull 
+    @JsonProperty("bounding_boxes") val boundingBoxes: kotlin.collections.List<ResponseBoundingBox>,
 
-        @get:NotNull 
-        @JsonProperty("properties") val properties: ResponseTimeMapProperties
+    @get:NotNull 
+    @JsonProperty("properties") val properties: ResponseTimeMapProperties
 ) {
 
 }

@@ -4,14 +4,14 @@ package org.openapitools.client.model
 
 case class RequestRangeFull (
     _enabled: Boolean,
-    _maxUnderscoreresults: Integer,
+    _maxResults: Integer,
     _width: Integer
 )
 object RequestRangeFull {
-    def toStringBody(var_enabled: Object, var_maxUnderscoreresults: Object, var_width: Object) =
+    def toStringBody(var_enabled: Object, var_maxResults: Object, var_width: Object) =
         s"""
         | {
-        | "enabled":$var_enabled,"maxUnderscoreresults":$var_maxUnderscoreresults,"width":$var_width
+        | "enabled":$var_enabled,"maxResults":$var_maxResults,"width":$var_width
         | }
         """.stripMargin
 }

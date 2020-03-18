@@ -10,16 +10,16 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterPostcodesArrivalSearch(
   id: String,
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  arrivalUnderscoretime: DateTime,
+  arrivalTime: OffsetDateTime,
 
   properties: List[RequestTimeFilterPostcodesProperty],
 

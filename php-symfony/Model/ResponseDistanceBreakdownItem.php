@@ -74,7 +74,7 @@ class ResponseDistanceBreakdownItem
      *
      * @return OpenAPI\Server\Model\ResponseTransportationMode
      */
-    public function getMode()
+    public function getMode(): ResponseTransportationMode
     {
         return $this->mode;
     }
@@ -86,7 +86,7 @@ class ResponseDistanceBreakdownItem
      *
      * @return $this
      */
-    public function setMode(ResponseTransportationMode $mode)
+    public function setMode(ResponseTransportationMode $mode): ResponseTransportationMode
     {
         $this->mode = $mode;
 

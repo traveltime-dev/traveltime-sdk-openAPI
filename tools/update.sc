@@ -1,6 +1,6 @@
 import ammonite.ops._
 
-val swaggerCodegenVersion = "v4.2.3"
+val swaggerCodegenVersion = "master" //4.3.0
 lazy val toolsDir = pwd/"tools"
 lazy val codegenDir = toolsDir/"openapi-generator"
 lazy val sdkOut = codegenDir/"out"

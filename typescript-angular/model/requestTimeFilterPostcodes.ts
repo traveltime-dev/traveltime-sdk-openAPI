@@ -14,7 +14,7 @@ import { RequestTimeFilterPostcodesArrivalSearch } from './requestTimeFilterPost
 
 
 export interface RequestTimeFilterPostcodes { 
-    departureSearches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
-    arrivalSearches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
+    departure_searches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
+    arrival_searches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
 }
 

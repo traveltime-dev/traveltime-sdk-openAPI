@@ -17,13 +17,13 @@ import javax.validation.constraints.Size
  * @param locations 
  * @param arrivalSearches 
  */
-data class RequestTimeFilterFast (
+data class RequestTimeFilterFast(
 
-        @get:NotNull @get:Size(min=1) 
-        @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
+    @get:NotNull @get:Size(min=1) 
+    @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
 
-        @get:NotNull 
-        @JsonProperty("arrival_searches") val arrivalSearches: RequestTimeFilterFastArrivalSearches
+    @get:NotNull 
+    @JsonProperty("arrival_searches") val arrivalSearches: RequestTimeFilterFastArrivalSearches
 ) {
 
 }

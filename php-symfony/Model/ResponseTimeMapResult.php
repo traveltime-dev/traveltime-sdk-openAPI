@@ -110,7 +110,7 @@ class ResponseTimeMapResult
      *
      * @return OpenAPI\Server\Model\ResponseShape[]
      */
-    public function getShapes()
+    public function getShapes(): array
     {
         return $this->shapes;
     }
@@ -122,7 +122,7 @@ class ResponseTimeMapResult
      *
      * @return $this
      */
-    public function setShapes(array $shapes)
+    public function setShapes(array $shapes): array
     {
         $this->shapes = $shapes;
 
@@ -134,7 +134,7 @@ class ResponseTimeMapResult
      *
      * @return OpenAPI\Server\Model\ResponseTimeMapProperties
      */
-    public function getProperties()
+    public function getProperties(): ResponseTimeMapProperties
     {
         return $this->properties;
     }
@@ -146,7 +146,7 @@ class ResponseTimeMapResult
      *
      * @return $this
      */
-    public function setProperties(ResponseTimeMapProperties $properties)
+    public function setProperties(ResponseTimeMapProperties $properties): ResponseTimeMapProperties
     {
         $this->properties = $properties;
 

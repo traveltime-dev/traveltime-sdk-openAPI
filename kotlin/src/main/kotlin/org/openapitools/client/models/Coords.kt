@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class Coords (
     @Json(name = "lat")
-    val lat: kotlin.Double,
+    val lat: kotlin.Double
+,
     @Json(name = "lng")
     val lng: kotlin.Double
-) 
 
-
+)
 

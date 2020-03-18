@@ -22,7 +22,7 @@ case class ResponseRoutePart(
 
   distance: Int,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
   coords: List[Coords],
 
@@ -34,14 +34,14 @@ case class ResponseRoutePart(
 
   line: Option[String],
 
-  departureUnderscorestation: Option[String],
+  departureStation: Option[String],
 
-  arrivalUnderscorestation: Option[String],
+  arrivalStation: Option[String],
 
-  departsUnderscoreat: Option[String],
+  departsAt: Option[String],
 
-  arrivesUnderscoreat: Option[String],
+  arrivesAt: Option[String],
 
-  numUnderscorestops: Option[Int]
+  numStops: Option[Int]
 
  )

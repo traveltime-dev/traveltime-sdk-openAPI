@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
  * Coords
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T07:53:55.564Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-03-18T08:50:49.923Z[Etc/UTC]")
 
 public class Coords   {
   @JsonProperty("lat")

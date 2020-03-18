@@ -24,12 +24,12 @@ export interface ResponseTimeFilterPostcodeSectorProperties {
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeSectorProperties
      */
-    travelTimeReachable?: ResponseTravelTimeStatistics;
+    travel_time_reachable?: ResponseTravelTimeStatistics;
     /**
      * @type {ResponseTravelTimeStatistics}
      * @memberof ResponseTimeFilterPostcodeSectorProperties
      */
-    travelTimeAll?: ResponseTravelTimeStatistics;
+    travel_time_all?: ResponseTravelTimeStatistics;
     /**
      * @type {number}
      * @memberof ResponseTimeFilterPostcodeSectorProperties

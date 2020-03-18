@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param id 
  * @param coords 
  */
-data class RequestLocation (
+data class RequestLocation(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("coords") val coords: Coords
+    @get:NotNull 
+    @JsonProperty("coords") val coords: Coords
 ) {
 
 }

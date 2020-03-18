@@ -76,7 +76,7 @@ class RequestTimeFilterFast
      *
      * @return OpenAPI\Server\Model\RequestLocation[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->locations;
     }
@@ -88,7 +88,7 @@ class RequestTimeFilterFast
      *
      * @return $this
      */
-    public function setLocations(array $locations)
+    public function setLocations(array $locations): array
     {
         $this->locations = $locations;
 
@@ -100,7 +100,7 @@ class RequestTimeFilterFast
      *
      * @return OpenAPI\Server\Model\RequestTimeFilterFastArrivalSearches
      */
-    public function getArrivalSearches()
+    public function getArrivalSearches(): RequestTimeFilterFastArrivalSearches
     {
         return $this->arrivalSearches;
     }
@@ -112,7 +112,7 @@ class RequestTimeFilterFast
      *
      * @return $this
      */
-    public function setArrivalSearches(RequestTimeFilterFastArrivalSearches $arrivalSearches)
+    public function setArrivalSearches(RequestTimeFilterFastArrivalSearches $arrivalSearches): RequestTimeFilterFastArrivalSearches
     {
         $this->arrivalSearches = $arrivalSearches;
 

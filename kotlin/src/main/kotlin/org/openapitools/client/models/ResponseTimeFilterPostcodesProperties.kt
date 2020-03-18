@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeFilterPostcodesProperties (
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int? = null,
+    val travelTime: kotlin.Int? = null
+,
     @Json(name = "distance")
     val distance: kotlin.Int? = null
-) 
 
-
+)
 

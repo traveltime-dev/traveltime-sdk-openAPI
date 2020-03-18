@@ -15,10 +15,10 @@ import javax.validation.constraints.Size
  * 
  * @param type 
  */
-data class RequestTransportationFast (
+data class RequestTransportationFast(
 
-        @get:NotNull 
-        @JsonProperty("type") val type: RequestTransportationFast.Type
+    @get:NotNull 
+    @JsonProperty("type") val type: RequestTransportationFast.Type
 ) {
 
     /**

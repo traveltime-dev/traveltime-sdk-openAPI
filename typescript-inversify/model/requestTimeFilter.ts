@@ -16,6 +16,6 @@ import { RequestTimeFilterDepartureSearch } from './requestTimeFilterDepartureSe
 
 export interface RequestTimeFilter { 
     locations: Array<RequestLocation>;
-    departureSearches?: Array<RequestTimeFilterDepartureSearch>;
-    arrivalSearches?: Array<RequestTimeFilterArrivalSearch>;
+    departure_searches?: Array<RequestTimeFilterDepartureSearch>;
+    arrival_searches?: Array<RequestTimeFilterArrivalSearch>;
 }

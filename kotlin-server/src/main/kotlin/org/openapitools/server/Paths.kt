@@ -23,7 +23,7 @@ object Paths {
      * @param withinPeriodCountry  (optional)
      */
     @KtorExperimentalLocationsAPI
-    @Location("/v4/geocoding/reverse") class geocodingReverseSearch(val lat: kotlin.Double, val lng: kotlin.Double, val withinPeriodCountry: kotlin.String)
+    @Location("/v4/geocoding/reverse") class geocodingReverseSearch(val lat: kotlin.Double, val lng: kotlin.Double, val withinPeriodCountry: kotlin.String? = null)
 
     /**
      * 
@@ -34,7 +34,7 @@ object Paths {
      * @param withinPeriodCountry  (optional)
      */
     @KtorExperimentalLocationsAPI
-    @Location("/v4/geocoding/search") class geocodingSearch(val query: kotlin.String, val focusPeriodLat: kotlin.Double, val focusPeriodLng: kotlin.Double, val withinPeriodCountry: kotlin.String)
+    @Location("/v4/geocoding/search") class geocodingSearch(val query: kotlin.String, val focusPeriodLat: kotlin.Double? = null, val focusPeriodLng: kotlin.Double? = null, val withinPeriodCountry: kotlin.String? = null)
 
     /**
      * 

@@ -27,7 +27,7 @@ export interface RequestLocation {
 
 export interface RequestRangeFull {
   enabled: boolean;
-  maxResults: number;
+  max_results: number;
   width: number;
 }
 
@@ -40,17 +40,17 @@ export interface RequestRangeNoMaxResults {
 
 export interface RequestRoutes {
   locations: Array<RequestLocation>;
-  departureSearches?: Array<RequestRoutesDepartureSearch>;
-  arrivalSearches?: Array<RequestRoutesArrivalSearch>;
+  departure_searches?: Array<RequestRoutesDepartureSearch>;
+  arrival_searches?: Array<RequestRoutesArrivalSearch>;
 }
 
 
 export interface RequestRoutesArrivalSearch {
   id: string;
-  departureLocationIds: Array<string>;
-  arrivalLocationId: string;
+  departure_location_ids: Array<string>;
+  arrival_location_id: string;
   transportation: RequestTransportation;
-  arrivalTime: Date;
+  arrival_time: string;
   properties: Array<RequestRoutesProperty>;
   range?: RequestRangeFull;
 }
@@ -58,10 +58,10 @@ export interface RequestRoutesArrivalSearch {
 
 export interface RequestRoutesDepartureSearch {
   id: string;
-  departureLocationId: string;
-  arrivalLocationIds: Array<string>;
+  departure_location_id: string;
+  arrival_location_ids: Array<string>;
   transportation: RequestTransportation;
-  departureTime: Date;
+  departure_time: string;
   properties: Array<RequestRoutesProperty>;
   range?: RequestRangeFull;
 }
@@ -76,18 +76,18 @@ export interface RequestSupportedLocations {
 
 export interface RequestTimeFilter {
   locations: Array<RequestLocation>;
-  departureSearches?: Array<RequestTimeFilterDepartureSearch>;
-  arrivalSearches?: Array<RequestTimeFilterArrivalSearch>;
+  departure_searches?: Array<RequestTimeFilterDepartureSearch>;
+  arrival_searches?: Array<RequestTimeFilterArrivalSearch>;
 }
 
 
 export interface RequestTimeFilterArrivalSearch {
   id: string;
-  departureLocationIds: Array<string>;
-  arrivalLocationId: string;
+  departure_location_ids: Array<string>;
+  arrival_location_id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  arrivalTime: Date;
+  travel_time: number;
+  arrival_time: string;
   properties: Array<RequestTimeFilterProperty>;
   range?: RequestRangeFull;
 }
@@ -95,11 +95,11 @@ export interface RequestTimeFilterArrivalSearch {
 
 export interface RequestTimeFilterDepartureSearch {
   id: string;
-  departureLocationId: string;
-  arrivalLocationIds: Array<string>;
+  departure_location_id: string;
+  arrival_location_ids: Array<string>;
   transportation: RequestTransportation;
-  travelTime: number;
-  departureTime: Date;
+  travel_time: number;
+  departure_time: string;
   properties: Array<RequestTimeFilterProperty>;
   range?: RequestRangeFull;
 }
@@ -107,52 +107,52 @@ export interface RequestTimeFilterDepartureSearch {
 
 export interface RequestTimeFilterFast {
   locations: Array<RequestLocation>;
-  arrivalSearches: RequestTimeFilterFastArrivalSearches;
+  arrival_searches: RequestTimeFilterFastArrivalSearches;
 }
 
 
 export interface RequestTimeFilterFastArrivalManyToOneSearch {
   id: string;
-  arrivalLocationId: string;
-  departureLocationIds: Array<string>;
+  arrival_location_id: string;
+  departure_location_ids: Array<string>;
   transportation: RequestTransportationFast;
-  travelTime: number;
-  arrivalTimePeriod: RequestArrivalTimePeriod;
+  travel_time: number;
+  arrival_time_period: RequestArrivalTimePeriod;
   properties: Array<RequestTimeFilterFastProperty>;
 }
 
 
 export interface RequestTimeFilterFastArrivalOneToManySearch {
   id: string;
-  departureLocationId: string;
-  arrivalLocationIds: Array<string>;
+  departure_location_id: string;
+  arrival_location_ids: Array<string>;
   transportation: RequestTransportationFast;
-  travelTime: number;
-  arrivalTimePeriod: RequestArrivalTimePeriod;
+  travel_time: number;
+  arrival_time_period: RequestArrivalTimePeriod;
   properties: Array<RequestTimeFilterFastProperty>;
 }
 
 
 export interface RequestTimeFilterFastArrivalSearches {
-  manyToOne?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
-  oneToMany?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
+  many_to_one?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
+  one_to_many?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
 }
 
 
 export type RequestTimeFilterFastProperty = 'travel_time' | 'fares';
 
 export interface RequestTimeFilterPostcodeDistricts {
-  departureSearches?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
-  arrivalSearches?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
+  departure_searches?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
+  arrival_searches?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
 }
 
 
 export interface RequestTimeFilterPostcodeDistrictsArrivalSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  arrivalTime: Date;
-  reachablePostcodesThreshold: number;
+  travel_time: number;
+  arrival_time: string;
+  reachable_postcodes_threshold: number;
   properties: Array<RequestTimeFilterPostcodeDistrictsProperty>;
   range?: RequestRangeFull;
 }
@@ -161,9 +161,9 @@ export interface RequestTimeFilterPostcodeDistrictsArrivalSearch {
 export interface RequestTimeFilterPostcodeDistrictsDepartureSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  departureTime: Date;
-  reachablePostcodesThreshold: number;
+  travel_time: number;
+  departure_time: string;
+  reachable_postcodes_threshold: number;
   properties: Array<RequestTimeFilterPostcodeDistrictsProperty>;
   range?: RequestRangeFull;
 }
@@ -172,17 +172,17 @@ export interface RequestTimeFilterPostcodeDistrictsDepartureSearch {
 export type RequestTimeFilterPostcodeDistrictsProperty = 'travel_time_reachable' | 'travel_time_all' | 'coverage';
 
 export interface RequestTimeFilterPostcodeSectors {
-  departureSearches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
-  arrivalSearches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
+  departure_searches?: Array<RequestTimeFilterPostcodeSectorsDepartureSearch>;
+  arrival_searches?: Array<RequestTimeFilterPostcodeSectorsArrivalSearch>;
 }
 
 
 export interface RequestTimeFilterPostcodeSectorsArrivalSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  arrivalTime: Date;
-  reachablePostcodesThreshold: number;
+  travel_time: number;
+  arrival_time: string;
+  reachable_postcodes_threshold: number;
   properties: Array<RequestTimeFilterPostcodeSectorsProperty>;
   range?: RequestRangeFull;
 }
@@ -191,9 +191,9 @@ export interface RequestTimeFilterPostcodeSectorsArrivalSearch {
 export interface RequestTimeFilterPostcodeSectorsDepartureSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  departureTime: Date;
-  reachablePostcodesThreshold: number;
+  travel_time: number;
+  departure_time: string;
+  reachable_postcodes_threshold: number;
   properties: Array<RequestTimeFilterPostcodeSectorsProperty>;
   range?: RequestRangeFull;
 }
@@ -202,16 +202,16 @@ export interface RequestTimeFilterPostcodeSectorsDepartureSearch {
 export type RequestTimeFilterPostcodeSectorsProperty = 'travel_time_reachable' | 'travel_time_all' | 'coverage';
 
 export interface RequestTimeFilterPostcodes {
-  departureSearches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
-  arrivalSearches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
+  departure_searches?: Array<RequestTimeFilterPostcodesDepartureSearch>;
+  arrival_searches?: Array<RequestTimeFilterPostcodesArrivalSearch>;
 }
 
 
 export interface RequestTimeFilterPostcodesArrivalSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  arrivalTime: Date;
+  travel_time: number;
+  arrival_time: string;
   properties: Array<RequestTimeFilterPostcodesProperty>;
   range?: RequestRangeFull;
 }
@@ -220,8 +220,8 @@ export interface RequestTimeFilterPostcodesArrivalSearch {
 export interface RequestTimeFilterPostcodesDepartureSearch {
   id: string;
   transportation: RequestTransportation;
-  travelTime: number;
-  departureTime: Date;
+  travel_time: number;
+  departure_time: string;
   properties: Array<RequestTimeFilterPostcodesProperty>;
   range?: RequestRangeFull;
 }
@@ -232,8 +232,8 @@ export type RequestTimeFilterPostcodesProperty = 'travel_time' | 'distance';
 export type RequestTimeFilterProperty = 'travel_time' | 'distance' | 'distance_breakdown' | 'fares' | 'route';
 
 export interface RequestTimeMap {
-  departureSearches?: Array<RequestTimeMapDepartureSearch>;
-  arrivalSearches?: Array<RequestTimeMapArrivalSearch>;
+  departure_searches?: Array<RequestTimeMapDepartureSearch>;
+  arrival_searches?: Array<RequestTimeMapArrivalSearch>;
   unions?: Array<RequestUnionOnIntersection>;
   intersections?: Array<RequestUnionOnIntersection>;
 }
@@ -243,8 +243,8 @@ export interface RequestTimeMapArrivalSearch {
   id: string;
   coords: Coords;
   transportation: RequestTransportation;
-  travelTime: number;
-  arrivalTime: Date;
+  travel_time: number;
+  arrival_time: string;
   properties?: Array<RequestTimeMapProperty>;
   range?: RequestRangeNoMaxResults;
 }
@@ -254,8 +254,8 @@ export interface RequestTimeMapDepartureSearch {
   id: string;
   coords: Coords;
   transportation: RequestTransportation;
-  travelTime: number;
-  departureTime: Date;
+  travel_time: number;
+  departure_time: string;
   properties?: Array<RequestTimeMapProperty>;
   range?: RequestRangeNoMaxResults;
 }
@@ -265,11 +265,11 @@ export type RequestTimeMapProperty = 'is_only_walking';
 
 export interface RequestTransportation {
   type: RequestTransportationTypeEnum;
-  ptChangeDelay?: number;
-  walkingTime?: number;
-  drivingTimeToStation?: number;
-  parkingTime?: number;
-  boardingTime?: number;
+  pt_change_delay?: number;
+  walking_time?: number;
+  driving_time_to_station?: number;
+  parking_time?: number;
+  boarding_time?: number;
 }
 
 /**
@@ -290,7 +290,7 @@ export type RequestTransportationFastTypeEnum = 'public_transport' | 'driving' |
 
 export interface RequestUnionOnIntersection {
   id: string;
-  searchIds: Array<string>;
+  search_ids: Array<string>;
 }
 
 
@@ -301,10 +301,10 @@ export interface ResponseBoundingBox {
 
 
 export interface ResponseBox {
-  minLat: number;
-  maxLat: number;
-  minLng: number;
-  maxLng: number;
+  min_lat: number;
+  max_lat: number;
+  min_lng: number;
+  max_lng: number;
 }
 
 
@@ -315,11 +315,11 @@ export interface ResponseDistanceBreakdownItem {
 
 
 export interface ResponseError {
-  httpStatus?: number;
-  errorCode?: number;
+  http_status?: number;
+  error_code?: number;
   description?: string;
-  documentationLink?: string;
-  additionalInfo?: { [key: string]: Array<string>; };
+  documentation_link?: string;
+  additional_info?: { [key: string]: Array<string>; };
 }
 
 
@@ -337,19 +337,19 @@ export type ResponseFareTicketTypeEnum = 'single' | 'week' | 'month' | 'year';
 
 export interface ResponseFares {
   breakdown: Array<ResponseFaresBreakdownItem>;
-  ticketsTotal: Array<ResponseFareTicket>;
+  tickets_total: Array<ResponseFareTicket>;
 }
 
 
 export interface ResponseFaresBreakdownItem {
   modes: Array<ResponseTransportationMode>;
-  routePartIds: Array<number>;
+  route_part_ids: Array<number>;
   tickets: Array<ResponseFareTicket>;
 }
 
 
 export interface ResponseFaresFast {
-  ticketsTotal: Array<ResponseFareTicket>;
+  tickets_total: Array<ResponseFareTicket>;
 }
 
 
@@ -376,16 +376,16 @@ export interface ResponseGeocodingProperties {
   name: string;
   label: string;
   score?: number;
-  houseNumber?: string;
+  house_number?: string;
   street?: string;
   region?: string;
-  regionCode?: string;
+  region_code?: string;
   neighbourhood?: string;
   county?: string;
   macroregion?: string;
   city?: string;
   country?: string;
-  countryCode?: string;
+  country_code?: string;
   continent?: string;
   postcode?: string;
   features?: ResponseMapInfoFeatures;
@@ -398,15 +398,15 @@ export interface ResponseMapInfo {
 
 
 export interface ResponseMapInfoFeatures {
-  publicTransport?: ResponseMapInfoFeaturesPublicTransport;
+  public_transport?: ResponseMapInfoFeaturesPublicTransport;
   fares: boolean;
   postcodes: boolean;
 }
 
 
 export interface ResponseMapInfoFeaturesPublicTransport {
-  dateStart: Date;
-  dateEnd: Date;
+  date_start: string;
+  date_end: string;
 }
 
 
@@ -417,8 +417,8 @@ export interface ResponseMapInfoMap {
 
 
 export interface ResponseRoute {
-  departureTime: Date;
-  arrivalTime: Date;
+  departure_time: string;
+  arrival_time: string;
   parts: Array<ResponseRoutePart>;
 }
 
@@ -429,17 +429,17 @@ export interface ResponseRoutePart {
   mode: ResponseTransportationMode;
   directions: string;
   distance: number;
-  travelTime: number;
+  travel_time: number;
   coords: Array<Coords>;
   direction?: string;
   road?: string;
   turn?: string;
   line?: string;
-  departureStation?: string;
-  arrivalStation?: string;
-  departsAt?: string;
-  arrivesAt?: string;
-  numStops?: number;
+  departure_station?: string;
+  arrival_station?: string;
+  departs_at?: string;
+  arrives_at?: string;
+  num_stops?: number;
 }
 
 /**
@@ -460,7 +460,7 @@ export interface ResponseRoutesLocation {
 
 
 export interface ResponseRoutesProperties {
-  travelTime?: number;
+  travel_time?: number;
   distance?: number;
   fares?: ResponseFares;
   route?: ResponseRoute;
@@ -468,7 +468,7 @@ export interface ResponseRoutesProperties {
 
 
 export interface ResponseRoutesResult {
-  searchId: string;
+  search_id: string;
   locations: Array<ResponseRoutesLocation>;
   unreachable: Array<string>;
 }
@@ -482,13 +482,13 @@ export interface ResponseShape {
 
 export interface ResponseSupportedLocation {
   id: string;
-  mapName: string;
+  map_name: string;
 }
 
 
 export interface ResponseSupportedLocations {
   locations: Array<ResponseSupportedLocation>;
-  unsupportedLocations: Array<string>;
+  unsupported_locations: Array<string>;
 }
 
 
@@ -509,13 +509,13 @@ export interface ResponseTimeFilterFastLocation {
 
 
 export interface ResponseTimeFilterFastProperties {
-  travelTime?: number;
+  travel_time?: number;
   fares?: ResponseFaresFast;
 }
 
 
 export interface ResponseTimeFilterFastResult {
-  searchId: string;
+  search_id: string;
   locations: Array<ResponseTimeFilterFastLocation>;
   unreachable: Array<string>;
 }
@@ -540,8 +540,8 @@ export interface ResponseTimeFilterPostcodeDistrict {
 
 
 export interface ResponseTimeFilterPostcodeDistrictProperties {
-  travelTimeReachable?: ResponseTravelTimeStatistics;
-  travelTimeAll?: ResponseTravelTimeStatistics;
+  travel_time_reachable?: ResponseTravelTimeStatistics;
+  travel_time_all?: ResponseTravelTimeStatistics;
   coverage?: number;
 }
 
@@ -552,7 +552,7 @@ export interface ResponseTimeFilterPostcodeDistricts {
 
 
 export interface ResponseTimeFilterPostcodeDistrictsResult {
-  searchId: string;
+  search_id: string;
   districts: Array<ResponseTimeFilterPostcodeDistrict>;
 }
 
@@ -564,8 +564,8 @@ export interface ResponseTimeFilterPostcodeSector {
 
 
 export interface ResponseTimeFilterPostcodeSectorProperties {
-  travelTimeReachable?: ResponseTravelTimeStatistics;
-  travelTimeAll?: ResponseTravelTimeStatistics;
+  travel_time_reachable?: ResponseTravelTimeStatistics;
+  travel_time_all?: ResponseTravelTimeStatistics;
   coverage?: number;
 }
 
@@ -576,7 +576,7 @@ export interface ResponseTimeFilterPostcodeSectors {
 
 
 export interface ResponseTimeFilterPostcodeSectorsResult {
-  searchId: string;
+  search_id: string;
   sectors: Array<ResponseTimeFilterPostcodeSector>;
 }
 
@@ -587,28 +587,28 @@ export interface ResponseTimeFilterPostcodes {
 
 
 export interface ResponseTimeFilterPostcodesProperties {
-  travelTime?: number;
+  travel_time?: number;
   distance?: number;
 }
 
 
 export interface ResponseTimeFilterPostcodesResult {
-  searchId: string;
+  search_id: string;
   postcodes: Array<ResponseTimeFilterPostcode>;
 }
 
 
 export interface ResponseTimeFilterProperties {
-  travelTime?: number;
+  travel_time?: number;
   distance?: number;
-  distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+  distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
   fares?: ResponseFares;
   route?: ResponseRoute;
 }
 
 
 export interface ResponseTimeFilterResult {
-  searchId: string;
+  search_id: string;
   locations: Array<ResponseTimeFilterLocation>;
   unreachable: Array<string>;
 }
@@ -625,19 +625,19 @@ export interface ResponseTimeMapBoundingBoxes {
 
 
 export interface ResponseTimeMapBoundingBoxesResult {
-  searchId: string;
-  boundingBoxes: Array<ResponseBoundingBox>;
+  search_id: string;
+  bounding_boxes: Array<ResponseBoundingBox>;
   properties: ResponseTimeMapProperties;
 }
 
 
 export interface ResponseTimeMapProperties {
-  isOnlyWalking?: boolean;
+  is_only_walking?: boolean;
 }
 
 
 export interface ResponseTimeMapResult {
-  searchId: string;
+  search_id: string;
   shapes: Array<ResponseShape>;
   properties: ResponseTimeMapProperties;
 }
@@ -649,7 +649,7 @@ export interface ResponseTimeMapWkt {
 
 
 export interface ResponseTimeMapWktResult {
-  searchId: string;
+  search_id: string;
   shape: string;
   properties: ResponseTimeMapProperties;
 }

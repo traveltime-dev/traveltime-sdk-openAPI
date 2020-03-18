@@ -29,20 +29,25 @@ import com.squareup.moshi.Json
 
 data class RequestTimeFilterFastArrivalOneToManySearch (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "departure_location_id")
-    val departureLocationId: kotlin.String,
+    val departureLocationId: kotlin.String
+,
     @Json(name = "arrival_location_ids")
-    val arrivalLocationIds: kotlin.Array<kotlin.String>,
+    val arrivalLocationIds: kotlin.Array<kotlin.String>
+,
     @Json(name = "transportation")
-    val transportation: RequestTransportationFast,
+    val transportation: RequestTransportationFast
+,
     @Json(name = "travel_time")
-    val travelTime: kotlin.Int,
+    val travelTime: kotlin.Int
+,
     @Json(name = "arrival_time_period")
-    val arrivalTimePeriod: RequestArrivalTimePeriod,
+    val arrivalTimePeriod: RequestArrivalTimePeriod
+,
     @Json(name = "properties")
     val properties: kotlin.Array<RequestTimeFilterFastProperty>
-) 
 
-
+)
 

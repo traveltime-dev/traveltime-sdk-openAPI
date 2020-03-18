@@ -32,7 +32,7 @@ import org.openapitools.client.model.ResponseRoute;
 /**
  * ResponseTimeFilterProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterProperties {
   public static final String SERIALIZED_NAME_TRAVEL_TIME = "travel_time";
   @SerializedName(SERIALIZED_NAME_TRAVEL_TIME)

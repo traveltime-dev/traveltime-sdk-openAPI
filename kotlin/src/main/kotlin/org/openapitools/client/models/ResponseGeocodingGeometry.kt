@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class ResponseGeocodingGeometry (
     @Json(name = "type")
-    val type: kotlin.String,
+    val type: kotlin.String
+,
     @Json(name = "coordinates")
     val coordinates: kotlin.Array<kotlin.Double>
-) 
 
-
+)
 

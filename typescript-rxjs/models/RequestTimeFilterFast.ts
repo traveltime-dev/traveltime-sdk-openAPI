@@ -30,5 +30,5 @@ export interface RequestTimeFilterFast {
      * @type {RequestTimeFilterFastArrivalSearches}
      * @memberof RequestTimeFilterFast
      */
-    arrivalSearches: RequestTimeFilterFastArrivalSearches;
+    arrival_searches: RequestTimeFilterFastArrivalSearches;
 }

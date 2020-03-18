@@ -12,15 +12,18 @@
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
 
-                typedef enum  {  cycling, driving, driving+train, public_transport, walking, coach, bus, train, ferry, driving+ferry, cycling+ferry } type_e;
+// Enum TYPE for request_transportation
 
-        char* type_ToString(type_e type);
+typedef enum  { traveltime_platform_api_request_transportation_TYPE_NULL = 0, traveltime_platform_api_request_transportation_TYPE_cycling, traveltime_platform_api_request_transportation_TYPE_driving, traveltime_platform_api_request_transportation_TYPE_driving+train, traveltime_platform_api_request_transportation_TYPE_public_transport, traveltime_platform_api_request_transportation_TYPE_walking, traveltime_platform_api_request_transportation_TYPE_coach, traveltime_platform_api_request_transportation_TYPE_bus, traveltime_platform_api_request_transportation_TYPE_train, traveltime_platform_api_request_transportation_TYPE_ferry, traveltime_platform_api_request_transportation_TYPE_driving+ferry, traveltime_platform_api_request_transportation_TYPE_cycling+ferry } traveltime_platform_api_request_transportation_TYPE_e;
 
-        type_e type_FromString(char* type);
+char* request_transportation_type_ToString(traveltime_platform_api_request_transportation_TYPE_e type);
+
+traveltime_platform_api_request_transportation_TYPE_e request_transportation_type_FromString(char* type);
+
 
 
 typedef struct request_transportation_t {
-    type_e type; //enum
+    traveltime_platform_api_request_transportation_TYPE_e type; //enum
     int pt_change_delay; //numeric
     int walking_time; //numeric
     int driving_time_to_station; //numeric
@@ -30,7 +33,7 @@ typedef struct request_transportation_t {
 } request_transportation_t;
 
 request_transportation_t *request_transportation_create(
-    type_e type,
+    traveltime_platform_api_request_transportation_TYPE_e type,
     int pt_change_delay,
     int walking_time,
     int driving_time_to_station,

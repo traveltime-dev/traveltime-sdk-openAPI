@@ -5,14 +5,14 @@ import play.api.libs.json._
 /**
   * Represents the Swagger definition for RequestTransportation.
   */
-@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T07:55:16.100Z[Etc/UTC]")
+@javax.annotation.Generated(value = Array("org.openapitools.codegen.languages.ScalaPlayFrameworkServerCodegen"), date = "2020-03-18T08:51:49.713Z[Etc/UTC]")
 case class RequestTransportation(
   `type`: RequestTransportation.Type.Value,
-  ptUnderscorechangeUnderscoredelay: Option[Int],
-  walkingUnderscoretime: Option[Int],
-  drivingUnderscoretimeUnderscoretoUnderscorestation: Option[Int],
-  parkingUnderscoretime: Option[Int],
-  boardingUnderscoretime: Option[Int]
+  ptChangeDelay: Option[Int],
+  walkingTime: Option[Int],
+  drivingTimeToStation: Option[Int],
+  parkingTime: Option[Int],
+  boardingTime: Option[Int]
 )
 
 object RequestTransportation {

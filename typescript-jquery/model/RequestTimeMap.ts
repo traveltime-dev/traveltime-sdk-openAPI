@@ -13,9 +13,9 @@
 import * as models from './models';
 
 export interface RequestTimeMap {
-    departureSearches?: Array<models.RequestTimeMapDepartureSearch>;
+    departure_searches?: Array<models.RequestTimeMapDepartureSearch>;
 
-    arrivalSearches?: Array<models.RequestTimeMapArrivalSearch>;
+    arrival_searches?: Array<models.RequestTimeMapArrivalSearch>;
 
     unions?: Array<models.RequestUnionOnIntersection>;
 

@@ -25,5 +25,5 @@ export interface RequestUnionOnIntersection {
      * @type {Array<string>}
      * @memberof RequestUnionOnIntersection
      */
-    searchIds: Array<string>;
+    search_ids: Array<string>;
 }

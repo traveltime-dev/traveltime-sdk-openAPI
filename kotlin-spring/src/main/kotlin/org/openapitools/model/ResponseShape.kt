@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param shell 
  * @param holes 
  */
-data class ResponseShape (
+data class ResponseShape(
 
-        @get:NotNull 
-        @JsonProperty("shell") val shell: kotlin.collections.List<Coords>,
+    @get:NotNull 
+    @JsonProperty("shell") val shell: kotlin.collections.List<Coords>,
 
-        @get:NotNull 
-        @JsonProperty("holes") val holes: kotlin.collections.List<kotlin.collections.List<Coords>>
+    @get:NotNull 
+    @JsonProperty("holes") val holes: kotlin.collections.List<kotlin.collections.List<Coords>>
 ) {
 
 }

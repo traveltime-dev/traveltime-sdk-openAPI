@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseTimeMapBoundingBoxes: Codable { 
 
-public struct ResponseTimeMapBoundingBoxes: Codable {
 
     public var results: [ResponseTimeMapBoundingBoxesResult]
 
@@ -17,6 +17,4 @@ public struct ResponseTimeMapBoundingBoxes: Codable {
         self.results = results
     }
 
-
 }
-

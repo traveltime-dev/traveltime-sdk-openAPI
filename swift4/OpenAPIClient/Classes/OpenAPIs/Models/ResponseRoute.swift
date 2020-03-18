@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseRoute: Codable { 
 
-public struct ResponseRoute: Codable {
 
     public var departureTime: Date
     public var arrivalTime: Date
@@ -27,6 +27,4 @@ public struct ResponseRoute: Codable {
         case parts
     }
 
-
 }
-

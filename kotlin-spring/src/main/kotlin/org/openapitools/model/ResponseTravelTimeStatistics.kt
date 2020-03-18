@@ -17,19 +17,19 @@ import javax.validation.constraints.Size
  * @param mean 
  * @param median 
  */
-data class ResponseTravelTimeStatistics (
+data class ResponseTravelTimeStatistics(
 
-        @get:NotNull 
-        @JsonProperty("min") val min: kotlin.Int,
+    @get:NotNull 
+    @JsonProperty("min") val min: kotlin.Int,
 
-        @get:NotNull 
-        @JsonProperty("max") val max: kotlin.Int,
+    @get:NotNull 
+    @JsonProperty("max") val max: kotlin.Int,
 
-        @get:NotNull 
-        @JsonProperty("mean") val mean: kotlin.Int,
+    @get:NotNull 
+    @JsonProperty("mean") val mean: kotlin.Int,
 
-        @get:NotNull 
-        @JsonProperty("median") val median: kotlin.Int
+    @get:NotNull 
+    @JsonProperty("median") val median: kotlin.Int
 ) {
 
 }

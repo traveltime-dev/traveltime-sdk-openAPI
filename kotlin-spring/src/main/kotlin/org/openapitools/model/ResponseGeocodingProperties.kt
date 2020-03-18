@@ -30,41 +30,41 @@ import javax.validation.constraints.Size
  * @param postcode 
  * @param features 
  */
-data class ResponseGeocodingProperties (
+data class ResponseGeocodingProperties(
 
-        @get:NotNull 
-        @JsonProperty("name") val name: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("name") val name: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("label") val label: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("label") val label: kotlin.String,
 
-        @JsonProperty("score") val score: kotlin.Double? = null,
+    @JsonProperty("score") val score: kotlin.Double? = null,
 
-        @JsonProperty("house_number") val houseNumber: kotlin.String? = null,
+    @JsonProperty("house_number") val houseNumber: kotlin.String? = null,
 
-        @JsonProperty("street") val street: kotlin.String? = null,
+    @JsonProperty("street") val street: kotlin.String? = null,
 
-        @JsonProperty("region") val region: kotlin.String? = null,
+    @JsonProperty("region") val region: kotlin.String? = null,
 
-        @JsonProperty("region_code") val regionCode: kotlin.String? = null,
+    @JsonProperty("region_code") val regionCode: kotlin.String? = null,
 
-        @JsonProperty("neighbourhood") val neighbourhood: kotlin.String? = null,
+    @JsonProperty("neighbourhood") val neighbourhood: kotlin.String? = null,
 
-        @JsonProperty("county") val county: kotlin.String? = null,
+    @JsonProperty("county") val county: kotlin.String? = null,
 
-        @JsonProperty("macroregion") val macroregion: kotlin.String? = null,
+    @JsonProperty("macroregion") val macroregion: kotlin.String? = null,
 
-        @JsonProperty("city") val city: kotlin.String? = null,
+    @JsonProperty("city") val city: kotlin.String? = null,
 
-        @JsonProperty("country") val country: kotlin.String? = null,
+    @JsonProperty("country") val country: kotlin.String? = null,
 
-        @JsonProperty("country_code") val countryCode: kotlin.String? = null,
+    @JsonProperty("country_code") val countryCode: kotlin.String? = null,
 
-        @JsonProperty("continent") val continent: kotlin.String? = null,
+    @JsonProperty("continent") val continent: kotlin.String? = null,
 
-        @JsonProperty("postcode") val postcode: kotlin.String? = null,
+    @JsonProperty("postcode") val postcode: kotlin.String? = null,
 
-        @JsonProperty("features") val features: ResponseMapInfoFeatures? = null
+    @JsonProperty("features") val features: ResponseMapInfoFeatures? = null
 ) {
 
 }

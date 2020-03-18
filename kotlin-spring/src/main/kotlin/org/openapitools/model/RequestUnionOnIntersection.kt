@@ -15,13 +15,13 @@ import javax.validation.constraints.Size
  * @param id 
  * @param searchIds 
  */
-data class RequestUnionOnIntersection (
+data class RequestUnionOnIntersection(
 
-        @get:NotNull 
-        @JsonProperty("id") val id: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("id") val id: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("search_ids") val searchIds: kotlin.collections.List<kotlin.String>
+    @get:NotNull 
+    @JsonProperty("search_ids") val searchIds: kotlin.collections.List<kotlin.String>
 ) {
 
 }

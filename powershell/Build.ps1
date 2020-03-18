@@ -58,7 +58,7 @@ $Manifest = @{
     Description = 'Org.OpenAPITools - the PowerShell module for TravelTime Platform API'
 
     RootModule = 'Org.OpenAPITools.psm1'
-    Guid = '{7281D880-3C53-4846-BDC1-EAF281931354}' # Has to be static, otherwise each new build will be considered different module
+    Guid = '{4F90F354-2ADF-4574-BFB1-8974FB04BC73}' # Has to be static, otherwise each new build will be considered different module
 
     PowerShellVersion = '3.0'
 

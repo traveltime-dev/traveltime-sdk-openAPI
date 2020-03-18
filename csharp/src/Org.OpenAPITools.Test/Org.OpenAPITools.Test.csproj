@@ -81,7 +81,7 @@ Contact: support@igeolise.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Org.OpenAPITools\Org.OpenAPITools.csproj">
-          <Project>{50F2D3F8-965A-4C0E-9A9B-FDEC8B12962A}</Project>
+          <Project>{EE7E1524-1C3F-414D-A10B-081069153385}</Project>
           <Name>Org.OpenAPITools</Name>
       </ProjectReference>
   </ItemGroup>

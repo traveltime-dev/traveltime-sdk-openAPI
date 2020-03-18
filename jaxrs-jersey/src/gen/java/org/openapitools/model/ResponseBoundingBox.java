@@ -32,7 +32,7 @@ import javax.validation.Valid;
   ResponseBoundingBox.JSON_PROPERTY_ENVELOPE,
   ResponseBoundingBox.JSON_PROPERTY_BOXES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T07:54:16.563Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2020-03-18T08:51:04.278Z[Etc/UTC]")
 public class ResponseBoundingBox   {
   public static final String JSON_PROPERTY_ENVELOPE = "envelope";
   @JsonProperty(JSON_PROPERTY_ENVELOPE)

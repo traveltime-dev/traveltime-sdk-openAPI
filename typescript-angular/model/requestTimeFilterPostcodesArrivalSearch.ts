@@ -17,8 +17,8 @@ import { RequestRangeFull } from './requestRangeFull';
 export interface RequestTimeFilterPostcodesArrivalSearch { 
     id: string;
     transportation: RequestTransportation;
-    travelTime: number;
-    arrivalTime: Date;
+    travel_time: number;
+    arrival_time: string;
     properties: Array<RequestTimeFilterPostcodesProperty>;
     range?: RequestRangeFull;
 }

@@ -8,7 +8,7 @@ import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
 
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 import RequestRoutesDepartureSearch._
 
@@ -17,7 +17,7 @@ case class RequestRoutesDepartureSearch (
 departureLocationId: String,
 arrivalLocationIds: List[String],
 transportation: RequestTransportation,
-departureTime: DateTime,
+departureTime: OffsetDateTime,
 properties: List[RequestRoutesProperty],
 range: Option[RequestRangeFull])
 

@@ -13,6 +13,6 @@ import { ResponseFaresFast } from './responseFaresFast';
 
 
 export interface ResponseTimeFilterFastProperties { 
-    travelTime?: number;
+    travel_time?: number;
     fares?: ResponseFaresFast;
 }

@@ -11,7 +11,7 @@ import org.openapitools.model.ResponseTransportationMode;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T07:53:50.580Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
 public class ResponseDistanceBreakdownItem   {
   @JsonProperty("mode")
   private ResponseTransportationMode mode;

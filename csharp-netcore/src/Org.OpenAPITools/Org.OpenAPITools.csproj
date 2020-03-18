@@ -13,7 +13,7 @@ Contact: support@igeolise.com
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BE63CF0-F67D-4287-AA15-CB53A16B10EF}</ProjectGuid>
+    <ProjectGuid>{78B6B689-E953-4DD2-A699-58B30E9A1F5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Org.OpenAPITools</RootNamespace>
@@ -28,15 +28,11 @@ Contact: support@igeolise.com
     <PackageProjectUrl>https://github.com/GIT_USER_ID/GIT_REPO_ID</PackageProjectUrl>
     <PackageReleaseNotes>Minor update</PackageReleaseNotes>
   </PropertyGroup>
+
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
-  <ItemGroup>
-      <PackageReference Include="CompareNETObjects" Version="4.57.0" />
-      <PackageReference Include="JsonSubTypes" Version="1.5.2" />
-      <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-      <PackageReference Include="RestSharp" Version="106.10.1" />
-      <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+    <PackageReference Include="JsonSubTypes" Version="1.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="RestSharp" Version="106.10.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 </Project>

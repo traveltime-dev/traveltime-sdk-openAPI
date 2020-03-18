@@ -30,7 +30,7 @@ import org.openapitools.client.model.ResponseTimeFilterPostcodeSector;
 /**
  * ResponseTimeFilterPostcodeSectorsResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T07:52:01.523Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-03-18T08:49:07.511Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSectorsResult {
   public static final String SERIALIZED_NAME_SEARCH_ID = "search_id";
   @SerializedName(SERIALIZED_NAME_SEARCH_ID)

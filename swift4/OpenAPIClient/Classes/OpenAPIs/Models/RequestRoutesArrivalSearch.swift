@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestRoutesArrivalSearch: Codable { 
 
-public struct RequestRoutesArrivalSearch: Codable {
 
     public var id: String
     public var departureLocationIds: [String]
@@ -39,6 +39,4 @@ public struct RequestRoutesArrivalSearch: Codable {
         case range
     }
 
-
 }
-

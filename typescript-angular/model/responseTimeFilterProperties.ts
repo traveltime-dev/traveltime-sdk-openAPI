@@ -15,9 +15,9 @@ import { ResponseRoute } from './responseRoute';
 
 
 export interface ResponseTimeFilterProperties { 
-    travelTime?: number;
+    travel_time?: number;
     distance?: number;
-    distanceBreakdown?: Array<ResponseDistanceBreakdownItem>;
+    distance_breakdown?: Array<ResponseDistanceBreakdownItem>;
     fares?: ResponseFares;
     route?: ResponseRoute;
 }

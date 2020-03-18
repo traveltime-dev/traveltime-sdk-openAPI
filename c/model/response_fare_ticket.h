@@ -12,22 +12,25 @@
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
 
-                typedef enum  {  single, week, month, year } type_e;
+// Enum TYPE for response_fare_ticket
 
-        char* type_ToString(type_e type);
+typedef enum  { traveltime_platform_api_response_fare_ticket_TYPE_NULL = 0, traveltime_platform_api_response_fare_ticket_TYPE_single, traveltime_platform_api_response_fare_ticket_TYPE_week, traveltime_platform_api_response_fare_ticket_TYPE_month, traveltime_platform_api_response_fare_ticket_TYPE_year } traveltime_platform_api_response_fare_ticket_TYPE_e;
 
-        type_e type_FromString(char* type);
+char* response_fare_ticket_type_ToString(traveltime_platform_api_response_fare_ticket_TYPE_e type);
+
+traveltime_platform_api_response_fare_ticket_TYPE_e response_fare_ticket_type_FromString(char* type);
+
 
 
 typedef struct response_fare_ticket_t {
-    type_e type; //enum
+    traveltime_platform_api_response_fare_ticket_TYPE_e type; //enum
     double price; //numeric
     char *currency; // string
 
 } response_fare_ticket_t;
 
 response_fare_ticket_t *response_fare_ticket_create(
-    type_e type,
+    traveltime_platform_api_response_fare_ticket_TYPE_e type,
     double price,
     char *currency
 );

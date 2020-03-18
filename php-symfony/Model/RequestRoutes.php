@@ -88,7 +88,7 @@ class RequestRoutes
      *
      * @return OpenAPI\Server\Model\RequestLocation[]
      */
-    public function getLocations()
+    public function getLocations(): array
     {
         return $this->locations;
     }
@@ -100,7 +100,7 @@ class RequestRoutes
      *
      * @return $this
      */
-    public function setLocations(array $locations)
+    public function setLocations(array $locations): array
     {
         $this->locations = $locations;
 
@@ -112,7 +112,7 @@ class RequestRoutes
      *
      * @return OpenAPI\Server\Model\RequestRoutesDepartureSearch[]|null
      */
-    public function getDepartureSearches()
+    public function getDepartureSearches(): ?array
     {
         return $this->departureSearches;
     }
@@ -124,7 +124,7 @@ class RequestRoutes
      *
      * @return $this
      */
-    public function setDepartureSearches(array $departureSearches = null)
+    public function setDepartureSearches(array $departureSearches = null): ?array
     {
         $this->departureSearches = $departureSearches;
 
@@ -136,7 +136,7 @@ class RequestRoutes
      *
      * @return OpenAPI\Server\Model\RequestRoutesArrivalSearch[]|null
      */
-    public function getArrivalSearches()
+    public function getArrivalSearches(): ?array
     {
         return $this->arrivalSearches;
     }
@@ -148,7 +148,7 @@ class RequestRoutes
      *
      * @return $this
      */
-    public function setArrivalSearches(array $arrivalSearches = null)
+    public function setArrivalSearches(array $arrivalSearches = null): ?array
     {
         $this->arrivalSearches = $arrivalSearches;
 

@@ -14,7 +14,7 @@ package org.openapitools.server.model
 case class RequestRangeFull(
   enabled: Boolean,
 
-  maxUnderscoreresults: Int,
+  maxResults: Int,
 
   width: Int
 

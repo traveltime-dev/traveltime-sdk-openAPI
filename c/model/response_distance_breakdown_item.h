@@ -13,11 +13,14 @@
 #include "../include/keyValuePair.h"
 #include "response_transportation_mode.h"
 
-                typedef enum  {  car, parking, boarding, walk, bike, train, rail_national, rail_overground, rail_underground, rail_dlr, bus, cable_car, plane, ferry, coach } mode_e;
+// Enum  for response_distance_breakdown_item
 
-        char* mode_ToString(mode_e mode);
+typedef enum  { traveltime_platform_api_response_distance_breakdown_item__NULL = 0, traveltime_platform_api_response_distance_breakdown_item__car, traveltime_platform_api_response_distance_breakdown_item__parking, traveltime_platform_api_response_distance_breakdown_item__boarding, traveltime_platform_api_response_distance_breakdown_item__walk, traveltime_platform_api_response_distance_breakdown_item__bike, traveltime_platform_api_response_distance_breakdown_item__train, traveltime_platform_api_response_distance_breakdown_item__rail_national, traveltime_platform_api_response_distance_breakdown_item__rail_overground, traveltime_platform_api_response_distance_breakdown_item__rail_underground, traveltime_platform_api_response_distance_breakdown_item__rail_dlr, traveltime_platform_api_response_distance_breakdown_item__bus, traveltime_platform_api_response_distance_breakdown_item__cable_car, traveltime_platform_api_response_distance_breakdown_item__plane, traveltime_platform_api_response_distance_breakdown_item__ferry, traveltime_platform_api_response_distance_breakdown_item__coach } traveltime_platform_api_response_distance_breakdown_item__e;
 
-        mode_e mode_FromString(char* mode);
+char* response_distance_breakdown_item_mode_ToString(traveltime_platform_api_response_distance_breakdown_item__e mode);
+
+traveltime_platform_api_response_distance_breakdown_item__e response_distance_breakdown_item_mode_FromString(char* mode);
+
 
 
 typedef struct response_distance_breakdown_item_t {

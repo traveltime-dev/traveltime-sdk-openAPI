@@ -24,16 +24,19 @@ import com.squareup.moshi.Json
 
 data class ResponseError (
     @Json(name = "http_status")
-    val httpStatus: kotlin.Int? = null,
+    val httpStatus: kotlin.Int? = null
+,
     @Json(name = "error_code")
-    val errorCode: kotlin.Int? = null,
+    val errorCode: kotlin.Int? = null
+,
     @Json(name = "description")
-    val description: kotlin.String? = null,
+    val description: kotlin.String? = null
+,
     @Json(name = "documentation_link")
-    val documentationLink: kotlin.String? = null,
+    val documentationLink: kotlin.String? = null
+,
     @Json(name = "additional_info")
     val additionalInfo: kotlin.collections.Map<kotlin.String, kotlin.Array<kotlin.String>>? = null
-) 
 
-
+)
 

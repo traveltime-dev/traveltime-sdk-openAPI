@@ -22,7 +22,6 @@ import com.squareup.moshi.Json
 data class ResponseTimeMap (
     @Json(name = "results")
     val results: kotlin.Array<ResponseTimeMapResult>
-) 
 
-
+)
 

@@ -29,5 +29,5 @@ export interface ResponseSupportedLocations {
      * @type {Array<string>}
      * @memberof ResponseSupportedLocations
      */
-    unsupportedLocations: Array<string>;
+    unsupported_locations: Array<string>;
 }

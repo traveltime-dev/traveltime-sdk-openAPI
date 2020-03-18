@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeFilterFastArrivalSearches: Codable { 
 
-public struct RequestTimeFilterFastArrivalSearches: Codable {
 
     public var manyToOne: [RequestTimeFilterFastArrivalManyToOneSearch]?
     public var oneToMany: [RequestTimeFilterFastArrivalOneToManySearch]?
@@ -24,6 +24,4 @@ public struct RequestTimeFilterFastArrivalSearches: Codable {
         case oneToMany = "one_to_many"
     }
 
-
 }
-

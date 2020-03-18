@@ -21,10 +21,10 @@ import com.squareup.moshi.Json
 
 data class ResponseSupportedLocation (
     @Json(name = "id")
-    val id: kotlin.String,
+    val id: kotlin.String
+,
     @Json(name = "map_name")
     val mapName: kotlin.String
-) 
 
-
+)
 

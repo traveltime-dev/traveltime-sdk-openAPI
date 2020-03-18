@@ -42,12 +42,12 @@ export interface RequestTimeMapDepartureSearch {
      * @type {number}
      * @memberof RequestTimeMapDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * @type {Date}
+     * @type {string}
      * @memberof RequestTimeMapDepartureSearch
      */
-    departureTime: Date;
+    departure_time: string;
     /**
      * @type {Array<RequestTimeMapProperty>}
      * @memberof RequestTimeMapDepartureSearch

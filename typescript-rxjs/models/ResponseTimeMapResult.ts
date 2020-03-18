@@ -25,7 +25,7 @@ export interface ResponseTimeMapResult {
      * @type {string}
      * @memberof ResponseTimeMapResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * @type {Array<ResponseShape>}
      * @memberof ResponseTimeMapResult

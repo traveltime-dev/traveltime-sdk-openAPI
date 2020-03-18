@@ -23,10 +23,10 @@ import com.squareup.moshi.Json
 
 data class ResponseTimeFilterPostcodeSector (
     @Json(name = "code")
-    val code: String,
+    val code: String
+,
     @Json(name = "properties")
     val properties: ResponseTimeFilterPostcodeSectorProperties
-) 
 
-
+)
 

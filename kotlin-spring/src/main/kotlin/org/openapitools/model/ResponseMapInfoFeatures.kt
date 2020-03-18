@@ -17,15 +17,15 @@ import javax.validation.constraints.Size
  * @param postcodes 
  * @param publicTransport 
  */
-data class ResponseMapInfoFeatures (
+data class ResponseMapInfoFeatures(
 
-        @get:NotNull 
-        @JsonProperty("fares") val fares: kotlin.Boolean,
+    @get:NotNull 
+    @JsonProperty("fares") val fares: kotlin.Boolean,
 
-        @get:NotNull 
-        @JsonProperty("postcodes") val postcodes: kotlin.Boolean,
+    @get:NotNull 
+    @JsonProperty("postcodes") val postcodes: kotlin.Boolean,
 
-        @JsonProperty("public_transport") val publicTransport: ResponseMapInfoFeaturesPublicTransport? = null
+    @JsonProperty("public_transport") val publicTransport: ResponseMapInfoFeaturesPublicTransport? = null
 ) {
 
 }

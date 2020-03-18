@@ -149,7 +149,7 @@ class ResponseTimeFilterProperties
      *
      * @return OpenAPI\Server\Model\ResponseDistanceBreakdownItem[]|null
      */
-    public function getDistanceBreakdown()
+    public function getDistanceBreakdown(): ?array
     {
         return $this->distanceBreakdown;
     }
@@ -161,7 +161,7 @@ class ResponseTimeFilterProperties
      *
      * @return $this
      */
-    public function setDistanceBreakdown(array $distanceBreakdown = null)
+    public function setDistanceBreakdown(array $distanceBreakdown = null): ?array
     {
         $this->distanceBreakdown = $distanceBreakdown;
 
@@ -173,7 +173,7 @@ class ResponseTimeFilterProperties
      *
      * @return OpenAPI\Server\Model\ResponseFares|null
      */
-    public function getFares()
+    public function getFares(): ?ResponseFares
     {
         return $this->fares;
     }
@@ -185,7 +185,7 @@ class ResponseTimeFilterProperties
      *
      * @return $this
      */
-    public function setFares(ResponseFares $fares = null)
+    public function setFares(ResponseFares $fares = null): ?ResponseFares
     {
         $this->fares = $fares;
 
@@ -197,7 +197,7 @@ class ResponseTimeFilterProperties
      *
      * @return OpenAPI\Server\Model\ResponseRoute|null
      */
-    public function getRoute()
+    public function getRoute(): ?ResponseRoute
     {
         return $this->route;
     }
@@ -209,7 +209,7 @@ class ResponseTimeFilterProperties
      *
      * @return $this
      */
-    public function setRoute(ResponseRoute $route = null)
+    public function setRoute(ResponseRoute $route = null): ?ResponseRoute
     {
         $this->route = $route;
 

@@ -8,13 +8,13 @@ import org.http4s.{EntityDecoder, EntityEncoder}
 import org.http4s.argonaut._
 import org.joda.time.DateTime
 
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 import ResponseRoute._
 
 case class ResponseRoute (
-  departureTime: DateTime,
-arrivalTime: DateTime,
+  departureTime: OffsetDateTime,
+arrivalTime: OffsetDateTime,
 parts: List[ResponseRoutePart])
 
 object ResponseRoute {

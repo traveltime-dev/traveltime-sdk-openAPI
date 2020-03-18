@@ -100,7 +100,7 @@ class ResponseTimeFilterFastLocation
      *
      * @return OpenAPI\Server\Model\ResponseTimeFilterFastProperties[]
      */
-    public function getProperties()
+    public function getProperties(): array
     {
         return $this->properties;
     }
@@ -112,7 +112,7 @@ class ResponseTimeFilterFastLocation
      *
      * @return $this
      */
-    public function setProperties(array $properties)
+    public function setProperties(array $properties): array
     {
         $this->properties = $properties;
 

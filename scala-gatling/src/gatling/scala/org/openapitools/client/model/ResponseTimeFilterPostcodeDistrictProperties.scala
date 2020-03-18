@@ -3,15 +3,15 @@ package org.openapitools.client.model
 
 
 case class ResponseTimeFilterPostcodeDistrictProperties (
-    _travelUnderscoretimeUnderscorereachable: Option[ResponseTravelTimeStatistics],
-    _travelUnderscoretimeUnderscoreall: Option[ResponseTravelTimeStatistics],
+    _travelTimeReachable: Option[ResponseTravelTimeStatistics],
+    _travelTimeAll: Option[ResponseTravelTimeStatistics],
     _coverage: Option[Double]
 )
 object ResponseTimeFilterPostcodeDistrictProperties {
-    def toStringBody(var_travelUnderscoretimeUnderscorereachable: Object, var_travelUnderscoretimeUnderscoreall: Object, var_coverage: Object) =
+    def toStringBody(var_travelTimeReachable: Object, var_travelTimeAll: Object, var_coverage: Object) =
         s"""
         | {
-        | "travelUnderscoretimeUnderscorereachable":$var_travelUnderscoretimeUnderscorereachable,"travelUnderscoretimeUnderscoreall":$var_travelUnderscoretimeUnderscoreall,"coverage":$var_coverage
+        | "travelTimeReachable":$var_travelTimeReachable,"travelTimeAll":$var_travelTimeAll,"coverage":$var_coverage
         | }
         """.stripMargin
 }

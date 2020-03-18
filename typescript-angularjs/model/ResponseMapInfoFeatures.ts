@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ResponseMapInfoFeatures {
-    "publicTransport"?: models.ResponseMapInfoFeaturesPublicTransport;
+    "public_transport"?: models.ResponseMapInfoFeaturesPublicTransport;
     "fares": boolean;
     "postcodes": boolean;
 }

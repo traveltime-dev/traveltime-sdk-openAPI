@@ -16,11 +16,11 @@ import { RequestTransportationFast } from './requestTransportationFast';
 
 export interface RequestTimeFilterFastArrivalManyToOneSearch { 
     id: string;
-    arrivalLocationId: string;
-    departureLocationIds: Array<string>;
+    arrival_location_id: string;
+    departure_location_ids: Array<string>;
     transportation: RequestTransportationFast;
-    travelTime: number;
-    arrivalTimePeriod: RequestArrivalTimePeriod;
+    travel_time: number;
+    arrival_time_period: RequestArrivalTimePeriod;
     properties: Array<RequestTimeFilterFastProperty>;
 }
 

@@ -3,14 +3,14 @@ package org.openapitools.client.model
 
 
 case class RequestTimeFilterFastArrivalSearches (
-    _manyUnderscoretoUnderscoreone: Option[List[RequestTimeFilterFastArrivalManyToOneSearch]],
-    _oneUnderscoretoUnderscoremany: Option[List[RequestTimeFilterFastArrivalOneToManySearch]]
+    _manyToOne: Option[List[RequestTimeFilterFastArrivalManyToOneSearch]],
+    _oneToMany: Option[List[RequestTimeFilterFastArrivalOneToManySearch]]
 )
 object RequestTimeFilterFastArrivalSearches {
-    def toStringBody(var_manyUnderscoretoUnderscoreone: Object, var_oneUnderscoretoUnderscoremany: Object) =
+    def toStringBody(var_manyToOne: Object, var_oneToMany: Object) =
         s"""
         | {
-        | "manyUnderscoretoUnderscoreone":$var_manyUnderscoretoUnderscoreone,"oneUnderscoretoUnderscoremany":$var_oneUnderscoretoUnderscoremany
+        | "manyToOne":$var_manyToOne,"oneToMany":$var_oneToMany
         | }
         """.stripMargin
 }

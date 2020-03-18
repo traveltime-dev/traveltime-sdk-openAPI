@@ -16,11 +16,14 @@
 #include "request_time_map_property.h"
 #include "request_transportation.h"
 
-                    typedef enum  {  is_only_walking } properties_e;
+// Enum  for request_time_map_arrival_search
 
-            char* properties_ToString(properties_e properties);
+typedef enum  { traveltime_platform_api_request_time_map_arrival_search__NULL = 0, traveltime_platform_api_request_time_map_arrival_search__is_only_walking } traveltime_platform_api_request_time_map_arrival_search__e;
 
-            properties_e properties_FromString(char* properties);
+char* request_time_map_arrival_search_properties_ToString(traveltime_platform_api_request_time_map_arrival_search__e properties);
+
+traveltime_platform_api_request_time_map_arrival_search__e request_time_map_arrival_search_properties_FromString(char* properties);
+
 
 
 typedef struct request_time_map_arrival_search_t {

@@ -10,7 +10,7 @@
  */
 
 package org.openapitools.server.model
-import org.joda.time.DateTime
+import java.time.OffsetDateTime
 
 case class RequestTimeMapDepartureSearch(
   id: String,
@@ -19,9 +19,9 @@ case class RequestTimeMapDepartureSearch(
 
   transportation: RequestTransportation,
 
-  travelUnderscoretime: Int,
+  travelTime: Int,
 
-  departureUnderscoretime: DateTime,
+  departureTime: OffsetDateTime,
 
   properties: Option[List[RequestTimeMapProperty]],
 

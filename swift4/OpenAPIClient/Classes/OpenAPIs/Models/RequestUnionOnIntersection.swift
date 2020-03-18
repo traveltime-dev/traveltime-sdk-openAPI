@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestUnionOnIntersection: Codable { 
 
-public struct RequestUnionOnIntersection: Codable {
 
     public var id: String
     public var searchIds: [String]
@@ -24,6 +24,4 @@ public struct RequestUnionOnIntersection: Codable {
         case searchIds = "search_ids"
     }
 
-
 }
-

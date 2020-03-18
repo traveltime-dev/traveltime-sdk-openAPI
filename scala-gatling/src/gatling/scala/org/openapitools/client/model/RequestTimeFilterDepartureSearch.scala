@@ -1,23 +1,23 @@
 
 package org.openapitools.client.model
 
-import java.util.Date
+import java.time.OffsetDateTime
 
 case class RequestTimeFilterDepartureSearch (
     _id: String,
-    _departureUnderscorelocationUnderscoreid: String,
-    _arrivalUnderscorelocationUnderscoreids: List[String],
+    _departureLocationId: String,
+    _arrivalLocationIds: List[String],
     _transportation: RequestTransportation,
-    _travelUnderscoretime: Integer,
-    _departureUnderscoretime: Date,
+    _travelTime: Integer,
+    _departureTime: OffsetDateTime,
     _properties: List[RequestTimeFilterProperty],
     _range: Option[RequestRangeFull]
 )
 object RequestTimeFilterDepartureSearch {
-    def toStringBody(var_id: Object, var_departureUnderscorelocationUnderscoreid: Object, var_arrivalUnderscorelocationUnderscoreids: Object, var_transportation: Object, var_travelUnderscoretime: Object, var_departureUnderscoretime: Object, var_properties: Object, var_range: Object) =
+    def toStringBody(var_id: Object, var_departureLocationId: Object, var_arrivalLocationIds: Object, var_transportation: Object, var_travelTime: Object, var_departureTime: Object, var_properties: Object, var_range: Object) =
         s"""
         | {
-        | "id":$var_id,"departureUnderscorelocationUnderscoreid":$var_departureUnderscorelocationUnderscoreid,"arrivalUnderscorelocationUnderscoreids":$var_arrivalUnderscorelocationUnderscoreids,"transportation":$var_transportation,"travelUnderscoretime":$var_travelUnderscoretime,"departureUnderscoretime":$var_departureUnderscoretime,"properties":$var_properties,"range":$var_range
+        | "id":$var_id,"departureLocationId":$var_departureLocationId,"arrivalLocationIds":$var_arrivalLocationIds,"transportation":$var_transportation,"travelTime":$var_travelTime,"departureTime":$var_departureTime,"properties":$var_properties,"range":$var_range
         | }
         """.stripMargin
 }

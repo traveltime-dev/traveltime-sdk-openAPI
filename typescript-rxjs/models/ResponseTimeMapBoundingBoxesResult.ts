@@ -25,12 +25,12 @@ export interface ResponseTimeMapBoundingBoxesResult {
      * @type {string}
      * @memberof ResponseTimeMapBoundingBoxesResult
      */
-    searchId: string;
+    search_id: string;
     /**
      * @type {Array<ResponseBoundingBox>}
      * @memberof ResponseTimeMapBoundingBoxesResult
      */
-    boundingBoxes: Array<ResponseBoundingBox>;
+    bounding_boxes: Array<ResponseBoundingBox>;
     /**
      * @type {ResponseTimeMapProperties}
      * @memberof ResponseTimeMapBoundingBoxesResult

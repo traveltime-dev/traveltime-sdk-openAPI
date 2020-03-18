@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct RequestTimeFilterPostcodeDistrictsArrivalSearch: Codable { 
 
-public struct RequestTimeFilterPostcodeDistrictsArrivalSearch: Codable {
 
     public var id: String
     public var transportation: RequestTransportation
@@ -39,6 +39,4 @@ public struct RequestTimeFilterPostcodeDistrictsArrivalSearch: Codable {
         case range
     }
 
-
 }
-

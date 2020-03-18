@@ -22,10 +22,10 @@ import com.squareup.moshi.Json
 
 data class ResponseBoundingBox (
     @Json(name = "envelope")
-    val envelope: ResponseBox,
+    val envelope: ResponseBox
+,
     @Json(name = "boxes")
     val boxes: kotlin.Array<ResponseBox>
-) 
 
-
+)
 

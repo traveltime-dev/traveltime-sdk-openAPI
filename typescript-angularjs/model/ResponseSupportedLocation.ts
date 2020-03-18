@@ -14,6 +14,6 @@ import * as models from './models';
 
 export interface ResponseSupportedLocation {
     "id": string;
-    "mapName": string;
+    "map_name": string;
 }
 

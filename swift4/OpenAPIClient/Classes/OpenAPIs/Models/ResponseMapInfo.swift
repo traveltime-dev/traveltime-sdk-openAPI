@@ -8,8 +8,8 @@
 import Foundation
 
 
+public struct ResponseMapInfo: Codable { 
 
-public struct ResponseMapInfo: Codable {
 
     public var maps: [ResponseMapInfoMap]
 
@@ -17,6 +17,4 @@ public struct ResponseMapInfo: Codable {
         self.maps = maps
     }
 
-
 }
-

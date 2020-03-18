@@ -16,13 +16,13 @@ import javax.validation.constraints.Size
  * @param name 
  * @param features 
  */
-data class ResponseMapInfoMap (
+data class ResponseMapInfoMap(
 
-        @get:NotNull 
-        @JsonProperty("name") val name: kotlin.String,
+    @get:NotNull 
+    @JsonProperty("name") val name: kotlin.String,
 
-        @get:NotNull 
-        @JsonProperty("features") val features: ResponseMapInfoFeatures
+    @get:NotNull 
+    @JsonProperty("features") val features: ResponseMapInfoFeatures
 ) {
 
 }

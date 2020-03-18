@@ -64,6 +64,9 @@ configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://api.traveltimeapp.com
 configuration.host = "https://api.traveltimeapp.com"
+
+# Defining host is optional and default to https://api.traveltimeapp.com
+configuration.host = "https://api.traveltimeapp.com"
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class

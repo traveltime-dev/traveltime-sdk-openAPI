@@ -68,7 +68,7 @@ export class DefaultService {
 
 
     private addToHttpParams(httpParams: HttpParams, value: any, key?: string): HttpParams {
-        if (typeof value === "object") {
+        if (typeof value === "object" && value instanceof Date === false) {
             httpParams = this.addToHttpParamsRecursive(httpParams, value);
         } else {
             httpParams = this.addToHttpParamsRecursive(httpParams, value, key);
@@ -76,7 +76,11 @@ export class DefaultService {
         return httpParams;
     }
 
-    private addToHttpParamsRecursive(httpParams: HttpParams, value: any, key?: string): HttpParams {
+    private addToHttpParamsRecursive(httpParams: HttpParams, value?: any, key?: string): HttpParams {
+        if (value == null) {
+            return httpParams;
+        }
+
         if (typeof value === "object") {
             if (Array.isArray(value)) {
                 (value as any[]).forEach( elem => httpParams = this.addToHttpParamsRecursive(httpParams, elem, key));
@@ -134,13 +138,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -210,13 +220,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -261,13 +277,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -315,13 +337,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -379,13 +407,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -443,13 +477,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -507,13 +547,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -571,13 +617,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -635,13 +687,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -699,13 +757,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
@@ -763,13 +827,19 @@ export class DefaultService {
         let headers = this.defaultHeaders;
 
         // authentication (ApiKey) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Api-Key"]) {
-            headers = headers.set('X-Api-Key', this.configuration.apiKeys["X-Api-Key"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApiKey"] || this.configuration.apiKeys["X-Api-Key"];
+            if (key) {
+                headers = headers.set('X-Api-Key', key);
+            }
         }
 
         // authentication (ApplicationId) required
-        if (this.configuration.apiKeys && this.configuration.apiKeys["X-Application-Id"]) {
-            headers = headers.set('X-Application-Id', this.configuration.apiKeys["X-Application-Id"]);
+        if (this.configuration.apiKeys) {
+            const key: string | undefined = this.configuration.apiKeys["ApplicationId"] || this.configuration.apiKeys["X-Application-Id"];
+            if (key) {
+                headers = headers.set('X-Application-Id', key);
+            }
         }
 
         let httpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;

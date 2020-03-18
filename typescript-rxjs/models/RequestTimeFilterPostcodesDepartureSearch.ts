@@ -36,12 +36,12 @@ export interface RequestTimeFilterPostcodesDepartureSearch {
      * @type {number}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
-     * @type {Date}
+     * @type {string}
      * @memberof RequestTimeFilterPostcodesDepartureSearch
      */
-    departureTime: Date;
+    departure_time: string;
     /**
      * @type {Array<RequestTimeFilterPostcodesProperty>}
      * @memberof RequestTimeFilterPostcodesDepartureSearch

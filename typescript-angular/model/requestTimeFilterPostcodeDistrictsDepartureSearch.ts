@@ -17,9 +17,9 @@ import { RequestTimeFilterPostcodeDistrictsProperty } from './requestTimeFilterP
 export interface RequestTimeFilterPostcodeDistrictsDepartureSearch { 
     id: string;
     transportation: RequestTransportation;
-    travelTime: number;
-    departureTime: Date;
-    reachablePostcodesThreshold: number;
+    travel_time: number;
+    departure_time: string;
+    reachable_postcodes_threshold: number;
     properties: Array<RequestTimeFilterPostcodeDistrictsProperty>;
     range?: RequestRangeFull;
 }

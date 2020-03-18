@@ -31,12 +31,12 @@ export interface RequestTimeFilterFastArrivalOneToManySearch {
      * @type {string}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    departureLocationId: string;
+    departure_location_id: string;
     /**
      * @type {Array<string>}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    arrivalLocationIds: Array<string>;
+    arrival_location_ids: Array<string>;
     /**
      * @type {RequestTransportationFast}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
@@ -46,12 +46,12 @@ export interface RequestTimeFilterFastArrivalOneToManySearch {
      * @type {number}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    travelTime: number;
+    travel_time: number;
     /**
      * @type {RequestArrivalTimePeriod}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch
      */
-    arrivalTimePeriod: RequestArrivalTimePeriod;
+    arrival_time_period: RequestArrivalTimePeriod;
     /**
      * @type {Array<RequestTimeFilterFastProperty>}
      * @memberof RequestTimeFilterFastArrivalOneToManySearch

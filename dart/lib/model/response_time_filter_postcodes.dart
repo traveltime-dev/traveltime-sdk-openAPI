@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeFilterPostcodes {
   
   List<ResponseTimeFilterPostcodesResult> results = [];
-  ResponseTimeFilterPostcodes();
+
+  ResponseTimeFilterPostcodes({
+    this.results,
+  });
 
   @override
   String toString() {

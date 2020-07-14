@@ -18,7 +18,7 @@ import javax.validation.constraints.Size
 data class ResponseTimeFilter(
 
     @get:NotNull 
-    @JsonProperty("results") val results: kotlin.collections.List<ResponseTimeFilterResult>
+    @field:JsonProperty("results") val results: kotlin.collections.List<ResponseTimeFilterResult>
 ) {
 
 }

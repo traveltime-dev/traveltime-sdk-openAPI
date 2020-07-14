@@ -23,6 +23,9 @@ request_range_full_t *request_range_full_create(
 
 
 void request_range_full_free(request_range_full_t *request_range_full) {
+    if(NULL == request_range_full){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_range_full);
 }

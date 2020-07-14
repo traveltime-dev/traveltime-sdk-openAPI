@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**kotlin.Array&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
+**locations** | [**kotlin.collections.List&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
 
 
 

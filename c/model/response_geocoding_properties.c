@@ -49,6 +49,9 @@ response_geocoding_properties_t *response_geocoding_properties_create(
 
 
 void response_geocoding_properties_free(response_geocoding_properties_t *response_geocoding_properties) {
+    if(NULL == response_geocoding_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_geocoding_properties->name);
     free(response_geocoding_properties->label);

@@ -19,6 +19,9 @@ response_time_map_properties_t *response_time_map_properties_create(
 
 
 void response_time_map_properties_free(response_time_map_properties_t *response_time_map_properties) {
+    if(NULL == response_time_map_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_map_properties);
 }

@@ -1,0 +1,36 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterProperties",
+  "fields": [
+    {
+      "name": "travel_time",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "distance",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "distance_breakdown",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.ResponseDistanceBreakdownItem"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "fares",
+      "type": ["null", "model.ResponseFares"],
+      "doc": ""
+    },
+    {
+      "name": "route",
+      "type": ["null", "model.ResponseRoute"],
+      "doc": ""
+    }
+  ]
+}

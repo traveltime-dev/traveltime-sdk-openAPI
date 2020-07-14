@@ -20,13 +20,13 @@ import javax.validation.constraints.Size
 data class ResponseTimeFilterFastResult(
 
     @get:NotNull 
-    @JsonProperty("search_id") val searchId: kotlin.String,
+    @field:JsonProperty("search_id") val searchId: kotlin.String,
 
     @get:NotNull 
-    @JsonProperty("locations") val locations: kotlin.collections.List<ResponseTimeFilterFastLocation>,
+    @field:JsonProperty("locations") val locations: kotlin.collections.List<ResponseTimeFilterFastLocation>,
 
     @get:NotNull 
-    @JsonProperty("unreachable") val unreachable: kotlin.collections.List<kotlin.String>
+    @field:JsonProperty("unreachable") val unreachable: kotlin.collections.List<kotlin.String>
 ) {
 
 }

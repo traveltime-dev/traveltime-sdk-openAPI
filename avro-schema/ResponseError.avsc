@@ -1,0 +1,36 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseError",
+  "fields": [
+    {
+      "name": "http_status",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "error_code",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "description",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "documentation_link",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "additional_info",
+      "type": ["null", {
+        "type": "map",
+        "items": "array"
+      }],
+      "doc": ""
+    }
+  ]
+}

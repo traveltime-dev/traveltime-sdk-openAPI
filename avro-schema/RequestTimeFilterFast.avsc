@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilterFast",
+  "fields": [
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "model.RequestLocation"
+      },
+      "doc": ""
+    },
+    {
+      "name": "arrival_searches",
+      "type": "model.RequestTimeFilterFastArrivalSearches",
+      "doc": ""
+    }
+  ]
+}

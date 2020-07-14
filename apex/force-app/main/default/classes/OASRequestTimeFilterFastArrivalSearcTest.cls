@@ -72,9 +72,9 @@ private class OASRequestTimeFilterFastArrivalSearcTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTimeFilterFastArrivalSearc requestTimeFilterFastArrivalSearches = new OASRequestTimeFilterFastArrivalSearc();
-        Map<String, String> propertyMappings = requestTimeFilterFastArrivalSearches.getPropertyMappings();
-        System.assertEquals('manyToOne', propertyMappings.get('many_to_one'));
-        System.assertEquals('oneToMany', propertyMappings.get('one_to_many'));
+        Map<String, String> x-property-mappings = requestTimeFilterFastArrivalSearches.getx-property-mappings();
+        System.assertEquals('manyToOne', x-property-mappings.get('many_to_one'));
+        System.assertEquals('oneToMany', x-property-mappings.get('one_to_many'));
     }
 
     @isTest

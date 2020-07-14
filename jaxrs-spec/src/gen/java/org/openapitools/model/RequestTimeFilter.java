@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilter   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilter   {
   
   private @Valid List<RequestLocation> locations = new ArrayList<RequestLocation>();
   private @Valid List<RequestTimeFilterDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterDepartureSearch>();
@@ -33,17 +32,18 @@ public class RequestTimeFilter   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
  @Size(min=1)  public List<RequestLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilter departureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
@@ -51,16 +51,17 @@ public class RequestTimeFilter   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
  @Size(max=10)  public List<RequestTimeFilterDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
   public void setDepartureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilter arrivalSearches(List<RequestTimeFilterArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -68,15 +69,17 @@ public class RequestTimeFilter   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
  @Size(max=10)  public List<RequestTimeFilterArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
   public void setArrivalSearches(List<RequestTimeFilterArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -119,5 +122,7 @@ public class RequestTimeFilter   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

@@ -22,13 +22,13 @@ import javax.validation.constraints.Size
  */
 data class RequestTimeMap(
 @get:Size(max=10) 
-    @JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeMapDepartureSearch>? = null,
+    @field:JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeMapDepartureSearch>? = null,
 @get:Size(max=10) 
-    @JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeMapArrivalSearch>? = null,
+    @field:JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeMapArrivalSearch>? = null,
 @get:Size(max=10) 
-    @JsonProperty("unions") val unions: kotlin.collections.List<RequestUnionOnIntersection>? = null,
+    @field:JsonProperty("unions") val unions: kotlin.collections.List<RequestUnionOnIntersection>? = null,
 @get:Size(max=10) 
-    @JsonProperty("intersections") val intersections: kotlin.collections.List<RequestUnionOnIntersection>? = null
+    @field:JsonProperty("intersections") val intersections: kotlin.collections.List<RequestUnionOnIntersection>? = null
 ) {
 
 }

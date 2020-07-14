@@ -5,7 +5,11 @@ class ResponseGeocodingGeometry {
   String type = null;
   
   List<double> coordinates = [];
-  ResponseGeocodingGeometry();
+
+  ResponseGeocodingGeometry({
+    this.type,
+    this.coordinates,
+  });
 
   @override
   String toString() {

@@ -7,7 +7,12 @@ class ResponseRoutesResult {
   List<ResponseRoutesLocation> locations = [];
   
   List<String> unreachable = [];
-  ResponseRoutesResult();
+
+  ResponseRoutesResult({
+    this.searchId,
+    this.locations,
+    this.unreachable,
+  });
 
   @override
   String toString() {

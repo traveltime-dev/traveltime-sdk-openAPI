@@ -18,8 +18,7 @@ import javax.validation.constraints.*;
 /**
  * RequestRoutesDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-14T11:29:24.850Z[Etc/UTC]")
 public class RequestRoutesDepartureSearch   {
   @JsonProperty("id")
   private String id;
@@ -35,6 +34,7 @@ public class RequestRoutesDepartureSearch   {
   private RequestTransportation transportation;
 
   @JsonProperty("departure_time")
+  @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime departureTime;
 
   @JsonProperty("properties")

@@ -11,26 +11,30 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_fare_ticket_t response_fare_ticket_t;
+
 
 // Enum TYPE for response_fare_ticket
 
-typedef enum  { traveltime_platform_api_response_fare_ticket_TYPE_NULL = 0, traveltime_platform_api_response_fare_ticket_TYPE_single, traveltime_platform_api_response_fare_ticket_TYPE_week, traveltime_platform_api_response_fare_ticket_TYPE_month, traveltime_platform_api_response_fare_ticket_TYPE_year } traveltime_platform_api_response_fare_ticket_TYPE_e;
+typedef enum  { traveltime_api_response_fare_ticket_TYPE_NULL = 0, traveltime_api_response_fare_ticket_TYPE_single, traveltime_api_response_fare_ticket_TYPE_week, traveltime_api_response_fare_ticket_TYPE_month, traveltime_api_response_fare_ticket_TYPE_year } traveltime_api_response_fare_ticket_TYPE_e;
 
-char* response_fare_ticket_type_ToString(traveltime_platform_api_response_fare_ticket_TYPE_e type);
+char* response_fare_ticket_type_ToString(traveltime_api_response_fare_ticket_TYPE_e type);
 
-traveltime_platform_api_response_fare_ticket_TYPE_e response_fare_ticket_type_FromString(char* type);
+traveltime_api_response_fare_ticket_TYPE_e response_fare_ticket_type_FromString(char* type);
 
 
 
 typedef struct response_fare_ticket_t {
-    traveltime_platform_api_response_fare_ticket_TYPE_e type; //enum
+    traveltime_api_response_fare_ticket_TYPE_e type; //enum
     double price; //numeric
     char *currency; // string
 
 } response_fare_ticket_t;
 
 response_fare_ticket_t *response_fare_ticket_create(
-    traveltime_platform_api_response_fare_ticket_TYPE_e type,
+    traveltime_api_response_fare_ticket_TYPE_e type,
     double price,
     char *currency
 );

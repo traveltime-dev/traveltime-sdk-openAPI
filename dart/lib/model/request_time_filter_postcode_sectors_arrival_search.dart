@@ -15,7 +15,16 @@ class RequestTimeFilterPostcodeSectorsArrivalSearch {
   List<RequestTimeFilterPostcodeSectorsProperty> properties = [];
   
   RequestRangeFull range = null;
-  RequestTimeFilterPostcodeSectorsArrivalSearch();
+
+  RequestTimeFilterPostcodeSectorsArrivalSearch({
+    this.id,
+    this.transportation,
+    this.travelTime,
+    this.arrivalTime,
+    this.reachablePostcodesThreshold,
+    this.properties,
+    this.range,
+  });
 
   @override
   String toString() {

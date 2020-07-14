@@ -8,7 +8,7 @@ from openapi_server import encoder
 def main():
     app = connexion.App(__name__, specification_dir='./swagger/')
     app.app.json_encoder = encoder.JSONEncoder
-    app.add_api('swagger.yaml', arguments={'title': 'TravelTime Platform API'})
+    app.add_api('swagger.yaml', arguments={'title': 'TravelTime API'})
     app.run(port=8080)
 
 

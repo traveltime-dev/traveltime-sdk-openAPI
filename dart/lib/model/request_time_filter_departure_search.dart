@@ -17,7 +17,17 @@ class RequestTimeFilterDepartureSearch {
   List<RequestTimeFilterProperty> properties = [];
   
   RequestRangeFull range = null;
-  RequestTimeFilterDepartureSearch();
+
+  RequestTimeFilterDepartureSearch({
+    this.id,
+    this.departureLocationId,
+    this.arrivalLocationIds,
+    this.transportation,
+    this.travelTime,
+    this.departureTime,
+    this.properties,
+    this.range,
+  });
 
   @override
   String toString() {

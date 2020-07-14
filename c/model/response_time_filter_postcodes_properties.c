@@ -21,6 +21,9 @@ response_time_filter_postcodes_properties_t *response_time_filter_postcodes_prop
 
 
 void response_time_filter_postcodes_properties_free(response_time_filter_postcodes_properties_t *response_time_filter_postcodes_properties) {
+    if(NULL == response_time_filter_postcodes_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_filter_postcodes_properties);
 }

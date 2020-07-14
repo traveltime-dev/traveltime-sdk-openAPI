@@ -72,7 +72,7 @@ private class OASResponseMapInfoFeaturesTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseMapInfoFeatures responseMapInfoFeatures = new OASResponseMapInfoFeatures();
-        Map<String, String> propertyMappings = responseMapInfoFeatures.getPropertyMappings();
-        System.assertEquals('publicTransport', propertyMappings.get('public_transport'));
+        Map<String, String> x-property-mappings = responseMapInfoFeatures.getx-property-mappings();
+        System.assertEquals('publicTransport', x-property-mappings.get('public_transport'));
     }
 }

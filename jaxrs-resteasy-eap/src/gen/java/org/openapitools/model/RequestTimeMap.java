@@ -14,7 +14,7 @@ import org.openapitools.model.RequestUnionOnIntersection;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestTimeMap   {
   
 
@@ -31,8 +31,7 @@ public class RequestTimeMap   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
-  @Size(max=10)
-  public List<RequestTimeMapDepartureSearch> getDepartureSearches() {
+ @Size(max=10)  public List<RequestTimeMapDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
   public void setDepartureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
@@ -44,8 +43,7 @@ public class RequestTimeMap   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
-  @Size(max=10)
-  public List<RequestTimeMapArrivalSearch> getArrivalSearches() {
+ @Size(max=10)  public List<RequestTimeMapArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
   public void setArrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
@@ -57,8 +55,7 @@ public class RequestTimeMap   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("unions")
-  @Size(max=10)
-  public List<RequestUnionOnIntersection> getUnions() {
+ @Size(max=10)  public List<RequestUnionOnIntersection> getUnions() {
     return unions;
   }
   public void setUnions(List<RequestUnionOnIntersection> unions) {
@@ -70,8 +67,7 @@ public class RequestTimeMap   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("intersections")
-  @Size(max=10)
-  public List<RequestUnionOnIntersection> getIntersections() {
+ @Size(max=10)  public List<RequestUnionOnIntersection> getIntersections() {
     return intersections;
   }
   public void setIntersections(List<RequestUnionOnIntersection> intersections) {

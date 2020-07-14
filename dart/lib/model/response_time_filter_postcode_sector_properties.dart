@@ -7,7 +7,12 @@ class ResponseTimeFilterPostcodeSectorProperties {
   ResponseTravelTimeStatistics travelTimeAll = null;
   
   double coverage = null;
-  ResponseTimeFilterPostcodeSectorProperties();
+
+  ResponseTimeFilterPostcodeSectorProperties({
+    this.travelTimeReachable,
+    this.travelTimeAll,
+    this.coverage,
+  });
 
   @override
   String toString() {

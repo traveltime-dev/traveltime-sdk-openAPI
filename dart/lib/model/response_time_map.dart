@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeMap {
   
   List<ResponseTimeMapResult> results = [];
-  ResponseTimeMap();
+
+  ResponseTimeMap({
+    this.results,
+  });
 
   @override
   String toString() {

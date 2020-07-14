@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeMapResult   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeMapResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseShape> shapes = new ArrayList<ResponseShape>();
@@ -32,22 +31,25 @@ public class ResponseTimeMapResult   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("search_id")
   @NotNull
   public String getSearchId() {
     return searchId;
   }
+
   public void setSearchId(String searchId) {
     this.searchId = searchId;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeMapResult shapes(List<ResponseShape> shapes) {
     this.shapes = shapes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -56,16 +58,17 @@ public class ResponseTimeMapResult   {
   public List<ResponseShape> getShapes() {
     return shapes;
   }
+
   public void setShapes(List<ResponseShape> shapes) {
     this.shapes = shapes;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeMapResult properties(ResponseTimeMapProperties properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -74,10 +77,10 @@ public class ResponseTimeMapResult   {
   public ResponseTimeMapProperties getProperties() {
     return properties;
   }
+
   public void setProperties(ResponseTimeMapProperties properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,5 +123,7 @@ public class ResponseTimeMapResult   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

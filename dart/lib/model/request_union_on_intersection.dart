@@ -5,7 +5,11 @@ class RequestUnionOnIntersection {
   String id = null;
   
   List<String> searchIds = [];
-  RequestUnionOnIntersection();
+
+  RequestUnionOnIntersection({
+    this.id,
+    this.searchIds,
+  });
 
   @override
   String toString() {

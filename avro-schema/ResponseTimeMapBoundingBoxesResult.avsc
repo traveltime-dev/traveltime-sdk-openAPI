@@ -1,0 +1,26 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeMapBoundingBoxesResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "bounding_boxes",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseBoundingBox"
+      },
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": "model.ResponseTimeMapProperties",
+      "doc": ""
+    }
+  ]
+}

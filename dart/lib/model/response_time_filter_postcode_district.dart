@@ -5,7 +5,11 @@ class ResponseTimeFilterPostcodeDistrict {
   String code = null;
   
   ResponseTimeFilterPostcodeDistrictProperties properties = null;
-  ResponseTimeFilterPostcodeDistrict();
+
+  ResponseTimeFilterPostcodeDistrict({
+    this.code,
+    this.properties,
+  });
 
   @override
   String toString() {

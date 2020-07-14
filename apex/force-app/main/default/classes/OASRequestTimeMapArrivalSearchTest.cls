@@ -72,9 +72,9 @@ private class OASRequestTimeMapArrivalSearchTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTimeMapArrivalSearch requestTimeMapArrivalSearch = new OASRequestTimeMapArrivalSearch();
-        Map<String, String> propertyMappings = requestTimeMapArrivalSearch.getPropertyMappings();
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
-        System.assertEquals('arrivalTime', propertyMappings.get('arrival_time'));
+        Map<String, String> x-property-mappings = requestTimeMapArrivalSearch.getx-property-mappings();
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
+        System.assertEquals('arrivalTime', x-property-mappings.get('arrival_time'));
     }
 
     @isTest

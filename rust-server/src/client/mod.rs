@@ -1,42 +1,41 @@
-#![allow(unused_extern_crates)]
-extern crate tokio_core;
-extern crate native_tls;
-extern crate hyper_tls;
-extern crate openssl;
-extern crate mime;
-extern crate chrono;
-extern crate url;
-
-use hyper;
-use hyper::header::{Headers, ContentType};
-use hyper::Uri;
-use self::url::percent_encoding::{utf8_percent_encode, PATH_SEGMENT_ENCODE_SET, QUERY_ENCODE_SET};
-use futures;
-use futures::{Future, Stream};
-use futures::{future, stream};
-use self::tokio_core::reactor::Handle;
+use async_trait::async_trait;
+use futures::{Stream, future, future::BoxFuture, stream, future::TryFutureExt, future::FutureExt, stream::StreamExt};
+use hyper::header::{HeaderName, HeaderValue, CONTENT_TYPE};
+use hyper::{Body, Request, Response, service::Service, Uri};
+use percent_encoding::{utf8_percent_encode, AsciiSet};
 use std::borrow::Cow;
-use std::io::{Read, Error, ErrorKind};
-use std::error;
+use std::convert::TryInto;
+use std::io::{ErrorKind, Read};
+use std::error::Error;
+use std::future::Future;
 use std::fmt;
+use std::marker::PhantomData;
 use std::path::Path;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
 use std::str;
 use std::str::FromStr;
 use std::string::ToString;
-use swagger::headers::SafeHeaders;
+use std::task::{Context, Poll};
+use swagger::{ApiError, AuthData, BodyExt, Connector, DropContextService, Has, XSpanIdString};
+use url::form_urlencoded;
 
-use mimetypes;
-use serde_json;
 
-#[allow(unused_imports)]
-use std::collections::{HashMap, BTreeMap};
-#[allow(unused_imports)]
-use swagger;
+use crate::models;
+use crate::header;
 
-use swagger::{ApiError, XSpanId, XSpanIdString, Has, AuthData};
+/// https://url.spec.whatwg.org/#fragment-percent-encode-set
+#[allow(dead_code)]
+const FRAGMENT_ENCODE_SET: &AsciiSet = &percent_encoding::CONTROLS
+    .add(b' ').add(b'"').add(b'<').add(b'>').add(b'`');
 
-use {Api,
+/// This encode set is used for object IDs
+///
+/// Aside from the special characters defined in the `PATH_SEGMENT_ENCODE_SET`,
+/// the vertical bar (|) is encoded.
+#[allow(dead_code)]
+const ID_ENCODE_SET: &AsciiSet = &FRAGMENT_ENCODE_SET.add(b'|');
+
+use crate::{Api,
      GeocodingReverseSearchResponse,
      GeocodingSearchResponse,
      MapInfoResponse,
@@ -49,22 +48,13 @@ use {Api,
      TimeFilterPostcodesResponse,
      TimeMapResponse
      };
-use models;
-
-define_encode_set! {
-    /// This encode set is used for object IDs
-    ///
-    /// Aside from the special characters defined in the `PATH_SEGMENT_ENCODE_SET`,
-    /// the vertical bar (|) is encoded.
-    pub ID_ENCODE_SET = [PATH_SEGMENT_ENCODE_SET] | {'|'}
-}
 
 /// Convert input into a base path, e.g. "http://example:123". Also checks the scheme as it goes.
-fn into_base_path(input: &str, correct_scheme: Option<&'static str>) -> Result<String, ClientInitError> {
+fn into_base_path(input: impl TryInto<Uri, Error=hyper::http::uri::InvalidUri>, correct_scheme: Option<&'static str>) -> Result<String, ClientInitError> {
     // First convert to Uri, since a base path is a subset of Uri.
-    let uri = Uri::from_str(input)?;
+    let uri = input.try_into()?;
 
-    let scheme = uri.scheme().ok_or(ClientInitError::InvalidScheme)?;
+    let scheme = uri.scheme_str().ok_or(ClientInitError::InvalidScheme)?;
 
     // Check the scheme if necessary
     if let Some(correct_scheme) = correct_scheme {
@@ -74,1461 +64,1467 @@ fn into_base_path(input: &str, correct_scheme: Option<&'static str>) -> Result<S
     }
 
     let host = uri.host().ok_or_else(|| ClientInitError::MissingHost)?;
-    let port = uri.port().map(|x| format!(":{}", x)).unwrap_or_default();
-    Ok(format!("{}://{}{}", scheme, host, port))
+    let port = uri.port_u16().map(|x| format!(":{}", x)).unwrap_or_default();
+    Ok(format!("{}://{}{}{}", scheme, host, port, uri.path().trim_end_matches('/')))
 }
 
 /// A client that implements the API by making HTTP calls out to a server.
-pub struct Client<F> where
-  F: Future<Item=hyper::Response, Error=hyper::Error> + 'static {
-    client_service: Arc<Box<dyn hyper::client::Service<Request=hyper::Request<hyper::Body>, Response=hyper::Response, Error=hyper::Error, Future=F>>>,
+pub struct Client<S, C> where
+    S: Service<
+           (Request<Body>, C),
+           Response=Response<Body>> + Clone + Sync + Send + 'static,
+    S::Future: Send + 'static,
+    S::Error: Into<crate::ServiceError> + fmt::Display,
+    C: Clone + Send + Sync + 'static
+{
+    /// Inner service
+    client_service: S,
+
+    /// Base path of the API
     base_path: String,
+
+    /// Marker
+    marker: PhantomData<fn(C)>,
 }
 
-impl<F> fmt::Debug for Client<F> where
-   F: Future<Item=hyper::Response, Error=hyper::Error>  + 'static {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+impl<S, C> fmt::Debug for Client<S, C> where
+    S: Service<
+           (Request<Body>, C),
+           Response=Response<Body>> + Clone + Sync + Send + 'static,
+    S::Future: Send + 'static,
+    S::Error: Into<crate::ServiceError> + fmt::Display,
+    C: Clone + Send + Sync + 'static
+{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "Client {{ base_path: {} }}", self.base_path)
     }
 }
 
-impl<F> Clone for Client<F> where
-   F: Future<Item=hyper::Response, Error=hyper::Error>  + 'static {
+impl<S, C> Clone for Client<S, C> where
+    S: Service<
+           (Request<Body>, C),
+           Response=Response<Body>> + Clone + Sync + Send + 'static,
+    S::Future: Send + 'static,
+    S::Error: Into<crate::ServiceError> + fmt::Display,
+    C: Clone + Send + Sync + 'static
+{
     fn clone(&self) -> Self {
-        Client {
+        Self {
             client_service: self.client_service.clone(),
-            base_path: self.base_path.clone()
+            base_path: self.base_path.clone(),
+            marker: PhantomData,
         }
     }
 }
 
-impl Client<hyper::client::FutureResponse> {
-
-    /// Create an HTTP client.
-    ///
-    /// # Arguments
-    /// * `handle` - tokio reactor handle to use for execution
-    /// * `base_path` - base path of the client API, i.e. "www.my-api-implementation.com"
-    pub fn try_new_http(handle: Handle, base_path: &str) -> Result<Client<hyper::client::FutureResponse>, ClientInitError> {
-        let http_connector = swagger::http_connector();
-        Self::try_new_with_connector::<hyper::client::HttpConnector>(
-            handle,
-            base_path,
-            Some("http"),
-            http_connector,
-        )
-    }
-
-    /// Create a client with a TLS connection to the server.
-    ///
-    /// # Arguments
-    /// * `handle` - tokio reactor handle to use for execution
-    /// * `base_path` - base path of the client API, i.e. "www.my-api-implementation.com"
-    /// * `ca_certificate` - Path to CA certificate used to authenticate the server
-    pub fn try_new_https<CA>(
-        handle: Handle,
-        base_path: &str,
-        ca_certificate: CA,
-    ) -> Result<Client<hyper::client::FutureResponse>, ClientInitError>
-    where
-        CA: AsRef<Path>,
-    {
-        let https_connector = swagger::https_connector(ca_certificate);
-        Self::try_new_with_connector::<hyper_tls::HttpsConnector<hyper::client::HttpConnector>>(
-            handle,
-            base_path,
-            Some("https"),
-            https_connector,
-        )
-    }
-
-    /// Create a client with a mutually authenticated TLS connection to the server.
-    ///
-    /// # Arguments
-    /// * `handle` - tokio reactor handle to use for execution
-    /// * `base_path` - base path of the client API, i.e. "www.my-api-implementation.com"
-    /// * `ca_certificate` - Path to CA certificate used to authenticate the server
-    /// * `client_key` - Path to the client private key
-    /// * `client_certificate` - Path to the client's public certificate associated with the private key
-    pub fn try_new_https_mutual<CA, K, C>(
-        handle: Handle,
-        base_path: &str,
-        ca_certificate: CA,
-        client_key: K,
-        client_certificate: C,
-    ) -> Result<Client<hyper::client::FutureResponse>, ClientInitError>
-    where
-        CA: AsRef<Path>,
-        K: AsRef<Path>,
-        C: AsRef<Path>,
-    {
-        let https_connector =
-            swagger::https_mutual_connector(ca_certificate, client_key, client_certificate);
-        Self::try_new_with_connector::<hyper_tls::HttpsConnector<hyper::client::HttpConnector>>(
-            handle,
-            base_path,
-            Some("https"),
-            https_connector,
-        )
-    }
-
+impl<Connector, C> Client<DropContextService<hyper::client::Client<Connector, Body>, C>, C> where
+    Connector: hyper::client::connect::Connect + Clone + Send + Sync + 'static,
+    C: Clone + Send + Sync + 'static,
+{
     /// Create a client with a custom implementation of hyper::client::Connect.
     ///
     /// Intended for use with custom implementations of connect for e.g. protocol logging
     /// or similar functionality which requires wrapping the transport layer. When wrapping a TCP connection,
-    /// this function should be used in conjunction with
-    /// `swagger::{http_connector, https_connector, https_mutual_connector}`.
+    /// this function should be used in conjunction with `swagger::Connector::builder()`.
     ///
     /// For ordinary tcp connections, prefer the use of `try_new_http`, `try_new_https`
     /// and `try_new_https_mutual`, to avoid introducing a dependency on the underlying transport layer.
     ///
     /// # Arguments
     ///
-    /// * `handle` - tokio reactor handle to use for execution
-    /// * `base_path` - base path of the client API, i.e. "www.my-api-implementation.com"
+    /// * `base_path` - base path of the client API, i.e. "http://www.my-api-implementation.com"
     /// * `protocol` - Which protocol to use when constructing the request url, e.g. `Some("http")`
-    /// * `connector_fn` - Function which returns an implementation of `hyper::client::Connect`
-    pub fn try_new_with_connector<C>(
-        handle: Handle,
+    /// * `connector` - Implementation of `hyper::client::Connect` to use for the client
+    pub fn try_new_with_connector(
         base_path: &str,
         protocol: Option<&'static str>,
-        connector_fn: Box<dyn Fn(&Handle) -> C + Send + Sync>,
-    ) -> Result<Client<hyper::client::FutureResponse>, ClientInitError>
-    where
-        C: hyper::client::Connect + hyper::client::Service,
+        connector: Connector,
+    ) -> Result<Self, ClientInitError>
     {
-        let connector = connector_fn(&handle);
-        let client_service = Box::new(hyper::Client::configure().connector(connector).build(
-            &handle,
-        ));
+        let client_service = hyper::client::Client::builder().build(connector);
+        let client_service = DropContextService::new(client_service);
 
-        Ok(Client {
-            client_service: Arc::new(client_service),
+        Ok(Self {
+            client_service,
             base_path: into_base_path(base_path, protocol)?,
-        })
-    }
-
-    /// Constructor for creating a `Client` by passing in a pre-made `hyper` client.
-    ///
-    /// One should avoid relying on this function if possible, since it adds a dependency on the underlying transport
-    /// implementation, which it would be better to abstract away. Therefore, using this function may lead to a loss of
-    /// code generality, which may make it harder to move the application to a serverless environment, for example.
-    ///
-    /// The reason for this function's existence is to support legacy test code, which did mocking at the hyper layer.
-    /// This is not a recommended way to write new tests. If other reasons are found for using this function, they
-    /// should be mentioned here.
-    #[deprecated(note="Use try_new_with_client_service instead")]
-    pub fn try_new_with_hyper_client(
-        hyper_client: Arc<Box<dyn hyper::client::Service<Request=hyper::Request<hyper::Body>, Response=hyper::Response, Error=hyper::Error, Future=hyper::client::FutureResponse>>>,
-        handle: Handle,
-        base_path: &str
-    ) -> Result<Client<hyper::client::FutureResponse>, ClientInitError>
-    {
-        Ok(Client {
-            client_service: hyper_client,
-            base_path: into_base_path(base_path, None)?,
+            marker: PhantomData,
         })
     }
 }
 
-impl<F> Client<F> where
-    F: Future<Item=hyper::Response, Error=hyper::Error>  + 'static
+#[derive(Debug, Clone)]
+pub enum HyperClient {
+    Http(hyper::client::Client<hyper::client::HttpConnector, Body>),
+    Https(hyper::client::Client<HttpsConnector, Body>),
+}
+
+impl Service<Request<Body>> for HyperClient {
+    type Response = Response<Body>;
+    type Error = hyper::Error;
+    type Future = hyper::client::ResponseFuture;
+
+    fn poll_ready(&mut self, cx: &mut Context) -> Poll<Result<(), Self::Error>> {
+       match self {
+          HyperClient::Http(client) => client.poll_ready(cx),
+          HyperClient::Https(client) => client.poll_ready(cx),
+       }
+    }
+
+    fn call(&mut self, req: Request<Body>) -> Self::Future {
+       match self {
+          HyperClient::Http(client) => client.call(req),
+          HyperClient::Https(client) => client.call(req)
+       }
+    }
+}
+
+impl<C> Client<DropContextService<HyperClient, C>, C> where
+    C: Clone + Send + Sync + 'static,
 {
-    /// Constructor for creating a `Client` by passing in a pre-made `hyper` client Service.
+    /// Create an HTTP client.
+    ///
+    /// # Arguments
+    /// * `base_path` - base path of the client API, i.e. "http://www.my-api-implementation.com"
+    pub fn try_new(
+        base_path: &str,
+    ) -> Result<Self, ClientInitError> {
+        let uri = Uri::from_str(base_path)?;
+
+        let scheme = uri.scheme_str().ok_or(ClientInitError::InvalidScheme)?;
+        let scheme = scheme.to_ascii_lowercase();
+
+        let connector = Connector::builder();
+
+        let client_service = match scheme.as_str() {
+            "http" => {
+                HyperClient::Http(hyper::client::Client::builder().build(connector.build()))
+            },
+            "https" => {
+                let connector = connector.https()
+                   .build()
+                   .map_err(|e| ClientInitError::SslError(e))?;
+                HyperClient::Https(hyper::client::Client::builder().build(connector))
+            },
+            _ => {
+                return Err(ClientInitError::InvalidScheme);
+            }
+        };
+
+        let client_service = DropContextService::new(client_service);
+
+        Ok(Self {
+            client_service,
+            base_path: into_base_path(base_path, None)?,
+            marker: PhantomData,
+        })
+    }
+}
+
+impl<C> Client<DropContextService<hyper::client::Client<hyper::client::HttpConnector, Body>, C>, C> where
+    C: Clone + Send + Sync + 'static
+{
+    /// Create an HTTP client.
+    ///
+    /// # Arguments
+    /// * `base_path` - base path of the client API, i.e. "http://www.my-api-implementation.com"
+    pub fn try_new_http(
+        base_path: &str,
+    ) -> Result<Self, ClientInitError> {
+        let http_connector = Connector::builder().build();
+
+        Self::try_new_with_connector(base_path, Some("http"), http_connector)
+    }
+}
+
+#[cfg(any(target_os = "macos", target_os = "windows", target_os = "ios"))]
+type HttpsConnector = hyper_tls::HttpsConnector<hyper::client::HttpConnector>;
+
+#[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
+type HttpsConnector = hyper_openssl::HttpsConnector<hyper::client::HttpConnector>;
+
+impl<C> Client<DropContextService<hyper::client::Client<HttpsConnector, Body>, C>, C> where
+    C: Clone + Send + Sync + 'static
+{
+    /// Create a client with a TLS connection to the server
+    ///
+    /// # Arguments
+    /// * `base_path` - base path of the client API, i.e. "https://www.my-api-implementation.com"
+    pub fn try_new_https(base_path: &str) -> Result<Self, ClientInitError>
+    {
+        let https_connector = Connector::builder()
+            .https()
+            .build()
+            .map_err(|e| ClientInitError::SslError(e))?;
+        Self::try_new_with_connector(base_path, Some("https"), https_connector)
+    }
+
+    /// Create a client with a TLS connection to the server using a pinned certificate
+    ///
+    /// # Arguments
+    /// * `base_path` - base path of the client API, i.e. "https://www.my-api-implementation.com"
+    /// * `ca_certificate` - Path to CA certificate used to authenticate the server
+    #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
+    pub fn try_new_https_pinned<CA>(
+        base_path: &str,
+        ca_certificate: CA,
+    ) -> Result<Self, ClientInitError>
+    where
+        CA: AsRef<Path>,
+    {
+        let https_connector = Connector::builder()
+            .https()
+            .pin_server_certificate(ca_certificate)
+            .build()
+            .map_err(|e| ClientInitError::SslError(e))?;
+        Self::try_new_with_connector(base_path, Some("https"), https_connector)
+    }
+
+    /// Create a client with a mutually authenticated TLS connection to the server.
+    ///
+    /// # Arguments
+    /// * `base_path` - base path of the client API, i.e. "https://www.my-api-implementation.com"
+    /// * `ca_certificate` - Path to CA certificate used to authenticate the server
+    /// * `client_key` - Path to the client private key
+    /// * `client_certificate` - Path to the client's public certificate associated with the private key
+    #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
+    pub fn try_new_https_mutual<CA, K, D>(
+        base_path: &str,
+        ca_certificate: CA,
+        client_key: K,
+        client_certificate: D,
+    ) -> Result<Self, ClientInitError>
+    where
+        CA: AsRef<Path>,
+        K: AsRef<Path>,
+        D: AsRef<Path>,
+    {
+        let https_connector = Connector::builder()
+            .https()
+            .pin_server_certificate(ca_certificate)
+            .client_authentication(client_key, client_certificate)
+            .build()
+            .map_err(|e| ClientInitError::SslError(e))?;
+        Self::try_new_with_connector(base_path, Some("https"), https_connector)
+    }
+}
+
+impl<S, C> Client<S, C> where
+    S: Service<
+           (Request<Body>, C),
+           Response=Response<Body>> + Clone + Sync + Send + 'static,
+    S::Future: Send + 'static,
+    S::Error: Into<crate::ServiceError> + fmt::Display,
+    C: Clone + Send + Sync + 'static
+{
+    /// Constructor for creating a `Client` by passing in a pre-made `hyper::service::Service` /
+    /// `tower::Service`
     ///
     /// This allows adding custom wrappers around the underlying transport, for example for logging.
-    pub fn try_new_with_client_service(client_service: Arc<Box<dyn hyper::client::Service<Request=hyper::Request<hyper::Body>, Response=hyper::Response, Error=hyper::Error, Future=F>>>,
-                                       handle: Handle,
-                                       base_path: &str)
-                                    -> Result<Client<F>, ClientInitError>
+    pub fn try_new_with_client_service(
+        client_service: S,
+        base_path: &str,
+    ) -> Result<Self, ClientInitError>
     {
-        Ok(Client {
-            client_service: client_service,
+        Ok(Self {
+            client_service,
             base_path: into_base_path(base_path, None)?,
+            marker: PhantomData,
         })
     }
 }
 
-impl<F, C> Api<C> for Client<F> where
-    F: Future<Item=hyper::Response, Error=hyper::Error>  + 'static,
-    C: Has<XSpanIdString> + Has<Option<AuthData>>{
+/// Error type failing to create a Client
+#[derive(Debug)]
+pub enum ClientInitError {
+    /// Invalid URL Scheme
+    InvalidScheme,
 
-    fn geocoding_reverse_search(&self, param_lat: f64, param_lng: f64, param_within_country: Option<String>, context: &C) -> Box<dyn Future<Item=GeocodingReverseSearchResponse, Error=ApiError>> {
+    /// Invalid URI
+    InvalidUri(hyper::http::uri::InvalidUri),
+
+    /// Missing Hostname
+    MissingHost,
+
+    /// SSL Connection Error
+    #[cfg(any(target_os = "macos", target_os = "windows", target_os = "ios"))]
+    SslError(native_tls::Error),
+
+    /// SSL Connection Error
+    #[cfg(not(any(target_os = "macos", target_os = "windows", target_os = "ios")))]
+    SslError(openssl::error::ErrorStack),
+}
+
+impl From<hyper::http::uri::InvalidUri> for ClientInitError {
+    fn from(err: hyper::http::uri::InvalidUri) -> ClientInitError {
+        ClientInitError::InvalidUri(err)
+    }
+}
+
+impl fmt::Display for ClientInitError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let s: &dyn fmt::Debug = self;
+        s.fmt(f)
+    }
+}
+
+impl Error for ClientInitError {
+    fn description(&self) -> &str {
+        "Failed to produce a hyper client."
+    }
+}
+
+#[async_trait]
+impl<S, C> Api<C> for Client<S, C> where
+    S: Service<
+       (Request<Body>, C),
+       Response=Response<Body>> + Clone + Sync + Send + 'static,
+    S::Future: Send + 'static,
+    S::Error: Into<crate::ServiceError> + fmt::Display,
+    C: Has<XSpanIdString> + Has<Option<AuthData>> + Clone + Send + Sync + 'static,
+{
+    fn poll_ready(&self, cx: &mut Context) -> Poll<Result<(), crate::ServiceError>> {
+        match self.client_service.clone().poll_ready(cx) {
+            Poll::Ready(Err(e)) => Poll::Ready(Err(e.into())),
+            Poll::Ready(Ok(o)) => Poll::Ready(Ok(o)),
+            Poll::Pending => Poll::Pending,
+        }
+    }
+
+    async fn geocoding_reverse_search(
+        &self,
+        param_lat: f64,
+        param_lng: f64,
+        param_within_country: Option<String>,
+        context: &C) -> Result<GeocodingReverseSearchResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/geocoding/reverse",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-        query_string.append_pair("lat", &param_lat.to_string());
-        query_string.append_pair("lng", &param_lng.to_string());
-
-        if let Some(within_country) = param_within_country {
-            query_string.append_pair("within.country", &within_country.to_string());
-        }
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+                query_string.append_pair("lat",
+                    &param_lat.to_string());
+                query_string.append_pair("lng",
+                    &param_lng.to_string());
+            if let Some(param_within_country) = param_within_country {
+                query_string.append_pair("within.country",
+                    &param_within_country.to_string());
+            }
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Get, uri);
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseGeocoding>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            GeocodingReverseSearchResponse::MatchAQueryStringToGeographicCoordinates(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            GeocodingReverseSearchResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseGeocoding>(body)?;
+                Ok(GeocodingReverseSearchResponse::MatchAQueryStringToGeographicCoordinates
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(GeocodingReverseSearchResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn geocoding_search(&self, param_query: String, param_focus_lat: Option<f64>, param_focus_lng: Option<f64>, param_within_country: Option<String>, context: &C) -> Box<dyn Future<Item=GeocodingSearchResponse, Error=ApiError>> {
+    async fn geocoding_search(
+        &self,
+        param_query: String,
+        param_focus_lat: Option<f64>,
+        param_focus_lng: Option<f64>,
+        param_within_country: Option<String>,
+        context: &C) -> Result<GeocodingSearchResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/geocoding/search",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-        query_string.append_pair("query", &param_query.to_string());
-
-        if let Some(focus_lat) = param_focus_lat {
-            query_string.append_pair("focus.lat", &focus_lat.to_string());
-        }
-        if let Some(focus_lng) = param_focus_lng {
-            query_string.append_pair("focus.lng", &focus_lng.to_string());
-        }
-        if let Some(within_country) = param_within_country {
-            query_string.append_pair("within.country", &within_country.to_string());
-        }
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+                query_string.append_pair("query",
+                    &param_query.to_string());
+            if let Some(param_focus_lat) = param_focus_lat {
+                query_string.append_pair("focus.lat",
+                    &param_focus_lat.to_string());
+            }
+            if let Some(param_focus_lng) = param_focus_lng {
+                query_string.append_pair("focus.lng",
+                    &param_focus_lng.to_string());
+            }
+            if let Some(param_within_country) = param_within_country {
+                query_string.append_pair("within.country",
+                    &param_within_country.to_string());
+            }
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Get, uri);
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseGeocoding>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            GeocodingSearchResponse::MatchAQueryStringToGeographicCoordinates(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            GeocodingSearchResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseGeocoding>(body)?;
+                Ok(GeocodingSearchResponse::MatchAQueryStringToGeographicCoordinates
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(GeocodingSearchResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn map_info(&self, context: &C) -> Box<dyn Future<Item=MapInfoResponse, Error=ApiError>> {
+    async fn map_info(
+        &self,
+        context: &C) -> Result<MapInfoResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/map-info",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Get, uri);
+        let mut request = match Request::builder()
+            .method("GET")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseMapInfo>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            MapInfoResponse::ReturnsInformationAboutCurrentlySupportedCountries(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            MapInfoResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseMapInfo>(body)?;
+                Ok(MapInfoResponse::ReturnsInformationAboutCurrentlySupportedCountries
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(MapInfoResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn routes(&self, param_request_routes: models::RequestRoutes, context: &C) -> Box<dyn Future<Item=RoutesResponse, Error=ApiError>> {
+    async fn routes(
+        &self,
+        param_request_routes: models::RequestRoutes,
+        context: &C) -> Result<RoutesResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/routes",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_routes).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::ROUTES.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseRoutes>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            RoutesResponse::ReturnsRoutingInformationBetweenSourceAndDestinations(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            RoutesResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseRoutes>(body)?;
+                Ok(RoutesResponse::ReturnsRoutingInformationBetweenSourceAndDestinations
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(RoutesResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn supported_locations(&self, param_request_supported_locations: models::RequestSupportedLocations, context: &C) -> Box<dyn Future<Item=SupportedLocationsResponse, Error=ApiError>> {
+    async fn supported_locations(
+        &self,
+        param_request_supported_locations: models::RequestSupportedLocations,
+        context: &C) -> Result<SupportedLocationsResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/supported-locations",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_supported_locations).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::SUPPORTED_LOCATIONS.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseSupportedLocations>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            SupportedLocationsResponse::FindOutWhatPointsAreSupportedByOurApi(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            SupportedLocationsResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseSupportedLocations>(body)?;
+                Ok(SupportedLocationsResponse::FindOutWhatPointsAreSupportedByOurApi
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(SupportedLocationsResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_filter(&self, param_request_time_filter: models::RequestTimeFilter, context: &C) -> Box<dyn Future<Item=TimeFilterResponse, Error=ApiError>> {
+    async fn time_filter(
+        &self,
+        param_request_time_filter: models::RequestTimeFilter,
+        context: &C) -> Result<TimeFilterResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-filter",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_filter).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_FILTER.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeFilter>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterResponse::GivenOriginAndDestinationPointsFilterOutPointsThatCannotBeReachedWithinSpecifiedTimeLimit(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeFilter>(body)?;
+                Ok(TimeFilterResponse::GivenOriginAndDestinationPointsFilterOutPointsThatCannotBeReachedWithinSpecifiedTimeLimit
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeFilterResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_filter_fast(&self, param_request_time_filter_fast: models::RequestTimeFilterFast, context: &C) -> Box<dyn Future<Item=TimeFilterFastResponse, Error=ApiError>> {
+    async fn time_filter_fast(
+        &self,
+        param_request_time_filter_fast: models::RequestTimeFilterFast,
+        context: &C) -> Result<TimeFilterFastResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-filter/fast",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_filter_fast).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_FILTER_FAST.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeFilterFast>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterFastResponse::AVeryFastVersionOfTimeFilter(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterFastResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeFilterFast>(body)?;
+                Ok(TimeFilterFastResponse::AVeryFastVersionOfTimeFilter
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeFilterFastResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_filter_postcode_districts(&self, param_request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodeDistrictsResponse, Error=ApiError>> {
+    async fn time_filter_postcode_districts(
+        &self,
+        param_request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts,
+        context: &C) -> Result<TimeFilterPostcodeDistrictsResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-filter/postcode-districts",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_filter_postcode_districts).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_FILTER_POSTCODE_DISTRICTS.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeFilterPostcodeDistricts>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodeDistrictsResponse::FindDistrictsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchDistricts(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodeDistrictsResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeFilterPostcodeDistricts>(body)?;
+                Ok(TimeFilterPostcodeDistrictsResponse::FindDistrictsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchDistricts
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeFilterPostcodeDistrictsResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_filter_postcode_sectors(&self, param_request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodeSectorsResponse, Error=ApiError>> {
+    async fn time_filter_postcode_sectors(
+        &self,
+        param_request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors,
+        context: &C) -> Result<TimeFilterPostcodeSectorsResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-filter/postcode-sectors",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_filter_postcode_sectors).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_FILTER_POSTCODE_SECTORS.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeFilterPostcodeSectors>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodeSectorsResponse::FindSectorsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchSectors(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodeSectorsResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeFilterPostcodeSectors>(body)?;
+                Ok(TimeFilterPostcodeSectorsResponse::FindSectorsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchSectors
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeFilterPostcodeSectorsResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_filter_postcodes(&self, param_request_time_filter_postcodes: models::RequestTimeFilterPostcodes, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodesResponse, Error=ApiError>> {
+    async fn time_filter_postcodes(
+        &self,
+        param_request_time_filter_postcodes: models::RequestTimeFilterPostcodes,
+        context: &C) -> Result<TimeFilterPostcodesResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-filter/postcodes",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_filter_postcodes).expect("impossible to fail to serialize");
-        request.set_body(body);
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_FILTER_POSTCODES.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
-
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeFilterPostcodes>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodesResponse::FindReachablePostcodesFromOriginAndGetStatisticsAboutSuchPostcodes(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeFilterPostcodesResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
-            }
-        }))
+        }
 
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeFilterPostcodes>(body)?;
+                Ok(TimeFilterPostcodesResponse::FindReachablePostcodesFromOriginAndGetStatisticsAboutSuchPostcodes
+                    (body)
+                )
+            }
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeFilterPostcodesResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-    fn time_map(&self, param_request_time_map: models::RequestTimeMap, context: &C) -> Box<dyn Future<Item=TimeMapResponse, Error=ApiError>> {
+    async fn time_map(
+        &self,
+        param_request_time_map: models::RequestTimeMap,
+        context: &C) -> Result<TimeMapResponse, ApiError>
+    {
+        let mut client_service = self.client_service.clone();
         let mut uri = format!(
             "{}/v4/time-map",
             self.base_path
         );
 
-        let mut query_string = self::url::form_urlencoded::Serializer::new("".to_owned());
-
-
-        let query_string_str = query_string.finish();
-        if !query_string_str.is_empty() {
+        // Query parameters
+        let query_string = {
+            let mut query_string = form_urlencoded::Serializer::new("".to_owned());
+            query_string.finish()
+        };
+        if !query_string.is_empty() {
             uri += "?";
-            uri += &query_string_str;
+            uri += &query_string;
         }
 
         let uri = match Uri::from_str(&uri) {
             Ok(uri) => uri,
-            Err(err) => return Box::new(futures::done(Err(ApiError(format!("Unable to build URI: {}", err))))),
+            Err(err) => return Err(ApiError(format!("Unable to build URI: {}", err))),
         };
 
-        let mut request = hyper::Request::new(hyper::Method::Post, uri);
+        let mut request = match Request::builder()
+            .method("POST")
+            .uri(uri)
+            .body(Body::empty()) {
+                Ok(req) => req,
+                Err(e) => return Err(ApiError(format!("Unable to create request: {}", e)))
+        };
 
         let body = serde_json::to_string(&param_request_time_map).expect("impossible to fail to serialize");
-        request.set_body(body);
 
-        request.headers_mut().set(ContentType(mimetypes::requests::TIME_MAP.clone()));
+                *request.body_mut() = Body::from(body);
 
-        request.headers_mut().set(XSpanId((context as &dyn Has<XSpanIdString>).get().0.clone()));
+        let header = "application/json";
+        request.headers_mut().insert(CONTENT_TYPE, match HeaderValue::from_str(header) {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create header: {} - {}", header, e)))
+        });
 
-        (context as &dyn Has<Option<AuthData>>).get().as_ref().map(|auth_data| {
-            // Currently only authentication with Basic, API Key, and Bearer are supported
+        let header = HeaderValue::from_str(Has::<XSpanIdString>::get(context).0.clone().to_string().as_str());
+        request.headers_mut().insert(HeaderName::from_static("x-span-id"), match header {
+            Ok(h) => h,
+            Err(e) => return Err(ApiError(format!("Unable to create X-Span ID header value: {}", e)))
+        });
+
+        if let Some(auth_data) = Has::<Option<AuthData>>::get(context).as_ref() {
+            // Currently only authentication with Basic and Bearer are supported
             match auth_data {
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApiKey, "X-Api-Key") => [String] }
-                    request.headers_mut().set(
-                        XApiKey(api_key.to_string())
-                    )
-                },
-                &AuthData::ApiKey(ref api_key) => {
-                    header! { (XApplicationId, "X-Application-Id") => [String] }
-                    request.headers_mut().set(
-                        XApplicationId(api_key.to_string())
-                    )
-                },
                 _ => {}
             }
-        });
-        Box::new(self.client_service.call(request)
-                             .map_err(|e| ApiError(format!("No response received: {}", e)))
-                             .and_then(|mut response| {
-            match response.status().as_u16() {
-                200 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseTimeMap>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeMapResponse::GivenOriginCoordinates(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                0 => {
-                    let body = response.body();
-                    Box::new(
-                        body
-                        .concat2()
-                        .map_err(|e| ApiError(format!("Failed to read response: {}", e)))
-                        .and_then(|body|
-                            str::from_utf8(&body)
-                            .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))
-                            .and_then(|body|
-                                serde_json::from_str::<models::ResponseError>(body)
-                                .map_err(|e| e.into())
-                            )
-                        )
-                        .map(move |body| {
-                            TimeMapResponse::TheJsonBodyReturnedUponError(body)
-                        })
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                },
-                code => {
-                    let headers = response.headers().clone();
-                    Box::new(response.body()
-                            .take(100)
-                            .concat2()
-                            .then(move |body|
-                                future::err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
-                                    code,
-                                    headers,
-                                    match body {
-                                        Ok(ref body) => match str::from_utf8(body) {
-                                            Ok(body) => Cow::from(body),
-                                            Err(e) => Cow::from(format!("<Body was not UTF8: {:?}>", e)),
-                                        },
-                                        Err(e) => Cow::from(format!("<Failed to read body: {}>", e)),
-                                    })))
-                            )
-                    ) as Box<dyn Future<Item=_, Error=_>>
-                }
+        }
+
+        let mut response = client_service.call((request, context.clone()))
+            .map_err(|e| ApiError(format!("No response received: {}", e))).await?;
+
+        match response.status().as_u16() {
+            200 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseTimeMap>(body)?;
+                Ok(TimeMapResponse::GivenOriginCoordinates
+                    (body)
+                )
             }
-        }))
-
+            0 => {
+                let body = response.into_body();
+                let body = body
+                        .to_raw()
+                        .map_err(|e| ApiError(format!("Failed to read response: {}", e))).await?;
+                let body = str::from_utf8(&body)
+                    .map_err(|e| ApiError(format!("Response was not valid UTF8: {}", e)))?;
+                let body = serde_json::from_str::<models::ResponseError>(body)?;
+                Ok(TimeMapResponse::TheJsonBodyReturnedUponError
+                    (body)
+                )
+            }
+            code => {
+                let headers = response.headers().clone();
+                let body = response.into_body()
+                       .take(100)
+                       .to_raw().await;
+                Err(ApiError(format!("Unexpected response code {}:\n{:?}\n\n{}",
+                    code,
+                    headers,
+                    match body {
+                        Ok(body) => match String::from_utf8(body) {
+                            Ok(body) => body,
+                            Err(e) => format!("<Body was not UTF8: {:?}>", e),
+                        },
+                        Err(e) => format!("<Failed to read body: {}>", e),
+                    }
+                )))
+            }
+        }
     }
 
-}
-
-#[derive(Debug)]
-pub enum ClientInitError {
-    InvalidScheme,
-    InvalidUri(hyper::error::UriError),
-    MissingHost,
-    SslError(openssl::error::ErrorStack)
-}
-
-impl From<hyper::error::UriError> for ClientInitError {
-    fn from(err: hyper::error::UriError) -> ClientInitError {
-        ClientInitError::InvalidUri(err)
-    }
-}
-
-impl From<openssl::error::ErrorStack> for ClientInitError {
-    fn from(err: openssl::error::ErrorStack) -> ClientInitError {
-        ClientInitError::SslError(err)
-    }
-}
-
-impl fmt::Display for ClientInitError {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        (self as &dyn fmt::Debug).fmt(f)
-    }
-}
-
-impl error::Error for ClientInitError {
-    fn description(&self) -> &str {
-        "Failed to produce a hyper client."
-    }
 }

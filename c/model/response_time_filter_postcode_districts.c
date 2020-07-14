@@ -19,6 +19,9 @@ response_time_filter_postcode_districts_t *response_time_filter_postcode_distric
 
 
 void response_time_filter_postcode_districts_free(response_time_filter_postcode_districts_t *response_time_filter_postcode_districts) {
+    if(NULL == response_time_filter_postcode_districts){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_filter_postcode_districts->results) {
         response_time_filter_postcode_districts_result_free(listEntry->data);

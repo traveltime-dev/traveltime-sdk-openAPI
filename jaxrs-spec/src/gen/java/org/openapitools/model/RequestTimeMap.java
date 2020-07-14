@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeMap   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeMap   {
   
   private @Valid List<RequestTimeMapDepartureSearch> departureSearches = new ArrayList<RequestTimeMapDepartureSearch>();
   private @Valid List<RequestTimeMapArrivalSearch> arrivalSearches = new ArrayList<RequestTimeMapArrivalSearch>();
@@ -34,16 +33,17 @@ public class RequestTimeMap   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
  @Size(max=10)  public List<RequestTimeMapDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
   public void setDepartureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMap arrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -51,16 +51,17 @@ public class RequestTimeMap   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
  @Size(max=10)  public List<RequestTimeMapArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
   public void setArrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMap unions(List<RequestUnionOnIntersection> unions) {
     this.unions = unions;
@@ -68,16 +69,17 @@ public class RequestTimeMap   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("unions")
  @Size(max=10)  public List<RequestUnionOnIntersection> getUnions() {
     return unions;
   }
+
   public void setUnions(List<RequestUnionOnIntersection> unions) {
     this.unions = unions;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMap intersections(List<RequestUnionOnIntersection> intersections) {
     this.intersections = intersections;
@@ -85,15 +87,17 @@ public class RequestTimeMap   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("intersections")
  @Size(max=10)  public List<RequestUnionOnIntersection> getIntersections() {
     return intersections;
   }
+
   public void setIntersections(List<RequestUnionOnIntersection> intersections) {
     this.intersections = intersections;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -138,5 +142,7 @@ public class RequestTimeMap   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

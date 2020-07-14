@@ -23,6 +23,9 @@ response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_creat
 
 
 void response_geocoding_geo_json_feature_free(response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature) {
+    if(NULL == response_geocoding_geo_json_feature){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_geocoding_geo_json_feature->type);
     response_geocoding_geometry_free(response_geocoding_geo_json_feature->geometry);

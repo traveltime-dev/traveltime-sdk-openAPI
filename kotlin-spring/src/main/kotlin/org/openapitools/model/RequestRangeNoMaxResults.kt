@@ -18,10 +18,10 @@ import javax.validation.constraints.Size
 data class RequestRangeNoMaxResults(
 
     @get:NotNull 
-    @JsonProperty("enabled") val enabled: kotlin.Boolean,
+    @field:JsonProperty("enabled") val enabled: kotlin.Boolean,
 
     @get:NotNull @get:Min(1) @get:Max(43200) 
-    @JsonProperty("width") val width: kotlin.Int
+    @field:JsonProperty("width") val width: kotlin.Int
 ) {
 
 }

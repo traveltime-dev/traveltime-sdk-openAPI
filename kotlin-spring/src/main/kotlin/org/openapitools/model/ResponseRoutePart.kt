@@ -35,43 +35,43 @@ import javax.validation.constraints.Size
 data class ResponseRoutePart(
 
     @get:NotNull 
-    @JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id") val id: kotlin.String,
 
     @get:NotNull 
-    @JsonProperty("type") val type: ResponseRoutePart.Type,
+    @field:JsonProperty("type") val type: ResponseRoutePart.Type,
 
     @get:NotNull 
-    @JsonProperty("mode") val mode: ResponseTransportationMode,
+    @field:JsonProperty("mode") val mode: ResponseTransportationMode,
 
     @get:NotNull 
-    @JsonProperty("directions") val directions: kotlin.String,
+    @field:JsonProperty("directions") val directions: kotlin.String,
 
     @get:NotNull 
-    @JsonProperty("distance") val distance: kotlin.Int,
+    @field:JsonProperty("distance") val distance: kotlin.Int,
 
     @get:NotNull 
-    @JsonProperty("travel_time") val travelTime: kotlin.Int,
+    @field:JsonProperty("travel_time") val travelTime: kotlin.Int,
 
     @get:NotNull 
-    @JsonProperty("coords") val coords: kotlin.collections.List<Coords>,
+    @field:JsonProperty("coords") val coords: kotlin.collections.List<Coords>,
 
-    @JsonProperty("direction") val direction: kotlin.String? = null,
+    @field:JsonProperty("direction") val direction: kotlin.String? = null,
 
-    @JsonProperty("road") val road: kotlin.String? = null,
+    @field:JsonProperty("road") val road: kotlin.String? = null,
 
-    @JsonProperty("turn") val turn: kotlin.String? = null,
+    @field:JsonProperty("turn") val turn: kotlin.String? = null,
 
-    @JsonProperty("line") val line: kotlin.String? = null,
+    @field:JsonProperty("line") val line: kotlin.String? = null,
 
-    @JsonProperty("departure_station") val departureStation: kotlin.String? = null,
+    @field:JsonProperty("departure_station") val departureStation: kotlin.String? = null,
 
-    @JsonProperty("arrival_station") val arrivalStation: kotlin.String? = null,
+    @field:JsonProperty("arrival_station") val arrivalStation: kotlin.String? = null,
 
-    @JsonProperty("departs_at") val departsAt: kotlin.String? = null,
+    @field:JsonProperty("departs_at") val departsAt: kotlin.String? = null,
 
-    @JsonProperty("arrives_at") val arrivesAt: kotlin.String? = null,
+    @field:JsonProperty("arrives_at") val arrivesAt: kotlin.String? = null,
 
-    @JsonProperty("num_stops") val numStops: kotlin.Int? = null
+    @field:JsonProperty("num_stops") val numStops: kotlin.Int? = null
 ) {
 
     /**

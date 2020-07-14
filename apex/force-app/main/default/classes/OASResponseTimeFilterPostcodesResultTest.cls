@@ -72,8 +72,8 @@ private class OASResponseTimeFilterPostcodesResultTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeFilterPostcodesResult responseTimeFilterPostcodesResult = new OASResponseTimeFilterPostcodesResult();
-        Map<String, String> propertyMappings = responseTimeFilterPostcodesResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
+        Map<String, String> x-property-mappings = responseTimeFilterPostcodesResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
     }
 
     @isTest

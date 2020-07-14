@@ -13,7 +13,15 @@ class RequestTimeFilterPostcodesArrivalSearch {
   List<RequestTimeFilterPostcodesProperty> properties = [];
   
   RequestRangeFull range = null;
-  RequestTimeFilterPostcodesArrivalSearch();
+
+  RequestTimeFilterPostcodesArrivalSearch({
+    this.id,
+    this.transportation,
+    this.travelTime,
+    this.arrivalTime,
+    this.properties,
+    this.range,
+  });
 
   @override
   String toString() {

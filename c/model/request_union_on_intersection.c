@@ -21,6 +21,9 @@ request_union_on_intersection_t *request_union_on_intersection_create(
 
 
 void request_union_on_intersection_free(request_union_on_intersection_t *request_union_on_intersection) {
+    if(NULL == request_union_on_intersection){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_union_on_intersection->id);
     list_ForEach(listEntry, request_union_on_intersection->search_ids) {

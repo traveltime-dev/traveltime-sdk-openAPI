@@ -27,6 +27,9 @@ response_error_t *response_error_create(
 
 
 void response_error_free(response_error_t *response_error) {
+    if(NULL == response_error){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_error->description);
     free(response_error->documentation_link);
@@ -85,10 +88,6 @@ cJSON *response_error_convertToJSON(response_error_t *response_error) {
     if (response_error->additional_info) {
     list_ForEach(additional_infoListEntry, response_error->additional_info) {
         keyValuePair_t *localKeyValue = (keyValuePair_t*)additional_infoListEntry->data;
-        if(cJSON_AddNumberToObject(localMapObject, localKeyValue->key, *(double *)localKeyValue->value) == NULL)
-        {
-            goto fail;
-        }
     }
     }
      } 
@@ -154,11 +153,6 @@ response_error_t *response_error_parseFromJSON(cJSON *response_errorJSON){
     cJSON_ArrayForEach(additional_info_local_map, additional_info)
     {
 		cJSON *localMapObject = additional_info_local_map;
-        if(!cJSON_IsNumber(localMapObject))
-        {
-            goto end;
-        }
-        localMapKeyPair = keyValuePair_create(strdup(localMapObject->string),&localMapObject->valuedouble );
         list_addElement(additional_infoList , localMapKeyPair);
     }
     }

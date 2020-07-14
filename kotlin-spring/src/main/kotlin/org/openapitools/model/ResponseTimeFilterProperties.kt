@@ -23,15 +23,15 @@ import javax.validation.constraints.Size
  */
 data class ResponseTimeFilterProperties(
 
-    @JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
+    @field:JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
 
-    @JsonProperty("distance") val distance: kotlin.Int? = null,
+    @field:JsonProperty("distance") val distance: kotlin.Int? = null,
 
-    @JsonProperty("distance_breakdown") val distanceBreakdown: kotlin.collections.List<ResponseDistanceBreakdownItem>? = null,
+    @field:JsonProperty("distance_breakdown") val distanceBreakdown: kotlin.collections.List<ResponseDistanceBreakdownItem>? = null,
 
-    @JsonProperty("fares") val fares: ResponseFares? = null,
+    @field:JsonProperty("fares") val fares: ResponseFares? = null,
 
-    @JsonProperty("route") val route: ResponseRoute? = null
+    @field:JsonProperty("route") val route: ResponseRoute? = null
 ) {
 
 }

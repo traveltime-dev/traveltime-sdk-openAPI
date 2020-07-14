@@ -19,6 +19,9 @@ response_time_map_t *response_time_map_create(
 
 
 void response_time_map_free(response_time_map_t *response_time_map) {
+    if(NULL == response_time_map){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_map->results) {
         response_time_map_result_free(listEntry->data);

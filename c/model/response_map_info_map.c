@@ -21,6 +21,9 @@ response_map_info_map_t *response_map_info_map_create(
 
 
 void response_map_info_map_free(response_map_info_map_t *response_map_info_map) {
+    if(NULL == response_map_info_map){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_map_info_map->name);
     response_map_info_features_free(response_map_info_map->features);

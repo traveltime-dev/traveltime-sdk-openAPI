@@ -15,7 +15,7 @@ import org.openapitools.model.RequestTransportation;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestRoutesDepartureSearch   {
   
 
@@ -65,8 +65,7 @@ public class RequestRoutesDepartureSearch   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("arrival_location_ids")
   @NotNull
-  @Size(min=1,max=2)
-  public List<String> getArrivalLocationIds() {
+ @Size(min=1,max=2)  public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {

@@ -9,9 +9,17 @@ class RequestTimeFilterPostcodeDistrictsProperty {
   static const RequestTimeFilterPostcodeDistrictsProperty travelTimeReachable_ = const RequestTimeFilterPostcodeDistrictsProperty._internal("travel_time_reachable");
   static const RequestTimeFilterPostcodeDistrictsProperty travelTimeAll_ = const RequestTimeFilterPostcodeDistrictsProperty._internal("travel_time_all");
   static const RequestTimeFilterPostcodeDistrictsProperty coverage_ = const RequestTimeFilterPostcodeDistrictsProperty._internal("coverage");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestTimeFilterPostcodeDistrictsProperty fromJson(String value) {
     return new RequestTimeFilterPostcodeDistrictsPropertyTypeTransformer().decode(value);
+  }
+  
+  static List<RequestTimeFilterPostcodeDistrictsProperty> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestTimeFilterPostcodeDistrictsProperty>() : json.map((value) => RequestTimeFilterPostcodeDistrictsProperty.fromJson(value)).toList();
   }
 }
 

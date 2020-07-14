@@ -72,11 +72,11 @@ private class OASRequestTimeFilterFastArrivalOneToTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTimeFilterFastArrivalOneTo requestTimeFilterFastArrivalOneToManySearch = new OASRequestTimeFilterFastArrivalOneTo();
-        Map<String, String> propertyMappings = requestTimeFilterFastArrivalOneToManySearch.getPropertyMappings();
-        System.assertEquals('departureLocationId', propertyMappings.get('departure_location_id'));
-        System.assertEquals('arrivalLocationIds', propertyMappings.get('arrival_location_ids'));
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
-        System.assertEquals('arrivalTimePeriod', propertyMappings.get('arrival_time_period'));
+        Map<String, String> x-property-mappings = requestTimeFilterFastArrivalOneToManySearch.getx-property-mappings();
+        System.assertEquals('departureLocationId', x-property-mappings.get('departure_location_id'));
+        System.assertEquals('arrivalLocationIds', x-property-mappings.get('arrival_location_ids'));
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
+        System.assertEquals('arrivalTimePeriod', x-property-mappings.get('arrival_time_period'));
     }
 
     @isTest

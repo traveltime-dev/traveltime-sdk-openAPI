@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticketsTotal** | [**kotlin.Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
+**ticketsTotal** | [**kotlin.collections.List&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
 
 
 

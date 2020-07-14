@@ -1,330 +1,420 @@
 #![allow(missing_docs, trivial_casts, unused_variables, unused_mut, unused_imports, unused_extern_crates, non_camel_case_types)]
 
-#[macro_use]
-extern crate lazy_static;
-#[macro_use]
-extern crate log;
-#[macro_use]
-extern crate serde_derive;
-
-#[cfg(any(feature = "client", feature = "server"))]
-#[macro_use]
-extern crate hyper;
-#[cfg(any(feature = "client", feature = "server"))]
-#[macro_use]
-extern crate url;
-
-// Crates for conversion support
-#[cfg(feature = "conversion")]
-#[macro_use]
-extern crate frunk_derives;
-#[cfg(feature = "conversion")]
-#[macro_use]
-extern crate frunk_enum_derive;
-#[cfg(feature = "conversion")]
-extern crate frunk_core;
-
-extern crate mime;
-extern crate serde;
-extern crate serde_json;
-
-extern crate futures;
-extern crate chrono;
-extern crate swagger;
-
+use async_trait::async_trait;
 use futures::Stream;
-use std::io::Error;
+use std::error::Error;
+use std::task::{Poll, Context};
+use swagger::{ApiError, ContextWrapper};
 
-#[allow(unused_imports)]
-use std::collections::HashMap;
-
-#[cfg(any(feature = "client", feature = "server"))]
-mod mimetypes;
-
-#[deprecated(note = "Import swagger-rs directly")]
-pub use swagger::{ApiError, ContextWrapper};
-#[deprecated(note = "Import futures directly")]
-pub use futures::Future;
+type ServiceError = Box<dyn Error + Send + Sync + 'static>;
 
 pub const BASE_PATH: &'static str = "";
-pub const API_VERSION: &'static str = "1.0.0";
-
+pub const API_VERSION: &'static str = "1.2.1";
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum GeocodingReverseSearchResponse {
-    /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)
+    /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
     MatchAQueryStringToGeographicCoordinates
     (models::ResponseGeocoding)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum GeocodingSearchResponse {
-    /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)
+    /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
     MatchAQueryStringToGeographicCoordinates
     (models::ResponseGeocoding)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum MapInfoResponse {
-    /// Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)
+    /// Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)
     ReturnsInformationAboutCurrentlySupportedCountries
     (models::ResponseMapInfo)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum RoutesResponse {
-    /// Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)
+    /// Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)
     ReturnsRoutingInformationBetweenSourceAndDestinations
     (models::ResponseRoutes)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum SupportedLocationsResponse {
-    /// Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)
+    /// Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)
     FindOutWhatPointsAreSupportedByOurApi
     (models::ResponseSupportedLocations)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeFilterResponse {
-    /// Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
+    /// Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)
     GivenOriginAndDestinationPointsFilterOutPointsThatCannotBeReachedWithinSpecifiedTimeLimit
     (models::ResponseTimeFilter)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeFilterFastResponse {
-    /// A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)
+    /// A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)
     AVeryFastVersionOfTimeFilter
     (models::ResponseTimeFilterFast)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeFilterPostcodeDistrictsResponse {
-    /// Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
+    /// Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)
     FindDistrictsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchDistricts
     (models::ResponseTimeFilterPostcodeDistricts)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeFilterPostcodeSectorsResponse {
-    /// Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
+    /// Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)
     FindSectorsThatHaveACertainCoverageFromOriginAndGetStatisticsAboutPostcodesWithinSuchSectors
     (models::ResponseTimeFilterPostcodeSectors)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeFilterPostcodesResponse {
-    /// Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
+    /// Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)
     FindReachablePostcodesFromOriginAndGetStatisticsAboutSuchPostcodes
     (models::ResponseTimeFilterPostcodes)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
 #[derive(Debug, PartialEq)]
+#[must_use]
 pub enum TimeMapResponse {
-    /// Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
+    /// Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)
     GivenOriginCoordinates
     (models::ResponseTimeMap)
     ,
-    /// The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+    /// The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TheJsonBodyReturnedUponError
     (models::ResponseError)
 }
 
-
 /// API
-pub trait Api<C> {
+#[async_trait]
+pub trait Api<C: Send + Sync> {
+    fn poll_ready(&self, _cx: &mut Context) -> Poll<Result<(), Box<dyn Error + Send + Sync + 'static>>> {
+        Poll::Ready(Ok(()))
+    }
 
+    async fn geocoding_reverse_search(
+        &self,
+        lat: f64,
+        lng: f64,
+        within_country: Option<String>,
+        context: &C) -> Result<GeocodingReverseSearchResponse, ApiError>;
 
-    fn geocoding_reverse_search(&self, lat: f64, lng: f64, within_country: Option<String>, context: &C) -> Box<dyn Future<Item=GeocodingReverseSearchResponse, Error=ApiError>>;
+    async fn geocoding_search(
+        &self,
+        query: String,
+        focus_lat: Option<f64>,
+        focus_lng: Option<f64>,
+        within_country: Option<String>,
+        context: &C) -> Result<GeocodingSearchResponse, ApiError>;
 
+    async fn map_info(
+        &self,
+        context: &C) -> Result<MapInfoResponse, ApiError>;
 
-    fn geocoding_search(&self, query: String, focus_lat: Option<f64>, focus_lng: Option<f64>, within_country: Option<String>, context: &C) -> Box<dyn Future<Item=GeocodingSearchResponse, Error=ApiError>>;
+    async fn routes(
+        &self,
+        request_routes: models::RequestRoutes,
+        context: &C) -> Result<RoutesResponse, ApiError>;
 
+    async fn supported_locations(
+        &self,
+        request_supported_locations: models::RequestSupportedLocations,
+        context: &C) -> Result<SupportedLocationsResponse, ApiError>;
 
-    fn map_info(&self, context: &C) -> Box<dyn Future<Item=MapInfoResponse, Error=ApiError>>;
+    async fn time_filter(
+        &self,
+        request_time_filter: models::RequestTimeFilter,
+        context: &C) -> Result<TimeFilterResponse, ApiError>;
 
+    async fn time_filter_fast(
+        &self,
+        request_time_filter_fast: models::RequestTimeFilterFast,
+        context: &C) -> Result<TimeFilterFastResponse, ApiError>;
 
-    fn routes(&self, request_routes: models::RequestRoutes, context: &C) -> Box<dyn Future<Item=RoutesResponse, Error=ApiError>>;
+    async fn time_filter_postcode_districts(
+        &self,
+        request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts,
+        context: &C) -> Result<TimeFilterPostcodeDistrictsResponse, ApiError>;
 
+    async fn time_filter_postcode_sectors(
+        &self,
+        request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors,
+        context: &C) -> Result<TimeFilterPostcodeSectorsResponse, ApiError>;
 
-    fn supported_locations(&self, request_supported_locations: models::RequestSupportedLocations, context: &C) -> Box<dyn Future<Item=SupportedLocationsResponse, Error=ApiError>>;
+    async fn time_filter_postcodes(
+        &self,
+        request_time_filter_postcodes: models::RequestTimeFilterPostcodes,
+        context: &C) -> Result<TimeFilterPostcodesResponse, ApiError>;
 
-
-    fn time_filter(&self, request_time_filter: models::RequestTimeFilter, context: &C) -> Box<dyn Future<Item=TimeFilterResponse, Error=ApiError>>;
-
-
-    fn time_filter_fast(&self, request_time_filter_fast: models::RequestTimeFilterFast, context: &C) -> Box<dyn Future<Item=TimeFilterFastResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodeDistrictsResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodeSectorsResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcodes(&self, request_time_filter_postcodes: models::RequestTimeFilterPostcodes, context: &C) -> Box<dyn Future<Item=TimeFilterPostcodesResponse, Error=ApiError>>;
-
-
-    fn time_map(&self, request_time_map: models::RequestTimeMap, context: &C) -> Box<dyn Future<Item=TimeMapResponse, Error=ApiError>>;
+    async fn time_map(
+        &self,
+        request_time_map: models::RequestTimeMap,
+        context: &C) -> Result<TimeMapResponse, ApiError>;
 
 }
 
-/// API without a `Context`
-pub trait ApiNoContext {
+/// API where `Context` isn't passed on every API call
+#[async_trait]
+pub trait ApiNoContext<C: Send + Sync> {
 
+    fn poll_ready(&self, _cx: &mut Context) -> Poll<Result<(), Box<dyn Error + Send + Sync + 'static>>>;
 
-    fn geocoding_reverse_search(&self, lat: f64, lng: f64, within_country: Option<String>) -> Box<dyn Future<Item=GeocodingReverseSearchResponse, Error=ApiError>>;
+    fn context(&self) -> &C;
 
+    async fn geocoding_reverse_search(
+        &self,
+        lat: f64,
+        lng: f64,
+        within_country: Option<String>,
+        ) -> Result<GeocodingReverseSearchResponse, ApiError>;
 
-    fn geocoding_search(&self, query: String, focus_lat: Option<f64>, focus_lng: Option<f64>, within_country: Option<String>) -> Box<dyn Future<Item=GeocodingSearchResponse, Error=ApiError>>;
+    async fn geocoding_search(
+        &self,
+        query: String,
+        focus_lat: Option<f64>,
+        focus_lng: Option<f64>,
+        within_country: Option<String>,
+        ) -> Result<GeocodingSearchResponse, ApiError>;
 
+    async fn map_info(
+        &self,
+        ) -> Result<MapInfoResponse, ApiError>;
 
-    fn map_info(&self) -> Box<dyn Future<Item=MapInfoResponse, Error=ApiError>>;
+    async fn routes(
+        &self,
+        request_routes: models::RequestRoutes,
+        ) -> Result<RoutesResponse, ApiError>;
 
+    async fn supported_locations(
+        &self,
+        request_supported_locations: models::RequestSupportedLocations,
+        ) -> Result<SupportedLocationsResponse, ApiError>;
 
-    fn routes(&self, request_routes: models::RequestRoutes) -> Box<dyn Future<Item=RoutesResponse, Error=ApiError>>;
+    async fn time_filter(
+        &self,
+        request_time_filter: models::RequestTimeFilter,
+        ) -> Result<TimeFilterResponse, ApiError>;
 
+    async fn time_filter_fast(
+        &self,
+        request_time_filter_fast: models::RequestTimeFilterFast,
+        ) -> Result<TimeFilterFastResponse, ApiError>;
 
-    fn supported_locations(&self, request_supported_locations: models::RequestSupportedLocations) -> Box<dyn Future<Item=SupportedLocationsResponse, Error=ApiError>>;
+    async fn time_filter_postcode_districts(
+        &self,
+        request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts,
+        ) -> Result<TimeFilterPostcodeDistrictsResponse, ApiError>;
 
+    async fn time_filter_postcode_sectors(
+        &self,
+        request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors,
+        ) -> Result<TimeFilterPostcodeSectorsResponse, ApiError>;
 
-    fn time_filter(&self, request_time_filter: models::RequestTimeFilter) -> Box<dyn Future<Item=TimeFilterResponse, Error=ApiError>>;
+    async fn time_filter_postcodes(
+        &self,
+        request_time_filter_postcodes: models::RequestTimeFilterPostcodes,
+        ) -> Result<TimeFilterPostcodesResponse, ApiError>;
 
-
-    fn time_filter_fast(&self, request_time_filter_fast: models::RequestTimeFilterFast) -> Box<dyn Future<Item=TimeFilterFastResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts) -> Box<dyn Future<Item=TimeFilterPostcodeDistrictsResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors) -> Box<dyn Future<Item=TimeFilterPostcodeSectorsResponse, Error=ApiError>>;
-
-
-    fn time_filter_postcodes(&self, request_time_filter_postcodes: models::RequestTimeFilterPostcodes) -> Box<dyn Future<Item=TimeFilterPostcodesResponse, Error=ApiError>>;
-
-
-    fn time_map(&self, request_time_map: models::RequestTimeMap) -> Box<dyn Future<Item=TimeMapResponse, Error=ApiError>>;
+    async fn time_map(
+        &self,
+        request_time_map: models::RequestTimeMap,
+        ) -> Result<TimeMapResponse, ApiError>;
 
 }
 
 /// Trait to extend an API to make it easy to bind it to a context.
-pub trait ContextWrapperExt<'a, C> where Self: Sized {
+pub trait ContextWrapperExt<C: Send + Sync> where Self: Sized
+{
     /// Binds this API to a context.
-    fn with_context(self: &'a Self, context: C) -> ContextWrapper<'a, Self, C>;
+    fn with_context(self: Self, context: C) -> ContextWrapper<Self, C>;
 }
 
-impl<'a, T: Api<C> + Sized, C> ContextWrapperExt<'a, C> for T {
-    fn with_context(self: &'a T, context: C) -> ContextWrapper<'a, T, C> {
+impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ContextWrapperExt<C> for T {
+    fn with_context(self: T, context: C) -> ContextWrapper<T, C> {
          ContextWrapper::<T, C>::new(self, context)
     }
 }
 
-impl<'a, T: Api<C>, C> ApiNoContext for ContextWrapper<'a, T, C> {
-
-
-    fn geocoding_reverse_search(&self, lat: f64, lng: f64, within_country: Option<String>) -> Box<dyn Future<Item=GeocodingReverseSearchResponse, Error=ApiError>> {
-        self.api().geocoding_reverse_search(lat, lng, within_country, &self.context())
+#[async_trait]
+impl<T: Api<C> + Send + Sync, C: Clone + Send + Sync> ApiNoContext<C> for ContextWrapper<T, C> {
+    fn poll_ready(&self, cx: &mut Context) -> Poll<Result<(), ServiceError>> {
+        self.api().poll_ready(cx)
     }
 
-
-    fn geocoding_search(&self, query: String, focus_lat: Option<f64>, focus_lng: Option<f64>, within_country: Option<String>) -> Box<dyn Future<Item=GeocodingSearchResponse, Error=ApiError>> {
-        self.api().geocoding_search(query, focus_lat, focus_lng, within_country, &self.context())
+    fn context(&self) -> &C {
+        ContextWrapper::context(self)
     }
 
-
-    fn map_info(&self) -> Box<dyn Future<Item=MapInfoResponse, Error=ApiError>> {
-        self.api().map_info(&self.context())
+    async fn geocoding_reverse_search(
+        &self,
+        lat: f64,
+        lng: f64,
+        within_country: Option<String>,
+        ) -> Result<GeocodingReverseSearchResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().geocoding_reverse_search(lat, lng, within_country, &context).await
     }
 
-
-    fn routes(&self, request_routes: models::RequestRoutes) -> Box<dyn Future<Item=RoutesResponse, Error=ApiError>> {
-        self.api().routes(request_routes, &self.context())
+    async fn geocoding_search(
+        &self,
+        query: String,
+        focus_lat: Option<f64>,
+        focus_lng: Option<f64>,
+        within_country: Option<String>,
+        ) -> Result<GeocodingSearchResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().geocoding_search(query, focus_lat, focus_lng, within_country, &context).await
     }
 
-
-    fn supported_locations(&self, request_supported_locations: models::RequestSupportedLocations) -> Box<dyn Future<Item=SupportedLocationsResponse, Error=ApiError>> {
-        self.api().supported_locations(request_supported_locations, &self.context())
+    async fn map_info(
+        &self,
+        ) -> Result<MapInfoResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().map_info(&context).await
     }
 
-
-    fn time_filter(&self, request_time_filter: models::RequestTimeFilter) -> Box<dyn Future<Item=TimeFilterResponse, Error=ApiError>> {
-        self.api().time_filter(request_time_filter, &self.context())
+    async fn routes(
+        &self,
+        request_routes: models::RequestRoutes,
+        ) -> Result<RoutesResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().routes(request_routes, &context).await
     }
 
-
-    fn time_filter_fast(&self, request_time_filter_fast: models::RequestTimeFilterFast) -> Box<dyn Future<Item=TimeFilterFastResponse, Error=ApiError>> {
-        self.api().time_filter_fast(request_time_filter_fast, &self.context())
+    async fn supported_locations(
+        &self,
+        request_supported_locations: models::RequestSupportedLocations,
+        ) -> Result<SupportedLocationsResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().supported_locations(request_supported_locations, &context).await
     }
 
-
-    fn time_filter_postcode_districts(&self, request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts) -> Box<dyn Future<Item=TimeFilterPostcodeDistrictsResponse, Error=ApiError>> {
-        self.api().time_filter_postcode_districts(request_time_filter_postcode_districts, &self.context())
+    async fn time_filter(
+        &self,
+        request_time_filter: models::RequestTimeFilter,
+        ) -> Result<TimeFilterResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_filter(request_time_filter, &context).await
     }
 
-
-    fn time_filter_postcode_sectors(&self, request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors) -> Box<dyn Future<Item=TimeFilterPostcodeSectorsResponse, Error=ApiError>> {
-        self.api().time_filter_postcode_sectors(request_time_filter_postcode_sectors, &self.context())
+    async fn time_filter_fast(
+        &self,
+        request_time_filter_fast: models::RequestTimeFilterFast,
+        ) -> Result<TimeFilterFastResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_filter_fast(request_time_filter_fast, &context).await
     }
 
-
-    fn time_filter_postcodes(&self, request_time_filter_postcodes: models::RequestTimeFilterPostcodes) -> Box<dyn Future<Item=TimeFilterPostcodesResponse, Error=ApiError>> {
-        self.api().time_filter_postcodes(request_time_filter_postcodes, &self.context())
+    async fn time_filter_postcode_districts(
+        &self,
+        request_time_filter_postcode_districts: models::RequestTimeFilterPostcodeDistricts,
+        ) -> Result<TimeFilterPostcodeDistrictsResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_filter_postcode_districts(request_time_filter_postcode_districts, &context).await
     }
 
+    async fn time_filter_postcode_sectors(
+        &self,
+        request_time_filter_postcode_sectors: models::RequestTimeFilterPostcodeSectors,
+        ) -> Result<TimeFilterPostcodeSectorsResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_filter_postcode_sectors(request_time_filter_postcode_sectors, &context).await
+    }
 
-    fn time_map(&self, request_time_map: models::RequestTimeMap) -> Box<dyn Future<Item=TimeMapResponse, Error=ApiError>> {
-        self.api().time_map(request_time_map, &self.context())
+    async fn time_filter_postcodes(
+        &self,
+        request_time_filter_postcodes: models::RequestTimeFilterPostcodes,
+        ) -> Result<TimeFilterPostcodesResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_filter_postcodes(request_time_filter_postcodes, &context).await
+    }
+
+    async fn time_map(
+        &self,
+        request_time_map: models::RequestTimeMap,
+        ) -> Result<TimeMapResponse, ApiError>
+    {
+        let context = self.context().clone();
+        self.api().time_map(request_time_map, &context).await
     }
 
 }
+
 
 #[cfg(feature = "client")]
 pub mod client;
 
 // Re-export Client as a top-level name
 #[cfg(feature = "client")]
-pub use self::client::Client;
+pub use client::Client;
 
 #[cfg(feature = "server")]
 pub mod server;
@@ -333,4 +423,10 @@ pub mod server;
 #[cfg(feature = "server")]
 pub use self::server::Service;
 
+#[cfg(feature = "server")]
+pub mod context;
+
 pub mod models;
+
+#[cfg(any(feature = "client", feature = "server"))]
+pub(crate) mod header;

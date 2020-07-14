@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseRoutes {
   
   List<ResponseRoutesResult> results = [];
-  ResponseRoutes();
+
+  ResponseRoutes({
+    this.results,
+  });
 
   @override
   String toString() {

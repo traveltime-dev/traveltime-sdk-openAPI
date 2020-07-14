@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestSupportedLocations   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestSupportedLocations   {
   
   private @Valid List<RequestLocation> locations = new ArrayList<RequestLocation>();
 
@@ -29,16 +28,18 @@ public class RequestSupportedLocations   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
  @Size(min=1)  public List<RequestLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -77,5 +78,7 @@ public class RequestSupportedLocations   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

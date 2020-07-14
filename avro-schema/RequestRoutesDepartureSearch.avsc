@@ -1,0 +1,49 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestRoutesDepartureSearch",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "departure_location_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "arrival_location_ids",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": ""
+    },
+    {
+      "name": "transportation",
+      "type": "model.RequestTransportation",
+      "doc": ""
+    },
+    {
+      "name": "departure_time",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "RequestRoutesProperty"
+      },
+      "doc": ""
+    },
+    {
+      "name": "range",
+      "type": ["null", "model.RequestRangeFull"],
+      "doc": ""
+    }
+  ]
+}

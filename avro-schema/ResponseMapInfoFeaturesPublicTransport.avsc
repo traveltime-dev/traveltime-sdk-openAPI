@@ -1,0 +1,18 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseMapInfoFeaturesPublicTransport",
+  "fields": [
+    {
+      "name": "date_start",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "date_end",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+}

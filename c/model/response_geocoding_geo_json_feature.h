@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_geocoding_geo_json_feature_t response_geocoding_geo_json_feature_t;
+
 #include "response_geocoding_geometry.h"
 #include "response_geocoding_properties.h"
 

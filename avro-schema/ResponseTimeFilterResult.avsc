@@ -1,0 +1,29 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseTimeFilterLocation"
+      },
+      "doc": ""
+    },
+    {
+      "name": "unreachable",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": ""
+    }
+  ]
+}

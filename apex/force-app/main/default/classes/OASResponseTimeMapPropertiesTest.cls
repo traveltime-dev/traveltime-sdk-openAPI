@@ -72,7 +72,7 @@ private class OASResponseTimeMapPropertiesTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeMapProperties responseTimeMapProperties = new OASResponseTimeMapProperties();
-        Map<String, String> propertyMappings = responseTimeMapProperties.getPropertyMappings();
-        System.assertEquals('isOnlyWalking', propertyMappings.get('is_only_walking'));
+        Map<String, String> x-property-mappings = responseTimeMapProperties.getx-property-mappings();
+        System.assertEquals('isOnlyWalking', x-property-mappings.get('is_only_walking'));
     }
 }

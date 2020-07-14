@@ -7,7 +7,12 @@ class ResponseFaresBreakdownItem {
   List<int> routePartIds = [];
   
   List<ResponseFareTicket> tickets = [];
-  ResponseFaresBreakdownItem();
+
+  ResponseFaresBreakdownItem({
+    this.modes,
+    this.routePartIds,
+    this.tickets,
+  });
 
   @override
   String toString() {

@@ -4,12 +4,12 @@
 #include "response_transportation_mode.h"
 
 
-char* response_transportation_mode_response_transportation_mode_ToString(traveltime_platform_api_response_transportation_mode__e response_transportation_mode) {
+char* response_transportation_mode_response_transportation_mode_ToString(traveltime_api_response_transportation_mode__e response_transportation_mode) {
     char *response_transportation_modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     return response_transportation_modeArray[response_transportation_mode];
 }
 
-traveltime_platform_api_response_transportation_mode__e response_transportation_mode_response_transportation_mode_FromString(char* response_transportation_mode) {
+traveltime_api_response_transportation_mode__e response_transportation_mode_response_transportation_mode_FromString(char* response_transportation_mode) {
     int stringToReturn = 0;
     char *response_transportation_modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(response_transportation_modeArray) / sizeof(response_transportation_modeArray[0]);
@@ -22,7 +22,7 @@ traveltime_platform_api_response_transportation_mode__e response_transportation_
     return 0;
 }
 
-cJSON *response_transportation_mode_response_transportation_mode_convertToJSON(traveltime_platform_api_response_transportation_mode__e response_transportation_mode) {
+cJSON *response_transportation_mode_response_transportation_mode_convertToJSON(traveltime_api_response_transportation_mode__e response_transportation_mode) {
     cJSON *item = cJSON_CreateObject();
     if(cJSON_AddStringToObject(item, "response_transportation_mode", response_transportation_mode_response_transportation_mode_ToString(response_transportation_mode)) == NULL) {
         goto fail;

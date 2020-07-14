@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct request_time_filter_fast_t request_time_filter_fast_t;
+
 #include "request_location.h"
 #include "request_time_filter_fast_arrival_searches.h"
 

@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseShape   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseShape   {
   
   private @Valid List<Coords> shell = new ArrayList<Coords>();
   private @Valid List<List<Coords>> holes = new ArrayList<List<Coords>>();
@@ -30,22 +29,25 @@ public class ResponseShape   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("shell")
   @NotNull
   public List<Coords> getShell() {
     return shell;
   }
+
   public void setShell(List<Coords> shell) {
     this.shell = shell;
-  }
-
-  /**
+  }/**
    **/
   public ResponseShape holes(List<List<Coords>> holes) {
     this.holes = holes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseShape   {
   public List<List<Coords>> getHoles() {
     return holes;
   }
+
   public void setHoles(List<List<Coords>> holes) {
     this.holes = holes;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseShape   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

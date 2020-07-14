@@ -21,6 +21,9 @@ request_time_filter_postcodes_t *request_time_filter_postcodes_create(
 
 
 void request_time_filter_postcodes_free(request_time_filter_postcodes_t *request_time_filter_postcodes) {
+    if(NULL == request_time_filter_postcodes){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_filter_postcodes->departure_searches) {
         request_time_filter_postcodes_departure_search_free(listEntry->data);

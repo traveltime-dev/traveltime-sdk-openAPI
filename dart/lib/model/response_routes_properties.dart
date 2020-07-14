@@ -9,7 +9,13 @@ class ResponseRoutesProperties {
   ResponseFares fares = null;
   
   ResponseRoute route = null;
-  ResponseRoutesProperties();
+
+  ResponseRoutesProperties({
+    this.travelTime,
+    this.distance,
+    this.fares,
+    this.route,
+  });
 
   @override
   String toString() {

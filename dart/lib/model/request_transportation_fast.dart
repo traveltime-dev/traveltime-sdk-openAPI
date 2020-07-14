@@ -4,7 +4,10 @@ class RequestTransportationFast {
   
   String type = null;
   //enum typeEnum {  public_transport,  driving,  driving+public_transport,  };{
-  RequestTransportationFast();
+
+  RequestTransportationFast({
+    this.type,
+  });
 
   @override
   String toString() {

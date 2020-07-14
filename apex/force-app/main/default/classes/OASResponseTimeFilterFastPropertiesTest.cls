@@ -72,7 +72,7 @@ private class OASResponseTimeFilterFastPropertiesTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeFilterFastProperties responseTimeFilterFastProperties = new OASResponseTimeFilterFastProperties();
-        Map<String, String> propertyMappings = responseTimeFilterFastProperties.getPropertyMappings();
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
+        Map<String, String> x-property-mappings = responseTimeFilterFastProperties.getx-property-mappings();
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
     }
 }

@@ -1,0 +1,93 @@
+{{>licenseInfo}}
+{{#operations}}/*
+ * {{classname}}.h
+ *
+ * {{description}}
+ */
+
+#ifndef {{classname}}_H_
+#define {{classname}}_H_
+
+{{{defaultInclude}}}
+#include <memory>
+#include <utility>
+
+#include <corvusoft/restbed/session.hpp>
+#include <corvusoft/restbed/resource.hpp>
+#include <corvusoft/restbed/service.hpp>
+
+{{#imports}}{{{import}}}
+{{/imports}}
+
+{{#apiNamespaceDeclarations}}
+namespace {{this}} {
+{{/apiNamespaceDeclarations}}
+
+using namespace {{modelNamespace}};
+
+class {{declspec}} {{classname}}: public restbed::Service
+{
+public:
+	{{classname}}();
+	~{{classname}}();
+	void startService(int const& port);
+	void stopService();
+};
+
+
+{{#operation}}
+/// <summary>
+/// {{summary}}
+/// </summary>
+/// <remarks>
+/// {{notes}}
+/// </remarks>
+class {{declspec}} {{classname}}{{vendorExtensions.x-codegen-resource-name}}Resource: public restbed::Resource
+{
+public:
+	{{classname}}{{vendorExtensions.x-codegen-resource-name}}Resource();
+    virtual ~{{classname}}{{vendorExtensions.x-codegen-resource-name}}Resource();
+    void {{httpMethod}}_method_handler(const std::shared_ptr<restbed::Session> session);
+    {{#vendorExtensions.x-codegen-other-methods}}
+    void {{httpMethod}}_method_handler(const std::shared_ptr<restbed::Session> session);
+    {{/vendorExtensions.x-codegen-other-methods}}
+
+	void set_handler_{{httpMethod}}(
+		std::function<std::pair<int, std::string>(
+			{{#allParams}}{{{dataType}}} const &{{#hasMore}}, {{/hasMore}}{{/allParams}}
+		)> handler
+	);
+
+	{{#vendorExtensions.x-codegen-other-methods}}
+	void set_handler_{{httpMethod}}(
+		std::function<std::pair<int, std::string>(
+			{{#allParams}}{{{dataType}}} const &{{#hasMore}}, {{/hasMore}}{{/allParams}}
+		)> handler
+	);
+	{{/vendorExtensions.x-codegen-other-methods}}
+
+private:
+	std::function<std::pair<int, std::string>(
+		{{#allParams}}{{{dataType}}} const &{{#hasMore}}, {{/hasMore}}{{/allParams}}
+	)> handler_{{httpMethod}}_;
+
+	{{#vendorExtensions.x-codegen-other-methods}}
+	std::function<std::pair<int, std::string>(
+		{{#allParams}}{{{dataType}}} const &{{#hasMore}}, {{/hasMore}}{{/allParams}}
+	)> handler_{{httpMethod}}_;
+	{{/vendorExtensions.x-codegen-other-methods}}
+
+	{{#allParams}}
+	{{{dataType}}} {{paramName}}{};
+	{{/allParams}}
+};
+
+{{/operation}}
+
+{{#apiNamespaceDeclarations}}
+}
+{{/apiNamespaceDeclarations}}
+
+#endif /* {{classname}}_H_ */
+
+{{/operations}}

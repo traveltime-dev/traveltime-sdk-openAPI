@@ -72,7 +72,7 @@ private class OASRequestTransportationFastTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTransportationFast requestTransportationFast = new OASRequestTransportationFast();
-        Map<String, String> propertyMappings = requestTransportationFast.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
+        Map<String, String> x-property-mappings = requestTransportationFast.getx-property-mappings();
+        System.assertEquals('r_type', x-property-mappings.get('type'));
     }
 }

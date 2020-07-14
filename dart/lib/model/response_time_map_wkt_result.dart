@@ -7,7 +7,12 @@ class ResponseTimeMapWktResult {
   String shape = null;
   
   ResponseTimeMapProperties properties = null;
-  ResponseTimeMapWktResult();
+
+  ResponseTimeMapWktResult({
+    this.searchId,
+    this.shape,
+    this.properties,
+  });
 
   @override
   String toString() {

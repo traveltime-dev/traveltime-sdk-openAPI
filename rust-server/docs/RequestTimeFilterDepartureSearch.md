@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **arrival_location_ids** | **Vec<String>** |  | 
 **transportation** | [***models::RequestTransportation**](RequestTransportation.md) |  | 
 **travel_time** | **u16** |  | 
-**departure_time** | [**chrono::DateTime<chrono::Utc>**](DateTime.md) |  | 
+**departure_time** | [**chrono::DateTime::<chrono::Utc>**](DateTime.md) |  | 
 **properties** | [**Vec<models::RequestTimeFilterProperty>**](RequestTimeFilterProperty.md) |  | 
 **range** | [***models::RequestRangeFull**](RequestRangeFull.md) |  | [optional] [default to None]
 

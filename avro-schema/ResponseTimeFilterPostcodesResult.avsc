@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterPostcodesResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "postcodes",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseTimeFilterPostcode"
+      },
+      "doc": ""
+    }
+  ]
+}

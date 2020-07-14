@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **kotlin.Int** |  | 
 **departureTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
-**properties** | [**kotlin.Array&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  |  [optional]
+**properties** | [**kotlin.collections.List&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  |  [optional]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  |  [optional]
 
 

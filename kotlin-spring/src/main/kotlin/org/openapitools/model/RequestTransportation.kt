@@ -23,17 +23,17 @@ import javax.validation.constraints.Size
 data class RequestTransportation(
 
     @get:NotNull 
-    @JsonProperty("type") val type: RequestTransportation.Type,
+    @field:JsonProperty("type") val type: RequestTransportation.Type,
 
-    @JsonProperty("pt_change_delay") val ptChangeDelay: kotlin.Int? = null,
+    @field:JsonProperty("pt_change_delay") val ptChangeDelay: kotlin.Int? = null,
 
-    @JsonProperty("walking_time") val walkingTime: kotlin.Int? = null,
+    @field:JsonProperty("walking_time") val walkingTime: kotlin.Int? = null,
 
-    @JsonProperty("driving_time_to_station") val drivingTimeToStation: kotlin.Int? = null,
+    @field:JsonProperty("driving_time_to_station") val drivingTimeToStation: kotlin.Int? = null,
 
-    @JsonProperty("parking_time") val parkingTime: kotlin.Int? = null,
+    @field:JsonProperty("parking_time") val parkingTime: kotlin.Int? = null,
 
-    @JsonProperty("boarding_time") val boardingTime: kotlin.Int? = null
+    @field:JsonProperty("boarding_time") val boardingTime: kotlin.Int? = null
 ) {
 
     /**

@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**breakdown** | [**kotlin.Array&lt;ResponseFaresBreakdownItem&gt;**](ResponseFaresBreakdownItem.md) |  | 
-**ticketsTotal** | [**kotlin.Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
+**breakdown** | [**kotlin.collections.List&lt;ResponseFaresBreakdownItem&gt;**](ResponseFaresBreakdownItem.md) |  | 
+**ticketsTotal** | [**kotlin.collections.List&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
 
 
 

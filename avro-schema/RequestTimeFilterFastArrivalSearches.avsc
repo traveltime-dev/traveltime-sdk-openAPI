@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilterFastArrivalSearches",
+  "fields": [
+    {
+      "name": "many_to_one",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterFastArrivalManyToOneSearch"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "one_to_many",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterFastArrivalOneToManySearch"
+      }],
+      "doc": ""
+    }
+  ]
+}

@@ -7,7 +7,12 @@ class ResponseMapInfoFeatures {
   bool fares = null;
   
   bool postcodes = null;
-  ResponseMapInfoFeatures();
+
+  ResponseMapInfoFeatures({
+    this.publicTransport,
+    this.fares,
+    this.postcodes,
+  });
 
   @override
   String toString() {

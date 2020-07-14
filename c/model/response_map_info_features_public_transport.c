@@ -21,6 +21,9 @@ response_map_info_features_public_transport_t *response_map_info_features_public
 
 
 void response_map_info_features_public_transport_free(response_map_info_features_public_transport_t *response_map_info_features_public_transport) {
+    if(NULL == response_map_info_features_public_transport){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_map_info_features_public_transport->date_start);
     free(response_map_info_features_public_transport->date_end);

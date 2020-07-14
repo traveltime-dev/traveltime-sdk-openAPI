@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseMapInfo {
   
   List<ResponseMapInfoMap> maps = [];
-  ResponseMapInfo();
+
+  ResponseMapInfo({
+    this.maps,
+  });
 
   @override
   String toString() {

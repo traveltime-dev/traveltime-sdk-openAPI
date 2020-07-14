@@ -1,14 +1,14 @@
 {
-  "name": "travel_time_platform_api",
+  "name": "travel_time_api",
   "version": "1.0.0",
-  "description": "OpenAPI Client for travel_time_platform_api",
+  "description": "OpenAPI Client for travel_time_api",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "fetch",
     "flow",
     "openapi",
     "openapi-generator",
-    "travel_time_platform_api"
+    "travel_time_api"
   ],
   "license": "Unlicense",
   "main": "./lib/index.js",

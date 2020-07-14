@@ -18,7 +18,7 @@ import javax.validation.constraints.Size
 data class RequestSupportedLocations(
 
     @get:NotNull @get:Size(min=1) 
-    @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>
+    @field:JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>
 ) {
 
 }

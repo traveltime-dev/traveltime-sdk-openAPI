@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseDistanceBreakdownItem   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseDistanceBreakdownItem   {
   
   private @Valid ResponseTransportationMode mode;
   private @Valid Integer distance;
@@ -28,22 +27,25 @@ public class ResponseDistanceBreakdownItem   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("mode")
   @NotNull
   public ResponseTransportationMode getMode() {
     return mode;
   }
+
   public void setMode(ResponseTransportationMode mode) {
     this.mode = mode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseDistanceBreakdownItem distance(Integer distance) {
     this.distance = distance;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -52,10 +54,10 @@ public class ResponseDistanceBreakdownItem   {
   public Integer getDistance() {
     return distance;
   }
+
   public void setDistance(Integer distance) {
     this.distance = distance;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,5 +98,7 @@ public class ResponseDistanceBreakdownItem   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

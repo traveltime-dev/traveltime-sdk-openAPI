@@ -1,0 +1,88 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseGeocodingProperties",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "score",
+      "type": ["null", "double"],
+      "doc": ""
+    },
+    {
+      "name": "house_number",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "street",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "region",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "region_code",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "neighbourhood",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "county",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "macroregion",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "city",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "country",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "country_code",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "continent",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "postcode",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "features",
+      "type": ["null", "model.ResponseMapInfoFeatures"],
+      "doc": ""
+    }
+  ]
+}

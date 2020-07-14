@@ -15,8 +15,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestUnionOnIntersection   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestUnionOnIntersection   {
   
   private @Valid String id;
   private @Valid List<String> searchIds = new ArrayList<String>();
@@ -29,22 +28,25 @@ public class RequestUnionOnIntersection   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public RequestUnionOnIntersection searchIds(List<String> searchIds) {
     this.searchIds = searchIds;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -53,10 +55,10 @@ public class RequestUnionOnIntersection   {
   public List<String> getSearchIds() {
     return searchIds;
   }
+
   public void setSearchIds(List<String> searchIds) {
     this.searchIds = searchIds;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,5 +99,7 @@ public class RequestUnionOnIntersection   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

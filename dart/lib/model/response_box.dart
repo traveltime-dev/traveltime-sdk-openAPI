@@ -9,7 +9,13 @@ class ResponseBox {
   double minLng = null;
   
   double maxLng = null;
-  ResponseBox();
+
+  ResponseBox({
+    this.minLat,
+    this.maxLat,
+    this.minLng,
+    this.maxLng,
+  });
 
   @override
   String toString() {

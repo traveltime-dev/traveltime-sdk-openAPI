@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **kotlin.String** |  | 
-**searchIds** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
+**searchIds** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 
 
 

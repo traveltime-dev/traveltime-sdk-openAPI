@@ -5,7 +5,11 @@ class ResponseMapInfoMap {
   String name = null;
   
   ResponseMapInfoFeatures features = null;
-  ResponseMapInfoMap();
+
+  ResponseMapInfoMap({
+    this.name,
+    this.features,
+  });
 
   @override
   String toString() {

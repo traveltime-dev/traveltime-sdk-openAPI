@@ -13,8 +13,8 @@ To see how to make this your own, look here:
 
 [README]((https://openapi-generator.tech))
 
-- API version: 1.0.0
-- Build date: 2020-03-18T08:51:42.725Z[Etc/UTC]
+- API version: 1.2.1
+- Build date: 2020-07-14T11:29:01.845Z[Etc/UTC]
 
 
 
@@ -64,14 +64,6 @@ To run a client, follow one of the following simple steps:
 cargo run --example client GeocodingReverseSearch
 cargo run --example client GeocodingSearch
 cargo run --example client MapInfo
-cargo run --example client Routes
-cargo run --example client SupportedLocations
-cargo run --example client TimeFilter
-cargo run --example client TimeFilterFast
-cargo run --example client TimeFilterPostcodeDistricts
-cargo run --example client TimeFilterPostcodeSectors
-cargo run --example client TimeFilterPostcodes
-cargo run --example client TimeMap
 ```
 
 ### HTTPS

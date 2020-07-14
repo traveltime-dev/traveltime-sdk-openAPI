@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeMapBoundingBoxes {
   
   List<ResponseTimeMapBoundingBoxesResult> results = [];
-  ResponseTimeMapBoundingBoxes();
+
+  ResponseTimeMapBoundingBoxes({
+    this.results,
+  });
 
   @override
   String toString() {

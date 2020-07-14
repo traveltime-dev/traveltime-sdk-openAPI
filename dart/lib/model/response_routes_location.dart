@@ -5,7 +5,11 @@ class ResponseRoutesLocation {
   String id = null;
   
   List<ResponseRoutesProperties> properties = [];
-  ResponseRoutesLocation();
+
+  ResponseRoutesLocation({
+    this.id,
+    this.properties,
+  });
 
   @override
   String toString() {

@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterProperties   {
   
   private @Valid Integer travelTime;
   private @Valid Integer distance;
@@ -35,16 +34,17 @@ public class ResponseTimeFilterProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time")
   public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterProperties distance(Integer distance) {
     this.distance = distance;
@@ -52,16 +52,17 @@ public class ResponseTimeFilterProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("distance")
   public Integer getDistance() {
     return distance;
   }
+
   public void setDistance(Integer distance) {
     this.distance = distance;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterProperties distanceBreakdown(List<ResponseDistanceBreakdownItem> distanceBreakdown) {
     this.distanceBreakdown = distanceBreakdown;
@@ -69,16 +70,17 @@ public class ResponseTimeFilterProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("distance_breakdown")
   public List<ResponseDistanceBreakdownItem> getDistanceBreakdown() {
     return distanceBreakdown;
   }
+
   public void setDistanceBreakdown(List<ResponseDistanceBreakdownItem> distanceBreakdown) {
     this.distanceBreakdown = distanceBreakdown;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterProperties fares(ResponseFares fares) {
     this.fares = fares;
@@ -86,16 +88,17 @@ public class ResponseTimeFilterProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("fares")
   public ResponseFares getFares() {
     return fares;
   }
+
   public void setFares(ResponseFares fares) {
     this.fares = fares;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterProperties route(ResponseRoute route) {
     this.route = route;
@@ -103,15 +106,17 @@ public class ResponseTimeFilterProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("route")
   public ResponseRoute getRoute() {
     return route;
   }
+
   public void setRoute(ResponseRoute route) {
     this.route = route;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -158,5 +163,7 @@ public class ResponseTimeFilterProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

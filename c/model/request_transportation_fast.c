@@ -4,12 +4,12 @@
 #include "request_transportation_fast.h"
 
 
-char* typerequest_transportation_fast_ToString(traveltime_platform_api_request_transportation_fast_TYPE_e type) {
+char* typerequest_transportation_fast_ToString(traveltime_api_request_transportation_fast_TYPE_e type) {
     char* typeArray[] =  { "NULL", "public_transport", "driving", "driving+public_transport" };
 	return typeArray[type];
 }
 
-traveltime_platform_api_request_transportation_fast_TYPE_e typerequest_transportation_fast_FromString(char* type){
+traveltime_api_request_transportation_fast_TYPE_e typerequest_transportation_fast_FromString(char* type){
     int stringToReturn = 0;
     char *typeArray[] =  { "NULL", "public_transport", "driving", "driving+public_transport" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
@@ -23,7 +23,7 @@ traveltime_platform_api_request_transportation_fast_TYPE_e typerequest_transport
 }
 
 request_transportation_fast_t *request_transportation_fast_create(
-    traveltime_platform_api_request_transportation_fast_TYPE_e type
+    traveltime_api_request_transportation_fast_TYPE_e type
     ) {
     request_transportation_fast_t *request_transportation_fast_local_var = malloc(sizeof(request_transportation_fast_t));
     if (!request_transportation_fast_local_var) {
@@ -36,6 +36,9 @@ request_transportation_fast_t *request_transportation_fast_create(
 
 
 void request_transportation_fast_free(request_transportation_fast_t *request_transportation_fast) {
+    if(NULL == request_transportation_fast){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_transportation_fast);
 }
@@ -68,7 +71,7 @@ request_transportation_fast_t *request_transportation_fast_parseFromJSON(cJSON *
         goto end;
     }
 
-    traveltime_platform_api_request_transportation_fast_TYPE_e typeVariable;
+    traveltime_api_request_transportation_fast_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

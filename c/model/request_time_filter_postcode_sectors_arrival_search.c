@@ -4,12 +4,12 @@
 #include "request_time_filter_postcode_sectors_arrival_search.h"
 
 
-char* propertiesrequest_time_filter_postcode_sectors_arrival_search_ToString(traveltime_platform_api_request_time_filter_postcode_sectors_arrival_search__e properties) {
+char* propertiesrequest_time_filter_postcode_sectors_arrival_search_ToString(traveltime_api_request_time_filter_postcode_sectors_arrival_search__e properties) {
 	char *propertiesArray[] =  { "NULL", "travel_time_reachable", "travel_time_all", "coverage" };
 	return propertiesArray[properties - 1];
 }
 
-traveltime_platform_api_request_time_filter_postcode_sectors_arrival_search__e propertiesrequest_time_filter_postcode_sectors_arrival_search_FromString(char* properties) {
+traveltime_api_request_time_filter_postcode_sectors_arrival_search__e propertiesrequest_time_filter_postcode_sectors_arrival_search_FromString(char* properties) {
     int stringToReturn = 0;
     char *propertiesArray[] =  { "NULL", "travel_time_reachable", "travel_time_all", "coverage" };
     size_t sizeofArray = sizeof(propertiesArray) / sizeof(propertiesArray[0]);
@@ -48,6 +48,9 @@ request_time_filter_postcode_sectors_arrival_search_t *request_time_filter_postc
 
 
 void request_time_filter_postcode_sectors_arrival_search_free(request_time_filter_postcode_sectors_arrival_search_t *request_time_filter_postcode_sectors_arrival_search) {
+    if(NULL == request_time_filter_postcode_sectors_arrival_search){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_time_filter_postcode_sectors_arrival_search->id);
     request_transportation_free(request_time_filter_postcode_sectors_arrival_search->transportation);
@@ -128,7 +131,7 @@ cJSON *request_time_filter_postcode_sectors_arrival_search_convertToJSON(request
     listEntry_t *propertiesListEntry;
     if (request_time_filter_postcode_sectors_arrival_search->properties) {
     list_ForEach(propertiesListEntry, request_time_filter_postcode_sectors_arrival_search->properties) {
-    cJSON *itemLocal = request_time_filter_postcode_sectors_property_convertToJSON((traveltime_platform_api_request_time_filter_postcode_sectors_arrival_search__e)propertiesListEntry->data);
+    cJSON *itemLocal = request_time_filter_postcode_sectors_property_convertToJSON((traveltime_api_request_time_filter_postcode_sectors_arrival_search__e)propertiesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }

@@ -21,6 +21,9 @@ request_time_filter_fast_t *request_time_filter_fast_create(
 
 
 void request_time_filter_fast_free(request_time_filter_fast_t *request_time_filter_fast) {
+    if(NULL == request_time_filter_fast){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_filter_fast->locations) {
         request_location_free(listEntry->data);

@@ -4,12 +4,12 @@
 #include "response_fares_breakdown_item.h"
 
 
-char* modesresponse_fares_breakdown_item_ToString(traveltime_platform_api_response_fares_breakdown_item__e modes) {
+char* modesresponse_fares_breakdown_item_ToString(traveltime_api_response_fares_breakdown_item__e modes) {
 	char *modesArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
 	return modesArray[modes - 1];
 }
 
-traveltime_platform_api_response_fares_breakdown_item__e modesresponse_fares_breakdown_item_FromString(char* modes) {
+traveltime_api_response_fares_breakdown_item__e modesresponse_fares_breakdown_item_FromString(char* modes) {
     int stringToReturn = 0;
     char *modesArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(modesArray) / sizeof(modesArray[0]);
@@ -40,6 +40,9 @@ response_fares_breakdown_item_t *response_fares_breakdown_item_create(
 
 
 void response_fares_breakdown_item_free(response_fares_breakdown_item_t *response_fares_breakdown_item) {
+    if(NULL == response_fares_breakdown_item){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_fares_breakdown_item->modes) {
         response_transportation_mode_free(listEntry->data);
@@ -69,7 +72,7 @@ cJSON *response_fares_breakdown_item_convertToJSON(response_fares_breakdown_item
     listEntry_t *modesListEntry;
     if (response_fares_breakdown_item->modes) {
     list_ForEach(modesListEntry, response_fares_breakdown_item->modes) {
-    cJSON *itemLocal = response_transportation_mode_convertToJSON((traveltime_platform_api_response_fares_breakdown_item__e)modesListEntry->data);
+    cJSON *itemLocal = response_transportation_mode_convertToJSON((traveltime_api_response_fares_breakdown_item__e)modesListEntry->data);
     if(itemLocal == NULL) {
     goto fail;
     }

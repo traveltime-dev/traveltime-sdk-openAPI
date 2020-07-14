@@ -72,8 +72,8 @@ private class OASResponseRoutesResultTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseRoutesResult responseRoutesResult = new OASResponseRoutesResult();
-        Map<String, String> propertyMappings = responseRoutesResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
+        Map<String, String> x-property-mappings = responseRoutesResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
     }
 
     @isTest

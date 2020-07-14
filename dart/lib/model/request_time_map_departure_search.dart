@@ -15,7 +15,16 @@ class RequestTimeMapDepartureSearch {
   List<RequestTimeMapProperty> properties = [];
   
   RequestRangeNoMaxResults range = null;
-  RequestTimeMapDepartureSearch();
+
+  RequestTimeMapDepartureSearch({
+    this.id,
+    this.coords,
+    this.transportation,
+    this.travelTime,
+    this.departureTime,
+    this.properties,
+    this.range,
+  });
 
   @override
   String toString() {

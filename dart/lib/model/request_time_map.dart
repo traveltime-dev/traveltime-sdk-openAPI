@@ -9,7 +9,13 @@ class RequestTimeMap {
   List<RequestUnionOnIntersection> unions = [];
   
   List<RequestUnionOnIntersection> intersections = [];
-  RequestTimeMap();
+
+  RequestTimeMap({
+    this.departureSearches,
+    this.arrivalSearches,
+    this.unions,
+    this.intersections,
+  });
 
   @override
   String toString() {

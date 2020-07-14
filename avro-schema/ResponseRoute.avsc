@@ -1,0 +1,26 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseRoute",
+  "fields": [
+    {
+      "name": "departure_time",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "arrival_time",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "parts",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseRoutePart"
+      },
+      "doc": ""
+    }
+  ]
+}

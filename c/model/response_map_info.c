@@ -19,6 +19,9 @@ response_map_info_t *response_map_info_create(
 
 
 void response_map_info_free(response_map_info_t *response_map_info) {
+    if(NULL == response_map_info){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_map_info->maps) {
         response_map_info_map_free(listEntry->data);

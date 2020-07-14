@@ -72,7 +72,7 @@ private class OASResponseTimeFilterPostcodesProperTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeFilterPostcodesProper responseTimeFilterPostcodesProperties = new OASResponseTimeFilterPostcodesProper();
-        Map<String, String> propertyMappings = responseTimeFilterPostcodesProperties.getPropertyMappings();
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
+        Map<String, String> x-property-mappings = responseTimeFilterPostcodesProperties.getx-property-mappings();
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
     }
 }

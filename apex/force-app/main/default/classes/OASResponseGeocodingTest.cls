@@ -72,8 +72,8 @@ private class OASResponseGeocodingTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseGeocoding responseGeocoding = new OASResponseGeocoding();
-        Map<String, String> propertyMappings = responseGeocoding.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
+        Map<String, String> x-property-mappings = responseGeocoding.getx-property-mappings();
+        System.assertEquals('r_type', x-property-mappings.get('type'));
     }
 
     @isTest

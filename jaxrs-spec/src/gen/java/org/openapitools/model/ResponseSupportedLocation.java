@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseSupportedLocation   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseSupportedLocation   {
   
   private @Valid String id;
   private @Valid String mapName;
@@ -27,22 +26,25 @@ public class ResponseSupportedLocation   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public ResponseSupportedLocation mapName(String mapName) {
     this.mapName = mapName;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -51,10 +53,10 @@ public class ResponseSupportedLocation   {
   public String getMapName() {
     return mapName;
   }
+
   public void setMapName(String mapName) {
     this.mapName = mapName;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,5 +97,7 @@ public class ResponseSupportedLocation   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

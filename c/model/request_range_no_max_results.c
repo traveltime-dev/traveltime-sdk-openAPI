@@ -21,6 +21,9 @@ request_range_no_max_results_t *request_range_no_max_results_create(
 
 
 void request_range_no_max_results_free(request_range_no_max_results_t *request_range_no_max_results) {
+    if(NULL == request_range_no_max_results){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_range_no_max_results);
 }

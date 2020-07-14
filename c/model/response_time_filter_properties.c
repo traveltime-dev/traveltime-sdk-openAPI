@@ -27,6 +27,9 @@ response_time_filter_properties_t *response_time_filter_properties_create(
 
 
 void response_time_filter_properties_free(response_time_filter_properties_t *response_time_filter_properties) {
+    if(NULL == response_time_filter_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_filter_properties->distance_breakdown) {
         response_distance_breakdown_item_free(listEntry->data);

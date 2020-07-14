@@ -23,6 +23,9 @@ response_routes_result_t *response_routes_result_create(
 
 
 void response_routes_result_free(response_routes_result_t *response_routes_result) {
+    if(NULL == response_routes_result){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_routes_result->search_id);
     list_ForEach(listEntry, response_routes_result->locations) {

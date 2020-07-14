@@ -1,0 +1,23 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterPostcodeSectorProperties",
+  "fields": [
+    {
+      "name": "travel_time_reachable",
+      "type": ["null", "model.ResponseTravelTimeStatistics"],
+      "doc": ""
+    },
+    {
+      "name": "travel_time_all",
+      "type": ["null", "model.ResponseTravelTimeStatistics"],
+      "doc": ""
+    },
+    {
+      "name": "coverage",
+      "type": ["null", "double"],
+      "doc": ""
+    }
+  ]
+}

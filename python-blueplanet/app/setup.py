@@ -18,10 +18,10 @@ REQUIRES = ["connexion"]
 setup(
     name=NAME,
     version=VERSION,
-    description="TravelTime Platform API",
+    description="TravelTime API",
     author_email="support@igeolise.com",
     url="",
-    keywords=["Swagger", "TravelTime Platform API"],
+    keywords=["Swagger", "TravelTime API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},

@@ -22,10 +22,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="TravelTime Platform API",
+    description="TravelTime API",
     author_email="support@igeolise.com",
     url="",
-    keywords=["OpenAPI", "TravelTime Platform API"],
+    keywords=["OpenAPI", "TravelTime API"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['openapi/openapi.yaml']},

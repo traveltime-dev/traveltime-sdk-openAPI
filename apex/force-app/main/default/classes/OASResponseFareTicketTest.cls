@@ -72,8 +72,8 @@ private class OASResponseFareTicketTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseFareTicket responseFareTicket = new OASResponseFareTicket();
-        Map<String, String> propertyMappings = responseFareTicket.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
-        System.assertEquals('r_currency', propertyMappings.get('currency'));
+        Map<String, String> x-property-mappings = responseFareTicket.getx-property-mappings();
+        System.assertEquals('r_type', x-property-mappings.get('type'));
+        System.assertEquals('r_currency', x-property-mappings.get('currency'));
     }
 }

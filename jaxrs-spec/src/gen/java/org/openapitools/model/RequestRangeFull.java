@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestRangeFull   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestRangeFull   {
   
   private @Valid Boolean enabled;
   private @Valid Integer maxResults;
@@ -28,17 +27,18 @@ public class RequestRangeFull   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("enabled")
   @NotNull
   public Boolean getEnabled() {
     return enabled;
   }
+
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
-  }
-
-  /**
+  }/**
    * minimum: 1
    * maximum: 5
    **/
@@ -48,17 +48,18 @@ public class RequestRangeFull   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("max_results")
   @NotNull
  @Min(1) @Max(5)  public Integer getMaxResults() {
     return maxResults;
   }
+
   public void setMaxResults(Integer maxResults) {
     this.maxResults = maxResults;
-  }
-
-  /**
+  }/**
    * minimum: 1
    * maximum: 43200
    **/
@@ -68,16 +69,18 @@ public class RequestRangeFull   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("width")
   @NotNull
  @Min(1) @Max(43200)  public Integer getWidth() {
     return width;
   }
+
   public void setWidth(Integer width) {
     this.width = width;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,5 +123,7 @@ public class RequestRangeFull   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

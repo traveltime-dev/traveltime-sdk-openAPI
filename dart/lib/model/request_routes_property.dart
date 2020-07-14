@@ -10,9 +10,17 @@ class RequestRoutesProperty {
   static const RequestRoutesProperty distance_ = const RequestRoutesProperty._internal("distance");
   static const RequestRoutesProperty fares_ = const RequestRoutesProperty._internal("fares");
   static const RequestRoutesProperty route_ = const RequestRoutesProperty._internal("route");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestRoutesProperty fromJson(String value) {
     return new RequestRoutesPropertyTypeTransformer().decode(value);
+  }
+  
+  static List<RequestRoutesProperty> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestRoutesProperty>() : json.map((value) => RequestRoutesProperty.fromJson(value)).toList();
   }
 }
 

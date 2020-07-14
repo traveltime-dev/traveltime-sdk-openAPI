@@ -13,7 +13,7 @@ import org.openapitools.model.RequestTimeFilterFastArrivalOneToManySearch;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalSearches   {
   
 
@@ -26,8 +26,7 @@ public class RequestTimeFilterFastArrivalSearches   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("many_to_one")
-  @Size(max=10)
-  public List<RequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() {
+ @Size(max=10)  public List<RequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() {
     return manyToOne;
   }
   public void setManyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {
@@ -39,8 +38,7 @@ public class RequestTimeFilterFastArrivalSearches   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("one_to_many")
-  @Size(max=10)
-  public List<RequestTimeFilterFastArrivalOneToManySearch> getOneToMany() {
+ @Size(max=10)  public List<RequestTimeFilterFastArrivalOneToManySearch> getOneToMany() {
     return oneToMany;
   }
   public void setOneToMany(List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany) {

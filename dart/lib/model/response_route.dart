@@ -7,7 +7,12 @@ class ResponseRoute {
   DateTime arrivalTime = null;
   
   List<ResponseRoutePart> parts = [];
-  ResponseRoute();
+
+  ResponseRoute({
+    this.departureTime,
+    this.arrivalTime,
+    this.parts,
+  });
 
   @override
   String toString() {

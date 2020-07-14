@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_map_info_features_public_transport_t response_map_info_features_public_transport_t;
+
 
 
 

@@ -1,0 +1,100 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseRoutePart",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "ResponseRoutePart_type",
+        "symbols": [
+          "basic",
+          "start_end",
+          "road",
+          "public_transport"
+        ]
+      },
+      "doc": ""
+    },
+    {
+      "name": "mode",
+      "type": ,
+      "doc": ""
+    },
+    {
+      "name": "directions",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "distance",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "travel_time",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "coords",
+      "type": {
+        "type": "array",
+        "items": "model.Coords"
+      },
+      "doc": ""
+    },
+    {
+      "name": "direction",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "road",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "turn",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "line",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "departure_station",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "arrival_station",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "departs_at",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "arrives_at",
+      "type": ["null", "string"],
+      "doc": ""
+    },
+    {
+      "name": "num_stops",
+      "type": ["null", "int"],
+      "doc": ""
+    }
+  ]
+}

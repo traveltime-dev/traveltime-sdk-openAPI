@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseRoute   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseRoute   {
   
   private @Valid Date departureTime;
   private @Valid Date arrivalTime;
@@ -32,22 +31,25 @@ public class ResponseRoute   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("departure_time")
   @NotNull
   public Date getDepartureTime() {
     return departureTime;
   }
+
   public void setDepartureTime(Date departureTime) {
     this.departureTime = departureTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoute arrivalTime(Date arrivalTime) {
     this.arrivalTime = arrivalTime;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -56,16 +58,17 @@ public class ResponseRoute   {
   public Date getArrivalTime() {
     return arrivalTime;
   }
+
   public void setArrivalTime(Date arrivalTime) {
     this.arrivalTime = arrivalTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoute parts(List<ResponseRoutePart> parts) {
     this.parts = parts;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -74,10 +77,10 @@ public class ResponseRoute   {
   public List<ResponseRoutePart> getParts() {
     return parts;
   }
+
   public void setParts(List<ResponseRoutePart> parts) {
     this.parts = parts;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,5 +123,7 @@ public class ResponseRoute   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

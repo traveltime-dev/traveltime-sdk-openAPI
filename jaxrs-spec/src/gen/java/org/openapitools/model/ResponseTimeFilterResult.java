@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterResult   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseTimeFilterLocation> locations = new ArrayList<ResponseTimeFilterLocation>();
@@ -31,22 +30,25 @@ public class ResponseTimeFilterResult   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("search_id")
   @NotNull
   public String getSearchId() {
     return searchId;
   }
+
   public void setSearchId(String searchId) {
     this.searchId = searchId;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterResult locations(List<ResponseTimeFilterLocation> locations) {
     this.locations = locations;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -55,16 +57,17 @@ public class ResponseTimeFilterResult   {
   public List<ResponseTimeFilterLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<ResponseTimeFilterLocation> locations) {
     this.locations = locations;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterResult unreachable(List<String> unreachable) {
     this.unreachable = unreachable;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -73,10 +76,10 @@ public class ResponseTimeFilterResult   {
   public List<String> getUnreachable() {
     return unreachable;
   }
+
   public void setUnreachable(List<String> unreachable) {
     this.unreachable = unreachable;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -119,5 +122,7 @@ public class ResponseTimeFilterResult   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

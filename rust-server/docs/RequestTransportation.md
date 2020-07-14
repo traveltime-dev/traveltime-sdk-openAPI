@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_type** | **String** |  | 
+**type_** | **String** |  | 
 **pt_change_delay** | **isize** |  | [optional] [default to None]
 **walking_time** | **isize** |  | [optional] [default to None]
 **driving_time_to_station** | **isize** |  | [optional] [default to None]

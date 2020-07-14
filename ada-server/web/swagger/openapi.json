@@ -5,12 +5,12 @@
       "email" : "support@igeolise.com",
       "name" : "API Support"
     },
-    "termsOfService" : "https://www.traveltimeplatform.com/terms-and-conditions",
-    "title" : "TravelTime Platform API",
-    "version" : "1.0.0"
+    "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
+    "title" : "TravelTime API",
+    "version" : "1.2.1"
   },
   "externalDocs" : {
-    "url" : "http://docs.traveltimeplatform.com"
+    "url" : "http://docs.traveltime.com"
   },
   "servers" : [ {
     "url" : "https://api.traveltimeapp.com"
@@ -23,7 +23,7 @@
     "/v4/time-filter" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/time-filter"
+          "url" : "http://docs.traveltime.com/reference/time-filter"
         },
         "operationId" : "timeFilter",
         "requestBody" : {
@@ -38,7 +38,7 @@
                 }
               }
             },
-            "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)"
+            "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)"
           },
           "default" : {
             "content" : {
@@ -48,7 +48,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -56,7 +56,7 @@
     "/v4/time-filter/postcodes" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/postcode-search"
+          "url" : "http://docs.traveltime.com/reference/postcode-search"
         },
         "operationId" : "timeFilterPostcodes",
         "requestBody" : {
@@ -71,7 +71,7 @@
                 }
               }
             },
-            "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)"
+            "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)"
           },
           "default" : {
             "content" : {
@@ -81,7 +81,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -89,7 +89,7 @@
     "/v4/time-filter/postcode-districts" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/postcode-search"
+          "url" : "http://docs.traveltime.com/reference/postcode-search"
         },
         "operationId" : "timeFilterPostcodeDistricts",
         "requestBody" : {
@@ -104,7 +104,7 @@
                 }
               }
             },
-            "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)"
+            "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)"
           },
           "default" : {
             "content" : {
@@ -114,7 +114,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -122,7 +122,7 @@
     "/v4/time-filter/postcode-sectors" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/postcode-sector-filter"
+          "url" : "http://docs.traveltime.com/reference/postcode-sector-filter"
         },
         "operationId" : "timeFilterPostcodeSectors",
         "requestBody" : {
@@ -137,7 +137,7 @@
                 }
               }
             },
-            "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)"
+            "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)"
           },
           "default" : {
             "content" : {
@@ -147,7 +147,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -155,7 +155,7 @@
     "/v4/time-filter/fast" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/time-filter-fast"
+          "url" : "http://docs.traveltime.com/reference/time-filter-fast"
         },
         "operationId" : "timeFilterFast",
         "requestBody" : {
@@ -170,7 +170,7 @@
                 }
               }
             },
-            "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)"
+            "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)"
           },
           "default" : {
             "content" : {
@@ -180,7 +180,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -188,7 +188,7 @@
     "/v4/time-map" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/time-map"
+          "url" : "http://docs.traveltime.com/reference/time-map"
         },
         "operationId" : "timeMap",
         "requestBody" : {
@@ -218,7 +218,7 @@
                 }
               }
             },
-            "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)"
+            "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)"
           },
           "default" : {
             "content" : {
@@ -228,7 +228,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -236,7 +236,7 @@
     "/v4/routes" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/routes"
+          "url" : "http://docs.traveltime.com/reference/routes"
         },
         "operationId" : "routes",
         "requestBody" : {
@@ -251,7 +251,7 @@
                 }
               }
             },
-            "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)"
+            "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)"
           },
           "default" : {
             "content" : {
@@ -261,7 +261,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -269,7 +269,7 @@
     "/v4/geocoding/search" : {
       "get" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/geocoding-search"
+          "url" : "http://docs.traveltime.com/reference/geocoding-search"
         },
         "operationId" : "geocodingSearch",
         "parameters" : [ {
@@ -320,7 +320,7 @@
                 }
               }
             },
-            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)"
+            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
           },
           "default" : {
             "content" : {
@@ -330,7 +330,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -338,7 +338,7 @@
     "/v4/geocoding/reverse" : {
       "get" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/geocoding-reverse"
+          "url" : "http://docs.traveltime.com/reference/geocoding-reverse"
         },
         "operationId" : "geocodingReverseSearch",
         "parameters" : [ {
@@ -380,7 +380,7 @@
                 }
               }
             },
-            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)"
+            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
           },
           "default" : {
             "content" : {
@@ -390,7 +390,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -398,7 +398,7 @@
     "/v4/map-info" : {
       "get" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/map-info"
+          "url" : "http://docs.traveltime.com/reference/map-info"
         },
         "operationId" : "mapInfo",
         "responses" : {
@@ -410,7 +410,7 @@
                 }
               }
             },
-            "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)"
+            "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)"
           },
           "default" : {
             "content" : {
@@ -420,7 +420,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -428,7 +428,7 @@
     "/v4/supported-locations" : {
       "post" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/supported-locations"
+          "url" : "http://docs.traveltime.com/reference/supported-locations"
         },
         "operationId" : "supportedLocations",
         "requestBody" : {
@@ -443,7 +443,7 @@
                 }
               }
             },
-            "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)"
+            "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)"
           },
           "default" : {
             "content" : {
@@ -453,7 +453,7 @@
                 }
               }
             },
-            "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
           }
         }
       }
@@ -617,7 +617,7 @@
             }
           }
         },
-        "description" : "The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)"
+        "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
       },
       "TimeFilter" : {
         "content" : {
@@ -627,7 +627,7 @@
             }
           }
         },
-        "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)"
+        "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)"
       },
       "TimeFilterPostcodes" : {
         "content" : {
@@ -637,7 +637,7 @@
             }
           }
         },
-        "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)"
+        "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)"
       },
       "TimeFilterPostcodeDistricts" : {
         "content" : {
@@ -647,7 +647,7 @@
             }
           }
         },
-        "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)"
+        "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)"
       },
       "TimeFilterPostcodeSectors" : {
         "content" : {
@@ -657,7 +657,7 @@
             }
           }
         },
-        "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)"
+        "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)"
       },
       "TimeFilterFast" : {
         "content" : {
@@ -667,7 +667,7 @@
             }
           }
         },
-        "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)"
+        "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)"
       },
       "Routes" : {
         "content" : {
@@ -677,7 +677,7 @@
             }
           }
         },
-        "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)"
+        "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)"
       },
       "Geocoding" : {
         "content" : {
@@ -687,7 +687,7 @@
             }
           }
         },
-        "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)"
+        "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
       },
       "TimeMap" : {
         "content" : {
@@ -712,7 +712,7 @@
             }
           }
         },
-        "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)"
+        "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)"
       },
       "MapInfo" : {
         "content" : {
@@ -722,7 +722,7 @@
             }
           }
         },
-        "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)"
+        "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)"
       },
       "SupportedLocations" : {
         "content" : {
@@ -732,7 +732,7 @@
             }
           }
         },
-        "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)"
+        "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)"
       }
     },
     "schemas" : {
@@ -6076,7 +6076,7 @@
       },
       "ResponseError" : {
         "externalDocs" : {
-          "url" : "http://docs.traveltimeplatform.com/reference/error-response"
+          "url" : "http://docs.traveltime.com/reference/error-response"
         },
         "properties" : {
           "http_status" : {

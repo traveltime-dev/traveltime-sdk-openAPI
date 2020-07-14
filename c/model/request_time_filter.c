@@ -23,6 +23,9 @@ request_time_filter_t *request_time_filter_create(
 
 
 void request_time_filter_free(request_time_filter_t *request_time_filter) {
+    if(NULL == request_time_filter){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_filter->locations) {
         request_location_free(listEntry->data);

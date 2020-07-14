@@ -72,9 +72,9 @@ private class OASResponseGeocodingPropertiesTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseGeocodingProperties responseGeocodingProperties = new OASResponseGeocodingProperties();
-        Map<String, String> propertyMappings = responseGeocodingProperties.getPropertyMappings();
-        System.assertEquals('houseNumber', propertyMappings.get('house_number'));
-        System.assertEquals('regionCode', propertyMappings.get('region_code'));
-        System.assertEquals('countryCode', propertyMappings.get('country_code'));
+        Map<String, String> x-property-mappings = responseGeocodingProperties.getx-property-mappings();
+        System.assertEquals('houseNumber', x-property-mappings.get('house_number'));
+        System.assertEquals('regionCode', x-property-mappings.get('region_code'));
+        System.assertEquals('countryCode', x-property-mappings.get('country_code'));
     }
 }

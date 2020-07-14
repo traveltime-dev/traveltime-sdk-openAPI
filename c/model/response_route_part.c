@@ -4,12 +4,12 @@
 #include "response_route_part.h"
 
 
-char* typeresponse_route_part_ToString(traveltime_platform_api_response_route_part_TYPE_e type) {
+char* typeresponse_route_part_ToString(traveltime_api_response_route_part_TYPE_e type) {
     char* typeArray[] =  { "NULL", "basic", "start_end", "road", "public_transport" };
 	return typeArray[type];
 }
 
-traveltime_platform_api_response_route_part_TYPE_e typeresponse_route_part_FromString(char* type){
+traveltime_api_response_route_part_TYPE_e typeresponse_route_part_FromString(char* type){
     int stringToReturn = 0;
     char *typeArray[] =  { "NULL", "basic", "start_end", "road", "public_transport" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
@@ -21,12 +21,12 @@ traveltime_platform_api_response_route_part_TYPE_e typeresponse_route_part_FromS
     }
     return 0;
 }
-char* moderesponse_route_part_ToString(traveltime_platform_api_response_route_part__e mode) {
+char* moderesponse_route_part_ToString(traveltime_api_response_route_part__e mode) {
     char* modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
 	return modeArray[mode];
 }
 
-traveltime_platform_api_response_route_part__e moderesponse_route_part_FromString(char* mode){
+traveltime_api_response_route_part__e moderesponse_route_part_FromString(char* mode){
     int stringToReturn = 0;
     char *modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(modeArray) / sizeof(modeArray[0]);
@@ -41,7 +41,7 @@ traveltime_platform_api_response_route_part__e moderesponse_route_part_FromStrin
 
 response_route_part_t *response_route_part_create(
     char *id,
-    traveltime_platform_api_response_route_part_TYPE_e type,
+    traveltime_api_response_route_part_TYPE_e type,
     char *directions,
     int distance,
     int travel_time,
@@ -82,6 +82,9 @@ response_route_part_t *response_route_part_create(
 
 
 void response_route_part_free(response_route_part_t *response_route_part) {
+    if(NULL == response_route_part){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_route_part->id);
     free(response_route_part->directions);
@@ -278,7 +281,7 @@ response_route_part_t *response_route_part_parseFromJSON(cJSON *response_route_p
         goto end;
     }
 
-    traveltime_platform_api_response_route_part_TYPE_e typeVariable;
+    traveltime_api_response_route_part_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

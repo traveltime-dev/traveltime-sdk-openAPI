@@ -4,10 +4,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departureSearches** | [**kotlin.Array&lt;RequestTimeMapDepartureSearch&gt;**](RequestTimeMapDepartureSearch.md) |  |  [optional]
-**arrivalSearches** | [**kotlin.Array&lt;RequestTimeMapArrivalSearch&gt;**](RequestTimeMapArrivalSearch.md) |  |  [optional]
-**unions** | [**kotlin.Array&lt;RequestUnionOnIntersection&gt;**](RequestUnionOnIntersection.md) |  |  [optional]
-**intersections** | [**kotlin.Array&lt;RequestUnionOnIntersection&gt;**](RequestUnionOnIntersection.md) |  |  [optional]
+**departureSearches** | [**kotlin.collections.List&lt;RequestTimeMapDepartureSearch&gt;**](RequestTimeMapDepartureSearch.md) |  |  [optional]
+**arrivalSearches** | [**kotlin.collections.List&lt;RequestTimeMapArrivalSearch&gt;**](RequestTimeMapArrivalSearch.md) |  |  [optional]
+**unions** | [**kotlin.collections.List&lt;RequestUnionOnIntersection&gt;**](RequestUnionOnIntersection.md) |  |  [optional]
+**intersections** | [**kotlin.collections.List&lt;RequestUnionOnIntersection&gt;**](RequestUnionOnIntersection.md) |  |  [optional]
 
 
 

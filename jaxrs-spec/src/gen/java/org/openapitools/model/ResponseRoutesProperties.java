@@ -15,8 +15,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseRoutesProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseRoutesProperties   {
   
   private @Valid Integer travelTime;
   private @Valid Integer distance;
@@ -31,16 +30,17 @@ public class ResponseRoutesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time")
   public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutesProperties distance(Integer distance) {
     this.distance = distance;
@@ -48,16 +48,17 @@ public class ResponseRoutesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("distance")
   public Integer getDistance() {
     return distance;
   }
+
   public void setDistance(Integer distance) {
     this.distance = distance;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutesProperties fares(ResponseFares fares) {
     this.fares = fares;
@@ -65,16 +66,17 @@ public class ResponseRoutesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("fares")
   public ResponseFares getFares() {
     return fares;
   }
+
   public void setFares(ResponseFares fares) {
     this.fares = fares;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutesProperties route(ResponseRoute route) {
     this.route = route;
@@ -82,15 +84,17 @@ public class ResponseRoutesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("route")
   public ResponseRoute getRoute() {
     return route;
   }
+
   public void setRoute(ResponseRoute route) {
     this.route = route;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -135,5 +139,7 @@ public class ResponseRoutesProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

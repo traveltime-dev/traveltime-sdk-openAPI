@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterPostcodeDistricts   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterPostcodeDistricts   {
   
   private @Valid List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterPostcodeDistrictsDepartureSearch>();
   private @Valid List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterPostcodeDistrictsArrivalSearch>();
@@ -31,16 +30,17 @@ public class RequestTimeFilterPostcodeDistricts   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
  @Size(max=10)  public List<RequestTimeFilterPostcodeDistrictsDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
   public void setDepartureSearches(List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterPostcodeDistricts arrivalSearches(List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -48,15 +48,17 @@ public class RequestTimeFilterPostcodeDistricts   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
  @Size(max=10)  public List<RequestTimeFilterPostcodeDistrictsArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
   public void setArrivalSearches(List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,5 +99,7 @@ public class RequestTimeFilterPostcodeDistricts   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

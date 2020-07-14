@@ -1,0 +1,9 @@
+{
+  "namespace": "model",
+  "type": "enum",
+  "doc": "",
+  "name": "RequestTimeMapProperty",
+  "symbols": [
+    "is_only_walking"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "namespace": "model",
+  "type": "enum",
+  "doc": "",
+  "name": "RequestTimeFilterPostcodeDistrictsProperty",
+  "symbols": [
+    "travel_time_reachable",
+    "travel_time_all",
+    "coverage"
+  ]
+}

@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeMapProperties {
   
   bool isOnlyWalking = null;
-  ResponseTimeMapProperties();
+
+  ResponseTimeMapProperties({
+    this.isOnlyWalking,
+  });
 
   @override
   String toString() {

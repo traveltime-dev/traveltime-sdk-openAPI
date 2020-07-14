@@ -5,7 +5,11 @@ class Coords {
   double lat = null;
   
   double lng = null;
-  Coords();
+
+  Coords({
+    this.lat,
+    this.lng,
+  });
 
   @override
   String toString() {

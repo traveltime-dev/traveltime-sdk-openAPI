@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseBox   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseBox   {
   
   private @Valid Double minLat;
   private @Valid Double maxLat;
@@ -29,22 +28,25 @@ public class ResponseBox   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("min_lat")
   @NotNull
   public Double getMinLat() {
     return minLat;
   }
+
   public void setMinLat(Double minLat) {
     this.minLat = minLat;
-  }
-
-  /**
+  }/**
    **/
   public ResponseBox maxLat(Double maxLat) {
     this.maxLat = maxLat;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -53,16 +55,17 @@ public class ResponseBox   {
   public Double getMaxLat() {
     return maxLat;
   }
+
   public void setMaxLat(Double maxLat) {
     this.maxLat = maxLat;
-  }
-
-  /**
+  }/**
    **/
   public ResponseBox minLng(Double minLng) {
     this.minLng = minLng;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -71,16 +74,17 @@ public class ResponseBox   {
   public Double getMinLng() {
     return minLng;
   }
+
   public void setMinLng(Double minLng) {
     this.minLng = minLng;
-  }
-
-  /**
+  }/**
    **/
   public ResponseBox maxLng(Double maxLng) {
     this.maxLng = maxLng;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -89,10 +93,10 @@ public class ResponseBox   {
   public Double getMaxLng() {
     return maxLng;
   }
+
   public void setMaxLng(Double maxLng) {
     this.maxLng = maxLng;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,5 +141,7 @@ public class ResponseBox   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

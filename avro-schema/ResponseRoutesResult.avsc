@@ -1,0 +1,29 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseRoutesResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseRoutesLocation"
+      },
+      "doc": ""
+    },
+    {
+      "name": "unreachable",
+      "type": {
+        "type": "array",
+        "items": "string"
+      },
+      "doc": ""
+    }
+  ]
+}

@@ -23,6 +23,9 @@ response_time_filter_fast_result_t *response_time_filter_fast_result_create(
 
 
 void response_time_filter_fast_result_free(response_time_filter_fast_result_t *response_time_filter_fast_result) {
+    if(NULL == response_time_filter_fast_result){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_filter_fast_result->search_id);
     list_ForEach(listEntry, response_time_filter_fast_result->locations) {

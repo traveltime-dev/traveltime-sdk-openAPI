@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterPostcodeDistrictsResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "districts",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseTimeFilterPostcodeDistrict"
+      },
+      "doc": ""
+    }
+  ]
+}

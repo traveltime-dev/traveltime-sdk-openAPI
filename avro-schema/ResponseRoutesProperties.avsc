@@ -1,0 +1,28 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseRoutesProperties",
+  "fields": [
+    {
+      "name": "travel_time",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "distance",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "fares",
+      "type": ["null", "model.ResponseFares"],
+      "doc": ""
+    },
+    {
+      "name": "route",
+      "type": ["null", "model.ResponseRoute"],
+      "doc": ""
+    }
+  ]
+}

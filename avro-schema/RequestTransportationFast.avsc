@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTransportationFast",
+  "fields": [
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "RequestTransportationFast_type",
+        "symbols": [
+          "public_transport",
+          "driving",
+          "driving+public_transport"
+        ]
+      },
+      "doc": ""
+    }
+  ]
+}

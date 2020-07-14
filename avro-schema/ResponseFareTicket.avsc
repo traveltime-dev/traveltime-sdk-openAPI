@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseFareTicket",
+  "fields": [
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "ResponseFareTicket_type",
+        "symbols": [
+          "single",
+          "week",
+          "month",
+          "year"
+        ]
+      },
+      "doc": ""
+    },
+    {
+      "name": "price",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "doc": ""
+    }
+  ]
+}

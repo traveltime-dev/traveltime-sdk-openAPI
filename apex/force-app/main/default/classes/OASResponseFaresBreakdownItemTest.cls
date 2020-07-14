@@ -72,8 +72,8 @@ private class OASResponseFaresBreakdownItemTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseFaresBreakdownItem responseFaresBreakdownItem = new OASResponseFaresBreakdownItem();
-        Map<String, String> propertyMappings = responseFaresBreakdownItem.getPropertyMappings();
-        System.assertEquals('routePartIds', propertyMappings.get('route_part_ids'));
+        Map<String, String> x-property-mappings = responseFaresBreakdownItem.getx-property-mappings();
+        System.assertEquals('routePartIds', x-property-mappings.get('route_part_ids'));
     }
 
     @isTest

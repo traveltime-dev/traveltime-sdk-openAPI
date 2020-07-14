@@ -23,6 +23,9 @@ response_time_map_wkt_result_t *response_time_map_wkt_result_create(
 
 
 void response_time_map_wkt_result_free(response_time_map_wkt_result_t *response_time_map_wkt_result) {
+    if(NULL == response_time_map_wkt_result){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_map_wkt_result->search_id);
     free(response_time_map_wkt_result->shape);

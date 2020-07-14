@@ -3,7 +3,10 @@ part of openapi.api;
 class RequestSupportedLocations {
   
   List<RequestLocation> locations = [];
-  RequestSupportedLocations();
+
+  RequestSupportedLocations({
+    this.locations,
+  });
 
   @override
   String toString() {

@@ -21,6 +21,9 @@ response_bounding_box_t *response_bounding_box_create(
 
 
 void response_bounding_box_free(response_bounding_box_t *response_bounding_box) {
+    if(NULL == response_bounding_box){
+        return ;
+    }
     listEntry_t *listEntry;
     response_box_free(response_bounding_box->envelope);
     list_ForEach(listEntry, response_bounding_box->boxes) {

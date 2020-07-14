@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **travelTime** | **kotlin.Int** |  | 
 **arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **reachablePostcodesThreshold** | **kotlin.Double** |  | 
-**properties** | [**kotlin.Array&lt;RequestTimeFilterPostcodeDistrictsProperty&gt;**](RequestTimeFilterPostcodeDistrictsProperty.md) |  | 
+**properties** | [**kotlin.collections.List&lt;RequestTimeFilterPostcodeDistrictsProperty&gt;**](RequestTimeFilterPostcodeDistrictsProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 
 

@@ -72,10 +72,10 @@ private class OASResponseBoxTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseBox responseBox = new OASResponseBox();
-        Map<String, String> propertyMappings = responseBox.getPropertyMappings();
-        System.assertEquals('minLat', propertyMappings.get('min_lat'));
-        System.assertEquals('maxLat', propertyMappings.get('max_lat'));
-        System.assertEquals('minLng', propertyMappings.get('min_lng'));
-        System.assertEquals('maxLng', propertyMappings.get('max_lng'));
+        Map<String, String> x-property-mappings = responseBox.getx-property-mappings();
+        System.assertEquals('minLat', x-property-mappings.get('min_lat'));
+        System.assertEquals('maxLat', x-property-mappings.get('max_lat'));
+        System.assertEquals('minLng', x-property-mappings.get('min_lng'));
+        System.assertEquals('maxLng', x-property-mappings.get('max_lng'));
     }
 }

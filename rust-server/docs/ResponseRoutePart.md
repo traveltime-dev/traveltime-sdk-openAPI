@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
-**_type** | **String** |  | 
+**type_** | **String** |  | 
 **mode** | [***models::ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
 **directions** | **String** |  | 
 **distance** | **isize** |  | 

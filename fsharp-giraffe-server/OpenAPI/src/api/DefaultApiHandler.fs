@@ -45,9 +45,9 @@ module DefaultApiHandler =
           let serviceArgs = {  queryParams=queryParams;    } : GeocodingReverseSearchArgs
           let result = DefaultApiService.GeocodingReverseSearch ctx serviceArgs
           return! (match result with 
-                      | GeocodingReverseSearchDefaultStatusCode resolved ->
+                      | GeocodingReverseSearchStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | GeocodingReverseSearchStatusCode0 resolved ->
+                      | GeocodingReverseSearchDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -65,9 +65,9 @@ module DefaultApiHandler =
           let serviceArgs = {  queryParams=queryParams;    } : GeocodingSearchArgs
           let result = DefaultApiService.GeocodingSearch ctx serviceArgs
           return! (match result with 
-                      | GeocodingSearchDefaultStatusCode resolved ->
+                      | GeocodingSearchStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | GeocodingSearchStatusCode0 resolved ->
+                      | GeocodingSearchDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -83,9 +83,9 @@ module DefaultApiHandler =
         task {
           let result = DefaultApiService.MapInfo ctx 
           return! (match result with 
-                      | MapInfoDefaultStatusCode resolved ->
+                      | MapInfoStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | MapInfoStatusCode0 resolved ->
+                      | MapInfoDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -104,9 +104,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : RoutesArgs
           let result = DefaultApiService.Routes ctx serviceArgs
           return! (match result with 
-                      | RoutesDefaultStatusCode resolved ->
+                      | RoutesStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | RoutesStatusCode0 resolved ->
+                      | RoutesDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -125,9 +125,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : SupportedLocationsArgs
           let result = DefaultApiService.SupportedLocations ctx serviceArgs
           return! (match result with 
-                      | SupportedLocationsDefaultStatusCode resolved ->
+                      | SupportedLocationsStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | SupportedLocationsStatusCode0 resolved ->
+                      | SupportedLocationsDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -146,9 +146,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeFilterArgs
           let result = DefaultApiService.TimeFilter ctx serviceArgs
           return! (match result with 
-                      | TimeFilterDefaultStatusCode resolved ->
+                      | TimeFilterStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeFilterStatusCode0 resolved ->
+                      | TimeFilterDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -167,9 +167,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeFilterFastArgs
           let result = DefaultApiService.TimeFilterFast ctx serviceArgs
           return! (match result with 
-                      | TimeFilterFastDefaultStatusCode resolved ->
+                      | TimeFilterFastStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeFilterFastStatusCode0 resolved ->
+                      | TimeFilterFastDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -188,9 +188,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeFilterPostcodeDistrictsArgs
           let result = DefaultApiService.TimeFilterPostcodeDistricts ctx serviceArgs
           return! (match result with 
-                      | TimeFilterPostcodeDistrictsDefaultStatusCode resolved ->
+                      | TimeFilterPostcodeDistrictsStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeFilterPostcodeDistrictsStatusCode0 resolved ->
+                      | TimeFilterPostcodeDistrictsDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -209,9 +209,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeFilterPostcodeSectorsArgs
           let result = DefaultApiService.TimeFilterPostcodeSectors ctx serviceArgs
           return! (match result with 
-                      | TimeFilterPostcodeSectorsDefaultStatusCode resolved ->
+                      | TimeFilterPostcodeSectorsStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeFilterPostcodeSectorsStatusCode0 resolved ->
+                      | TimeFilterPostcodeSectorsDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -230,9 +230,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeFilterPostcodesArgs
           let result = DefaultApiService.TimeFilterPostcodes ctx serviceArgs
           return! (match result with 
-                      | TimeFilterPostcodesDefaultStatusCode resolved ->
+                      | TimeFilterPostcodesStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeFilterPostcodesStatusCode0 resolved ->
+                      | TimeFilterPostcodesDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }
@@ -251,9 +251,9 @@ module DefaultApiHandler =
           let serviceArgs = {     bodyParams=bodyParams } : TimeMapArgs
           let result = DefaultApiService.TimeMap ctx serviceArgs
           return! (match result with 
-                      | TimeMapDefaultStatusCode resolved ->
+                      | TimeMapStatusCode200 resolved ->
                             setStatusCode 200 >=> json resolved.content 
-                      | TimeMapStatusCode0 resolved ->
+                      | TimeMapDefaultStatusCode resolved ->
                             setStatusCode 0 >=> json resolved.content 
           ) next ctx
         }

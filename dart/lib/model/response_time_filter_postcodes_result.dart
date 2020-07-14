@@ -5,7 +5,11 @@ class ResponseTimeFilterPostcodesResult {
   String searchId = null;
   
   List<ResponseTimeFilterPostcode> postcodes = [];
-  ResponseTimeFilterPostcodesResult();
+
+  ResponseTimeFilterPostcodesResult({
+    this.searchId,
+    this.postcodes,
+  });
 
   @override
   String toString() {

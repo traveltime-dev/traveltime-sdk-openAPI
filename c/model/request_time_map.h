@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct request_time_map_t request_time_map_t;
+
 #include "request_time_map_arrival_search.h"
 #include "request_time_map_departure_search.h"
 #include "request_union_on_intersection.h"

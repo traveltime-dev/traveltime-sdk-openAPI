@@ -19,8 +19,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterDepartureSearch   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterDepartureSearch   {
   
   private @Valid String id;
   private @Valid String departureLocationId;
@@ -39,22 +38,25 @@ public class RequestTimeFilterDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch departureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -63,16 +65,17 @@ public class RequestTimeFilterDepartureSearch   {
   public String getDepartureLocationId() {
     return departureLocationId;
   }
+
   public void setDepartureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch arrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -81,16 +84,17 @@ public class RequestTimeFilterDepartureSearch   {
  @Size(min=1,max=2000)  public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
+
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch transportation(RequestTransportation transportation) {
     this.transportation = transportation;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -99,11 +103,10 @@ public class RequestTimeFilterDepartureSearch   {
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
-  }
-
-  /**
+  }/**
    * minimum: 60
    * maximum: 14400
    **/
@@ -113,22 +116,25 @@ public class RequestTimeFilterDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("travel_time")
   @NotNull
  @Min(60) @Max(14400)  public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch departureTime(Date departureTime) {
     this.departureTime = departureTime;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -137,16 +143,17 @@ public class RequestTimeFilterDepartureSearch   {
   public Date getDepartureTime() {
     return departureTime;
   }
+
   public void setDepartureTime(Date departureTime) {
     this.departureTime = departureTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch properties(List<RequestTimeFilterProperty> properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -155,11 +162,10 @@ public class RequestTimeFilterDepartureSearch   {
   public List<RequestTimeFilterProperty> getProperties() {
     return properties;
   }
+
   public void setProperties(List<RequestTimeFilterProperty> properties) {
     this.properties = properties;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterDepartureSearch range(RequestRangeFull range) {
     this.range = range;
@@ -167,15 +173,17 @@ public class RequestTimeFilterDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("range")
   public RequestRangeFull getRange() {
     return range;
   }
+
   public void setRange(RequestRangeFull range) {
     this.range = range;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -228,5 +236,7 @@ public class RequestTimeFilterDepartureSearch   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

@@ -21,6 +21,9 @@ response_supported_location_t *response_supported_location_create(
 
 
 void response_supported_location_free(response_supported_location_t *response_supported_location) {
+    if(NULL == response_supported_location){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_supported_location->id);
     free(response_supported_location->map_name);

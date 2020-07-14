@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterFastLocation",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseTimeFilterFastProperties"
+      },
+      "doc": ""
+    }
+  ]
+}

@@ -72,7 +72,7 @@ private class OASRequestRangeFullTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestRangeFull requestRangeFull = new OASRequestRangeFull();
-        Map<String, String> propertyMappings = requestRangeFull.getPropertyMappings();
-        System.assertEquals('maxResults', propertyMappings.get('max_results'));
+        Map<String, String> x-property-mappings = requestRangeFull.getx-property-mappings();
+        System.assertEquals('maxResults', x-property-mappings.get('max_results'));
     }
 }

@@ -18,7 +18,7 @@ import javax.validation.constraints.Size
 data class RequestTransportationFast(
 
     @get:NotNull 
-    @JsonProperty("type") val type: RequestTransportationFast.Type
+    @field:JsonProperty("type") val type: RequestTransportationFast.Type
 ) {
 
     /**

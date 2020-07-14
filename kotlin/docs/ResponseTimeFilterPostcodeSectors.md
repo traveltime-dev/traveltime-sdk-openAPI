@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**kotlin.Array&lt;ResponseTimeFilterPostcodeSectorsResult&gt;**](ResponseTimeFilterPostcodeSectorsResult.md) |  | 
+**results** | [**kotlin.collections.List&lt;ResponseTimeFilterPostcodeSectorsResult&gt;**](ResponseTimeFilterPostcodeSectorsResult.md) |  | 
 
 
 

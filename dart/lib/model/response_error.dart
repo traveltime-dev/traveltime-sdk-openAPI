@@ -11,7 +11,14 @@ class ResponseError {
   String documentationLink = null;
   
   Map<String, List<String>> additionalInfo = {};
-  ResponseError();
+
+  ResponseError({
+    this.httpStatus,
+    this.errorCode,
+    this.description,
+    this.documentationLink,
+    this.additionalInfo,
+  });
 
   @override
   String toString() {

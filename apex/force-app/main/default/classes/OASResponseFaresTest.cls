@@ -72,8 +72,8 @@ private class OASResponseFaresTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseFares responseFares = new OASResponseFares();
-        Map<String, String> propertyMappings = responseFares.getPropertyMappings();
-        System.assertEquals('ticketsTotal', propertyMappings.get('tickets_total'));
+        Map<String, String> x-property-mappings = responseFares.getx-property-mappings();
+        System.assertEquals('ticketsTotal', x-property-mappings.get('tickets_total'));
     }
 
     @isTest

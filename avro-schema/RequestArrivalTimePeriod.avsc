@@ -1,0 +1,9 @@
+{
+  "namespace": "model",
+  "type": "enum",
+  "doc": "",
+  "name": "RequestArrivalTimePeriod",
+  "symbols": [
+    "weekday_morning"
+  ]
+}

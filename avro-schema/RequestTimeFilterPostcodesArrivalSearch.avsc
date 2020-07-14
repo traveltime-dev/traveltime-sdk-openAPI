@@ -1,0 +1,41 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilterPostcodesArrivalSearch",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "transportation",
+      "type": "model.RequestTransportation",
+      "doc": ""
+    },
+    {
+      "name": "travel_time",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "arrival_time",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "RequestTimeFilterPostcodesProperty"
+      },
+      "doc": ""
+    },
+    {
+      "name": "range",
+      "type": ["null", "model.RequestRangeFull"],
+      "doc": ""
+    }
+  ]
+}

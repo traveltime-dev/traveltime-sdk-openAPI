@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_routes_location_t response_routes_location_t;
+
 #include "response_routes_properties.h"
 
 

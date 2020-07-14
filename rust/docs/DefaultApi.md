@@ -4,17 +4,17 @@ All URIs are relative to *https://api.traveltimeapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**geocoding_reverse_search**](DefaultApi.md#geocoding_reverse_search) | **Get** /v4/geocoding/reverse | 
-[**geocoding_search**](DefaultApi.md#geocoding_search) | **Get** /v4/geocoding/search | 
-[**map_info**](DefaultApi.md#map_info) | **Get** /v4/map-info | 
-[**routes**](DefaultApi.md#routes) | **Post** /v4/routes | 
-[**supported_locations**](DefaultApi.md#supported_locations) | **Post** /v4/supported-locations | 
-[**time_filter**](DefaultApi.md#time_filter) | **Post** /v4/time-filter | 
-[**time_filter_fast**](DefaultApi.md#time_filter_fast) | **Post** /v4/time-filter/fast | 
-[**time_filter_postcode_districts**](DefaultApi.md#time_filter_postcode_districts) | **Post** /v4/time-filter/postcode-districts | 
-[**time_filter_postcode_sectors**](DefaultApi.md#time_filter_postcode_sectors) | **Post** /v4/time-filter/postcode-sectors | 
-[**time_filter_postcodes**](DefaultApi.md#time_filter_postcodes) | **Post** /v4/time-filter/postcodes | 
-[**time_map**](DefaultApi.md#time_map) | **Post** /v4/time-map | 
+[**geocoding_reverse_search**](DefaultApi.md#geocoding_reverse_search) | **get** /v4/geocoding/reverse | 
+[**geocoding_search**](DefaultApi.md#geocoding_search) | **get** /v4/geocoding/search | 
+[**map_info**](DefaultApi.md#map_info) | **get** /v4/map-info | 
+[**routes**](DefaultApi.md#routes) | **post** /v4/routes | 
+[**supported_locations**](DefaultApi.md#supported_locations) | **post** /v4/supported-locations | 
+[**time_filter**](DefaultApi.md#time_filter) | **post** /v4/time-filter | 
+[**time_filter_fast**](DefaultApi.md#time_filter_fast) | **post** /v4/time-filter/fast | 
+[**time_filter_postcode_districts**](DefaultApi.md#time_filter_postcode_districts) | **post** /v4/time-filter/postcode-districts | 
+[**time_filter_postcode_sectors**](DefaultApi.md#time_filter_postcode_sectors) | **post** /v4/time-filter/postcode-sectors | 
+[**time_filter_postcodes**](DefaultApi.md#time_filter_postcodes) | **post** /v4/time-filter/postcodes | 
+[**time_map**](DefaultApi.md#time_map) | **post** /v4/time-map | 
 
 
 

@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **kotlin.String** |  | 
 **departureLocationId** | **kotlin.String** |  | 
-**arrivalLocationIds** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
+**arrivalLocationIds** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 **transportation** | [**RequestTransportationFast**](RequestTransportationFast.md) |  | 
 **travelTime** | **kotlin.Int** |  | 
 **arrivalTimePeriod** | [**RequestArrivalTimePeriod**](RequestArrivalTimePeriod.md) |  | 
-**properties** | [**kotlin.Array&lt;RequestTimeFilterFastProperty&gt;**](RequestTimeFilterFastProperty.md) |  | 
+**properties** | [**kotlin.collections.List&lt;RequestTimeFilterFastProperty&gt;**](RequestTimeFilterFastProperty.md) |  | 
 
 
 

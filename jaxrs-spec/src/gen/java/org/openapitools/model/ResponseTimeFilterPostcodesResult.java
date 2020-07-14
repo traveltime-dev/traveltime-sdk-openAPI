@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterPostcodesResult   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterPostcodesResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseTimeFilterPostcode> postcodes = new ArrayList<ResponseTimeFilterPostcode>();
@@ -30,22 +29,25 @@ public class ResponseTimeFilterPostcodesResult   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("search_id")
   @NotNull
   public String getSearchId() {
     return searchId;
   }
+
   public void setSearchId(String searchId) {
     this.searchId = searchId;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterPostcodesResult postcodes(List<ResponseTimeFilterPostcode> postcodes) {
     this.postcodes = postcodes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseTimeFilterPostcodesResult   {
   public List<ResponseTimeFilterPostcode> getPostcodes() {
     return postcodes;
   }
+
   public void setPostcodes(List<ResponseTimeFilterPostcode> postcodes) {
     this.postcodes = postcodes;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseTimeFilterPostcodesResult   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

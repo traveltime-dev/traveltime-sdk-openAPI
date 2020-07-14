@@ -1,4 +1,4 @@
-# Documentation for TravelTime Platform API 1.0.0 Tizen Client SDK
+# Documentation for TravelTime API 1.2.1 Tizen Client SDK
 
 ## How do I get the doc files?
 First generate source code by running `openapi-generator`
@@ -16,7 +16,7 @@ This is the structure of the doc folder:
 ├── Doxyfile                  \\Doxygen config files
 ├── generateDocumentation.sh  \\Script to run to generate documentation
 ├── README.md                 \\This file
-├── SDK                       \\Documentation for all classes in TravelTime Platform API Tizen Client SDK. See ./html/index.html
+├── SDK                       \\Documentation for all classes in TravelTime API Tizen Client SDK. See ./html/index.html
 │   └── html
 
 ```

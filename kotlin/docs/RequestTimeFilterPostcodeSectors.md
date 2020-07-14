@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departureSearches** | [**kotlin.Array&lt;RequestTimeFilterPostcodeSectorsDepartureSearch&gt;**](RequestTimeFilterPostcodeSectorsDepartureSearch.md) |  |  [optional]
-**arrivalSearches** | [**kotlin.Array&lt;RequestTimeFilterPostcodeSectorsArrivalSearch&gt;**](RequestTimeFilterPostcodeSectorsArrivalSearch.md) |  |  [optional]
+**departureSearches** | [**kotlin.collections.List&lt;RequestTimeFilterPostcodeSectorsDepartureSearch&gt;**](RequestTimeFilterPostcodeSectorsDepartureSearch.md) |  |  [optional]
+**arrivalSearches** | [**kotlin.collections.List&lt;RequestTimeFilterPostcodeSectorsArrivalSearch&gt;**](RequestTimeFilterPostcodeSectorsArrivalSearch.md) |  |  [optional]
 
 
 

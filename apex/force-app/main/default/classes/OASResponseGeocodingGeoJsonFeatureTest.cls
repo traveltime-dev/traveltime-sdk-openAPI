@@ -72,7 +72,7 @@ private class OASResponseGeocodingGeoJsonFeatureTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseGeocodingGeoJsonFeature responseGeocodingGeoJsonFeature = new OASResponseGeocodingGeoJsonFeature();
-        Map<String, String> propertyMappings = responseGeocodingGeoJsonFeature.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
+        Map<String, String> x-property-mappings = responseGeocodingGeoJsonFeature.getx-property-mappings();
+        System.assertEquals('r_type', x-property-mappings.get('type'));
     }
 }

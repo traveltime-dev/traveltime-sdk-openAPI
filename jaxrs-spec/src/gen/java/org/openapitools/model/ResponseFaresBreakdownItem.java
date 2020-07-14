@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseFaresBreakdownItem   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseFaresBreakdownItem   {
   
   private @Valid List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>();
   private @Valid List<Integer> routePartIds = new ArrayList<Integer>();
@@ -32,22 +31,25 @@ public class ResponseFaresBreakdownItem   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("modes")
   @NotNull
   public List<ResponseTransportationMode> getModes() {
     return modes;
   }
+
   public void setModes(List<ResponseTransportationMode> modes) {
     this.modes = modes;
-  }
-
-  /**
+  }/**
    **/
   public ResponseFaresBreakdownItem routePartIds(List<Integer> routePartIds) {
     this.routePartIds = routePartIds;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -56,16 +58,17 @@ public class ResponseFaresBreakdownItem   {
   public List<Integer> getRoutePartIds() {
     return routePartIds;
   }
+
   public void setRoutePartIds(List<Integer> routePartIds) {
     this.routePartIds = routePartIds;
-  }
-
-  /**
+  }/**
    **/
   public ResponseFaresBreakdownItem tickets(List<ResponseFareTicket> tickets) {
     this.tickets = tickets;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -74,10 +77,10 @@ public class ResponseFaresBreakdownItem   {
   public List<ResponseFareTicket> getTickets() {
     return tickets;
   }
+
   public void setTickets(List<ResponseFareTicket> tickets) {
     this.tickets = tickets;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,5 +123,7 @@ public class ResponseFaresBreakdownItem   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

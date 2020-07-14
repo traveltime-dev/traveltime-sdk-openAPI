@@ -1,0 +1,54 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTransportation",
+  "fields": [
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "RequestTransportation_type",
+        "symbols": [
+          "cycling",
+          "driving",
+          "driving+train",
+          "public_transport",
+          "walking",
+          "coach",
+          "bus",
+          "train",
+          "ferry",
+          "driving+ferry",
+          "cycling+ferry"
+        ]
+      },
+      "doc": ""
+    },
+    {
+      "name": "pt_change_delay",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "walking_time",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "driving_time_to_station",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "parking_time",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "boarding_time",
+      "type": ["null", "int"],
+      "doc": ""
+    }
+  ]
+}

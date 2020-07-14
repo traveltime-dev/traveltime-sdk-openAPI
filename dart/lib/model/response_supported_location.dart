@@ -5,7 +5,11 @@ class ResponseSupportedLocation {
   String id = null;
   
   String mapName = null;
-  ResponseSupportedLocation();
+
+  ResponseSupportedLocation({
+    this.id,
+    this.mapName,
+  });
 
   @override
   String toString() {

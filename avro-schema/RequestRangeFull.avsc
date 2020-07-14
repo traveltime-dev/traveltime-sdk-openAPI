@@ -1,0 +1,23 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestRangeFull",
+  "fields": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "max_results",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "width",
+      "type": "int",
+      "doc": ""
+    }
+  ]
+}

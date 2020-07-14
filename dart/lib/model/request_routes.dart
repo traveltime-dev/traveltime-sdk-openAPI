@@ -7,7 +7,12 @@ class RequestRoutes {
   List<RequestRoutesDepartureSearch> departureSearches = [];
   
   List<RequestRoutesArrivalSearch> arrivalSearches = [];
-  RequestRoutes();
+
+  RequestRoutes({
+    this.locations,
+    this.departureSearches,
+    this.arrivalSearches,
+  });
 
   @override
   String toString() {

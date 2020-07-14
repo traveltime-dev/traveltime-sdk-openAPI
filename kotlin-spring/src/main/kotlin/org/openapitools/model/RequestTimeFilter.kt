@@ -22,11 +22,11 @@ import javax.validation.constraints.Size
 data class RequestTimeFilter(
 
     @get:NotNull @get:Size(min=1) 
-    @JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
+    @field:JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
 @get:Size(max=10) 
-    @JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeFilterDepartureSearch>? = null,
+    @field:JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeFilterDepartureSearch>? = null,
 @get:Size(max=10) 
-    @JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeFilterArrivalSearch>? = null
+    @field:JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeFilterArrivalSearch>? = null
 ) {
 
 }

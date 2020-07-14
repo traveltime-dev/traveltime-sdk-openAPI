@@ -1,0 +1,28 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTravelTimeStatistics",
+  "fields": [
+    {
+      "name": "min",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "max",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "mean",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "median",
+      "type": "int",
+      "doc": ""
+    }
+  ]
+}

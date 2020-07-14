@@ -72,9 +72,9 @@ private class OASResponseTimeMapBoundingBoxesResulTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeMapBoundingBoxesResul responseTimeMapBoundingBoxesResult = new OASResponseTimeMapBoundingBoxesResul();
-        Map<String, String> propertyMappings = responseTimeMapBoundingBoxesResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
-        System.assertEquals('boundingBoxes', propertyMappings.get('bounding_boxes'));
+        Map<String, String> x-property-mappings = responseTimeMapBoundingBoxesResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
+        System.assertEquals('boundingBoxes', x-property-mappings.get('bounding_boxes'));
     }
 
     @isTest

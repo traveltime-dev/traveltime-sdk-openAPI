@@ -23,6 +23,9 @@ response_map_info_features_t *response_map_info_features_create(
 
 
 void response_map_info_features_free(response_map_info_features_t *response_map_info_features) {
+    if(NULL == response_map_info_features){
+        return ;
+    }
     listEntry_t *listEntry;
     response_map_info_features_public_transport_free(response_map_info_features->public_transport);
     free(response_map_info_features);

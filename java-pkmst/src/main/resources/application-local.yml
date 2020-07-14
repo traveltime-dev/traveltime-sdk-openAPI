@@ -19,7 +19,7 @@ info:
   app:
     name: Pkmst
     description: Microservice developed by PKMST
-    version: 1.0.0
+    version: 1.2.1
 
 health:
   hystrix:

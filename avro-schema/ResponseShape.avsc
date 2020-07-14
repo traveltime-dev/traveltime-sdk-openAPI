@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseShape",
+  "fields": [
+    {
+      "name": "shell",
+      "type": {
+        "type": "array",
+        "items": "model.Coords"
+      },
+      "doc": ""
+    },
+    {
+      "name": "holes",
+      "type": {
+        "type": "array",
+        "items": "array"
+      },
+      "doc": ""
+    }
+  ]
+}

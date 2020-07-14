@@ -7,9 +7,17 @@ class RequestArrivalTimePeriod {
   const RequestArrivalTimePeriod._internal(this.value);
 
   static const RequestArrivalTimePeriod weekdayMorning_ = const RequestArrivalTimePeriod._internal("weekday_morning");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestArrivalTimePeriod fromJson(String value) {
     return new RequestArrivalTimePeriodTypeTransformer().decode(value);
+  }
+  
+  static List<RequestArrivalTimePeriod> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestArrivalTimePeriod>() : json.map((value) => RequestArrivalTimePeriod.fromJson(value)).toList();
   }
 }
 

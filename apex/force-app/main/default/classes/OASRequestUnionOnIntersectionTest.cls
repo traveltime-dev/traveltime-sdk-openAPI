@@ -72,8 +72,8 @@ private class OASRequestUnionOnIntersectionTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestUnionOnIntersection requestUnionOnIntersection = new OASRequestUnionOnIntersection();
-        Map<String, String> propertyMappings = requestUnionOnIntersection.getPropertyMappings();
-        System.assertEquals('searchIds', propertyMappings.get('search_ids'));
+        Map<String, String> x-property-mappings = requestUnionOnIntersection.getx-property-mappings();
+        System.assertEquals('searchIds', x-property-mappings.get('search_ids'));
     }
 
     @isTest

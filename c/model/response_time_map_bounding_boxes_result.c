@@ -23,6 +23,9 @@ response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_resu
 
 
 void response_time_map_bounding_boxes_result_free(response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_result) {
+    if(NULL == response_time_map_bounding_boxes_result){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_map_bounding_boxes_result->search_id);
     list_ForEach(listEntry, response_time_map_bounding_boxes_result->bounding_boxes) {

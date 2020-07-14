@@ -1,0 +1,18 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterPostcodesProperties",
+  "fields": [
+    {
+      "name": "travel_time",
+      "type": ["null", "int"],
+      "doc": ""
+    },
+    {
+      "name": "distance",
+      "type": ["null", "int"],
+      "doc": ""
+    }
+  ]
+}

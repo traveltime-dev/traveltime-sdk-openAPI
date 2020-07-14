@@ -1,0 +1,13 @@
+{
+  "namespace": "model",
+  "type": "enum",
+  "doc": "",
+  "name": "RequestTimeFilterProperty",
+  "symbols": [
+    "travel_time",
+    "distance",
+    "distance_breakdown",
+    "fares",
+    "route"
+  ]
+}

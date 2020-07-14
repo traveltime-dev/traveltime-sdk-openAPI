@@ -5,7 +5,11 @@ class ResponseFares {
   List<ResponseFaresBreakdownItem> breakdown = [];
   
   List<ResponseFareTicket> ticketsTotal = [];
-  ResponseFares();
+
+  ResponseFares({
+    this.breakdown,
+    this.ticketsTotal,
+  });
 
   @override
   String toString() {

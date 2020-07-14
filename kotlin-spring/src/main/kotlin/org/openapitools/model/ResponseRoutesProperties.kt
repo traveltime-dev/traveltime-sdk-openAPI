@@ -21,13 +21,13 @@ import javax.validation.constraints.Size
  */
 data class ResponseRoutesProperties(
 
-    @JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
+    @field:JsonProperty("travel_time") val travelTime: kotlin.Int? = null,
 
-    @JsonProperty("distance") val distance: kotlin.Int? = null,
+    @field:JsonProperty("distance") val distance: kotlin.Int? = null,
 
-    @JsonProperty("fares") val fares: ResponseFares? = null,
+    @field:JsonProperty("fares") val fares: ResponseFares? = null,
 
-    @JsonProperty("route") val route: ResponseRoute? = null
+    @field:JsonProperty("route") val route: ResponseRoute? = null
 ) {
 
 }

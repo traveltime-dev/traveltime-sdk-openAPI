@@ -13,7 +13,7 @@ import org.openapitools.model.RequestTimeFilterFastArrivalSearches;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestTimeFilterFast   {
   
 
@@ -27,8 +27,7 @@ public class RequestTimeFilterFast   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
-  @Size(min=1)
-  public List<RequestLocation> getLocations() {
+ @Size(min=1)  public List<RequestLocation> getLocations() {
     return locations;
   }
   public void setLocations(List<RequestLocation> locations) {

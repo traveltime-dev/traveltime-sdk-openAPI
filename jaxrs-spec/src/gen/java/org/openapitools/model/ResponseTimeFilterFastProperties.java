@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterFastProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterFastProperties   {
   
   private @Valid Integer travelTime;
   private @Valid ResponseFaresFast fares;
@@ -28,16 +27,17 @@ public class ResponseTimeFilterFastProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time")
   public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterFastProperties fares(ResponseFaresFast fares) {
     this.fares = fares;
@@ -45,15 +45,17 @@ public class ResponseTimeFilterFastProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("fares")
   public ResponseFaresFast getFares() {
     return fares;
   }
+
   public void setFares(ResponseFaresFast fares) {
     this.fares = fares;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,5 +96,7 @@ public class ResponseTimeFilterFastProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

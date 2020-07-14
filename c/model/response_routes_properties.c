@@ -25,6 +25,9 @@ response_routes_properties_t *response_routes_properties_create(
 
 
 void response_routes_properties_free(response_routes_properties_t *response_routes_properties) {
+    if(NULL == response_routes_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     response_fares_free(response_routes_properties->fares);
     response_route_free(response_routes_properties->route);

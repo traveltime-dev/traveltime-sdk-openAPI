@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **kotlin.String** |  | 
-**properties** | [**kotlin.Array&lt;ResponseTimeFilterProperties&gt;**](ResponseTimeFilterProperties.md) |  | 
+**properties** | [**kotlin.collections.List&lt;ResponseTimeFilterProperties&gt;**](ResponseTimeFilterProperties.md) |  | 
 
 
 

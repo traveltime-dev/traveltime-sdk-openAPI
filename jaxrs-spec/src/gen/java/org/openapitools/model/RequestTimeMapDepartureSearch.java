@@ -20,8 +20,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeMapDepartureSearch   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeMapDepartureSearch   {
   
   private @Valid String id;
   private @Valid Coords coords;
@@ -39,22 +38,25 @@ public class RequestTimeMapDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMapDepartureSearch coords(Coords coords) {
     this.coords = coords;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -63,16 +65,17 @@ public class RequestTimeMapDepartureSearch   {
   public Coords getCoords() {
     return coords;
   }
+
   public void setCoords(Coords coords) {
     this.coords = coords;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMapDepartureSearch transportation(RequestTransportation transportation) {
     this.transportation = transportation;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -81,11 +84,10 @@ public class RequestTimeMapDepartureSearch   {
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
-  }
-
-  /**
+  }/**
    * minimum: 60
    * maximum: 14400
    **/
@@ -95,22 +97,25 @@ public class RequestTimeMapDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("travel_time")
   @NotNull
  @Min(60) @Max(14400)  public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMapDepartureSearch departureTime(Date departureTime) {
     this.departureTime = departureTime;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -119,11 +124,10 @@ public class RequestTimeMapDepartureSearch   {
   public Date getDepartureTime() {
     return departureTime;
   }
+
   public void setDepartureTime(Date departureTime) {
     this.departureTime = departureTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMapDepartureSearch properties(List<RequestTimeMapProperty> properties) {
     this.properties = properties;
@@ -131,16 +135,17 @@ public class RequestTimeMapDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("properties")
   public List<RequestTimeMapProperty> getProperties() {
     return properties;
   }
+
   public void setProperties(List<RequestTimeMapProperty> properties) {
     this.properties = properties;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeMapDepartureSearch range(RequestRangeNoMaxResults range) {
     this.range = range;
@@ -148,15 +153,17 @@ public class RequestTimeMapDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("range")
   public RequestRangeNoMaxResults getRange() {
     return range;
   }
+
   public void setRange(RequestRangeNoMaxResults range) {
     this.range = range;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -207,5 +214,7 @@ public class RequestTimeMapDepartureSearch   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

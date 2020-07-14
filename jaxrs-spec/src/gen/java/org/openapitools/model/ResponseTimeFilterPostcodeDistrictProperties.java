@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterPostcodeDistrictProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterPostcodeDistrictProperties   {
   
   private @Valid ResponseTravelTimeStatistics travelTimeReachable;
   private @Valid ResponseTravelTimeStatistics travelTimeAll;
@@ -29,16 +28,17 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time_reachable")
   public ResponseTravelTimeStatistics getTravelTimeReachable() {
     return travelTimeReachable;
   }
+
   public void setTravelTimeReachable(ResponseTravelTimeStatistics travelTimeReachable) {
     this.travelTimeReachable = travelTimeReachable;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterPostcodeDistrictProperties travelTimeAll(ResponseTravelTimeStatistics travelTimeAll) {
     this.travelTimeAll = travelTimeAll;
@@ -46,16 +46,17 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time_all")
   public ResponseTravelTimeStatistics getTravelTimeAll() {
     return travelTimeAll;
   }
+
   public void setTravelTimeAll(ResponseTravelTimeStatistics travelTimeAll) {
     this.travelTimeAll = travelTimeAll;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterPostcodeDistrictProperties coverage(Double coverage) {
     this.coverage = coverage;
@@ -63,15 +64,17 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("coverage")
   public Double getCoverage() {
     return coverage;
   }
+
   public void setCoverage(Double coverage) {
     this.coverage = coverage;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -114,5 +117,7 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

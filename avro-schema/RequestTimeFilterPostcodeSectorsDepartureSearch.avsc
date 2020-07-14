@@ -1,0 +1,46 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilterPostcodeSectorsDepartureSearch",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "transportation",
+      "type": "model.RequestTransportation",
+      "doc": ""
+    },
+    {
+      "name": "travel_time",
+      "type": "int",
+      "doc": ""
+    },
+    {
+      "name": "departure_time",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "reachable_postcodes_threshold",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": {
+        "type": "array",
+        "items": "RequestTimeFilterPostcodeSectorsProperty"
+      },
+      "doc": ""
+    },
+    {
+      "name": "range",
+      "type": ["null", "model.RequestRangeFull"],
+      "doc": ""
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-## OpenAPI Auto-Generated [http-client](https://www.stackage.org/lts-10.0/package/http-client-0.5.7.1) Bindings to `TravelTime Platform API`
+## OpenAPI Auto-Generated [http-client](https://www.stackage.org/lts-10.0/package/http-client-0.5.7.1) Bindings to `TravelTime API`
 
-The library in `lib` provides auto-generated-from-OpenAPI [http-client](https://www.stackage.org/lts-10.0/package/http-client-0.5.7.1) bindings to the TravelTime Platform API API.
+The library in `lib` provides auto-generated-from-OpenAPI [http-client](https://www.stackage.org/lts-10.0/package/http-client-0.5.7.1) bindings to the TravelTime API API.
 
 OpenApi Version: 3.0.3
 
@@ -59,11 +59,11 @@ These options allow some customization of the code generation process.
 | allowFromJsonNulls              | allow JSON Null during model decoding from JSON                                                                               | true     | true              |
 | allowNonUniqueOperationIds      | allow *different* API modules to contain the same operationId. Each API must be imported qualified                            | false    | false    |
 | allowToJsonNulls                | allow emitting JSON Null during model encoding to JSON                                                                        | false    | false                |
-| baseModule                      | Set the base module namespace                                                                                                 |          | TravelTimePlatform                      |
-| cabalPackage                    | Set the cabal package name, which consists of one or more alphanumeric words separated by hyphens                             |          | traveltime-platform                    |
+| baseModule                      | Set the base module namespace                                                                                                 |          | TravelTime                      |
+| cabalPackage                    | Set the cabal package name, which consists of one or more alphanumeric words separated by hyphens                             |          | traveltime                    |
 | cabalVersion                    | Set the cabal version number, consisting of a sequence of one or more integers separated by dots                              | 0.1.0.0  | 0.1.0.0                    |
 | customTestInstanceModule        | test module used to provide typeclass instances for types not known by the generator                                          |          |         |
-| configType                      | Set the name of the type used for configuration                                                                               |          | TravelTimePlatformConfig                      |
+| configType                      | Set the name of the type used for configuration                                                                               |          | TravelTimeConfig                      |
 | dateFormat                      | format string used to parse/render a date                                                                                     | %Y-%m-%d | %Y-%m-%d                      |
 | dateTimeFormat                  | format string used to parse/render a datetime. (Defaults to [formatISO8601Millis][1] when not provided)                       |          |                   |
 | dateTimeParseFormat             | overrides the format string used to parse a datetime                                                                          |          |              |
@@ -73,16 +73,16 @@ These options allow some customization of the code generation process.
 | generateModelConstructors       | Generate smart constructors (only supply required fields) for models                                                          | true     | true       |
 | inlineMimeTypes                 | Inline (hardcode) the content-type and accept parameters on operations, when there is only 1 option                           | true     | true                 |
 | modelDeriving                   | Additional classes to include in the deriving() clause of Models                                                              |          |                    |
-| requestType                     | Set the name of the type used to generate requests                                                                            |          | TravelTimePlatformRequest                     |
+| requestType                     | Set the name of the type used to generate requests                                                                            |          | TravelTimeRequest                     |
 | strictFields                    | Add strictness annotations to all model fields                                                                                | true     | true                  |
 | useKatip                        | Sets the default value for the UseKatip cabal flag. If true, the katip package provides logging instead of monad-logger       | true     | true                      |
 
 [1]: https://www.stackage.org/haddock/lts-9.0/iso8601-time-0.1.4/Data-Time-ISO8601.html#v:formatISO8601Millis
 
-An example setting _strictFields_ and _dateTimeFormat_:
+An example setting _dateTimeFormat_ and _strictFields_:
 
 ```
-java -jar openapi-generator-cli.jar generate -i petstore.yaml -g haskell-http-client -o output/haskell-http-client -DstrictFields=true -DdateTimeFormat="%Y-%m-%dT%H:%M:%S%Q%z"
+java -jar openapi-generator-cli.jar generate -i petstore.yaml -g haskell-http-client -o output/haskell-http-client --additional-properties=dateTimeFormat="%Y-%m-%dT%H:%M:%S%Q%z" --additional-properties=strictFields=false 
 ```
 
 View the full list of Codegen "config option" parameters with the command:
@@ -111,13 +111,13 @@ This library is intended to be imported qualified.
 
 | MODULE              | NOTES                                               |
 | ------------------- | --------------------------------------------------- |
-| TravelTimePlatform.Client    | use the "dispatch" functions to send requests       |
-| TravelTimePlatform.Core      | core funcions, config and request types             |
-| TravelTimePlatform.API       | construct api requests                              |
-| TravelTimePlatform.Model     | describes api models                                |
-| TravelTimePlatform.MimeTypes | encoding/decoding MIME types (content-types/accept) |
-| TravelTimePlatform.ModelLens | lenses for model fields                             |
-| TravelTimePlatform.Logging   | logging functions and utils                         |
+| TravelTime.Client    | use the "dispatch" functions to send requests       |
+| TravelTime.Core      | core funcions, config and request types             |
+| TravelTime.API       | construct api requests                              |
+| TravelTime.Model     | describes api models                                |
+| TravelTime.MimeTypes | encoding/decoding MIME types (content-types/accept) |
+| TravelTime.ModelLens | lenses for model fields                             |
+| TravelTime.Logging   | logging functions and utils                         |
 
 
 ### MimeTypes

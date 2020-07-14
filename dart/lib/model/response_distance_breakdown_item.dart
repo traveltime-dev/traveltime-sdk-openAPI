@@ -6,7 +6,11 @@ class ResponseDistanceBreakdownItem {
   //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };{
   
   int distance = null;
-  ResponseDistanceBreakdownItem();
+
+  ResponseDistanceBreakdownItem({
+    this.mode,
+    this.distance,
+  });
 
   @override
   String toString() {

@@ -7,7 +7,12 @@ class ResponseTimeMapResult {
   List<ResponseShape> shapes = [];
   
   ResponseTimeMapProperties properties = null;
-  ResponseTimeMapResult();
+
+  ResponseTimeMapResult({
+    this.searchId,
+    this.shapes,
+    this.properties,
+  });
 
   @override
   String toString() {

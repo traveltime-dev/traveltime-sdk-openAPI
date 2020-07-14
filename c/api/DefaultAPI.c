@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "DefaultAPI.h"
 
-
+#define MAX_NUMBER_LENGTH 16
 #define MAX_BUFFER_LENGTH 4096
 #define intToStr(dst, src) \
     do {\
@@ -13,7 +13,7 @@
 
 
 response_geocoding_t*
-DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double lat, double lng, char * within.country)
+DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double lat , double lng , char * within.country )
 {
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
@@ -77,10 +77,10 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double lat, double lng
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)");
+        printf("%s\n","Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -93,6 +93,8 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double lat, double lng
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     list_free(localVarQueryParameters);
     
@@ -135,7 +137,7 @@ end:
 }
 
 response_geocoding_t*
-DefaultAPI_geocodingSearch(apiClient_t *apiClient, char * query, double focus.lat, double focus.lng, char * within.country)
+DefaultAPI_geocodingSearch(apiClient_t *apiClient, char * query , double focus.lat , double focus.lng , char * within.country )
 {
     list_t    *localVarQueryParameters = list_create();
     list_t    *localVarHeaderParameters = NULL;
@@ -211,10 +213,10 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char * query, double focus.la
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)");
+        printf("%s\n","Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -227,6 +229,8 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char * query, double focus.la
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     list_free(localVarQueryParameters);
     
@@ -309,10 +313,10 @@ DefaultAPI_mapInfo(apiClient_t *apiClient)
                     "GET");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)");
+        printf("%s\n","Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -325,6 +329,8 @@ DefaultAPI_mapInfo(apiClient_t *apiClient)
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -339,7 +345,7 @@ end:
 }
 
 response_routes_t*
-DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes)
+DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -377,10 +383,10 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes)
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)");
+        printf("%s\n","Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -393,6 +399,8 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes)
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -409,7 +417,7 @@ end:
 }
 
 response_supported_locations_t*
-DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_locations_t * request_supported_locations)
+DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_locations_t * request_supported_locations )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -447,10 +455,10 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)");
+        printf("%s\n","Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -463,6 +471,8 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -479,7 +489,7 @@ end:
 }
 
 response_time_filter_t*
-DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_time_filter)
+DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_time_filter )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -517,10 +527,10 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_ti
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)");
+        printf("%s\n","Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -533,6 +543,8 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_ti
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -549,7 +561,7 @@ end:
 }
 
 response_time_filter_fast_t*
-DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * request_time_filter_fast)
+DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * request_time_filter_fast )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -587,10 +599,10 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * r
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)");
+        printf("%s\n","A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -603,6 +615,8 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * r
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -619,7 +633,7 @@ end:
 }
 
 response_time_filter_postcode_districts_t*
-DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filter_postcode_districts_t * request_time_filter_postcode_districts)
+DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filter_postcode_districts_t * request_time_filter_postcode_districts )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -657,10 +671,10 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)");
+        printf("%s\n","Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -673,6 +687,8 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -689,7 +705,7 @@ end:
 }
 
 response_time_filter_postcode_sectors_t*
-DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter_postcode_sectors_t * request_time_filter_postcode_sectors)
+DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter_postcode_sectors_t * request_time_filter_postcode_sectors )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -727,10 +743,10 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)");
+        printf("%s\n","Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -743,6 +759,8 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -759,7 +777,7 @@ end:
 }
 
 response_time_filter_postcodes_t*
-DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postcodes_t * request_time_filter_postcodes)
+DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postcodes_t * request_time_filter_postcodes )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -797,10 +815,10 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)");
+        printf("%s\n","Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -813,6 +831,8 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     
@@ -829,7 +849,7 @@ end:
 }
 
 response_time_map_t*
-DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map)
+DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map )
 {
     list_t    *localVarQueryParameters = NULL;
     list_t    *localVarHeaderParameters = NULL;
@@ -870,10 +890,10 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map
                     "POST");
 
     if (apiClient->response_code == 200) {
-        printf("%s\n","Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)");
+        printf("%s\n","Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)");
     }
     if (apiClient->response_code == 0) {
-        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)");
+        printf("%s\n","The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)");
     }
     //nonprimitive not container
     cJSON *DefaultAPIlocalVarJSON = cJSON_Parse(apiClient->dataReceived);
@@ -886,6 +906,8 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map
     //return type
     if (apiClient->dataReceived) {
         free(apiClient->dataReceived);
+        apiClient->dataReceived = NULL;
+        apiClient->dataReceivedLen = 0;
     }
     
     

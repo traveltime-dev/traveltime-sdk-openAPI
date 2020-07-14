@@ -21,6 +21,9 @@ response_geocoding_geometry_t *response_geocoding_geometry_create(
 
 
 void response_geocoding_geometry_free(response_geocoding_geometry_t *response_geocoding_geometry) {
+    if(NULL == response_geocoding_geometry){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_geocoding_geometry->type);
     list_ForEach(listEntry, response_geocoding_geometry->coordinates) {

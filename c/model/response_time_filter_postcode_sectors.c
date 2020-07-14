@@ -19,6 +19,9 @@ response_time_filter_postcode_sectors_t *response_time_filter_postcode_sectors_c
 
 
 void response_time_filter_postcode_sectors_free(response_time_filter_postcode_sectors_t *response_time_filter_postcode_sectors) {
+    if(NULL == response_time_filter_postcode_sectors){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_filter_postcode_sectors->results) {
         response_time_filter_postcode_sectors_result_free(listEntry->data);

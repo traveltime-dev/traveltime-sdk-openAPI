@@ -1,6 +1,6 @@
 apply plugin: 'war'
 
-project.version = "1.0.0"
+project.version = "1.2.1"
 project.group = "org.openapitools"
 
 repositories {

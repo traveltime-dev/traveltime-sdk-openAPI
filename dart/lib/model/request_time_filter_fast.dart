@@ -5,7 +5,11 @@ class RequestTimeFilterFast {
   List<RequestLocation> locations = [];
   
   RequestTimeFilterFastArrivalSearches arrivalSearches = null;
-  RequestTimeFilterFast();
+
+  RequestTimeFilterFast({
+    this.locations,
+    this.arrivalSearches,
+  });
 
   @override
   String toString() {

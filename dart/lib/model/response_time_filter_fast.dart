@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeFilterFast {
   
   List<ResponseTimeFilterFastResult> results = [];
-  ResponseTimeFilterFast();
+
+  ResponseTimeFilterFast({
+    this.results,
+  });
 
   @override
   String toString() {

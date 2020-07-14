@@ -21,6 +21,9 @@ response_shape_t *response_shape_create(
 
 
 void response_shape_free(response_shape_t *response_shape) {
+    if(NULL == response_shape){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_shape->shell) {
         coords_free(listEntry->data);
@@ -70,10 +73,6 @@ cJSON *response_shape_convertToJSON(response_shape_t *response_shape) {
 
     listEntry_t *holesListEntry;
     list_ForEach(holesListEntry, response_shape->holes) {
-    if(cJSON_AddNumberToObject(holes, "", *(double *)holesListEntry->data) == NULL)
-    {
-        goto fail;
-    }
     }
 
     return item;
@@ -129,11 +128,6 @@ response_shape_t *response_shape_parseFromJSON(cJSON *response_shapeJSON){
 
     cJSON_ArrayForEach(holes_local, holes)
     {
-        if(!cJSON_IsNumber(holes_local))
-        {
-            goto end;
-        }
-        list_addElement(holesList , &holes_local->valuedouble);
     }
 
 

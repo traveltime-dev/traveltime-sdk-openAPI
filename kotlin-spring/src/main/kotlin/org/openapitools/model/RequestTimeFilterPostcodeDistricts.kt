@@ -19,9 +19,9 @@ import javax.validation.constraints.Size
  */
 data class RequestTimeFilterPostcodeDistricts(
 @get:Size(max=10) 
-    @JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeFilterPostcodeDistrictsDepartureSearch>? = null,
+    @field:JsonProperty("departure_searches") val departureSearches: kotlin.collections.List<RequestTimeFilterPostcodeDistrictsDepartureSearch>? = null,
 @get:Size(max=10) 
-    @JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeFilterPostcodeDistrictsArrivalSearch>? = null
+    @field:JsonProperty("arrival_searches") val arrivalSearches: kotlin.collections.List<RequestTimeFilterPostcodeDistrictsArrivalSearch>? = null
 ) {
 
 }

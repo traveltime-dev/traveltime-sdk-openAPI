@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **searchId** | **kotlin.String** |  | 
-**districts** | [**kotlin.Array&lt;ResponseTimeFilterPostcodeDistrict&gt;**](ResponseTimeFilterPostcodeDistrict.md) |  | 
+**districts** | [**kotlin.collections.List&lt;ResponseTimeFilterPostcodeDistrict&gt;**](ResponseTimeFilterPostcodeDistrict.md) |  | 
 
 
 

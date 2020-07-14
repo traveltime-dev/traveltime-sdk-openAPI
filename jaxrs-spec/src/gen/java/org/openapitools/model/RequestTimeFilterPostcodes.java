@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterPostcodes   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterPostcodes   {
   
   private @Valid List<RequestTimeFilterPostcodesDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterPostcodesDepartureSearch>();
   private @Valid List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterPostcodesArrivalSearch>();
@@ -31,16 +30,17 @@ public class RequestTimeFilterPostcodes   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
  @Size(max=10)  public List<RequestTimeFilterPostcodesDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
+
   public void setDepartureSearches(List<RequestTimeFilterPostcodesDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterPostcodes arrivalSearches(List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -48,15 +48,17 @@ public class RequestTimeFilterPostcodes   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
  @Size(max=10)  public List<RequestTimeFilterPostcodesArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
+
   public void setArrivalSearches(List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,5 +99,7 @@ public class RequestTimeFilterPostcodes   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

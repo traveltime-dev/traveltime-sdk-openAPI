@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**kotlin.Array&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
-**departureSearches** | [**kotlin.Array&lt;RequestTimeFilterDepartureSearch&gt;**](RequestTimeFilterDepartureSearch.md) |  |  [optional]
-**arrivalSearches** | [**kotlin.Array&lt;RequestTimeFilterArrivalSearch&gt;**](RequestTimeFilterArrivalSearch.md) |  |  [optional]
+**locations** | [**kotlin.collections.List&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
+**departureSearches** | [**kotlin.collections.List&lt;RequestTimeFilterDepartureSearch&gt;**](RequestTimeFilterDepartureSearch.md) |  |  [optional]
+**arrivalSearches** | [**kotlin.collections.List&lt;RequestTimeFilterArrivalSearch&gt;**](RequestTimeFilterArrivalSearch.md) |  |  [optional]
 
 
 

@@ -33,7 +33,25 @@ class ResponseGeocodingProperties {
   String postcode = null;
   
   ResponseMapInfoFeatures features = null;
-  ResponseGeocodingProperties();
+
+  ResponseGeocodingProperties({
+    this.name,
+    this.label,
+    this.score,
+    this.houseNumber,
+    this.street,
+    this.region,
+    this.regionCode,
+    this.neighbourhood,
+    this.county,
+    this.macroregion,
+    this.city,
+    this.country,
+    this.countryCode,
+    this.continent,
+    this.postcode,
+    this.features,
+  });
 
   @override
   String toString() {

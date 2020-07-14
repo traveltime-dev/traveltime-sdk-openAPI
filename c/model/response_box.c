@@ -25,6 +25,9 @@ response_box_t *response_box_create(
 
 
 void response_box_free(response_box_t *response_box) {
+    if(NULL == response_box){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_box);
 }

@@ -1,0 +1,18 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseMapInfoMap",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "features",
+      "type": "model.ResponseMapInfoFeatures",
+      "doc": ""
+    }
+  ]
+}

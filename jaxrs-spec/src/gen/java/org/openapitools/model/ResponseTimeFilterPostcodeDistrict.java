@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterPostcodeDistrict   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterPostcodeDistrict   {
   
   private @Valid String code = null;
   private @Valid ResponseTimeFilterPostcodeDistrictProperties properties;
@@ -28,22 +27,25 @@ public class ResponseTimeFilterPostcodeDistrict   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("code")
   @NotNull
   public String getCode() {
     return code;
   }
+
   public void setCode(String code) {
     this.code = code;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterPostcodeDistrict properties(ResponseTimeFilterPostcodeDistrictProperties properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -52,10 +54,10 @@ public class ResponseTimeFilterPostcodeDistrict   {
   public ResponseTimeFilterPostcodeDistrictProperties getProperties() {
     return properties;
   }
+
   public void setProperties(ResponseTimeFilterPostcodeDistrictProperties properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,5 +98,7 @@ public class ResponseTimeFilterPostcodeDistrict   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

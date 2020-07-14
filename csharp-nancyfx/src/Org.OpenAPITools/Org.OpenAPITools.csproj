@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{6A3889EE-FA1F-47A5-90EA-BBF093403ADE}</ProjectGuid>
+        <ProjectGuid>{2A48EFF3-318B-4480-ADE4-17D84ED6FDA9}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
         <RootNamespace>Org.OpenAPITools._</RootNamespace>

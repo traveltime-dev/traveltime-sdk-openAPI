@@ -18,7 +18,7 @@ mvn package
 
 for build jar, then start your server: 
 ```
-java -jar target/openapi-jaxrs-server-1.0.0.jar
+java -jar target/openapi-jaxrs-server-1.2.1.jar
 ```
 
 Java Microservice listening on default port 9090.

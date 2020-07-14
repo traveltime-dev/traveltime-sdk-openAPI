@@ -23,6 +23,9 @@ response_time_filter_postcode_sector_properties_t *response_time_filter_postcode
 
 
 void response_time_filter_postcode_sector_properties_free(response_time_filter_postcode_sector_properties_t *response_time_filter_postcode_sector_properties) {
+    if(NULL == response_time_filter_postcode_sector_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     response_travel_time_statistics_free(response_time_filter_postcode_sector_properties->travel_time_reachable);
     response_travel_time_statistics_free(response_time_filter_postcode_sector_properties->travel_time_all);

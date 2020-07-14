@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseMapInfoFeaturesPublicTransport   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseMapInfoFeaturesPublicTransport   {
   
   private @Valid Date dateStart;
   private @Valid Date dateEnd;
@@ -28,22 +27,25 @@ public class ResponseMapInfoFeaturesPublicTransport   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("date_start")
   @NotNull
   public Date getDateStart() {
     return dateStart;
   }
+
   public void setDateStart(Date dateStart) {
     this.dateStart = dateStart;
-  }
-
-  /**
+  }/**
    **/
   public ResponseMapInfoFeaturesPublicTransport dateEnd(Date dateEnd) {
     this.dateEnd = dateEnd;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -52,10 +54,10 @@ public class ResponseMapInfoFeaturesPublicTransport   {
   public Date getDateEnd() {
     return dateEnd;
   }
+
   public void setDateEnd(Date dateEnd) {
     this.dateEnd = dateEnd;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,5 +98,7 @@ public class ResponseMapInfoFeaturesPublicTransport   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

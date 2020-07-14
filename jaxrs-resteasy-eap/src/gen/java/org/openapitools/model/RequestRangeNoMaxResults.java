@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestRangeNoMaxResults   {
   
 
@@ -38,9 +38,7 @@ public class RequestRangeNoMaxResults   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("width")
   @NotNull
-  @Min(1)
-  @Max(43200)
-  public Integer getWidth() {
+ @Min(1) @Max(43200)  public Integer getWidth() {
     return width;
   }
   public void setWidth(Integer width) {

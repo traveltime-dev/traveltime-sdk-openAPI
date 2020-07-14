@@ -5,7 +5,11 @@ class ResponseBoundingBox {
   ResponseBox envelope = null;
   
   List<ResponseBox> boxes = [];
-  ResponseBoundingBox();
+
+  ResponseBoundingBox({
+    this.envelope,
+    this.boxes,
+  });
 
   @override
   String toString() {

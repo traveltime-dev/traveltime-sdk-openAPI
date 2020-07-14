@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterFastArrivalSearches   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterFastArrivalSearches   {
   
   private @Valid List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = new ArrayList<RequestTimeFilterFastArrivalManyToOneSearch>();
   private @Valid List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = new ArrayList<RequestTimeFilterFastArrivalOneToManySearch>();
@@ -31,16 +30,17 @@ public class RequestTimeFilterFastArrivalSearches   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("many_to_one")
  @Size(max=10)  public List<RequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() {
     return manyToOne;
   }
+
   public void setManyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {
     this.manyToOne = manyToOne;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalSearches oneToMany(List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany) {
     this.oneToMany = oneToMany;
@@ -48,15 +48,17 @@ public class RequestTimeFilterFastArrivalSearches   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("one_to_many")
  @Size(max=10)  public List<RequestTimeFilterFastArrivalOneToManySearch> getOneToMany() {
     return oneToMany;
   }
+
   public void setOneToMany(List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany) {
     this.oneToMany = oneToMany;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,5 +99,7 @@ public class RequestTimeFilterFastArrivalSearches   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

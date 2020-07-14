@@ -21,6 +21,9 @@ response_time_filter_fast_properties_t *response_time_filter_fast_properties_cre
 
 
 void response_time_filter_fast_properties_free(response_time_filter_fast_properties_t *response_time_filter_fast_properties) {
+    if(NULL == response_time_filter_fast_properties){
+        return ;
+    }
     listEntry_t *listEntry;
     response_fares_fast_free(response_time_filter_fast_properties->fares);
     free(response_time_filter_fast_properties);

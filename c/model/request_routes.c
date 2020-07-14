@@ -23,6 +23,9 @@ request_routes_t *request_routes_create(
 
 
 void request_routes_free(request_routes_t *request_routes) {
+    if(NULL == request_routes){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_routes->locations) {
         request_location_free(listEntry->data);

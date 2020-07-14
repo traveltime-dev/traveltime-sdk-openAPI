@@ -16,7 +16,16 @@ class RequestTimeFilterFastArrivalOneToManySearch {
   //enum arrivalTimePeriodEnum {  weekday_morning,  };{
   
   List<RequestTimeFilterFastProperty> properties = [];
-  RequestTimeFilterFastArrivalOneToManySearch();
+
+  RequestTimeFilterFastArrivalOneToManySearch({
+    this.id,
+    this.departureLocationId,
+    this.arrivalLocationIds,
+    this.transportation,
+    this.travelTime,
+    this.arrivalTimePeriod,
+    this.properties,
+  });
 
   @override
   String toString() {

@@ -8,9 +8,9 @@ api.instance <- DefaultApi$new()
 test_that("GeocodingReverseSearch", {
   # tests for GeocodingReverseSearch
   # base path: https://api.traveltimeapp.com
-  # @param numeric  lat   
-  # @param numeric  lng   
-  # @param character  within.country    (optional)
+  # @param lat numeric 
+  # @param lng numeric 
+  # @param within.country character  (optional)
   # @return [ResponseGeocoding]
 
   # uncomment below to test the operation
@@ -20,10 +20,10 @@ test_that("GeocodingReverseSearch", {
 test_that("GeocodingSearch", {
   # tests for GeocodingSearch
   # base path: https://api.traveltimeapp.com
-  # @param character  query   
-  # @param numeric  focus.lat    (optional)
-  # @param numeric  focus.lng    (optional)
-  # @param character  within.country    (optional)
+  # @param query character 
+  # @param focus.lat numeric  (optional)
+  # @param focus.lng numeric  (optional)
+  # @param within.country character  (optional)
   # @return [ResponseGeocoding]
 
   # uncomment below to test the operation
@@ -42,7 +42,7 @@ test_that("MapInfo", {
 test_that("Routes", {
   # tests for Routes
   # base path: https://api.traveltimeapp.com
-  # @param RequestRoutes  request.routes   
+  # @param request.routes RequestRoutes 
   # @return [ResponseRoutes]
 
   # uncomment below to test the operation
@@ -52,7 +52,7 @@ test_that("Routes", {
 test_that("SupportedLocations", {
   # tests for SupportedLocations
   # base path: https://api.traveltimeapp.com
-  # @param RequestSupportedLocations  request.supported.locations   
+  # @param request.supported.locations RequestSupportedLocations 
   # @return [ResponseSupportedLocations]
 
   # uncomment below to test the operation
@@ -62,7 +62,7 @@ test_that("SupportedLocations", {
 test_that("TimeFilter", {
   # tests for TimeFilter
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeFilter  request.time.filter   
+  # @param request.time.filter RequestTimeFilter 
   # @return [ResponseTimeFilter]
 
   # uncomment below to test the operation
@@ -72,7 +72,7 @@ test_that("TimeFilter", {
 test_that("TimeFilterFast", {
   # tests for TimeFilterFast
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeFilterFast  request.time.filter.fast   
+  # @param request.time.filter.fast RequestTimeFilterFast 
   # @return [ResponseTimeFilterFast]
 
   # uncomment below to test the operation
@@ -82,7 +82,7 @@ test_that("TimeFilterFast", {
 test_that("TimeFilterPostcodeDistricts", {
   # tests for TimeFilterPostcodeDistricts
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeFilterPostcodeDistricts  request.time.filter.postcode.districts   
+  # @param request.time.filter.postcode.districts RequestTimeFilterPostcodeDistricts 
   # @return [ResponseTimeFilterPostcodeDistricts]
 
   # uncomment below to test the operation
@@ -92,7 +92,7 @@ test_that("TimeFilterPostcodeDistricts", {
 test_that("TimeFilterPostcodeSectors", {
   # tests for TimeFilterPostcodeSectors
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeFilterPostcodeSectors  request.time.filter.postcode.sectors   
+  # @param request.time.filter.postcode.sectors RequestTimeFilterPostcodeSectors 
   # @return [ResponseTimeFilterPostcodeSectors]
 
   # uncomment below to test the operation
@@ -102,7 +102,7 @@ test_that("TimeFilterPostcodeSectors", {
 test_that("TimeFilterPostcodes", {
   # tests for TimeFilterPostcodes
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeFilterPostcodes  request.time.filter.postcodes   
+  # @param request.time.filter.postcodes RequestTimeFilterPostcodes 
   # @return [ResponseTimeFilterPostcodes]
 
   # uncomment below to test the operation
@@ -112,7 +112,7 @@ test_that("TimeFilterPostcodes", {
 test_that("TimeMap", {
   # tests for TimeMap
   # base path: https://api.traveltimeapp.com
-  # @param RequestTimeMap  request.time.map   
+  # @param request.time.map RequestTimeMap 
   # @return [ResponseTimeMap]
 
   # uncomment below to test the operation

@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseError   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseError   {
   
   private @Valid Integer httpStatus;
   private @Valid Integer errorCode;
@@ -33,16 +32,17 @@ public class ResponseError   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("http_status")
   public Integer getHttpStatus() {
     return httpStatus;
   }
+
   public void setHttpStatus(Integer httpStatus) {
     this.httpStatus = httpStatus;
-  }
-
-  /**
+  }/**
    **/
   public ResponseError errorCode(Integer errorCode) {
     this.errorCode = errorCode;
@@ -50,16 +50,17 @@ public class ResponseError   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("error_code")
   public Integer getErrorCode() {
     return errorCode;
   }
+
   public void setErrorCode(Integer errorCode) {
     this.errorCode = errorCode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseError description(String description) {
     this.description = description;
@@ -67,16 +68,17 @@ public class ResponseError   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("description")
   public String getDescription() {
     return description;
   }
+
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  /**
+  }/**
    **/
   public ResponseError documentationLink(String documentationLink) {
     this.documentationLink = documentationLink;
@@ -84,16 +86,17 @@ public class ResponseError   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("documentation_link")
   public String getDocumentationLink() {
     return documentationLink;
   }
+
   public void setDocumentationLink(String documentationLink) {
     this.documentationLink = documentationLink;
-  }
-
-  /**
+  }/**
    **/
   public ResponseError additionalInfo(Map<String, List<String>> additionalInfo) {
     this.additionalInfo = additionalInfo;
@@ -101,15 +104,17 @@ public class ResponseError   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("additional_info")
   public Map<String, List<String>> getAdditionalInfo() {
     return additionalInfo;
   }
+
   public void setAdditionalInfo(Map<String, List<String>> additionalInfo) {
     this.additionalInfo = additionalInfo;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,5 +161,7 @@ public class ResponseError   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

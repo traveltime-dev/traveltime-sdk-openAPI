@@ -19,6 +19,9 @@ request_supported_locations_t *request_supported_locations_create(
 
 
 void request_supported_locations_free(request_supported_locations_t *request_supported_locations) {
+    if(NULL == request_supported_locations){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_supported_locations->locations) {
         request_location_free(listEntry->data);

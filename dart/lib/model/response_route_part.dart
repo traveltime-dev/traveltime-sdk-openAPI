@@ -35,7 +35,25 @@ class ResponseRoutePart {
   String arrivesAt = null;
   
   int numStops = null;
-  ResponseRoutePart();
+
+  ResponseRoutePart({
+    this.id,
+    this.type,
+    this.mode,
+    this.directions,
+    this.distance,
+    this.travelTime,
+    this.coords,
+    this.direction,
+    this.road,
+    this.turn,
+    this.line,
+    this.departureStation,
+    this.arrivalStation,
+    this.departsAt,
+    this.arrivesAt,
+    this.numStops,
+  });
 
   @override
   String toString() {

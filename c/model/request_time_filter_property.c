@@ -4,12 +4,12 @@
 #include "request_time_filter_property.h"
 
 
-char* request_time_filter_property_request_time_filter_property_ToString(traveltime_platform_api_request_time_filter_property__e request_time_filter_property) {
+char* request_time_filter_property_request_time_filter_property_ToString(traveltime_api_request_time_filter_property__e request_time_filter_property) {
     char *request_time_filter_propertyArray[] =  { "NULL", "travel_time", "distance", "distance_breakdown", "fares", "route" };
     return request_time_filter_propertyArray[request_time_filter_property];
 }
 
-traveltime_platform_api_request_time_filter_property__e request_time_filter_property_request_time_filter_property_FromString(char* request_time_filter_property) {
+traveltime_api_request_time_filter_property__e request_time_filter_property_request_time_filter_property_FromString(char* request_time_filter_property) {
     int stringToReturn = 0;
     char *request_time_filter_propertyArray[] =  { "NULL", "travel_time", "distance", "distance_breakdown", "fares", "route" };
     size_t sizeofArray = sizeof(request_time_filter_propertyArray) / sizeof(request_time_filter_propertyArray[0]);
@@ -22,7 +22,7 @@ traveltime_platform_api_request_time_filter_property__e request_time_filter_prop
     return 0;
 }
 
-cJSON *request_time_filter_property_request_time_filter_property_convertToJSON(traveltime_platform_api_request_time_filter_property__e request_time_filter_property) {
+cJSON *request_time_filter_property_request_time_filter_property_convertToJSON(traveltime_api_request_time_filter_property__e request_time_filter_property) {
     cJSON *item = cJSON_CreateObject();
     if(cJSON_AddStringToObject(item, "request_time_filter_property", request_time_filter_property_request_time_filter_property_ToString(request_time_filter_property)) == NULL) {
         goto fail;

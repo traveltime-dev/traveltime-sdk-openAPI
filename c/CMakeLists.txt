@@ -8,7 +8,20 @@ set(CMAKE_CXX_VISIBILITY_PRESET default)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN OFF)
 set(CMAKE_BUILD_TYPE Debug)
 
-set(pkgName "traveltime_platform_api")
+find_package(OpenSSL)
+
+if (OPENSSL_FOUND)
+	message (STATUS "OPENSSL found")
+	set (CMAKE_C_FLAGS "-DOPENSSL")
+	include_directories(${OPENSSL_INCLUDE_DIR})
+	include_directories(${OPENSSL_INCLUDE_DIRS})
+	link_directories(${OPENSSL_LIBRARIES})
+	message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
+else() 
+	message (STATUS "OpenSSL Not found.")
+endif()
+
+set(pkgName "traveltime_api")
 
 find_package(CURL 7.58.0 REQUIRED)
 if(CURL_FOUND)
@@ -22,6 +35,7 @@ set(SRCS
     src/list.c
     src/apiKey.c
     src/apiClient.c
+    src/binary.c
     external/cJSON.c
     model/object.c
     model/coords.c
@@ -123,6 +137,7 @@ set(SRCS
 set(HDRS
     include/apiClient.h
     include/list.h
+    include/binary.h
     include/keyValuePair.h
     external/cJSON.h
     model/object.h

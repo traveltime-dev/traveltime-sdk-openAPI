@@ -14,7 +14,7 @@ import org.openapitools.model.RequestRoutesDepartureSearch;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestRoutes   {
   
 
@@ -30,8 +30,7 @@ public class RequestRoutes   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
-  @Size(min=1)
-  public List<RequestLocation> getLocations() {
+ @Size(min=1)  public List<RequestLocation> getLocations() {
     return locations;
   }
   public void setLocations(List<RequestLocation> locations) {
@@ -43,8 +42,7 @@ public class RequestRoutes   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
-  @Size(max=10)
-  public List<RequestRoutesDepartureSearch> getDepartureSearches() {
+ @Size(max=10)  public List<RequestRoutesDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
   public void setDepartureSearches(List<RequestRoutesDepartureSearch> departureSearches) {
@@ -56,8 +54,7 @@ public class RequestRoutes   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
-  @Size(max=10)
-  public List<RequestRoutesArrivalSearch> getArrivalSearches() {
+ @Size(max=10)  public List<RequestRoutesArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
   public void setArrivalSearches(List<RequestRoutesArrivalSearch> arrivalSearches) {

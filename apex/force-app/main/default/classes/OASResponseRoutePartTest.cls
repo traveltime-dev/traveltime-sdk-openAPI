@@ -72,14 +72,14 @@ private class OASResponseRoutePartTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseRoutePart responseRoutePart = new OASResponseRoutePart();
-        Map<String, String> propertyMappings = responseRoutePart.getPropertyMappings();
-        System.assertEquals('r_type', propertyMappings.get('type'));
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
-        System.assertEquals('departureStation', propertyMappings.get('departure_station'));
-        System.assertEquals('arrivalStation', propertyMappings.get('arrival_station'));
-        System.assertEquals('departsAt', propertyMappings.get('departs_at'));
-        System.assertEquals('arrivesAt', propertyMappings.get('arrives_at'));
-        System.assertEquals('numStops', propertyMappings.get('num_stops'));
+        Map<String, String> x-property-mappings = responseRoutePart.getx-property-mappings();
+        System.assertEquals('r_type', x-property-mappings.get('type'));
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
+        System.assertEquals('departureStation', x-property-mappings.get('departure_station'));
+        System.assertEquals('arrivalStation', x-property-mappings.get('arrival_station'));
+        System.assertEquals('departsAt', x-property-mappings.get('departs_at'));
+        System.assertEquals('arrivesAt', x-property-mappings.get('arrives_at'));
+        System.assertEquals('numStops', x-property-mappings.get('num_stops'));
     }
 
     @isTest

@@ -13,8 +13,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseDistanceBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-03-18T08:51:54.244Z[Etc/UTC]")
-
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-14T11:29:24.850Z[Etc/UTC]")
 public class ResponseDistanceBreakdownItem   {
   @JsonProperty("mode")
   private ResponseTransportationMode mode;

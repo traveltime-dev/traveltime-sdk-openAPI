@@ -72,7 +72,7 @@ private class OASResponseSupportedLocationTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseSupportedLocation responseSupportedLocation = new OASResponseSupportedLocation();
-        Map<String, String> propertyMappings = responseSupportedLocation.getPropertyMappings();
-        System.assertEquals('mapName', propertyMappings.get('map_name'));
+        Map<String, String> x-property-mappings = responseSupportedLocation.getx-property-mappings();
+        System.assertEquals('mapName', x-property-mappings.get('map_name'));
     }
 }

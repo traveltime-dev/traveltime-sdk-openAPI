@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseGeocoding   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseGeocoding   {
   
   private @Valid String type;
   private @Valid List<ResponseGeocodingGeoJsonFeature> features = new ArrayList<ResponseGeocodingGeoJsonFeature>();
@@ -30,22 +29,25 @@ public class ResponseGeocoding   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("type")
   @NotNull
   public String getType() {
     return type;
   }
+
   public void setType(String type) {
     this.type = type;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocoding features(List<ResponseGeocodingGeoJsonFeature> features) {
     this.features = features;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseGeocoding   {
   public List<ResponseGeocodingGeoJsonFeature> getFeatures() {
     return features;
   }
+
   public void setFeatures(List<ResponseGeocodingGeoJsonFeature> features) {
     this.features = features;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseGeocoding   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

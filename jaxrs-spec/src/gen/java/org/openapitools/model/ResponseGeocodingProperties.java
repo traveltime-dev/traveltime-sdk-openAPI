@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseGeocodingProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseGeocodingProperties   {
   
   private @Valid String name;
   private @Valid String label;
@@ -42,22 +41,25 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("name")
   @NotNull
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties label(String label) {
     this.label = label;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -66,11 +68,10 @@ public class ResponseGeocodingProperties   {
   public String getLabel() {
     return label;
   }
+
   public void setLabel(String label) {
     this.label = label;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties score(Double score) {
     this.score = score;
@@ -78,16 +79,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("score")
   public Double getScore() {
     return score;
   }
+
   public void setScore(Double score) {
     this.score = score;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties houseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
@@ -95,16 +97,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("house_number")
   public String getHouseNumber() {
     return houseNumber;
   }
+
   public void setHouseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties street(String street) {
     this.street = street;
@@ -112,16 +115,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("street")
   public String getStreet() {
     return street;
   }
+
   public void setStreet(String street) {
     this.street = street;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties region(String region) {
     this.region = region;
@@ -129,16 +133,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("region")
   public String getRegion() {
     return region;
   }
+
   public void setRegion(String region) {
     this.region = region;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties regionCode(String regionCode) {
     this.regionCode = regionCode;
@@ -146,16 +151,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("region_code")
   public String getRegionCode() {
     return regionCode;
   }
+
   public void setRegionCode(String regionCode) {
     this.regionCode = regionCode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties neighbourhood(String neighbourhood) {
     this.neighbourhood = neighbourhood;
@@ -163,16 +169,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("neighbourhood")
   public String getNeighbourhood() {
     return neighbourhood;
   }
+
   public void setNeighbourhood(String neighbourhood) {
     this.neighbourhood = neighbourhood;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties county(String county) {
     this.county = county;
@@ -180,16 +187,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("county")
   public String getCounty() {
     return county;
   }
+
   public void setCounty(String county) {
     this.county = county;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties macroregion(String macroregion) {
     this.macroregion = macroregion;
@@ -197,16 +205,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("macroregion")
   public String getMacroregion() {
     return macroregion;
   }
+
   public void setMacroregion(String macroregion) {
     this.macroregion = macroregion;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties city(String city) {
     this.city = city;
@@ -214,16 +223,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("city")
   public String getCity() {
     return city;
   }
+
   public void setCity(String city) {
     this.city = city;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties country(String country) {
     this.country = country;
@@ -231,16 +241,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("country")
   public String getCountry() {
     return country;
   }
+
   public void setCountry(String country) {
     this.country = country;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties countryCode(String countryCode) {
     this.countryCode = countryCode;
@@ -248,16 +259,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("country_code")
   public String getCountryCode() {
     return countryCode;
   }
+
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties continent(String continent) {
     this.continent = continent;
@@ -265,16 +277,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("continent")
   public String getContinent() {
     return continent;
   }
+
   public void setContinent(String continent) {
     this.continent = continent;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties postcode(String postcode) {
     this.postcode = postcode;
@@ -282,16 +295,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("postcode")
   public String getPostcode() {
     return postcode;
   }
+
   public void setPostcode(String postcode) {
     this.postcode = postcode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseGeocodingProperties features(ResponseMapInfoFeatures features) {
     this.features = features;
@@ -299,15 +313,17 @@ public class ResponseGeocodingProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("features")
   public ResponseMapInfoFeatures getFeatures() {
     return features;
   }
+
   public void setFeatures(ResponseMapInfoFeatures features) {
     this.features = features;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -376,5 +392,7 @@ public class ResponseGeocodingProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

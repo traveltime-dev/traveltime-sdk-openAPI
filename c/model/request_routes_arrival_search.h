@@ -11,17 +11,21 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct request_routes_arrival_search_t request_routes_arrival_search_t;
+
 #include "request_range_full.h"
 #include "request_routes_property.h"
 #include "request_transportation.h"
 
 // Enum  for request_routes_arrival_search
 
-typedef enum  { traveltime_platform_api_request_routes_arrival_search__NULL = 0, traveltime_platform_api_request_routes_arrival_search__travel_time, traveltime_platform_api_request_routes_arrival_search__distance, traveltime_platform_api_request_routes_arrival_search__fares, traveltime_platform_api_request_routes_arrival_search__route } traveltime_platform_api_request_routes_arrival_search__e;
+typedef enum  { traveltime_api_request_routes_arrival_search__NULL = 0, traveltime_api_request_routes_arrival_search__travel_time, traveltime_api_request_routes_arrival_search__distance, traveltime_api_request_routes_arrival_search__fares, traveltime_api_request_routes_arrival_search__route } traveltime_api_request_routes_arrival_search__e;
 
-char* request_routes_arrival_search_properties_ToString(traveltime_platform_api_request_routes_arrival_search__e properties);
+char* request_routes_arrival_search_properties_ToString(traveltime_api_request_routes_arrival_search__e properties);
 
-traveltime_platform_api_request_routes_arrival_search__e request_routes_arrival_search_properties_FromString(char* properties);
+traveltime_api_request_routes_arrival_search__e request_routes_arrival_search_properties_FromString(char* properties);
 
 
 

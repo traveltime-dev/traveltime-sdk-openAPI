@@ -72,7 +72,7 @@ private class OASResponseTimeMapWktResultTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeMapWktResult responseTimeMapWktResult = new OASResponseTimeMapWktResult();
-        Map<String, String> propertyMappings = responseTimeMapWktResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
+        Map<String, String> x-property-mappings = responseTimeMapWktResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
     }
 }

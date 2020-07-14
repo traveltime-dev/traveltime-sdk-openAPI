@@ -36,10 +36,10 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -54,13 +54,19 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///double lat  (required):
+  ///    
+  ///double lng  (required):
+  ///    
+  ///String withinCountry :
+  ///    
   /// 
   Future<ResponseGeocoding> geocodingReverseSearch(double lat, double lng, { String withinCountry }) async {
     Response response = await geocodingReverseSearchWithHttpInfo(lat, lng,  withinCountry: withinCountry );
@@ -104,10 +110,10 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -122,13 +128,21 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///String query  (required):
+  ///    
+  ///double focusLat :
+  ///    
+  ///double focusLng :
+  ///    
+  ///String withinCountry :
+  ///    
   /// 
   Future<ResponseGeocoding> geocodingSearch(String query, { double focusLat, double focusLng, String withinCountry }) async {
     Response response = await geocodingSearchWithHttpInfo(query,  focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry );
@@ -159,10 +173,10 @@ class DefaultApi {
 
     List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -177,7 +191,7 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
@@ -217,10 +231,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -235,13 +249,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestRoutes requestRoutes  (required):
+  ///    
   /// 
   Future<ResponseRoutes> routes(RequestRoutes requestRoutes) async {
     Response response = await routesWithHttpInfo(requestRoutes);
@@ -275,10 +291,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -293,13 +309,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestSupportedLocations requestSupportedLocations  (required):
+  ///    
   /// 
   Future<ResponseSupportedLocations> supportedLocations(RequestSupportedLocations requestSupportedLocations) async {
     Response response = await supportedLocationsWithHttpInfo(requestSupportedLocations);
@@ -333,10 +351,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -351,13 +369,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeFilter requestTimeFilter  (required):
+  ///    
   /// 
   Future<ResponseTimeFilter> timeFilter(RequestTimeFilter requestTimeFilter) async {
     Response response = await timeFilterWithHttpInfo(requestTimeFilter);
@@ -391,10 +411,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -409,13 +429,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeFilterFast requestTimeFilterFast  (required):
+  ///    
   /// 
   Future<ResponseTimeFilterFast> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) async {
     Response response = await timeFilterFastWithHttpInfo(requestTimeFilterFast);
@@ -449,10 +471,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -467,13 +489,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts  (required):
+  ///    
   /// 
   Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
     Response response = await timeFilterPostcodeDistrictsWithHttpInfo(requestTimeFilterPostcodeDistricts);
@@ -507,10 +531,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -525,13 +549,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors  (required):
+  ///    
   /// 
   Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
     Response response = await timeFilterPostcodeSectorsWithHttpInfo(requestTimeFilterPostcodeSectors);
@@ -565,10 +591,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -583,13 +609,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeFilterPostcodes requestTimeFilterPostcodes  (required):
+  ///    
   /// 
   Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
     Response response = await timeFilterPostcodesWithHttpInfo(requestTimeFilterPostcodes);
@@ -623,10 +651,10 @@ class DefaultApi {
 
     List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
     List<String> authNames = ["ApiKey", "ApplicationId"];
 
-    if(contentType.startsWith("multipart/form-data")) {
+    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
       bool hasFields = false;
       MultipartRequest mp = MultipartRequest(null, null);
       if(hasFields)
@@ -641,13 +669,15 @@ class DefaultApi {
                                              postBody,
                                              headerParams,
                                              formParams,
-                                             contentType,
+                                             nullableContentType,
                                              authNames);
     return response;
   }
 
   /// 
   ///
+  ///RequestTimeMap requestTimeMap  (required):
+  ///    
   /// 
   Future<ResponseTimeMap> timeMap(RequestTimeMap requestTimeMap) async {
     Response response = await timeMapWithHttpInfo(requestTimeMap);

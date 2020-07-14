@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseSupportedLocations   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseSupportedLocations   {
   
   private @Valid List<ResponseSupportedLocation> locations = new ArrayList<ResponseSupportedLocation>();
   private @Valid List<String> unsupportedLocations = new ArrayList<String>();
@@ -30,22 +29,25 @@ public class ResponseSupportedLocations   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
   public List<ResponseSupportedLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<ResponseSupportedLocation> locations) {
     this.locations = locations;
-  }
-
-  /**
+  }/**
    **/
   public ResponseSupportedLocations unsupportedLocations(List<String> unsupportedLocations) {
     this.unsupportedLocations = unsupportedLocations;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseSupportedLocations   {
   public List<String> getUnsupportedLocations() {
     return unsupportedLocations;
   }
+
   public void setUnsupportedLocations(List<String> unsupportedLocations) {
     this.unsupportedLocations = unsupportedLocations;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseSupportedLocations   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

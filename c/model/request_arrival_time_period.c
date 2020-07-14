@@ -4,12 +4,12 @@
 #include "request_arrival_time_period.h"
 
 
-char* request_arrival_time_period_request_arrival_time_period_ToString(traveltime_platform_api_request_arrival_time_period__e request_arrival_time_period) {
+char* request_arrival_time_period_request_arrival_time_period_ToString(traveltime_api_request_arrival_time_period__e request_arrival_time_period) {
     char *request_arrival_time_periodArray[] =  { "NULL", "weekday_morning" };
     return request_arrival_time_periodArray[request_arrival_time_period];
 }
 
-traveltime_platform_api_request_arrival_time_period__e request_arrival_time_period_request_arrival_time_period_FromString(char* request_arrival_time_period) {
+traveltime_api_request_arrival_time_period__e request_arrival_time_period_request_arrival_time_period_FromString(char* request_arrival_time_period) {
     int stringToReturn = 0;
     char *request_arrival_time_periodArray[] =  { "NULL", "weekday_morning" };
     size_t sizeofArray = sizeof(request_arrival_time_periodArray) / sizeof(request_arrival_time_periodArray[0]);
@@ -22,7 +22,7 @@ traveltime_platform_api_request_arrival_time_period__e request_arrival_time_peri
     return 0;
 }
 
-cJSON *request_arrival_time_period_request_arrival_time_period_convertToJSON(traveltime_platform_api_request_arrival_time_period__e request_arrival_time_period) {
+cJSON *request_arrival_time_period_request_arrival_time_period_convertToJSON(traveltime_api_request_arrival_time_period__e request_arrival_time_period) {
     cJSON *item = cJSON_CreateObject();
     if(cJSON_AddStringToObject(item, "request_arrival_time_period", request_arrival_time_period_request_arrival_time_period_ToString(request_arrival_time_period)) == NULL) {
         goto fail;

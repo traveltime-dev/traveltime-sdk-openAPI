@@ -72,8 +72,8 @@ private class OASResponseSupportedLocationsTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseSupportedLocations responseSupportedLocations = new OASResponseSupportedLocations();
-        Map<String, String> propertyMappings = responseSupportedLocations.getPropertyMappings();
-        System.assertEquals('unsupportedLocations', propertyMappings.get('unsupported_locations'));
+        Map<String, String> x-property-mappings = responseSupportedLocations.getx-property-mappings();
+        System.assertEquals('unsupportedLocations', x-property-mappings.get('unsupported_locations'));
     }
 
     @isTest

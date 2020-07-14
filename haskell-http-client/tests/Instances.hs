@@ -2,8 +2,8 @@
 
 module Instances where
 
-import TravelTimePlatform.Model
-import TravelTimePlatform.Core
+import TravelTime.Model
+import TravelTime.Core
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy as BL

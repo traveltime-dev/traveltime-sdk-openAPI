@@ -8,7 +8,12 @@ class ResponseFareTicket {
   double price = null;
   
   String currency = null;
-  ResponseFareTicket();
+
+  ResponseFareTicket({
+    this.type,
+    this.price,
+    this.currency,
+  });
 
   @override
   String toString() {

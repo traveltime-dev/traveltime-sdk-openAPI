@@ -1,0 +1,670 @@
+@startuml
+
+title TravelTime API Schemas Diagram
+
+entity Coords { 
+    * lat: Double
+    * lng: Double
+}
+
+entity RequestArrivalTimePeriod { 
+}
+
+entity RequestLocation { 
+    * id: String
+    * coords: Coords
+}
+
+entity RequestRangeFull { 
+    * enabled: Boolean
+    * max_results: Integer
+    * width: Integer
+}
+
+entity RequestRangeNoMaxResults { 
+    * enabled: Boolean
+    * width: Integer
+}
+
+entity RequestRoutes { 
+    * locations: List<RequestLocation>
+    departure_searches: List<RequestRoutesDepartureSearch>
+    arrival_searches: List<RequestRoutesArrivalSearch>
+}
+
+entity RequestRoutesArrivalSearch { 
+    * id: String
+    * departure_location_ids: List<String>
+    * arrival_location_id: String
+    * transportation: RequestTransportation
+    * arrival_time: Date
+    * properties: List<RequestRoutesProperty>
+    range: RequestRangeFull
+}
+
+entity RequestRoutesDepartureSearch { 
+    * id: String
+    * departure_location_id: String
+    * arrival_location_ids: List<String>
+    * transportation: RequestTransportation
+    * departure_time: Date
+    * properties: List<RequestRoutesProperty>
+    range: RequestRangeFull
+}
+
+entity RequestRoutesProperty { 
+}
+
+entity RequestSupportedLocations { 
+    * locations: List<RequestLocation>
+}
+
+entity RequestTimeFilter { 
+    * locations: List<RequestLocation>
+    departure_searches: List<RequestTimeFilterDepartureSearch>
+    arrival_searches: List<RequestTimeFilterArrivalSearch>
+}
+
+entity RequestTimeFilterArrivalSearch { 
+    * id: String
+    * departure_location_ids: List<String>
+    * arrival_location_id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * arrival_time: Date
+    * properties: List<RequestTimeFilterProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterDepartureSearch { 
+    * id: String
+    * departure_location_id: String
+    * arrival_location_ids: List<String>
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * departure_time: Date
+    * properties: List<RequestTimeFilterProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterFast { 
+    * locations: List<RequestLocation>
+    * arrival_searches: RequestTimeFilterFastArrivalSearches
+}
+
+entity RequestTimeFilterFastArrivalManyToOneSearch { 
+    * id: String
+    * arrival_location_id: String
+    * departure_location_ids: List<String>
+    * transportation: RequestTransportationFast
+    * travel_time: Integer
+    * arrival_time_period: RequestArrivalTimePeriod
+    * properties: List<RequestTimeFilterFastProperty>
+}
+
+entity RequestTimeFilterFastArrivalOneToManySearch { 
+    * id: String
+    * departure_location_id: String
+    * arrival_location_ids: List<String>
+    * transportation: RequestTransportationFast
+    * travel_time: Integer
+    * arrival_time_period: RequestArrivalTimePeriod
+    * properties: List<RequestTimeFilterFastProperty>
+}
+
+entity RequestTimeFilterFastArrivalSearches { 
+    many_to_one: List<RequestTimeFilterFastArrivalManyToOneSearch>
+    one_to_many: List<RequestTimeFilterFastArrivalOneToManySearch>
+}
+
+entity RequestTimeFilterFastProperty { 
+}
+
+entity RequestTimeFilterPostcodeDistricts { 
+    departure_searches: List<RequestTimeFilterPostcodeDistrictsDepartureSearch>
+    arrival_searches: List<RequestTimeFilterPostcodeDistrictsArrivalSearch>
+}
+
+entity RequestTimeFilterPostcodeDistrictsArrivalSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * arrival_time: Date
+    * reachable_postcodes_threshold: Double
+    * properties: List<RequestTimeFilterPostcodeDistrictsProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodeDistrictsDepartureSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * departure_time: Date
+    * reachable_postcodes_threshold: Double
+    * properties: List<RequestTimeFilterPostcodeDistrictsProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodeDistrictsProperty { 
+}
+
+entity RequestTimeFilterPostcodeSectors { 
+    departure_searches: List<RequestTimeFilterPostcodeSectorsDepartureSearch>
+    arrival_searches: List<RequestTimeFilterPostcodeSectorsArrivalSearch>
+}
+
+entity RequestTimeFilterPostcodeSectorsArrivalSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * arrival_time: Date
+    * reachable_postcodes_threshold: Double
+    * properties: List<RequestTimeFilterPostcodeSectorsProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodeSectorsDepartureSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * departure_time: Date
+    * reachable_postcodes_threshold: Double
+    * properties: List<RequestTimeFilterPostcodeSectorsProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodeSectorsProperty { 
+}
+
+entity RequestTimeFilterPostcodes { 
+    departure_searches: List<RequestTimeFilterPostcodesDepartureSearch>
+    arrival_searches: List<RequestTimeFilterPostcodesArrivalSearch>
+}
+
+entity RequestTimeFilterPostcodesArrivalSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * arrival_time: Date
+    * properties: List<RequestTimeFilterPostcodesProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodesDepartureSearch { 
+    * id: String
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * departure_time: Date
+    * properties: List<RequestTimeFilterPostcodesProperty>
+    range: RequestRangeFull
+}
+
+entity RequestTimeFilterPostcodesProperty { 
+}
+
+entity RequestTimeFilterProperty { 
+}
+
+entity RequestTimeMap { 
+    departure_searches: List<RequestTimeMapDepartureSearch>
+    arrival_searches: List<RequestTimeMapArrivalSearch>
+    unions: List<RequestUnionOnIntersection>
+    intersections: List<RequestUnionOnIntersection>
+}
+
+entity RequestTimeMapArrivalSearch { 
+    * id: String
+    * coords: Coords
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * arrival_time: Date
+    properties: List<RequestTimeMapProperty>
+    range: RequestRangeNoMaxResults
+}
+
+entity RequestTimeMapDepartureSearch { 
+    * id: String
+    * coords: Coords
+    * transportation: RequestTransportation
+    * travel_time: Integer
+    * departure_time: Date
+    properties: List<RequestTimeMapProperty>
+    range: RequestRangeNoMaxResults
+}
+
+entity RequestTimeMapProperty { 
+}
+
+entity RequestTransportation { 
+    * type: String
+    pt_change_delay: Integer
+    walking_time: Integer
+    driving_time_to_station: Integer
+    parking_time: Integer
+    boarding_time: Integer
+}
+
+entity RequestTransportationFast { 
+    * type: String
+}
+
+entity RequestUnionOnIntersection { 
+    * id: String
+    * search_ids: List<String>
+}
+
+entity ResponseBoundingBox { 
+    * envelope: ResponseBox
+    * boxes: List<ResponseBox>
+}
+
+entity ResponseBox { 
+    * min_lat: Double
+    * max_lat: Double
+    * min_lng: Double
+    * max_lng: Double
+}
+
+entity ResponseDistanceBreakdownItem { 
+    * mode: ResponseTransportationMode
+    * distance: Integer
+}
+
+entity ResponseError { 
+    http_status: Integer
+    error_code: Integer
+    description: String
+    documentation_link: String
+    additional_info: Map
+}
+
+entity ResponseFareTicket { 
+    * type: String
+    * price: Double
+    * currency: String
+}
+
+entity ResponseFares { 
+    * breakdown: List<ResponseFaresBreakdownItem>
+    * tickets_total: List<ResponseFareTicket>
+}
+
+entity ResponseFaresBreakdownItem { 
+    * modes: List<ResponseTransportationMode>
+    * route_part_ids: List<Integer>
+    * tickets: List<ResponseFareTicket>
+}
+
+entity ResponseFaresFast { 
+    * tickets_total: List<ResponseFareTicket>
+}
+
+entity ResponseGeocoding { 
+    * type: String
+    * features: List<ResponseGeocodingGeoJsonFeature>
+}
+
+entity ResponseGeocodingGeoJsonFeature { 
+    * type: String
+    * geometry: ResponseGeocodingGeometry
+    * properties: ResponseGeocodingProperties
+}
+
+entity ResponseGeocodingGeometry { 
+    * type: String
+    * coordinates: List<Double>
+}
+
+entity ResponseGeocodingProperties { 
+    * name: String
+    * label: String
+    score: Double
+    house_number: String
+    street: String
+    region: String
+    region_code: String
+    neighbourhood: String
+    county: String
+    macroregion: String
+    city: String
+    country: String
+    country_code: String
+    continent: String
+    postcode: String
+    features: ResponseMapInfoFeatures
+}
+
+entity ResponseMapInfo { 
+    * maps: List<ResponseMapInfoMap>
+}
+
+entity ResponseMapInfoFeatures { 
+    public_transport: ResponseMapInfoFeaturesPublicTransport
+    * fares: Boolean
+    * postcodes: Boolean
+}
+
+entity ResponseMapInfoFeaturesPublicTransport { 
+    * date_start: Date
+    * date_end: Date
+}
+
+entity ResponseMapInfoMap { 
+    * name: String
+    * features: ResponseMapInfoFeatures
+}
+
+entity ResponseRoute { 
+    * departure_time: Date
+    * arrival_time: Date
+    * parts: List<ResponseRoutePart>
+}
+
+entity ResponseRoutePart { 
+    * id: String
+    * type: String
+    * mode: ResponseTransportationMode
+    * directions: String
+    * distance: Integer
+    * travel_time: Integer
+    * coords: List<Coords>
+    direction: String
+    road: String
+    turn: String
+    line: String
+    departure_station: String
+    arrival_station: String
+    departs_at: String
+    arrives_at: String
+    num_stops: Integer
+}
+
+entity ResponseRoutes { 
+    * results: List<ResponseRoutesResult>
+}
+
+entity ResponseRoutesLocation { 
+    * id: String
+    * properties: List<ResponseRoutesProperties>
+}
+
+entity ResponseRoutesProperties { 
+    travel_time: Integer
+    distance: Integer
+    fares: ResponseFares
+    route: ResponseRoute
+}
+
+entity ResponseRoutesResult { 
+    * search_id: String
+    * locations: List<ResponseRoutesLocation>
+    * unreachable: List<String>
+}
+
+entity ResponseShape { 
+    * shell: List<Coords>
+    * holes: List<List>
+}
+
+entity ResponseSupportedLocation { 
+    * id: String
+    * map_name: String
+}
+
+entity ResponseSupportedLocations { 
+    * locations: List<ResponseSupportedLocation>
+    * unsupported_locations: List<String>
+}
+
+entity ResponseTimeFilter { 
+    * results: List<ResponseTimeFilterResult>
+}
+
+entity ResponseTimeFilterFast { 
+    * results: List<ResponseTimeFilterFastResult>
+}
+
+entity ResponseTimeFilterFastLocation { 
+    * id: String
+    * properties: List<ResponseTimeFilterFastProperties>
+}
+
+entity ResponseTimeFilterFastProperties { 
+    travel_time: Integer
+    fares: ResponseFaresFast
+}
+
+entity ResponseTimeFilterFastResult { 
+    * search_id: String
+    * locations: List<ResponseTimeFilterFastLocation>
+    * unreachable: List<String>
+}
+
+entity ResponseTimeFilterLocation { 
+    * id: String
+    * properties: List<ResponseTimeFilterProperties>
+}
+
+entity ResponseTimeFilterPostcode { 
+    * code: String
+    * properties: List<ResponseTimeFilterPostcodesProperties>
+}
+
+entity ResponseTimeFilterPostcodeDistrict { 
+    * code: String
+    * properties: ResponseTimeFilterPostcodeDistrictProperties
+}
+
+entity ResponseTimeFilterPostcodeDistrictProperties { 
+    travel_time_reachable: ResponseTravelTimeStatistics
+    travel_time_all: ResponseTravelTimeStatistics
+    coverage: Double
+}
+
+entity ResponseTimeFilterPostcodeDistricts { 
+    * results: List<ResponseTimeFilterPostcodeDistrictsResult>
+}
+
+entity ResponseTimeFilterPostcodeDistrictsResult { 
+    * search_id: String
+    * districts: List<ResponseTimeFilterPostcodeDistrict>
+}
+
+entity ResponseTimeFilterPostcodeSector { 
+    * code: String
+    * properties: ResponseTimeFilterPostcodeSectorProperties
+}
+
+entity ResponseTimeFilterPostcodeSectorProperties { 
+    travel_time_reachable: ResponseTravelTimeStatistics
+    travel_time_all: ResponseTravelTimeStatistics
+    coverage: Double
+}
+
+entity ResponseTimeFilterPostcodeSectors { 
+    * results: List<ResponseTimeFilterPostcodeSectorsResult>
+}
+
+entity ResponseTimeFilterPostcodeSectorsResult { 
+    * search_id: String
+    * sectors: List<ResponseTimeFilterPostcodeSector>
+}
+
+entity ResponseTimeFilterPostcodes { 
+    * results: List<ResponseTimeFilterPostcodesResult>
+}
+
+entity ResponseTimeFilterPostcodesProperties { 
+    travel_time: Integer
+    distance: Integer
+}
+
+entity ResponseTimeFilterPostcodesResult { 
+    * search_id: String
+    * postcodes: List<ResponseTimeFilterPostcode>
+}
+
+entity ResponseTimeFilterProperties { 
+    travel_time: Integer
+    distance: Integer
+    distance_breakdown: List<ResponseDistanceBreakdownItem>
+    fares: ResponseFares
+    route: ResponseRoute
+}
+
+entity ResponseTimeFilterResult { 
+    * search_id: String
+    * locations: List<ResponseTimeFilterLocation>
+    * unreachable: List<String>
+}
+
+entity ResponseTimeMap { 
+    * results: List<ResponseTimeMapResult>
+}
+
+entity ResponseTimeMapBoundingBoxes { 
+    * results: List<ResponseTimeMapBoundingBoxesResult>
+}
+
+entity ResponseTimeMapBoundingBoxesResult { 
+    * search_id: String
+    * bounding_boxes: List<ResponseBoundingBox>
+    * properties: ResponseTimeMapProperties
+}
+
+entity ResponseTimeMapProperties { 
+    is_only_walking: Boolean
+}
+
+entity ResponseTimeMapResult { 
+    * search_id: String
+    * shapes: List<ResponseShape>
+    * properties: ResponseTimeMapProperties
+}
+
+entity ResponseTimeMapWkt { 
+    * results: List<ResponseTimeMapWktResult>
+}
+
+entity ResponseTimeMapWktResult { 
+    * search_id: String
+    * shape: String
+    * properties: ResponseTimeMapProperties
+}
+
+entity ResponseTransportationMode { 
+}
+
+entity ResponseTravelTimeStatistics { 
+    * min: Integer
+    * max: Integer
+    * mean: Integer
+    * median: Integer
+}
+
+
+ResponseTimeMapWkt -- "0..*" ResponseTimeMapWktResult : results
+ResponseFares -- "0..*" ResponseFaresBreakdownItem : breakdown
+ResponseFares -- "0..*" ResponseFareTicket : tickets_total
+RequestSupportedLocations -- "0..*" RequestLocation : locations
+ResponseTimeFilterPostcodesResult -- "0..*" ResponseTimeFilterPostcode : postcodes
+RequestRoutesDepartureSearch -- RequestTransportation : transportation
+RequestRoutesDepartureSearch -- RequestRangeFull : range
+RequestTimeMapArrivalSearch -- Coords : coords
+RequestTimeMapArrivalSearch -- RequestTransportation : transportation
+RequestTimeMapArrivalSearch -- RequestRangeNoMaxResults : range
+RequestTimeFilterFastArrivalOneToManySearch -- RequestTransportationFast : transportation
+ResponseTimeFilterPostcodeDistrictsResult -- "0..*" ResponseTimeFilterPostcodeDistrict : districts
+ResponseGeocodingProperties -- ResponseMapInfoFeatures : features
+ResponseRoutesProperties -- ResponseFares : fares
+ResponseRoutesProperties -- ResponseRoute : route
+ResponseTimeFilterPostcodeSector -- ResponseTimeFilterPostcodeSectorProperties : properties
+RequestTimeFilterDepartureSearch -- RequestTransportation : transportation
+RequestTimeFilterDepartureSearch -- RequestRangeFull : range
+ResponseRoutes -- "0..*" ResponseRoutesResult : results
+ResponseTimeFilterPostcodeSectorsResult -- "0..*" ResponseTimeFilterPostcodeSector : sectors
+ResponseShape -- "0..*" Coords : shell
+ResponseFaresBreakdownItem -- "0..*" ResponseFareTicket : tickets
+RequestRoutesArrivalSearch -- RequestTransportation : transportation
+RequestRoutesArrivalSearch -- RequestRangeFull : range
+ResponseTimeMapBoundingBoxes -- "0..*" ResponseTimeMapBoundingBoxesResult : results
+ResponseRoutePart -- "0..*" Coords : coords
+ResponseTimeFilterProperties -- "0..*" ResponseDistanceBreakdownItem : distance_breakdown
+ResponseTimeFilterProperties -- ResponseFares : fares
+ResponseTimeFilterProperties -- ResponseRoute : route
+ResponseRoutesLocation -- "0..*" ResponseRoutesProperties : properties
+ResponseTimeFilterPostcodes -- "0..*" ResponseTimeFilterPostcodesResult : results
+RequestTimeMap -- "0..*" RequestTimeMapDepartureSearch : departure_searches
+RequestTimeMap -- "0..*" RequestTimeMapArrivalSearch : arrival_searches
+RequestTimeMap -- "0..*" RequestUnionOnIntersection : unions
+RequestTimeMap -- "0..*" RequestUnionOnIntersection : intersections
+ResponseMapInfoFeatures -- ResponseMapInfoFeaturesPublicTransport : public_transport
+ResponseMapInfo -- "0..*" ResponseMapInfoMap : maps
+ResponseBoundingBox -- ResponseBox : envelope
+ResponseBoundingBox -- "0..*" ResponseBox : boxes
+ResponseTimeFilterFastResult -- "0..*" ResponseTimeFilterFastLocation : locations
+RequestTimeFilterFast -- "0..*" RequestLocation : locations
+RequestTimeFilterFast -- RequestTimeFilterFastArrivalSearches : arrival_searches
+ResponseTimeMap -- "0..*" ResponseTimeMapResult : results
+ResponseTimeFilterFast -- "0..*" ResponseTimeFilterFastResult : results
+ResponseRoute -- "0..*" ResponseRoutePart : parts
+ResponseTimeFilterLocation -- "0..*" ResponseTimeFilterProperties : properties
+ResponseTimeFilterPostcode -- "0..*" ResponseTimeFilterPostcodesProperties : properties
+ResponseTimeFilterFastLocation -- "0..*" ResponseTimeFilterFastProperties : properties
+RequestTimeMapDepartureSearch -- Coords : coords
+RequestTimeMapDepartureSearch -- RequestTransportation : transportation
+RequestTimeMapDepartureSearch -- RequestRangeNoMaxResults : range
+ResponseTimeFilterPostcodeSectors -- "0..*" ResponseTimeFilterPostcodeSectorsResult : results
+RequestTimeFilterFastArrivalSearches -- "0..*" RequestTimeFilterFastArrivalManyToOneSearch : many_to_one
+RequestTimeFilterFastArrivalSearches -- "0..*" RequestTimeFilterFastArrivalOneToManySearch : one_to_many
+RequestTimeFilterPostcodesArrivalSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodesArrivalSearch -- RequestRangeFull : range
+ResponseTimeMapResult -- "0..*" ResponseShape : shapes
+ResponseTimeMapResult -- ResponseTimeMapProperties : properties
+ResponseTimeFilterResult -- "0..*" ResponseTimeFilterLocation : locations
+ResponseTimeFilterPostcodeDistricts -- "0..*" ResponseTimeFilterPostcodeDistrictsResult : results
+ResponseTimeFilterPostcodeDistrict -- ResponseTimeFilterPostcodeDistrictProperties : properties
+RequestTimeFilterPostcodesDepartureSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodesDepartureSearch -- RequestRangeFull : range
+ResponseGeocoding -- "0..*" ResponseGeocodingGeoJsonFeature : features
+ResponseRoutesResult -- "0..*" ResponseRoutesLocation : locations
+RequestRoutes -- "0..*" RequestLocation : locations
+RequestRoutes -- "0..*" RequestRoutesDepartureSearch : departure_searches
+RequestRoutes -- "0..*" RequestRoutesArrivalSearch : arrival_searches
+RequestTimeFilterPostcodeDistrictsDepartureSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodeDistrictsDepartureSearch -- RequestRangeFull : range
+ResponseTimeMapWktResult -- ResponseTimeMapProperties : properties
+RequestTimeFilterPostcodes -- "0..*" RequestTimeFilterPostcodesDepartureSearch : departure_searches
+RequestTimeFilterPostcodes -- "0..*" RequestTimeFilterPostcodesArrivalSearch : arrival_searches
+RequestTimeFilterPostcodeSectorsDepartureSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodeSectorsDepartureSearch -- RequestRangeFull : range
+RequestTimeFilterPostcodeDistricts -- "0..*" RequestTimeFilterPostcodeDistrictsDepartureSearch : departure_searches
+RequestTimeFilterPostcodeDistricts -- "0..*" RequestTimeFilterPostcodeDistrictsArrivalSearch : arrival_searches
+RequestTimeFilterFastArrivalManyToOneSearch -- RequestTransportationFast : transportation
+ResponseTimeFilterPostcodeDistrictProperties -- ResponseTravelTimeStatistics : travel_time_reachable
+ResponseTimeFilterPostcodeDistrictProperties -- ResponseTravelTimeStatistics : travel_time_all
+ResponseSupportedLocations -- "0..*" ResponseSupportedLocation : locations
+ResponseTimeMapBoundingBoxesResult -- "0..*" ResponseBoundingBox : bounding_boxes
+ResponseTimeMapBoundingBoxesResult -- ResponseTimeMapProperties : properties
+ResponseFaresFast -- "0..*" ResponseFareTicket : tickets_total
+RequestTimeFilterPostcodeSectorsArrivalSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodeSectorsArrivalSearch -- RequestRangeFull : range
+ResponseMapInfoMap -- ResponseMapInfoFeatures : features
+ResponseTimeFilterFastProperties -- ResponseFaresFast : fares
+RequestTimeFilter -- "0..*" RequestLocation : locations
+RequestTimeFilter -- "0..*" RequestTimeFilterDepartureSearch : departure_searches
+RequestTimeFilter -- "0..*" RequestTimeFilterArrivalSearch : arrival_searches
+RequestTimeFilterPostcodeSectors -- "0..*" RequestTimeFilterPostcodeSectorsDepartureSearch : departure_searches
+RequestTimeFilterPostcodeSectors -- "0..*" RequestTimeFilterPostcodeSectorsArrivalSearch : arrival_searches
+ResponseGeocodingGeoJsonFeature -- ResponseGeocodingGeometry : geometry
+ResponseGeocodingGeoJsonFeature -- ResponseGeocodingProperties : properties
+RequestTimeFilterArrivalSearch -- RequestTransportation : transportation
+RequestTimeFilterArrivalSearch -- RequestRangeFull : range
+ResponseTimeFilterPostcodeSectorProperties -- ResponseTravelTimeStatistics : travel_time_reachable
+ResponseTimeFilterPostcodeSectorProperties -- ResponseTravelTimeStatistics : travel_time_all
+RequestTimeFilterPostcodeDistrictsArrivalSearch -- RequestTransportation : transportation
+RequestTimeFilterPostcodeDistrictsArrivalSearch -- RequestRangeFull : range
+ResponseTimeFilter -- "0..*" ResponseTimeFilterResult : results
+RequestLocation -- Coords : coords
+
+@enduml

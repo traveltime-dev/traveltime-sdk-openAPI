@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseGeocoding",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "features",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseGeocodingGeoJsonFeature"
+      },
+      "doc": ""
+    }
+  ]
+}

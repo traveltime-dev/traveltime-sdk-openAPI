@@ -7,7 +7,12 @@ class RequestRangeFull {
   int maxResults = null;
   
   int width = null;
-  RequestRangeFull();
+
+  RequestRangeFull({
+    this.enabled,
+    this.maxResults,
+    this.width,
+  });
 
   @override
   String toString() {

@@ -72,8 +72,8 @@ private class OASResponseTimeFilterFastResultTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeFilterFastResult responseTimeFilterFastResult = new OASResponseTimeFilterFastResult();
-        Map<String, String> propertyMappings = responseTimeFilterFastResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
+        Map<String, String> x-property-mappings = responseTimeFilterFastResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
     }
 
     @isTest

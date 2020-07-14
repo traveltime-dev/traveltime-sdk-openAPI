@@ -21,6 +21,9 @@ response_routes_location_t *response_routes_location_create(
 
 
 void response_routes_location_free(response_routes_location_t *response_routes_location) {
+    if(NULL == response_routes_location){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_routes_location->id);
     list_ForEach(listEntry, response_routes_location->properties) {

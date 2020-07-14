@@ -3,11 +3,11 @@ info:
   contact:
     email: support@igeolise.com
     name: API Support
-  termsOfService: https://www.traveltimeplatform.com/terms-and-conditions
-  title: TravelTime Platform API
-  version: 1.0.0
+  termsOfService: https://www.traveltime.com/terms-and-conditions
+  title: TravelTime API
+  version: 1.2.1
 externalDocs:
-  url: http://docs.traveltimeplatform.com
+  url: http://docs.traveltime.com
 servers:
 - url: https://api.traveltimeapp.com
 security:
@@ -17,7 +17,7 @@ paths:
   /v4/geocoding/reverse:
     get:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/geocoding-reverse
+        url: http://docs.traveltime.com/reference/geocoding-reverse
       operationId: geocoding_reverse_search
       parameters:
       - explode: true
@@ -49,18 +49,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseGeocoding'
-          description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)
+          description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
   /v4/geocoding/search:
     get:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/geocoding-search
+        url: http://docs.traveltime.com/reference/geocoding-search
       operationId: geocoding_search
       parameters:
       - explode: true
@@ -99,18 +99,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseGeocoding'
-          description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)
+          description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
   /v4/map-info:
     get:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/map-info
+        url: http://docs.traveltime.com/reference/map-info
       operationId: map_info
       responses:
         "200":
@@ -119,18 +119,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseMapInfo'
           description: Returns information about currently supported countries. [Docs
-            link](http://docs.traveltimeplatform.com/reference/map-info/)
+            link](http://docs.traveltime.com/reference/map-info/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
   /v4/routes:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/routes
+        url: http://docs.traveltime.com/reference/routes
       operationId: routes
       requestBody:
         $ref: '#/components/requestBodies/Routes'
@@ -142,19 +142,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseRoutes'
           description: Returns routing information between source and destinations.
-            [Docs link](http://docs.traveltimeplatform.com/reference/routes/)
+            [Docs link](http://docs.traveltime.com/reference/routes/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/supported-locations:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/supported-locations
+        url: http://docs.traveltime.com/reference/supported-locations
       operationId: supported_locations
       requestBody:
         $ref: '#/components/requestBodies/SupportedLocations'
@@ -165,19 +165,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseSupportedLocations'
-          description: Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)
+          description: Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-filter:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/time-filter
+        url: http://docs.traveltime.com/reference/time-filter
       operationId: time_filter
       requestBody:
         $ref: '#/components/requestBodies/TimeFilter'
@@ -189,19 +189,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilter'
           description: Given origin and destination points filter out points that
-            cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
+            cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-filter/fast:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/time-filter-fast
+        url: http://docs.traveltime.com/reference/time-filter-fast
       operationId: time_filter_fast
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterFast'
@@ -212,19 +212,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterFast'
-          description: A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)
+          description: A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-filter/postcode-districts:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/postcode-search
+        url: http://docs.traveltime.com/reference/postcode-search
       operationId: time_filter_postcode_districts
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodeDistricts'
@@ -236,19 +236,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistricts'
           description: Find districts that have a certain coverage from origin and
-            get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
+            get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-filter/postcode-sectors:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/postcode-sector-filter
+        url: http://docs.traveltime.com/reference/postcode-sector-filter
       operationId: time_filter_postcode_sectors
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodeSectors'
@@ -260,19 +260,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectors'
           description: Find sectors that have a certain coverage from origin and get
-            statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
+            statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-filter/postcodes:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/postcode-search
+        url: http://docs.traveltime.com/reference/postcode-search
       operationId: time_filter_postcodes
       requestBody:
         $ref: '#/components/requestBodies/TimeFilterPostcodes'
@@ -284,19 +284,19 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseTimeFilterPostcodes'
           description: Find reachable postcodes from origin and get statistics about
-            such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
+            such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
   /v4/time-map:
     post:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/time-map
+        url: http://docs.traveltime.com/reference/time-map
       operationId: time_map
       requestBody:
         $ref: '#/components/requestBodies/TimeMap'
@@ -317,13 +317,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResponseTimeMapBoundingBoxes'
           description: Given origin coordinates, find shapes of zones reachable within
-            corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
+            corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)
         default:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResponseError'
-          description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+          description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
       x-openapi-router-controller: openapi_server.controllers.default_controller
       x-codegen-request-body-name: body
 components:
@@ -435,54 +435,54 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseError'
-      description: The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)
+      description: The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)
     TimeFilter:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilter'
       description: Given origin and destination points filter out points that cannot
-        be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)
+        be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)
     TimeFilterPostcodes:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodes'
       description: Find reachable postcodes from origin and get statistics about such
-        postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)
+        postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)
     TimeFilterPostcodeDistricts:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistricts'
       description: Find districts that have a certain coverage from origin and get
-        statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)
+        statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)
     TimeFilterPostcodeSectors:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectors'
       description: Find sectors that have a certain coverage from origin and get statistics
-        about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)
+        about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)
     TimeFilterFast:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseTimeFilterFast'
-      description: A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)
+      description: A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)
     Routes:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseRoutes'
       description: Returns routing information between source and destinations. [Docs
-        link](http://docs.traveltimeplatform.com/reference/routes/)
+        link](http://docs.traveltime.com/reference/routes/)
     Geocoding:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseGeocoding'
-      description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)
+      description: Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
     TimeMap:
       content:
         application/json:
@@ -498,20 +498,20 @@ components:
           schema:
             $ref: '#/components/schemas/ResponseTimeMapBoundingBoxes'
       description: Given origin coordinates, find shapes of zones reachable within
-        corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)
+        corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)
     MapInfo:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseMapInfo'
       description: Returns information about currently supported countries. [Docs
-        link](http://docs.traveltimeplatform.com/reference/map-info/)
+        link](http://docs.traveltime.com/reference/map-info/)
     SupportedLocations:
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/ResponseSupportedLocations'
-      description: Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)
+      description: Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)
   schemas:
     Coords:
       example:
@@ -6898,7 +6898,7 @@ components:
       type: object
     ResponseError:
       externalDocs:
-        url: http://docs.traveltimeplatform.com/reference/error-response
+        url: http://docs.traveltime.com/reference/error-response
       properties:
         http_status:
           type: integer

@@ -20,13 +20,13 @@ import javax.validation.constraints.Size
 data class ResponseFareTicket(
 
     @get:NotNull 
-    @JsonProperty("type") val type: ResponseFareTicket.Type,
+    @field:JsonProperty("type") val type: ResponseFareTicket.Type,
 
     @get:NotNull 
-    @JsonProperty("price") val price: kotlin.Double,
+    @field:JsonProperty("price") val price: kotlin.Double,
 
     @get:NotNull 
-    @JsonProperty("currency") val currency: kotlin.String
+    @field:JsonProperty("currency") val currency: kotlin.String
 ) {
 
     /**

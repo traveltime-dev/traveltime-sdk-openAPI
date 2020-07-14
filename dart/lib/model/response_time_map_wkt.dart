@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseTimeMapWkt {
   
   List<ResponseTimeMapWktResult> results = [];
-  ResponseTimeMapWkt();
+
+  ResponseTimeMapWkt({
+    this.results,
+  });
 
   @override
   String toString() {

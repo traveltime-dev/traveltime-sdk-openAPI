@@ -21,6 +21,9 @@ request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_se
 
 
 void request_time_filter_fast_arrival_searches_free(request_time_filter_fast_arrival_searches_t *request_time_filter_fast_arrival_searches) {
+    if(NULL == request_time_filter_fast_arrival_searches){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_filter_fast_arrival_searches->many_to_one) {
         request_time_filter_fast_arrival_many_to_one_search_free(listEntry->data);

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **kotlin.String** |  | 
-**features** | [**kotlin.Array&lt;ResponseGeocodingGeoJsonFeature&gt;**](ResponseGeocodingGeoJsonFeature.md) |  | 
+**features** | [**kotlin.collections.List&lt;ResponseGeocodingGeoJsonFeature&gt;**](ResponseGeocodingGeoJsonFeature.md) |  | 
 
 
 

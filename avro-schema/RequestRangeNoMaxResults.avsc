@@ -1,0 +1,18 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestRangeNoMaxResults",
+  "fields": [
+    {
+      "name": "enabled",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "width",
+      "type": "int",
+      "doc": ""
+    }
+  ]
+}

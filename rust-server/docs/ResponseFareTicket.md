@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_type** | **String** |  | 
+**type_** | **String** |  | 
 **price** | **f64** |  | 
 **currency** | **String** |  | 
 

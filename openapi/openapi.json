@@ -1,0 +1,2489 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "contact" : {
+      "email" : "support@igeolise.com",
+      "name" : "API Support"
+    },
+    "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
+    "title" : "TravelTime API",
+    "version" : "1.2.1"
+  },
+  "externalDocs" : {
+    "url" : "http://docs.traveltime.com"
+  },
+  "servers" : [ {
+    "url" : "https://api.traveltimeapp.com"
+  } ],
+  "security" : [ {
+    "ApplicationId" : [ ],
+    "ApiKey" : [ ]
+  } ],
+  "paths" : {
+    "/v4/time-filter" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/time-filter"
+        },
+        "operationId" : "timeFilter",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeFilter"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeFilter"
+                }
+              }
+            },
+            "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/time-filter/postcodes" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/postcode-search"
+        },
+        "operationId" : "timeFilterPostcodes",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeFilterPostcodes"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeFilterPostcodes"
+                }
+              }
+            },
+            "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/time-filter/postcode-districts" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/postcode-search"
+        },
+        "operationId" : "timeFilterPostcodeDistricts",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeFilterPostcodeDistricts"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistricts"
+                }
+              }
+            },
+            "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/time-filter/postcode-sectors" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/postcode-sector-filter"
+        },
+        "operationId" : "timeFilterPostcodeSectors",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeFilterPostcodeSectors"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectors"
+                }
+              }
+            },
+            "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/time-filter/fast" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/time-filter-fast"
+        },
+        "operationId" : "timeFilterFast",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeFilterFast"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeFilterFast"
+                }
+              }
+            },
+            "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/time-map" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/time-map"
+        },
+        "operationId" : "timeMap",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/TimeMap"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeMap"
+                }
+              },
+              "application/vnd.wkt+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeMapWkt"
+                }
+              },
+              "application/vnd.wkt-no-holes+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeMapWkt"
+                }
+              },
+              "application/vnd.bounding-boxes+json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseTimeMapBoundingBoxes"
+                }
+              }
+            },
+            "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/routes" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/routes"
+        },
+        "operationId" : "routes",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/Routes"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseRoutes"
+                }
+              }
+            },
+            "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/geocoding/search" : {
+      "get" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/geocoding-search"
+        },
+        "operationId" : "geocodingSearch",
+        "parameters" : [ {
+          "explode" : true,
+          "in" : "query",
+          "name" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        }, {
+          "explode" : true,
+          "in" : "query",
+          "name" : "focus.lat",
+          "required" : false,
+          "schema" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "style" : "form"
+        }, {
+          "explode" : true,
+          "in" : "query",
+          "name" : "focus.lng",
+          "required" : false,
+          "schema" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "style" : "form"
+        }, {
+          "explode" : true,
+          "in" : "query",
+          "name" : "within.country",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseGeocoding"
+                }
+              }
+            },
+            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/geocoding/reverse" : {
+      "get" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/geocoding-reverse"
+        },
+        "operationId" : "geocodingReverseSearch",
+        "parameters" : [ {
+          "explode" : true,
+          "in" : "query",
+          "name" : "lat",
+          "required" : true,
+          "schema" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "style" : "form"
+        }, {
+          "explode" : true,
+          "in" : "query",
+          "name" : "lng",
+          "required" : true,
+          "schema" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "style" : "form"
+        }, {
+          "explode" : true,
+          "in" : "query",
+          "name" : "within.country",
+          "required" : false,
+          "schema" : {
+            "type" : "string"
+          },
+          "style" : "form"
+        } ],
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseGeocoding"
+                }
+              }
+            },
+            "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/map-info" : {
+      "get" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/map-info"
+        },
+        "operationId" : "mapInfo",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseMapInfo"
+                }
+              }
+            },
+            "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    },
+    "/v4/supported-locations" : {
+      "post" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/supported-locations"
+        },
+        "operationId" : "supportedLocations",
+        "requestBody" : {
+          "$ref" : "#/components/requestBodies/SupportedLocations"
+        },
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseSupportedLocations"
+                }
+              }
+            },
+            "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)"
+          },
+          "default" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ResponseError"
+                }
+              }
+            },
+            "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "parameters" : {
+      "GeocodingWithinCountry" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "within.country",
+        "required" : false,
+        "schema" : {
+          "type" : "string"
+        },
+        "style" : "form"
+      },
+      "GeocodingQuery" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "query",
+        "required" : true,
+        "schema" : {
+          "type" : "string"
+        },
+        "style" : "form"
+      },
+      "GeocodingFocusLat" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "focus.lat",
+        "required" : false,
+        "schema" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "style" : "form"
+      },
+      "GeocodingFocusLng" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "focus.lng",
+        "required" : false,
+        "schema" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "style" : "form"
+      },
+      "GeocodingReverseLat" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "lat",
+        "required" : true,
+        "schema" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "style" : "form"
+      },
+      "GeocodingReverseLng" : {
+        "explode" : true,
+        "in" : "query",
+        "name" : "lng",
+        "required" : true,
+        "schema" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "style" : "form"
+      }
+    },
+    "requestBodies" : {
+      "TimeFilter" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeFilter"
+            }
+          }
+        },
+        "required" : true
+      },
+      "TimeFilterPostcodes" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodes"
+            }
+          }
+        },
+        "required" : true
+      },
+      "TimeFilterPostcodeDistricts" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistricts"
+            }
+          }
+        },
+        "required" : true
+      },
+      "TimeFilterPostcodeSectors" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectors"
+            }
+          }
+        },
+        "required" : true
+      },
+      "TimeFilterFast" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterFast"
+            }
+          }
+        },
+        "required" : true
+      },
+      "Routes" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestRoutes"
+            }
+          }
+        },
+        "required" : true
+      },
+      "TimeMap" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestTimeMap"
+            }
+          }
+        },
+        "required" : true
+      },
+      "SupportedLocations" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/RequestSupportedLocations"
+            }
+          }
+        },
+        "required" : true
+      }
+    },
+    "responses" : {
+      "Error" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseError"
+            }
+          }
+        },
+        "description" : "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)"
+      },
+      "TimeFilter" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilter"
+            }
+          }
+        },
+        "description" : "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)"
+      },
+      "TimeFilterPostcodes" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodes"
+            }
+          }
+        },
+        "description" : "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)"
+      },
+      "TimeFilterPostcodeDistricts" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistricts"
+            }
+          }
+        },
+        "description" : "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)"
+      },
+      "TimeFilterPostcodeSectors" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectors"
+            }
+          }
+        },
+        "description" : "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)"
+      },
+      "TimeFilterFast" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterFast"
+            }
+          }
+        },
+        "description" : "A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)"
+      },
+      "Routes" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseRoutes"
+            }
+          }
+        },
+        "description" : "Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)"
+      },
+      "Geocoding" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseGeocoding"
+            }
+          }
+        },
+        "description" : "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)"
+      },
+      "TimeMap" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeMap"
+            }
+          },
+          "application/vnd.wkt+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapWkt"
+            }
+          },
+          "application/vnd.wkt-no-holes+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapWkt"
+            }
+          },
+          "application/vnd.bounding-boxes+json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapBoundingBoxes"
+            }
+          }
+        },
+        "description" : "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)"
+      },
+      "MapInfo" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseMapInfo"
+            }
+          }
+        },
+        "description" : "Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)"
+      },
+      "SupportedLocations" : {
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/ResponseSupportedLocations"
+            }
+          }
+        },
+        "description" : "Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)"
+      }
+    },
+    "schemas" : {
+      "Coords" : {
+        "properties" : {
+          "lat" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "lng" : {
+            "format" : "double",
+            "type" : "number"
+          }
+        },
+        "required" : [ "lat", "lng" ],
+        "type" : "object"
+      },
+      "RequestSearchId" : {
+        "type" : "string"
+      },
+      "RequestDepartureArrivalLocationOne" : {
+        "type" : "string"
+      },
+      "RequestTravelTime" : {
+        "maximum" : 14400,
+        "minimum" : 60,
+        "type" : "integer"
+      },
+      "RequestDepartureArrivalTime" : {
+        "format" : "date-time",
+        "type" : "string"
+      },
+      "ResponseLocalTime" : {
+        "type" : "string"
+      },
+      "RequestRoutesProperty" : {
+        "enum" : [ "travel_time", "distance", "fares", "route" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterProperty" : {
+        "enum" : [ "travel_time", "distance", "distance_breakdown", "fares", "route" ],
+        "type" : "string"
+      },
+      "RequestRangeEnabled" : {
+        "type" : "boolean"
+      },
+      "RequestRangeWidth" : {
+        "maximum" : 43200,
+        "minimum" : 1,
+        "type" : "integer"
+      },
+      "RequestRangeFull" : {
+        "properties" : {
+          "enabled" : {
+            "$ref" : "#/components/schemas/RequestRangeEnabled"
+          },
+          "max_results" : {
+            "maximum" : 5,
+            "minimum" : 1,
+            "type" : "integer"
+          },
+          "width" : {
+            "$ref" : "#/components/schemas/RequestRangeWidth"
+          }
+        },
+        "required" : [ "enabled", "max_results", "width" ],
+        "type" : "object"
+      },
+      "RequestRangeNoMaxResults" : {
+        "properties" : {
+          "enabled" : {
+            "$ref" : "#/components/schemas/RequestRangeEnabled"
+          },
+          "width" : {
+            "$ref" : "#/components/schemas/RequestRangeWidth"
+          }
+        },
+        "required" : [ "enabled", "width" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodesProperty" : {
+        "enum" : [ "travel_time", "distance" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold" : {
+        "format" : "double",
+        "type" : "number"
+      },
+      "RequestTimeFilterPostcodeDistrictsProperty" : {
+        "enum" : [ "travel_time_reachable", "travel_time_all", "coverage" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold" : {
+        "format" : "double",
+        "type" : "number"
+      },
+      "RequestTimeFilterPostcodeSectorsProperty" : {
+        "enum" : [ "travel_time_reachable", "travel_time_all", "coverage" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterPostcodeSectorsDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "reachable_postcodes_threshold" : {
+            "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "coords", "departure_time", "id", "properties", "reachable_postcodes_threshold", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodeSectorsArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "reachable_postcodes_threshold" : {
+            "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_time", "coords", "id", "properties", "reachable_postcodes_threshold", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodeDistrictsDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "reachable_postcodes_threshold" : {
+            "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "coords", "departure_time", "id", "properties", "reachable_postcodes_threshold", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodeDistrictsArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "reachable_postcodes_threshold" : {
+            "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_time", "coords", "id", "properties", "reachable_postcodes_threshold", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodesDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodesProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "coords", "departure_time", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodesArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodesProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_time", "coords", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "departure_location_id" : {
+            "type" : "string"
+          },
+          "arrival_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 2000,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_location_ids", "departure_location_id", "departure_time", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "departure_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 2000,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "arrival_location_id" : {
+            "type" : "string"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_location_id", "arrival_time", "departure_location_ids", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestArrivalTimePeriod" : {
+        "enum" : [ "weekday_morning" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterFastProperty" : {
+        "enum" : [ "travel_time", "fares" ],
+        "type" : "string"
+      },
+      "RequestTimeFilterFastArrivalManyToOneSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "arrival_location_id" : {
+            "type" : "string"
+          },
+          "departure_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 100000,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportationFast"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time_period" : {
+            "$ref" : "#/components/schemas/RequestArrivalTimePeriod"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterFastProperty"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "arrival_location_id", "arrival_time_period", "departure_location_ids", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterFastArrivalOneToManySearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "departure_location_id" : {
+            "type" : "string"
+          },
+          "arrival_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 100000,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportationFast"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time_period" : {
+            "$ref" : "#/components/schemas/RequestArrivalTimePeriod"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterFastProperty"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "arrival_location_ids", "arrival_time_period", "departure_location_id", "id", "properties", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTransportationFast" : {
+        "properties" : {
+          "type" : {
+            "enum" : [ "public_transport", "driving", "driving+public_transport" ],
+            "type" : "string"
+          }
+        },
+        "required" : [ "type" ],
+        "type" : "object"
+      },
+      "RequestRoutesDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "departure_location_id" : {
+            "type" : "string"
+          },
+          "arrival_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 2,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestRoutesProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_location_ids", "departure_location_id", "departure_time", "id", "properties", "transportation" ],
+        "type" : "object"
+      },
+      "RequestRoutesArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "departure_location_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "maxItems" : 2,
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "arrival_location_id" : {
+            "type" : "string"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestRoutesProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeFull"
+          }
+        },
+        "required" : [ "arrival_location_id", "arrival_time", "departure_location_ids", "id", "properties", "transportation" ],
+        "type" : "object"
+      },
+      "RequestTimeFilter" : {
+        "properties" : {
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestLocation"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations" ],
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodes" : {
+        "properties" : {
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodesDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodesArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodeDistricts" : {
+        "properties" : {
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeDistrictsArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "RequestTimeFilterPostcodeSectors" : {
+        "properties" : {
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterPostcodeSectorsArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "RequestTimeFilterFastArrivalSearches" : {
+        "properties" : {
+          "many_to_one" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterFastArrivalManyToOneSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "one_to_many" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeFilterFastArrivalOneToManySearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "RequestTimeFilterFast" : {
+        "properties" : {
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestLocation"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "$ref" : "#/components/schemas/RequestTimeFilterFastArrivalSearches"
+          }
+        },
+        "required" : [ "arrival_searches", "locations" ],
+        "type" : "object"
+      },
+      "RequestRoutes" : {
+        "properties" : {
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestLocation"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          },
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestRoutesDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestRoutesArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations" ],
+        "type" : "object"
+      },
+      "RequestTimeMapProperty" : {
+        "enum" : [ "is_only_walking" ],
+        "type" : "string"
+      },
+      "RequestUnionOnIntersection" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "search_ids" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "id", "search_ids" ],
+        "type" : "object"
+      },
+      "RequestTimeMapDepartureSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "coords" : {
+            "$ref" : "#/components/schemas/Coords"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "departure_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeMapProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          }
+        },
+        "required" : [ "coords", "departure_time", "id", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeMapArrivalSearch" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestSearchId"
+          },
+          "coords" : {
+            "$ref" : "#/components/schemas/Coords"
+          },
+          "transportation" : {
+            "$ref" : "#/components/schemas/RequestTransportation"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/RequestTravelTime"
+          },
+          "arrival_time" : {
+            "$ref" : "#/components/schemas/RequestDepartureArrivalTime"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeMapProperty"
+            },
+            "type" : "array"
+          },
+          "range" : {
+            "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          }
+        },
+        "required" : [ "arrival_time", "coords", "id", "transportation", "travel_time" ],
+        "type" : "object"
+      },
+      "RequestTimeMap" : {
+        "properties" : {
+          "departure_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeMapDepartureSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "arrival_searches" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestTimeMapArrivalSearch"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "unions" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestUnionOnIntersection"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          },
+          "intersections" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestUnionOnIntersection"
+            },
+            "maxItems" : 10,
+            "type" : "array"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseSearchId" : {
+        "type" : "string"
+      },
+      "ResponseLocationId" : {
+        "type" : "string"
+      },
+      "ResponseTravelTime" : {
+        "type" : "integer"
+      },
+      "ResponseDistance" : {
+        "type" : "integer"
+      },
+      "ResponseTransportationMode" : {
+        "enum" : [ "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" ],
+        "type" : "string"
+      },
+      "ResponseDistanceBreakdownItem" : {
+        "properties" : {
+          "mode" : {
+            "$ref" : "#/components/schemas/ResponseTransportationMode"
+          },
+          "distance" : {
+            "$ref" : "#/components/schemas/ResponseDistance"
+          }
+        },
+        "required" : [ "distance", "mode" ],
+        "type" : "object"
+      },
+      "ResponseFareTicket" : {
+        "properties" : {
+          "type" : {
+            "enum" : [ "single", "week", "month", "year" ],
+            "type" : "string"
+          },
+          "price" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "currency" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "currency", "price", "type" ],
+        "type" : "object"
+      },
+      "ResponseFaresBreakdownItem" : {
+        "properties" : {
+          "modes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTransportationMode"
+            },
+            "type" : "array"
+          },
+          "route_part_ids" : {
+            "items" : {
+              "type" : "integer"
+            },
+            "type" : "array"
+          },
+          "tickets" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseFareTicket"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "modes", "route_part_ids", "tickets" ],
+        "type" : "object"
+      },
+      "ResponseFares" : {
+        "properties" : {
+          "breakdown" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseFaresBreakdownItem"
+            },
+            "type" : "array"
+          },
+          "tickets_total" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseFareTicket"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "breakdown", "tickets_total" ],
+        "type" : "object"
+      },
+      "ResponseFaresFast" : {
+        "properties" : {
+          "tickets_total" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseFareTicket"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "tickets_total" ],
+        "type" : "object"
+      },
+      "ResponseRoutePart" : {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "type" : {
+            "enum" : [ "basic", "start_end", "road", "public_transport" ],
+            "type" : "string"
+          },
+          "mode" : {
+            "$ref" : "#/components/schemas/ResponseTransportationMode"
+          },
+          "directions" : {
+            "type" : "string"
+          },
+          "distance" : {
+            "$ref" : "#/components/schemas/ResponseDistance"
+          },
+          "travel_time" : {
+            "$ref" : "#/components/schemas/ResponseTravelTime"
+          },
+          "coords" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Coords"
+            },
+            "type" : "array"
+          },
+          "direction" : {
+            "type" : "string"
+          },
+          "road" : {
+            "type" : "string"
+          },
+          "turn" : {
+            "type" : "string"
+          },
+          "line" : {
+            "type" : "string"
+          },
+          "departure_station" : {
+            "type" : "string"
+          },
+          "arrival_station" : {
+            "type" : "string"
+          },
+          "departs_at" : {
+            "$ref" : "#/components/schemas/ResponseLocalTime"
+          },
+          "arrives_at" : {
+            "$ref" : "#/components/schemas/ResponseLocalTime"
+          },
+          "num_stops" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [ "coords", "directions", "distance", "id", "mode", "travel_time", "type" ],
+        "type" : "object"
+      },
+      "ResponseRoute" : {
+        "properties" : {
+          "departure_time" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "arrival_time" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "parts" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseRoutePart"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "arrival_time", "departure_time", "parts" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterProperties" : {
+        "properties" : {
+          "travel_time" : {
+            "$ref" : "#/components/schemas/ResponseTravelTime"
+          },
+          "distance" : {
+            "$ref" : "#/components/schemas/ResponseDistance"
+          },
+          "distance_breakdown" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseDistanceBreakdownItem"
+            },
+            "type" : "array"
+          },
+          "fares" : {
+            "$ref" : "#/components/schemas/ResponseFares"
+          },
+          "route" : {
+            "$ref" : "#/components/schemas/ResponseRoute"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseTravelTimeStatistics" : {
+        "properties" : {
+          "min" : {
+            "type" : "integer"
+          },
+          "max" : {
+            "type" : "integer"
+          },
+          "mean" : {
+            "type" : "integer"
+          },
+          "median" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [ "max", "mean", "median", "min" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodesProperties" : {
+        "properties" : {
+          "travel_time" : {
+            "$ref" : "#/components/schemas/ResponseTravelTime"
+          },
+          "distance" : {
+            "$ref" : "#/components/schemas/ResponseDistance"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeDistrictProperties" : {
+        "properties" : {
+          "travel_time_reachable" : {
+            "$ref" : "#/components/schemas/ResponseTravelTimeStatistics"
+          },
+          "travel_time_all" : {
+            "$ref" : "#/components/schemas/ResponseTravelTimeStatistics"
+          },
+          "coverage" : {
+            "format" : "double",
+            "type" : "number"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeSectorProperties" : {
+        "properties" : {
+          "travel_time_reachable" : {
+            "$ref" : "#/components/schemas/ResponseTravelTimeStatistics"
+          },
+          "travel_time_all" : {
+            "$ref" : "#/components/schemas/ResponseTravelTimeStatistics"
+          },
+          "coverage" : {
+            "format" : "double",
+            "type" : "number"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseTimeFilterFastProperties" : {
+        "properties" : {
+          "travel_time" : {
+            "$ref" : "#/components/schemas/ResponseTravelTime"
+          },
+          "fares" : {
+            "$ref" : "#/components/schemas/ResponseFaresFast"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseRoutesProperties" : {
+        "properties" : {
+          "travel_time" : {
+            "$ref" : "#/components/schemas/ResponseTravelTime"
+          },
+          "distance" : {
+            "$ref" : "#/components/schemas/ResponseDistance"
+          },
+          "fares" : {
+            "$ref" : "#/components/schemas/ResponseFares"
+          },
+          "route" : {
+            "$ref" : "#/components/schemas/ResponseRoute"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseTimeFilterLocation" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/ResponseLocationId"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterProperties"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "id", "properties" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterFastLocation" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/ResponseLocationId"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterFastProperties"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "id", "properties" ],
+        "type" : "object"
+      },
+      "ResponseRoutesLocation" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/ResponseLocationId"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseRoutesProperties"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "id", "properties" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcode" : {
+        "properties" : {
+          "code" : {
+            "type" : "String"
+          },
+          "properties" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodesProperties"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "code", "properties" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeDistrict" : {
+        "properties" : {
+          "code" : {
+            "type" : "String"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistrictProperties"
+          }
+        },
+        "required" : [ "code", "properties" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeSector" : {
+        "properties" : {
+          "code" : {
+            "type" : "String"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectorProperties"
+          }
+        },
+        "required" : [ "code", "properties" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterLocation"
+            },
+            "type" : "array"
+          },
+          "unreachable" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations", "search_id", "unreachable" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodesResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "postcodes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcode"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "postcodes", "search_id" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeDistrictsResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "districts" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistrict"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "districts", "search_id" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeSectorsResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "sectors" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSector"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "search_id", "sectors" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterFastResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterFastLocation"
+            },
+            "type" : "array"
+          },
+          "unreachable" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations", "search_id", "unreachable" ],
+        "type" : "object"
+      },
+      "ResponseRoutesResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseRoutesLocation"
+            },
+            "type" : "array"
+          },
+          "unreachable" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations", "search_id", "unreachable" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilter" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodes" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodesResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeDistricts" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistrictsResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterPostcodeSectors" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectorsResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeFilterFast" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeFilterFastResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseRoutes" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseRoutesResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseShape" : {
+        "properties" : {
+          "shell" : {
+            "items" : {
+              "$ref" : "#/components/schemas/Coords"
+            },
+            "type" : "array"
+          },
+          "holes" : {
+            "items" : {
+              "items" : {
+                "$ref" : "#/components/schemas/Coords"
+              },
+              "type" : "array"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "holes", "shell" ],
+        "type" : "object"
+      },
+      "ResponseBox" : {
+        "properties" : {
+          "min_lat" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "max_lat" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "min_lng" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "max_lng" : {
+            "format" : "double",
+            "type" : "number"
+          }
+        },
+        "required" : [ "max_lat", "max_lng", "min_lat", "min_lng" ],
+        "type" : "object"
+      },
+      "ResponseBoundingBox" : {
+        "properties" : {
+          "envelope" : {
+            "$ref" : "#/components/schemas/ResponseBox"
+          },
+          "boxes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseBox"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "boxes", "envelope" ],
+        "type" : "object"
+      },
+      "ResponseTimeMapProperties" : {
+        "properties" : {
+          "is_only_walking" : {
+            "type" : "boolean"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseWktShape" : {
+        "type" : "string"
+      },
+      "ResponseTimeMapResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "shapes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseShape"
+            },
+            "type" : "array"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseTimeMapProperties"
+          }
+        },
+        "required" : [ "properties", "search_id", "shapes" ],
+        "type" : "object"
+      },
+      "ResponseTimeMap" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeMapWktResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "shape" : {
+            "$ref" : "#/components/schemas/ResponseWktShape"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseTimeMapProperties"
+          }
+        },
+        "required" : [ "properties", "search_id", "shape" ],
+        "type" : "object"
+      },
+      "ResponseTimeMapWkt" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapWktResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "ResponseTimeMapBoundingBoxesResult" : {
+        "properties" : {
+          "search_id" : {
+            "$ref" : "#/components/schemas/ResponseSearchId"
+          },
+          "bounding_boxes" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseBoundingBox"
+            },
+            "type" : "array"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseTimeMapProperties"
+          }
+        },
+        "required" : [ "bounding_boxes", "properties", "search_id" ],
+        "type" : "object"
+      },
+      "ResponseTimeMapBoundingBoxes" : {
+        "properties" : {
+          "results" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseTimeMapBoundingBoxesResult"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "results" ],
+        "type" : "object"
+      },
+      "RequestTransportation" : {
+        "properties" : {
+          "type" : {
+            "enum" : [ "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" ],
+            "type" : "string"
+          },
+          "pt_change_delay" : {
+            "type" : "integer"
+          },
+          "walking_time" : {
+            "type" : "integer"
+          },
+          "driving_time_to_station" : {
+            "type" : "integer"
+          },
+          "parking_time" : {
+            "type" : "integer"
+          },
+          "boarding_time" : {
+            "type" : "integer"
+          }
+        },
+        "required" : [ "type" ],
+        "type" : "object"
+      },
+      "RequestLocationId" : {
+        "type" : "string"
+      },
+      "ResponseSupportedLocation" : {
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "map_name" : {
+            "type" : "string"
+          }
+        },
+        "required" : [ "id", "map_name" ],
+        "type" : "object"
+      },
+      "ResponseSupportedLocations" : {
+        "properties" : {
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseSupportedLocation"
+            },
+            "type" : "array"
+          },
+          "unsupported_locations" : {
+            "items" : {
+              "type" : "string"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations", "unsupported_locations" ],
+        "type" : "object"
+      },
+      "RequestSupportedLocations" : {
+        "properties" : {
+          "locations" : {
+            "items" : {
+              "$ref" : "#/components/schemas/RequestLocation"
+            },
+            "minItems" : 1,
+            "type" : "array"
+          }
+        },
+        "required" : [ "locations" ],
+        "type" : "object"
+      },
+      "RequestLocation" : {
+        "properties" : {
+          "id" : {
+            "$ref" : "#/components/schemas/RequestLocationId"
+          },
+          "coords" : {
+            "$ref" : "#/components/schemas/Coords"
+          }
+        },
+        "required" : [ "coords", "id" ],
+        "type" : "object"
+      },
+      "ResponseError" : {
+        "externalDocs" : {
+          "url" : "http://docs.traveltime.com/reference/error-response"
+        },
+        "properties" : {
+          "http_status" : {
+            "type" : "integer"
+          },
+          "error_code" : {
+            "type" : "integer"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "documentation_link" : {
+            "type" : "string"
+          },
+          "additional_info" : {
+            "additionalProperties" : {
+              "items" : {
+                "type" : "string"
+              },
+              "type" : "array"
+            },
+            "type" : "object"
+          }
+        },
+        "type" : "object"
+      },
+      "ResponseGeocodingGeometry" : {
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "coordinates" : {
+            "items" : {
+              "format" : "double",
+              "type" : "number"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "coordinates", "type" ],
+        "type" : "object"
+      },
+      "ResponseMapInfoFeaturesPublicTransport" : {
+        "properties" : {
+          "date_start" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "date_end" : {
+            "format" : "date-time",
+            "type" : "string"
+          }
+        },
+        "required" : [ "date_end", "date_start" ],
+        "type" : "object"
+      },
+      "ResponseMapInfoFeatures" : {
+        "properties" : {
+          "public_transport" : {
+            "$ref" : "#/components/schemas/ResponseMapInfoFeaturesPublicTransport"
+          },
+          "fares" : {
+            "type" : "boolean"
+          },
+          "postcodes" : {
+            "type" : "boolean"
+          }
+        },
+        "required" : [ "fares", "postcodes" ],
+        "type" : "object"
+      },
+      "ResponseGeocodingProperties" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "label" : {
+            "type" : "string"
+          },
+          "score" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "house_number" : {
+            "type" : "string"
+          },
+          "street" : {
+            "type" : "string"
+          },
+          "region" : {
+            "type" : "string"
+          },
+          "region_code" : {
+            "type" : "string"
+          },
+          "neighbourhood" : {
+            "type" : "string"
+          },
+          "county" : {
+            "type" : "string"
+          },
+          "macroregion" : {
+            "type" : "string"
+          },
+          "city" : {
+            "type" : "string"
+          },
+          "country" : {
+            "type" : "string"
+          },
+          "country_code" : {
+            "type" : "string"
+          },
+          "continent" : {
+            "type" : "string"
+          },
+          "postcode" : {
+            "type" : "string"
+          },
+          "features" : {
+            "$ref" : "#/components/schemas/ResponseMapInfoFeatures"
+          }
+        },
+        "required" : [ "label", "name" ],
+        "type" : "object"
+      },
+      "ResponseGeocodingGeoJsonFeature" : {
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "geometry" : {
+            "$ref" : "#/components/schemas/ResponseGeocodingGeometry"
+          },
+          "properties" : {
+            "$ref" : "#/components/schemas/ResponseGeocodingProperties"
+          }
+        },
+        "required" : [ "geometry", "properties", "type" ],
+        "type" : "object"
+      },
+      "ResponseGeocoding" : {
+        "properties" : {
+          "type" : {
+            "type" : "string"
+          },
+          "features" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseGeocodingGeoJsonFeature"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "features", "type" ],
+        "type" : "object"
+      },
+      "ResponseMapInfoMap" : {
+        "properties" : {
+          "name" : {
+            "type" : "string"
+          },
+          "features" : {
+            "$ref" : "#/components/schemas/ResponseMapInfoFeatures"
+          }
+        },
+        "required" : [ "features", "name" ],
+        "type" : "object"
+      },
+      "ResponseMapInfo" : {
+        "properties" : {
+          "maps" : {
+            "items" : {
+              "$ref" : "#/components/schemas/ResponseMapInfoMap"
+            },
+            "type" : "array"
+          }
+        },
+        "required" : [ "maps" ],
+        "type" : "object"
+      }
+    },
+    "securitySchemes" : {
+      "ApplicationId" : {
+        "in" : "header",
+        "name" : "X-Application-Id",
+        "type" : "apiKey"
+      },
+      "ApiKey" : {
+        "in" : "header",
+        "name" : "X-Api-Key",
+        "type" : "apiKey"
+      }
+    }
+  }
+}

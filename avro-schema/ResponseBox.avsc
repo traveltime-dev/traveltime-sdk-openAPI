@@ -1,0 +1,28 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseBox",
+  "fields": [
+    {
+      "name": "min_lat",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "max_lat",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "min_lng",
+      "type": "double",
+      "doc": ""
+    },
+    {
+      "name": "max_lng",
+      "type": "double",
+      "doc": ""
+    }
+  ]
+}

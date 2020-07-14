@@ -15,7 +15,16 @@ class RequestRoutesArrivalSearch {
   List<RequestRoutesProperty> properties = [];
   
   RequestRangeFull range = null;
-  RequestRoutesArrivalSearch();
+
+  RequestRoutesArrivalSearch({
+    this.id,
+    this.departureLocationIds,
+    this.arrivalLocationId,
+    this.transportation,
+    this.arrivalTime,
+    this.properties,
+    this.range,
+  });
 
   @override
   String toString() {

@@ -7,7 +7,12 @@ class ResponseGeocodingGeoJsonFeature {
   ResponseGeocodingGeometry geometry = null;
   
   ResponseGeocodingProperties properties = null;
-  ResponseGeocodingGeoJsonFeature();
+
+  ResponseGeocodingGeoJsonFeature({
+    this.type,
+    this.geometry,
+    this.properties,
+  });
 
   @override
   String toString() {

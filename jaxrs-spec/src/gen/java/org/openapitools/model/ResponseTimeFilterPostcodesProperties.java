@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterPostcodesProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterPostcodesProperties   {
   
   private @Valid Integer travelTime;
   private @Valid Integer distance;
@@ -27,16 +26,17 @@ public class ResponseTimeFilterPostcodesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("travel_time")
   public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterPostcodesProperties distance(Integer distance) {
     this.distance = distance;
@@ -44,15 +44,17 @@ public class ResponseTimeFilterPostcodesProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("distance")
   public Integer getDistance() {
     return distance;
   }
+
   public void setDistance(Integer distance) {
     this.distance = distance;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -93,5 +95,7 @@ public class ResponseTimeFilterPostcodesProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

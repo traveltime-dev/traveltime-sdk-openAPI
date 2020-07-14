@@ -5,7 +5,11 @@ class ResponseShape {
   List<Coords> shell = [];
   
   List<List<Coords>> holes = [];
-  ResponseShape();
+
+  ResponseShape({
+    this.shell,
+    this.holes,
+  });
 
   @override
   String toString() {

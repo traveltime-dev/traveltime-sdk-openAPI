@@ -7,7 +7,12 @@ class ResponseTimeMapBoundingBoxesResult {
   List<ResponseBoundingBox> boundingBoxes = [];
   
   ResponseTimeMapProperties properties = null;
-  ResponseTimeMapBoundingBoxesResult();
+
+  ResponseTimeMapBoundingBoxesResult({
+    this.searchId,
+    this.boundingBoxes,
+    this.properties,
+  });
 
   @override
   String toString() {

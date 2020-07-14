@@ -18,10 +18,10 @@ import javax.validation.constraints.Size
 data class Coords(
 
     @get:NotNull 
-    @JsonProperty("lat") val lat: kotlin.Double,
+    @field:JsonProperty("lat") val lat: kotlin.Double,
 
     @get:NotNull 
-    @JsonProperty("lng") val lng: kotlin.Double
+    @field:JsonProperty("lng") val lng: kotlin.Double
 ) {
 
 }

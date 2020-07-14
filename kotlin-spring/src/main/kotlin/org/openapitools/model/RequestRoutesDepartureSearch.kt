@@ -26,24 +26,24 @@ import javax.validation.constraints.Size
 data class RequestRoutesDepartureSearch(
 
     @get:NotNull 
-    @JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id") val id: kotlin.String,
 
     @get:NotNull 
-    @JsonProperty("departure_location_id") val departureLocationId: kotlin.String,
+    @field:JsonProperty("departure_location_id") val departureLocationId: kotlin.String,
 
     @get:NotNull @get:Size(min=1,max=2) 
-    @JsonProperty("arrival_location_ids") val arrivalLocationIds: kotlin.collections.List<kotlin.String>,
+    @field:JsonProperty("arrival_location_ids") val arrivalLocationIds: kotlin.collections.List<kotlin.String>,
 
     @get:NotNull 
-    @JsonProperty("transportation") val transportation: RequestTransportation,
+    @field:JsonProperty("transportation") val transportation: RequestTransportation,
 
     @get:NotNull 
-    @JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
+    @field:JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
 
     @get:NotNull 
-    @JsonProperty("properties") val properties: kotlin.collections.List<RequestRoutesProperty>,
+    @field:JsonProperty("properties") val properties: kotlin.collections.List<RequestRoutesProperty>,
 
-    @JsonProperty("range") val range: RequestRangeFull? = null
+    @field:JsonProperty("range") val range: RequestRangeFull? = null
 ) {
 
 }

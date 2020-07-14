@@ -7,9 +7,17 @@ class RequestTimeMapProperty {
   const RequestTimeMapProperty._internal(this.value);
 
   static const RequestTimeMapProperty isOnlyWalking_ = const RequestTimeMapProperty._internal("is_only_walking");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestTimeMapProperty fromJson(String value) {
     return new RequestTimeMapPropertyTypeTransformer().decode(value);
+  }
+  
+  static List<RequestTimeMapProperty> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestTimeMapProperty>() : json.map((value) => RequestTimeMapProperty.fromJson(value)).toList();
   }
 }
 

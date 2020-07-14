@@ -21,6 +21,9 @@ coords_t *coords_create(
 
 
 void coords_free(coords_t *coords) {
+    if(NULL == coords){
+        return ;
+    }
     listEntry_t *listEntry;
     free(coords);
 }

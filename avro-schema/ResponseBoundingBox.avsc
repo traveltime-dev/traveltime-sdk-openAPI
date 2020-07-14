@@ -1,0 +1,21 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseBoundingBox",
+  "fields": [
+    {
+      "name": "envelope",
+      "type": "model.ResponseBox",
+      "doc": ""
+    },
+    {
+      "name": "boxes",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseBox"
+      },
+      "doc": ""
+    }
+  ]
+}

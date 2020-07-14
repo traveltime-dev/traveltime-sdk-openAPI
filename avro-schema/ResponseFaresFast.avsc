@@ -1,0 +1,16 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseFaresFast",
+  "fields": [
+    {
+      "name": "tickets_total",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseFareTicket"
+      },
+      "doc": ""
+    }
+  ]
+}

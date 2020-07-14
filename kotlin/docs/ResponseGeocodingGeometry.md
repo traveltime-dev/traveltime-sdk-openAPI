@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **kotlin.String** |  | 
-**coordinates** | **kotlin.Array&lt;kotlin.Double&gt;** |  | 
+**coordinates** | **kotlin.collections.List&lt;kotlin.Double&gt;** |  | 
 
 
 

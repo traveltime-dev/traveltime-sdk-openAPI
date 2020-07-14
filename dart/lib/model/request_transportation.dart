@@ -14,7 +14,15 @@ class RequestTransportation {
   int parkingTime = null;
   
   int boardingTime = null;
-  RequestTransportation();
+
+  RequestTransportation({
+    this.type,
+    this.ptChangeDelay,
+    this.walkingTime,
+    this.drivingTimeToStation,
+    this.parkingTime,
+    this.boardingTime,
+  });
 
   @override
   String toString() {

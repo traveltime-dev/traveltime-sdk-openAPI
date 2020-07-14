@@ -13,7 +13,7 @@ import org.openapitools.model.RequestTimeFilterPostcodesDepartureSearch;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestTimeFilterPostcodes   {
   
 
@@ -26,8 +26,7 @@ public class RequestTimeFilterPostcodes   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("departure_searches")
-  @Size(max=10)
-  public List<RequestTimeFilterPostcodesDepartureSearch> getDepartureSearches() {
+ @Size(max=10)  public List<RequestTimeFilterPostcodesDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
   public void setDepartureSearches(List<RequestTimeFilterPostcodesDepartureSearch> departureSearches) {
@@ -39,8 +38,7 @@ public class RequestTimeFilterPostcodes   {
   
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_searches")
-  @Size(max=10)
-  public List<RequestTimeFilterPostcodesArrivalSearch> getArrivalSearches() {
+ @Size(max=10)  public List<RequestTimeFilterPostcodesArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
   public void setArrivalSearches(List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches) {

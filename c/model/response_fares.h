@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_fares_t response_fares_t;
+
 #include "response_fare_ticket.h"
 #include "response_fares_breakdown_item.h"
 

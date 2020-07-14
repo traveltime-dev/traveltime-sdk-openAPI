@@ -27,27 +27,27 @@ import javax.validation.constraints.Size
 data class RequestTimeFilterArrivalSearch(
 
     @get:NotNull 
-    @JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id") val id: kotlin.String,
 
     @get:NotNull @get:Size(min=1,max=2000) 
-    @JsonProperty("departure_location_ids") val departureLocationIds: kotlin.collections.List<kotlin.String>,
+    @field:JsonProperty("departure_location_ids") val departureLocationIds: kotlin.collections.List<kotlin.String>,
 
     @get:NotNull 
-    @JsonProperty("arrival_location_id") val arrivalLocationId: kotlin.String,
+    @field:JsonProperty("arrival_location_id") val arrivalLocationId: kotlin.String,
 
     @get:NotNull 
-    @JsonProperty("transportation") val transportation: RequestTransportation,
+    @field:JsonProperty("transportation") val transportation: RequestTransportation,
 
     @get:NotNull @get:Min(60) @get:Max(14400) 
-    @JsonProperty("travel_time") val travelTime: kotlin.Int,
+    @field:JsonProperty("travel_time") val travelTime: kotlin.Int,
 
     @get:NotNull 
-    @JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
+    @field:JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
 
     @get:NotNull 
-    @JsonProperty("properties") val properties: kotlin.collections.List<RequestTimeFilterProperty>,
+    @field:JsonProperty("properties") val properties: kotlin.collections.List<RequestTimeFilterProperty>,
 
-    @JsonProperty("range") val range: RequestRangeFull? = null
+    @field:JsonProperty("range") val range: RequestRangeFull? = null
 ) {
 
 }

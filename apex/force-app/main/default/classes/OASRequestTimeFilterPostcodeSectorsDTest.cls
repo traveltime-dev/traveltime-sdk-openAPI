@@ -72,10 +72,10 @@ private class OASRequestTimeFilterPostcodeSectorsDTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTimeFilterPostcodeSectorsD requestTimeFilterPostcodeSectorsDepartureSearch = new OASRequestTimeFilterPostcodeSectorsD();
-        Map<String, String> propertyMappings = requestTimeFilterPostcodeSectorsDepartureSearch.getPropertyMappings();
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
-        System.assertEquals('departureTime', propertyMappings.get('departure_time'));
-        System.assertEquals('reachablePostcodesThreshold', propertyMappings.get('reachable_postcodes_threshold'));
+        Map<String, String> x-property-mappings = requestTimeFilterPostcodeSectorsDepartureSearch.getx-property-mappings();
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
+        System.assertEquals('departureTime', x-property-mappings.get('departure_time'));
+        System.assertEquals('reachablePostcodesThreshold', x-property-mappings.get('reachable_postcodes_threshold'));
     }
 
     @isTest

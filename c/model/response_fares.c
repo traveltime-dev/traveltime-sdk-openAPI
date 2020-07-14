@@ -21,6 +21,9 @@ response_fares_t *response_fares_create(
 
 
 void response_fares_free(response_fares_t *response_fares) {
+    if(NULL == response_fares){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_fares->breakdown) {
         response_fares_breakdown_item_free(listEntry->data);

@@ -21,6 +21,9 @@ response_geocoding_t *response_geocoding_create(
 
 
 void response_geocoding_free(response_geocoding_t *response_geocoding) {
+    if(NULL == response_geocoding){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_geocoding->type);
     list_ForEach(listEntry, response_geocoding->features) {

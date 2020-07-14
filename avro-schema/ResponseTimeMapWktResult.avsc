@@ -1,0 +1,23 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeMapWktResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "shape",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": "model.ResponseTimeMapProperties",
+      "doc": ""
+    }
+  ]
+}

@@ -5,7 +5,11 @@ class RequestRangeNoMaxResults {
   bool enabled = null;
   
   int width = null;
-  RequestRangeNoMaxResults();
+
+  RequestRangeNoMaxResults({
+    this.enabled,
+    this.width,
+  });
 
   @override
   String toString() {

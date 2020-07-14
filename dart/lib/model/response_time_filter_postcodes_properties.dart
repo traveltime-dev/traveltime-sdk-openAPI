@@ -5,7 +5,11 @@ class ResponseTimeFilterPostcodesProperties {
   int travelTime = null;
   
   int distance = null;
-  ResponseTimeFilterPostcodesProperties();
+
+  ResponseTimeFilterPostcodesProperties({
+    this.travelTime,
+    this.distance,
+  });
 
   @override
   String toString() {

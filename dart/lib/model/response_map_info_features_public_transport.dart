@@ -5,7 +5,11 @@ class ResponseMapInfoFeaturesPublicTransport {
   DateTime dateStart = null;
   
   DateTime dateEnd = null;
-  ResponseMapInfoFeaturesPublicTransport();
+
+  ResponseMapInfoFeaturesPublicTransport({
+    this.dateStart,
+    this.dateEnd,
+  });
 
   @override
   String toString() {

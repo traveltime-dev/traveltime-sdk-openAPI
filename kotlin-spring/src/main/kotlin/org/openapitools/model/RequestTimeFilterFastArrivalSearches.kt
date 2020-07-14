@@ -19,9 +19,9 @@ import javax.validation.constraints.Size
  */
 data class RequestTimeFilterFastArrivalSearches(
 @get:Size(max=10) 
-    @JsonProperty("many_to_one") val manyToOne: kotlin.collections.List<RequestTimeFilterFastArrivalManyToOneSearch>? = null,
+    @field:JsonProperty("many_to_one") val manyToOne: kotlin.collections.List<RequestTimeFilterFastArrivalManyToOneSearch>? = null,
 @get:Size(max=10) 
-    @JsonProperty("one_to_many") val oneToMany: kotlin.collections.List<RequestTimeFilterFastArrivalOneToManySearch>? = null
+    @field:JsonProperty("one_to_many") val oneToMany: kotlin.collections.List<RequestTimeFilterFastArrivalOneToManySearch>? = null
 ) {
 
 }

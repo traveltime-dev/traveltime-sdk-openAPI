@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilter",
+  "fields": [
+    {
+      "name": "locations",
+      "type": {
+        "type": "array",
+        "items": "model.RequestLocation"
+      },
+      "doc": ""
+    },
+    {
+      "name": "departure_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterDepartureSearch"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "arrival_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterArrivalSearch"
+      }],
+      "doc": ""
+    }
+  ]
+}

@@ -5,7 +5,11 @@ class ResponseSupportedLocations {
   List<ResponseSupportedLocation> locations = [];
   
   List<String> unsupportedLocations = [];
-  ResponseSupportedLocations();
+
+  ResponseSupportedLocations({
+    this.locations,
+    this.unsupportedLocations,
+  });
 
   @override
   String toString() {

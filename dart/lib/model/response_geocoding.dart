@@ -5,7 +5,11 @@ class ResponseGeocoding {
   String type = null;
   
   List<ResponseGeocodingGeoJsonFeature> features = [];
-  ResponseGeocoding();
+
+  ResponseGeocoding({
+    this.type,
+    this.features,
+  });
 
   @override
   String toString() {

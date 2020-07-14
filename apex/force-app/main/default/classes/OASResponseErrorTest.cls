@@ -72,11 +72,11 @@ private class OASResponseErrorTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseError responseError = new OASResponseError();
-        Map<String, String> propertyMappings = responseError.getPropertyMappings();
-        System.assertEquals('httpStatus', propertyMappings.get('http_status'));
-        System.assertEquals('errorCode', propertyMappings.get('error_code'));
-        System.assertEquals('documentationLink', propertyMappings.get('documentation_link'));
-        System.assertEquals('additionalInfo', propertyMappings.get('additional_info'));
+        Map<String, String> x-property-mappings = responseError.getx-property-mappings();
+        System.assertEquals('httpStatus', x-property-mappings.get('http_status'));
+        System.assertEquals('errorCode', x-property-mappings.get('error_code'));
+        System.assertEquals('documentationLink', x-property-mappings.get('documentation_link'));
+        System.assertEquals('additionalInfo', x-property-mappings.get('additional_info'));
     }
 
     @isTest

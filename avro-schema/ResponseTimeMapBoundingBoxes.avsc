@@ -1,0 +1,16 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeMapBoundingBoxes",
+  "fields": [
+    {
+      "name": "results",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseTimeMapBoundingBoxesResult"
+      },
+      "doc": ""
+    }
+  ]
+}

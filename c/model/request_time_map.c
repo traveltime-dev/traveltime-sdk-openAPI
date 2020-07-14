@@ -25,6 +25,9 @@ request_time_map_t *request_time_map_create(
 
 
 void request_time_map_free(request_time_map_t *request_time_map) {
+    if(NULL == request_time_map){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_map->departure_searches) {
         request_time_map_departure_search_free(listEntry->data);

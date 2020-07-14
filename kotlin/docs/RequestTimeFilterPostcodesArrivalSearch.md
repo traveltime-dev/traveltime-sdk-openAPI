@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **kotlin.Int** |  | 
 **arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
-**properties** | [**kotlin.Array&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
+**properties** | [**kotlin.collections.List&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 
 

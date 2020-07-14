@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterLocation   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterLocation   {
   
   private @Valid String id;
   private @Valid List<ResponseTimeFilterProperties> properties = new ArrayList<ResponseTimeFilterProperties>();
@@ -30,22 +29,25 @@ public class ResponseTimeFilterLocation   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterLocation properties(List<ResponseTimeFilterProperties> properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseTimeFilterLocation   {
   public List<ResponseTimeFilterProperties> getProperties() {
     return properties;
   }
+
   public void setProperties(List<ResponseTimeFilterProperties> properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseTimeFilterLocation   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

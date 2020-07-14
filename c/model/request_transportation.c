@@ -4,12 +4,12 @@
 #include "request_transportation.h"
 
 
-char* typerequest_transportation_ToString(traveltime_platform_api_request_transportation_TYPE_e type) {
+char* typerequest_transportation_ToString(traveltime_api_request_transportation_TYPE_e type) {
     char* typeArray[] =  { "NULL", "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" };
 	return typeArray[type];
 }
 
-traveltime_platform_api_request_transportation_TYPE_e typerequest_transportation_FromString(char* type){
+traveltime_api_request_transportation_TYPE_e typerequest_transportation_FromString(char* type){
     int stringToReturn = 0;
     char *typeArray[] =  { "NULL", "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" };
     size_t sizeofArray = sizeof(typeArray) / sizeof(typeArray[0]);
@@ -23,7 +23,7 @@ traveltime_platform_api_request_transportation_TYPE_e typerequest_transportation
 }
 
 request_transportation_t *request_transportation_create(
-    traveltime_platform_api_request_transportation_TYPE_e type,
+    traveltime_api_request_transportation_TYPE_e type,
     int pt_change_delay,
     int walking_time,
     int driving_time_to_station,
@@ -46,6 +46,9 @@ request_transportation_t *request_transportation_create(
 
 
 void request_transportation_free(request_transportation_t *request_transportation) {
+    if(NULL == request_transportation){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_transportation);
 }
@@ -118,7 +121,7 @@ request_transportation_t *request_transportation_parseFromJSON(cJSON *request_tr
         goto end;
     }
 
-    traveltime_platform_api_request_transportation_TYPE_e typeVariable;
+    traveltime_api_request_transportation_TYPE_e typeVariable;
     
     if(!cJSON_IsString(type))
     {

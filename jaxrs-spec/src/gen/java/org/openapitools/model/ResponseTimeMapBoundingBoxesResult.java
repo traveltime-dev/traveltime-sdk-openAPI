@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeMapBoundingBoxesResult   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeMapBoundingBoxesResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseBoundingBox> boundingBoxes = new ArrayList<ResponseBoundingBox>();
@@ -32,22 +31,25 @@ public class ResponseTimeMapBoundingBoxesResult   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("search_id")
   @NotNull
   public String getSearchId() {
     return searchId;
   }
+
   public void setSearchId(String searchId) {
     this.searchId = searchId;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeMapBoundingBoxesResult boundingBoxes(List<ResponseBoundingBox> boundingBoxes) {
     this.boundingBoxes = boundingBoxes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -56,16 +58,17 @@ public class ResponseTimeMapBoundingBoxesResult   {
   public List<ResponseBoundingBox> getBoundingBoxes() {
     return boundingBoxes;
   }
+
   public void setBoundingBoxes(List<ResponseBoundingBox> boundingBoxes) {
     this.boundingBoxes = boundingBoxes;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeMapBoundingBoxesResult properties(ResponseTimeMapProperties properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -74,10 +77,10 @@ public class ResponseTimeMapBoundingBoxesResult   {
   public ResponseTimeMapProperties getProperties() {
     return properties;
   }
+
   public void setProperties(ResponseTimeMapProperties properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,5 +123,7 @@ public class ResponseTimeMapBoundingBoxesResult   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

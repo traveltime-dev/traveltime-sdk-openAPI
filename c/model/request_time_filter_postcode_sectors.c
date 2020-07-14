@@ -21,6 +21,9 @@ request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors_cre
 
 
 void request_time_filter_postcode_sectors_free(request_time_filter_postcode_sectors_t *request_time_filter_postcode_sectors) {
+    if(NULL == request_time_filter_postcode_sectors){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, request_time_filter_postcode_sectors->departure_searches) {
         request_time_filter_postcode_sectors_departure_search_free(listEntry->data);

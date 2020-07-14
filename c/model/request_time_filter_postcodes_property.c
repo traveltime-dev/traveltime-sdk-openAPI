@@ -4,12 +4,12 @@
 #include "request_time_filter_postcodes_property.h"
 
 
-char* request_time_filter_postcodes_property_request_time_filter_postcodes_property_ToString(traveltime_platform_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property) {
+char* request_time_filter_postcodes_property_request_time_filter_postcodes_property_ToString(traveltime_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property) {
     char *request_time_filter_postcodes_propertyArray[] =  { "NULL", "travel_time", "distance" };
     return request_time_filter_postcodes_propertyArray[request_time_filter_postcodes_property];
 }
 
-traveltime_platform_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property_request_time_filter_postcodes_property_FromString(char* request_time_filter_postcodes_property) {
+traveltime_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property_request_time_filter_postcodes_property_FromString(char* request_time_filter_postcodes_property) {
     int stringToReturn = 0;
     char *request_time_filter_postcodes_propertyArray[] =  { "NULL", "travel_time", "distance" };
     size_t sizeofArray = sizeof(request_time_filter_postcodes_propertyArray) / sizeof(request_time_filter_postcodes_propertyArray[0]);
@@ -22,7 +22,7 @@ traveltime_platform_api_request_time_filter_postcodes_property__e request_time_f
     return 0;
 }
 
-cJSON *request_time_filter_postcodes_property_request_time_filter_postcodes_property_convertToJSON(traveltime_platform_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property) {
+cJSON *request_time_filter_postcodes_property_request_time_filter_postcodes_property_convertToJSON(traveltime_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property) {
     cJSON *item = cJSON_CreateObject();
     if(cJSON_AddStringToObject(item, "request_time_filter_postcodes_property", request_time_filter_postcodes_property_request_time_filter_postcodes_property_ToString(request_time_filter_postcodes_property)) == NULL) {
         goto fail;

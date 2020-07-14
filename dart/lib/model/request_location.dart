@@ -5,7 +5,11 @@ class RequestLocation {
   String id = null;
   
   Coords coords = null;
-  RequestLocation();
+
+  RequestLocation({
+    this.id,
+    this.coords,
+  });
 
   @override
   String toString() {

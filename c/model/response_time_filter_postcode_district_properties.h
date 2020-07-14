@@ -11,6 +11,10 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct response_time_filter_postcode_district_properties_t response_time_filter_postcode_district_properties_t;
+
 #include "response_travel_time_statistics.h"
 
 

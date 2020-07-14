@@ -19,6 +19,9 @@ response_time_filter_t *response_time_filter_create(
 
 
 void response_time_filter_free(response_time_filter_t *response_time_filter) {
+    if(NULL == response_time_filter){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_filter->results) {
         response_time_filter_result_free(listEntry->data);

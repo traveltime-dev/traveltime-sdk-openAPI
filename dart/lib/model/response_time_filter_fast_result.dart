@@ -7,7 +7,12 @@ class ResponseTimeFilterFastResult {
   List<ResponseTimeFilterFastLocation> locations = [];
   
   List<String> unreachable = [];
-  ResponseTimeFilterFastResult();
+
+  ResponseTimeFilterFastResult({
+    this.searchId,
+    this.locations,
+    this.unreachable,
+  });
 
   @override
   String toString() {

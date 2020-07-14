@@ -21,6 +21,9 @@ response_time_filter_location_t *response_time_filter_location_create(
 
 
 void response_time_filter_location_free(response_time_filter_location_t *response_time_filter_location) {
+    if(NULL == response_time_filter_location){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_time_filter_location->id);
     list_ForEach(listEntry, response_time_filter_location->properties) {

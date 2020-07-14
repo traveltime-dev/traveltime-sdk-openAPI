@@ -3,7 +3,10 @@ part of openapi.api;
 class ResponseFaresFast {
   
   List<ResponseFareTicket> ticketsTotal = [];
-  ResponseFaresFast();
+
+  ResponseFaresFast({
+    this.ticketsTotal,
+  });
 
   @override
   String toString() {

@@ -19,6 +19,9 @@ response_routes_t *response_routes_create(
 
 
 void response_routes_free(response_routes_t *response_routes) {
+    if(NULL == response_routes){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_routes->results) {
         response_routes_result_free(listEntry->data);

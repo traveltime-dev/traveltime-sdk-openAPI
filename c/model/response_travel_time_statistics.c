@@ -25,6 +25,9 @@ response_travel_time_statistics_t *response_travel_time_statistics_create(
 
 
 void response_travel_time_statistics_free(response_travel_time_statistics_t *response_travel_time_statistics) {
+    if(NULL == response_travel_time_statistics){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_travel_time_statistics);
 }

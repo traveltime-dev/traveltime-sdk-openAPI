@@ -1,0 +1,24 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeFilterPostcodes",
+  "fields": [
+    {
+      "name": "departure_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterPostcodesDepartureSearch"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "arrival_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeFilterPostcodesArrivalSearch"
+      }],
+      "doc": ""
+    }
+  ]
+}

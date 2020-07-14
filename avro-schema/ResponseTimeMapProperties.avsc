@@ -1,0 +1,13 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeMapProperties",
+  "fields": [
+    {
+      "name": "is_only_walking",
+      "type": ["null", "boolean"],
+      "doc": ""
+    }
+  ]
+}

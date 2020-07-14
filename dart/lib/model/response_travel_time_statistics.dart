@@ -9,7 +9,13 @@ class ResponseTravelTimeStatistics {
   int mean = null;
   
   int median = null;
-  ResponseTravelTimeStatistics();
+
+  ResponseTravelTimeStatistics({
+    this.min,
+    this.max,
+    this.mean,
+    this.median,
+  });
 
   @override
   String toString() {

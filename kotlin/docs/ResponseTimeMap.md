@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**kotlin.Array&lt;ResponseTimeMapResult&gt;**](ResponseTimeMapResult.md) |  | 
+**results** | [**kotlin.collections.List&lt;ResponseTimeMapResult&gt;**](ResponseTimeMapResult.md) |  | 
 
 
 

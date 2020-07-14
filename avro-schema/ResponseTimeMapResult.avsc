@@ -1,0 +1,26 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeMapResult",
+  "fields": [
+    {
+      "name": "search_id",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "shapes",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseShape"
+      },
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": "model.ResponseTimeMapProperties",
+      "doc": ""
+    }
+  ]
+}

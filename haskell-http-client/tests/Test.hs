@@ -12,8 +12,8 @@ import Test.Hspec.QuickCheck
 import PropMime
 import Instances ()
 
-import TravelTimePlatform.Model
-import TravelTimePlatform.MimeTypes
+import TravelTime.Model
+import TravelTime.MimeTypes
 
 main :: IO ()
 main =

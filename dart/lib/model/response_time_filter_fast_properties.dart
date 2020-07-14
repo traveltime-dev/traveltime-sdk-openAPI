@@ -5,7 +5,11 @@ class ResponseTimeFilterFastProperties {
   int travelTime = null;
   
   ResponseFaresFast fares = null;
-  ResponseTimeFilterFastProperties();
+
+  ResponseTimeFilterFastProperties({
+    this.travelTime,
+    this.fares,
+  });
 
   @override
   String toString() {

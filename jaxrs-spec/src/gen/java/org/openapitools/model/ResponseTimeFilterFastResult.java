@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterFastResult   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterFastResult   {
   
   private @Valid String searchId;
   private @Valid List<ResponseTimeFilterFastLocation> locations = new ArrayList<ResponseTimeFilterFastLocation>();
@@ -31,22 +30,25 @@ public class ResponseTimeFilterFastResult   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("search_id")
   @NotNull
   public String getSearchId() {
     return searchId;
   }
+
   public void setSearchId(String searchId) {
     this.searchId = searchId;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterFastResult locations(List<ResponseTimeFilterFastLocation> locations) {
     this.locations = locations;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -55,16 +57,17 @@ public class ResponseTimeFilterFastResult   {
   public List<ResponseTimeFilterFastLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<ResponseTimeFilterFastLocation> locations) {
     this.locations = locations;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterFastResult unreachable(List<String> unreachable) {
     this.unreachable = unreachable;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -73,10 +76,10 @@ public class ResponseTimeFilterFastResult   {
   public List<String> getUnreachable() {
     return unreachable;
   }
+
   public void setUnreachable(List<String> unreachable) {
     this.unreachable = unreachable;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -119,5 +122,7 @@ public class ResponseTimeFilterFastResult   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

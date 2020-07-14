@@ -11,7 +11,14 @@ class ResponseTimeFilterProperties {
   ResponseFares fares = null;
   
   ResponseRoute route = null;
-  ResponseTimeFilterProperties();
+
+  ResponseTimeFilterProperties({
+    this.travelTime,
+    this.distance,
+    this.distanceBreakdown,
+    this.fares,
+    this.route,
+  });
 
   @override
   String toString() {

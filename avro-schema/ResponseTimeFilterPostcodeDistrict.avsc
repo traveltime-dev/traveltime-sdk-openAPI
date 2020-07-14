@@ -1,0 +1,18 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseTimeFilterPostcodeDistrict",
+  "fields": [
+    {
+      "name": "code",
+      "type": ,
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": "model.ResponseTimeFilterPostcodeDistrictProperties",
+      "doc": ""
+    }
+  ]
+}

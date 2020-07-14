@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTravelTimeStatistics   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTravelTimeStatistics   {
   
   private @Valid Integer min;
   private @Valid Integer max;
@@ -29,22 +28,25 @@ public class ResponseTravelTimeStatistics   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("min")
   @NotNull
   public Integer getMin() {
     return min;
   }
+
   public void setMin(Integer min) {
     this.min = min;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTravelTimeStatistics max(Integer max) {
     this.max = max;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -53,16 +55,17 @@ public class ResponseTravelTimeStatistics   {
   public Integer getMax() {
     return max;
   }
+
   public void setMax(Integer max) {
     this.max = max;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTravelTimeStatistics mean(Integer mean) {
     this.mean = mean;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -71,16 +74,17 @@ public class ResponseTravelTimeStatistics   {
   public Integer getMean() {
     return mean;
   }
+
   public void setMean(Integer mean) {
     this.mean = mean;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTravelTimeStatistics median(Integer median) {
     this.median = median;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -89,10 +93,10 @@ public class ResponseTravelTimeStatistics   {
   public Integer getMedian() {
     return median;
   }
+
   public void setMedian(Integer median) {
     this.median = median;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,5 +141,7 @@ public class ResponseTravelTimeStatistics   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

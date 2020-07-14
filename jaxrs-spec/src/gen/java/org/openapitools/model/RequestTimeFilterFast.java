@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterFast   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterFast   {
   
   private @Valid List<RequestLocation> locations = new ArrayList<RequestLocation>();
   private @Valid RequestTimeFilterFastArrivalSearches arrivalSearches;
@@ -31,22 +30,25 @@ public class RequestTimeFilterFast   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("locations")
   @NotNull
  @Size(min=1)  public List<RequestLocation> getLocations() {
     return locations;
   }
+
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFast arrivalSearches(RequestTimeFilterFastArrivalSearches arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -55,10 +57,10 @@ public class RequestTimeFilterFast   {
   public RequestTimeFilterFastArrivalSearches getArrivalSearches() {
     return arrivalSearches;
   }
+
   public void setArrivalSearches(RequestTimeFilterFastArrivalSearches arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -99,5 +101,7 @@ public class RequestTimeFilterFast   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

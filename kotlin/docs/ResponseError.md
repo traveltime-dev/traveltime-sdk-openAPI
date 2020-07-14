@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **errorCode** | **kotlin.Int** |  |  [optional]
 **description** | **kotlin.String** |  |  [optional]
 **documentationLink** | **kotlin.String** |  |  [optional]
-**additionalInfo** | **kotlin.collections.Map&lt;kotlin.String, kotlin.Array&lt;kotlin.String&gt;&gt;** |  |  [optional]
+**additionalInfo** | **kotlin.collections.Map&lt;kotlin.String, kotlin.collections.List&lt;kotlin.String&gt;&gt;** |  |  [optional]
 
 
 

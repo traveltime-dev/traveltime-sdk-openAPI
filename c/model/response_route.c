@@ -23,6 +23,9 @@ response_route_t *response_route_create(
 
 
 void response_route_free(response_route_t *response_route) {
+    if(NULL == response_route){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_route->departure_time);
     free(response_route->arrival_time);

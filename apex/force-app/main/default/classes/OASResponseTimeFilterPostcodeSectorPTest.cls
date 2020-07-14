@@ -72,8 +72,8 @@ private class OASResponseTimeFilterPostcodeSectorPTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeFilterPostcodeSectorP responseTimeFilterPostcodeSectorProperties = new OASResponseTimeFilterPostcodeSectorP();
-        Map<String, String> propertyMappings = responseTimeFilterPostcodeSectorProperties.getPropertyMappings();
-        System.assertEquals('travelTimeReachable', propertyMappings.get('travel_time_reachable'));
-        System.assertEquals('travelTimeAll', propertyMappings.get('travel_time_all'));
+        Map<String, String> x-property-mappings = responseTimeFilterPostcodeSectorProperties.getx-property-mappings();
+        System.assertEquals('travelTimeReachable', x-property-mappings.get('travel_time_reachable'));
+        System.assertEquals('travelTimeAll', x-property-mappings.get('travel_time_all'));
     }
 }

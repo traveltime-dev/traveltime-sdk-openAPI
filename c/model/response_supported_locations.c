@@ -21,6 +21,9 @@ response_supported_locations_t *response_supported_locations_create(
 
 
 void response_supported_locations_free(response_supported_locations_t *response_supported_locations) {
+    if(NULL == response_supported_locations){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_supported_locations->locations) {
         response_supported_location_free(listEntry->data);

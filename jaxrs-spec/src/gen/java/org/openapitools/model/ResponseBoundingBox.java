@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseBoundingBox   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseBoundingBox   {
   
   private @Valid ResponseBox envelope;
   private @Valid List<ResponseBox> boxes = new ArrayList<ResponseBox>();
@@ -30,22 +29,25 @@ public class ResponseBoundingBox   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("envelope")
   @NotNull
   public ResponseBox getEnvelope() {
     return envelope;
   }
+
   public void setEnvelope(ResponseBox envelope) {
     this.envelope = envelope;
-  }
-
-  /**
+  }/**
    **/
   public ResponseBoundingBox boxes(List<ResponseBox> boxes) {
     this.boxes = boxes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseBoundingBox   {
   public List<ResponseBox> getBoxes() {
     return boxes;
   }
+
   public void setBoxes(List<ResponseBox> boxes) {
     this.boxes = boxes;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseBoundingBox   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

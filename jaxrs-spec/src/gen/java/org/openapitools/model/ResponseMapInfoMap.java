@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseMapInfoMap   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseMapInfoMap   {
   
   private @Valid String name;
   private @Valid ResponseMapInfoFeatures features;
@@ -28,22 +27,25 @@ public class ResponseMapInfoMap   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("name")
   @NotNull
   public String getName() {
     return name;
   }
+
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
+  }/**
    **/
   public ResponseMapInfoMap features(ResponseMapInfoFeatures features) {
     this.features = features;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -52,10 +54,10 @@ public class ResponseMapInfoMap   {
   public ResponseMapInfoFeatures getFeatures() {
     return features;
   }
+
   public void setFeatures(ResponseMapInfoFeatures features) {
     this.features = features;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -96,5 +98,7 @@ public class ResponseMapInfoMap   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

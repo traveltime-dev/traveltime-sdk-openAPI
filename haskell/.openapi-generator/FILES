@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+README.md
+Setup.hs
+lib/TravelTime/API.hs
+lib/TravelTime/Types.hs
+stack.yaml
+traveltime.cabal

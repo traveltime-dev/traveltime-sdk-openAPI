@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **searchId** | **kotlin.String** |  | 
-**locations** | [**kotlin.Array&lt;ResponseTimeFilterFastLocation&gt;**](ResponseTimeFilterFastLocation.md) |  | 
-**unreachable** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
+**locations** | [**kotlin.collections.List&lt;ResponseTimeFilterFastLocation&gt;**](ResponseTimeFilterFastLocation.md) |  | 
+**unreachable** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 
 
 

@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseRoutePart   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseRoutePart   {
   
   private @Valid String id;
 
@@ -78,22 +77,25 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart type(TypeEnum type) {
     this.type = type;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -102,16 +104,17 @@ public enum TypeEnum {
   public TypeEnum getType() {
     return type;
   }
+
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart mode(ResponseTransportationMode mode) {
     this.mode = mode;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -120,16 +123,17 @@ public enum TypeEnum {
   public ResponseTransportationMode getMode() {
     return mode;
   }
+
   public void setMode(ResponseTransportationMode mode) {
     this.mode = mode;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart directions(String directions) {
     this.directions = directions;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -138,16 +142,17 @@ public enum TypeEnum {
   public String getDirections() {
     return directions;
   }
+
   public void setDirections(String directions) {
     this.directions = directions;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart distance(Integer distance) {
     this.distance = distance;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -156,16 +161,17 @@ public enum TypeEnum {
   public Integer getDistance() {
     return distance;
   }
+
   public void setDistance(Integer distance) {
     this.distance = distance;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart travelTime(Integer travelTime) {
     this.travelTime = travelTime;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -174,16 +180,17 @@ public enum TypeEnum {
   public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart coords(List<Coords> coords) {
     this.coords = coords;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -192,11 +199,10 @@ public enum TypeEnum {
   public List<Coords> getCoords() {
     return coords;
   }
+
   public void setCoords(List<Coords> coords) {
     this.coords = coords;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart direction(String direction) {
     this.direction = direction;
@@ -204,16 +210,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("direction")
   public String getDirection() {
     return direction;
   }
+
   public void setDirection(String direction) {
     this.direction = direction;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart road(String road) {
     this.road = road;
@@ -221,16 +228,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("road")
   public String getRoad() {
     return road;
   }
+
   public void setRoad(String road) {
     this.road = road;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart turn(String turn) {
     this.turn = turn;
@@ -238,16 +246,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("turn")
   public String getTurn() {
     return turn;
   }
+
   public void setTurn(String turn) {
     this.turn = turn;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart line(String line) {
     this.line = line;
@@ -255,16 +264,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("line")
   public String getLine() {
     return line;
   }
+
   public void setLine(String line) {
     this.line = line;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart departureStation(String departureStation) {
     this.departureStation = departureStation;
@@ -272,16 +282,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departure_station")
   public String getDepartureStation() {
     return departureStation;
   }
+
   public void setDepartureStation(String departureStation) {
     this.departureStation = departureStation;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart arrivalStation(String arrivalStation) {
     this.arrivalStation = arrivalStation;
@@ -289,16 +300,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrival_station")
   public String getArrivalStation() {
     return arrivalStation;
   }
+
   public void setArrivalStation(String arrivalStation) {
     this.arrivalStation = arrivalStation;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart departsAt(String departsAt) {
     this.departsAt = departsAt;
@@ -306,16 +318,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("departs_at")
   public String getDepartsAt() {
     return departsAt;
   }
+
   public void setDepartsAt(String departsAt) {
     this.departsAt = departsAt;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart arrivesAt(String arrivesAt) {
     this.arrivesAt = arrivesAt;
@@ -323,16 +336,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("arrives_at")
   public String getArrivesAt() {
     return arrivesAt;
   }
+
   public void setArrivesAt(String arrivesAt) {
     this.arrivesAt = arrivesAt;
-  }
-
-  /**
+  }/**
    **/
   public ResponseRoutePart numStops(Integer numStops) {
     this.numStops = numStops;
@@ -340,15 +354,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("num_stops")
   public Integer getNumStops() {
     return numStops;
   }
+
   public void setNumStops(Integer numStops) {
     this.numStops = numStops;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -417,5 +433,7 @@ public enum TypeEnum {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

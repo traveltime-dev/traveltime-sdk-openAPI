@@ -5,7 +5,11 @@ class ResponseTimeFilterLocation {
   String id = null;
   
   List<ResponseTimeFilterProperties> properties = [];
-  ResponseTimeFilterLocation();
+
+  ResponseTimeFilterLocation({
+    this.id,
+    this.properties,
+  });
 
   @override
   String toString() {

@@ -21,9 +21,17 @@ class ResponseTransportationMode {
   static const ResponseTransportationMode plane_ = const ResponseTransportationMode._internal("plane");
   static const ResponseTransportationMode ferry_ = const ResponseTransportationMode._internal("ferry");
   static const ResponseTransportationMode coach_ = const ResponseTransportationMode._internal("coach");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static ResponseTransportationMode fromJson(String value) {
     return new ResponseTransportationModeTypeTransformer().decode(value);
+  }
+  
+  static List<ResponseTransportationMode> listFromJson(List<dynamic> json) {
+    return json == null ? new List<ResponseTransportationMode>() : json.map((value) => ResponseTransportationMode.fromJson(value)).toList();
   }
 }
 

@@ -1,6 +1,6 @@
-# Auto-Generated OpenAPI Bindings to `TravelTimePlatform`
+# Auto-Generated OpenAPI Bindings to `TravelTime`
 
-The library in `lib` provides auto-generated-from-OpenAPI bindings to the TravelTimePlatform API.
+The library in `lib` provides auto-generated-from-OpenAPI bindings to the TravelTime API.
 
 ## Installation
 
@@ -19,22 +19,22 @@ packages:
 
 ## Main Interface
 
-The main interface to this library is in the `TravelTimePlatform.API` module, which exports the TravelTimePlatformBackend type. The TravelTimePlatformBackend
+The main interface to this library is in the `TravelTime.API` module, which exports the TravelTimeBackend type. The TravelTimeBackend
 type can be used to create and define servers and clients for the API.
 
 ## Creating a Client
 
-A client can be created via the `createTravelTimePlatformClient` function, which will generate a function for every endpoint of the API.
-Then these functions can be invoked with `runTravelTimePlatformClientWithManager` or more conveniently with `callTravelTimePlatformClient`
+A client can be created via the `createTravelTimeClient` function, which will generate a function for every endpoint of the API.
+Then these functions can be invoked with `runTravelTimeClientWithManager` or more conveniently with `callTravelTimeClient`
 (depending if you want an `Either` back or you want to catch) to access the API endpoint they refer to, if the API is served
 at the `url` you specified.
 
-For example, if `localhost:8080` is serving the TravelTimePlatform API, you can write:
+For example, if `localhost:8080` is serving the TravelTime API, you can write:
 
 ```haskell
 {-# LANGUAGE RecordWildCards #-}
 
-import TravelTimePlatform.API as API
+import TravelTime.API as API
 
 import           Network.HTTP.Client     (newManager)
 import           Network.HTTP.Client.TLS (tlsManagerSettings)
@@ -50,40 +50,40 @@ main = do
   manager <- newManager tlsManagerSettings
 
   -- Create the client (all endpoint functions will be available)
-  TravelTimePlatformBackend{..} <- API.createTravelTimePlatformClient
+  TravelTimeBackend{..} <- API.createTravelTimeClient
 
-  -- Any TravelTimePlatform API call can go here, e.g. here we call `getSomeEndpoint`
-  API.callTravelTimePlatform (mkClientEnv manager url) getSomeEndpoint
+  -- Any TravelTime API call can go here, e.g. here we call `getSomeEndpoint`
+  API.callTravelTime (mkClientEnv manager url) getSomeEndpoint
 ```
 
 ## Creating a Server
 
-In order to create a server, you must use the `runTravelTimePlatformMiddlewareServer` function. However, you unlike the client, in which case you *got* a `TravelTimePlatformBackend`
-from the library, you must instead *provide* a `TravelTimePlatformBackend`. For example, if you have defined handler functions for all the
-functions in `TravelTimePlatform.Handlers`, you can write:
+In order to create a server, you must use the `runTravelTimeMiddlewareServer` function. However, you unlike the client, in which case you *got* a `TravelTimeBackend`
+from the library, you must instead *provide* a `TravelTimeBackend`. For example, if you have defined handler functions for all the
+functions in `TravelTime.Handlers`, you can write:
 
 ```haskell
 {-# LANGUAGE RecordWildCards #-}
 
-import TravelTimePlatform.API
+import TravelTime.API
 -- required dependency: wai
 import Network.Wai (Middleware)
 -- required dependency: wai-extra
 import Network.Wai.Middleware.RequestLogger (logStdout)
 
--- A module you wrote yourself, containing all handlers needed for the TravelTimePlatformBackend type.
-import TravelTimePlatform.Handlers
+-- A module you wrote yourself, containing all handlers needed for the TravelTimeBackend type.
+import TravelTime.Handlers
 
--- If you would like to not use any middlewares you could use runTravelTimePlatformServer instead
+-- If you would like to not use any middlewares you could use runTravelTimeServer instead
 
 -- Combined middlewares
 requestMiddlewares :: Middleware
 requestMiddlewares = logStdout
 
--- Run a TravelTimePlatform server on localhost:8080
+-- Run a TravelTime server on localhost:8080
 main :: IO ()
 main = do
-  let server = TravelTimePlatformBackend{..}
+  let server = TravelTimeBackend{..}
       config = Config "http://localhost:8080/"
-  runTravelTimePlatformMiddlewareServer config requestMiddlewares server
+  runTravelTimeMiddlewareServer config requestMiddlewares server
 ```

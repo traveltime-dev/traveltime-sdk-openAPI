@@ -7,7 +7,12 @@ class RequestTimeFilter {
   List<RequestTimeFilterDepartureSearch> departureSearches = [];
   
   List<RequestTimeFilterArrivalSearch> arrivalSearches = [];
-  RequestTimeFilter();
+
+  RequestTimeFilter({
+    this.locations,
+    this.departureSearches,
+    this.arrivalSearches,
+  });
 
   @override
   String toString() {

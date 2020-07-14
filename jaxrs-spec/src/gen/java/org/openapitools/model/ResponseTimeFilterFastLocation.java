@@ -16,8 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeFilterFastLocation   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterFastLocation   {
   
   private @Valid String id;
   private @Valid List<ResponseTimeFilterFastProperties> properties = new ArrayList<ResponseTimeFilterFastProperties>();
@@ -30,22 +29,25 @@ public class ResponseTimeFilterFastLocation   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public ResponseTimeFilterFastLocation properties(List<ResponseTimeFilterFastProperties> properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -54,10 +56,10 @@ public class ResponseTimeFilterFastLocation   {
   public List<ResponseTimeFilterFastProperties> getProperties() {
     return properties;
   }
+
   public void setProperties(List<ResponseTimeFilterFastProperties> properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,5 +100,7 @@ public class ResponseTimeFilterFastLocation   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

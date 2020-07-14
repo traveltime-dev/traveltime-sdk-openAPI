@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **GeocodingSearch**
 > ResponseGeocoding GeocodingSearch(query, focus.lat=var.focus.lat, focus.lng=var.focus.lng, within.country=var.within.country)
@@ -114,8 +114,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **MapInfo**
 > ResponseMapInfo MapInfo()
@@ -155,8 +155,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **Routes**
 > ResponseRoutes Routes(request.routes)
@@ -200,8 +200,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **SupportedLocations**
 > ResponseSupportedLocations SupportedLocations(request.supported.locations)
@@ -245,8 +245,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeFilter**
 > ResponseTimeFilter TimeFilter(request.time.filter)
@@ -290,8 +290,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeFilterFast**
 > ResponseTimeFilterFast TimeFilterFast(request.time.filter.fast)
@@ -335,8 +335,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodeDistricts**
 > ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts(request.time.filter.postcode.districts)
@@ -380,8 +380,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodeSectors**
 > ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors(request.time.filter.postcode.sectors)
@@ -425,8 +425,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeFilterPostcodes**
 > ResponseTimeFilterPostcodes TimeFilterPostcodes(request.time.filter.postcodes)
@@ -470,8 +470,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 # **TimeMap**
 > ResponseTimeMap TimeMap(request.time.map)
@@ -515,6 +515,6 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
-| **0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+| **200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/) |  -  |
+| **0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 

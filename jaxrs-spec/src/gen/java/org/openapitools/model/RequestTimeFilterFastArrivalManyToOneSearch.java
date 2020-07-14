@@ -18,8 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTimeFilterFastArrivalManyToOneSearch   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterFastArrivalManyToOneSearch   {
   
   private @Valid String id;
   private @Valid String arrivalLocationId;
@@ -37,22 +36,25 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalManyToOneSearch arrivalLocationId(String arrivalLocationId) {
     this.arrivalLocationId = arrivalLocationId;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -61,16 +63,17 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   public String getArrivalLocationId() {
     return arrivalLocationId;
   }
+
   public void setArrivalLocationId(String arrivalLocationId) {
     this.arrivalLocationId = arrivalLocationId;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalManyToOneSearch departureLocationIds(List<String> departureLocationIds) {
     this.departureLocationIds = departureLocationIds;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -79,16 +82,17 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
  @Size(min=1,max=100000)  public List<String> getDepartureLocationIds() {
     return departureLocationIds;
   }
+
   public void setDepartureLocationIds(List<String> departureLocationIds) {
     this.departureLocationIds = departureLocationIds;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalManyToOneSearch transportation(RequestTransportationFast transportation) {
     this.transportation = transportation;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -97,11 +101,10 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   public RequestTransportationFast getTransportation() {
     return transportation;
   }
+
   public void setTransportation(RequestTransportationFast transportation) {
     this.transportation = transportation;
-  }
-
-  /**
+  }/**
    * minimum: 60
    * maximum: 14400
    **/
@@ -111,22 +114,25 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("travel_time")
   @NotNull
  @Min(60) @Max(14400)  public Integer getTravelTime() {
     return travelTime;
   }
+
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalManyToOneSearch arrivalTimePeriod(RequestArrivalTimePeriod arrivalTimePeriod) {
     this.arrivalTimePeriod = arrivalTimePeriod;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -135,16 +141,17 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   public RequestArrivalTimePeriod getArrivalTimePeriod() {
     return arrivalTimePeriod;
   }
+
   public void setArrivalTimePeriod(RequestArrivalTimePeriod arrivalTimePeriod) {
     this.arrivalTimePeriod = arrivalTimePeriod;
-  }
-
-  /**
+  }/**
    **/
   public RequestTimeFilterFastArrivalManyToOneSearch properties(List<RequestTimeFilterFastProperty> properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -153,10 +160,10 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
   public List<RequestTimeFilterFastProperty> getProperties() {
     return properties;
   }
+
   public void setProperties(List<RequestTimeFilterFastProperty> properties) {
     this.properties = properties;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -207,5 +214,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

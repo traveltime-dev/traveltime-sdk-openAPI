@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**maps** | [**kotlin.Array&lt;ResponseMapInfoMap&gt;**](ResponseMapInfoMap.md) |  | 
+**maps** | [**kotlin.collections.List&lt;ResponseMapInfoMap&gt;**](ResponseMapInfoMap.md) |  | 
 
 
 

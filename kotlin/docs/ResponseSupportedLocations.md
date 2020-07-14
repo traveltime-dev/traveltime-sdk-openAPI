@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**kotlin.Array&lt;ResponseSupportedLocation&gt;**](ResponseSupportedLocation.md) |  | 
-**unsupportedLocations** | **kotlin.Array&lt;kotlin.String&gt;** |  | 
+**locations** | [**kotlin.collections.List&lt;ResponseSupportedLocation&gt;**](ResponseSupportedLocation.md) |  | 
+**unsupportedLocations** | **kotlin.collections.List&lt;kotlin.String&gt;** |  | 
 
 
 

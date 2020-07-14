@@ -1,0 +1,32 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseFaresBreakdownItem",
+  "fields": [
+    {
+      "name": "modes",
+      "type": {
+        "type": "array",
+        "items": "ResponseTransportationMode"
+      },
+      "doc": ""
+    },
+    {
+      "name": "route_part_ids",
+      "type": {
+        "type": "array",
+        "items": "int"
+      },
+      "doc": ""
+    },
+    {
+      "name": "tickets",
+      "type": {
+        "type": "array",
+        "items": "model.ResponseFareTicket"
+      },
+      "doc": ""
+    }
+  ]
+}

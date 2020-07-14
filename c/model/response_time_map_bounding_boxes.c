@@ -19,6 +19,9 @@ response_time_map_bounding_boxes_t *response_time_map_bounding_boxes_create(
 
 
 void response_time_map_bounding_boxes_free(response_time_map_bounding_boxes_t *response_time_map_bounding_boxes) {
+    if(NULL == response_time_map_bounding_boxes){
+        return ;
+    }
     listEntry_t *listEntry;
     list_ForEach(listEntry, response_time_map_bounding_boxes->results) {
         response_time_map_bounding_boxes_result_free(listEntry->data);

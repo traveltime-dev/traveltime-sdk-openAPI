@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **directions** | **kotlin.String** |  | 
 **distance** | **kotlin.Int** |  | 
 **travelTime** | **kotlin.Int** |  | 
-**coords** | [**kotlin.Array&lt;Coords&gt;**](Coords.md) |  | 
+**coords** | [**kotlin.collections.List&lt;Coords&gt;**](Coords.md) |  | 
 **direction** | **kotlin.String** |  |  [optional]
 **road** | **kotlin.String** |  |  [optional]
 **turn** | **kotlin.String** |  |  [optional]

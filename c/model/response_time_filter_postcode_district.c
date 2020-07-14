@@ -20,6 +20,9 @@ response_time_filter_postcode_district_t *response_time_filter_postcode_district
 
 
 void response_time_filter_postcode_district_free(response_time_filter_postcode_district_t *response_time_filter_postcode_district) {
+    if(NULL == response_time_filter_postcode_district){
+        return ;
+    }
     listEntry_t *listEntry;
     response_time_filter_postcode_district_properties_free(response_time_filter_postcode_district->properties);
     free(response_time_filter_postcode_district);

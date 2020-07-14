@@ -1,0 +1,23 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseGeocodingGeoJsonFeature",
+  "fields": [
+    {
+      "name": "type",
+      "type": "string",
+      "doc": ""
+    },
+    {
+      "name": "geometry",
+      "type": "model.ResponseGeocodingGeometry",
+      "doc": ""
+    },
+    {
+      "name": "properties",
+      "type": "model.ResponseGeocodingProperties",
+      "doc": ""
+    }
+  ]
+}

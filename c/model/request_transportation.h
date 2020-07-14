@@ -11,19 +11,23 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct request_transportation_t request_transportation_t;
+
 
 // Enum TYPE for request_transportation
 
-typedef enum  { traveltime_platform_api_request_transportation_TYPE_NULL = 0, traveltime_platform_api_request_transportation_TYPE_cycling, traveltime_platform_api_request_transportation_TYPE_driving, traveltime_platform_api_request_transportation_TYPE_driving+train, traveltime_platform_api_request_transportation_TYPE_public_transport, traveltime_platform_api_request_transportation_TYPE_walking, traveltime_platform_api_request_transportation_TYPE_coach, traveltime_platform_api_request_transportation_TYPE_bus, traveltime_platform_api_request_transportation_TYPE_train, traveltime_platform_api_request_transportation_TYPE_ferry, traveltime_platform_api_request_transportation_TYPE_driving+ferry, traveltime_platform_api_request_transportation_TYPE_cycling+ferry } traveltime_platform_api_request_transportation_TYPE_e;
+typedef enum  { traveltime_api_request_transportation_TYPE_NULL = 0, traveltime_api_request_transportation_TYPE_cycling, traveltime_api_request_transportation_TYPE_driving, traveltime_api_request_transportation_TYPE_driving+train, traveltime_api_request_transportation_TYPE_public_transport, traveltime_api_request_transportation_TYPE_walking, traveltime_api_request_transportation_TYPE_coach, traveltime_api_request_transportation_TYPE_bus, traveltime_api_request_transportation_TYPE_train, traveltime_api_request_transportation_TYPE_ferry, traveltime_api_request_transportation_TYPE_driving+ferry, traveltime_api_request_transportation_TYPE_cycling+ferry } traveltime_api_request_transportation_TYPE_e;
 
-char* request_transportation_type_ToString(traveltime_platform_api_request_transportation_TYPE_e type);
+char* request_transportation_type_ToString(traveltime_api_request_transportation_TYPE_e type);
 
-traveltime_platform_api_request_transportation_TYPE_e request_transportation_type_FromString(char* type);
+traveltime_api_request_transportation_TYPE_e request_transportation_type_FromString(char* type);
 
 
 
 typedef struct request_transportation_t {
-    traveltime_platform_api_request_transportation_TYPE_e type; //enum
+    traveltime_api_request_transportation_TYPE_e type; //enum
     int pt_change_delay; //numeric
     int walking_time; //numeric
     int driving_time_to_station; //numeric
@@ -33,7 +37,7 @@ typedef struct request_transportation_t {
 } request_transportation_t;
 
 request_transportation_t *request_transportation_create(
-    traveltime_platform_api_request_transportation_TYPE_e type,
+    traveltime_api_request_transportation_TYPE_e type,
     int pt_change_delay,
     int walking_time,
     int driving_time_to_station,

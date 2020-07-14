@@ -17,8 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseFares   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseFares   {
   
   private @Valid List<ResponseFaresBreakdownItem> breakdown = new ArrayList<ResponseFaresBreakdownItem>();
   private @Valid List<ResponseFareTicket> ticketsTotal = new ArrayList<ResponseFareTicket>();
@@ -31,22 +30,25 @@ public class ResponseFares   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("breakdown")
   @NotNull
   public List<ResponseFaresBreakdownItem> getBreakdown() {
     return breakdown;
   }
+
   public void setBreakdown(List<ResponseFaresBreakdownItem> breakdown) {
     this.breakdown = breakdown;
-  }
-
-  /**
+  }/**
    **/
   public ResponseFares ticketsTotal(List<ResponseFareTicket> ticketsTotal) {
     this.ticketsTotal = ticketsTotal;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -55,10 +57,10 @@ public class ResponseFares   {
   public List<ResponseFareTicket> getTicketsTotal() {
     return ticketsTotal;
   }
+
   public void setTicketsTotal(List<ResponseFareTicket> ticketsTotal) {
     this.ticketsTotal = ticketsTotal;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -99,5 +101,7 @@ public class ResponseFares   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

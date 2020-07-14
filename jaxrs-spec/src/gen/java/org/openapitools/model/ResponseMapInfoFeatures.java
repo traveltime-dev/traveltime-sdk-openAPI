@@ -14,8 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseMapInfoFeatures   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseMapInfoFeatures   {
   
   private @Valid ResponseMapInfoFeaturesPublicTransport publicTransport;
   private @Valid Boolean fares;
@@ -29,21 +28,24 @@ public class ResponseMapInfoFeatures   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("public_transport")
   public ResponseMapInfoFeaturesPublicTransport getPublicTransport() {
     return publicTransport;
   }
+
   public void setPublicTransport(ResponseMapInfoFeaturesPublicTransport publicTransport) {
     this.publicTransport = publicTransport;
-  }
-
-  /**
+  }/**
    **/
   public ResponseMapInfoFeatures fares(Boolean fares) {
     this.fares = fares;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -52,16 +54,17 @@ public class ResponseMapInfoFeatures   {
   public Boolean getFares() {
     return fares;
   }
+
   public void setFares(Boolean fares) {
     this.fares = fares;
-  }
-
-  /**
+  }/**
    **/
   public ResponseMapInfoFeatures postcodes(Boolean postcodes) {
     this.postcodes = postcodes;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -70,10 +73,10 @@ public class ResponseMapInfoFeatures   {
   public Boolean getPostcodes() {
     return postcodes;
   }
+
   public void setPostcodes(Boolean postcodes) {
     this.postcodes = postcodes;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -116,5 +119,7 @@ public class ResponseMapInfoFeatures   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

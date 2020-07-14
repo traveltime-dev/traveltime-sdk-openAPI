@@ -14,7 +14,7 @@ import org.openapitools.model.RequestTransportationFast;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-03-18T08:51:09.112Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
 public class RequestTimeFilterFastArrivalOneToManySearch   {
   
 
@@ -64,8 +64,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("arrival_location_ids")
   @NotNull
-  @Size(min=1,max=100000)
-  public List<String> getArrivalLocationIds() {
+ @Size(min=1,max=100000)  public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
@@ -93,9 +92,7 @@ public class RequestTimeFilterFastArrivalOneToManySearch   {
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("travel_time")
   @NotNull
-  @Min(60)
-  @Max(14400)
-  public Integer getTravelTime() {
+ @Min(60) @Max(14400)  public Integer getTravelTime() {
     return travelTime;
   }
   public void setTravelTime(Integer travelTime) {

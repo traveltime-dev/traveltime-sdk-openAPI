@@ -1,0 +1,23 @@
+{
+    "name": "@openapitools/jquery-typescript-petstore",
+    "version": "0.0.1",
+    "description": "JQuery client for @openapitools/jquery-typescript-petstore",
+    "main": "api.js",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "OpenAPI-Generator Contributors",
+    "license": "MIT",
+    "dependencies": {
+        "bluebird": "^3.3.5",
+        "request": "^2.72.0",
+        "jquery": "^3.1"
+    },
+    "devDependencies": {
+        "@types/jquery": "^3.1",
+        "typescript": "^2.4"
+    },
+    "publishConfig": {
+        "registry": "https://skimdb.npmjs.com/registry"
+    }
+}

@@ -11,9 +11,17 @@ class RequestTimeFilterProperty {
   static const RequestTimeFilterProperty distanceBreakdown_ = const RequestTimeFilterProperty._internal("distance_breakdown");
   static const RequestTimeFilterProperty fares_ = const RequestTimeFilterProperty._internal("fares");
   static const RequestTimeFilterProperty route_ = const RequestTimeFilterProperty._internal("route");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestTimeFilterProperty fromJson(String value) {
     return new RequestTimeFilterPropertyTypeTransformer().decode(value);
+  }
+  
+  static List<RequestTimeFilterProperty> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestTimeFilterProperty>() : json.map((value) => RequestTimeFilterProperty.fromJson(value)).toList();
   }
 }
 

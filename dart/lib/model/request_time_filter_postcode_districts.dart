@@ -5,7 +5,11 @@ class RequestTimeFilterPostcodeDistricts {
   List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches = [];
   
   List<RequestTimeFilterPostcodeDistrictsArrivalSearch> arrivalSearches = [];
-  RequestTimeFilterPostcodeDistricts();
+
+  RequestTimeFilterPostcodeDistricts({
+    this.departureSearches,
+    this.arrivalSearches,
+  });
 
   @override
   String toString() {

@@ -19,8 +19,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestRoutesDepartureSearch   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestRoutesDepartureSearch   {
   
   private @Valid String id;
   private @Valid String departureLocationId;
@@ -38,22 +37,25 @@ public class RequestRoutesDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("id")
   @NotNull
   public String getId() {
     return id;
   }
+
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch departureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -62,16 +64,17 @@ public class RequestRoutesDepartureSearch   {
   public String getDepartureLocationId() {
     return departureLocationId;
   }
+
   public void setDepartureLocationId(String departureLocationId) {
     this.departureLocationId = departureLocationId;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch arrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -80,16 +83,17 @@ public class RequestRoutesDepartureSearch   {
  @Size(min=1,max=2)  public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
+
   public void setArrivalLocationIds(List<String> arrivalLocationIds) {
     this.arrivalLocationIds = arrivalLocationIds;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch transportation(RequestTransportation transportation) {
     this.transportation = transportation;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -98,16 +102,17 @@ public class RequestRoutesDepartureSearch   {
   public RequestTransportation getTransportation() {
     return transportation;
   }
+
   public void setTransportation(RequestTransportation transportation) {
     this.transportation = transportation;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch departureTime(Date departureTime) {
     this.departureTime = departureTime;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -116,16 +121,17 @@ public class RequestRoutesDepartureSearch   {
   public Date getDepartureTime() {
     return departureTime;
   }
+
   public void setDepartureTime(Date departureTime) {
     this.departureTime = departureTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch properties(List<RequestRoutesProperty> properties) {
     this.properties = properties;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -134,11 +140,10 @@ public class RequestRoutesDepartureSearch   {
   public List<RequestRoutesProperty> getProperties() {
     return properties;
   }
+
   public void setProperties(List<RequestRoutesProperty> properties) {
     this.properties = properties;
-  }
-
-  /**
+  }/**
    **/
   public RequestRoutesDepartureSearch range(RequestRangeFull range) {
     this.range = range;
@@ -146,15 +151,17 @@ public class RequestRoutesDepartureSearch   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("range")
   public RequestRangeFull getRange() {
     return range;
   }
+
   public void setRange(RequestRangeFull range) {
     this.range = range;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -205,5 +212,7 @@ public class RequestRoutesDepartureSearch   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

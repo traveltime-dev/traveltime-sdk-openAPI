@@ -8,9 +8,17 @@ class RequestTimeFilterPostcodesProperty {
 
   static const RequestTimeFilterPostcodesProperty travelTime_ = const RequestTimeFilterPostcodesProperty._internal("travel_time");
   static const RequestTimeFilterPostcodesProperty distance_ = const RequestTimeFilterPostcodesProperty._internal("distance");
+  
+  String toJson (){
+    return this.value;
+  }
 
   static RequestTimeFilterPostcodesProperty fromJson(String value) {
     return new RequestTimeFilterPostcodesPropertyTypeTransformer().decode(value);
+  }
+  
+  static List<RequestTimeFilterPostcodesProperty> listFromJson(List<dynamic> json) {
+    return json == null ? new List<RequestTimeFilterPostcodesProperty>() : json.map((value) => RequestTimeFilterPostcodesProperty.fromJson(value)).toList();
   }
 }
 

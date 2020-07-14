@@ -11,24 +11,28 @@
 #include "../external/cJSON.h"
 #include "../include/list.h"
 #include "../include/keyValuePair.h"
+#include "../include/binary.h"
+
+typedef struct request_transportation_fast_t request_transportation_fast_t;
+
 
 // Enum TYPE for request_transportation_fast
 
-typedef enum  { traveltime_platform_api_request_transportation_fast_TYPE_NULL = 0, traveltime_platform_api_request_transportation_fast_TYPE_public_transport, traveltime_platform_api_request_transportation_fast_TYPE_driving, traveltime_platform_api_request_transportation_fast_TYPE_driving+public_transport } traveltime_platform_api_request_transportation_fast_TYPE_e;
+typedef enum  { traveltime_api_request_transportation_fast_TYPE_NULL = 0, traveltime_api_request_transportation_fast_TYPE_public_transport, traveltime_api_request_transportation_fast_TYPE_driving, traveltime_api_request_transportation_fast_TYPE_driving+public_transport } traveltime_api_request_transportation_fast_TYPE_e;
 
-char* request_transportation_fast_type_ToString(traveltime_platform_api_request_transportation_fast_TYPE_e type);
+char* request_transportation_fast_type_ToString(traveltime_api_request_transportation_fast_TYPE_e type);
 
-traveltime_platform_api_request_transportation_fast_TYPE_e request_transportation_fast_type_FromString(char* type);
+traveltime_api_request_transportation_fast_TYPE_e request_transportation_fast_type_FromString(char* type);
 
 
 
 typedef struct request_transportation_fast_t {
-    traveltime_platform_api_request_transportation_fast_TYPE_e type; //enum
+    traveltime_api_request_transportation_fast_TYPE_e type; //enum
 
 } request_transportation_fast_t;
 
 request_transportation_fast_t *request_transportation_fast_create(
-    traveltime_platform_api_request_transportation_fast_TYPE_e type
+    traveltime_api_request_transportation_fast_TYPE_e type
 );
 
 void request_transportation_fast_free(request_transportation_fast_t *request_transportation_fast);

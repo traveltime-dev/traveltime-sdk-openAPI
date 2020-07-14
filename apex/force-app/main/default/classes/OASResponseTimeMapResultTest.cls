@@ -72,8 +72,8 @@ private class OASResponseTimeMapResultTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseTimeMapResult responseTimeMapResult = new OASResponseTimeMapResult();
-        Map<String, String> propertyMappings = responseTimeMapResult.getPropertyMappings();
-        System.assertEquals('searchId', propertyMappings.get('search_id'));
+        Map<String, String> x-property-mappings = responseTimeMapResult.getx-property-mappings();
+        System.assertEquals('searchId', x-property-mappings.get('search_id'));
     }
 
     @isTest

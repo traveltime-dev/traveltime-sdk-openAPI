@@ -5,7 +5,11 @@ class RequestTimeFilterFastArrivalSearches {
   List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = [];
   
   List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = [];
-  RequestTimeFilterFastArrivalSearches();
+
+  RequestTimeFilterFastArrivalSearches({
+    this.manyToOne,
+    this.oneToMany,
+  });
 
   @override
   String toString() {

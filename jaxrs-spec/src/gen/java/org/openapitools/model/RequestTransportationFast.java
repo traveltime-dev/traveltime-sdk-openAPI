@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTransportationFast   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTransportationFast   {
   
 
 public enum TypeEnum {
@@ -59,16 +58,18 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("type")
   @NotNull
   public TypeEnum getType() {
     return type;
   }
+
   public void setType(TypeEnum type) {
     this.type = type;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,5 +108,7 @@ public enum TypeEnum {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

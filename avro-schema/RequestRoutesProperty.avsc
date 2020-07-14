@@ -1,0 +1,12 @@
+{
+  "namespace": "model",
+  "type": "enum",
+  "doc": "",
+  "name": "RequestRoutesProperty",
+  "symbols": [
+    "travel_time",
+    "distance",
+    "fares",
+    "route"
+  ]
+}

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**_type** | **String** |  | 
+**type_** | **String** |  | 
 **geometry** | [***models::ResponseGeocodingGeometry**](ResponseGeocodingGeometry.md) |  | 
 **properties** | [***models::ResponseGeocodingProperties**](ResponseGeocodingProperties.md) |  | 
 

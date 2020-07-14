@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseTimeMapProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeMapProperties   {
   
   private @Valid Boolean isOnlyWalking;
 
@@ -26,15 +25,17 @@ public class ResponseTimeMapProperties   {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("is_only_walking")
   public Boolean getIsOnlyWalking() {
     return isOnlyWalking;
   }
+
   public void setIsOnlyWalking(Boolean isOnlyWalking) {
     this.isOnlyWalking = isOnlyWalking;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -73,5 +74,7 @@ public class ResponseTimeMapProperties   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

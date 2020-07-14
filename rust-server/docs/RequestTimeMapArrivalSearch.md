@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **coords** | [***models::Coords**](Coords.md) |  | 
 **transportation** | [***models::RequestTransportation**](RequestTransportation.md) |  | 
 **travel_time** | **u16** |  | 
-**arrival_time** | [**chrono::DateTime<chrono::Utc>**](DateTime.md) |  | 
+**arrival_time** | [**chrono::DateTime::<chrono::Utc>**](DateTime.md) |  | 
 **properties** | [**Vec<models::RequestTimeMapProperty>**](RequestTimeMapProperty.md) |  | [optional] [default to None]
 **range** | [***models::RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] [default to None]
 

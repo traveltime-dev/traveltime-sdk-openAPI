@@ -72,8 +72,8 @@ private class OASResponseMapInfoFeaturesPublicTranTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseMapInfoFeaturesPublicTran responseMapInfoFeaturesPublicTransport = new OASResponseMapInfoFeaturesPublicTran();
-        Map<String, String> propertyMappings = responseMapInfoFeaturesPublicTransport.getPropertyMappings();
-        System.assertEquals('dateStart', propertyMappings.get('date_start'));
-        System.assertEquals('dateEnd', propertyMappings.get('date_end'));
+        Map<String, String> x-property-mappings = responseMapInfoFeaturesPublicTransport.getx-property-mappings();
+        System.assertEquals('dateStart', x-property-mappings.get('date_start'));
+        System.assertEquals('dateEnd', x-property-mappings.get('date_end'));
     }
 }

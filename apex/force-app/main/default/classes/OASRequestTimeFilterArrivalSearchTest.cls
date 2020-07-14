@@ -72,11 +72,11 @@ private class OASRequestTimeFilterArrivalSearchTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASRequestTimeFilterArrivalSearch requestTimeFilterArrivalSearch = new OASRequestTimeFilterArrivalSearch();
-        Map<String, String> propertyMappings = requestTimeFilterArrivalSearch.getPropertyMappings();
-        System.assertEquals('departureLocationIds', propertyMappings.get('departure_location_ids'));
-        System.assertEquals('arrivalLocationId', propertyMappings.get('arrival_location_id'));
-        System.assertEquals('travelTime', propertyMappings.get('travel_time'));
-        System.assertEquals('arrivalTime', propertyMappings.get('arrival_time'));
+        Map<String, String> x-property-mappings = requestTimeFilterArrivalSearch.getx-property-mappings();
+        System.assertEquals('departureLocationIds', x-property-mappings.get('departure_location_ids'));
+        System.assertEquals('arrivalLocationId', x-property-mappings.get('arrival_location_id'));
+        System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
+        System.assertEquals('arrivalTime', x-property-mappings.get('arrival_time'));
     }
 
     @isTest

@@ -72,9 +72,9 @@ private class OASResponseRouteTest {
     @isTest
     private static void maintainRenamedProperties() {
         OASResponseRoute responseRoute = new OASResponseRoute();
-        Map<String, String> propertyMappings = responseRoute.getPropertyMappings();
-        System.assertEquals('departureTime', propertyMappings.get('departure_time'));
-        System.assertEquals('arrivalTime', propertyMappings.get('arrival_time'));
+        Map<String, String> x-property-mappings = responseRoute.getx-property-mappings();
+        System.assertEquals('departureTime', x-property-mappings.get('departure_time'));
+        System.assertEquals('arrivalTime', x-property-mappings.get('arrival_time'));
     }
 
     @isTest

@@ -4,12 +4,12 @@
 #include "request_routes_property.h"
 
 
-char* request_routes_property_request_routes_property_ToString(traveltime_platform_api_request_routes_property__e request_routes_property) {
+char* request_routes_property_request_routes_property_ToString(traveltime_api_request_routes_property__e request_routes_property) {
     char *request_routes_propertyArray[] =  { "NULL", "travel_time", "distance", "fares", "route" };
     return request_routes_propertyArray[request_routes_property];
 }
 
-traveltime_platform_api_request_routes_property__e request_routes_property_request_routes_property_FromString(char* request_routes_property) {
+traveltime_api_request_routes_property__e request_routes_property_request_routes_property_FromString(char* request_routes_property) {
     int stringToReturn = 0;
     char *request_routes_propertyArray[] =  { "NULL", "travel_time", "distance", "fares", "route" };
     size_t sizeofArray = sizeof(request_routes_propertyArray) / sizeof(request_routes_propertyArray[0]);
@@ -22,7 +22,7 @@ traveltime_platform_api_request_routes_property__e request_routes_property_reque
     return 0;
 }
 
-cJSON *request_routes_property_request_routes_property_convertToJSON(traveltime_platform_api_request_routes_property__e request_routes_property) {
+cJSON *request_routes_property_request_routes_property_convertToJSON(traveltime_api_request_routes_property__e request_routes_property) {
     cJSON *item = cJSON_CreateObject();
     if(cJSON_AddStringToObject(item, "request_routes_property", request_routes_property_request_routes_property_ToString(request_routes_property)) == NULL) {
         goto fail;

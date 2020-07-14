@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class ResponseFareTicket   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseFareTicket   {
   
 
 public enum TypeEnum {
@@ -61,22 +60,25 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("type")
   @NotNull
   public TypeEnum getType() {
     return type;
   }
+
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-  /**
+  }/**
    **/
   public ResponseFareTicket price(Double price) {
     this.price = price;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -85,16 +87,17 @@ public enum TypeEnum {
   public Double getPrice() {
     return price;
   }
+
   public void setPrice(Double price) {
     this.price = price;
-  }
-
-  /**
+  }/**
    **/
   public ResponseFareTicket currency(String currency) {
     this.currency = currency;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -103,10 +106,10 @@ public enum TypeEnum {
   public String getCurrency() {
     return currency;
   }
+
   public void setCurrency(String currency) {
     this.currency = currency;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,5 +152,7 @@ public enum TypeEnum {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

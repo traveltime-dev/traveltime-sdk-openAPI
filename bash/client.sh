@@ -12,7 +12,7 @@
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #
-# This is a Bash client for TravelTime Platform API.
+# This is a Bash client for TravelTime API.
 #
 # LICENSE:
 # 
@@ -21,7 +21,7 @@
 # support@igeolise.com
 #
 # MORE INFORMATION:
-# http://docs.traveltimeplatform.com
+# http://docs.traveltime.com
 #
 
 # For improved pattern matching in case statemets
@@ -515,7 +515,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}TravelTime Platform API command line client (API version 1.0.0)${OFF}
+${BOLD}${WHITE}TravelTime API command line client (API version 1.2.1)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -593,7 +593,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://api.traveltimeapp.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}TravelTime Platform API command line client (API version 1.0.0)${OFF}"
+    echo -e "${BOLD}${WHITE}TravelTime API command line client (API version 1.2.1)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: support@igeolise.com"
@@ -613,7 +613,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}TravelTime Platform API command line client (API version 1.0.0)${OFF}"
+    echo -e "${BOLD}TravelTime API command line client (API version 1.2.1)${OFF}"
     echo ""
 }
 
@@ -636,9 +636,9 @@ print_geocodingReverseSearch_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -661,9 +661,9 @@ print_geocodingSearch_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -677,9 +677,9 @@ print_mapInfo_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -696,9 +696,9 @@ print_routes_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -715,9 +715,9 @@ print_supportedLocations_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -734,9 +734,9 @@ print_timeFilter_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -753,9 +753,9 @@ print_timeFilterFast_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -772,9 +772,9 @@ print_timeFilterPostcodeDistricts_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -791,9 +791,9 @@ print_timeFilterPostcodeSectors_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -810,9 +810,9 @@ print_timeFilterPostcodes_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 ##############################################################################
 #
@@ -829,9 +829,9 @@ print_timeMap_help() {
     echo ""
     echo -e "${BOLD}${WHITE}Responses${OFF}"
     code=200
-    echo -e "${result_color_table[${code:0:1}]}  200;Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  200;Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
     code=0
-    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
+    echo -e "${result_color_table[${code:0:1}]}  0;The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)${OFF}" | paste -sd' ' | column -t -s ';' | fold -sw 80 | sed '2,$s/^/       /'
 }
 
 

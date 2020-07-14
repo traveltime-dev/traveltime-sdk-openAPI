@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class Coords   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class Coords   {
   
   private @Valid Double lat;
   private @Valid Double lng;
@@ -27,22 +26,25 @@ public class Coords   {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("lat")
   @NotNull
   public Double getLat() {
     return lat;
   }
+
   public void setLat(Double lat) {
     this.lat = lat;
-  }
-
-  /**
+  }/**
    **/
   public Coords lng(Double lng) {
     this.lng = lng;
     return this;
   }
+
+  
 
   
   @ApiModelProperty(required = true, value = "")
@@ -51,10 +53,10 @@ public class Coords   {
   public Double getLng() {
     return lng;
   }
+
   public void setLng(Double lng) {
     this.lng = lng;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,5 +97,7 @@ public class Coords   {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

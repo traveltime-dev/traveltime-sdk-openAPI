@@ -21,6 +21,9 @@ request_location_t *request_location_create(
 
 
 void request_location_free(request_location_t *request_location) {
+    if(NULL == request_location){
+        return ;
+    }
     listEntry_t *listEntry;
     free(request_location->id);
     coords_free(request_location->coords);

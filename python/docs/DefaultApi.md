@@ -31,19 +31,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -67,19 +84,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -120,8 +154,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -139,19 +173,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -176,19 +227,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -231,8 +299,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -250,19 +318,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -283,19 +368,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -328,8 +430,8 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -347,19 +449,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -381,19 +500,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -430,8 +566,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -449,19 +585,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -483,19 +636,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -532,8 +702,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -551,19 +721,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -585,19 +772,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -634,8 +838,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -653,19 +857,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -687,19 +908,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -736,8 +974,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -755,19 +993,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -789,19 +1044,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -838,8 +1110,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -857,19 +1129,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -891,19 +1180,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -940,8 +1246,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -959,19 +1265,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -993,19 +1316,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -1042,8 +1382,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1061,19 +1401,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -1095,19 +1452,36 @@ import time
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApiKey
-configuration.api_key['X-Api-Key'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Api-Key'] = 'Bearer'
-configuration = openapi_client.Configuration()
-# Configure API key authorization: ApplicationId
-configuration.api_key['X-Application-Id'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['X-Application-Id'] = 'Bearer'
+# Defining the host is optional and defaults to https://api.traveltimeapp.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com"
+)
 
-# Defining host is optional and default to https://api.traveltimeapp.com
-configuration.host = "https://api.traveltimeapp.com"
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: ApiKey
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApiKey': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApiKey'] = 'Bearer'
+
+# Configure API key authorization: ApplicationId
+configuration = openapi_client.Configuration(
+    host = "https://api.traveltimeapp.com",
+    api_key = {
+        'ApplicationId': 'YOUR_API_KEY'
+    }
+)
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['ApplicationId'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -1144,8 +1518,8 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/) |  -  |
-**0** | The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response) |  -  |
+**200** | Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/) |  -  |
+**0** | The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response) |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

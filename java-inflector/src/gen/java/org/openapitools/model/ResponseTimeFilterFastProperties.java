@@ -11,7 +11,7 @@ import org.openapitools.model.ResponseFaresFast;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-03-18T08:50:45.125Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2020-07-14T11:27:08.641Z[Etc/UTC]")
 public class ResponseTimeFilterFastProperties   {
   @JsonProperty("travel_time")
   private Integer travelTime;

@@ -4,12 +4,12 @@
 #include "response_distance_breakdown_item.h"
 
 
-char* moderesponse_distance_breakdown_item_ToString(traveltime_platform_api_response_distance_breakdown_item__e mode) {
+char* moderesponse_distance_breakdown_item_ToString(traveltime_api_response_distance_breakdown_item__e mode) {
     char* modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
 	return modeArray[mode];
 }
 
-traveltime_platform_api_response_distance_breakdown_item__e moderesponse_distance_breakdown_item_FromString(char* mode){
+traveltime_api_response_distance_breakdown_item__e moderesponse_distance_breakdown_item_FromString(char* mode){
     int stringToReturn = 0;
     char *modeArray[] =  { "NULL", "car", "parking", "boarding", "walk", "bike", "train", "rail_national", "rail_overground", "rail_underground", "rail_dlr", "bus", "cable_car", "plane", "ferry", "coach" };
     size_t sizeofArray = sizeof(modeArray) / sizeof(modeArray[0]);
@@ -37,6 +37,9 @@ response_distance_breakdown_item_t *response_distance_breakdown_item_create(
 
 
 void response_distance_breakdown_item_free(response_distance_breakdown_item_t *response_distance_breakdown_item) {
+    if(NULL == response_distance_breakdown_item){
+        return ;
+    }
     listEntry_t *listEntry;
     free(response_distance_breakdown_item);
 }

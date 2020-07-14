@@ -19,11 +19,11 @@ import javax.validation.constraints.Size
  */
 data class ResponseTimeFilterPostcodeDistrictProperties(
 
-    @JsonProperty("travel_time_reachable") val travelTimeReachable: ResponseTravelTimeStatistics? = null,
+    @field:JsonProperty("travel_time_reachable") val travelTimeReachable: ResponseTravelTimeStatistics? = null,
 
-    @JsonProperty("travel_time_all") val travelTimeAll: ResponseTravelTimeStatistics? = null,
+    @field:JsonProperty("travel_time_all") val travelTimeAll: ResponseTravelTimeStatistics? = null,
 
-    @JsonProperty("coverage") val coverage: kotlin.Double? = null
+    @field:JsonProperty("coverage") val coverage: kotlin.Double? = null
 ) {
 
 }

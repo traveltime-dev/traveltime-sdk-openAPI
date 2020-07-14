@@ -18,7 +18,7 @@ import javax.validation.constraints.Size
 data class ResponseMapInfo(
 
     @get:NotNull 
-    @JsonProperty("maps") val maps: kotlin.collections.List<ResponseMapInfoMap>
+    @field:JsonProperty("maps") val maps: kotlin.collections.List<ResponseMapInfoMap>
 ) {
 
 }

@@ -43,7 +43,7 @@ module DefaultApiHandlerTests =
   // ---------------------------------
 
   [<Fact>]
-  let ``GeocodingReverseSearch -  returns 200 where Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)`` () =
+  let ``GeocodingReverseSearch -  returns 200 where Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -60,7 +60,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``GeocodingReverseSearch -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``GeocodingReverseSearch -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -77,7 +77,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``GeocodingSearch -  returns 200 where Match a query string to geographic coordinates. [Docs link](http://docs.traveltimeplatform.com/reference/geocoding-search/)`` () =
+  let ``GeocodingSearch -  returns 200 where Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -94,7 +94,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``GeocodingSearch -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``GeocodingSearch -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -111,7 +111,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``MapInfo -  returns 200 where Returns information about currently supported countries. [Docs link](http://docs.traveltimeplatform.com/reference/map-info/)`` () =
+  let ``MapInfo -  returns 200 where Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -128,7 +128,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``MapInfo -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``MapInfo -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -145,7 +145,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``Routes -  returns 200 where Returns routing information between source and destinations. [Docs link](http://docs.traveltimeplatform.com/reference/routes/)`` () =
+  let ``Routes -  returns 200 where Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -167,7 +167,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``Routes -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``Routes -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -189,7 +189,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``SupportedLocations -  returns 200 where Find out what points are supported by our api. [Docs link](http://docs.traveltimeplatform.com/reference/supported-locations/)`` () =
+  let ``SupportedLocations -  returns 200 where Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -211,7 +211,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``SupportedLocations -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``SupportedLocations -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -233,7 +233,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilter -  returns 200 where Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter)`` () =
+  let ``TimeFilter -  returns 200 where Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -255,7 +255,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilter -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeFilter -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -277,7 +277,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterFast -  returns 200 where A very fast version of Time Filter. [Docs link](http://docs.traveltimeplatform.com/reference/time-filter-fast/)`` () =
+  let ``TimeFilterFast -  returns 200 where A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -299,7 +299,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterFast -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeFilterFast -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -321,7 +321,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodeDistricts -  returns 200 where Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-district-filter/)`` () =
+  let ``TimeFilterPostcodeDistricts -  returns 200 where Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -343,7 +343,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodeDistricts -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeFilterPostcodeDistricts -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -365,7 +365,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodeSectors -  returns 200 where Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-sector-filter/)`` () =
+  let ``TimeFilterPostcodeSectors -  returns 200 where Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -387,7 +387,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodeSectors -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeFilterPostcodeSectors -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -409,7 +409,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodes -  returns 200 where Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltimeplatform.com/reference/postcode-search/)`` () =
+  let ``TimeFilterPostcodes -  returns 200 where Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -431,7 +431,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeFilterPostcodes -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeFilterPostcodes -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -453,7 +453,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeMap -  returns 200 where Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltimeplatform.com/reference/time-map/)`` () =
+  let ``TimeMap -  returns 200 where Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()
@@ -475,7 +475,7 @@ module DefaultApiHandlerTests =
       }
 
   [<Fact>]
-  let ``TimeMap -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltimeplatform.com/reference/error-response)`` () =
+  let ``TimeMap -  returns 0 where The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)`` () =
     task {
       use server = new TestServer(createHost())
       use client = server.CreateClient()

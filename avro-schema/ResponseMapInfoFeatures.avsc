@@ -1,0 +1,23 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "ResponseMapInfoFeatures",
+  "fields": [
+    {
+      "name": "public_transport",
+      "type": ["null", "model.ResponseMapInfoFeaturesPublicTransport"],
+      "doc": ""
+    },
+    {
+      "name": "fares",
+      "type": "boolean",
+      "doc": ""
+    },
+    {
+      "name": "postcodes",
+      "type": "boolean",
+      "doc": ""
+    }
+  ]
+}

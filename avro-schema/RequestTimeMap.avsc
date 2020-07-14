@@ -1,0 +1,40 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestTimeMap",
+  "fields": [
+    {
+      "name": "departure_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeMapDepartureSearch"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "arrival_searches",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestTimeMapArrivalSearch"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "unions",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestUnionOnIntersection"
+      }],
+      "doc": ""
+    },
+    {
+      "name": "intersections",
+      "type": ["null", {
+        "type": "array",
+        "items": "model.RequestUnionOnIntersection"
+      }],
+      "doc": ""
+    }
+  ]
+}

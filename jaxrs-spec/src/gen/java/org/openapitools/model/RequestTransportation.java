@@ -13,8 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-03-18T08:51:11.573Z[Etc/UTC]")
-public class RequestTransportation   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTransportation   {
   
 
 public enum TypeEnum {
@@ -64,17 +63,18 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("type")
   @NotNull
   public TypeEnum getType() {
     return type;
   }
+
   public void setType(TypeEnum type) {
     this.type = type;
-  }
-
-  /**
+  }/**
    **/
   public RequestTransportation ptChangeDelay(Integer ptChangeDelay) {
     this.ptChangeDelay = ptChangeDelay;
@@ -82,16 +82,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("pt_change_delay")
   public Integer getPtChangeDelay() {
     return ptChangeDelay;
   }
+
   public void setPtChangeDelay(Integer ptChangeDelay) {
     this.ptChangeDelay = ptChangeDelay;
-  }
-
-  /**
+  }/**
    **/
   public RequestTransportation walkingTime(Integer walkingTime) {
     this.walkingTime = walkingTime;
@@ -99,16 +100,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("walking_time")
   public Integer getWalkingTime() {
     return walkingTime;
   }
+
   public void setWalkingTime(Integer walkingTime) {
     this.walkingTime = walkingTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTransportation drivingTimeToStation(Integer drivingTimeToStation) {
     this.drivingTimeToStation = drivingTimeToStation;
@@ -116,16 +118,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("driving_time_to_station")
   public Integer getDrivingTimeToStation() {
     return drivingTimeToStation;
   }
+
   public void setDrivingTimeToStation(Integer drivingTimeToStation) {
     this.drivingTimeToStation = drivingTimeToStation;
-  }
-
-  /**
+  }/**
    **/
   public RequestTransportation parkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
@@ -133,16 +136,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("parking_time")
   public Integer getParkingTime() {
     return parkingTime;
   }
+
   public void setParkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
-  }
-
-  /**
+  }/**
    **/
   public RequestTransportation boardingTime(Integer boardingTime) {
     this.boardingTime = boardingTime;
@@ -150,15 +154,17 @@ public enum TypeEnum {
   }
 
   
+
+  
   @ApiModelProperty(value = "")
   @JsonProperty("boarding_time")
   public Integer getBoardingTime() {
     return boardingTime;
   }
+
   public void setBoardingTime(Integer boardingTime) {
     this.boardingTime = boardingTime;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -207,5 +213,7 @@ public enum TypeEnum {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
+
 }
 

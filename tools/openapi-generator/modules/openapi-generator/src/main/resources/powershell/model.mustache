@@ -1,6 +1,0 @@
-{{> partial_header}}
-{{#models}}
-{{#model}}
-{{#oneOf}}{{#-first}}{{>model_oneof}}{{/-first}}{{/oneOf}}{{^oneOf}}{{#anyOf}}{{#-first}}{{>model_anyof}}{{/-first}}{{/anyOf}}{{^anyOf}}{{>model_simple}}{{/anyOf}}{{/oneOf}}
-{{/model}}
-{{/models}}

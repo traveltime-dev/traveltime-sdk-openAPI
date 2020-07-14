@@ -1,9 +1,0 @@
-  "fields": [
-  {{#vars}}
-    {
-      "name": "{{baseName}}",
-      "type": {{^required}}["null", {{/required}}{{>typeProperty}}{{^required}}]{{/required}},
-      "doc": "{{{description}}}"
-    }{{^-last}},{{/-last}}
-  {{/vars}}
-  ]

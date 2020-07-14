@@ -61,7 +61,6 @@ val languages = List(
   "java-msf4j",
   "java-pkmst",
   "java-play-framework",
-  "java-undertow-server",
   "java-vertx",
   "java-vertx-web",
   "jaxrs-cxf",

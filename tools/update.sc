@@ -1,10 +1,10 @@
 import ammonite.ops._
 
-val swaggerCodegenVersion = "master" //5.0.0
+val swaggerCodegenVersion = "master" //5.2.0-SNAPSHOT
 lazy val toolsDir = pwd/"tools"
 lazy val codegenDir = toolsDir/"openapi-generator"
 lazy val sdkOut = codegenDir/"out"
-lazy val defaultSpecLocation = "https://raw.githubusercontent.com/traveltime-dev/traveltime-openapi-specification/v1.2.1/traveltime-spec.yml"
+lazy val defaultSpecLocation = "https://raw.githubusercontent.com/traveltime-dev/traveltime-openapi-specification/v1.2.2/traveltime-spec.yml"
 
 val languages = List(
   "ada",

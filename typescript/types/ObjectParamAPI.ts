@@ -221,13 +221,12 @@ export interface DefaultApiTimeMapRequest {
     requestTimeMap: RequestTimeMap
 }
 
-
 export class ObjectDefaultApi {
     private api: ObservableDefaultApi
 
     public constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor) {
         this.api = new ObservableDefaultApi(configuration, requestFactory, responseProcessor);
-	}
+    }
 
     /**
      * @param param the request object
@@ -235,79 +234,75 @@ export class ObjectDefaultApi {
     public geocodingReverseSearch(param: DefaultApiGeocodingReverseSearchRequest, options?: Configuration): Promise<ResponseGeocoding> {
         return this.api.geocodingReverseSearch(param.lat, param.lng, param.withinCountry,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public geocodingSearch(param: DefaultApiGeocodingSearchRequest, options?: Configuration): Promise<ResponseGeocoding> {
         return this.api.geocodingSearch(param.query, param.focusLat, param.focusLng, param.withinCountry,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public mapInfo(param: DefaultApiMapInfoRequest, options?: Configuration): Promise<ResponseMapInfo> {
         return this.api.mapInfo( options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public routes(param: DefaultApiRoutesRequest, options?: Configuration): Promise<ResponseRoutes> {
         return this.api.routes(param.requestRoutes,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public supportedLocations(param: DefaultApiSupportedLocationsRequest, options?: Configuration): Promise<ResponseSupportedLocations> {
         return this.api.supportedLocations(param.requestSupportedLocations,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeFilter(param: DefaultApiTimeFilterRequest, options?: Configuration): Promise<ResponseTimeFilter> {
         return this.api.timeFilter(param.requestTimeFilter,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeFilterFast(param: DefaultApiTimeFilterFastRequest, options?: Configuration): Promise<ResponseTimeFilterFast> {
         return this.api.timeFilterFast(param.requestTimeFilterFast,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeFilterPostcodeDistricts(param: DefaultApiTimeFilterPostcodeDistrictsRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodeDistricts> {
         return this.api.timeFilterPostcodeDistricts(param.requestTimeFilterPostcodeDistricts,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeFilterPostcodeSectors(param: DefaultApiTimeFilterPostcodeSectorsRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodeSectors> {
         return this.api.timeFilterPostcodeSectors(param.requestTimeFilterPostcodeSectors,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeFilterPostcodes(param: DefaultApiTimeFilterPostcodesRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodes> {
         return this.api.timeFilterPostcodes(param.requestTimeFilterPostcodes,  options).toPromise();
     }
-	
+
     /**
      * @param param the request object
      */
     public timeMap(param: DefaultApiTimeMapRequest, options?: Configuration): Promise<ResponseTimeMap> {
         return this.api.timeMap(param.requestTimeMap,  options).toPromise();
     }
-	
 
 }
-
-
-

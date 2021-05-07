@@ -97,4 +97,5 @@ models/ResponseTransportationMode.ts
 models/ResponseTravelTimeStatistics.ts
 models/index.ts
 runtime.ts
+servers.ts
 tsconfig.json

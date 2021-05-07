@@ -30,52 +30,52 @@ import { ResponseTimeMap } from '../models/ResponseTimeMap';
  * no description
  */
 export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
-	
+
     /**
      * @param lat 
      * @param lng 
      * @param withinCountry 
      */
     public async geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'lat' is not null or undefined
         if (lat === null || lat === undefined) {
             throw new RequiredError('Required parameter lat was null or undefined when calling geocodingReverseSearch.');
         }
 
-		
+
         // verify required parameter 'lng' is not null or undefined
         if (lng === null || lng === undefined) {
             throw new RequiredError('Required parameter lng was null or undefined when calling geocodingReverseSearch.');
         }
 
-		
-		
-		// Path Params
-    	const localVarPath = '/v4/geocoding/reverse';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+
+        // Path Params
+        const localVarPath = '/v4/geocoding/reverse';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
         if (lat !== undefined) {
-        	requestContext.setQueryParam("lat", ObjectSerializer.serialize(lat, "number", "double"));
+            requestContext.setQueryParam("lat", ObjectSerializer.serialize(lat, "number", "double"));
         }
         if (lng !== undefined) {
-        	requestContext.setQueryParam("lng", ObjectSerializer.serialize(lng, "number", "double"));
+            requestContext.setQueryParam("lng", ObjectSerializer.serialize(lng, "number", "double"));
         }
         if (withinCountry !== undefined) {
-        	requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
         }
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
 
         let authMethod = null;
         // Apply auth methods
@@ -98,44 +98,44 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param withinCountry 
      */
     public async geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'query' is not null or undefined
         if (query === null || query === undefined) {
             throw new RequiredError('Required parameter query was null or undefined when calling geocodingSearch.');
         }
 
-		
-		
-		
-		
-		// Path Params
-    	const localVarPath = '/v4/geocoding/search';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+
+
+
+        // Path Params
+        const localVarPath = '/v4/geocoding/search';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
         if (query !== undefined) {
-        	requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
+            requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
         }
         if (focusLat !== undefined) {
-        	requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focusLat, "number", "double"));
+            requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focusLat, "number", "double"));
         }
         if (focusLng !== undefined) {
-        	requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focusLng, "number", "double"));
+            requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focusLng, "number", "double"));
         }
         if (withinCountry !== undefined) {
-        	requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
         }
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
 
         let authMethod = null;
         // Apply auth methods
@@ -154,23 +154,23 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     /**
      */
     public async mapInfo(options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
-		// Path Params
-    	const localVarPath = '/v4/map-info';
+        let config = options || this.configuration;
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        // Path Params
+        const localVarPath = '/v4/map-info';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
 
         let authMethod = null;
         // Apply auth methods
@@ -190,29 +190,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestRoutes 
      */
     public async routes(requestRoutes: RequestRoutes, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestRoutes' is not null or undefined
         if (requestRoutes === null || requestRoutes === undefined) {
             throw new RequiredError('Required parameter requestRoutes was null or undefined when calling routes.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/routes';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/routes';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -241,29 +241,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestSupportedLocations 
      */
     public async supportedLocations(requestSupportedLocations: RequestSupportedLocations, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestSupportedLocations' is not null or undefined
         if (requestSupportedLocations === null || requestSupportedLocations === undefined) {
             throw new RequiredError('Required parameter requestSupportedLocations was null or undefined when calling supportedLocations.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/supported-locations';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/supported-locations';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -292,29 +292,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeFilter 
      */
     public async timeFilter(requestTimeFilter: RequestTimeFilter, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeFilter' is not null or undefined
         if (requestTimeFilter === null || requestTimeFilter === undefined) {
             throw new RequiredError('Required parameter requestTimeFilter was null or undefined when calling timeFilter.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-filter';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-filter';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -343,29 +343,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeFilterFast 
      */
     public async timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeFilterFast' is not null or undefined
         if (requestTimeFilterFast === null || requestTimeFilterFast === undefined) {
             throw new RequiredError('Required parameter requestTimeFilterFast was null or undefined when calling timeFilterFast.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-filter/fast';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-filter/fast';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -394,29 +394,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeFilterPostcodeDistricts 
      */
     public async timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeFilterPostcodeDistricts' is not null or undefined
         if (requestTimeFilterPostcodeDistricts === null || requestTimeFilterPostcodeDistricts === undefined) {
             throw new RequiredError('Required parameter requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-filter/postcode-districts';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-filter/postcode-districts';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -445,29 +445,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeFilterPostcodeSectors 
      */
     public async timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeFilterPostcodeSectors' is not null or undefined
         if (requestTimeFilterPostcodeSectors === null || requestTimeFilterPostcodeSectors === undefined) {
             throw new RequiredError('Required parameter requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-filter/postcode-sectors';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-filter/postcode-sectors';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -496,29 +496,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeFilterPostcodes 
      */
     public async timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeFilterPostcodes' is not null or undefined
         if (requestTimeFilterPostcodes === null || requestTimeFilterPostcodes === undefined) {
             throw new RequiredError('Required parameter requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-filter/postcodes';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-filter/postcodes';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -547,29 +547,29 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
      * @param requestTimeMap 
      */
     public async timeMap(requestTimeMap: RequestTimeMap, options?: Configuration): Promise<RequestContext> {
-		let config = options || this.configuration;
-		
+        let config = options || this.configuration;
+
         // verify required parameter 'requestTimeMap' is not null or undefined
         if (requestTimeMap === null || requestTimeMap === undefined) {
             throw new RequiredError('Required parameter requestTimeMap was null or undefined when calling timeMap.');
         }
 
-		
-		// Path Params
-    	const localVarPath = '/v4/time-map';
 
-		// Make Request Context
-    	const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        // Path Params
+        const localVarPath = '/v4/time-map';
+
+        // Make Request Context
+        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-	
-		// Header Params
-	
-		// Form Params
+
+        // Header Params
+
+        // Form Params
 
 
-		// Body Params
+        // Body Params
         const contentType = ObjectSerializer.getPreferredMediaType([
             "application/json"
         ]);
@@ -595,8 +595,6 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
 }
-
-
 
 export class DefaultApiResponseProcessor {
 
@@ -634,9 +632,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -671,9 +669,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -708,9 +706,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -745,9 +743,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -782,9 +780,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -819,9 +817,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -856,9 +854,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -893,9 +891,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -930,9 +928,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -967,9 +965,9 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
     /**
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
@@ -1004,7 +1002,7 @@ export class DefaultApiResponseProcessor {
         }
 
         let body = response.body || "";
-    	throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
+        throw new ApiException<string>(response.httpStatusCode, "Unknown API Status Code!\nBody: \"" + body + "\"");
     }
-			
+
 }

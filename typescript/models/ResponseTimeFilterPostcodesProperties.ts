@@ -13,14 +13,14 @@
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeFilterPostcodesProperties {
-    'travelTime'?: number;
+    'travel_time'?: number;
     'distance'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""

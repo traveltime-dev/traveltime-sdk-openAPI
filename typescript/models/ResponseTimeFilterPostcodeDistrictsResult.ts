@@ -14,14 +14,14 @@ import { ResponseTimeFilterPostcodeDistrict } from './ResponseTimeFilterPostcode
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeFilterPostcodeDistrictsResult {
-    'searchId': string;
+    'search_id': string;
     'districts': Array<ResponseTimeFilterPostcodeDistrict>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "searchId",
+            "name": "search_id",
             "baseName": "search_id",
             "type": "string",
             "format": ""

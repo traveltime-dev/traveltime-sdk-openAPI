@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class RequestTimeFilterFast {
     'locations': Array<RequestLocation>;
-    'arrivalSearches': RequestTimeFilterFastArrivalSearches;
+    'arrival_searches': RequestTimeFilterFastArrivalSearches;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,7 +28,7 @@ export class RequestTimeFilterFast {
             "format": ""
         },
         {
-            "name": "arrivalSearches",
+            "name": "arrival_searches",
             "baseName": "arrival_searches",
             "type": "RequestTimeFilterFastArrivalSearches",
             "format": ""

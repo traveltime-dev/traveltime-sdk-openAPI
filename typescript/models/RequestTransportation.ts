@@ -14,11 +14,11 @@ import { HttpFile } from '../http/http';
 
 export class RequestTransportation {
     'type': RequestTransportationTypeEnum;
-    'ptChangeDelay'?: number;
-    'walkingTime'?: number;
-    'drivingTimeToStation'?: number;
-    'parkingTime'?: number;
-    'boardingTime'?: number;
+    'pt_change_delay'?: number;
+    'walking_time'?: number;
+    'driving_time_to_station'?: number;
+    'parking_time'?: number;
+    'boarding_time'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,31 +30,31 @@ export class RequestTransportation {
             "format": ""
         },
         {
-            "name": "ptChangeDelay",
+            "name": "pt_change_delay",
             "baseName": "pt_change_delay",
             "type": "number",
             "format": ""
         },
         {
-            "name": "walkingTime",
+            "name": "walking_time",
             "baseName": "walking_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "drivingTimeToStation",
+            "name": "driving_time_to_station",
             "baseName": "driving_time_to_station",
             "type": "number",
             "format": ""
         },
         {
-            "name": "parkingTime",
+            "name": "parking_time",
             "baseName": "parking_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "boardingTime",
+            "name": "boarding_time",
             "baseName": "boarding_time",
             "type": "number",
             "format": ""

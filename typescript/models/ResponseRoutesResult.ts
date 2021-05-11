@@ -14,7 +14,7 @@ import { ResponseRoutesLocation } from './ResponseRoutesLocation';
 import { HttpFile } from '../http/http';
 
 export class ResponseRoutesResult {
-    'searchId': string;
+    'search_id': string;
     'locations': Array<ResponseRoutesLocation>;
     'unreachable': Array<string>;
 
@@ -22,7 +22,7 @@ export class ResponseRoutesResult {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "searchId",
+            "name": "search_id",
             "baseName": "search_id",
             "type": "string",
             "format": ""

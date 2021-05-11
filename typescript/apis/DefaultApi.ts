@@ -34,9 +34,9 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param lat 
      * @param lng 
-     * @param withinCountry 
+     * @param within_country 
      */
-    public async geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, options?: Configuration): Promise<RequestContext> {
+    public async geocodingReverseSearch(lat: number, lng: number, within_country?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'lat' is not null or undefined
@@ -66,8 +66,8 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         if (lng !== undefined) {
             requestContext.setQueryParam("lng", ObjectSerializer.serialize(lng, "number", "double"));
         }
-        if (withinCountry !== undefined) {
-            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
+        if (within_country !== undefined) {
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(within_country, "string", ""));
         }
 
         // Header Params
@@ -93,11 +93,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * @param query 
-     * @param focusLat 
-     * @param focusLng 
-     * @param withinCountry 
+     * @param focus_lat 
+     * @param focus_lng 
+     * @param within_country 
      */
-    public async geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, options?: Configuration): Promise<RequestContext> {
+    public async geocodingSearch(query: string, focus_lat?: number, focus_lng?: number, within_country?: string, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
         // verify required parameter 'query' is not null or undefined
@@ -120,14 +120,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         if (query !== undefined) {
             requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
         }
-        if (focusLat !== undefined) {
-            requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focusLat, "number", "double"));
+        if (focus_lat !== undefined) {
+            requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focus_lat, "number", "double"));
         }
-        if (focusLng !== undefined) {
-            requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focusLng, "number", "double"));
+        if (focus_lng !== undefined) {
+            requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focus_lng, "number", "double"));
         }
-        if (withinCountry !== undefined) {
-            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
+        if (within_country !== undefined) {
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(within_country, "string", ""));
         }
 
         // Header Params
@@ -187,14 +187,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestRoutes 
+     * @param RequestRoutes 
      */
-    public async routes(requestRoutes: RequestRoutes, options?: Configuration): Promise<RequestContext> {
+    public async routes(RequestRoutes: RequestRoutes, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestRoutes' is not null or undefined
-        if (requestRoutes === null || requestRoutes === undefined) {
-            throw new RequiredError('Required parameter requestRoutes was null or undefined when calling routes.');
+        // verify required parameter 'RequestRoutes' is not null or undefined
+        if (RequestRoutes === null || RequestRoutes === undefined) {
+            throw new RequiredError('Required parameter RequestRoutes was null or undefined when calling routes.');
         }
 
 
@@ -218,7 +218,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestRoutes, "RequestRoutes", ""),
+            ObjectSerializer.serialize(RequestRoutes, "RequestRoutes", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -238,14 +238,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestSupportedLocations 
+     * @param RequestSupportedLocations 
      */
-    public async supportedLocations(requestSupportedLocations: RequestSupportedLocations, options?: Configuration): Promise<RequestContext> {
+    public async supportedLocations(RequestSupportedLocations: RequestSupportedLocations, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestSupportedLocations' is not null or undefined
-        if (requestSupportedLocations === null || requestSupportedLocations === undefined) {
-            throw new RequiredError('Required parameter requestSupportedLocations was null or undefined when calling supportedLocations.');
+        // verify required parameter 'RequestSupportedLocations' is not null or undefined
+        if (RequestSupportedLocations === null || RequestSupportedLocations === undefined) {
+            throw new RequiredError('Required parameter RequestSupportedLocations was null or undefined when calling supportedLocations.');
         }
 
 
@@ -269,7 +269,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestSupportedLocations, "RequestSupportedLocations", ""),
+            ObjectSerializer.serialize(RequestSupportedLocations, "RequestSupportedLocations", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -289,14 +289,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeFilter 
+     * @param RequestTimeFilter 
      */
-    public async timeFilter(requestTimeFilter: RequestTimeFilter, options?: Configuration): Promise<RequestContext> {
+    public async timeFilter(RequestTimeFilter: RequestTimeFilter, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeFilter' is not null or undefined
-        if (requestTimeFilter === null || requestTimeFilter === undefined) {
-            throw new RequiredError('Required parameter requestTimeFilter was null or undefined when calling timeFilter.');
+        // verify required parameter 'RequestTimeFilter' is not null or undefined
+        if (RequestTimeFilter === null || RequestTimeFilter === undefined) {
+            throw new RequiredError('Required parameter RequestTimeFilter was null or undefined when calling timeFilter.');
         }
 
 
@@ -320,7 +320,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeFilter, "RequestTimeFilter", ""),
+            ObjectSerializer.serialize(RequestTimeFilter, "RequestTimeFilter", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -340,14 +340,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeFilterFast 
+     * @param RequestTimeFilterFast 
      */
-    public async timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Promise<RequestContext> {
+    public async timeFilterFast(RequestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeFilterFast' is not null or undefined
-        if (requestTimeFilterFast === null || requestTimeFilterFast === undefined) {
-            throw new RequiredError('Required parameter requestTimeFilterFast was null or undefined when calling timeFilterFast.');
+        // verify required parameter 'RequestTimeFilterFast' is not null or undefined
+        if (RequestTimeFilterFast === null || RequestTimeFilterFast === undefined) {
+            throw new RequiredError('Required parameter RequestTimeFilterFast was null or undefined when calling timeFilterFast.');
         }
 
 
@@ -371,7 +371,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeFilterFast, "RequestTimeFilterFast", ""),
+            ObjectSerializer.serialize(RequestTimeFilterFast, "RequestTimeFilterFast", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -391,14 +391,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeFilterPostcodeDistricts 
+     * @param RequestTimeFilterPostcodeDistricts 
      */
-    public async timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Promise<RequestContext> {
+    public async timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeFilterPostcodeDistricts' is not null or undefined
-        if (requestTimeFilterPostcodeDistricts === null || requestTimeFilterPostcodeDistricts === undefined) {
-            throw new RequiredError('Required parameter requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
+        // verify required parameter 'RequestTimeFilterPostcodeDistricts' is not null or undefined
+        if (RequestTimeFilterPostcodeDistricts === null || RequestTimeFilterPostcodeDistricts === undefined) {
+            throw new RequiredError('Required parameter RequestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
         }
 
 
@@ -422,7 +422,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeFilterPostcodeDistricts, "RequestTimeFilterPostcodeDistricts", ""),
+            ObjectSerializer.serialize(RequestTimeFilterPostcodeDistricts, "RequestTimeFilterPostcodeDistricts", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -442,14 +442,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeFilterPostcodeSectors 
+     * @param RequestTimeFilterPostcodeSectors 
      */
-    public async timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Promise<RequestContext> {
+    public async timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeFilterPostcodeSectors' is not null or undefined
-        if (requestTimeFilterPostcodeSectors === null || requestTimeFilterPostcodeSectors === undefined) {
-            throw new RequiredError('Required parameter requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
+        // verify required parameter 'RequestTimeFilterPostcodeSectors' is not null or undefined
+        if (RequestTimeFilterPostcodeSectors === null || RequestTimeFilterPostcodeSectors === undefined) {
+            throw new RequiredError('Required parameter RequestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
         }
 
 
@@ -473,7 +473,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeFilterPostcodeSectors, "RequestTimeFilterPostcodeSectors", ""),
+            ObjectSerializer.serialize(RequestTimeFilterPostcodeSectors, "RequestTimeFilterPostcodeSectors", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -493,14 +493,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeFilterPostcodes 
+     * @param RequestTimeFilterPostcodes 
      */
-    public async timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Promise<RequestContext> {
+    public async timeFilterPostcodes(RequestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeFilterPostcodes' is not null or undefined
-        if (requestTimeFilterPostcodes === null || requestTimeFilterPostcodes === undefined) {
-            throw new RequiredError('Required parameter requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
+        // verify required parameter 'RequestTimeFilterPostcodes' is not null or undefined
+        if (RequestTimeFilterPostcodes === null || RequestTimeFilterPostcodes === undefined) {
+            throw new RequiredError('Required parameter RequestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
         }
 
 
@@ -524,7 +524,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeFilterPostcodes, "RequestTimeFilterPostcodes", ""),
+            ObjectSerializer.serialize(RequestTimeFilterPostcodes, "RequestTimeFilterPostcodes", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -544,14 +544,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param requestTimeMap 
+     * @param RequestTimeMap 
      */
-    public async timeMap(requestTimeMap: RequestTimeMap, options?: Configuration): Promise<RequestContext> {
+    public async timeMap(RequestTimeMap: RequestTimeMap, options?: Configuration): Promise<RequestContext> {
         let config = options || this.configuration;
 
-        // verify required parameter 'requestTimeMap' is not null or undefined
-        if (requestTimeMap === null || requestTimeMap === undefined) {
-            throw new RequiredError('Required parameter requestTimeMap was null or undefined when calling timeMap.');
+        // verify required parameter 'RequestTimeMap' is not null or undefined
+        if (RequestTimeMap === null || RequestTimeMap === undefined) {
+            throw new RequiredError('Required parameter RequestTimeMap was null or undefined when calling timeMap.');
         }
 
 
@@ -575,7 +575,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(requestTimeMap, "RequestTimeMap", ""),
+            ObjectSerializer.serialize(RequestTimeMap, "RequestTimeMap", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

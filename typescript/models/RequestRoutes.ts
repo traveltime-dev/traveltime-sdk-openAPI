@@ -17,8 +17,8 @@ import { HttpFile } from '../http/http';
 
 export class RequestRoutes {
     'locations': Array<RequestLocation>;
-    'departureSearches'?: Array<RequestRoutesDepartureSearch>;
-    'arrivalSearches'?: Array<RequestRoutesArrivalSearch>;
+    'departure_searches'?: Array<RequestRoutesDepartureSearch>;
+    'arrival_searches'?: Array<RequestRoutesArrivalSearch>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,13 +30,13 @@ export class RequestRoutes {
             "format": ""
         },
         {
-            "name": "departureSearches",
+            "name": "departure_searches",
             "baseName": "departure_searches",
             "type": "Array<RequestRoutesDepartureSearch>",
             "format": ""
         },
         {
-            "name": "arrivalSearches",
+            "name": "arrival_searches",
             "baseName": "arrival_searches",
             "type": "Array<RequestRoutesArrivalSearch>",
             "format": ""

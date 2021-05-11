@@ -13,34 +13,34 @@
 import { HttpFile } from '../http/http';
 
 export class ResponseBox {
-    'minLat': number;
-    'maxLat': number;
-    'minLng': number;
-    'maxLng': number;
+    'min_lat': number;
+    'max_lat': number;
+    'min_lng': number;
+    'max_lng': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "minLat",
+            "name": "min_lat",
             "baseName": "min_lat",
             "type": "number",
             "format": "double"
         },
         {
-            "name": "maxLat",
+            "name": "max_lat",
             "baseName": "max_lat",
             "type": "number",
             "format": "double"
         },
         {
-            "name": "minLng",
+            "name": "min_lng",
             "baseName": "min_lng",
             "type": "number",
             "format": "double"
         },
         {
-            "name": "maxLng",
+            "name": "max_lng",
             "baseName": "max_lng",
             "type": "number",
             "format": "double"

@@ -14,7 +14,7 @@ import { ResponseTimeFilterLocation } from './ResponseTimeFilterLocation';
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeFilterResult {
-    'searchId': string;
+    'search_id': string;
     'locations': Array<ResponseTimeFilterLocation>;
     'unreachable': Array<string>;
 
@@ -22,7 +22,7 @@ export class ResponseTimeFilterResult {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "searchId",
+            "name": "search_id",
             "baseName": "search_id",
             "type": "string",
             "format": ""

@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class ResponseFares {
     'breakdown': Array<ResponseFaresBreakdownItem>;
-    'ticketsTotal': Array<ResponseFareTicket>;
+    'tickets_total': Array<ResponseFareTicket>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -28,7 +28,7 @@ export class ResponseFares {
             "format": ""
         },
         {
-            "name": "ticketsTotal",
+            "name": "tickets_total",
             "baseName": "tickets_total",
             "type": "Array<ResponseFareTicket>",
             "format": ""

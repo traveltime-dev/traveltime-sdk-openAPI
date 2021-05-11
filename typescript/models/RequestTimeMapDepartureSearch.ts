@@ -20,8 +20,8 @@ export class RequestTimeMapDepartureSearch {
     'id': string;
     'coords': Coords;
     'transportation': RequestTransportation;
-    'travelTime': number;
-    'departureTime': Date;
+    'travel_time': number;
+    'departure_time': Date;
     'properties'?: Array<RequestTimeMapProperty>;
     'range'?: RequestRangeNoMaxResults;
 
@@ -47,13 +47,13 @@ export class RequestTimeMapDepartureSearch {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "departureTime",
+            "name": "departure_time",
             "baseName": "departure_time",
             "type": "Date",
             "format": "date-time"

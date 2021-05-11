@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class RequestUnionOnIntersection {
     'id': string;
-    'searchIds': Array<string>;
+    'search_ids': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,7 +26,7 @@ export class RequestUnionOnIntersection {
             "format": ""
         },
         {
-            "name": "searchIds",
+            "name": "search_ids",
             "baseName": "search_ids",
             "type": "Array<string>",
             "format": ""

@@ -17,8 +17,8 @@ import { HttpFile } from '../http/http';
 
 export class RequestTimeFilter {
     'locations': Array<RequestLocation>;
-    'departureSearches'?: Array<RequestTimeFilterDepartureSearch>;
-    'arrivalSearches'?: Array<RequestTimeFilterArrivalSearch>;
+    'departure_searches'?: Array<RequestTimeFilterDepartureSearch>;
+    'arrival_searches'?: Array<RequestTimeFilterArrivalSearch>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,13 +30,13 @@ export class RequestTimeFilter {
             "format": ""
         },
         {
-            "name": "departureSearches",
+            "name": "departure_searches",
             "baseName": "departure_searches",
             "type": "Array<RequestTimeFilterDepartureSearch>",
             "format": ""
         },
         {
-            "name": "arrivalSearches",
+            "name": "arrival_searches",
             "baseName": "arrival_searches",
             "type": "Array<RequestTimeFilterArrivalSearch>",
             "format": ""

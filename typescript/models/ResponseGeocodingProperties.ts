@@ -17,16 +17,16 @@ export class ResponseGeocodingProperties {
     'name': string;
     'label': string;
     'score'?: number;
-    'houseNumber'?: string;
+    'house_number'?: string;
     'street'?: string;
     'region'?: string;
-    'regionCode'?: string;
+    'region_code'?: string;
     'neighbourhood'?: string;
     'county'?: string;
     'macroregion'?: string;
     'city'?: string;
     'country'?: string;
-    'countryCode'?: string;
+    'country_code'?: string;
     'continent'?: string;
     'postcode'?: string;
     'features'?: ResponseMapInfoFeatures;
@@ -53,7 +53,7 @@ export class ResponseGeocodingProperties {
             "format": "double"
         },
         {
-            "name": "houseNumber",
+            "name": "house_number",
             "baseName": "house_number",
             "type": "string",
             "format": ""
@@ -71,7 +71,7 @@ export class ResponseGeocodingProperties {
             "format": ""
         },
         {
-            "name": "regionCode",
+            "name": "region_code",
             "baseName": "region_code",
             "type": "string",
             "format": ""
@@ -107,7 +107,7 @@ export class ResponseGeocodingProperties {
             "format": ""
         },
         {
-            "name": "countryCode",
+            "name": "country_code",
             "baseName": "country_code",
             "type": "string",
             "format": ""

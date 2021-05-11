@@ -14,13 +14,13 @@ import { ResponseFareTicket } from './ResponseFareTicket';
 import { HttpFile } from '../http/http';
 
 export class ResponseFaresFast {
-    'ticketsTotal': Array<ResponseFareTicket>;
+    'tickets_total': Array<ResponseFareTicket>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "ticketsTotal",
+            "name": "tickets_total",
             "baseName": "tickets_total",
             "type": "Array<ResponseFareTicket>",
             "format": ""

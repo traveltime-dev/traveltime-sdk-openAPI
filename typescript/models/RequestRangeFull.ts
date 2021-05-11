@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class RequestRangeFull {
     'enabled': boolean;
-    'maxResults': number;
+    'max_results': number;
     'width': number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -27,7 +27,7 @@ export class RequestRangeFull {
             "format": ""
         },
         {
-            "name": "maxResults",
+            "name": "max_results",
             "baseName": "max_results",
             "type": "number",
             "format": ""

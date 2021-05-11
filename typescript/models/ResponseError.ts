@@ -13,23 +13,23 @@
 import { HttpFile } from '../http/http';
 
 export class ResponseError {
-    'httpStatus'?: number;
-    'errorCode'?: number;
+    'http_status'?: number;
+    'error_code'?: number;
     'description'?: string;
-    'documentationLink'?: string;
-    'additionalInfo'?: { [key: string]: Array<string>; };
+    'documentation_link'?: string;
+    'additional_info'?: { [key: string]: Array<string>; };
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "httpStatus",
+            "name": "http_status",
             "baseName": "http_status",
             "type": "number",
             "format": ""
         },
         {
-            "name": "errorCode",
+            "name": "error_code",
             "baseName": "error_code",
             "type": "number",
             "format": ""
@@ -41,13 +41,13 @@ export class ResponseError {
             "format": ""
         },
         {
-            "name": "documentationLink",
+            "name": "documentation_link",
             "baseName": "documentation_link",
             "type": "string",
             "format": ""
         },
         {
-            "name": "additionalInfo",
+            "name": "additional_info",
             "baseName": "additional_info",
             "type": "{ [key: string]: Array<string>; }",
             "format": ""

@@ -17,11 +17,11 @@ import { HttpFile } from '../http/http';
 
 export class RequestTimeFilterFastArrivalManyToOneSearch {
     'id': string;
-    'arrivalLocationId': string;
-    'departureLocationIds': Array<string>;
+    'arrival_location_id': string;
+    'departure_location_ids': Array<string>;
     'transportation': RequestTransportationFast;
-    'travelTime': number;
-    'arrivalTimePeriod': RequestArrivalTimePeriod;
+    'travel_time': number;
+    'arrival_time_period': RequestArrivalTimePeriod;
     'properties': Array<RequestTimeFilterFastProperty>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -34,13 +34,13 @@ export class RequestTimeFilterFastArrivalManyToOneSearch {
             "format": ""
         },
         {
-            "name": "arrivalLocationId",
+            "name": "arrival_location_id",
             "baseName": "arrival_location_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "departureLocationIds",
+            "name": "departure_location_ids",
             "baseName": "departure_location_ids",
             "type": "Array<string>",
             "format": ""
@@ -52,13 +52,13 @@ export class RequestTimeFilterFastArrivalManyToOneSearch {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "arrivalTimePeriod",
+            "name": "arrival_time_period",
             "baseName": "arrival_time_period",
             "type": "RequestArrivalTimePeriod",
             "format": ""

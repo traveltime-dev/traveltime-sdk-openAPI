@@ -17,10 +17,10 @@ import { HttpFile } from '../http/http';
 
 export class RequestRoutesDepartureSearch {
     'id': string;
-    'departureLocationId': string;
-    'arrivalLocationIds': Array<string>;
+    'departure_location_id': string;
+    'arrival_location_ids': Array<string>;
     'transportation': RequestTransportation;
-    'departureTime': Date;
+    'departure_time': Date;
     'properties': Array<RequestRoutesProperty>;
     'range'?: RequestRangeFull;
 
@@ -34,13 +34,13 @@ export class RequestRoutesDepartureSearch {
             "format": ""
         },
         {
-            "name": "departureLocationId",
+            "name": "departure_location_id",
             "baseName": "departure_location_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "arrivalLocationIds",
+            "name": "arrival_location_ids",
             "baseName": "arrival_location_ids",
             "type": "Array<string>",
             "format": ""
@@ -52,7 +52,7 @@ export class RequestRoutesDepartureSearch {
             "format": ""
         },
         {
-            "name": "departureTime",
+            "name": "departure_time",
             "baseName": "departure_time",
             "type": "Date",
             "format": "date-time"

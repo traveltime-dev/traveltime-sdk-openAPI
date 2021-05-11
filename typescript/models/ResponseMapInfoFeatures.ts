@@ -14,7 +14,7 @@ import { ResponseMapInfoFeaturesPublicTransport } from './ResponseMapInfoFeature
 import { HttpFile } from '../http/http';
 
 export class ResponseMapInfoFeatures {
-    'publicTransport'?: ResponseMapInfoFeaturesPublicTransport;
+    'public_transport'?: ResponseMapInfoFeaturesPublicTransport;
     'fares': boolean;
     'postcodes': boolean;
 
@@ -22,7 +22,7 @@ export class ResponseMapInfoFeatures {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "publicTransport",
+            "name": "public_transport",
             "baseName": "public_transport",
             "type": "ResponseMapInfoFeaturesPublicTransport",
             "format": ""

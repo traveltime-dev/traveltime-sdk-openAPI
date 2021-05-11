@@ -18,9 +18,9 @@ import { HttpFile } from '../http/http';
 export class RequestTimeFilterPostcodeDistrictsArrivalSearch {
     'id': string;
     'transportation': RequestTransportation;
-    'travelTime': number;
-    'arrivalTime': Date;
-    'reachablePostcodesThreshold': number;
+    'travel_time': number;
+    'arrival_time': Date;
+    'reachable_postcodes_threshold': number;
     'properties': Array<RequestTimeFilterPostcodeDistrictsProperty>;
     'range'?: RequestRangeFull;
 
@@ -40,19 +40,19 @@ export class RequestTimeFilterPostcodeDistrictsArrivalSearch {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "arrivalTime",
+            "name": "arrival_time",
             "baseName": "arrival_time",
             "type": "Date",
             "format": "date-time"
         },
         {
-            "name": "reachablePostcodesThreshold",
+            "name": "reachable_postcodes_threshold",
             "baseName": "reachable_postcodes_threshold",
             "type": "number",
             "format": "double"

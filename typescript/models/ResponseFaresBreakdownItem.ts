@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class ResponseFaresBreakdownItem {
     'modes': Array<ResponseTransportationMode>;
-    'routePartIds': Array<number>;
+    'route_part_ids': Array<number>;
     'tickets': Array<ResponseFareTicket>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -29,7 +29,7 @@ export class ResponseFaresBreakdownItem {
             "format": ""
         },
         {
-            "name": "routePartIds",
+            "name": "route_part_ids",
             "baseName": "route_part_ids",
             "type": "Array<number>",
             "format": ""

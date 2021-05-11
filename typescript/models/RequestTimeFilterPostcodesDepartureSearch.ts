@@ -18,8 +18,8 @@ import { HttpFile } from '../http/http';
 export class RequestTimeFilterPostcodesDepartureSearch {
     'id': string;
     'transportation': RequestTransportation;
-    'travelTime': number;
-    'departureTime': Date;
+    'travel_time': number;
+    'departure_time': Date;
     'properties': Array<RequestTimeFilterPostcodesProperty>;
     'range'?: RequestRangeFull;
 
@@ -39,13 +39,13 @@ export class RequestTimeFilterPostcodesDepartureSearch {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "departureTime",
+            "name": "departure_time",
             "baseName": "departure_time",
             "type": "Date",
             "format": "date-time"

@@ -17,11 +17,11 @@ import { HttpFile } from '../http/http';
 
 export class RequestTimeFilterArrivalSearch {
     'id': string;
-    'departureLocationIds': Array<string>;
-    'arrivalLocationId': string;
+    'departure_location_ids': Array<string>;
+    'arrival_location_id': string;
     'transportation': RequestTransportation;
-    'travelTime': number;
-    'arrivalTime': Date;
+    'travel_time': number;
+    'arrival_time': Date;
     'properties': Array<RequestTimeFilterProperty>;
     'range'?: RequestRangeFull;
 
@@ -35,13 +35,13 @@ export class RequestTimeFilterArrivalSearch {
             "format": ""
         },
         {
-            "name": "departureLocationIds",
+            "name": "departure_location_ids",
             "baseName": "departure_location_ids",
             "type": "Array<string>",
             "format": ""
         },
         {
-            "name": "arrivalLocationId",
+            "name": "arrival_location_id",
             "baseName": "arrival_location_id",
             "type": "string",
             "format": ""
@@ -53,13 +53,13 @@ export class RequestTimeFilterArrivalSearch {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
         },
         {
-            "name": "arrivalTime",
+            "name": "arrival_time",
             "baseName": "arrival_time",
             "type": "Date",
             "format": "date-time"

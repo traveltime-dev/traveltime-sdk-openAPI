@@ -15,7 +15,7 @@ import { ResponseTimeMapProperties } from './ResponseTimeMapProperties';
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeMapResult {
-    'searchId': string;
+    'search_id': string;
     'shapes': Array<ResponseShape>;
     'properties': ResponseTimeMapProperties;
 
@@ -23,7 +23,7 @@ export class ResponseTimeMapResult {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "searchId",
+            "name": "search_id",
             "baseName": "search_id",
             "type": "string",
             "format": ""

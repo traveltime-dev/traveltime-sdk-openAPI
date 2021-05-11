@@ -15,20 +15,20 @@ import { RequestTimeFilterPostcodeDistrictsDepartureSearch } from './RequestTime
 import { HttpFile } from '../http/http';
 
 export class RequestTimeFilterPostcodeDistricts {
-    'departureSearches'?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
-    'arrivalSearches'?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
+    'departure_searches'?: Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>;
+    'arrival_searches'?: Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "departureSearches",
+            "name": "departure_searches",
             "baseName": "departure_searches",
             "type": "Array<RequestTimeFilterPostcodeDistrictsDepartureSearch>",
             "format": ""
         },
         {
-            "name": "arrivalSearches",
+            "name": "arrival_searches",
             "baseName": "arrival_searches",
             "type": "Array<RequestTimeFilterPostcodeDistrictsArrivalSearch>",
             "format": ""

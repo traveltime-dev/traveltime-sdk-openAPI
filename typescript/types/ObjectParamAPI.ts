@@ -116,7 +116,7 @@ export interface DefaultApiGeocodingReverseSearchRequest {
      * @type string
      * @memberof DefaultApigeocodingReverseSearch
      */
-    withinCountry?: string
+    within_country?: string
 }
 
 export interface DefaultApiGeocodingSearchRequest {
@@ -131,19 +131,19 @@ export interface DefaultApiGeocodingSearchRequest {
      * @type number
      * @memberof DefaultApigeocodingSearch
      */
-    focusLat?: number
+    focus_lat?: number
     /**
      * 
      * @type number
      * @memberof DefaultApigeocodingSearch
      */
-    focusLng?: number
+    focus_lng?: number
     /**
      * 
      * @type string
      * @memberof DefaultApigeocodingSearch
      */
-    withinCountry?: string
+    within_country?: string
 }
 
 export interface DefaultApiMapInfoRequest {
@@ -155,7 +155,7 @@ export interface DefaultApiRoutesRequest {
      * @type RequestRoutes
      * @memberof DefaultApiroutes
      */
-    requestRoutes: RequestRoutes
+    RequestRoutes: RequestRoutes
 }
 
 export interface DefaultApiSupportedLocationsRequest {
@@ -164,7 +164,7 @@ export interface DefaultApiSupportedLocationsRequest {
      * @type RequestSupportedLocations
      * @memberof DefaultApisupportedLocations
      */
-    requestSupportedLocations: RequestSupportedLocations
+    RequestSupportedLocations: RequestSupportedLocations
 }
 
 export interface DefaultApiTimeFilterRequest {
@@ -173,7 +173,7 @@ export interface DefaultApiTimeFilterRequest {
      * @type RequestTimeFilter
      * @memberof DefaultApitimeFilter
      */
-    requestTimeFilter: RequestTimeFilter
+    RequestTimeFilter: RequestTimeFilter
 }
 
 export interface DefaultApiTimeFilterFastRequest {
@@ -182,7 +182,7 @@ export interface DefaultApiTimeFilterFastRequest {
      * @type RequestTimeFilterFast
      * @memberof DefaultApitimeFilterFast
      */
-    requestTimeFilterFast: RequestTimeFilterFast
+    RequestTimeFilterFast: RequestTimeFilterFast
 }
 
 export interface DefaultApiTimeFilterPostcodeDistrictsRequest {
@@ -191,7 +191,7 @@ export interface DefaultApiTimeFilterPostcodeDistrictsRequest {
      * @type RequestTimeFilterPostcodeDistricts
      * @memberof DefaultApitimeFilterPostcodeDistricts
      */
-    requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts
+    RequestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts
 }
 
 export interface DefaultApiTimeFilterPostcodeSectorsRequest {
@@ -200,7 +200,7 @@ export interface DefaultApiTimeFilterPostcodeSectorsRequest {
      * @type RequestTimeFilterPostcodeSectors
      * @memberof DefaultApitimeFilterPostcodeSectors
      */
-    requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors
+    RequestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors
 }
 
 export interface DefaultApiTimeFilterPostcodesRequest {
@@ -209,7 +209,7 @@ export interface DefaultApiTimeFilterPostcodesRequest {
      * @type RequestTimeFilterPostcodes
      * @memberof DefaultApitimeFilterPostcodes
      */
-    requestTimeFilterPostcodes: RequestTimeFilterPostcodes
+    RequestTimeFilterPostcodes: RequestTimeFilterPostcodes
 }
 
 export interface DefaultApiTimeMapRequest {
@@ -218,7 +218,7 @@ export interface DefaultApiTimeMapRequest {
      * @type RequestTimeMap
      * @memberof DefaultApitimeMap
      */
-    requestTimeMap: RequestTimeMap
+    RequestTimeMap: RequestTimeMap
 }
 
 export class ObjectDefaultApi {
@@ -232,14 +232,14 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public geocodingReverseSearch(param: DefaultApiGeocodingReverseSearchRequest, options?: Configuration): Promise<ResponseGeocoding> {
-        return this.api.geocodingReverseSearch(param.lat, param.lng, param.withinCountry,  options).toPromise();
+        return this.api.geocodingReverseSearch(param.lat, param.lng, param.within_country,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public geocodingSearch(param: DefaultApiGeocodingSearchRequest, options?: Configuration): Promise<ResponseGeocoding> {
-        return this.api.geocodingSearch(param.query, param.focusLat, param.focusLng, param.withinCountry,  options).toPromise();
+        return this.api.geocodingSearch(param.query, param.focus_lat, param.focus_lng, param.within_country,  options).toPromise();
     }
 
     /**
@@ -253,56 +253,56 @@ export class ObjectDefaultApi {
      * @param param the request object
      */
     public routes(param: DefaultApiRoutesRequest, options?: Configuration): Promise<ResponseRoutes> {
-        return this.api.routes(param.requestRoutes,  options).toPromise();
+        return this.api.routes(param.RequestRoutes,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public supportedLocations(param: DefaultApiSupportedLocationsRequest, options?: Configuration): Promise<ResponseSupportedLocations> {
-        return this.api.supportedLocations(param.requestSupportedLocations,  options).toPromise();
+        return this.api.supportedLocations(param.RequestSupportedLocations,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeFilter(param: DefaultApiTimeFilterRequest, options?: Configuration): Promise<ResponseTimeFilter> {
-        return this.api.timeFilter(param.requestTimeFilter,  options).toPromise();
+        return this.api.timeFilter(param.RequestTimeFilter,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeFilterFast(param: DefaultApiTimeFilterFastRequest, options?: Configuration): Promise<ResponseTimeFilterFast> {
-        return this.api.timeFilterFast(param.requestTimeFilterFast,  options).toPromise();
+        return this.api.timeFilterFast(param.RequestTimeFilterFast,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeFilterPostcodeDistricts(param: DefaultApiTimeFilterPostcodeDistrictsRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodeDistricts> {
-        return this.api.timeFilterPostcodeDistricts(param.requestTimeFilterPostcodeDistricts,  options).toPromise();
+        return this.api.timeFilterPostcodeDistricts(param.RequestTimeFilterPostcodeDistricts,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeFilterPostcodeSectors(param: DefaultApiTimeFilterPostcodeSectorsRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodeSectors> {
-        return this.api.timeFilterPostcodeSectors(param.requestTimeFilterPostcodeSectors,  options).toPromise();
+        return this.api.timeFilterPostcodeSectors(param.RequestTimeFilterPostcodeSectors,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeFilterPostcodes(param: DefaultApiTimeFilterPostcodesRequest, options?: Configuration): Promise<ResponseTimeFilterPostcodes> {
-        return this.api.timeFilterPostcodes(param.requestTimeFilterPostcodes,  options).toPromise();
+        return this.api.timeFilterPostcodes(param.RequestTimeFilterPostcodes,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public timeMap(param: DefaultApiTimeMapRequest, options?: Configuration): Promise<ResponseTimeMap> {
-        return this.api.timeMap(param.requestTimeMap,  options).toPromise();
+        return this.api.timeMap(param.RequestTimeMap,  options).toPromise();
     }
 
 }

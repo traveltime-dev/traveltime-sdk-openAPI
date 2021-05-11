@@ -20,17 +20,17 @@ export class ResponseRoutePart {
     'mode': ResponseTransportationMode;
     'directions': string;
     'distance': number;
-    'travelTime': number;
+    'travel_time': number;
     'coords': Array<Coords>;
     'direction'?: string;
     'road'?: string;
     'turn'?: string;
     'line'?: string;
-    'departureStation'?: string;
-    'arrivalStation'?: string;
-    'departsAt'?: string;
-    'arrivesAt'?: string;
-    'numStops'?: number;
+    'departure_station'?: string;
+    'arrival_station'?: string;
+    'departs_at'?: string;
+    'arrives_at'?: string;
+    'num_stops'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -66,7 +66,7 @@ export class ResponseRoutePart {
             "format": ""
         },
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
@@ -102,31 +102,31 @@ export class ResponseRoutePart {
             "format": ""
         },
         {
-            "name": "departureStation",
+            "name": "departure_station",
             "baseName": "departure_station",
             "type": "string",
             "format": ""
         },
         {
-            "name": "arrivalStation",
+            "name": "arrival_station",
             "baseName": "arrival_station",
             "type": "string",
             "format": ""
         },
         {
-            "name": "departsAt",
+            "name": "departs_at",
             "baseName": "departs_at",
             "type": "string",
             "format": ""
         },
         {
-            "name": "arrivesAt",
+            "name": "arrives_at",
             "baseName": "arrives_at",
             "type": "string",
             "format": ""
         },
         {
-            "name": "numStops",
+            "name": "num_stops",
             "baseName": "num_stops",
             "type": "number",
             "format": ""

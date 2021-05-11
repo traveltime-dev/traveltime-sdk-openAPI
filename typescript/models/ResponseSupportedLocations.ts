@@ -15,7 +15,7 @@ import { HttpFile } from '../http/http';
 
 export class ResponseSupportedLocations {
     'locations': Array<ResponseSupportedLocation>;
-    'unsupportedLocations': Array<string>;
+    'unsupported_locations': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -27,7 +27,7 @@ export class ResponseSupportedLocations {
             "format": ""
         },
         {
-            "name": "unsupportedLocations",
+            "name": "unsupported_locations",
             "baseName": "unsupported_locations",
             "type": "Array<string>",
             "format": ""

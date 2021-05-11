@@ -15,20 +15,20 @@ import { RequestTimeFilterFastArrivalOneToManySearch } from './RequestTimeFilter
 import { HttpFile } from '../http/http';
 
 export class RequestTimeFilterFastArrivalSearches {
-    'manyToOne'?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
-    'oneToMany'?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
+    'many_to_one'?: Array<RequestTimeFilterFastArrivalManyToOneSearch>;
+    'one_to_many'?: Array<RequestTimeFilterFastArrivalOneToManySearch>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "manyToOne",
+            "name": "many_to_one",
             "baseName": "many_to_one",
             "type": "Array<RequestTimeFilterFastArrivalManyToOneSearch>",
             "format": ""
         },
         {
-            "name": "oneToMany",
+            "name": "one_to_many",
             "baseName": "one_to_many",
             "type": "Array<RequestTimeFilterFastArrivalOneToManySearch>",
             "format": ""

@@ -14,21 +14,21 @@ import { ResponseRoutePart } from './ResponseRoutePart';
 import { HttpFile } from '../http/http';
 
 export class ResponseRoute {
-    'departureTime': Date;
-    'arrivalTime': Date;
+    'departure_time': Date;
+    'arrival_time': Date;
     'parts': Array<ResponseRoutePart>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "departureTime",
+            "name": "departure_time",
             "baseName": "departure_time",
             "type": "Date",
             "format": "date-time"
         },
         {
-            "name": "arrivalTime",
+            "name": "arrival_time",
             "baseName": "arrival_time",
             "type": "Date",
             "format": "date-time"

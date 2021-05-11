@@ -13,20 +13,20 @@
 import { HttpFile } from '../http/http';
 
 export class ResponseMapInfoFeaturesPublicTransport {
-    'dateStart': Date;
-    'dateEnd': Date;
+    'date_start': Date;
+    'date_end': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "dateStart",
+            "name": "date_start",
             "baseName": "date_start",
             "type": "Date",
             "format": "date-time"
         },
         {
-            "name": "dateEnd",
+            "name": "date_end",
             "baseName": "date_end",
             "type": "Date",
             "format": "date-time"

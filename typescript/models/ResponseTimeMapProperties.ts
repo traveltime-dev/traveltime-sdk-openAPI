@@ -13,13 +13,13 @@
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeMapProperties {
-    'isOnlyWalking'?: boolean;
+    'is_only_walking'?: boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "isOnlyWalking",
+            "name": "is_only_walking",
             "baseName": "is_only_walking",
             "type": "boolean",
             "format": ""

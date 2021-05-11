@@ -16,9 +16,9 @@ import { ResponseRoute } from './ResponseRoute';
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeFilterProperties {
-    'travelTime'?: number;
+    'travel_time'?: number;
     'distance'?: number;
-    'distanceBreakdown'?: Array<ResponseDistanceBreakdownItem>;
+    'distance_breakdown'?: Array<ResponseDistanceBreakdownItem>;
     'fares'?: ResponseFares;
     'route'?: ResponseRoute;
 
@@ -26,7 +26,7 @@ export class ResponseTimeFilterProperties {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "travelTime",
+            "name": "travel_time",
             "baseName": "travel_time",
             "type": "number",
             "format": ""
@@ -38,7 +38,7 @@ export class ResponseTimeFilterProperties {
             "format": ""
         },
         {
-            "name": "distanceBreakdown",
+            "name": "distance_breakdown",
             "baseName": "distance_breakdown",
             "type": "Array<ResponseDistanceBreakdownItem>",
             "format": ""

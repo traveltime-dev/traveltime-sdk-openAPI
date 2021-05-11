@@ -14,21 +14,21 @@ import { ResponseTravelTimeStatistics } from './ResponseTravelTimeStatistics';
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeFilterPostcodeSectorProperties {
-    'travelTimeReachable'?: ResponseTravelTimeStatistics;
-    'travelTimeAll'?: ResponseTravelTimeStatistics;
+    'travel_time_reachable'?: ResponseTravelTimeStatistics;
+    'travel_time_all'?: ResponseTravelTimeStatistics;
     'coverage'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "travelTimeReachable",
+            "name": "travel_time_reachable",
             "baseName": "travel_time_reachable",
             "type": "ResponseTravelTimeStatistics",
             "format": ""
         },
         {
-            "name": "travelTimeAll",
+            "name": "travel_time_all",
             "baseName": "travel_time_all",
             "type": "ResponseTravelTimeStatistics",
             "format": ""

@@ -16,8 +16,8 @@ import { RequestUnionOnIntersection } from './RequestUnionOnIntersection';
 import { HttpFile } from '../http/http';
 
 export class RequestTimeMap {
-    'departureSearches'?: Array<RequestTimeMapDepartureSearch>;
-    'arrivalSearches'?: Array<RequestTimeMapArrivalSearch>;
+    'departure_searches'?: Array<RequestTimeMapDepartureSearch>;
+    'arrival_searches'?: Array<RequestTimeMapArrivalSearch>;
     'unions'?: Array<RequestUnionOnIntersection>;
     'intersections'?: Array<RequestUnionOnIntersection>;
 
@@ -25,13 +25,13 @@ export class RequestTimeMap {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "departureSearches",
+            "name": "departure_searches",
             "baseName": "departure_searches",
             "type": "Array<RequestTimeMapDepartureSearch>",
             "format": ""
         },
         {
-            "name": "arrivalSearches",
+            "name": "arrival_searches",
             "baseName": "arrival_searches",
             "type": "Array<RequestTimeMapArrivalSearch>",
             "format": ""

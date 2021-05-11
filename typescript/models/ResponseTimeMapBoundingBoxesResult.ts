@@ -15,21 +15,21 @@ import { ResponseTimeMapProperties } from './ResponseTimeMapProperties';
 import { HttpFile } from '../http/http';
 
 export class ResponseTimeMapBoundingBoxesResult {
-    'searchId': string;
-    'boundingBoxes': Array<ResponseBoundingBox>;
+    'search_id': string;
+    'bounding_boxes': Array<ResponseBoundingBox>;
     'properties': ResponseTimeMapProperties;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "searchId",
+            "name": "search_id",
             "baseName": "search_id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "boundingBoxes",
+            "name": "bounding_boxes",
             "baseName": "bounding_boxes",
             "type": "Array<ResponseBoundingBox>",
             "format": ""

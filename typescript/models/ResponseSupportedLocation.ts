@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class ResponseSupportedLocation {
     'id': string;
-    'mapName': string;
+    'map_name': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,7 +26,7 @@ export class ResponseSupportedLocation {
             "format": ""
         },
         {
-            "name": "mapName",
+            "name": "map_name",
             "baseName": "map_name",
             "type": "string",
             "format": ""

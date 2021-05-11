@@ -11,6 +11,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,11 +20,12 @@ import javax.validation.constraints.Size
  */
 data class RequestTimeFilterFast(
 
-    @get:NotNull @get:Size(min=1) 
-    @field:JsonProperty("locations") val locations: kotlin.collections.List<RequestLocation>,
+    @field:Valid
+    @get:Size(min=1)
+    @field:JsonProperty("locations", required = true) val locations: kotlin.collections.List<RequestLocation>,
 
-    @get:NotNull 
-    @field:JsonProperty("arrival_searches") val arrivalSearches: RequestTimeFilterFastArrivalSearches
+    @field:Valid
+    @field:JsonProperty("arrival_searches", required = true) val arrivalSearches: RequestTimeFilterFastArrivalSearches
 ) {
 
 }

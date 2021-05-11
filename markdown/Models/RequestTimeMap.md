@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departureUnderscoresearches** | [**List**](RequestTimeMapDepartureSearch.md) |  | [optional] [default to null]
-**arrivalUnderscoresearches** | [**List**](RequestTimeMapArrivalSearch.md) |  | [optional] [default to null]
+**departure\_searches** | [**List**](RequestTimeMapDepartureSearch.md) |  | [optional] [default to null]
+**arrival\_searches** | [**List**](RequestTimeMapArrivalSearch.md) |  | [optional] [default to null]
 **unions** | [**List**](RequestUnionOnIntersection.md) |  | [optional] [default to null]
 **intersections** | [**List**](RequestUnionOnIntersection.md) |  | [optional] [default to null]
 

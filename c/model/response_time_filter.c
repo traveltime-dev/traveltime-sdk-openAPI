@@ -23,10 +23,13 @@ void response_time_filter_free(response_time_filter_t *response_time_filter) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_time_filter->results) {
-        response_time_filter_result_free(listEntry->data);
+    if (response_time_filter->results) {
+        list_ForEach(listEntry, response_time_filter->results) {
+            response_time_filter_result_free(listEntry->data);
+        }
+        list_free(response_time_filter->results);
+        response_time_filter->results = NULL;
     }
-    list_free(response_time_filter->results);
     free(response_time_filter);
 }
 

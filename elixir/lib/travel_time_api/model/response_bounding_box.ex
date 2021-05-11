@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.ResponseBoundingBox do
   ]
 
   @type t :: %__MODULE__{
-    :"envelope" => ResponseBox,
-    :"boxes" => [ResponseBox]
+    :"envelope" => TravelTimeAPI.Model.ResponseBox.t,
+    :"boxes" => [TravelTimeAPI.Model.ResponseBox.t]
   }
 end
 

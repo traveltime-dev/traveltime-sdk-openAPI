@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.RequestLocation do
 
   @type t :: %__MODULE__{
     :"id" => String.t,
-    :"coords" => Coords
+    :"coords" => TravelTimeAPI.Model.Coords.t
   }
 end
 

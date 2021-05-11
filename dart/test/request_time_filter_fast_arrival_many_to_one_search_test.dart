@@ -1,42 +1,51 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for RequestTimeFilterFastArrivalManyToOneSearch
 void main() {
-    var instance = new RequestTimeFilterFastArrivalManyToOneSearch();
+  final instance = RequestTimeFilterFastArrivalManyToOneSearch();
 
   group('test RequestTimeFilterFastArrivalManyToOneSearch', () {
-    // String id (default value: null)
+    // String id
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // String arrivalLocationId (default value: null)
+    // String arrivalLocationId
     test('to test the property `arrivalLocationId`', () async {
       // TODO
     });
 
-    // List<String> departureLocationIds (default value: [])
+    // List<String> departureLocationIds (default value: const [])
     test('to test the property `departureLocationIds`', () async {
       // TODO
     });
 
-    // RequestTransportationFast transportation (default value: null)
+    // RequestTransportationFast transportation
     test('to test the property `transportation`', () async {
       // TODO
     });
 
-    // int travelTime (default value: null)
+    // int travelTime
     test('to test the property `travelTime`', () async {
       // TODO
     });
 
-    // RequestArrivalTimePeriod arrivalTimePeriod (default value: null)
+    // RequestArrivalTimePeriod arrivalTimePeriod
     test('to test the property `arrivalTimePeriod`', () async {
       // TODO
     });
 
-    // List<RequestTimeFilterFastProperty> properties (default value: [])
+    // List<RequestTimeFilterFastProperty> properties (default value: const [])
     test('to test the property `properties`', () async {
       // TODO
     });

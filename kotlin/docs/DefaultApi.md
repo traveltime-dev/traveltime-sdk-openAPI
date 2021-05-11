@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="geocodingReverseSearch"></a>
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
 
 
 
@@ -32,9 +32,9 @@ Method | HTTP request | Description
 val apiInstance = DefaultApi()
 val lat : kotlin.Double = 1.2 // kotlin.Double | 
 val lng : kotlin.Double = 1.2 // kotlin.Double | 
-val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
+val withinCountry : kotlin.String = withinCountry_example // kotlin.String | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(lat, lng, withinPeriodCountry)
+    val result : ResponseGeocoding = apiInstance.geocodingReverseSearch(lat, lng, withinCountry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingReverseSearch")
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **lat** | **kotlin.Double**|  |
  **lng** | **kotlin.Double**|  |
- **withinPeriodCountry** | **kotlin.String**|  | [optional]
+ **withinCountry** | **kotlin.String**|  | [optional]
 
 ### Return type
 
@@ -74,7 +74,7 @@ Configure ApplicationId:
 
 <a name="geocodingSearch"></a>
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
+> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
 
 
 
@@ -86,11 +86,11 @@ Configure ApplicationId:
 
 val apiInstance = DefaultApi()
 val query : kotlin.String = query_example // kotlin.String | 
-val focusPeriodLat : kotlin.Double = 1.2 // kotlin.Double | 
-val focusPeriodLng : kotlin.Double = 1.2 // kotlin.Double | 
-val withinPeriodCountry : kotlin.String = withinPeriodCountry_example // kotlin.String | 
+val focusLat : kotlin.Double = 1.2 // kotlin.Double | 
+val focusLng : kotlin.Double = 1.2 // kotlin.Double | 
+val withinCountry : kotlin.String = withinCountry_example // kotlin.String | 
 try {
-    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
+    val result : ResponseGeocoding = apiInstance.geocodingSearch(query, focusLat, focusLng, withinCountry)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling DefaultApi#geocodingSearch")
@@ -106,9 +106,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **kotlin.String**|  |
- **focusPeriodLat** | **kotlin.Double**|  | [optional]
- **focusPeriodLng** | **kotlin.Double**|  | [optional]
- **withinPeriodCountry** | **kotlin.String**|  | [optional]
+ **focusLat** | **kotlin.Double**|  | [optional]
+ **focusLng** | **kotlin.Double**|  | [optional]
+ **withinCountry** | **kotlin.String**|  | [optional]
 
 ### Return type
 

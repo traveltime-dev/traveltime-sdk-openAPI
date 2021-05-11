@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**map_name** | **String** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **map_name** | **String** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseSupportedLocation.new(id: null,
-                                 map_name: null)
+instance = OpenapiClient::ResponseSupportedLocation.new(
+  id: null,
+  map_name: null
+)
 ```
-
 

@@ -25,11 +25,17 @@ void request_time_filter_fast_free(request_time_filter_fast_t *request_time_filt
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_time_filter_fast->locations) {
-        request_location_free(listEntry->data);
+    if (request_time_filter_fast->locations) {
+        list_ForEach(listEntry, request_time_filter_fast->locations) {
+            request_location_free(listEntry->data);
+        }
+        list_free(request_time_filter_fast->locations);
+        request_time_filter_fast->locations = NULL;
     }
-    list_free(request_time_filter_fast->locations);
-    request_time_filter_fast_arrival_searches_free(request_time_filter_fast->arrival_searches);
+    if (request_time_filter_fast->arrival_searches) {
+        request_time_filter_fast_arrival_searches_free(request_time_filter_fast->arrival_searches);
+        request_time_filter_fast->arrival_searches = NULL;
+    }
     free(request_time_filter_fast);
 }
 
@@ -127,6 +133,10 @@ request_time_filter_fast_t *request_time_filter_fast_parseFromJSON(cJSON *reques
 
     return request_time_filter_fast_local_var;
 end:
+    if (arrival_searches_local_nonprim) {
+        request_time_filter_fast_arrival_searches_free(arrival_searches_local_nonprim);
+        arrival_searches_local_nonprim = NULL;
+    }
     return NULL;
 
 }

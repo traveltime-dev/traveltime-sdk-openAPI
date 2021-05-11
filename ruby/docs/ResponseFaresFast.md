@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**tickets_total** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **tickets_total** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseFaresFast.new(tickets_total: null)
+instance = OpenapiClient::ResponseFaresFast.new(
+  tickets_total: null
+)
 ```
-
 

@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,8 +20,10 @@ import javax.validation.constraints.Size
  */
 data class ResponseTimeFilterPostcodeSectorProperties(
 
+    @field:Valid
     @field:JsonProperty("travel_time_reachable") val travelTimeReachable: ResponseTravelTimeStatistics? = null,
 
+    @field:Valid
     @field:JsonProperty("travel_time_all") val travelTimeAll: ResponseTravelTimeStatistics? = null,
 
     @field:JsonProperty("coverage") val coverage: kotlin.Double? = null

@@ -7,12 +7,15 @@
     {
       "name": "travel_time",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "fares",
       "type": ["null", "model.ResponseFaresFast"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

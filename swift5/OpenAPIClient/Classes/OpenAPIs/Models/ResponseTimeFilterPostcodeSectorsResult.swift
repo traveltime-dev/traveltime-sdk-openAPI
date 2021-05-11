@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseTimeFilterPostcodeSectorsResult: Codable { 
-
+public struct ResponseTimeFilterPostcodeSectorsResult: Codable, Hashable {
 
     public var searchId: String
     public var sectors: [ResponseTimeFilterPostcodeSector]
@@ -18,10 +17,19 @@ public struct ResponseTimeFilterPostcodeSectorsResult: Codable {
         self.searchId = searchId
         self.sectors = sectors
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case searchId = "search_id"
         case sectors
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(searchId, forKey: .searchId)
+        try container.encode(sectors, forKey: .sectors)
+    }
+
+
 
 }

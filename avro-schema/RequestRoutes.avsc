@@ -18,7 +18,8 @@
         "type": "array",
         "items": "model.RequestRoutesDepartureSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrival_searches",
@@ -26,7 +27,9 @@
         "type": "array",
         "items": "model.RequestRoutesArrivalSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

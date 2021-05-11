@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsRequestTimeMapDepartureSearch  -Id null `
+$RequestTimeMapDepartureSearch = Initialize-PSOpenAPIToolsRequestTimeMapDepartureSearch  -Id null `
  -Coords null `
  -Transportation null `
  -TravelTime null `
@@ -26,7 +26,7 @@ Initialize-PSOpenAPIToolsRequestTimeMapDepartureSearch  -Id null `
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$RequestTimeMapDepartureSearch | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

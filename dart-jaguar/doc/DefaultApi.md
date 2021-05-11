@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodCountry)
 
 
 
@@ -42,10 +42,10 @@ import 'package:openapi/api.dart';
 var api_instance = new DefaultApi();
 var lat = 1.2; // double | 
 var lng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+var withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingReverseSearch(lat, lng, withinCountry);
+    var result = api_instance.geocodingReverseSearch(lat, lng, withinPeriodCountry);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->geocodingReverseSearch: $e\n");
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **lat** | **double**|  | [default to null]
  **lng** | **double**|  | [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **withinPeriodCountry** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
 
 
 
@@ -94,12 +94,12 @@ import 'package:openapi/api.dart';
 
 var api_instance = new DefaultApi();
 var query = query_example; // String | 
-var focusLat = 1.2; // double | 
-var focusLng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+var focusPeriodLat = 1.2; // double | 
+var focusPeriodLng = 1.2; // double | 
+var withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingSearch(query, focusLat, focusLng, withinCountry);
+    var result = api_instance.geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry);
     print(result);
 } catch (e) {
     print("Exception when calling DefaultApi->geocodingSearch: $e\n");
@@ -111,9 +111,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | [default to null]
- **focusLat** | **double**|  | [optional] [default to null]
- **focusLng** | **double**|  | [optional] [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **focusPeriodLat** | **double**|  | [optional] [default to null]
+ **focusPeriodLng** | **double**|  | [optional] [default to null]
+ **withinPeriodCountry** | **String**|  | [optional] [default to null]
 
 ### Return type
 

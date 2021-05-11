@@ -2,6 +2,3 @@
 # Please update as you see appropriate
 
 context("Test RequestTimeMapProperty")
-
-model.instance <- RequestTimeMapProperty$new()
-

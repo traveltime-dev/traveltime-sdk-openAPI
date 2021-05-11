@@ -52,15 +52,33 @@ void request_time_map_departure_search_free(request_time_map_departure_search_t 
         return ;
     }
     listEntry_t *listEntry;
-    free(request_time_map_departure_search->id);
-    coords_free(request_time_map_departure_search->coords);
-    request_transportation_free(request_time_map_departure_search->transportation);
-    free(request_time_map_departure_search->departure_time);
-    list_ForEach(listEntry, request_time_map_departure_search->properties) {
-        request_time_map_property_free(listEntry->data);
+    if (request_time_map_departure_search->id) {
+        free(request_time_map_departure_search->id);
+        request_time_map_departure_search->id = NULL;
     }
-    list_free(request_time_map_departure_search->properties);
-    request_range_no_max_results_free(request_time_map_departure_search->range);
+    if (request_time_map_departure_search->coords) {
+        coords_free(request_time_map_departure_search->coords);
+        request_time_map_departure_search->coords = NULL;
+    }
+    if (request_time_map_departure_search->transportation) {
+        request_transportation_free(request_time_map_departure_search->transportation);
+        request_time_map_departure_search->transportation = NULL;
+    }
+    if (request_time_map_departure_search->departure_time) {
+        free(request_time_map_departure_search->departure_time);
+        request_time_map_departure_search->departure_time = NULL;
+    }
+    if (request_time_map_departure_search->properties) {
+        list_ForEach(listEntry, request_time_map_departure_search->properties) {
+            request_time_map_property_free(listEntry->data);
+        }
+        list_free(request_time_map_departure_search->properties);
+        request_time_map_departure_search->properties = NULL;
+    }
+    if (request_time_map_departure_search->range) {
+        request_range_no_max_results_free(request_time_map_departure_search->range);
+        request_time_map_departure_search->range = NULL;
+    }
     free(request_time_map_departure_search);
 }
 
@@ -269,6 +287,18 @@ request_time_map_departure_search_t *request_time_map_departure_search_parseFrom
 
     return request_time_map_departure_search_local_var;
 end:
+    if (coords_local_nonprim) {
+        coords_free(coords_local_nonprim);
+        coords_local_nonprim = NULL;
+    }
+    if (transportation_local_nonprim) {
+        request_transportation_free(transportation_local_nonprim);
+        transportation_local_nonprim = NULL;
+    }
+    if (range_local_nonprim) {
+        request_range_no_max_results_free(range_local_nonprim);
+        range_local_nonprim = NULL;
+    }
     return NULL;
 
 }

@@ -44,18 +44,27 @@ void response_fares_breakdown_item_free(response_fares_breakdown_item_t *respons
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_fares_breakdown_item->modes) {
-        response_transportation_mode_free(listEntry->data);
+    if (response_fares_breakdown_item->modes) {
+        list_ForEach(listEntry, response_fares_breakdown_item->modes) {
+            response_transportation_mode_free(listEntry->data);
+        }
+        list_free(response_fares_breakdown_item->modes);
+        response_fares_breakdown_item->modes = NULL;
     }
-    list_free(response_fares_breakdown_item->modes);
-    list_ForEach(listEntry, response_fares_breakdown_item->route_part_ids) {
-        free(listEntry->data);
+    if (response_fares_breakdown_item->route_part_ids) {
+        list_ForEach(listEntry, response_fares_breakdown_item->route_part_ids) {
+            free(listEntry->data);
+        }
+        list_free(response_fares_breakdown_item->route_part_ids);
+        response_fares_breakdown_item->route_part_ids = NULL;
     }
-    list_free(response_fares_breakdown_item->route_part_ids);
-    list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
-        response_fare_ticket_free(listEntry->data);
+    if (response_fares_breakdown_item->tickets) {
+        list_ForEach(listEntry, response_fares_breakdown_item->tickets) {
+            response_fare_ticket_free(listEntry->data);
+        }
+        list_free(response_fares_breakdown_item->tickets);
+        response_fares_breakdown_item->tickets = NULL;
     }
-    list_free(response_fares_breakdown_item->tickets);
     free(response_fares_breakdown_item);
 }
 

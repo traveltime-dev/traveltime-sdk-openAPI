@@ -11,13 +11,18 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeSectorsResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeFilterPostcodeSectorsResult   {
   @JsonProperty("search_id")
+  @NotNull
+
   private String searchId;
 
   @JsonProperty("sectors")
+  @NotNull
+@Valid
+
   private List<ResponseTimeFilterPostcodeSector> sectors = new ArrayList<>();
 
   public ResponseTimeFilterPostcodeSectorsResult searchId(String searchId) {
@@ -29,7 +34,6 @@ public class ResponseTimeFilterPostcodeSectorsResult   {
    * Get searchId
    * @return searchId
   **/
-  @NotNull
   public String getSearchId() {
     return searchId;
   }
@@ -52,8 +56,6 @@ public class ResponseTimeFilterPostcodeSectorsResult   {
    * Get sectors
    * @return sectors
   **/
-  @NotNull
-@Valid
   public List<ResponseTimeFilterPostcodeSector> getSectors() {
     return sectors;
   }
@@ -64,7 +66,7 @@ public class ResponseTimeFilterPostcodeSectorsResult   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -97,7 +99,7 @@ public class ResponseTimeFilterPostcodeSectorsResult   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

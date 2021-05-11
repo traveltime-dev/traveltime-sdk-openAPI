@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,14 +20,12 @@ import javax.validation.constraints.Size
  */
 data class ResponseRoute(
 
-    @get:NotNull 
-    @field:JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
+    @field:JsonProperty("departure_time", required = true) val departureTime: java.time.OffsetDateTime,
 
-    @get:NotNull 
-    @field:JsonProperty("arrival_time") val arrivalTime: java.time.OffsetDateTime,
+    @field:JsonProperty("arrival_time", required = true) val arrivalTime: java.time.OffsetDateTime,
 
-    @get:NotNull 
-    @field:JsonProperty("parts") val parts: kotlin.collections.List<ResponseRoutePart>
+    @field:Valid
+    @field:JsonProperty("parts", required = true) val parts: kotlin.collections.List<ResponseRoutePart>
 ) {
 
 }

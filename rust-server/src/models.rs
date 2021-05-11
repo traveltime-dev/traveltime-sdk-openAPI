@@ -4,46 +4,6 @@ use crate::models;
 #[cfg(any(feature = "client", feature = "server"))]
 use crate::header;
 
-
-// Methods for converting between header::IntoHeaderValue<Coords> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<Coords>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<Coords>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for Coords - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Coords> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <Coords as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into Coords - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct Coords {
@@ -110,8 +70,8 @@ impl std::str::FromStr for Coords {
 
             if let Some(key) = key_result {
                 match key {
-                    "lat" => intermediate_rep.lat.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "lng" => intermediate_rep.lng.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "lat" => intermediate_rep.lat.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "lng" => intermediate_rep.lng.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing Coords".to_string())
                 }
             }
@@ -128,6 +88,43 @@ impl std::str::FromStr for Coords {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<Coords> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<Coords>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<Coords>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for Coords - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<Coords> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <Coords as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into Coords - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -137,14 +134,14 @@ impl std::str::FromStr for Coords {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestArrivalTimePeriod { 
+pub enum RequestArrivalTimePeriod {
     #[serde(rename = "weekday_morning")]
     WEEKDAY_MORNING,
 }
 
 impl std::fmt::Display for RequestArrivalTimePeriod {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestArrivalTimePeriod::WEEKDAY_MORNING => write!(f, "{}", "weekday_morning"),
         }
     }
@@ -160,7 +157,6 @@ impl std::str::FromStr for RequestArrivalTimePeriod {
         }
     }
 }
-
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
@@ -205,7 +201,6 @@ impl std::ops::DerefMut for RequestDepartureArrivalLocationOne {
 }
 
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct RequestDepartureArrivalTime(chrono::DateTime::<chrono::Utc>);
@@ -215,7 +210,6 @@ impl std::convert::From<chrono::DateTime::<chrono::Utc>> for RequestDepartureArr
         RequestDepartureArrivalTime(x)
     }
 }
-
 
 impl std::convert::From<RequestDepartureArrivalTime> for chrono::DateTime::<chrono::Utc> {
     fn from(x: RequestDepartureArrivalTime) -> Self {
@@ -233,46 +227,6 @@ impl std::ops::Deref for RequestDepartureArrivalTime {
 impl std::ops::DerefMut for RequestDepartureArrivalTime {
     fn deref_mut(&mut self) -> &mut chrono::DateTime::<chrono::Utc> {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestLocation> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestLocation>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestLocation>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestLocation - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestLocation> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestLocation as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestLocation - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -341,8 +295,8 @@ impl std::str::FromStr for RequestLocation {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "coords" => intermediate_rep.coords.push(models::Coords::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "coords" => intermediate_rep.coords.push(<models::Coords as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestLocation".to_string())
                 }
             }
@@ -359,6 +313,43 @@ impl std::str::FromStr for RequestLocation {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestLocation> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestLocation>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestLocation>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestLocation - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestLocation> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestLocation as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestLocation - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -404,7 +395,6 @@ impl std::ops::DerefMut for RequestLocationId {
 }
 
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct RequestRangeEnabled(bool);
@@ -414,7 +404,6 @@ impl std::convert::From<bool> for RequestRangeEnabled {
         RequestRangeEnabled(x)
     }
 }
-
 
 impl std::convert::From<RequestRangeEnabled> for bool {
     fn from(x: RequestRangeEnabled) -> Self {
@@ -432,46 +421,6 @@ impl std::ops::Deref for RequestRangeEnabled {
 impl std::ops::DerefMut for RequestRangeEnabled {
     fn deref_mut(&mut self) -> &mut bool {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestRangeFull> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestRangeFull>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestRangeFull>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestRangeFull - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRangeFull> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestRangeFull as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestRangeFull - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -551,9 +500,9 @@ impl std::str::FromStr for RequestRangeFull {
 
             if let Some(key) = key_result {
                 match key {
-                    "enabled" => intermediate_rep.enabled.push(bool::from_str(val).map_err(|x| format!("{}", x))?),
-                    "max_results" => intermediate_rep.max_results.push(u8::from_str(val).map_err(|x| format!("{}", x))?),
-                    "width" => intermediate_rep.width.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
+                    "enabled" => intermediate_rep.enabled.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "max_results" => intermediate_rep.max_results.push(<u8 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "width" => intermediate_rep.width.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestRangeFull".to_string())
                 }
             }
@@ -571,36 +520,34 @@ impl std::str::FromStr for RequestRangeFull {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestRangeNoMaxResults> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestRangeFull> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestRangeNoMaxResults>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestRangeFull>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestRangeNoMaxResults>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestRangeFull>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestRangeNoMaxResults - value: {} is invalid {}",
+                 format!("Invalid header value for RequestRangeFull - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRangeNoMaxResults> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRangeFull> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestRangeNoMaxResults as std::str::FromStr>::from_str(value) {
+                    match <RequestRangeFull as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestRangeNoMaxResults - {}",
+                            format!("Unable to convert header value '{}' into RequestRangeFull - {}",
                                 value, err))
                     }
              },
@@ -678,8 +625,8 @@ impl std::str::FromStr for RequestRangeNoMaxResults {
 
             if let Some(key) = key_result {
                 match key {
-                    "enabled" => intermediate_rep.enabled.push(bool::from_str(val).map_err(|x| format!("{}", x))?),
-                    "width" => intermediate_rep.width.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
+                    "enabled" => intermediate_rep.enabled.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "width" => intermediate_rep.width.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestRangeNoMaxResults".to_string())
                 }
             }
@@ -696,6 +643,43 @@ impl std::str::FromStr for RequestRangeNoMaxResults {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestRangeNoMaxResults> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestRangeNoMaxResults>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestRangeNoMaxResults>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestRangeNoMaxResults - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRangeNoMaxResults> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestRangeNoMaxResults as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestRangeNoMaxResults - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -707,7 +691,6 @@ impl std::convert::From<i32> for RequestRangeWidth {
         RequestRangeWidth(x)
     }
 }
-
 
 impl std::convert::From<RequestRangeWidth> for i32 {
     fn from(x: RequestRangeWidth) -> Self {
@@ -725,46 +708,6 @@ impl std::ops::Deref for RequestRangeWidth {
 impl std::ops::DerefMut for RequestRangeWidth {
     fn deref_mut(&mut self) -> &mut i32 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestRoutes> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutes>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutes>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestRoutes - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutes> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestRoutes as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestRoutes - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -860,36 +803,34 @@ impl std::str::FromStr for RequestRoutes {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestRoutesArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestRoutes> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutesArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutes>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutesArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutes>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestRoutesArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestRoutes - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutesArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutes> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestRoutesArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestRoutes as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestRoutesArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestRoutes - {}",
                                 value, err))
                     }
              },
@@ -1005,13 +946,13 @@ impl std::str::FromStr for RequestRoutesArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "departure_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestRoutesArrivalSearch".to_string()),
-                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestRoutesArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestRoutesArrivalSearch".to_string())
                 }
             }
@@ -1033,36 +974,34 @@ impl std::str::FromStr for RequestRoutesArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestRoutesDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestRoutesArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutesDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutesArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutesDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutesArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestRoutesDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestRoutesArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutesDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutesArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestRoutesDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestRoutesArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestRoutesDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestRoutesArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -1178,13 +1117,13 @@ impl std::str::FromStr for RequestRoutesDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_location_id" => intermediate_rep.departure_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_location_id" => intermediate_rep.departure_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "arrival_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestRoutesDepartureSearch".to_string()),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestRoutesDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestRoutesDepartureSearch".to_string())
                 }
             }
@@ -1206,6 +1145,43 @@ impl std::str::FromStr for RequestRoutesDepartureSearch {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestRoutesDepartureSearch> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestRoutesDepartureSearch>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestRoutesDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestRoutesDepartureSearch - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestRoutesDepartureSearch> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestRoutesDepartureSearch as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestRoutesDepartureSearch - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -1215,7 +1191,7 @@ impl std::str::FromStr for RequestRoutesDepartureSearch {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestRoutesProperty { 
+pub enum RequestRoutesProperty {
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
     #[serde(rename = "distance")]
@@ -1228,7 +1204,7 @@ pub enum RequestRoutesProperty {
 
 impl std::fmt::Display for RequestRoutesProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestRoutesProperty::TRAVEL_TIME => write!(f, "{}", "travel_time"),
             RequestRoutesProperty::DISTANCE => write!(f, "{}", "distance"),
             RequestRoutesProperty::FARES => write!(f, "{}", "fares"),
@@ -1250,7 +1226,6 @@ impl std::str::FromStr for RequestRoutesProperty {
         }
     }
 }
-
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
@@ -1291,46 +1266,6 @@ impl std::ops::Deref for RequestSearchId {
 impl std::ops::DerefMut for RequestSearchId {
     fn deref_mut(&mut self) -> &mut String {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestSupportedLocations> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestSupportedLocations>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestSupportedLocations>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestSupportedLocations - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestSupportedLocations> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestSupportedLocations as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestSupportedLocations - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -1406,36 +1341,34 @@ impl std::str::FromStr for RequestSupportedLocations {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilter> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestSupportedLocations> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilter>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestSupportedLocations>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilter>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestSupportedLocations>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilter - value: {} is invalid {}",
+                 format!("Invalid header value for RequestSupportedLocations - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilter> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestSupportedLocations> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilter as std::str::FromStr>::from_str(value) {
+                    match <RequestSupportedLocations as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilter - {}",
+                            format!("Unable to convert header value '{}' into RequestSupportedLocations - {}",
                                 value, err))
                     }
              },
@@ -1538,36 +1471,34 @@ impl std::str::FromStr for RequestTimeFilter {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilter> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilter>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilter>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilter - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilter> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilter as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilter - {}",
                                 value, err))
                     }
              },
@@ -1692,14 +1623,14 @@ impl std::str::FromStr for RequestTimeFilterArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "departure_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterArrivalSearch".to_string()),
-                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterArrivalSearch".to_string())
                 }
             }
@@ -1722,36 +1653,34 @@ impl std::str::FromStr for RequestTimeFilterArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -1876,14 +1805,14 @@ impl std::str::FromStr for RequestTimeFilterDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_location_id" => intermediate_rep.departure_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_location_id" => intermediate_rep.departure_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "arrival_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterDepartureSearch".to_string()),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterDepartureSearch".to_string())
                 }
             }
@@ -1906,36 +1835,34 @@ impl std::str::FromStr for RequestTimeFilterDepartureSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFast> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterDepartureSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFast>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterDepartureSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFast>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterDepartureSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterFast - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterDepartureSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFast> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterDepartureSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterFast as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterDepartureSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterFast - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterDepartureSearch - {}",
                                 value, err))
                     }
              },
@@ -2010,7 +1937,7 @@ impl std::str::FromStr for RequestTimeFilterFast {
             if let Some(key) = key_result {
                 match key {
                     "locations" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterFast".to_string()),
-                    "arrival_searches" => intermediate_rep.arrival_searches.push(models::RequestTimeFilterFastArrivalSearches::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_searches" => intermediate_rep.arrival_searches.push(<models::RequestTimeFilterFastArrivalSearches as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterFast".to_string())
                 }
             }
@@ -2027,36 +1954,34 @@ impl std::str::FromStr for RequestTimeFilterFast {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFast> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFast>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFast>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterFastArrivalManyToOneSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterFast - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFast> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterFastArrivalManyToOneSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterFast as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalManyToOneSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterFast - {}",
                                 value, err))
                     }
              },
@@ -2173,12 +2098,12 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalManyToOneSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_location_id" => intermediate_rep.arrival_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "departure_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterFastArrivalManyToOneSearch".to_string()),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportationFast::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time_period" => intermediate_rep.arrival_time_period.push(models::RequestArrivalTimePeriod::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportationFast as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time_period" => intermediate_rep.arrival_time_period.push(<models::RequestArrivalTimePeriod as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterFastArrivalManyToOneSearch".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterFastArrivalManyToOneSearch".to_string())
                 }
@@ -2201,36 +2126,34 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalManyToOneSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterFastArrivalOneToManySearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterFastArrivalManyToOneSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalManyToOneSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterFastArrivalOneToManySearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterFastArrivalManyToOneSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalOneToManySearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalManyToOneSearch - {}",
                                 value, err))
                     }
              },
@@ -2347,12 +2270,12 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalOneToManySearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_location_id" => intermediate_rep.departure_location_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_location_id" => intermediate_rep.departure_location_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "arrival_location_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterFastArrivalOneToManySearch".to_string()),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportationFast::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time_period" => intermediate_rep.arrival_time_period.push(models::RequestArrivalTimePeriod::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportationFast as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time_period" => intermediate_rep.arrival_time_period.push(<models::RequestArrivalTimePeriod as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterFastArrivalOneToManySearch".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterFastArrivalOneToManySearch".to_string())
                 }
@@ -2375,36 +2298,34 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalOneToManySearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterFastArrivalSearches - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterFastArrivalOneToManySearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalOneToManySearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterFastArrivalSearches as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterFastArrivalOneToManySearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalSearches - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalOneToManySearch - {}",
                                 value, err))
                     }
              },
@@ -2498,6 +2419,43 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalSearches {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTimeFilterFastArrivalSearches - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterFastArrivalSearches> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTimeFilterFastArrivalSearches as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTimeFilterFastArrivalSearches - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -2507,7 +2465,7 @@ impl std::str::FromStr for RequestTimeFilterFastArrivalSearches {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeFilterFastProperty { 
+pub enum RequestTimeFilterFastProperty {
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
     #[serde(rename = "fares")]
@@ -2516,7 +2474,7 @@ pub enum RequestTimeFilterFastProperty {
 
 impl std::fmt::Display for RequestTimeFilterFastProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeFilterFastProperty::TRAVEL_TIME => write!(f, "{}", "travel_time"),
             RequestTimeFilterFastProperty::FARES => write!(f, "{}", "fares"),
         }
@@ -2534,46 +2492,6 @@ impl std::str::FromStr for RequestTimeFilterFastProperty {
         }
     }
 }
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeDistricts - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeDistricts as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistricts - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
@@ -2657,36 +2575,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistricts {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeDistrictsArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodeDistricts - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistricts> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeDistrictsArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodeDistricts as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistrictsArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistricts - {}",
                                 value, err))
                     }
              },
@@ -2802,13 +2718,13 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodeDistrictsArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodeDistrictsArrivalSearch".to_string())
                 }
             }
@@ -2830,36 +2746,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeDistrictsDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodeDistrictsArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeDistrictsDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodeDistrictsArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistrictsDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistrictsArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -2975,13 +2889,13 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodeDistrictsDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodeDistrictsDepartureSearch".to_string())
                 }
             }
@@ -3003,6 +2917,43 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsDepartureSearch {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTimeFilterPostcodeDistrictsDepartureSearch - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeDistrictsDepartureSearch> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTimeFilterPostcodeDistrictsDepartureSearch as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeDistrictsDepartureSearch - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -3012,7 +2963,7 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsDepartureSearch {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeFilterPostcodeDistrictsProperty { 
+pub enum RequestTimeFilterPostcodeDistrictsProperty {
     #[serde(rename = "travel_time_reachable")]
     TRAVEL_TIME_REACHABLE,
     #[serde(rename = "travel_time_all")]
@@ -3023,7 +2974,7 @@ pub enum RequestTimeFilterPostcodeDistrictsProperty {
 
 impl std::fmt::Display for RequestTimeFilterPostcodeDistrictsProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeFilterPostcodeDistrictsProperty::TRAVEL_TIME_REACHABLE => write!(f, "{}", "travel_time_reachable"),
             RequestTimeFilterPostcodeDistrictsProperty::TRAVEL_TIME_ALL => write!(f, "{}", "travel_time_all"),
             RequestTimeFilterPostcodeDistrictsProperty::COVERAGE => write!(f, "{}", "coverage"),
@@ -3044,7 +2995,6 @@ impl std::str::FromStr for RequestTimeFilterPostcodeDistrictsProperty {
     }
 }
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold(f64);
@@ -3054,7 +3004,6 @@ impl std::convert::From<f64> for RequestTimeFilterPostcodeDistrictsReachablePost
         RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold(x)
     }
 }
-
 
 impl std::convert::From<RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold> for f64 {
     fn from(x: RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold) -> Self {
@@ -3072,46 +3021,6 @@ impl std::ops::Deref for RequestTimeFilterPostcodeDistrictsReachablePostcodesThr
 impl std::ops::DerefMut for RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold {
     fn deref_mut(&mut self) -> &mut f64 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectors> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectors>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectors>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeSectors - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectors> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeSectors as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectors - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -3198,36 +3107,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectors {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectors> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectors>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectors>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeSectorsArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodeSectors - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectors> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeSectorsArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodeSectors as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectorsArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectors - {}",
                                 value, err))
                     }
              },
@@ -3343,13 +3250,13 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodeSectorsArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodeSectorsArrivalSearch".to_string())
                 }
             }
@@ -3371,36 +3278,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodeSectorsDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodeSectorsArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodeSectorsDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodeSectorsArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectorsDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectorsArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -3516,13 +3421,13 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "reachable_postcodes_threshold" => intermediate_rep.reachable_postcodes_threshold.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodeSectorsDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodeSectorsDepartureSearch".to_string())
                 }
             }
@@ -3544,6 +3449,43 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsDepartureSearch {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTimeFilterPostcodeSectorsDepartureSearch - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodeSectorsDepartureSearch> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTimeFilterPostcodeSectorsDepartureSearch as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodeSectorsDepartureSearch - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -3553,7 +3495,7 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsDepartureSearch {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeFilterPostcodeSectorsProperty { 
+pub enum RequestTimeFilterPostcodeSectorsProperty {
     #[serde(rename = "travel_time_reachable")]
     TRAVEL_TIME_REACHABLE,
     #[serde(rename = "travel_time_all")]
@@ -3564,7 +3506,7 @@ pub enum RequestTimeFilterPostcodeSectorsProperty {
 
 impl std::fmt::Display for RequestTimeFilterPostcodeSectorsProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeFilterPostcodeSectorsProperty::TRAVEL_TIME_REACHABLE => write!(f, "{}", "travel_time_reachable"),
             RequestTimeFilterPostcodeSectorsProperty::TRAVEL_TIME_ALL => write!(f, "{}", "travel_time_all"),
             RequestTimeFilterPostcodeSectorsProperty::COVERAGE => write!(f, "{}", "coverage"),
@@ -3585,7 +3527,6 @@ impl std::str::FromStr for RequestTimeFilterPostcodeSectorsProperty {
     }
 }
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold(f64);
@@ -3595,7 +3536,6 @@ impl std::convert::From<f64> for RequestTimeFilterPostcodeSectorsReachablePostco
         RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold(x)
     }
 }
-
 
 impl std::convert::From<RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold> for f64 {
     fn from(x: RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold) -> Self {
@@ -3613,46 +3553,6 @@ impl std::ops::Deref for RequestTimeFilterPostcodeSectorsReachablePostcodesThres
 impl std::ops::DerefMut for RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold {
     fn deref_mut(&mut self) -> &mut f64 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodes> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodes>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodes>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodes - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodes> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodes as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodes - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -3739,36 +3639,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodes {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodes> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodes>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodes>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodesArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodes - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodes> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodesArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodes as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodesArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodes - {}",
                                 value, err))
                     }
              },
@@ -3875,12 +3773,12 @@ impl std::str::FromStr for RequestTimeFilterPostcodesArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodesArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodesArrivalSearch".to_string())
                 }
             }
@@ -3901,36 +3799,34 @@ impl std::str::FromStr for RequestTimeFilterPostcodesArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeFilterPostcodesDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeFilterPostcodesArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodesArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeFilterPostcodesDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeFilterPostcodesArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodesDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodesArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -4037,12 +3933,12 @@ impl std::str::FromStr for RequestTimeFilterPostcodesDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeFilterPostcodesDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeFull::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeFull as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeFilterPostcodesDepartureSearch".to_string())
                 }
             }
@@ -4063,6 +3959,43 @@ impl std::str::FromStr for RequestTimeFilterPostcodesDepartureSearch {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTimeFilterPostcodesDepartureSearch - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeFilterPostcodesDepartureSearch> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTimeFilterPostcodesDepartureSearch as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTimeFilterPostcodesDepartureSearch - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -4072,7 +4005,7 @@ impl std::str::FromStr for RequestTimeFilterPostcodesDepartureSearch {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeFilterPostcodesProperty { 
+pub enum RequestTimeFilterPostcodesProperty {
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
     #[serde(rename = "distance")]
@@ -4081,7 +4014,7 @@ pub enum RequestTimeFilterPostcodesProperty {
 
 impl std::fmt::Display for RequestTimeFilterPostcodesProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeFilterPostcodesProperty::TRAVEL_TIME => write!(f, "{}", "travel_time"),
             RequestTimeFilterPostcodesProperty::DISTANCE => write!(f, "{}", "distance"),
         }
@@ -4100,7 +4033,6 @@ impl std::str::FromStr for RequestTimeFilterPostcodesProperty {
     }
 }
 
-
 /// Enumeration of values.
 /// Since this enum's variants do not hold data, we can easily define them them as `#[repr(C)]`
 /// which helps with FFI.
@@ -4108,7 +4040,7 @@ impl std::str::FromStr for RequestTimeFilterPostcodesProperty {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeFilterProperty { 
+pub enum RequestTimeFilterProperty {
     #[serde(rename = "travel_time")]
     TRAVEL_TIME,
     #[serde(rename = "distance")]
@@ -4123,7 +4055,7 @@ pub enum RequestTimeFilterProperty {
 
 impl std::fmt::Display for RequestTimeFilterProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeFilterProperty::TRAVEL_TIME => write!(f, "{}", "travel_time"),
             RequestTimeFilterProperty::DISTANCE => write!(f, "{}", "distance"),
             RequestTimeFilterProperty::DISTANCE_BREAKDOWN => write!(f, "{}", "distance_breakdown"),
@@ -4147,46 +4079,6 @@ impl std::str::FromStr for RequestTimeFilterProperty {
         }
     }
 }
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeMap> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMap>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMap>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeMap - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMap> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestTimeMap as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeMap - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
@@ -4290,36 +4182,34 @@ impl std::str::FromStr for RequestTimeMap {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeMapArrivalSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeMap> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMapArrivalSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMap>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMapArrivalSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMap>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeMapArrivalSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeMap - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMapArrivalSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMap> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeMapArrivalSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeMap as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeMapArrivalSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeMap - {}",
                                 value, err))
                     }
              },
@@ -4434,13 +4324,13 @@ impl std::str::FromStr for RequestTimeMapArrivalSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "coords" => intermediate_rep.coords.push(models::Coords::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "coords" => intermediate_rep.coords.push(<models::Coords as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeMapArrivalSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeNoMaxResults::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeNoMaxResults as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeMapArrivalSearch".to_string())
                 }
             }
@@ -4462,36 +4352,34 @@ impl std::str::FromStr for RequestTimeMapArrivalSearch {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTimeMapDepartureSearch> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTimeMapArrivalSearch> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMapDepartureSearch>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMapArrivalSearch>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMapDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMapArrivalSearch>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTimeMapDepartureSearch - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTimeMapArrivalSearch - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMapDepartureSearch> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMapArrivalSearch> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTimeMapDepartureSearch as std::str::FromStr>::from_str(value) {
+                    match <RequestTimeMapArrivalSearch as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTimeMapDepartureSearch - {}",
+                            format!("Unable to convert header value '{}' into RequestTimeMapArrivalSearch - {}",
                                 value, err))
                     }
              },
@@ -4606,13 +4494,13 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "coords" => intermediate_rep.coords.push(models::Coords::from_str(val).map_err(|x| format!("{}", x))?),
-                    "transportation" => intermediate_rep.transportation.push(models::RequestTransportation::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(u16::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "coords" => intermediate_rep.coords.push(<models::Coords as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "transportation" => intermediate_rep.transportation.push(<models::RequestTransportation as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<u16 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeMapDepartureSearch".to_string()),
-                    "range" => intermediate_rep.range.push(models::RequestRangeNoMaxResults::from_str(val).map_err(|x| format!("{}", x))?),
+                    "range" => intermediate_rep.range.push(<models::RequestRangeNoMaxResults as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeMapDepartureSearch".to_string())
                 }
             }
@@ -4634,6 +4522,43 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTimeMapDepartureSearch> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTimeMapDepartureSearch>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTimeMapDepartureSearch>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTimeMapDepartureSearch - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTimeMapDepartureSearch> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTimeMapDepartureSearch as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTimeMapDepartureSearch - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -4643,14 +4568,14 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum RequestTimeMapProperty { 
+pub enum RequestTimeMapProperty {
     #[serde(rename = "is_only_walking")]
     IS_ONLY_WALKING,
 }
 
 impl std::fmt::Display for RequestTimeMapProperty {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             RequestTimeMapProperty::IS_ONLY_WALKING => write!(f, "{}", "is_only_walking"),
         }
     }
@@ -4666,46 +4591,6 @@ impl std::str::FromStr for RequestTimeMapProperty {
         }
     }
 }
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTransportation> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTransportation>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTransportation>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTransportation - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTransportation> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestTransportation as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTransportation - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
-    }
-}
-
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
@@ -4825,12 +4710,12 @@ impl std::str::FromStr for RequestTransportation {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "pt_change_delay" => intermediate_rep.pt_change_delay.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "walking_time" => intermediate_rep.walking_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "driving_time_to_station" => intermediate_rep.driving_time_to_station.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "parking_time" => intermediate_rep.parking_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "boarding_time" => intermediate_rep.boarding_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "pt_change_delay" => intermediate_rep.pt_change_delay.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "walking_time" => intermediate_rep.walking_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "driving_time_to_station" => intermediate_rep.driving_time_to_station.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "parking_time" => intermediate_rep.parking_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "boarding_time" => intermediate_rep.boarding_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTransportation".to_string())
                 }
             }
@@ -4851,36 +4736,34 @@ impl std::str::FromStr for RequestTransportation {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<RequestTransportationFast> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestTransportation> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestTransportationFast>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTransportation>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestTransportationFast>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTransportation>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestTransportationFast - value: {} is invalid {}",
+                 format!("Invalid header value for RequestTransportation - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTransportationFast> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTransportation> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <RequestTransportationFast as std::str::FromStr>::from_str(value) {
+                    match <RequestTransportation as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestTransportationFast - {}",
+                            format!("Unable to convert header value '{}' into RequestTransportation - {}",
                                 value, err))
                     }
              },
@@ -4950,7 +4833,7 @@ impl std::str::FromStr for RequestTransportationFast {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTransportationFast".to_string())
                 }
             }
@@ -4966,6 +4849,43 @@ impl std::str::FromStr for RequestTransportationFast {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<RequestTransportationFast> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestTransportationFast>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestTransportationFast>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestTransportationFast - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestTransportationFast> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestTransportationFast as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestTransportationFast - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -4977,7 +4897,6 @@ impl std::convert::From<i32> for RequestTravelTime {
         RequestTravelTime(x)
     }
 }
-
 
 impl std::convert::From<RequestTravelTime> for i32 {
     fn from(x: RequestTravelTime) -> Self {
@@ -4995,46 +4914,6 @@ impl std::ops::Deref for RequestTravelTime {
 impl std::ops::DerefMut for RequestTravelTime {
     fn deref_mut(&mut self) -> &mut i32 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<RequestUnionOnIntersection> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<RequestUnionOnIntersection>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<RequestUnionOnIntersection>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for RequestUnionOnIntersection - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestUnionOnIntersection> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <RequestUnionOnIntersection as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into RequestUnionOnIntersection - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -5105,7 +4984,7 @@ impl std::str::FromStr for RequestUnionOnIntersection {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "search_ids" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestUnionOnIntersection".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestUnionOnIntersection".to_string())
                 }
@@ -5123,36 +5002,34 @@ impl std::str::FromStr for RequestUnionOnIntersection {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseBoundingBox> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<RequestUnionOnIntersection> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseBoundingBox>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestUnionOnIntersection>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseBoundingBox>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestUnionOnIntersection>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseBoundingBox - value: {} is invalid {}",
+                 format!("Invalid header value for RequestUnionOnIntersection - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseBoundingBox> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestUnionOnIntersection> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseBoundingBox as std::str::FromStr>::from_str(value) {
+                    match <RequestUnionOnIntersection as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseBoundingBox - {}",
+                            format!("Unable to convert header value '{}' into RequestUnionOnIntersection - {}",
                                 value, err))
                     }
              },
@@ -5226,7 +5103,7 @@ impl std::str::FromStr for ResponseBoundingBox {
 
             if let Some(key) = key_result {
                 match key {
-                    "envelope" => intermediate_rep.envelope.push(models::ResponseBox::from_str(val).map_err(|x| format!("{}", x))?),
+                    "envelope" => intermediate_rep.envelope.push(<models::ResponseBox as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "boxes" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseBoundingBox".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseBoundingBox".to_string())
                 }
@@ -5244,36 +5121,34 @@ impl std::str::FromStr for ResponseBoundingBox {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseBox> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseBoundingBox> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseBox>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseBoundingBox>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseBox>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseBoundingBox>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseBox - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseBoundingBox - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseBox> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseBoundingBox> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseBox as std::str::FromStr>::from_str(value) {
+                    match <ResponseBoundingBox as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseBox - {}",
+                            format!("Unable to convert header value '{}' into ResponseBoundingBox - {}",
                                 value, err))
                     }
              },
@@ -5369,10 +5244,10 @@ impl std::str::FromStr for ResponseBox {
 
             if let Some(key) = key_result {
                 match key {
-                    "min_lat" => intermediate_rep.min_lat.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "max_lat" => intermediate_rep.max_lat.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "min_lng" => intermediate_rep.min_lng.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "max_lng" => intermediate_rep.max_lng.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "min_lat" => intermediate_rep.min_lat.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "max_lat" => intermediate_rep.max_lat.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "min_lng" => intermediate_rep.min_lng.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "max_lng" => intermediate_rep.max_lng.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseBox".to_string())
                 }
             }
@@ -5391,6 +5266,43 @@ impl std::str::FromStr for ResponseBox {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<ResponseBox> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseBox>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseBox>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for ResponseBox - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseBox> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <ResponseBox as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into ResponseBox - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -5402,7 +5314,6 @@ impl std::convert::From<i32> for ResponseDistance {
         ResponseDistance(x)
     }
 }
-
 
 impl std::convert::From<ResponseDistance> for i32 {
     fn from(x: ResponseDistance) -> Self {
@@ -5420,46 +5331,6 @@ impl std::ops::Deref for ResponseDistance {
 impl std::ops::DerefMut for ResponseDistance {
     fn deref_mut(&mut self) -> &mut i32 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseDistanceBreakdownItem> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseDistanceBreakdownItem>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseDistanceBreakdownItem>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseDistanceBreakdownItem - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseDistanceBreakdownItem> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <ResponseDistanceBreakdownItem as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseDistanceBreakdownItem - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -5528,8 +5399,8 @@ impl std::str::FromStr for ResponseDistanceBreakdownItem {
 
             if let Some(key) = key_result {
                 match key {
-                    "mode" => intermediate_rep.mode.push(models::ResponseTransportationMode::from_str(val).map_err(|x| format!("{}", x))?),
-                    "distance" => intermediate_rep.distance.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "mode" => intermediate_rep.mode.push(<models::ResponseTransportationMode as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "distance" => intermediate_rep.distance.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseDistanceBreakdownItem".to_string())
                 }
             }
@@ -5546,36 +5417,34 @@ impl std::str::FromStr for ResponseDistanceBreakdownItem {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseError> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseDistanceBreakdownItem> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseError>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseDistanceBreakdownItem>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseError>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseDistanceBreakdownItem>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseError - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseDistanceBreakdownItem - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseError> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseDistanceBreakdownItem> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseError as std::str::FromStr>::from_str(value) {
+                    match <ResponseDistanceBreakdownItem as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseError - {}",
+                            format!("Unable to convert header value '{}' into ResponseDistanceBreakdownItem - {}",
                                 value, err))
                     }
              },
@@ -5692,10 +5561,10 @@ impl std::str::FromStr for ResponseError {
 
             if let Some(key) = key_result {
                 match key {
-                    "http_status" => intermediate_rep.http_status.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "error_code" => intermediate_rep.error_code.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "description" => intermediate_rep.description.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "documentation_link" => intermediate_rep.documentation_link.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "http_status" => intermediate_rep.http_status.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "error_code" => intermediate_rep.error_code.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "description" => intermediate_rep.description.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "documentation_link" => intermediate_rep.documentation_link.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "additional_info" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseError".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseError".to_string())
                 }
@@ -5716,36 +5585,34 @@ impl std::str::FromStr for ResponseError {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseFareTicket> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseError> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFareTicket>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseError>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFareTicket>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseError>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseFareTicket - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseError - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFareTicket> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseError> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseFareTicket as std::str::FromStr>::from_str(value) {
+                    match <ResponseError as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseFareTicket - {}",
+                            format!("Unable to convert header value '{}' into ResponseError - {}",
                                 value, err))
                     }
              },
@@ -5833,9 +5700,9 @@ impl std::str::FromStr for ResponseFareTicket {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "price" => intermediate_rep.price.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "currency" => intermediate_rep.currency.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "price" => intermediate_rep.price.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "currency" => intermediate_rep.currency.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseFareTicket".to_string())
                 }
             }
@@ -5853,36 +5720,34 @@ impl std::str::FromStr for ResponseFareTicket {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseFares> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseFareTicket> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFares>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFareTicket>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFares>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFareTicket>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseFares - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseFareTicket - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFares> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFareTicket> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseFares as std::str::FromStr>::from_str(value) {
+                    match <ResponseFareTicket as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseFares - {}",
+                            format!("Unable to convert header value '{}' into ResponseFareTicket - {}",
                                 value, err))
                     }
              },
@@ -5974,36 +5839,34 @@ impl std::str::FromStr for ResponseFares {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseFaresBreakdownItem> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseFares> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFaresBreakdownItem>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFares>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFaresBreakdownItem>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFares>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseFaresBreakdownItem - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseFares - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFaresBreakdownItem> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFares> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseFaresBreakdownItem as std::str::FromStr>::from_str(value) {
+                    match <ResponseFares as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseFaresBreakdownItem - {}",
+                            format!("Unable to convert header value '{}' into ResponseFares - {}",
                                 value, err))
                     }
              },
@@ -6106,36 +5969,34 @@ impl std::str::FromStr for ResponseFaresBreakdownItem {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseFaresFast> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseFaresBreakdownItem> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFaresFast>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFaresBreakdownItem>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFaresFast>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFaresBreakdownItem>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseFaresFast - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseFaresBreakdownItem - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFaresFast> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFaresBreakdownItem> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseFaresFast as std::str::FromStr>::from_str(value) {
+                    match <ResponseFaresBreakdownItem as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseFaresFast - {}",
+                            format!("Unable to convert header value '{}' into ResponseFaresBreakdownItem - {}",
                                 value, err))
                     }
              },
@@ -6218,36 +6079,34 @@ impl std::str::FromStr for ResponseFaresFast {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseGeocoding> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseFaresFast> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocoding>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseFaresFast>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocoding>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseFaresFast>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseGeocoding - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseFaresFast - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocoding> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseFaresFast> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseGeocoding as std::str::FromStr>::from_str(value) {
+                    match <ResponseFaresFast as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseGeocoding - {}",
+                            format!("Unable to convert header value '{}' into ResponseFaresFast - {}",
                                 value, err))
                     }
              },
@@ -6323,7 +6182,7 @@ impl std::str::FromStr for ResponseGeocoding {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "features" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseGeocoding".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseGeocoding".to_string())
                 }
@@ -6341,36 +6200,34 @@ impl std::str::FromStr for ResponseGeocoding {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseGeocoding> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocoding>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocoding>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseGeocodingGeoJsonFeature - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseGeocoding - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocoding> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseGeocodingGeoJsonFeature as std::str::FromStr>::from_str(value) {
+                    match <ResponseGeocoding as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseGeocodingGeoJsonFeature - {}",
+                            format!("Unable to convert header value '{}' into ResponseGeocoding - {}",
                                 value, err))
                     }
              },
@@ -6453,9 +6310,9 @@ impl std::str::FromStr for ResponseGeocodingGeoJsonFeature {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "geometry" => intermediate_rep.geometry.push(models::ResponseGeocodingGeometry::from_str(val).map_err(|x| format!("{}", x))?),
-                    "properties" => intermediate_rep.properties.push(models::ResponseGeocodingProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "geometry" => intermediate_rep.geometry.push(<models::ResponseGeocodingGeometry as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseGeocodingProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseGeocodingGeoJsonFeature".to_string())
                 }
             }
@@ -6473,36 +6330,34 @@ impl std::str::FromStr for ResponseGeocodingGeoJsonFeature {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseGeocodingGeometry> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingGeometry>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingGeometry>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseGeocodingGeometry - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseGeocodingGeoJsonFeature - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingGeometry> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingGeoJsonFeature> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseGeocodingGeometry as std::str::FromStr>::from_str(value) {
+                    match <ResponseGeocodingGeoJsonFeature as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseGeocodingGeometry - {}",
+                            format!("Unable to convert header value '{}' into ResponseGeocodingGeoJsonFeature - {}",
                                 value, err))
                     }
              },
@@ -6580,7 +6435,7 @@ impl std::str::FromStr for ResponseGeocodingGeometry {
 
             if let Some(key) = key_result {
                 match key {
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "coordinates" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseGeocodingGeometry".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseGeocodingGeometry".to_string())
                 }
@@ -6598,36 +6453,34 @@ impl std::str::FromStr for ResponseGeocodingGeometry {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseGeocodingProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseGeocodingGeometry> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingGeometry>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingGeometry>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseGeocodingProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseGeocodingGeometry - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingGeometry> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseGeocodingProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseGeocodingGeometry as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseGeocodingProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseGeocodingGeometry - {}",
                                 value, err))
                     }
              },
@@ -6869,22 +6722,22 @@ impl std::str::FromStr for ResponseGeocodingProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "name" => intermediate_rep.name.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "label" => intermediate_rep.label.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "score" => intermediate_rep.score.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
-                    "house_number" => intermediate_rep.house_number.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "street" => intermediate_rep.street.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "region" => intermediate_rep.region.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "region_code" => intermediate_rep.region_code.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "neighbourhood" => intermediate_rep.neighbourhood.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "county" => intermediate_rep.county.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "macroregion" => intermediate_rep.macroregion.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "city" => intermediate_rep.city.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "country" => intermediate_rep.country.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "country_code" => intermediate_rep.country_code.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "continent" => intermediate_rep.continent.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "postcode" => intermediate_rep.postcode.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "features" => intermediate_rep.features.push(models::ResponseMapInfoFeatures::from_str(val).map_err(|x| format!("{}", x))?),
+                    "name" => intermediate_rep.name.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "label" => intermediate_rep.label.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "score" => intermediate_rep.score.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "house_number" => intermediate_rep.house_number.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "street" => intermediate_rep.street.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "region" => intermediate_rep.region.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "region_code" => intermediate_rep.region_code.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "neighbourhood" => intermediate_rep.neighbourhood.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "county" => intermediate_rep.county.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "macroregion" => intermediate_rep.macroregion.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "city" => intermediate_rep.city.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "country" => intermediate_rep.country.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "country_code" => intermediate_rep.country_code.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "continent" => intermediate_rep.continent.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "postcode" => intermediate_rep.postcode.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "features" => intermediate_rep.features.push(<models::ResponseMapInfoFeatures as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseGeocodingProperties".to_string())
                 }
             }
@@ -6915,6 +6768,43 @@ impl std::str::FromStr for ResponseGeocodingProperties {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<ResponseGeocodingProperties> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseGeocodingProperties>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseGeocodingProperties>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for ResponseGeocodingProperties - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseGeocodingProperties> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <ResponseGeocodingProperties as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into ResponseGeocodingProperties - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -6960,7 +6850,6 @@ impl std::ops::DerefMut for ResponseLocalTime {
 }
 
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct ResponseLocationId(String);
@@ -7000,46 +6889,6 @@ impl std::ops::Deref for ResponseLocationId {
 impl std::ops::DerefMut for ResponseLocationId {
     fn deref_mut(&mut self) -> &mut String {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseMapInfo> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfo>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfo>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseMapInfo - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfo> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <ResponseMapInfo as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseMapInfo - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -7115,36 +6964,34 @@ impl std::str::FromStr for ResponseMapInfo {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseMapInfoFeatures> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseMapInfo> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoFeatures>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfo>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoFeatures>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfo>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseMapInfoFeatures - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseMapInfo - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoFeatures> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfo> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseMapInfoFeatures as std::str::FromStr>::from_str(value) {
+                    match <ResponseMapInfo as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseMapInfoFeatures - {}",
+                            format!("Unable to convert header value '{}' into ResponseMapInfo - {}",
                                 value, err))
                     }
              },
@@ -7230,9 +7077,9 @@ impl std::str::FromStr for ResponseMapInfoFeatures {
 
             if let Some(key) = key_result {
                 match key {
-                    "public_transport" => intermediate_rep.public_transport.push(models::ResponseMapInfoFeaturesPublicTransport::from_str(val).map_err(|x| format!("{}", x))?),
-                    "fares" => intermediate_rep.fares.push(bool::from_str(val).map_err(|x| format!("{}", x))?),
-                    "postcodes" => intermediate_rep.postcodes.push(bool::from_str(val).map_err(|x| format!("{}", x))?),
+                    "public_transport" => intermediate_rep.public_transport.push(<models::ResponseMapInfoFeaturesPublicTransport as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "fares" => intermediate_rep.fares.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "postcodes" => intermediate_rep.postcodes.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseMapInfoFeatures".to_string())
                 }
             }
@@ -7250,36 +7097,34 @@ impl std::str::FromStr for ResponseMapInfoFeatures {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseMapInfoFeatures> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoFeatures>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoFeatures>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseMapInfoFeaturesPublicTransport - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseMapInfoFeatures - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoFeatures> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseMapInfoFeaturesPublicTransport as std::str::FromStr>::from_str(value) {
+                    match <ResponseMapInfoFeatures as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseMapInfoFeaturesPublicTransport - {}",
+                            format!("Unable to convert header value '{}' into ResponseMapInfoFeatures - {}",
                                 value, err))
                     }
              },
@@ -7353,8 +7198,8 @@ impl std::str::FromStr for ResponseMapInfoFeaturesPublicTransport {
 
             if let Some(key) = key_result {
                 match key {
-                    "date_start" => intermediate_rep.date_start.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "date_end" => intermediate_rep.date_end.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "date_start" => intermediate_rep.date_start.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "date_end" => intermediate_rep.date_end.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseMapInfoFeaturesPublicTransport".to_string())
                 }
             }
@@ -7371,36 +7216,34 @@ impl std::str::FromStr for ResponseMapInfoFeaturesPublicTransport {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseMapInfoMap> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoMap>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoMap>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseMapInfoMap - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseMapInfoFeaturesPublicTransport - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoMap> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoFeaturesPublicTransport> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseMapInfoMap as std::str::FromStr>::from_str(value) {
+                    match <ResponseMapInfoFeaturesPublicTransport as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseMapInfoMap - {}",
+                            format!("Unable to convert header value '{}' into ResponseMapInfoFeaturesPublicTransport - {}",
                                 value, err))
                     }
              },
@@ -7476,8 +7319,8 @@ impl std::str::FromStr for ResponseMapInfoMap {
 
             if let Some(key) = key_result {
                 match key {
-                    "name" => intermediate_rep.name.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "features" => intermediate_rep.features.push(models::ResponseMapInfoFeatures::from_str(val).map_err(|x| format!("{}", x))?),
+                    "name" => intermediate_rep.name.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "features" => intermediate_rep.features.push(<models::ResponseMapInfoFeatures as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseMapInfoMap".to_string())
                 }
             }
@@ -7494,36 +7337,34 @@ impl std::str::FromStr for ResponseMapInfoMap {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoute> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseMapInfoMap> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoute>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseMapInfoMap>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoute>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseMapInfoMap>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoute - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseMapInfoMap - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoute> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseMapInfoMap> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoute as std::str::FromStr>::from_str(value) {
+                    match <ResponseMapInfoMap as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoute - {}",
+                            format!("Unable to convert header value '{}' into ResponseMapInfoMap - {}",
                                 value, err))
                     }
              },
@@ -7604,8 +7445,8 @@ impl std::str::FromStr for ResponseRoute {
 
             if let Some(key) = key_result {
                 match key {
-                    "departure_time" => intermediate_rep.departure_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_time" => intermediate_rep.arrival_time.push(chrono::DateTime::<chrono::Utc>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "parts" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseRoute".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseRoute".to_string())
                 }
@@ -7624,36 +7465,34 @@ impl std::str::FromStr for ResponseRoute {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoutePart> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseRoute> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutePart>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoute>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutePart>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoute>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoutePart - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseRoute - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutePart> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoute> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoutePart as std::str::FromStr>::from_str(value) {
+                    match <ResponseRoute as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoutePart - {}",
+                            format!("Unable to convert header value '{}' into ResponseRoute - {}",
                                 value, err))
                     }
              },
@@ -7881,22 +7720,22 @@ impl std::str::FromStr for ResponseRoutePart {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "type" => intermediate_rep.type_.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "mode" => intermediate_rep.mode.push(models::ResponseTransportationMode::from_str(val).map_err(|x| format!("{}", x))?),
-                    "directions" => intermediate_rep.directions.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "distance" => intermediate_rep.distance.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time" => intermediate_rep.travel_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "mode" => intermediate_rep.mode.push(<models::ResponseTransportationMode as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "directions" => intermediate_rep.directions.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "distance" => intermediate_rep.distance.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "coords" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseRoutePart".to_string()),
-                    "direction" => intermediate_rep.direction.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "road" => intermediate_rep.road.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "turn" => intermediate_rep.turn.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "line" => intermediate_rep.line.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departure_station" => intermediate_rep.departure_station.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrival_station" => intermediate_rep.arrival_station.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "departs_at" => intermediate_rep.departs_at.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "arrives_at" => intermediate_rep.arrives_at.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "num_stops" => intermediate_rep.num_stops.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "direction" => intermediate_rep.direction.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "road" => intermediate_rep.road.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "turn" => intermediate_rep.turn.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "line" => intermediate_rep.line.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departure_station" => intermediate_rep.departure_station.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrival_station" => intermediate_rep.arrival_station.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "departs_at" => intermediate_rep.departs_at.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "arrives_at" => intermediate_rep.arrives_at.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "num_stops" => intermediate_rep.num_stops.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseRoutePart".to_string())
                 }
             }
@@ -7927,36 +7766,34 @@ impl std::str::FromStr for ResponseRoutePart {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoutes> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseRoutePart> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutes>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutePart>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutes>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutePart>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoutes - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseRoutePart - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutes> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutePart> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoutes as std::str::FromStr>::from_str(value) {
+                    match <ResponseRoutePart as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoutes - {}",
+                            format!("Unable to convert header value '{}' into ResponseRoutePart - {}",
                                 value, err))
                     }
              },
@@ -8039,36 +7876,34 @@ impl std::str::FromStr for ResponseRoutes {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoutesLocation> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseRoutes> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesLocation>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutes>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesLocation>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutes>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoutesLocation - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseRoutes - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesLocation> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutes> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoutesLocation as std::str::FromStr>::from_str(value) {
+                    match <ResponseRoutes as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoutesLocation - {}",
+                            format!("Unable to convert header value '{}' into ResponseRoutes - {}",
                                 value, err))
                     }
              },
@@ -8144,7 +7979,7 @@ impl std::str::FromStr for ResponseRoutesLocation {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseRoutesLocation".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseRoutesLocation".to_string())
                 }
@@ -8162,36 +7997,34 @@ impl std::str::FromStr for ResponseRoutesLocation {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoutesProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseRoutesLocation> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesLocation>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesLocation>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoutesProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseRoutesLocation - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesLocation> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoutesProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseRoutesLocation as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoutesProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseRoutesLocation - {}",
                                 value, err))
                     }
              },
@@ -8291,10 +8124,10 @@ impl std::str::FromStr for ResponseRoutesProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time" => intermediate_rep.travel_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "distance" => intermediate_rep.distance.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "fares" => intermediate_rep.fares.push(models::ResponseFares::from_str(val).map_err(|x| format!("{}", x))?),
-                    "route" => intermediate_rep.route.push(models::ResponseRoute::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "distance" => intermediate_rep.distance.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "fares" => intermediate_rep.fares.push(<models::ResponseFares as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "route" => intermediate_rep.route.push(<models::ResponseRoute as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseRoutesProperties".to_string())
                 }
             }
@@ -8313,36 +8146,34 @@ impl std::str::FromStr for ResponseRoutesProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseRoutesResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseRoutesProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseRoutesResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseRoutesProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseRoutesResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseRoutesProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseRoutesResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseRoutesProperties - {}",
                                 value, err))
                     }
              },
@@ -8427,7 +8258,7 @@ impl std::str::FromStr for ResponseRoutesResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "locations" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseRoutesResult".to_string()),
                     "unreachable" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseRoutesResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseRoutesResult".to_string())
@@ -8447,6 +8278,43 @@ impl std::str::FromStr for ResponseRoutesResult {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<ResponseRoutesResult> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseRoutesResult>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseRoutesResult>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for ResponseRoutesResult - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseRoutesResult> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <ResponseRoutesResult as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into ResponseRoutesResult - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -8488,46 +8356,6 @@ impl std::ops::Deref for ResponseSearchId {
 impl std::ops::DerefMut for ResponseSearchId {
     fn deref_mut(&mut self) -> &mut String {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseShape> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseShape>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseShape>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseShape - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseShape> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <ResponseShape as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseShape - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -8612,36 +8440,34 @@ impl std::str::FromStr for ResponseShape {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseSupportedLocation> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseShape> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseSupportedLocation>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseShape>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseSupportedLocation>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseShape>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseSupportedLocation - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseShape - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseSupportedLocation> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseShape> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseSupportedLocation as std::str::FromStr>::from_str(value) {
+                    match <ResponseShape as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseSupportedLocation - {}",
+                            format!("Unable to convert header value '{}' into ResponseShape - {}",
                                 value, err))
                     }
              },
@@ -8719,8 +8545,8 @@ impl std::str::FromStr for ResponseSupportedLocation {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "map_name" => intermediate_rep.map_name.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "map_name" => intermediate_rep.map_name.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseSupportedLocation".to_string())
                 }
             }
@@ -8737,36 +8563,34 @@ impl std::str::FromStr for ResponseSupportedLocation {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseSupportedLocations> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseSupportedLocation> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseSupportedLocations>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseSupportedLocation>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseSupportedLocations>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseSupportedLocation>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseSupportedLocations - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseSupportedLocation - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseSupportedLocations> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseSupportedLocation> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseSupportedLocations as std::str::FromStr>::from_str(value) {
+                    match <ResponseSupportedLocation as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseSupportedLocations - {}",
+                            format!("Unable to convert header value '{}' into ResponseSupportedLocation - {}",
                                 value, err))
                     }
              },
@@ -8860,36 +8684,34 @@ impl std::str::FromStr for ResponseSupportedLocations {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilter> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseSupportedLocations> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilter>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseSupportedLocations>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilter>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseSupportedLocations>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilter - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseSupportedLocations - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilter> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseSupportedLocations> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilter as std::str::FromStr>::from_str(value) {
+                    match <ResponseSupportedLocations as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilter - {}",
+                            format!("Unable to convert header value '{}' into ResponseSupportedLocations - {}",
                                 value, err))
                     }
              },
@@ -8972,36 +8794,34 @@ impl std::str::FromStr for ResponseTimeFilter {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFast> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilter> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFast>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilter>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFast>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilter>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterFast - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilter - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFast> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilter> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterFast as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilter as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterFast - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilter - {}",
                                 value, err))
                     }
              },
@@ -9084,36 +8904,34 @@ impl std::str::FromStr for ResponseTimeFilterFast {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastLocation> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFast> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastLocation>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFast>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastLocation>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFast>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterFastLocation - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterFast - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastLocation> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFast> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterFastLocation as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterFast as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastLocation - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterFast - {}",
                                 value, err))
                     }
              },
@@ -9189,7 +9007,7 @@ impl std::str::FromStr for ResponseTimeFilterFastLocation {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterFastLocation".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterFastLocation".to_string())
                 }
@@ -9207,36 +9025,34 @@ impl std::str::FromStr for ResponseTimeFilterFastLocation {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastLocation> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastLocation>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastLocation>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterFastProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterFastLocation - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastLocation> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterFastProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterFastLocation as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastLocation - {}",
                                 value, err))
                     }
              },
@@ -9316,8 +9132,8 @@ impl std::str::FromStr for ResponseTimeFilterFastProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time" => intermediate_rep.travel_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "fares" => intermediate_rep.fares.push(models::ResponseFaresFast::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "fares" => intermediate_rep.fares.push(<models::ResponseFaresFast as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterFastProperties".to_string())
                 }
             }
@@ -9334,36 +9150,34 @@ impl std::str::FromStr for ResponseTimeFilterFastProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterFastResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterFastProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterFastResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterFastProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastProperties - {}",
                                 value, err))
                     }
              },
@@ -9448,7 +9262,7 @@ impl std::str::FromStr for ResponseTimeFilterFastResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "locations" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterFastResult".to_string()),
                     "unreachable" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterFastResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterFastResult".to_string())
@@ -9468,36 +9282,34 @@ impl std::str::FromStr for ResponseTimeFilterFastResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterLocation> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterFastResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterLocation>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterFastResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterLocation>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterFastResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterLocation - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterFastResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterLocation> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterFastResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterLocation as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterFastResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterLocation - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterFastResult - {}",
                                 value, err))
                     }
              },
@@ -9573,7 +9385,7 @@ impl std::str::FromStr for ResponseTimeFilterLocation {
 
             if let Some(key) = key_result {
                 match key {
-                    "id" => intermediate_rep.id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "id" => intermediate_rep.id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterLocation".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterLocation".to_string())
                 }
@@ -9591,36 +9403,34 @@ impl std::str::FromStr for ResponseTimeFilterLocation {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcode> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterLocation> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcode>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterLocation>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcode>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterLocation>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcode - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterLocation - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcode> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterLocation> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcode as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterLocation as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcode - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterLocation - {}",
                                 value, err))
                     }
              },
@@ -9696,7 +9506,7 @@ impl std::str::FromStr for ResponseTimeFilterPostcode {
 
             if let Some(key) = key_result {
                 match key {
-                    "code" => intermediate_rep.code.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "code" => intermediate_rep.code.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterPostcode".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcode".to_string())
                 }
@@ -9714,36 +9524,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcode {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcode> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcode>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcode>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrict - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcode - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcode> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeDistrict as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcode as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrict - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcode - {}",
                                 value, err))
                     }
              },
@@ -9819,8 +9627,8 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrict {
 
             if let Some(key) = key_result {
                 match key {
-                    "code" => intermediate_rep.code.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "properties" => intermediate_rep.properties.push(models::ResponseTimeFilterPostcodeDistrictProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "code" => intermediate_rep.code.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseTimeFilterPostcodeDistrictProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeDistrict".to_string())
                 }
             }
@@ -9837,36 +9645,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrict {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrictProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrict - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrict> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeDistrictProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeDistrict as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrictProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrict - {}",
                                 value, err))
                     }
              },
@@ -9954,9 +9760,9 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrictProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time_reachable" => intermediate_rep.travel_time_reachable.push(models::ResponseTravelTimeStatistics::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time_all" => intermediate_rep.travel_time_all.push(models::ResponseTravelTimeStatistics::from_str(val).map_err(|x| format!("{}", x))?),
-                    "coverage" => intermediate_rep.coverage.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time_reachable" => intermediate_rep.travel_time_reachable.push(<models::ResponseTravelTimeStatistics as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time_all" => intermediate_rep.travel_time_all.push(<models::ResponseTravelTimeStatistics as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "coverage" => intermediate_rep.coverage.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeDistrictProperties".to_string())
                 }
             }
@@ -9974,36 +9780,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrictProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeDistricts - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrictProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeDistricts as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeDistrictProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistricts - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrictProperties - {}",
                                 value, err))
                     }
              },
@@ -10086,36 +9890,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistricts {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrictsResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeDistricts - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistricts> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeDistrictsResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeDistricts as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrictsResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistricts - {}",
                                 value, err))
                     }
              },
@@ -10191,7 +9993,7 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrictsResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "districts" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterPostcodeDistrictsResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeDistrictsResult".to_string())
                 }
@@ -10209,36 +10011,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeDistrictsResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSector> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSector>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSector>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeSector - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeDistrictsResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSector> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeDistrictsResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeSector as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeDistrictsResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSector - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeDistrictsResult - {}",
                                 value, err))
                     }
              },
@@ -10314,8 +10114,8 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSector {
 
             if let Some(key) = key_result {
                 match key {
-                    "code" => intermediate_rep.code.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "properties" => intermediate_rep.properties.push(models::ResponseTimeFilterPostcodeSectorProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "code" => intermediate_rep.code.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseTimeFilterPostcodeSectorProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeSector".to_string())
                 }
             }
@@ -10332,36 +10132,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSector {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSector> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSector>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSector>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeSectorProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeSector - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSector> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeSectorProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeSector as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectorProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSector - {}",
                                 value, err))
                     }
              },
@@ -10449,9 +10247,9 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSectorProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time_reachable" => intermediate_rep.travel_time_reachable.push(models::ResponseTravelTimeStatistics::from_str(val).map_err(|x| format!("{}", x))?),
-                    "travel_time_all" => intermediate_rep.travel_time_all.push(models::ResponseTravelTimeStatistics::from_str(val).map_err(|x| format!("{}", x))?),
-                    "coverage" => intermediate_rep.coverage.push(f64::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time_reachable" => intermediate_rep.travel_time_reachable.push(<models::ResponseTravelTimeStatistics as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time_all" => intermediate_rep.travel_time_all.push(<models::ResponseTravelTimeStatistics as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "coverage" => intermediate_rep.coverage.push(<f64 as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeSectorProperties".to_string())
                 }
             }
@@ -10469,36 +10267,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSectorProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeSectors - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeSectorProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeSectors as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeSectorProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectors - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectorProperties - {}",
                                 value, err))
                     }
              },
@@ -10581,36 +10377,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSectors {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodeSectorsResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeSectors - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectors> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodeSectorsResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeSectors as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectorsResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectors - {}",
                                 value, err))
                     }
              },
@@ -10686,7 +10480,7 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSectorsResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "sectors" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterPostcodeSectorsResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodeSectorsResult".to_string())
                 }
@@ -10704,36 +10498,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodeSectorsResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodes> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodes>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodes>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodes - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodeSectorsResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodes> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodeSectorsResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodes as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodeSectorsResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodes - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodeSectorsResult - {}",
                                 value, err))
                     }
              },
@@ -10816,36 +10608,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodes {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodes> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodes>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodes>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodesProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodes - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodes> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodesProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodes as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodesProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodes - {}",
                                 value, err))
                     }
              },
@@ -10929,8 +10719,8 @@ impl std::str::FromStr for ResponseTimeFilterPostcodesProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time" => intermediate_rep.travel_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "distance" => intermediate_rep.distance.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "distance" => intermediate_rep.distance.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodesProperties".to_string())
                 }
             }
@@ -10947,36 +10737,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodesProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodesResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodesResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodesResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterPostcodesResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodesProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodesResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodesProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterPostcodesResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodesProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodesResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodesProperties - {}",
                                 value, err))
                     }
              },
@@ -11052,7 +10840,7 @@ impl std::str::FromStr for ResponseTimeFilterPostcodesResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "postcodes" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterPostcodesResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterPostcodesResult".to_string())
                 }
@@ -11070,36 +10858,34 @@ impl std::str::FromStr for ResponseTimeFilterPostcodesResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterPostcodesResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterPostcodesResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterPostcodesResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterPostcodesResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterPostcodesResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterPostcodesResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterPostcodesResult - {}",
                                 value, err))
                     }
              },
@@ -11207,11 +10993,11 @@ impl std::str::FromStr for ResponseTimeFilterProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "travel_time" => intermediate_rep.travel_time.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "distance" => intermediate_rep.distance.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "travel_time" => intermediate_rep.travel_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "distance" => intermediate_rep.distance.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "distance_breakdown" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterProperties".to_string()),
-                    "fares" => intermediate_rep.fares.push(models::ResponseFares::from_str(val).map_err(|x| format!("{}", x))?),
-                    "route" => intermediate_rep.route.push(models::ResponseRoute::from_str(val).map_err(|x| format!("{}", x))?),
+                    "fares" => intermediate_rep.fares.push(<models::ResponseFares as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "route" => intermediate_rep.route.push(<models::ResponseRoute as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterProperties".to_string())
                 }
             }
@@ -11231,36 +11017,34 @@ impl std::str::FromStr for ResponseTimeFilterProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeFilterResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeFilterResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeFilterResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterProperties - {}",
                                 value, err))
                     }
              },
@@ -11345,7 +11129,7 @@ impl std::str::FromStr for ResponseTimeFilterResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "locations" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterResult".to_string()),
                     "unreachable" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeFilterResult".to_string()),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeFilterResult".to_string())
@@ -11365,36 +11149,34 @@ impl std::str::FromStr for ResponseTimeFilterResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMap> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeFilterResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMap>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeFilterResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMap>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeFilterResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMap - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeFilterResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMap> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeFilterResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMap as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeFilterResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMap - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeFilterResult - {}",
                                 value, err))
                     }
              },
@@ -11477,36 +11259,34 @@ impl std::str::FromStr for ResponseTimeMap {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapBoundingBoxes> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMap> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapBoundingBoxes>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMap>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapBoundingBoxes>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMap>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapBoundingBoxes - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMap - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapBoundingBoxes> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMap> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapBoundingBoxes as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMap as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapBoundingBoxes - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMap - {}",
                                 value, err))
                     }
              },
@@ -11589,36 +11369,34 @@ impl std::str::FromStr for ResponseTimeMapBoundingBoxes {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapBoundingBoxes> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapBoundingBoxes>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapBoundingBoxes>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapBoundingBoxesResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMapBoundingBoxes - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapBoundingBoxes> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapBoundingBoxesResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMapBoundingBoxes as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapBoundingBoxesResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMapBoundingBoxes - {}",
                                 value, err))
                     }
              },
@@ -11701,9 +11479,9 @@ impl std::str::FromStr for ResponseTimeMapBoundingBoxesResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "bounding_boxes" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeMapBoundingBoxesResult".to_string()),
-                    "properties" => intermediate_rep.properties.push(models::ResponseTimeMapProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseTimeMapProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeMapBoundingBoxesResult".to_string())
                 }
             }
@@ -11721,36 +11499,34 @@ impl std::str::FromStr for ResponseTimeMapBoundingBoxesResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapProperties> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapProperties>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapProperties>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapProperties - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMapBoundingBoxesResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapProperties> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapBoundingBoxesResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapProperties as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMapBoundingBoxesResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapProperties - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMapBoundingBoxesResult - {}",
                                 value, err))
                     }
              },
@@ -11822,7 +11598,7 @@ impl std::str::FromStr for ResponseTimeMapProperties {
 
             if let Some(key) = key_result {
                 match key {
-                    "is_only_walking" => intermediate_rep.is_only_walking.push(bool::from_str(val).map_err(|x| format!("{}", x))?),
+                    "is_only_walking" => intermediate_rep.is_only_walking.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeMapProperties".to_string())
                 }
             }
@@ -11838,36 +11614,34 @@ impl std::str::FromStr for ResponseTimeMapProperties {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapProperties> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapProperties>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapProperties>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMapProperties - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapProperties> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMapProperties as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMapProperties - {}",
                                 value, err))
                     }
              },
@@ -11950,9 +11724,9 @@ impl std::str::FromStr for ResponseTimeMapResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "shapes" => return std::result::Result::Err("Parsing a container in this style is not supported in ResponseTimeMapResult".to_string()),
-                    "properties" => intermediate_rep.properties.push(models::ResponseTimeMapProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseTimeMapProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeMapResult".to_string())
                 }
             }
@@ -11970,36 +11744,34 @@ impl std::str::FromStr for ResponseTimeMapResult {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapWkt> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapResult> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapWkt>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapResult>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapWkt>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapResult>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapWkt - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMapResult - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapWkt> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapResult> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapWkt as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMapResult as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapWkt - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMapResult - {}",
                                 value, err))
                     }
              },
@@ -12082,36 +11854,34 @@ impl std::str::FromStr for ResponseTimeMapWkt {
     }
 }
 
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTimeMapWktResult> and hyper::header::HeaderValue
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapWkt> and hyper::header::HeaderValue
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapWktResult>> for hyper::header::HeaderValue {
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapWkt>> for hyper::header::HeaderValue {
     type Error = String;
 
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapWktResult>) -> std::result::Result<Self, Self::Error> {
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapWkt>) -> std::result::Result<Self, Self::Error> {
         let hdr_value = hdr_value.to_string();
         match hyper::header::HeaderValue::from_str(&hdr_value) {
              std::result::Result::Ok(value) => std::result::Result::Ok(value),
              std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTimeMapWktResult - value: {} is invalid {}",
+                 format!("Invalid header value for ResponseTimeMapWkt - value: {} is invalid {}",
                      hdr_value, e))
         }
     }
 }
 
 #[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapWktResult> {
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapWkt> {
     type Error = String;
 
     fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
         match hdr_value.to_str() {
              std::result::Result::Ok(value) => {
-                    match <ResponseTimeMapWktResult as std::str::FromStr>::from_str(value) {
+                    match <ResponseTimeMapWkt as std::str::FromStr>::from_str(value) {
                         std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
                         std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTimeMapWktResult - {}",
+                            format!("Unable to convert header value '{}' into ResponseTimeMapWkt - {}",
                                 value, err))
                     }
              },
@@ -12196,9 +11966,9 @@ impl std::str::FromStr for ResponseTimeMapWktResult {
 
             if let Some(key) = key_result {
                 match key {
-                    "search_id" => intermediate_rep.search_id.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "shape" => intermediate_rep.shape.push(String::from_str(val).map_err(|x| format!("{}", x))?),
-                    "properties" => intermediate_rep.properties.push(models::ResponseTimeMapProperties::from_str(val).map_err(|x| format!("{}", x))?),
+                    "search_id" => intermediate_rep.search_id.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "shape" => intermediate_rep.shape.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "properties" => intermediate_rep.properties.push(<models::ResponseTimeMapProperties as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTimeMapWktResult".to_string())
                 }
             }
@@ -12216,6 +11986,43 @@ impl std::str::FromStr for ResponseTimeMapWktResult {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<ResponseTimeMapWktResult> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTimeMapWktResult>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTimeMapWktResult>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for ResponseTimeMapWktResult - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTimeMapWktResult> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <ResponseTimeMapWktResult as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into ResponseTimeMapWktResult - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 /// Enumeration of values.
@@ -12225,7 +12032,7 @@ impl std::str::FromStr for ResponseTimeMapWktResult {
 #[repr(C)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk_enum_derive::LabelledGenericEnum))]
-pub enum ResponseTransportationMode { 
+pub enum ResponseTransportationMode {
     #[serde(rename = "car")]
     CAR,
     #[serde(rename = "parking")]
@@ -12260,7 +12067,7 @@ pub enum ResponseTransportationMode {
 
 impl std::fmt::Display for ResponseTransportationMode {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match *self { 
+        match *self {
             ResponseTransportationMode::CAR => write!(f, "{}", "car"),
             ResponseTransportationMode::PARKING => write!(f, "{}", "parking"),
             ResponseTransportationMode::BOARDING => write!(f, "{}", "boarding"),
@@ -12305,7 +12112,6 @@ impl std::str::FromStr for ResponseTransportationMode {
     }
 }
 
-
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct ResponseTravelTime(i32);
@@ -12315,7 +12121,6 @@ impl std::convert::From<i32> for ResponseTravelTime {
         ResponseTravelTime(x)
     }
 }
-
 
 impl std::convert::From<ResponseTravelTime> for i32 {
     fn from(x: ResponseTravelTime) -> Self {
@@ -12333,46 +12138,6 @@ impl std::ops::Deref for ResponseTravelTime {
 impl std::ops::DerefMut for ResponseTravelTime {
     fn deref_mut(&mut self) -> &mut i32 {
         &mut self.0
-    }
-}
-
-
-
-// Methods for converting between header::IntoHeaderValue<ResponseTravelTimeStatistics> and hyper::header::HeaderValue
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTravelTimeStatistics>> for hyper::header::HeaderValue {
-    type Error = String;
-
-    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTravelTimeStatistics>) -> std::result::Result<Self, Self::Error> {
-        let hdr_value = hdr_value.to_string();
-        match hyper::header::HeaderValue::from_str(&hdr_value) {
-             std::result::Result::Ok(value) => std::result::Result::Ok(value),
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Invalid header value for ResponseTravelTimeStatistics - value: {} is invalid {}",
-                     hdr_value, e))
-        }
-    }
-}
-
-#[cfg(any(feature = "client", feature = "server"))]
-impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTravelTimeStatistics> {
-    type Error = String;
-
-    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
-        match hdr_value.to_str() {
-             std::result::Result::Ok(value) => {
-                    match <ResponseTravelTimeStatistics as std::str::FromStr>::from_str(value) {
-                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
-                        std::result::Result::Err(err) => std::result::Result::Err(
-                            format!("Unable to convert header value '{}' into ResponseTravelTimeStatistics - {}",
-                                value, err))
-                    }
-             },
-             std::result::Result::Err(e) => std::result::Result::Err(
-                 format!("Unable to convert header: {:?} to string: {}",
-                     hdr_value, e))
-        }
     }
 }
 
@@ -12461,10 +12226,10 @@ impl std::str::FromStr for ResponseTravelTimeStatistics {
 
             if let Some(key) = key_result {
                 match key {
-                    "min" => intermediate_rep.min.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "max" => intermediate_rep.max.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "mean" => intermediate_rep.mean.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
-                    "median" => intermediate_rep.median.push(isize::from_str(val).map_err(|x| format!("{}", x))?),
+                    "min" => intermediate_rep.min.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "max" => intermediate_rep.max.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "mean" => intermediate_rep.mean.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "median" => intermediate_rep.median.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing ResponseTravelTimeStatistics".to_string())
                 }
             }
@@ -12483,6 +12248,43 @@ impl std::str::FromStr for ResponseTravelTimeStatistics {
     }
 }
 
+// Methods for converting between header::IntoHeaderValue<ResponseTravelTimeStatistics> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<ResponseTravelTimeStatistics>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<ResponseTravelTimeStatistics>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for ResponseTravelTimeStatistics - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<ResponseTravelTimeStatistics> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <ResponseTravelTimeStatistics as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into ResponseTravelTimeStatistics - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
 
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, serde::Serialize, serde::Deserialize)]
@@ -12526,5 +12328,4 @@ impl std::ops::DerefMut for ResponseWktShape {
         &mut self.0
     }
 }
-
 

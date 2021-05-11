@@ -33,9 +33,9 @@ fail:
     return NULL;
 }
 
-request_routes_property_request_routes_property_e request_routes_property_request_routes_property_parseFromJSON(cJSON *request_routes_propertyJSON) {
-    request_routes_property_request_routes_property_e *request_routes_property = NULL;
-    request_routes_property_request_routes_property_e request_routes_propertyVariable;
+traveltime_api_request_routes_property__e request_routes_property_request_routes_property_parseFromJSON(cJSON *request_routes_propertyJSON) {
+    traveltime_api_request_routes_property__e *request_routes_property = NULL;
+    traveltime_api_request_routes_property__e request_routes_propertyVariable;
     cJSON *request_routes_propertyVar = cJSON_GetObjectItemCaseSensitive(request_routes_propertyJSON, "request_routes_property");
     if(!cJSON_IsString(request_routes_propertyVar) || (request_routes_propertyVar->valuestring == NULL)){
         goto end;

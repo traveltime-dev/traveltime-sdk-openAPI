@@ -14,7 +14,7 @@ defmodule TravelTimeAPI.Model.ResponseSupportedLocations do
   ]
 
   @type t :: %__MODULE__{
-    :"locations" => [ResponseSupportedLocation],
+    :"locations" => [TravelTimeAPI.Model.ResponseSupportedLocation.t],
     :"unsupported_locations" => [String.t]
   }
 end

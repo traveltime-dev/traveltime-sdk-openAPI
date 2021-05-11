@@ -1,53 +1,69 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseTimeFilterPostcodeDistricts {
-  
-  List<ResponseTimeFilterPostcodeDistrictsResult> results = [];
-
+  /// Returns a new [ResponseTimeFilterPostcodeDistricts] instance.
   ResponseTimeFilterPostcodeDistricts({
-    this.results,
+    this.results = const [],
   });
 
-  @override
-  String toString() {
-    return 'ResponseTimeFilterPostcodeDistricts[results=$results, ]';
-  }
+  List<ResponseTimeFilterPostcodeDistrictsResult> results;
 
-  ResponseTimeFilterPostcodeDistricts.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    results = (json['results'] == null) ?
-      null :
-      ResponseTimeFilterPostcodeDistrictsResult.listFromJson(json['results']);
-  }
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseTimeFilterPostcodeDistricts &&
+     other.results == results;
+
+  @override
+  int get hashCode =>
+    (results == null ? 0 : results.hashCode);
+
+  @override
+  String toString() => 'ResponseTimeFilterPostcodeDistricts[results=$results]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (results != null)
-      json['results'] = results;
+    final json = <String, dynamic>{};
+      json[r'results'] = results;
     return json;
   }
 
-  static List<ResponseTimeFilterPostcodeDistricts> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseTimeFilterPostcodeDistricts>() : json.map((value) => ResponseTimeFilterPostcodeDistricts.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseTimeFilterPostcodeDistricts] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseTimeFilterPostcodeDistricts fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseTimeFilterPostcodeDistricts(
+        results: ResponseTimeFilterPostcodeDistrictsResult.listFromJson(json[r'results']),
+    );
+
+  static List<ResponseTimeFilterPostcodeDistricts> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseTimeFilterPostcodeDistricts>[]
+      : json.map((v) => ResponseTimeFilterPostcodeDistricts.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseTimeFilterPostcodeDistricts> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseTimeFilterPostcodeDistricts>();
+    final map = <String, ResponseTimeFilterPostcodeDistricts>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseTimeFilterPostcodeDistricts.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseTimeFilterPostcodeDistricts.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseTimeFilterPostcodeDistricts-objects as value to a dart map
-  static Map<String, List<ResponseTimeFilterPostcodeDistricts>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseTimeFilterPostcodeDistricts>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseTimeFilterPostcodeDistricts.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseTimeFilterPostcodeDistricts>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseTimeFilterPostcodeDistricts>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseTimeFilterPostcodeDistricts.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

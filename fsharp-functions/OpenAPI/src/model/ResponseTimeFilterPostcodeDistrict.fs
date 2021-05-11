@@ -12,7 +12,7 @@ module ResponseTimeFilterPostcodeDistrict =
   [<CLIMutable>]
   type ResponseTimeFilterPostcodeDistrict = {
     [<JsonProperty(PropertyName = "code")>]
-    Code : String;
+    Code : string;
     [<JsonProperty(PropertyName = "properties")>]
     Properties : ResponseTimeFilterPostcodeDistrictProperties;
   }

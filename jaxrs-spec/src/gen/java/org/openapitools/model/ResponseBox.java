@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseBox   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseBox   {
   
   private @Valid Double minLat;
   private @Valid Double maxLat;
@@ -39,7 +39,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMinLat(Double minLat) {
     this.minLat = minLat;
-  }/**
+  }
+
+/**
    **/
   public ResponseBox maxLat(Double maxLat) {
     this.maxLat = maxLat;
@@ -58,7 +60,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMaxLat(Double maxLat) {
     this.maxLat = maxLat;
-  }/**
+  }
+
+/**
    **/
   public ResponseBox minLng(Double minLng) {
     this.minLng = minLng;
@@ -77,7 +81,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMinLng(Double minLng) {
     this.minLng = minLng;
-  }/**
+  }
+
+/**
    **/
   public ResponseBox maxLng(Double maxLng) {
     this.maxLng = maxLng;
@@ -98,8 +104,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.maxLng = maxLng;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -135,7 +142,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -11,22 +11,28 @@ import javax.validation.constraints.*;
 /**
  * ResponseError
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseError   {
   @JsonProperty("http_status")
+  
   private Integer httpStatus;
 
   @JsonProperty("error_code")
+  
   private Integer errorCode;
 
   @JsonProperty("description")
+  
   private String description;
 
   @JsonProperty("documentation_link")
+  
   private String documentationLink;
 
   @JsonProperty("additional_info")
+  @Valid
+
   private Map<String, List<String>> additionalInfo = null;
 
   public ResponseError httpStatus(Integer httpStatus) {
@@ -38,7 +44,7 @@ public class ResponseError   {
    * Get httpStatus
    * @return httpStatus
   **/
-    public Integer getHttpStatus() {
+  public Integer getHttpStatus() {
     return httpStatus;
   }
 
@@ -55,7 +61,7 @@ public class ResponseError   {
    * Get errorCode
    * @return errorCode
   **/
-    public Integer getErrorCode() {
+  public Integer getErrorCode() {
     return errorCode;
   }
 
@@ -72,7 +78,7 @@ public class ResponseError   {
    * Get description
    * @return description
   **/
-    public String getDescription() {
+  public String getDescription() {
     return description;
   }
 
@@ -89,7 +95,7 @@ public class ResponseError   {
    * Get documentationLink
    * @return documentationLink
   **/
-    public String getDocumentationLink() {
+  public String getDocumentationLink() {
     return documentationLink;
   }
 
@@ -114,7 +120,6 @@ public class ResponseError   {
    * Get additionalInfo
    * @return additionalInfo
   **/
-  @Valid
   public Map<String, List<String>> getAdditionalInfo() {
     return additionalInfo;
   }
@@ -125,7 +130,7 @@ public class ResponseError   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -164,7 +169,7 @@ public class ResponseError   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

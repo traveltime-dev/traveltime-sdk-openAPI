@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseBox: Codable { 
-
+public struct ResponseBox: Codable, Hashable {
 
     public var minLat: Double
     public var maxLat: Double
@@ -22,12 +21,23 @@ public struct ResponseBox: Codable {
         self.minLng = minLng
         self.maxLng = maxLng
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case minLat = "min_lat"
         case maxLat = "max_lat"
         case minLng = "min_lng"
         case maxLng = "max_lng"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(minLat, forKey: .minLat)
+        try container.encode(maxLat, forKey: .maxLat)
+        try container.encode(minLng, forKey: .minLng)
+        try container.encode(maxLng, forKey: .maxLng)
+    }
+
+
 
 }

@@ -27,15 +27,24 @@ void response_time_filter_fast_result_free(response_time_filter_fast_result_t *r
         return ;
     }
     listEntry_t *listEntry;
-    free(response_time_filter_fast_result->search_id);
-    list_ForEach(listEntry, response_time_filter_fast_result->locations) {
-        response_time_filter_fast_location_free(listEntry->data);
+    if (response_time_filter_fast_result->search_id) {
+        free(response_time_filter_fast_result->search_id);
+        response_time_filter_fast_result->search_id = NULL;
     }
-    list_free(response_time_filter_fast_result->locations);
-    list_ForEach(listEntry, response_time_filter_fast_result->unreachable) {
-        free(listEntry->data);
+    if (response_time_filter_fast_result->locations) {
+        list_ForEach(listEntry, response_time_filter_fast_result->locations) {
+            response_time_filter_fast_location_free(listEntry->data);
+        }
+        list_free(response_time_filter_fast_result->locations);
+        response_time_filter_fast_result->locations = NULL;
     }
-    list_free(response_time_filter_fast_result->unreachable);
+    if (response_time_filter_fast_result->unreachable) {
+        list_ForEach(listEntry, response_time_filter_fast_result->unreachable) {
+            free(listEntry->data);
+        }
+        list_free(response_time_filter_fast_result->unreachable);
+        response_time_filter_fast_result->unreachable = NULL;
+    }
     free(response_time_filter_fast_result);
 }
 

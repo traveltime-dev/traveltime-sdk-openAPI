@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,14 +20,11 @@ import javax.validation.constraints.Size
  */
 data class ResponseFareTicket(
 
-    @get:NotNull 
-    @field:JsonProperty("type") val type: ResponseFareTicket.Type,
+    @field:JsonProperty("type", required = true) val type: ResponseFareTicket.Type,
 
-    @get:NotNull 
-    @field:JsonProperty("price") val price: kotlin.Double,
+    @field:JsonProperty("price", required = true) val price: kotlin.Double,
 
-    @get:NotNull 
-    @field:JsonProperty("currency") val currency: kotlin.String
+    @field:JsonProperty("currency", required = true) val currency: kotlin.String
 ) {
 
     /**

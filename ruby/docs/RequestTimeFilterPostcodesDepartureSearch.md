@@ -2,26 +2,27 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**travel_time** | **Integer** |  | 
-**departure_time** | **DateTime** |  | 
-**properties** | [**Array&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
-**range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **transportation** | [**RequestTransportation**](RequestTransportation.md) |  |  |
+| **travel_time** | **Integer** |  |  |
+| **departure_time** | **Time** |  |  |
+| **properties** | [**Array&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  |  |
+| **range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestTimeFilterPostcodesDepartureSearch.new(id: null,
-                                 transportation: null,
-                                 travel_time: null,
-                                 departure_time: null,
-                                 properties: null,
-                                 range: null)
+instance = OpenapiClient::RequestTimeFilterPostcodesDepartureSearch.new(
+  id: null,
+  transportation: null,
+  travel_time: null,
+  departure_time: null,
+  properties: null,
+  range: null
+)
 ```
-
 

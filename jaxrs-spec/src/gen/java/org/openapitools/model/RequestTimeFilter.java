@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilter   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestTimeFilter   {
   
   private @Valid List<RequestLocation> locations = new ArrayList<RequestLocation>();
   private @Valid List<RequestTimeFilterDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterDepartureSearch>();
@@ -43,7 +43,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setLocations(List<RequestLocation> locations) {
     this.locations = locations;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeFilter departureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
@@ -61,7 +63,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDepartureSearches(List<RequestTimeFilterDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeFilter arrivalSearches(List<RequestTimeFilterArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -81,8 +85,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.arrivalSearches = arrivalSearches;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -116,7 +121,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

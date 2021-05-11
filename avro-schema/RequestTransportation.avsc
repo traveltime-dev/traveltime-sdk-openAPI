@@ -28,27 +28,33 @@
     {
       "name": "pt_change_delay",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "walking_time",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "driving_time_to_station",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "parking_time",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "boarding_time",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

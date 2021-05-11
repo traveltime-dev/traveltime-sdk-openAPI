@@ -5,9 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | [**String**](string.md) |  | [default to null]
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | [default to null]
-**travelUnderscoretime** | [**Integer**](integer.md) |  | [default to null]
-**arrivalUnderscoretime** | [**Date**](DateTime.md) |  | [default to null]
-**reachableUnderscorepostcodesUnderscorethreshold** | [**Double**](double.md) |  | [default to null]
+**travel\_time** | [**Integer**](integer.md) |  | [default to null]
+**arrival\_time** | [**Date**](DateTime.md) |  | [default to null]
+**reachable\_postcodes\_threshold** | [**Double**](double.md) |  | [default to null]
 **properties** | [**List**](RequestTimeFilterPostcodeSectorsProperty.md) |  | [default to null]
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] [default to null]
 

@@ -29,8 +29,14 @@ void response_routes_properties_free(response_routes_properties_t *response_rout
         return ;
     }
     listEntry_t *listEntry;
-    response_fares_free(response_routes_properties->fares);
-    response_route_free(response_routes_properties->route);
+    if (response_routes_properties->fares) {
+        response_fares_free(response_routes_properties->fares);
+        response_routes_properties->fares = NULL;
+    }
+    if (response_routes_properties->route) {
+        response_route_free(response_routes_properties->route);
+        response_routes_properties->route = NULL;
+    }
     free(response_routes_properties);
 }
 
@@ -132,6 +138,14 @@ response_routes_properties_t *response_routes_properties_parseFromJSON(cJSON *re
 
     return response_routes_properties_local_var;
 end:
+    if (fares_local_nonprim) {
+        response_fares_free(fares_local_nonprim);
+        fares_local_nonprim = NULL;
+    }
+    if (route_local_nonprim) {
+        response_route_free(route_local_nonprim);
+        route_local_nonprim = NULL;
+    }
     return NULL;
 
 }

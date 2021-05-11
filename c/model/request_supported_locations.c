@@ -23,10 +23,13 @@ void request_supported_locations_free(request_supported_locations_t *request_sup
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_supported_locations->locations) {
-        request_location_free(listEntry->data);
+    if (request_supported_locations->locations) {
+        list_ForEach(listEntry, request_supported_locations->locations) {
+            request_location_free(listEntry->data);
+        }
+        list_free(request_supported_locations->locations);
+        request_supported_locations->locations = NULL;
     }
-    list_free(request_supported_locations->locations);
     free(request_supported_locations);
 }
 

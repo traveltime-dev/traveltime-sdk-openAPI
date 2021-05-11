@@ -19,9 +19,9 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterProperties do
   @type t :: %__MODULE__{
     :"travel_time" => integer() | nil,
     :"distance" => integer() | nil,
-    :"distance_breakdown" => [ResponseDistanceBreakdownItem] | nil,
-    :"fares" => ResponseFares | nil,
-    :"route" => ResponseRoute | nil
+    :"distance_breakdown" => [TravelTimeAPI.Model.ResponseDistanceBreakdownItem.t] | nil,
+    :"fares" => TravelTimeAPI.Model.ResponseFares.t | nil,
+    :"route" => TravelTimeAPI.Model.ResponseRoute.t | nil
   }
 end
 

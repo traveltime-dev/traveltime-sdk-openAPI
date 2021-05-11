@@ -6,11 +6,11 @@
  *)
 
 type t = {
-    code: String.t;
+    code: string;
     properties: Response_time_filter_postcodes_properties.t list;
 } [@@deriving yojson { strict = false }, show ];;
 
-let create (code : String.t) (properties : Response_time_filter_postcodes_properties.t list) : t = {
+let create (code : string) (properties : Response_time_filter_postcodes_properties.t list) : t = {
     code = code;
     properties = properties;
 }

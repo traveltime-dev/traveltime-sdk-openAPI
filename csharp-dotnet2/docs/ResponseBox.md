@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseBox
+
 ## Properties
 
 Name | Type | Description | Notes

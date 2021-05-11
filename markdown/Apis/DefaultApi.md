@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 <a name="geocodingReverseSearch"></a>
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodcountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, within.country)
 
 
 
@@ -29,11 +29,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **lat** | **Double**|  | [default to null]
  **lng** | **Double**|  | [default to null]
- **withinPeriodcountry** | **String**|  | [optional] [default to null]
+ **within.country** | **String**|  | [optional] [default to null]
 
 ### Return type
 
-[**ResponseGeocoding**](..//Models/ResponseGeocoding.md)
+[**ResponseGeocoding**](../Models/ResponseGeocoding.md)
 
 ### Authorization
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 <a name="geocodingSearch"></a>
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, focusPeriodlat, focusPeriodlng, withinPeriodcountry)
+> ResponseGeocoding geocodingSearch(query, focus.lat, focus.lng, within.country)
 
 
 
@@ -55,13 +55,13 @@ Name | Type | Description  | Notes
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**|  | [default to null]
- **focusPeriodlat** | **Double**|  | [optional] [default to null]
- **focusPeriodlng** | **Double**|  | [optional] [default to null]
- **withinPeriodcountry** | **String**|  | [optional] [default to null]
+ **focus.lat** | **Double**|  | [optional] [default to null]
+ **focus.lng** | **Double**|  | [optional] [default to null]
+ **within.country** | **String**|  | [optional] [default to null]
 
 ### Return type
 
-[**ResponseGeocoding**](..//Models/ResponseGeocoding.md)
+[**ResponseGeocoding**](../Models/ResponseGeocoding.md)
 
 ### Authorization
 
@@ -83,7 +83,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResponseMapInfo**](..//Models/ResponseMapInfo.md)
+[**ResponseMapInfo**](../Models/ResponseMapInfo.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 <a name="routes"></a>
 # **routes**
-> ResponseRoutes routes(requestRoutes)
+> ResponseRoutes routes(RequestRoutes)
 
 
 
@@ -104,11 +104,11 @@ This endpoint does not need any parameter.
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestRoutes** | [**RequestRoutes**](..//Models/RequestRoutes.md)|  |
+ **RequestRoutes** | [**RequestRoutes**](../Models/RequestRoutes.md)|  |
 
 ### Return type
 
-[**ResponseRoutes**](..//Models/ResponseRoutes.md)
+[**ResponseRoutes**](../Models/ResponseRoutes.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 <a name="supportedLocations"></a>
 # **supportedLocations**
-> ResponseSupportedLocations supportedLocations(requestSupportedLocations)
+> ResponseSupportedLocations supportedLocations(RequestSupportedLocations)
 
 
 
@@ -129,11 +129,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestSupportedLocations** | [**RequestSupportedLocations**](..//Models/RequestSupportedLocations.md)|  |
+ **RequestSupportedLocations** | [**RequestSupportedLocations**](../Models/RequestSupportedLocations.md)|  |
 
 ### Return type
 
-[**ResponseSupportedLocations**](..//Models/ResponseSupportedLocations.md)
+[**ResponseSupportedLocations**](../Models/ResponseSupportedLocations.md)
 
 ### Authorization
 
@@ -146,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="timeFilter"></a>
 # **timeFilter**
-> ResponseTimeFilter timeFilter(requestTimeFilter)
+> ResponseTimeFilter timeFilter(RequestTimeFilter)
 
 
 
@@ -154,11 +154,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeFilter** | [**RequestTimeFilter**](..//Models/RequestTimeFilter.md)|  |
+ **RequestTimeFilter** | [**RequestTimeFilter**](../Models/RequestTimeFilter.md)|  |
 
 ### Return type
 
-[**ResponseTimeFilter**](..//Models/ResponseTimeFilter.md)
+[**ResponseTimeFilter**](../Models/ResponseTimeFilter.md)
 
 ### Authorization
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 <a name="timeFilterFast"></a>
 # **timeFilterFast**
-> ResponseTimeFilterFast timeFilterFast(requestTimeFilterFast)
+> ResponseTimeFilterFast timeFilterFast(RequestTimeFilterFast)
 
 
 
@@ -179,11 +179,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeFilterFast** | [**RequestTimeFilterFast**](..//Models/RequestTimeFilterFast.md)|  |
+ **RequestTimeFilterFast** | [**RequestTimeFilterFast**](../Models/RequestTimeFilterFast.md)|  |
 
 ### Return type
 
-[**ResponseTimeFilterFast**](..//Models/ResponseTimeFilterFast.md)
+[**ResponseTimeFilterFast**](../Models/ResponseTimeFilterFast.md)
 
 ### Authorization
 
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 <a name="timeFilterPostcodeDistricts"></a>
 # **timeFilterPostcodeDistricts**
-> ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts)
+> ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts)
 
 
 
@@ -204,11 +204,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](..//Models/RequestTimeFilterPostcodeDistricts.md)|  |
+ **RequestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](../Models/RequestTimeFilterPostcodeDistricts.md)|  |
 
 ### Return type
 
-[**ResponseTimeFilterPostcodeDistricts**](..//Models/ResponseTimeFilterPostcodeDistricts.md)
+[**ResponseTimeFilterPostcodeDistricts**](../Models/ResponseTimeFilterPostcodeDistricts.md)
 
 ### Authorization
 
@@ -221,7 +221,7 @@ Name | Type | Description  | Notes
 
 <a name="timeFilterPostcodeSectors"></a>
 # **timeFilterPostcodeSectors**
-> ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors)
+> ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors)
 
 
 
@@ -229,11 +229,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](..//Models/RequestTimeFilterPostcodeSectors.md)|  |
+ **RequestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](../Models/RequestTimeFilterPostcodeSectors.md)|  |
 
 ### Return type
 
-[**ResponseTimeFilterPostcodeSectors**](..//Models/ResponseTimeFilterPostcodeSectors.md)
+[**ResponseTimeFilterPostcodeSectors**](../Models/ResponseTimeFilterPostcodeSectors.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 <a name="timeFilterPostcodes"></a>
 # **timeFilterPostcodes**
-> ResponseTimeFilterPostcodes timeFilterPostcodes(requestTimeFilterPostcodes)
+> ResponseTimeFilterPostcodes timeFilterPostcodes(RequestTimeFilterPostcodes)
 
 
 
@@ -254,11 +254,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](..//Models/RequestTimeFilterPostcodes.md)|  |
+ **RequestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](../Models/RequestTimeFilterPostcodes.md)|  |
 
 ### Return type
 
-[**ResponseTimeFilterPostcodes**](..//Models/ResponseTimeFilterPostcodes.md)
+[**ResponseTimeFilterPostcodes**](../Models/ResponseTimeFilterPostcodes.md)
 
 ### Authorization
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 <a name="timeMap"></a>
 # **timeMap**
-> ResponseTimeMap timeMap(requestTimeMap)
+> ResponseTimeMap timeMap(RequestTimeMap)
 
 
 
@@ -279,11 +279,11 @@ Name | Type | Description  | Notes
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestTimeMap** | [**RequestTimeMap**](..//Models/RequestTimeMap.md)|  |
+ **RequestTimeMap** | [**RequestTimeMap**](../Models/RequestTimeMap.md)|  |
 
 ### Return type
 
-[**ResponseTimeMap**](..//Models/ResponseTimeMap.md)
+[**ResponseTimeMap**](../Models/ResponseTimeMap.md)
 
 ### Authorization
 

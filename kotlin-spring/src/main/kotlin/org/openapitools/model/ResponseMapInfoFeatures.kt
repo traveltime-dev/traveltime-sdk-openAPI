@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,12 +20,11 @@ import javax.validation.constraints.Size
  */
 data class ResponseMapInfoFeatures(
 
-    @get:NotNull 
-    @field:JsonProperty("fares") val fares: kotlin.Boolean,
+    @field:JsonProperty("fares", required = true) val fares: kotlin.Boolean,
 
-    @get:NotNull 
-    @field:JsonProperty("postcodes") val postcodes: kotlin.Boolean,
+    @field:JsonProperty("postcodes", required = true) val postcodes: kotlin.Boolean,
 
+    @field:Valid
     @field:JsonProperty("public_transport") val publicTransport: ResponseMapInfoFeaturesPublicTransport? = null
 ) {
 

@@ -15,9 +15,9 @@ defmodule TravelTimeAPI.Model.RequestRoutes do
   ]
 
   @type t :: %__MODULE__{
-    :"locations" => [RequestLocation],
-    :"departure_searches" => [RequestRoutesDepartureSearch] | nil,
-    :"arrival_searches" => [RequestRoutesArrivalSearch] | nil
+    :"locations" => [TravelTimeAPI.Model.RequestLocation.t],
+    :"departure_searches" => [TravelTimeAPI.Model.RequestRoutesDepartureSearch.t] | nil,
+    :"arrival_searches" => [TravelTimeAPI.Model.RequestRoutesArrivalSearch.t] | nil
   }
 end
 

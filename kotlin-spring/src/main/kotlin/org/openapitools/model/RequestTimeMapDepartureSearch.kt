@@ -13,6 +13,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -26,23 +27,24 @@ import javax.validation.constraints.Size
  */
 data class RequestTimeMapDepartureSearch(
 
-    @get:NotNull 
-    @field:JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("coords") val coords: Coords,
+    @field:Valid
+    @field:JsonProperty("coords", required = true) val coords: Coords,
 
-    @get:NotNull 
-    @field:JsonProperty("transportation") val transportation: RequestTransportation,
+    @field:Valid
+    @field:JsonProperty("transportation", required = true) val transportation: RequestTransportation,
 
-    @get:NotNull @get:Min(60) @get:Max(14400) 
-    @field:JsonProperty("travel_time") val travelTime: kotlin.Int,
+    @get:Min(60)
+    @get:Max(14400)
+    @field:JsonProperty("travel_time", required = true) val travelTime: kotlin.Int,
 
-    @get:NotNull 
-    @field:JsonProperty("departure_time") val departureTime: java.time.OffsetDateTime,
+    @field:JsonProperty("departure_time", required = true) val departureTime: java.time.OffsetDateTime,
 
+    @field:Valid
     @field:JsonProperty("properties") val properties: kotlin.collections.List<RequestTimeMapProperty>? = null,
 
+    @field:Valid
     @field:JsonProperty("range") val range: RequestRangeNoMaxResults? = null
 ) {
 

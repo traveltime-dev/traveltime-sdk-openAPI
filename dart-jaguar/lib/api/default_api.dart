@@ -44,7 +44,7 @@ class DefaultApi extends ApiClient with _$DefaultApiClient {
         
             @QueryParam("lng") double lng, 
         
-            @QueryParam("within.country") String withinCountry
+            @QueryParam("within.country") String withinPeriodCountry
         ) {
         return super.geocodingReverseSearch(
         
@@ -52,7 +52,7 @@ class DefaultApi extends ApiClient with _$DefaultApiClient {
         
         lng, 
         
-        withinCountry
+        withinPeriodCountry
 
         ).timeout(timeout);
     }
@@ -65,21 +65,21 @@ class DefaultApi extends ApiClient with _$DefaultApiClient {
         
             @QueryParam("query") String query, 
         
-            @QueryParam("focus.lat") double focusLat, 
+            @QueryParam("focus.lat") double focusPeriodLat, 
         
-            @QueryParam("focus.lng") double focusLng, 
+            @QueryParam("focus.lng") double focusPeriodLng, 
         
-            @QueryParam("within.country") String withinCountry
+            @QueryParam("within.country") String withinPeriodCountry
         ) {
         return super.geocodingSearch(
         
         query, 
         
-        focusLat, 
+        focusPeriodLat, 
         
-        focusLng, 
+        focusPeriodLng, 
         
-        withinCountry
+        withinPeriodCountry
 
         ).timeout(timeout);
     }

@@ -2,6 +2,7 @@
 
 # ResponseTravelTimeStatistics
 
+
 ## Properties
 
 Name | Type | Description | Notes

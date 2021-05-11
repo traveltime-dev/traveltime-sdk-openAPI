@@ -1,5 +1,6 @@
 # openapi::RequestTimeFilterPostcodeSectorsDepartureSearch
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

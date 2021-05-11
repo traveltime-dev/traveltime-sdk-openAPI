@@ -7,7 +7,7 @@
     },
     "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
     "title" : "TravelTime API",
-    "version" : "1.2.1"
+    "version" : "1.2.2"
   },
   "externalDocs" : {
     "url" : "http://docs.traveltime.com"
@@ -1834,7 +1834,7 @@
       "ResponseTimeFilterPostcode" : {
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "items" : {
@@ -1849,7 +1849,7 @@
       "ResponseTimeFilterPostcodeDistrict" : {
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistrictProperties"
@@ -1861,7 +1861,7 @@
       "ResponseTimeFilterPostcodeSector" : {
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectorProperties"

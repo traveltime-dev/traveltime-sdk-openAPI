@@ -8,12 +8,12 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **String** |  | [default to null]
-**ptChangeDelay** | **int** |  | [optional] [default to null]
-**walkingTime** | **int** |  | [optional] [default to null]
-**drivingTimeToStation** | **int** |  | [optional] [default to null]
-**parkingTime** | **int** |  | [optional] [default to null]
-**boardingTime** | **int** |  | [optional] [default to null]
+**type** | **String** |  | 
+**ptChangeDelay** | **int** |  | [optional] 
+**walkingTime** | **int** |  | [optional] 
+**drivingTimeToStation** | **int** |  | [optional] 
+**parkingTime** | **int** |  | [optional] 
+**boardingTime** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

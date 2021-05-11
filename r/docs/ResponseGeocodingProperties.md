@@ -1,5 +1,6 @@
 # openapi::ResponseGeocodingProperties
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

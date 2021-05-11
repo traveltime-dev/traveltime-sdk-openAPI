@@ -5,13 +5,14 @@ use futures::Stream;
 use std::error::Error;
 use std::task::{Poll, Context};
 use swagger::{ApiError, ContextWrapper};
+use serde::{Serialize, Deserialize};
 
 type ServiceError = Box<dyn Error + Send + Sync + 'static>;
 
 pub const BASE_PATH: &'static str = "";
-pub const API_VERSION: &'static str = "1.2.1";
+pub const API_VERSION: &'static str = "1.2.2";
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum GeocodingReverseSearchResponse {
     /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
@@ -23,7 +24,7 @@ pub enum GeocodingReverseSearchResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum GeocodingSearchResponse {
     /// Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)
@@ -35,7 +36,7 @@ pub enum GeocodingSearchResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum MapInfoResponse {
     /// Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)
@@ -47,7 +48,7 @@ pub enum MapInfoResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum RoutesResponse {
     /// Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)
@@ -59,7 +60,7 @@ pub enum RoutesResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum SupportedLocationsResponse {
     /// Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)
@@ -71,7 +72,7 @@ pub enum SupportedLocationsResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeFilterResponse {
     /// Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)
@@ -83,7 +84,7 @@ pub enum TimeFilterResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeFilterFastResponse {
     /// A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)
@@ -95,7 +96,7 @@ pub enum TimeFilterFastResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeFilterPostcodeDistrictsResponse {
     /// Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)
@@ -107,7 +108,7 @@ pub enum TimeFilterPostcodeDistrictsResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeFilterPostcodeSectorsResponse {
     /// Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)
@@ -119,7 +120,7 @@ pub enum TimeFilterPostcodeSectorsResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeFilterPostcodesResponse {
     /// Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)
@@ -131,7 +132,7 @@ pub enum TimeFilterPostcodesResponse {
     (models::ResponseError)
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Serialize, Deserialize)]
 #[must_use]
 pub enum TimeMapResponse {
     /// Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)

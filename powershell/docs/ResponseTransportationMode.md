@@ -8,12 +8,12 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseTransportationMode 
+$ResponseTransportationMode = Initialize-PSOpenAPIToolsResponseTransportationMode 
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseTransportationMode | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

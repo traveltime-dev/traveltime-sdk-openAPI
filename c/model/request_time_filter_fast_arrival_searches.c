@@ -25,14 +25,20 @@ void request_time_filter_fast_arrival_searches_free(request_time_filter_fast_arr
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_time_filter_fast_arrival_searches->many_to_one) {
-        request_time_filter_fast_arrival_many_to_one_search_free(listEntry->data);
+    if (request_time_filter_fast_arrival_searches->many_to_one) {
+        list_ForEach(listEntry, request_time_filter_fast_arrival_searches->many_to_one) {
+            request_time_filter_fast_arrival_many_to_one_search_free(listEntry->data);
+        }
+        list_free(request_time_filter_fast_arrival_searches->many_to_one);
+        request_time_filter_fast_arrival_searches->many_to_one = NULL;
     }
-    list_free(request_time_filter_fast_arrival_searches->many_to_one);
-    list_ForEach(listEntry, request_time_filter_fast_arrival_searches->one_to_many) {
-        request_time_filter_fast_arrival_one_to_many_search_free(listEntry->data);
+    if (request_time_filter_fast_arrival_searches->one_to_many) {
+        list_ForEach(listEntry, request_time_filter_fast_arrival_searches->one_to_many) {
+            request_time_filter_fast_arrival_one_to_many_search_free(listEntry->data);
+        }
+        list_free(request_time_filter_fast_arrival_searches->one_to_many);
+        request_time_filter_fast_arrival_searches->one_to_many = NULL;
     }
-    list_free(request_time_filter_fast_arrival_searches->one_to_many);
     free(request_time_filter_fast_arrival_searches);
 }
 

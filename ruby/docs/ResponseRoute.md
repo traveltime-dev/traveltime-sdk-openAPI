@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**departure_time** | **DateTime** |  | 
-**arrival_time** | **DateTime** |  | 
-**parts** | [**Array&lt;ResponseRoutePart&gt;**](ResponseRoutePart.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **departure_time** | **Time** |  |  |
+| **arrival_time** | **Time** |  |  |
+| **parts** | [**Array&lt;ResponseRoutePart&gt;**](ResponseRoutePart.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseRoute.new(departure_time: null,
-                                 arrival_time: null,
-                                 parts: null)
+instance = OpenapiClient::ResponseRoute.new(
+  departure_time: null,
+  arrival_time: null,
+  parts: null
+)
 ```
-
 

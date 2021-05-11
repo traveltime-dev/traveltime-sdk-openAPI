@@ -1,53 +1,69 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseTimeMap {
-  
-  List<ResponseTimeMapResult> results = [];
-
+  /// Returns a new [ResponseTimeMap] instance.
   ResponseTimeMap({
-    this.results,
+    this.results = const [],
   });
 
-  @override
-  String toString() {
-    return 'ResponseTimeMap[results=$results, ]';
-  }
+  List<ResponseTimeMapResult> results;
 
-  ResponseTimeMap.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    results = (json['results'] == null) ?
-      null :
-      ResponseTimeMapResult.listFromJson(json['results']);
-  }
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseTimeMap &&
+     other.results == results;
+
+  @override
+  int get hashCode =>
+    (results == null ? 0 : results.hashCode);
+
+  @override
+  String toString() => 'ResponseTimeMap[results=$results]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (results != null)
-      json['results'] = results;
+    final json = <String, dynamic>{};
+      json[r'results'] = results;
     return json;
   }
 
-  static List<ResponseTimeMap> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseTimeMap>() : json.map((value) => ResponseTimeMap.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseTimeMap] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseTimeMap fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseTimeMap(
+        results: ResponseTimeMapResult.listFromJson(json[r'results']),
+    );
+
+  static List<ResponseTimeMap> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseTimeMap>[]
+      : json.map((v) => ResponseTimeMap.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseTimeMap> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseTimeMap>();
+    final map = <String, ResponseTimeMap>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseTimeMap.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseTimeMap.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseTimeMap-objects as value to a dart map
-  static Map<String, List<ResponseTimeMap>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseTimeMap>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseTimeMap.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseTimeMap>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseTimeMap>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseTimeMap.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

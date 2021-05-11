@@ -68,11 +68,4 @@ private class OASRequestTransportationFastTest {
         System.assertEquals(requestTransportationFast1.hashCode(), requestTransportationFast2.hashCode());
         System.assertEquals(requestTransportationFast3.hashCode(), requestTransportationFast4.hashCode());
     }
-
-    @isTest
-    private static void maintainRenamedProperties() {
-        OASRequestTransportationFast requestTransportationFast = new OASRequestTransportationFast();
-        Map<String, String> x-property-mappings = requestTransportationFast.getx-property-mappings();
-        System.assertEquals('r_type', x-property-mappings.get('type'));
-    }
 }

@@ -4,9 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**many_to_one** | [**\OpenAPI\Client\Model\RequestTimeFilterFastArrivalManyToOneSearch[]**](RequestTimeFilterFastArrivalManyToOneSearch.md) |  | [optional] 
-**one_to_many** | [**\OpenAPI\Client\Model\RequestTimeFilterFastArrivalOneToManySearch[]**](RequestTimeFilterFastArrivalOneToManySearch.md) |  | [optional] 
+**many_to_one** | [**\OpenAPI\Client\Model\RequestTimeFilterFastArrivalManyToOneSearch[]**](RequestTimeFilterFastArrivalManyToOneSearch.md) |  | [optional]
+**one_to_many** | [**\OpenAPI\Client\Model\RequestTimeFilterFastArrivalOneToManySearch[]**](RequestTimeFilterFastArrivalOneToManySearch.md) |  | [optional]
 
-[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
-
-
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

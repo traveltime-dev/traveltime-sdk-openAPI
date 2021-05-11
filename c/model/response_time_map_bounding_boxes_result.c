@@ -27,12 +27,21 @@ void response_time_map_bounding_boxes_result_free(response_time_map_bounding_box
         return ;
     }
     listEntry_t *listEntry;
-    free(response_time_map_bounding_boxes_result->search_id);
-    list_ForEach(listEntry, response_time_map_bounding_boxes_result->bounding_boxes) {
-        response_bounding_box_free(listEntry->data);
+    if (response_time_map_bounding_boxes_result->search_id) {
+        free(response_time_map_bounding_boxes_result->search_id);
+        response_time_map_bounding_boxes_result->search_id = NULL;
     }
-    list_free(response_time_map_bounding_boxes_result->bounding_boxes);
-    response_time_map_properties_free(response_time_map_bounding_boxes_result->properties);
+    if (response_time_map_bounding_boxes_result->bounding_boxes) {
+        list_ForEach(listEntry, response_time_map_bounding_boxes_result->bounding_boxes) {
+            response_bounding_box_free(listEntry->data);
+        }
+        list_free(response_time_map_bounding_boxes_result->bounding_boxes);
+        response_time_map_bounding_boxes_result->bounding_boxes = NULL;
+    }
+    if (response_time_map_bounding_boxes_result->properties) {
+        response_time_map_properties_free(response_time_map_bounding_boxes_result->properties);
+        response_time_map_bounding_boxes_result->properties = NULL;
+    }
     free(response_time_map_bounding_boxes_result);
 }
 
@@ -153,6 +162,10 @@ response_time_map_bounding_boxes_result_t *response_time_map_bounding_boxes_resu
 
     return response_time_map_bounding_boxes_result_local_var;
 end:
+    if (properties_local_nonprim) {
+        response_time_map_properties_free(properties_local_nonprim);
+        properties_local_nonprim = NULL;
+    }
     return NULL;
 
 }

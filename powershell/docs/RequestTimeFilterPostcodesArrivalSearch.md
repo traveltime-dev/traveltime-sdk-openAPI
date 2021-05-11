@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsRequestTimeFilterPostcodesArrivalSearch  -Id null `
+$RequestTimeFilterPostcodesArrivalSearch = Initialize-PSOpenAPIToolsRequestTimeFilterPostcodesArrivalSearch  -Id null `
  -Transportation null `
  -TravelTime null `
  -ArrivalTime null `
@@ -24,7 +24,7 @@ Initialize-PSOpenAPIToolsRequestTimeFilterPostcodesArrivalSearch  -Id null `
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$RequestTimeFilterPostcodesArrivalSearch | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

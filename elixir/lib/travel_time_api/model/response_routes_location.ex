@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseRoutesLocation do
 
   @type t :: %__MODULE__{
     :"id" => String.t,
-    :"properties" => [ResponseRoutesProperties]
+    :"properties" => [TravelTimeAPI.Model.ResponseRoutesProperties.t]
   }
 end
 

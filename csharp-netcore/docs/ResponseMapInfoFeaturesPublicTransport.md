@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseMapInfoFeaturesPublicTransport
+
 ## Properties
 
 Name | Type | Description | Notes

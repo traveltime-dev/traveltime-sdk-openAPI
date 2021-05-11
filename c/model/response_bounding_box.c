@@ -25,11 +25,17 @@ void response_bounding_box_free(response_bounding_box_t *response_bounding_box) 
         return ;
     }
     listEntry_t *listEntry;
-    response_box_free(response_bounding_box->envelope);
-    list_ForEach(listEntry, response_bounding_box->boxes) {
-        response_box_free(listEntry->data);
+    if (response_bounding_box->envelope) {
+        response_box_free(response_bounding_box->envelope);
+        response_bounding_box->envelope = NULL;
     }
-    list_free(response_bounding_box->boxes);
+    if (response_bounding_box->boxes) {
+        list_ForEach(listEntry, response_bounding_box->boxes) {
+            response_box_free(listEntry->data);
+        }
+        list_free(response_bounding_box->boxes);
+        response_bounding_box->boxes = NULL;
+    }
     free(response_bounding_box);
 }
 
@@ -127,6 +133,10 @@ response_bounding_box_t *response_bounding_box_parseFromJSON(cJSON *response_bou
 
     return response_bounding_box_local_var;
 end:
+    if (envelope_local_nonprim) {
+        response_box_free(envelope_local_nonprim);
+        envelope_local_nonprim = NULL;
+    }
     return NULL;
 
 }

@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestTimeFilterFastArrivalManyToOneSearch
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 
 # ResponseError
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **errorCode** | **Integer** |  |  [optional]
 **description** | **String** |  |  [optional]
 **documentationLink** | **String** |  |  [optional]
-**additionalInfo** | [**Map&lt;String, List&lt;String&gt;&gt;**](List.md) |  |  [optional]
+**additionalInfo** | **Map&lt;String, List&lt;String&gt;&gt;** |  |  [optional]
 
 
 

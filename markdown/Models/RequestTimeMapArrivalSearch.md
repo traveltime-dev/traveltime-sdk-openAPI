@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 **id** | [**String**](string.md) |  | [default to null]
 **coords** | [**Coords**](Coords.md) |  | [default to null]
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | [default to null]
-**travelUnderscoretime** | [**Integer**](integer.md) |  | [default to null]
-**arrivalUnderscoretime** | [**Date**](DateTime.md) |  | [default to null]
+**travel\_time** | [**Integer**](integer.md) |  | [default to null]
+**arrival\_time** | [**Date**](DateTime.md) |  | [default to null]
 **properties** | [**List**](RequestTimeMapProperty.md) |  | [optional] [default to null]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] [default to null]
 

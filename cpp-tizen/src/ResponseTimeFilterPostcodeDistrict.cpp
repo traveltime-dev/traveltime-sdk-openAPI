@@ -23,7 +23,7 @@ ResponseTimeFilterPostcodeDistrict::~ResponseTimeFilterPostcodeDistrict()
 void
 ResponseTimeFilterPostcodeDistrict::__init()
 {
-	//code = null;
+	//code = std::string();
 	//properties = new ResponseTimeFilterPostcodeDistrictProperties();
 }
 
@@ -53,12 +53,9 @@ ResponseTimeFilterPostcodeDistrict::fromJson(char* jsonStr)
 	if (node !=NULL) {
 	
 
-		if (isprimitive("String")) {
-			jsonToValue(&code, node, "String", "String");
+		if (isprimitive("std::string")) {
+			jsonToValue(&code, node, "std::string", "");
 		} else {
-			
-			String* obj = static_cast<String*> (&code);
-			obj->fromJson(json_to_string(node, false));
 			
 		}
 	}
@@ -88,16 +85,11 @@ ResponseTimeFilterPostcodeDistrict::toJson()
 {
 	JsonObject *pJsonObject = json_object_new();
 	JsonNode *node;
-	if (isprimitive("String")) {
-		String obj = getCode();
-		node = converttoJson(&obj, "String", "");
+	if (isprimitive("std::string")) {
+		std::string obj = getCode();
+		node = converttoJson(&obj, "std::string", "");
 	}
 	else {
-		
-		String obj = static_cast<String> (getCode());
-		GError *mygerror;
-		mygerror = NULL;
-		node = json_from_string(obj.toJson(), &mygerror);
 		
 	}
 	const gchar *codeKey = "code";
@@ -124,14 +116,14 @@ ResponseTimeFilterPostcodeDistrict::toJson()
 	return ret;
 }
 
-String
+std::string
 ResponseTimeFilterPostcodeDistrict::getCode()
 {
 	return code;
 }
 
 void
-ResponseTimeFilterPostcodeDistrict::setCode(String  code)
+ResponseTimeFilterPostcodeDistrict::setCode(std::string  code)
 {
 	this->code = code;
 }

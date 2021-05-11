@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterFastArrivalSearches do
   ]
 
   @type t :: %__MODULE__{
-    :"many_to_one" => [RequestTimeFilterFastArrivalManyToOneSearch] | nil,
-    :"one_to_many" => [RequestTimeFilterFastArrivalOneToManySearch] | nil
+    :"many_to_one" => [TravelTimeAPI.Model.RequestTimeFilterFastArrivalManyToOneSearch.t] | nil,
+    :"one_to_many" => [TravelTimeAPI.Model.RequestTimeFilterFastArrivalOneToManySearch.t] | nil
   }
 end
 

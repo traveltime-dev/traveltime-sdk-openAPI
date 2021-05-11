@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseFareTicket
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseFareTicket   {
   /**
@@ -47,12 +47,18 @@ public class ResponseFareTicket   {
   }
 
   @JsonProperty("type")
+  @NotNull
+
   private TypeEnum type;
 
   @JsonProperty("price")
+  @NotNull
+
   private Double price;
 
   @JsonProperty("currency")
+  @NotNull
+
   private String currency;
 
   public ResponseFareTicket type(TypeEnum type) {
@@ -64,7 +70,6 @@ public class ResponseFareTicket   {
    * Get type
    * @return type
   **/
-  @NotNull
   public TypeEnum getType() {
     return type;
   }
@@ -82,7 +87,6 @@ public class ResponseFareTicket   {
    * Get price
    * @return price
   **/
-  @NotNull
   public Double getPrice() {
     return price;
   }
@@ -100,7 +104,6 @@ public class ResponseFareTicket   {
    * Get currency
    * @return currency
   **/
-  @NotNull
   public String getCurrency() {
     return currency;
   }
@@ -111,7 +114,7 @@ public class ResponseFareTicket   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -146,7 +149,7 @@ public class ResponseFareTicket   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

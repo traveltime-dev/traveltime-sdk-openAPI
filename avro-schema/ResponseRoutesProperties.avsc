@@ -7,22 +7,27 @@
     {
       "name": "travel_time",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "distance",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "fares",
       "type": ["null", "model.ResponseFares"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "route",
       "type": ["null", "model.ResponseRoute"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

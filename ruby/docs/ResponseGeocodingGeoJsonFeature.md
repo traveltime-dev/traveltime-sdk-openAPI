@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | 
-**geometry** | [**ResponseGeocodingGeometry**](ResponseGeocodingGeometry.md) |  | 
-**properties** | [**ResponseGeocodingProperties**](ResponseGeocodingProperties.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  |  |
+| **geometry** | [**ResponseGeocodingGeometry**](ResponseGeocodingGeometry.md) |  |  |
+| **properties** | [**ResponseGeocodingProperties**](ResponseGeocodingProperties.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseGeocodingGeoJsonFeature.new(type: null,
-                                 geometry: null,
-                                 properties: null)
+instance = OpenapiClient::ResponseGeocodingGeoJsonFeature.new(
+  type: null,
+  geometry: null,
+  properties: null
+)
 ```
-
 

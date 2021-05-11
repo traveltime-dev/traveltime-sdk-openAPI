@@ -16,16 +16,16 @@ class ResponseTimeFilterPostcodeDistrict(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, code: String=None, properties: ResponseTimeFilterPostcodeDistrictProperties=None):  # noqa: E501
+    def __init__(self, code: str=None, properties: ResponseTimeFilterPostcodeDistrictProperties=None):  # noqa: E501
         """ResponseTimeFilterPostcodeDistrict - a model defined in Swagger
 
         :param code: The code of this ResponseTimeFilterPostcodeDistrict.  # noqa: E501
-        :type code: String
+        :type code: str
         :param properties: The properties of this ResponseTimeFilterPostcodeDistrict.  # noqa: E501
         :type properties: ResponseTimeFilterPostcodeDistrictProperties
         """
         self.swagger_types = {
-            'code': String,
+            'code': str,
             'properties': ResponseTimeFilterPostcodeDistrictProperties
         }
 
@@ -49,22 +49,22 @@ class ResponseTimeFilterPostcodeDistrict(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def code(self) -> String:
+    def code(self) -> str:
         """Gets the code of this ResponseTimeFilterPostcodeDistrict.
 
 
         :return: The code of this ResponseTimeFilterPostcodeDistrict.
-        :rtype: String
+        :rtype: str
         """
         return self._code
 
     @code.setter
-    def code(self, code: String):
+    def code(self, code: str):
         """Sets the code of this ResponseTimeFilterPostcodeDistrict.
 
 
         :param code: The code of this ResponseTimeFilterPostcodeDistrict.
-        :type code: String
+        :type code: str
         """
         if code is None:
             raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501

@@ -2,6 +2,3 @@
 # Please update as you see appropriate
 
 context("Test RequestRoutesProperty")
-
-model.instance <- RequestRoutesProperty$new()
-

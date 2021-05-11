@@ -33,19 +33,19 @@ import java.util.List;
 import java.util.Map;
 
 public class DefaultApiVerticle extends AbstractVerticle {
-    final static Logger LOGGER = LoggerFactory.getLogger(DefaultApiVerticle.class); 
+    static final Logger LOGGER = LoggerFactory.getLogger(DefaultApiVerticle.class);
     
-    final static String GEOCODINGREVERSESEARCH_SERVICE_ID = "geocodingReverseSearch";
-    final static String GEOCODINGSEARCH_SERVICE_ID = "geocodingSearch";
-    final static String MAPINFO_SERVICE_ID = "mapInfo";
-    final static String ROUTES_SERVICE_ID = "routes";
-    final static String SUPPORTEDLOCATIONS_SERVICE_ID = "supportedLocations";
-    final static String TIMEFILTER_SERVICE_ID = "timeFilter";
-    final static String TIMEFILTERFAST_SERVICE_ID = "timeFilterFast";
-    final static String TIMEFILTERPOSTCODEDISTRICTS_SERVICE_ID = "timeFilterPostcodeDistricts";
-    final static String TIMEFILTERPOSTCODESECTORS_SERVICE_ID = "timeFilterPostcodeSectors";
-    final static String TIMEFILTERPOSTCODES_SERVICE_ID = "timeFilterPostcodes";
-    final static String TIMEMAP_SERVICE_ID = "timeMap";
+    static final String GEOCODINGREVERSESEARCH_SERVICE_ID = "geocodingReverseSearch";
+    static final String GEOCODINGSEARCH_SERVICE_ID = "geocodingSearch";
+    static final String MAPINFO_SERVICE_ID = "mapInfo";
+    static final String ROUTES_SERVICE_ID = "routes";
+    static final String SUPPORTEDLOCATIONS_SERVICE_ID = "supportedLocations";
+    static final String TIMEFILTER_SERVICE_ID = "timeFilter";
+    static final String TIMEFILTERFAST_SERVICE_ID = "timeFilterFast";
+    static final String TIMEFILTERPOSTCODEDISTRICTS_SERVICE_ID = "timeFilterPostcodeDistricts";
+    static final String TIMEFILTERPOSTCODESECTORS_SERVICE_ID = "timeFilterPostcodeSectors";
+    static final String TIMEFILTERPOSTCODES_SERVICE_ID = "timeFilterPostcodes";
+    static final String TIMEMAP_SERVICE_ID = "timeMap";
     
     final DefaultApi service;
 

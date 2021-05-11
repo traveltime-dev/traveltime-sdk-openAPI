@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | 
-**coordinates** | **Array&lt;Float&gt;** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  |  |
+| **coordinates** | **Array&lt;Float&gt;** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseGeocodingGeometry.new(type: null,
-                                 coordinates: null)
+instance = OpenapiClient::ResponseGeocodingGeometry.new(
+  type: null,
+  coordinates: null
+)
 ```
-
 

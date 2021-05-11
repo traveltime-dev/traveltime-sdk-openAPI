@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseMapInfoMap do
 
   @type t :: %__MODULE__{
     :"name" => String.t,
-    :"features" => ResponseMapInfoFeatures
+    :"features" => TravelTimeAPI.Model.ResponseMapInfoFeatures.t
   }
 end
 

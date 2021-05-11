@@ -16,8 +16,8 @@ defmodule TravelTimeAPI.Model.ResponseTimeMapResult do
 
   @type t :: %__MODULE__{
     :"search_id" => String.t,
-    :"shapes" => [ResponseShape],
-    :"properties" => ResponseTimeMapProperties
+    :"shapes" => [TravelTimeAPI.Model.ResponseShape.t],
+    :"properties" => TravelTimeAPI.Model.ResponseTimeMapProperties.t
   }
 end
 

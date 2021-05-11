@@ -8,11 +8,11 @@ class RequestTimeFilterProperty {
 
   const RequestTimeFilterProperty._internal(this.value);
 
-  static const RequestTimeFilterProperty travelTime_ = const RequestTimeFilterProperty._internal("travel_time");
-  static const RequestTimeFilterProperty distance_ = const RequestTimeFilterProperty._internal("distance");
-  static const RequestTimeFilterProperty distanceBreakdown_ = const RequestTimeFilterProperty._internal("distance_breakdown");
-  static const RequestTimeFilterProperty fares_ = const RequestTimeFilterProperty._internal("fares");
-  static const RequestTimeFilterProperty route_ = const RequestTimeFilterProperty._internal("route");
+  static const RequestTimeFilterProperty travelTime = const RequestTimeFilterProperty._internal('travel_time');
+  static const RequestTimeFilterProperty distance = const RequestTimeFilterProperty._internal('distance');
+  static const RequestTimeFilterProperty distanceBreakdown = const RequestTimeFilterProperty._internal('distance_breakdown');
+  static const RequestTimeFilterProperty fares = const RequestTimeFilterProperty._internal('fares');
+  static const RequestTimeFilterProperty route = const RequestTimeFilterProperty._internal('route');
 }
 
 class RequestTimeFilterPropertyFieldProcessor implements FieldProcessor<RequestTimeFilterProperty, String> {
@@ -20,11 +20,11 @@ class RequestTimeFilterPropertyFieldProcessor implements FieldProcessor<RequestT
 
     RequestTimeFilterProperty deserialize(String data) {
         switch (data) {
-            case "travel_time": return RequestTimeFilterProperty.travelTime_;
-            case "distance": return RequestTimeFilterProperty.distance_;
-            case "distance_breakdown": return RequestTimeFilterProperty.distanceBreakdown_;
-            case "fares": return RequestTimeFilterProperty.fares_;
-            case "route": return RequestTimeFilterProperty.route_;
+            case 'travel_time': return RequestTimeFilterProperty.travelTime;
+            case 'distance': return RequestTimeFilterProperty.distance;
+            case 'distance_breakdown': return RequestTimeFilterProperty.distanceBreakdown;
+            case 'fares': return RequestTimeFilterProperty.fares;
+            case 'route': return RequestTimeFilterProperty.route;
             default: throw('Unknown enum value to decode: $data');
         }
     }

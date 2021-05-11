@@ -2,6 +2,7 @@
 
 # RequestTimeFilterPostcodesDepartureSearch
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,8 +10,8 @@ Name | Type | Description | Notes
 **id** | **String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **Integer** |  | 
-**departureTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**properties** | [**List&lt;RequestTimeFilterPostcodesProperty&gt;**](RequestTimeFilterPostcodesProperty.md) |  | 
+**departureTime** | **OffsetDateTime** |  | 
+**properties** | **List&lt;RequestTimeFilterPostcodesProperty&gt;** |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 
 

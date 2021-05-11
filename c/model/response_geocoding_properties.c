@@ -53,21 +53,66 @@ void response_geocoding_properties_free(response_geocoding_properties_t *respons
         return ;
     }
     listEntry_t *listEntry;
-    free(response_geocoding_properties->name);
-    free(response_geocoding_properties->label);
-    free(response_geocoding_properties->house_number);
-    free(response_geocoding_properties->street);
-    free(response_geocoding_properties->region);
-    free(response_geocoding_properties->region_code);
-    free(response_geocoding_properties->neighbourhood);
-    free(response_geocoding_properties->county);
-    free(response_geocoding_properties->macroregion);
-    free(response_geocoding_properties->city);
-    free(response_geocoding_properties->country);
-    free(response_geocoding_properties->country_code);
-    free(response_geocoding_properties->continent);
-    free(response_geocoding_properties->postcode);
-    response_map_info_features_free(response_geocoding_properties->features);
+    if (response_geocoding_properties->name) {
+        free(response_geocoding_properties->name);
+        response_geocoding_properties->name = NULL;
+    }
+    if (response_geocoding_properties->label) {
+        free(response_geocoding_properties->label);
+        response_geocoding_properties->label = NULL;
+    }
+    if (response_geocoding_properties->house_number) {
+        free(response_geocoding_properties->house_number);
+        response_geocoding_properties->house_number = NULL;
+    }
+    if (response_geocoding_properties->street) {
+        free(response_geocoding_properties->street);
+        response_geocoding_properties->street = NULL;
+    }
+    if (response_geocoding_properties->region) {
+        free(response_geocoding_properties->region);
+        response_geocoding_properties->region = NULL;
+    }
+    if (response_geocoding_properties->region_code) {
+        free(response_geocoding_properties->region_code);
+        response_geocoding_properties->region_code = NULL;
+    }
+    if (response_geocoding_properties->neighbourhood) {
+        free(response_geocoding_properties->neighbourhood);
+        response_geocoding_properties->neighbourhood = NULL;
+    }
+    if (response_geocoding_properties->county) {
+        free(response_geocoding_properties->county);
+        response_geocoding_properties->county = NULL;
+    }
+    if (response_geocoding_properties->macroregion) {
+        free(response_geocoding_properties->macroregion);
+        response_geocoding_properties->macroregion = NULL;
+    }
+    if (response_geocoding_properties->city) {
+        free(response_geocoding_properties->city);
+        response_geocoding_properties->city = NULL;
+    }
+    if (response_geocoding_properties->country) {
+        free(response_geocoding_properties->country);
+        response_geocoding_properties->country = NULL;
+    }
+    if (response_geocoding_properties->country_code) {
+        free(response_geocoding_properties->country_code);
+        response_geocoding_properties->country_code = NULL;
+    }
+    if (response_geocoding_properties->continent) {
+        free(response_geocoding_properties->continent);
+        response_geocoding_properties->continent = NULL;
+    }
+    if (response_geocoding_properties->postcode) {
+        free(response_geocoding_properties->postcode);
+        response_geocoding_properties->postcode = NULL;
+    }
+    if (response_geocoding_properties->features) {
+        response_map_info_features_free(response_geocoding_properties->features);
+        response_geocoding_properties->features = NULL;
+    }
     free(response_geocoding_properties);
 }
 
@@ -392,6 +437,10 @@ response_geocoding_properties_t *response_geocoding_properties_parseFromJSON(cJS
 
     return response_geocoding_properties_local_var;
 end:
+    if (features_local_nonprim) {
+        response_map_info_features_free(features_local_nonprim);
+        features_local_nonprim = NULL;
+    }
     return NULL;
 
 }

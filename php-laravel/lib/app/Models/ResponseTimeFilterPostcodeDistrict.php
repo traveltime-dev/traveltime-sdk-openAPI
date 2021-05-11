@@ -9,7 +9,7 @@ namespace app\Models;
  */
 class ResponseTimeFilterPostcodeDistrict {
 
-    /** @var String $code */
+    /** @var string $code */
     private $code;
 
     /** @var \app\Models\ResponseTimeFilterPostcodeDistrictProperties $properties */

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**breakdown** | [**Array&lt;ResponseFaresBreakdownItem&gt;**](ResponseFaresBreakdownItem.md) |  | 
-**tickets_total** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **breakdown** | [**Array&lt;ResponseFaresBreakdownItem&gt;**](ResponseFaresBreakdownItem.md) |  |  |
+| **tickets_total** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseFares.new(breakdown: null,
-                                 tickets_total: null)
+instance = OpenapiClient::ResponseFares.new(
+  breakdown: null,
+  tickets_total: null
+)
 ```
-
 

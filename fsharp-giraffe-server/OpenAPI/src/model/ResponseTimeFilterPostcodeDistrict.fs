@@ -10,7 +10,7 @@ module ResponseTimeFilterPostcodeDistrict =
 
 
   type ResponseTimeFilterPostcodeDistrict = {
-    Code : String;
+    Code : string;
     Properties : ResponseTimeFilterPostcodeDistrictProperties;
   }
   //#endregion

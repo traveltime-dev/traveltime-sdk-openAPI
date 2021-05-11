@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**properties** | [**Array&lt;ResponseRoutesProperties&gt;**](ResponseRoutesProperties.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **properties** | [**Array&lt;ResponseRoutesProperties&gt;**](ResponseRoutesProperties.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseRoutesLocation.new(id: null,
-                                 properties: null)
+instance = OpenapiClient::ResponseRoutesLocation.new(
+  id: null,
+  properties: null
+)
 ```
-
 

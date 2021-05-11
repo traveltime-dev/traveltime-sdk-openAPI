@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestTimeFilterPostcodeSectorsArrivalSearch
+
 ## Properties
 
 Name | Type | Description | Notes

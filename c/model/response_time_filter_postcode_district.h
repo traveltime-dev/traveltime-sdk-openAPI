@@ -16,16 +16,17 @@
 typedef struct response_time_filter_postcode_district_t response_time_filter_postcode_district_t;
 
 #include "response_time_filter_postcode_district_properties.h"
-#include "string.h"
 
 
 
 typedef struct response_time_filter_postcode_district_t {
+    char *code; // string
     struct response_time_filter_postcode_district_properties_t *properties; //model
 
 } response_time_filter_postcode_district_t;
 
 response_time_filter_postcode_district_t *response_time_filter_postcode_district_create(
+    char *code,
     response_time_filter_postcode_district_properties_t *properties
 );
 

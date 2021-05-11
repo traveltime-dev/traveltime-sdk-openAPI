@@ -44,7 +44,7 @@ import javax.ws.rs.*;
 
 
 @io.swagger.annotations.Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-07-14T11:27:11.038Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
 public class V4Api  {
    private final V4ApiService delegate = V4ApiServiceFactory.getV4Api();
 

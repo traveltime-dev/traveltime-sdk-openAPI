@@ -1,5 +1,6 @@
 # openapi::ResponseBoundingBox
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

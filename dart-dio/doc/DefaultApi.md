@@ -9,21 +9,21 @@ All URIs are relative to *https://api.traveltimeapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**geocodingReverseSearch**](DefaultApi.md#geocodingReverseSearch) | **get** /v4/geocoding/reverse | 
-[**geocodingSearch**](DefaultApi.md#geocodingSearch) | **get** /v4/geocoding/search | 
-[**mapInfo**](DefaultApi.md#mapInfo) | **get** /v4/map-info | 
+[**geocodingReverseSearch**](DefaultApi.md#geocodingreversesearch) | **get** /v4/geocoding/reverse | 
+[**geocodingSearch**](DefaultApi.md#geocodingsearch) | **get** /v4/geocoding/search | 
+[**mapInfo**](DefaultApi.md#mapinfo) | **get** /v4/map-info | 
 [**routes**](DefaultApi.md#routes) | **post** /v4/routes | 
-[**supportedLocations**](DefaultApi.md#supportedLocations) | **post** /v4/supported-locations | 
-[**timeFilter**](DefaultApi.md#timeFilter) | **post** /v4/time-filter | 
-[**timeFilterFast**](DefaultApi.md#timeFilterFast) | **post** /v4/time-filter/fast | 
-[**timeFilterPostcodeDistricts**](DefaultApi.md#timeFilterPostcodeDistricts) | **post** /v4/time-filter/postcode-districts | 
-[**timeFilterPostcodeSectors**](DefaultApi.md#timeFilterPostcodeSectors) | **post** /v4/time-filter/postcode-sectors | 
-[**timeFilterPostcodes**](DefaultApi.md#timeFilterPostcodes) | **post** /v4/time-filter/postcodes | 
-[**timeMap**](DefaultApi.md#timeMap) | **post** /v4/time-map | 
+[**supportedLocations**](DefaultApi.md#supportedlocations) | **post** /v4/supported-locations | 
+[**timeFilter**](DefaultApi.md#timefilter) | **post** /v4/time-filter | 
+[**timeFilterFast**](DefaultApi.md#timefilterfast) | **post** /v4/time-filter/fast | 
+[**timeFilterPostcodeDistricts**](DefaultApi.md#timefilterpostcodedistricts) | **post** /v4/time-filter/postcode-districts | 
+[**timeFilterPostcodeSectors**](DefaultApi.md#timefilterpostcodesectors) | **post** /v4/time-filter/postcode-sectors | 
+[**timeFilterPostcodes**](DefaultApi.md#timefilterpostcodes) | **post** /v4/time-filter/postcodes | 
+[**timeMap**](DefaultApi.md#timemap) | **post** /v4/time-map | 
 
 
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodCountry)
 
 
 
@@ -42,13 +42,13 @@ import 'package:openapi/api.dart';
 var api_instance = new DefaultApi();
 var lat = 1.2; // double | 
 var lng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+var withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingReverseSearch(lat, lng, withinCountry);
+    var result = api_instance.geocodingReverseSearch(lat, lng, withinPeriodCountry);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->geocodingReverseSearch: $e\n");
+    print('Exception when calling DefaultApi->geocodingReverseSearch: $e\n');
 }
 ```
 
@@ -56,9 +56,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lat** | **double**|  | [default to null]
- **lng** | **double**|  | [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **lat** | **double**|  | 
+ **lng** | **double**|  | 
+ **withinPeriodCountry** | **String**|  | [optional] 
 
 ### Return type
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
 
 
 
@@ -94,15 +94,15 @@ import 'package:openapi/api.dart';
 
 var api_instance = new DefaultApi();
 var query = query_example; // String | 
-var focusLat = 1.2; // double | 
-var focusLng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+var focusPeriodLat = 1.2; // double | 
+var focusPeriodLng = 1.2; // double | 
+var withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingSearch(query, focusLat, focusLng, withinCountry);
+    var result = api_instance.geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->geocodingSearch: $e\n");
+    print('Exception when calling DefaultApi->geocodingSearch: $e\n');
 }
 ```
 
@@ -110,10 +110,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**|  | [default to null]
- **focusLat** | **double**|  | [optional] [default to null]
- **focusLng** | **double**|  | [optional] [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **query** | **String**|  | 
+ **focusPeriodLat** | **double**|  | [optional] 
+ **focusPeriodLng** | **double**|  | [optional] 
+ **withinPeriodCountry** | **String**|  | [optional] 
 
 ### Return type
 
@@ -153,7 +153,7 @@ try {
     var result = api_instance.mapInfo();
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->mapInfo: $e\n");
+    print('Exception when calling DefaultApi->mapInfo: $e\n');
 }
 ```
 
@@ -199,7 +199,7 @@ try {
     var result = api_instance.routes(requestRoutes);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->routes: $e\n");
+    print('Exception when calling DefaultApi->routes: $e\n');
 }
 ```
 
@@ -248,7 +248,7 @@ try {
     var result = api_instance.supportedLocations(requestSupportedLocations);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->supportedLocations: $e\n");
+    print('Exception when calling DefaultApi->supportedLocations: $e\n');
 }
 ```
 
@@ -297,7 +297,7 @@ try {
     var result = api_instance.timeFilter(requestTimeFilter);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilter: $e\n");
+    print('Exception when calling DefaultApi->timeFilter: $e\n');
 }
 ```
 
@@ -346,7 +346,7 @@ try {
     var result = api_instance.timeFilterFast(requestTimeFilterFast);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterFast: $e\n");
+    print('Exception when calling DefaultApi->timeFilterFast: $e\n');
 }
 ```
 
@@ -395,7 +395,7 @@ try {
     var result = api_instance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodeDistricts: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodeDistricts: $e\n');
 }
 ```
 
@@ -444,7 +444,7 @@ try {
     var result = api_instance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodeSectors: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodeSectors: $e\n');
 }
 ```
 
@@ -493,7 +493,7 @@ try {
     var result = api_instance.timeFilterPostcodes(requestTimeFilterPostcodes);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodes: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodes: $e\n');
 }
 ```
 
@@ -542,7 +542,7 @@ try {
     var result = api_instance.timeMap(requestTimeMap);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeMap: $e\n");
+    print('Exception when calling DefaultApi->timeMap: $e\n');
 }
 ```
 

@@ -1,7 +1,7 @@
 package org.openapitools.model
 
 import java.util.Objects
-import com.fasterxml.jackson.annotation.JsonValue
+import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.DecimalMax
 import javax.validation.constraints.DecimalMin
 import javax.validation.constraints.Max
@@ -9,6 +9,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
 * 
@@ -16,35 +17,35 @@ import javax.validation.constraints.Size
 */
 enum class ResponseTransportationMode(val value: kotlin.String) {
 
-    car("car"),
+    @JsonProperty("car") car("car"),
 
-    parking("parking"),
+    @JsonProperty("parking") parking("parking"),
 
-    boarding("boarding"),
+    @JsonProperty("boarding") boarding("boarding"),
 
-    walk("walk"),
+    @JsonProperty("walk") walk("walk"),
 
-    bike("bike"),
+    @JsonProperty("bike") bike("bike"),
 
-    train("train"),
+    @JsonProperty("train") train("train"),
 
-    railNational("rail_national"),
+    @JsonProperty("rail_national") railNational("rail_national"),
 
-    railOverground("rail_overground"),
+    @JsonProperty("rail_overground") railOverground("rail_overground"),
 
-    railUnderground("rail_underground"),
+    @JsonProperty("rail_underground") railUnderground("rail_underground"),
 
-    railDlr("rail_dlr"),
+    @JsonProperty("rail_dlr") railDlr("rail_dlr"),
 
-    bus("bus"),
+    @JsonProperty("bus") bus("bus"),
 
-    cableCar("cable_car"),
+    @JsonProperty("cable_car") cableCar("cable_car"),
 
-    plane("plane"),
+    @JsonProperty("plane") plane("plane"),
 
-    ferry("ferry"),
+    @JsonProperty("ferry") ferry("ferry"),
 
-    coach("coach");
+    @JsonProperty("coach") coach("coach");
 
 }
 

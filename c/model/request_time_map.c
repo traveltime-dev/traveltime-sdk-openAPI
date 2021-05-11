@@ -29,22 +29,34 @@ void request_time_map_free(request_time_map_t *request_time_map) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_time_map->departure_searches) {
-        request_time_map_departure_search_free(listEntry->data);
+    if (request_time_map->departure_searches) {
+        list_ForEach(listEntry, request_time_map->departure_searches) {
+            request_time_map_departure_search_free(listEntry->data);
+        }
+        list_free(request_time_map->departure_searches);
+        request_time_map->departure_searches = NULL;
     }
-    list_free(request_time_map->departure_searches);
-    list_ForEach(listEntry, request_time_map->arrival_searches) {
-        request_time_map_arrival_search_free(listEntry->data);
+    if (request_time_map->arrival_searches) {
+        list_ForEach(listEntry, request_time_map->arrival_searches) {
+            request_time_map_arrival_search_free(listEntry->data);
+        }
+        list_free(request_time_map->arrival_searches);
+        request_time_map->arrival_searches = NULL;
     }
-    list_free(request_time_map->arrival_searches);
-    list_ForEach(listEntry, request_time_map->unions) {
-        request_union_on_intersection_free(listEntry->data);
+    if (request_time_map->unions) {
+        list_ForEach(listEntry, request_time_map->unions) {
+            request_union_on_intersection_free(listEntry->data);
+        }
+        list_free(request_time_map->unions);
+        request_time_map->unions = NULL;
     }
-    list_free(request_time_map->unions);
-    list_ForEach(listEntry, request_time_map->intersections) {
-        request_union_on_intersection_free(listEntry->data);
+    if (request_time_map->intersections) {
+        list_ForEach(listEntry, request_time_map->intersections) {
+            request_union_on_intersection_free(listEntry->data);
+        }
+        list_free(request_time_map->intersections);
+        request_time_map->intersections = NULL;
     }
-    list_free(request_time_map->intersections);
     free(request_time_map);
 }
 

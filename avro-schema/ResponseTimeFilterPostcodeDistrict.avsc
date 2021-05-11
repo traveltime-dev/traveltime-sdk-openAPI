@@ -6,7 +6,7 @@
   "fields": [
     {
       "name": "code",
-      "type": ,
+      "type": "string",
       "doc": ""
     },
     {
@@ -15,4 +15,5 @@
       "doc": ""
     }
   ]
+
 }

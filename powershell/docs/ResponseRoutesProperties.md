@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseRoutesProperties  -TravelTime null `
+$ResponseRoutesProperties = Initialize-PSOpenAPIToolsResponseRoutesProperties  -TravelTime null `
  -Distance null `
  -Fares null `
  -Route null
@@ -20,7 +20,7 @@ Initialize-PSOpenAPIToolsResponseRoutesProperties  -TravelTime null `
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseRoutesProperties | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -21,7 +21,7 @@ class ResponseError {
     /** @var string $documentationLink */
     private $documentationLink;
 
-    /** @var map[string,string[]] $additionalInfo */
+    /** @var array<string,string[]> $additionalInfo */
     private $additionalInfo;
 
 }

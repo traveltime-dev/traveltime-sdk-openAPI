@@ -13,19 +13,31 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeMap   {
   @JsonProperty("departure_searches")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeMapDepartureSearch> departureSearches = null;
 
   @JsonProperty("arrival_searches")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeMapArrivalSearch> arrivalSearches = null;
 
   @JsonProperty("unions")
+  @Size(max=10)
+@Valid
+
   private List<RequestUnionOnIntersection> unions = null;
 
   @JsonProperty("intersections")
+  @Size(max=10)
+@Valid
+
   private List<RequestUnionOnIntersection> intersections = null;
 
   public RequestTimeMap departureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
@@ -45,8 +57,6 @@ public class RequestTimeMap   {
    * Get departureSearches
    * @return departureSearches
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeMapDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
@@ -72,8 +82,6 @@ public class RequestTimeMap   {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeMapArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
@@ -99,8 +107,6 @@ public class RequestTimeMap   {
    * Get unions
    * @return unions
   **/
-  @Size(max=10)
-@Valid
   public List<RequestUnionOnIntersection> getUnions() {
     return unions;
   }
@@ -126,8 +132,6 @@ public class RequestTimeMap   {
    * Get intersections
    * @return intersections
   **/
-  @Size(max=10)
-@Valid
   public List<RequestUnionOnIntersection> getIntersections() {
     return intersections;
   }
@@ -138,7 +142,7 @@ public class RequestTimeMap   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -175,7 +179,7 @@ public class RequestTimeMap   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

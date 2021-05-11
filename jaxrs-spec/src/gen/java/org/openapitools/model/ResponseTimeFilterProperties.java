@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseTimeFilterProperties   {
   
   private @Valid Integer travelTime;
   private @Valid Integer distance;
@@ -44,7 +44,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }/**
+  }
+
+/**
    **/
   public ResponseTimeFilterProperties distance(Integer distance) {
     this.distance = distance;
@@ -62,7 +64,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDistance(Integer distance) {
     this.distance = distance;
-  }/**
+  }
+
+/**
    **/
   public ResponseTimeFilterProperties distanceBreakdown(List<ResponseDistanceBreakdownItem> distanceBreakdown) {
     this.distanceBreakdown = distanceBreakdown;
@@ -80,7 +84,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDistanceBreakdown(List<ResponseDistanceBreakdownItem> distanceBreakdown) {
     this.distanceBreakdown = distanceBreakdown;
-  }/**
+  }
+
+/**
    **/
   public ResponseTimeFilterProperties fares(ResponseFares fares) {
     this.fares = fares;
@@ -98,7 +104,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setFares(ResponseFares fares) {
     this.fares = fares;
-  }/**
+  }
+
+/**
    **/
   public ResponseTimeFilterProperties route(ResponseRoute route) {
     this.route = route;
@@ -118,8 +126,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.route = route;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -157,7 +166,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

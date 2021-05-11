@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**ModelString**](ModelString.md) |  | 
+**code** | **String** |  | 
 **properties** | [**ResponseTimeFilterPostcodeDistrictProperties**](ResponseTimeFilterPostcodeDistrictProperties.md) |  | 
 
 

@@ -8,14 +8,14 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [default to null]
-**departureLocationId** | **String** |  | [default to null]
-**arrivalLocationIds** | **BuiltList&lt;String&gt;** |  | [default to const []]
-**transportation** | [**RequestTransportation**](RequestTransportation.md) |  | [default to null]
-**travelTime** | **int** |  | [default to null]
-**departureTime** | [**DateTime**](DateTime.md) |  | [default to null]
-**properties** | [**BuiltList&lt;RequestTimeFilterProperty&gt;**](RequestTimeFilterProperty.md) |  | [default to const []]
-**range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] [default to null]
+**id** | **String** |  | 
+**departureLocationId** | **String** |  | 
+**arrivalLocationIds** | **BuiltList<String>** |  | 
+**transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
+**travelTime** | **int** |  | 
+**departureTime** | [**DateTime**](DateTime.md) |  | 
+**properties** | [**BuiltList<RequestTimeFilterProperty>**](RequestTimeFilterProperty.md) |  | 
+**range** | [**RequestRangeFull**](RequestRangeFull.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

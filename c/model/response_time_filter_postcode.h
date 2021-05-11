@@ -16,16 +16,17 @@
 typedef struct response_time_filter_postcode_t response_time_filter_postcode_t;
 
 #include "response_time_filter_postcodes_properties.h"
-#include "string.h"
 
 
 
 typedef struct response_time_filter_postcode_t {
+    char *code; // string
     list_t *properties; //nonprimitive container
 
 } response_time_filter_postcode_t;
 
 response_time_filter_postcode_t *response_time_filter_postcode_create(
+    char *code,
     list_t *properties
 );
 

@@ -8,16 +8,26 @@ import javax.validation.constraints.*;
 /**
  * RequestRangeFull
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestRangeFull   {
   @JsonProperty("enabled")
+  @NotNull
+
   private Boolean enabled;
 
   @JsonProperty("max_results")
+  @NotNull
+@Min(1)
+@Max(5)
+
   private Integer maxResults;
 
   @JsonProperty("width")
+  @NotNull
+@Min(1)
+@Max(43200)
+
   private Integer width;
 
   public RequestRangeFull enabled(Boolean enabled) {
@@ -29,7 +39,6 @@ public class RequestRangeFull   {
    * Get enabled
    * @return enabled
   **/
-  @NotNull
   public Boolean getEnabled() {
     return enabled;
   }
@@ -49,9 +58,6 @@ public class RequestRangeFull   {
    * maximum: 5
    * @return maxResults
   **/
-  @NotNull
-@Min(1)
-@Max(5)
   public Integer getMaxResults() {
     return maxResults;
   }
@@ -71,9 +77,6 @@ public class RequestRangeFull   {
    * maximum: 43200
    * @return width
   **/
-  @NotNull
-@Min(1)
-@Max(43200)
   public Integer getWidth() {
     return width;
   }
@@ -84,7 +87,7 @@ public class RequestRangeFull   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -119,7 +122,7 @@ public class RequestRangeFull   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

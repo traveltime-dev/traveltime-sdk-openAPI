@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**lat** | **Float** |  | 
-**lng** | **Float** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **lat** | **Float** |  |  |
+| **lng** | **Float** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::Coords.new(lat: null,
-                                 lng: null)
+instance = OpenapiClient::Coords.new(
+  lat: null,
+  lng: null
+)
 ```
-
 

@@ -41,8 +41,8 @@ class V4ApiTest {
     fun geocodingReverseSearchTest() {
         val lat:kotlin.Double? = null
         val lng:kotlin.Double? = null
-        val withinPeriodCountry:kotlin.String? = null
-        val response: ResponseEntity<ResponseGeocoding> = api.geocodingReverseSearch(lat!!, lng!!, withinPeriodCountry!!)
+        val withinCountry:kotlin.String? = null
+        val response: ResponseEntity<ResponseGeocoding> = api.geocodingReverseSearch(lat!!, lng!!, withinCountry!!)
 
         // TODO: test validations
     }
@@ -58,10 +58,10 @@ class V4ApiTest {
     @Test
     fun geocodingSearchTest() {
         val query:kotlin.String? = null
-        val focusPeriodLat:kotlin.Double? = null
-        val focusPeriodLng:kotlin.Double? = null
-        val withinPeriodCountry:kotlin.String? = null
-        val response: ResponseEntity<ResponseGeocoding> = api.geocodingSearch(query!!, focusPeriodLat!!, focusPeriodLng!!, withinPeriodCountry!!)
+        val focusLat:kotlin.Double? = null
+        val focusLng:kotlin.Double? = null
+        val withinCountry:kotlin.String? = null
+        val response: ResponseEntity<ResponseGeocoding> = api.geocodingSearch(query!!, focusLat!!, focusLng!!, withinCountry!!)
 
         // TODO: test validations
     }

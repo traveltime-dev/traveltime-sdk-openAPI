@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsRequestTimeFilterFastArrivalManyToOneSearch  -Id null `
+$RequestTimeFilterFastArrivalManyToOneSearch = Initialize-PSOpenAPIToolsRequestTimeFilterFastArrivalManyToOneSearch  -Id null `
  -ArrivalLocationId null `
  -DepartureLocationIds null `
  -Transportation null `
@@ -26,7 +26,7 @@ Initialize-PSOpenAPIToolsRequestTimeFilterFastArrivalManyToOneSearch  -Id null `
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$RequestTimeFilterFastArrivalManyToOneSearch | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

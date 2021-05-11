@@ -1,5 +1,6 @@
 # openapi::RequestTimeMapArrivalSearch
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

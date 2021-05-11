@@ -2,22 +2,23 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**min_lat** | **Float** |  | 
-**max_lat** | **Float** |  | 
-**min_lng** | **Float** |  | 
-**max_lng** | **Float** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **min_lat** | **Float** |  |  |
+| **max_lat** | **Float** |  |  |
+| **min_lng** | **Float** |  |  |
+| **max_lng** | **Float** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseBox.new(min_lat: null,
-                                 max_lat: null,
-                                 min_lng: null,
-                                 max_lng: null)
+instance = OpenapiClient::ResponseBox.new(
+  min_lat: null,
+  max_lat: null,
+  min_lng: null,
+  max_lng: null
+)
 ```
-
 

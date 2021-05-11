@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestTimeMapDepartureSearch: Codable { 
-
+public struct RequestTimeMapDepartureSearch: Codable, Hashable {
 
     public var id: String
     public var coords: Coords
@@ -28,8 +27,7 @@ public struct RequestTimeMapDepartureSearch: Codable {
         self.properties = properties
         self.range = range
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case coords
         case transportation
@@ -38,5 +36,20 @@ public struct RequestTimeMapDepartureSearch: Codable {
         case properties
         case range
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(coords, forKey: .coords)
+        try container.encode(transportation, forKey: .transportation)
+        try container.encode(travelTime, forKey: .travelTime)
+        try container.encode(departureTime, forKey: .departureTime)
+        try container.encodeIfPresent(properties, forKey: .properties)
+        try container.encodeIfPresent(range, forKey: .range)
+    }
+
+
 
 }

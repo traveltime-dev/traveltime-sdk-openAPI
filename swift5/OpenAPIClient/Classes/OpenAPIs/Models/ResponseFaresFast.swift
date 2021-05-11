@@ -6,19 +6,26 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseFaresFast: Codable { 
-
+public struct ResponseFaresFast: Codable, Hashable {
 
     public var ticketsTotal: [ResponseFareTicket]
 
     public init(ticketsTotal: [ResponseFareTicket]) {
         self.ticketsTotal = ticketsTotal
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case ticketsTotal = "tickets_total"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(ticketsTotal, forKey: .ticketsTotal)
+    }
+
+
 
 }

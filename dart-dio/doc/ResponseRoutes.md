@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**results** | [**BuiltList&lt;ResponseRoutesResult&gt;**](ResponseRoutesResult.md) |  | [default to const []]
+**results** | [**BuiltList<ResponseRoutesResult>**](ResponseRoutesResult.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

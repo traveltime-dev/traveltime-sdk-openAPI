@@ -7,7 +7,9 @@
     {
       "name": "is_only_walking",
       "type": ["null", "boolean"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

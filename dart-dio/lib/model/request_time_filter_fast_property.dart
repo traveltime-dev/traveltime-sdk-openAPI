@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,9 +13,9 @@ part 'request_time_filter_fast_property.g.dart';
 
 class RequestTimeFilterFastProperty extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "travel_time")
+  @BuiltValueEnumConst(wireName: r'travel_time')
   static const RequestTimeFilterFastProperty travelTime = _$travelTime;
-  @BuiltValueEnumConst(wireName: "fares")
+  @BuiltValueEnumConst(wireName: r'fares')
   static const RequestTimeFilterFastProperty fares = _$fares;
 
   static Serializer<RequestTimeFilterFastProperty> get serializer => _$requestTimeFilterFastPropertySerializer;

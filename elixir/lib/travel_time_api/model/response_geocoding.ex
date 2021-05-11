@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseGeocoding do
 
   @type t :: %__MODULE__{
     :"type" => String.t,
-    :"features" => [ResponseGeocodingGeoJsonFeature]
+    :"features" => [TravelTimeAPI.Model.ResponseGeocodingGeoJsonFeature.t]
   }
 end
 

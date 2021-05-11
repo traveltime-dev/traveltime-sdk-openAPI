@@ -71,6 +71,8 @@ class RequestTimeMap(Model):
         :param departure_searches: The departure_searches of this RequestTimeMap.
         :type departure_searches: List[RequestTimeMapDepartureSearch]
         """
+        if departure_searches is not None and len(departure_searches) > 10:
+            raise ValueError("Invalid value for `departure_searches`, number of items must be less than or equal to `10`")
 
         self._departure_searches = departure_searches
 
@@ -92,6 +94,8 @@ class RequestTimeMap(Model):
         :param arrival_searches: The arrival_searches of this RequestTimeMap.
         :type arrival_searches: List[RequestTimeMapArrivalSearch]
         """
+        if arrival_searches is not None and len(arrival_searches) > 10:
+            raise ValueError("Invalid value for `arrival_searches`, number of items must be less than or equal to `10`")
 
         self._arrival_searches = arrival_searches
 
@@ -113,6 +117,8 @@ class RequestTimeMap(Model):
         :param unions: The unions of this RequestTimeMap.
         :type unions: List[RequestUnionOnIntersection]
         """
+        if unions is not None and len(unions) > 10:
+            raise ValueError("Invalid value for `unions`, number of items must be less than or equal to `10`")
 
         self._unions = unions
 
@@ -134,5 +140,7 @@ class RequestTimeMap(Model):
         :param intersections: The intersections of this RequestTimeMap.
         :type intersections: List[RequestUnionOnIntersection]
         """
+        if intersections is not None and len(intersections) > 10:
+            raise ValueError("Invalid value for `intersections`, number of items must be less than or equal to `10`")
 
         self._intersections = intersections

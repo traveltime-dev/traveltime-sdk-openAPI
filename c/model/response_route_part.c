@@ -86,20 +86,53 @@ void response_route_part_free(response_route_part_t *response_route_part) {
         return ;
     }
     listEntry_t *listEntry;
-    free(response_route_part->id);
-    free(response_route_part->directions);
-    list_ForEach(listEntry, response_route_part->coords) {
-        coords_free(listEntry->data);
+    if (response_route_part->id) {
+        free(response_route_part->id);
+        response_route_part->id = NULL;
     }
-    list_free(response_route_part->coords);
-    free(response_route_part->direction);
-    free(response_route_part->road);
-    free(response_route_part->turn);
-    free(response_route_part->line);
-    free(response_route_part->departure_station);
-    free(response_route_part->arrival_station);
-    free(response_route_part->departs_at);
-    free(response_route_part->arrives_at);
+    if (response_route_part->directions) {
+        free(response_route_part->directions);
+        response_route_part->directions = NULL;
+    }
+    if (response_route_part->coords) {
+        list_ForEach(listEntry, response_route_part->coords) {
+            coords_free(listEntry->data);
+        }
+        list_free(response_route_part->coords);
+        response_route_part->coords = NULL;
+    }
+    if (response_route_part->direction) {
+        free(response_route_part->direction);
+        response_route_part->direction = NULL;
+    }
+    if (response_route_part->road) {
+        free(response_route_part->road);
+        response_route_part->road = NULL;
+    }
+    if (response_route_part->turn) {
+        free(response_route_part->turn);
+        response_route_part->turn = NULL;
+    }
+    if (response_route_part->line) {
+        free(response_route_part->line);
+        response_route_part->line = NULL;
+    }
+    if (response_route_part->departure_station) {
+        free(response_route_part->departure_station);
+        response_route_part->departure_station = NULL;
+    }
+    if (response_route_part->arrival_station) {
+        free(response_route_part->arrival_station);
+        response_route_part->arrival_station = NULL;
+    }
+    if (response_route_part->departs_at) {
+        free(response_route_part->departs_at);
+        response_route_part->departs_at = NULL;
+    }
+    if (response_route_part->arrives_at) {
+        free(response_route_part->arrives_at);
+        response_route_part->arrives_at = NULL;
+    }
     free(response_route_part);
 }
 

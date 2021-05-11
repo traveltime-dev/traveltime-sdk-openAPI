@@ -3,6 +3,9 @@
 .openapi-generator-ignore
 README.md
 composer.json
+config/.htaccess
+config/dev/example.inc.php
+config/prod/example.inc.php
 index.php
 lib/Api/AbstractDefaultApi.php
 lib/Auth/AbstractAuthenticator.php

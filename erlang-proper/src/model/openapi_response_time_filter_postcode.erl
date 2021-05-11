@@ -9,7 +9,7 @@
 -export_type([openapi_response_time_filter_postcode/0]).
 
 -type openapi_response_time_filter_postcode() ::
-  [ {'code', openapi_string:openapi_string() }
+  [ {'code', binary() }
   | {'properties', list(openapi_response_time_filter_postcodes_properties:openapi_response_time_filter_postcodes_properties()) }
   ].
 
@@ -18,7 +18,7 @@ openapi_response_time_filter_postcode() ->
     openapi_response_time_filter_postcode([]).
 
 openapi_response_time_filter_postcode(Fields) ->
-  Default = [ {'code', openapi_string:openapi_string() }
+  Default = [ {'code', binary() }
             , {'properties', list(openapi_response_time_filter_postcodes_properties:openapi_response_time_filter_postcodes_properties()) }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).

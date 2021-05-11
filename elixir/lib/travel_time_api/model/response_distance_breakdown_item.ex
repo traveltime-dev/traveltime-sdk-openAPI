@@ -14,7 +14,7 @@ defmodule TravelTimeAPI.Model.ResponseDistanceBreakdownItem do
   ]
 
   @type t :: %__MODULE__{
-    :"mode" => ResponseTransportationMode,
+    :"mode" => TravelTimeAPI.Model.ResponseTransportationMode.t,
     :"distance" => integer()
   }
 end

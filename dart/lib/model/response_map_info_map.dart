@@ -1,59 +1,76 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseMapInfoMap {
-  
-  String name = null;
-  
-  ResponseMapInfoFeatures features = null;
-
+  /// Returns a new [ResponseMapInfoMap] instance.
   ResponseMapInfoMap({
-    this.name,
-    this.features,
+    @required this.name,
+    @required this.features,
   });
 
-  @override
-  String toString() {
-    return 'ResponseMapInfoMap[name=$name, features=$features, ]';
-  }
+  String name;
 
-  ResponseMapInfoMap.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    name = json['name'];
-    features = (json['features'] == null) ?
-      null :
-      ResponseMapInfoFeatures.fromJson(json['features']);
-  }
+  ResponseMapInfoFeatures features;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseMapInfoMap &&
+     other.name == name &&
+     other.features == features;
+
+  @override
+  int get hashCode =>
+    (name == null ? 0 : name.hashCode) +
+    (features == null ? 0 : features.hashCode);
+
+  @override
+  String toString() => 'ResponseMapInfoMap[name=$name, features=$features]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (name != null)
-      json['name'] = name;
-    if (features != null)
-      json['features'] = features;
+    final json = <String, dynamic>{};
+      json[r'name'] = name;
+      json[r'features'] = features;
     return json;
   }
 
-  static List<ResponseMapInfoMap> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseMapInfoMap>() : json.map((value) => ResponseMapInfoMap.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseMapInfoMap] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseMapInfoMap fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseMapInfoMap(
+        name: json[r'name'],
+        features: ResponseMapInfoFeatures.fromJson(json[r'features']),
+    );
+
+  static List<ResponseMapInfoMap> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseMapInfoMap>[]
+      : json.map((v) => ResponseMapInfoMap.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseMapInfoMap> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseMapInfoMap>();
+    final map = <String, ResponseMapInfoMap>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfoMap.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseMapInfoMap.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseMapInfoMap-objects as value to a dart map
-  static Map<String, List<ResponseMapInfoMap>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseMapInfoMap>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseMapInfoMap.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseMapInfoMap>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseMapInfoMap>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseMapInfoMap.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

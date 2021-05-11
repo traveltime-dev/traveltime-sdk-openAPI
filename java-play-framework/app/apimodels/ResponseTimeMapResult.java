@@ -12,16 +12,24 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeMapResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeMapResult   {
   @JsonProperty("search_id")
+  @NotNull
+
   private String searchId;
 
   @JsonProperty("shapes")
+  @NotNull
+@Valid
+
   private List<ResponseShape> shapes = new ArrayList<>();
 
   @JsonProperty("properties")
+  @NotNull
+@Valid
+
   private ResponseTimeMapProperties properties;
 
   public ResponseTimeMapResult searchId(String searchId) {
@@ -33,7 +41,6 @@ public class ResponseTimeMapResult   {
    * Get searchId
    * @return searchId
   **/
-  @NotNull
   public String getSearchId() {
     return searchId;
   }
@@ -56,8 +63,6 @@ public class ResponseTimeMapResult   {
    * Get shapes
    * @return shapes
   **/
-  @NotNull
-@Valid
   public List<ResponseShape> getShapes() {
     return shapes;
   }
@@ -75,8 +80,6 @@ public class ResponseTimeMapResult   {
    * Get properties
    * @return properties
   **/
-  @NotNull
-@Valid
   public ResponseTimeMapProperties getProperties() {
     return properties;
   }
@@ -87,7 +90,7 @@ public class ResponseTimeMapResult   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -122,7 +125,7 @@ public class ResponseTimeMapResult   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

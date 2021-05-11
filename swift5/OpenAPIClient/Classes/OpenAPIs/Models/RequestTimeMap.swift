@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestTimeMap: Codable { 
-
+public struct RequestTimeMap: Codable, Hashable {
 
     public var departureSearches: [RequestTimeMapDepartureSearch]?
     public var arrivalSearches: [RequestTimeMapArrivalSearch]?
@@ -22,12 +21,23 @@ public struct RequestTimeMap: Codable {
         self.unions = unions
         self.intersections = intersections
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case departureSearches = "departure_searches"
         case arrivalSearches = "arrival_searches"
         case unions
         case intersections
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(departureSearches, forKey: .departureSearches)
+        try container.encodeIfPresent(arrivalSearches, forKey: .arrivalSearches)
+        try container.encodeIfPresent(unions, forKey: .unions)
+        try container.encodeIfPresent(intersections, forKey: .intersections)
+    }
+
+
 
 }

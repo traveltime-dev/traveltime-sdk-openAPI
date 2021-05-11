@@ -23,10 +23,13 @@ void response_fares_fast_free(response_fares_fast_t *response_fares_fast) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_fares_fast->tickets_total) {
-        response_fare_ticket_free(listEntry->data);
+    if (response_fares_fast->tickets_total) {
+        list_ForEach(listEntry, response_fares_fast->tickets_total) {
+            response_fare_ticket_free(listEntry->data);
+        }
+        list_free(response_fares_fast->tickets_total);
+        response_fares_fast->tickets_total = NULL;
     }
-    list_free(response_fares_fast->tickets_total);
     free(response_fares_fast);
 }
 

@@ -2,6 +2,7 @@
 
 # RequestTimeFilterFastArrivalManyToOneSearch
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,8 +12,8 @@ Name | Type | Description | Notes
 **departureLocationIds** | **List&lt;String&gt;** |  | 
 **transportation** | [**RequestTransportationFast**](RequestTransportationFast.md) |  | 
 **travelTime** | **Integer** |  | 
-**arrivalTimePeriod** | [**RequestArrivalTimePeriod**](RequestArrivalTimePeriod.md) |  | 
-**properties** | [**List&lt;RequestTimeFilterFastProperty&gt;**](RequestTimeFilterFastProperty.md) |  | 
+**arrivalTimePeriod** | **RequestArrivalTimePeriod** |  | 
+**properties** | **List&lt;RequestTimeFilterFastProperty&gt;** |  | 
 
 
 

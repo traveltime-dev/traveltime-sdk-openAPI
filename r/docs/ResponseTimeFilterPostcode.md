@@ -1,9 +1,10 @@
 # openapi::ResponseTimeFilterPostcode
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**String**](String.md) |  | 
+**code** | **character** |  | 
 **properties** | [**array[ResponseTimeFilterPostcodesProperties]**](ResponseTimeFilterPostcodesProperties.md) |  | 
 
 

@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**envelope** | [**ResponseBox**](ResponseBox.md) |  | [default to null]
-**boxes** | [**List&lt;ResponseBox&gt;**](ResponseBox.md) |  | [default to []]
+**envelope** | [**ResponseBox**](ResponseBox.md) |  | 
+**boxes** | [**List<ResponseBox>**](ResponseBox.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

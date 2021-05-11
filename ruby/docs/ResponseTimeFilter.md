@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**results** | [**Array&lt;ResponseTimeFilterResult&gt;**](ResponseTimeFilterResult.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **results** | [**Array&lt;ResponseTimeFilterResult&gt;**](ResponseTimeFilterResult.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeFilter.new(results: null)
+instance = OpenapiClient::ResponseTimeFilter.new(
+  results: null
+)
 ```
-
 

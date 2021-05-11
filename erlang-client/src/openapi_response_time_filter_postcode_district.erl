@@ -5,7 +5,7 @@
 -export_type([openapi_response_time_filter_postcode_district/0]).
 
 -type openapi_response_time_filter_postcode_district() ::
-    #{ 'code' := openapi_string:openapi_string(),
+    #{ 'code' := binary(),
        'properties' := openapi_response_time_filter_postcode_district_properties:openapi_response_time_filter_postcode_district_properties()
      }.
 

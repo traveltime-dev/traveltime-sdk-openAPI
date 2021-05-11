@@ -22,12 +22,12 @@ response_time_filter_postcode_t* instantiate_response_time_filter_postcode(int i
   response_time_filter_postcode_t* response_time_filter_postcode = NULL;
   if (include_optional) {
     response_time_filter_postcode = response_time_filter_postcode_create(
-      null,
+      "0",
       list_create()
     );
   } else {
     response_time_filter_postcode = response_time_filter_postcode_create(
-      null,
+      "0",
       list_create()
     );
   }

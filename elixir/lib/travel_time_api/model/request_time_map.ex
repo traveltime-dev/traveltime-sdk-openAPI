@@ -16,10 +16,10 @@ defmodule TravelTimeAPI.Model.RequestTimeMap do
   ]
 
   @type t :: %__MODULE__{
-    :"departure_searches" => [RequestTimeMapDepartureSearch] | nil,
-    :"arrival_searches" => [RequestTimeMapArrivalSearch] | nil,
-    :"unions" => [RequestUnionOnIntersection] | nil,
-    :"intersections" => [RequestUnionOnIntersection] | nil
+    :"departure_searches" => [TravelTimeAPI.Model.RequestTimeMapDepartureSearch.t] | nil,
+    :"arrival_searches" => [TravelTimeAPI.Model.RequestTimeMapArrivalSearch.t] | nil,
+    :"unions" => [TravelTimeAPI.Model.RequestUnionOnIntersection.t] | nil,
+    :"intersections" => [TravelTimeAPI.Model.RequestUnionOnIntersection.t] | nil
   }
 end
 

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**travelUnderscoretime** | [**Integer**](integer.md) |  | [optional] [default to null]
+**travel\_time** | [**Integer**](integer.md) |  | [optional] [default to null]
 **distance** | [**Integer**](integer.md) |  | [optional] [default to null]
 **fares** | [**ResponseFares**](ResponseFares.md) |  | [optional] [default to null]
 **route** | [**ResponseRoute**](ResponseRoute.md) |  | [optional] [default to null]

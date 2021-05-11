@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseTimeFilterFastLocation: Codable { 
-
+public struct ResponseTimeFilterFastLocation: Codable, Hashable {
 
     public var id: String
     public var properties: [ResponseTimeFilterFastProperties]
@@ -18,5 +17,19 @@ public struct ResponseTimeFilterFastLocation: Codable {
         self.id = id
         self.properties = properties
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case id
+        case properties
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(properties, forKey: .properties)
+    }
+
+
 
 }

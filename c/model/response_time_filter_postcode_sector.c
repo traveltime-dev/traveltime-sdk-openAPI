@@ -6,6 +6,7 @@
 
 
 response_time_filter_postcode_sector_t *response_time_filter_postcode_sector_create(
+    char *code,
     response_time_filter_postcode_sector_properties_t *properties
     ) {
     response_time_filter_postcode_sector_t *response_time_filter_postcode_sector_local_var = malloc(sizeof(response_time_filter_postcode_sector_t));
@@ -24,7 +25,14 @@ void response_time_filter_postcode_sector_free(response_time_filter_postcode_sec
         return ;
     }
     listEntry_t *listEntry;
-    response_time_filter_postcode_sector_properties_free(response_time_filter_postcode_sector->properties);
+    if (response_time_filter_postcode_sector->code) {
+        free(response_time_filter_postcode_sector->code);
+        response_time_filter_postcode_sector->code = NULL;
+    }
+    if (response_time_filter_postcode_sector->properties) {
+        response_time_filter_postcode_sector_properties_free(response_time_filter_postcode_sector->properties);
+        response_time_filter_postcode_sector->properties = NULL;
+    }
     free(response_time_filter_postcode_sector);
 }
 
@@ -36,6 +44,9 @@ cJSON *response_time_filter_postcode_sector_convertToJSON(response_time_filter_p
         goto fail;
     }
     
+    if(cJSON_AddStringToObject(item, "code", response_time_filter_postcode_sector->code) == NULL) {
+    goto fail; //String
+    }
 
 
     // response_time_filter_postcode_sector->properties
@@ -70,6 +81,11 @@ response_time_filter_postcode_sector_t *response_time_filter_postcode_sector_par
         goto end;
     }
 
+    
+    if(!cJSON_IsString(code))
+    {
+    goto end; //String
+    }
 
     // response_time_filter_postcode_sector->properties
     cJSON *properties = cJSON_GetObjectItemCaseSensitive(response_time_filter_postcode_sectorJSON, "properties");
@@ -83,11 +99,16 @@ response_time_filter_postcode_sector_t *response_time_filter_postcode_sector_par
 
 
     response_time_filter_postcode_sector_local_var = response_time_filter_postcode_sector_create (
+        strdup(code->valuestring),
         properties_local_nonprim
         );
 
     return response_time_filter_postcode_sector_local_var;
 end:
+    if (properties_local_nonprim) {
+        response_time_filter_postcode_sector_properties_free(properties_local_nonprim);
+        properties_local_nonprim = NULL;
+    }
     return NULL;
 
 }

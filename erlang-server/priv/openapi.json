@@ -7,7 +7,7 @@
     },
     "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
     "title" : "TravelTime API",
-    "version" : "1.2.1"
+    "version" : "1.2.2"
   },
   "externalDocs" : {
     "url" : "http://docs.traveltime.com"
@@ -4383,7 +4383,7 @@
       },
       "ResponseTimeFilterPostcode" : {
         "example" : {
-          "code" : "",
+          "code" : "code",
           "properties" : [ {
             "distance" : 6,
             "travel_time" : 0
@@ -4394,7 +4394,7 @@
         },
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "items" : {
@@ -4408,7 +4408,7 @@
       },
       "ResponseTimeFilterPostcodeDistrict" : {
         "example" : {
-          "code" : "",
+          "code" : "code",
           "properties" : {
             "coverage" : 5.637376656633329,
             "travel_time_all" : {
@@ -4427,7 +4427,7 @@
         },
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeDistrictProperties"
@@ -4438,7 +4438,7 @@
       },
       "ResponseTimeFilterPostcodeSector" : {
         "example" : {
-          "code" : "",
+          "code" : "code",
           "properties" : {
             "coverage" : 0.8008281904610115,
             "travel_time_all" : {
@@ -4457,7 +4457,7 @@
         },
         "properties" : {
           "code" : {
-            "type" : "String"
+            "type" : "string"
           },
           "properties" : {
             "$ref" : "#/components/schemas/ResponseTimeFilterPostcodeSectorProperties"
@@ -4873,7 +4873,7 @@
       "ResponseTimeFilterPostcodesResult" : {
         "example" : {
           "postcodes" : [ {
-            "code" : "",
+            "code" : "code",
             "properties" : [ {
               "distance" : 6,
               "travel_time" : 0
@@ -4882,7 +4882,7 @@
               "travel_time" : 0
             } ]
           }, {
-            "code" : "",
+            "code" : "code",
             "properties" : [ {
               "distance" : 6,
               "travel_time" : 0
@@ -4910,7 +4910,7 @@
       "ResponseTimeFilterPostcodeDistrictsResult" : {
         "example" : {
           "districts" : [ {
-            "code" : "",
+            "code" : "code",
             "properties" : {
               "coverage" : 5.637376656633329,
               "travel_time_all" : {
@@ -4927,7 +4927,7 @@
               }
             }
           }, {
-            "code" : "",
+            "code" : "code",
             "properties" : {
               "coverage" : 5.637376656633329,
               "travel_time_all" : {
@@ -4963,7 +4963,7 @@
       "ResponseTimeFilterPostcodeSectorsResult" : {
         "example" : {
           "sectors" : [ {
-            "code" : "",
+            "code" : "code",
             "properties" : {
               "coverage" : 0.8008281904610115,
               "travel_time_all" : {
@@ -4980,7 +4980,7 @@
               }
             }
           }, {
-            "code" : "",
+            "code" : "code",
             "properties" : {
               "coverage" : 0.8008281904610115,
               "travel_time_all" : {
@@ -6264,7 +6264,7 @@
         "example" : {
           "results" : [ {
             "postcodes" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : [ {
                 "distance" : 6,
                 "travel_time" : 0
@@ -6273,7 +6273,7 @@
                 "travel_time" : 0
               } ]
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : [ {
                 "distance" : 6,
                 "travel_time" : 0
@@ -6285,7 +6285,7 @@
             "search_id" : "search_id"
           }, {
             "postcodes" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : [ {
                 "distance" : 6,
                 "travel_time" : 0
@@ -6294,7 +6294,7 @@
                 "travel_time" : 0
               } ]
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : [ {
                 "distance" : 6,
                 "travel_time" : 0
@@ -6321,7 +6321,7 @@
         "example" : {
           "results" : [ {
             "districts" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 5.637376656633329,
                 "travel_time_all" : {
@@ -6338,7 +6338,7 @@
                 }
               }
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 5.637376656633329,
                 "travel_time_all" : {
@@ -6358,7 +6358,7 @@
             "search_id" : "search_id"
           }, {
             "districts" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 5.637376656633329,
                 "travel_time_all" : {
@@ -6375,7 +6375,7 @@
                 }
               }
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 5.637376656633329,
                 "travel_time_all" : {
@@ -6410,7 +6410,7 @@
         "example" : {
           "results" : [ {
             "sectors" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
@@ -6427,7 +6427,7 @@
                 }
               }
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
@@ -6447,7 +6447,7 @@
             "search_id" : "search_id"
           }, {
             "sectors" : [ {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 0.8008281904610115,
                 "travel_time_all" : {
@@ -6464,7 +6464,7 @@
                 }
               }
             }, {
-              "code" : "",
+              "code" : "code",
               "properties" : {
                 "coverage" : 0.8008281904610115,
                 "travel_time_all" : {

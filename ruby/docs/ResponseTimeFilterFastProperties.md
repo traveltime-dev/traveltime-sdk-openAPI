@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**travel_time** | **Integer** |  | [optional] 
-**fares** | [**ResponseFaresFast**](ResponseFaresFast.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **travel_time** | **Integer** |  | [optional] |
+| **fares** | [**ResponseFaresFast**](ResponseFaresFast.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeFilterFastProperties.new(travel_time: null,
-                                 fares: null)
+instance = OpenapiClient::ResponseTimeFilterFastProperties.new(
+  travel_time: null,
+  fares: null
+)
 ```
-
 

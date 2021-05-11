@@ -18,7 +18,7 @@ import java.util.List;
  * ResponseFaresBreakdownItem
  */
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2020-07-14T11:27:13.425Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPKMSTServerCodegen", date = "2021-05-11T08:37:57.444Z[Etc/UTC]")
 public class ResponseFaresBreakdownItem   {
   @JsonProperty("modes")
   
@@ -103,7 +103,7 @@ public class ResponseFaresBreakdownItem   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -137,7 +137,7 @@ public class ResponseFaresBreakdownItem   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

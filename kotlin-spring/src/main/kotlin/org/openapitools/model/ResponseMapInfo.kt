@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -17,8 +18,8 @@ import javax.validation.constraints.Size
  */
 data class ResponseMapInfo(
 
-    @get:NotNull 
-    @field:JsonProperty("maps") val maps: kotlin.collections.List<ResponseMapInfoMap>
+    @field:Valid
+    @field:JsonProperty("maps", required = true) val maps: kotlin.collections.List<ResponseMapInfoMap>
 ) {
 
 }

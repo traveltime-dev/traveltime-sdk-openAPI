@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeMapBoundingBoxes do
   ]
 
   @type t :: %__MODULE__{
-    :"results" => [ResponseTimeMapBoundingBoxesResult]
+    :"results" => [TravelTimeAPI.Model.ResponseTimeMapBoundingBoxesResult.t]
   }
 end
 

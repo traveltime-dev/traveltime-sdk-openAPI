@@ -7,12 +7,14 @@
 size_t writeDataCallback(void *buffer, size_t size, size_t nmemb, void *userp);
 
 apiClient_t *apiClient_create() {
-    curl_global_init(CURL_GLOBAL_ALL);
     apiClient_t *apiClient = malloc(sizeof(apiClient_t));
     apiClient->basePath = strdup("https://api.traveltimeapp.com");
     apiClient->sslConfig = NULL;
     apiClient->dataReceived = NULL;
     apiClient->dataReceivedLen = 0;
+    apiClient->data_callback_func = NULL;
+    apiClient->progress_func = NULL;
+    apiClient->progress_data = NULL;
     apiClient->response_code = 0;
     apiClient->apiKeys_ApiKey = NULL;
     apiClient->apiKeys_ApplicationId = NULL;
@@ -25,7 +27,6 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
 , list_t *apiKeys_ApiKey
 , list_t *apiKeys_ApplicationId
 ) {
-    curl_global_init(CURL_GLOBAL_ALL);
     apiClient_t *apiClient = malloc(sizeof(apiClient_t));
     if(basePath){
         apiClient->basePath = strdup(basePath);
@@ -41,6 +42,9 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
 
     apiClient->dataReceived = NULL;
     apiClient->dataReceivedLen = 0;
+    apiClient->data_callback_func = NULL;
+    apiClient->progress_func = NULL;
+    apiClient->progress_data = NULL;
     apiClient->response_code = 0;
     if(apiKeys_ApiKey!= NULL) {
         apiClient->apiKeys_ApiKey = list_create();
@@ -72,6 +76,9 @@ void apiClient_free(apiClient_t *apiClient) {
     if(apiClient->basePath) {
         free(apiClient->basePath);
     }
+    apiClient->data_callback_func = NULL;
+    apiClient->progress_func = NULL;
+    apiClient->progress_data = NULL;
     if(apiClient->apiKeys_ApiKey) {
         listEntry_t *listEntry = NULL;
         list_ForEach(listEntry, apiClient->apiKeys_ApiKey) {
@@ -101,7 +108,6 @@ void apiClient_free(apiClient_t *apiClient) {
         list_free(apiClient->apiKeys_ApplicationId);
     }
     free(apiClient);
-    curl_global_cleanup();
 }
 
 sslConfig_t *sslConfig_create(const char *clientCertFile, const char *clientKeyFile, const char *CACertFile, int insecureSkipTlsVerify) {
@@ -116,6 +122,7 @@ sslConfig_t *sslConfig_create(const char *clientCertFile, const char *clientKeyF
         sslConfig->CACertFile = strdup(CACertFile);
     }
     sslConfig->insecureSkipTlsVerify = insecureSkipTlsVerify;
+    return sslConfig;
 }
 
 void sslConfig_free(sslConfig_t *sslConfig) {
@@ -158,14 +165,9 @@ char *assembleTargetUrl(char    *basePath,
 
     int operationParameterLength = 0;
     int basePathLength = strlen(basePath);
-    bool slashNeedsToBeAppendedToBasePath = false;
 
     if(operationParameter != NULL) {
         operationParameterLength = (1 + strlen(operationParameter));
-    }
-    if(basePath[strlen(basePath) - 1] != '/') {
-        slashNeedsToBeAppendedToBasePath = true;
-        basePathLength++;
     }
 
     char *targetUrl =
@@ -280,6 +282,8 @@ void apiClient_invoke(apiClient_t    *apiClient,
                             (char *) listEntry->data);
                     headers = curl_slist_append(headers,
                                                 buffContent);
+                    free(buffContent);
+                    buffContent = NULL;
                 }
             }
         } else {
@@ -293,8 +297,8 @@ void apiClient_invoke(apiClient_t    *apiClient,
         }
 
         if(formParameters != NULL) {
-            if(strstr(buffContent,
-                      "application/x-www-form-urlencoded") != NULL)
+            if(contentType &&
+               findStrInStrList(contentType, "application/x-www-form-urlencoded") != NULL)
             {
                 long parameterLength = 0;
                 long keyPairLength = 0;
@@ -336,7 +340,8 @@ void apiClient_invoke(apiClient_t    *apiClient,
                 curl_easy_setopt(handle, CURLOPT_POSTFIELDS,
                                  formString);
             }
-            if(strstr(buffContent, "multipart/form-data") != NULL) {
+            if(contentType &&
+               findStrInStrList(contentType, "multipart/form-data") != NULL) {
                 mime = curl_mime_init(handle);
                 list_ForEach(listEntry, formParameters) {
                     keyValuePair_t *keyValuePair =
@@ -411,6 +416,14 @@ void apiClient_invoke(apiClient_t    *apiClient,
             }
         }
 
+        if (apiClient->progress_func != NULL) {
+            curl_easy_setopt(handle, CURLOPT_XFERINFOFUNCTION, apiClient->progress_func);
+            if (apiClient->progress_data != NULL) {
+                curl_easy_setopt(handle, CURLOPT_XFERINFODATA, apiClient->progress_data);
+            }
+            curl_easy_setopt(handle, CURLOPT_NOPROGRESS, 0L);
+        }
+
         // this would only be generated for apiKey authentication
         if (apiClient->apiKeys_ApiKey != NULL)
         {
@@ -468,10 +481,6 @@ void apiClient_invoke(apiClient_t    *apiClient,
 
         free(targetUrl);
 
-        if(contentType != NULL) {
-            free(buffContent);
-        }
-
         if(res == CURLE_OK) {
             curl_easy_getinfo(handle, CURLINFO_RESPONSE_CODE, &apiClient->response_code);
         } else {
@@ -499,6 +508,10 @@ size_t writeDataCallback(void *buffer, size_t size, size_t nmemb, void *userp) {
     apiClient->dataReceived = (char *)realloc( apiClient->dataReceived, apiClient->dataReceivedLen + size_this_time + 1);
     memcpy(apiClient->dataReceived + apiClient->dataReceivedLen, buffer, size_this_time);
     apiClient->dataReceivedLen += size_this_time;
+    ((char*)apiClient->dataReceived)[apiClient->dataReceivedLen] = '\0'; // the space size of (apiClient->dataReceived) = dataReceivedLen + 1
+    if (apiClient->data_callback_func) {
+        apiClient->data_callback_func(&apiClient->dataReceived, &apiClient->dataReceivedLen);
+    }
     return size_this_time;
 }
 
@@ -554,3 +567,10 @@ char *strReplace(char *orig, char *rep, char *with) {
     return result;
 }
 
+void apiClient_setupGlobalEnv() {
+    curl_global_init(CURL_GLOBAL_ALL);
+}
+
+void apiClient_unsetupGlobalEnv() {
+    curl_global_cleanup();
+}

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**publicUnderscoretransport** | [**ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md) |  | [optional] [default to null]
+**public\_transport** | [**ResponseMapInfoFeaturesPublicTransport**](ResponseMapInfoFeaturesPublicTransport.md) |  | [optional] [default to null]
 **fares** | [**Boolean**](boolean.md) |  | [default to null]
 **postcodes** | [**Boolean**](boolean.md) |  | [default to null]
 

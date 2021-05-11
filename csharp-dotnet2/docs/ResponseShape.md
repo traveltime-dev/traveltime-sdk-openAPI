@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseShape
+
 ## Properties
 
 Name | Type | Description | Notes

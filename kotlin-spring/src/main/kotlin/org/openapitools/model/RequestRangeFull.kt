@@ -9,6 +9,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,14 +19,15 @@ import javax.validation.constraints.Size
  */
 data class RequestRangeFull(
 
-    @get:NotNull 
-    @field:JsonProperty("enabled") val enabled: kotlin.Boolean,
+    @field:JsonProperty("enabled", required = true) val enabled: kotlin.Boolean,
 
-    @get:NotNull @get:Min(1) @get:Max(5) 
-    @field:JsonProperty("max_results") val maxResults: kotlin.Int,
+    @get:Min(1)
+    @get:Max(5)
+    @field:JsonProperty("max_results", required = true) val maxResults: kotlin.Int,
 
-    @get:NotNull @get:Min(1) @get:Max(43200) 
-    @field:JsonProperty("width") val width: kotlin.Int
+    @get:Min(1)
+    @get:Max(43200)
+    @field:JsonProperty("width", required = true) val width: kotlin.Int
 ) {
 
 }

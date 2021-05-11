@@ -1,5 +1,6 @@
 # openapi::RequestTimeFilterDepartureSearch
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

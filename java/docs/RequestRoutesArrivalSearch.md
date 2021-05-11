@@ -2,6 +2,7 @@
 
 # RequestRoutesArrivalSearch
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,8 +11,8 @@ Name | Type | Description | Notes
 **departureLocationIds** | **List&lt;String&gt;** |  | 
 **arrivalLocationId** | **String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
-**arrivalTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**properties** | [**List&lt;RequestRoutesProperty&gt;**](RequestRoutesProperty.md) |  | 
+**arrivalTime** | **OffsetDateTime** |  | 
+**properties** | **List&lt;RequestRoutesProperty&gt;** |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 
 

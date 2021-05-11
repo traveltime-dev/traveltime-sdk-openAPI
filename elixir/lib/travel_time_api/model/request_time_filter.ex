@@ -15,9 +15,9 @@ defmodule TravelTimeAPI.Model.RequestTimeFilter do
   ]
 
   @type t :: %__MODULE__{
-    :"locations" => [RequestLocation],
-    :"departure_searches" => [RequestTimeFilterDepartureSearch] | nil,
-    :"arrival_searches" => [RequestTimeFilterArrivalSearch] | nil
+    :"locations" => [TravelTimeAPI.Model.RequestLocation.t],
+    :"departure_searches" => [TravelTimeAPI.Model.RequestTimeFilterDepartureSearch.t] | nil,
+    :"arrival_searches" => [TravelTimeAPI.Model.RequestTimeFilterArrivalSearch.t] | nil
   }
 end
 

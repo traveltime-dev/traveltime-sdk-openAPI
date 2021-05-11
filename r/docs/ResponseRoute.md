@@ -1,5 +1,6 @@
 # openapi::ResponseRoute
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

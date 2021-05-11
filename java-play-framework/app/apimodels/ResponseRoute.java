@@ -12,16 +12,25 @@ import javax.validation.constraints.*;
 /**
  * ResponseRoute
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseRoute   {
   @JsonProperty("departure_time")
+  @NotNull
+@Valid
+
   private OffsetDateTime departureTime;
 
   @JsonProperty("arrival_time")
+  @NotNull
+@Valid
+
   private OffsetDateTime arrivalTime;
 
   @JsonProperty("parts")
+  @NotNull
+@Valid
+
   private List<ResponseRoutePart> parts = new ArrayList<>();
 
   public ResponseRoute departureTime(OffsetDateTime departureTime) {
@@ -33,8 +42,6 @@ public class ResponseRoute   {
    * Get departureTime
    * @return departureTime
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
@@ -52,8 +59,6 @@ public class ResponseRoute   {
    * Get arrivalTime
    * @return arrivalTime
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getArrivalTime() {
     return arrivalTime;
   }
@@ -76,8 +81,6 @@ public class ResponseRoute   {
    * Get parts
    * @return parts
   **/
-  @NotNull
-@Valid
   public List<ResponseRoutePart> getParts() {
     return parts;
   }
@@ -88,7 +91,7 @@ public class ResponseRoute   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -123,7 +126,7 @@ public class ResponseRoute   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterFast do
   ]
 
   @type t :: %__MODULE__{
-    :"results" => [ResponseTimeFilterFastResult]
+    :"results" => [TravelTimeAPI.Model.ResponseTimeFilterFastResult.t]
   }
 end
 

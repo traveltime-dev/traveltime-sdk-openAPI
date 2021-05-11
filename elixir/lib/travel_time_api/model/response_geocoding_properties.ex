@@ -43,7 +43,7 @@ defmodule TravelTimeAPI.Model.ResponseGeocodingProperties do
     :"country_code" => String.t | nil,
     :"continent" => String.t | nil,
     :"postcode" => String.t | nil,
-    :"features" => ResponseMapInfoFeatures | nil
+    :"features" => TravelTimeAPI.Model.ResponseMapInfoFeatures.t | nil
   }
 end
 

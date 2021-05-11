@@ -8,7 +8,7 @@ import org.openapitools.server.api.model.ResponseTimeFilterPostcodeDistrictPrope
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterPostcodeDistrict   {
   
-  private String code = null;
+  private String code;
   private ResponseTimeFilterPostcodeDistrictProperties properties;
 
   public ResponseTimeFilterPostcodeDistrict () {

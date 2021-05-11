@@ -8,7 +8,7 @@ import org.openapitools.model.ResponseTimeFilterPostcodeDistrictProperties;
 @Canonical
 class ResponseTimeFilterPostcodeDistrict {
     
-    String code = null
+    String code
     
     ResponseTimeFilterPostcodeDistrictProperties properties
 }

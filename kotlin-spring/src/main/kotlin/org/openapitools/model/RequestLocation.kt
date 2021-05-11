@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,11 +19,10 @@ import javax.validation.constraints.Size
  */
 data class RequestLocation(
 
-    @get:NotNull 
-    @field:JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("coords") val coords: Coords
+    @field:Valid
+    @field:JsonProperty("coords", required = true) val coords: Coords
 ) {
 
 }

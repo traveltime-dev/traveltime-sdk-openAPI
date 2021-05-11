@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectorsResult do
 
   @type t :: %__MODULE__{
     :"search_id" => String.t,
-    :"sectors" => [ResponseTimeFilterPostcodeSector]
+    :"sectors" => [TravelTimeAPI.Model.ResponseTimeFilterPostcodeSector.t]
   }
 end
 

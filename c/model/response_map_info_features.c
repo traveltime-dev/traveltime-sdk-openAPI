@@ -27,7 +27,10 @@ void response_map_info_features_free(response_map_info_features_t *response_map_
         return ;
     }
     listEntry_t *listEntry;
-    response_map_info_features_public_transport_free(response_map_info_features->public_transport);
+    if (response_map_info_features->public_transport) {
+        response_map_info_features_public_transport_free(response_map_info_features->public_transport);
+        response_map_info_features->public_transport = NULL;
+    }
     free(response_map_info_features);
 }
 
@@ -118,6 +121,10 @@ response_map_info_features_t *response_map_info_features_parseFromJSON(cJSON *re
 
     return response_map_info_features_local_var;
 end:
+    if (public_transport_local_nonprim) {
+        response_map_info_features_public_transport_free(public_transport_local_nonprim);
+        public_transport_local_nonprim = NULL;
+    }
     return NULL;
 
 }

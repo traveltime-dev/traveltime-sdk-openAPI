@@ -8,7 +8,7 @@ class RequestArrivalTimePeriod {
 
   const RequestArrivalTimePeriod._internal(this.value);
 
-  static const RequestArrivalTimePeriod weekdayMorning_ = const RequestArrivalTimePeriod._internal("weekday_morning");
+  static const RequestArrivalTimePeriod weekdayMorning = const RequestArrivalTimePeriod._internal('weekday_morning');
 }
 
 class RequestArrivalTimePeriodFieldProcessor implements FieldProcessor<RequestArrivalTimePeriod, String> {
@@ -16,7 +16,7 @@ class RequestArrivalTimePeriodFieldProcessor implements FieldProcessor<RequestAr
 
     RequestArrivalTimePeriod deserialize(String data) {
         switch (data) {
-            case "weekday_morning": return RequestArrivalTimePeriod.weekdayMorning_;
+            case 'weekday_morning': return RequestArrivalTimePeriod.weekdayMorning;
             default: throw('Unknown enum value to decode: $data');
         }
     }

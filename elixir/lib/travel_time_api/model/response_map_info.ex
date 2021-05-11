@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseMapInfo do
   ]
 
   @type t :: %__MODULE__{
-    :"maps" => [ResponseMapInfoMap]
+    :"maps" => [TravelTimeAPI.Model.ResponseMapInfoMap.t]
   }
 end
 

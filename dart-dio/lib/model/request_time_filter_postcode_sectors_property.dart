@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,11 +13,11 @@ part 'request_time_filter_postcode_sectors_property.g.dart';
 
 class RequestTimeFilterPostcodeSectorsProperty extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "travel_time_reachable")
+  @BuiltValueEnumConst(wireName: r'travel_time_reachable')
   static const RequestTimeFilterPostcodeSectorsProperty travelTimeReachable = _$travelTimeReachable;
-  @BuiltValueEnumConst(wireName: "travel_time_all")
+  @BuiltValueEnumConst(wireName: r'travel_time_all')
   static const RequestTimeFilterPostcodeSectorsProperty travelTimeAll = _$travelTimeAll;
-  @BuiltValueEnumConst(wireName: "coverage")
+  @BuiltValueEnumConst(wireName: r'coverage')
   static const RequestTimeFilterPostcodeSectorsProperty coverage = _$coverage;
 
   static Serializer<RequestTimeFilterPostcodeSectorsProperty> get serializer => _$requestTimeFilterPostcodeSectorsPropertySerializer;

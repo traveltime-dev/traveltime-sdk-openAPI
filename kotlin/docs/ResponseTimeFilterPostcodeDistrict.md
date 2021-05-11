@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | [**String**](String.md) |  | 
+**code** | **kotlin.String** |  | 
 **properties** | [**ResponseTimeFilterPostcodeDistrictProperties**](ResponseTimeFilterPostcodeDistrictProperties.md) |  | 
 
 

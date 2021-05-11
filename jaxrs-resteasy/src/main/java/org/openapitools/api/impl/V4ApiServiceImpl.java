@@ -34,7 +34,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 
 @RequestScoped
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-07-14T11:27:35.274Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2021-05-11T08:38:16.330Z[Etc/UTC]")
 public class V4ApiServiceImpl implements V4ApiService {
       public Response geocodingReverseSearch(Double lat,Double lng,String withinCountry,SecurityContext securityContext)
       throws NotFoundException {

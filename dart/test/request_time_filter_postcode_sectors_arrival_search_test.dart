@@ -1,42 +1,51 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for RequestTimeFilterPostcodeSectorsArrivalSearch
 void main() {
-    var instance = new RequestTimeFilterPostcodeSectorsArrivalSearch();
+  final instance = RequestTimeFilterPostcodeSectorsArrivalSearch();
 
   group('test RequestTimeFilterPostcodeSectorsArrivalSearch', () {
-    // String id (default value: null)
+    // String id
     test('to test the property `id`', () async {
       // TODO
     });
 
-    // RequestTransportation transportation (default value: null)
+    // RequestTransportation transportation
     test('to test the property `transportation`', () async {
       // TODO
     });
 
-    // int travelTime (default value: null)
+    // int travelTime
     test('to test the property `travelTime`', () async {
       // TODO
     });
 
-    // DateTime arrivalTime (default value: null)
+    // DateTime arrivalTime
     test('to test the property `arrivalTime`', () async {
       // TODO
     });
 
-    // double reachablePostcodesThreshold (default value: null)
+    // double reachablePostcodesThreshold
     test('to test the property `reachablePostcodesThreshold`', () async {
       // TODO
     });
 
-    // List<RequestTimeFilterPostcodeSectorsProperty> properties (default value: [])
+    // List<RequestTimeFilterPostcodeSectorsProperty> properties (default value: const [])
     test('to test the property `properties`', () async {
       // TODO
     });
 
-    // RequestRangeFull range (default value: null)
+    // RequestRangeFull range
     test('to test the property `range`', () async {
       // TODO
     });

@@ -43,7 +43,9 @@
     {
       "name": "range",
       "type": ["null", "model.RequestRangeFull"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

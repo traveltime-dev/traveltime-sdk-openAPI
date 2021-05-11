@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseTimeFilterFastResult  -SearchId null `
+$ResponseTimeFilterFastResult = Initialize-PSOpenAPIToolsResponseTimeFilterFastResult  -SearchId null `
  -Locations null `
  -Unreachable null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseTimeFilterFastResult | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

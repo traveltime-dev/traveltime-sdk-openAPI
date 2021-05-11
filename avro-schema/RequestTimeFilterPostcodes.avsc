@@ -10,7 +10,8 @@
         "type": "array",
         "items": "model.RequestTimeFilterPostcodesDepartureSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrival_searches",
@@ -18,7 +19,9 @@
         "type": "array",
         "items": "model.RequestTimeFilterPostcodesArrivalSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

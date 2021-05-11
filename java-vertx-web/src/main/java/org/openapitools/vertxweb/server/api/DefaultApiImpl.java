@@ -21,9 +21,10 @@ import org.openapitools.vertxweb.server.model.ResponseTimeFilterPostcodes;
 import org.openapitools.vertxweb.server.model.ResponseTimeMap;
 
 import org.openapitools.vertxweb.server.ApiResponse;
-import org.openapitools.vertxweb.server.ApiException;
 
-import io.reactivex.Single;
+import io.vertx.core.Future;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.web.handler.impl.HttpStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -31,48 +32,48 @@ import java.util.Map;
 // Implement this class
 
 public class DefaultApiImpl implements DefaultApi {
-    public Single<ApiResponse<ResponseGeocoding>> geocodingReverseSearch(Double lat,Double lng,String withinCountry) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseGeocoding>> geocodingReverseSearch(Double lat, Double lng, String withinCountry) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseGeocoding>> geocodingSearch(String query,Double focusLat,Double focusLng,String withinCountry) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseGeocoding>> geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseMapInfo>> mapInfo() {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseMapInfo>> mapInfo() {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseRoutes>> routes(RequestRoutes requestRoutes) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseRoutes>> routes(RequestRoutes requestRoutes) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseSupportedLocations>> supportedLocations(RequestSupportedLocations requestSupportedLocations) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseSupportedLocations>> supportedLocations(RequestSupportedLocations requestSupportedLocations) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeFilter>> timeFilter(RequestTimeFilter requestTimeFilter) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeFilter>> timeFilter(RequestTimeFilter requestTimeFilter) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeFilterFast>> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeFilterFast>> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeFilterPostcodeDistricts>> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeFilterPostcodeDistricts>> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeFilterPostcodeSectors>> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeFilterPostcodeSectors>> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeFilterPostcodes>> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeFilterPostcodes>> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
-    public Single<ApiResponse<ResponseTimeMap>> timeMap(RequestTimeMap requestTimeMap) {
-        return Single.error(new ApiException("Not Implemented").setStatusCode(501));
+    public Future<ApiResponse<ResponseTimeMap>> timeMap(RequestTimeMap requestTimeMap) {
+        return Future.failedFuture(new HttpStatusException(501));
     }
 
 }

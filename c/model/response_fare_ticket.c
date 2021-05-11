@@ -44,7 +44,10 @@ void response_fare_ticket_free(response_fare_ticket_t *response_fare_ticket) {
         return ;
     }
     listEntry_t *listEntry;
-    free(response_fare_ticket->currency);
+    if (response_fare_ticket->currency) {
+        free(response_fare_ticket->currency);
+        response_fare_ticket->currency = NULL;
+    }
     free(response_fare_ticket);
 }
 

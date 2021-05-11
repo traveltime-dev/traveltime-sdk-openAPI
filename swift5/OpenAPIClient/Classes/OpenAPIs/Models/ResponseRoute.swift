@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseRoute: Codable { 
-
+public struct ResponseRoute: Codable, Hashable {
 
     public var departureTime: Date
     public var arrivalTime: Date
@@ -20,11 +19,21 @@ public struct ResponseRoute: Codable {
         self.arrivalTime = arrivalTime
         self.parts = parts
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case departureTime = "departure_time"
         case arrivalTime = "arrival_time"
         case parts
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(departureTime, forKey: .departureTime)
+        try container.encode(arrivalTime, forKey: .arrivalTime)
+        try container.encode(parts, forKey: .parts)
+    }
+
+
 
 }

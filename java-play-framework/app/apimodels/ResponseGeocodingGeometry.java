@@ -10,13 +10,17 @@ import javax.validation.constraints.*;
 /**
  * ResponseGeocodingGeometry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseGeocodingGeometry   {
   @JsonProperty("type")
+  @NotNull
+
   private String type;
 
   @JsonProperty("coordinates")
+  @NotNull
+
   private List<Double> coordinates = new ArrayList<>();
 
   public ResponseGeocodingGeometry type(String type) {
@@ -28,7 +32,6 @@ public class ResponseGeocodingGeometry   {
    * Get type
    * @return type
   **/
-  @NotNull
   public String getType() {
     return type;
   }
@@ -51,7 +54,6 @@ public class ResponseGeocodingGeometry   {
    * Get coordinates
    * @return coordinates
   **/
-  @NotNull
   public List<Double> getCoordinates() {
     return coordinates;
   }
@@ -62,7 +64,7 @@ public class ResponseGeocodingGeometry   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -95,7 +97,7 @@ public class ResponseGeocodingGeometry   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

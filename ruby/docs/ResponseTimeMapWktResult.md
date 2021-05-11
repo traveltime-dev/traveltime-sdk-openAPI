@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**search_id** | **String** |  | 
-**shape** | **String** |  | 
-**properties** | [**ResponseTimeMapProperties**](ResponseTimeMapProperties.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **search_id** | **String** |  |  |
+| **shape** | **String** |  |  |
+| **properties** | [**ResponseTimeMapProperties**](ResponseTimeMapProperties.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeMapWktResult.new(search_id: null,
-                                 shape: null,
-                                 properties: null)
+instance = OpenapiClient::ResponseTimeMapWktResult.new(
+  search_id: null,
+  shape: null,
+  properties: null
+)
 ```
-
 

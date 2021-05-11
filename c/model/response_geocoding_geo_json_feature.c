@@ -27,9 +27,18 @@ void response_geocoding_geo_json_feature_free(response_geocoding_geo_json_featur
         return ;
     }
     listEntry_t *listEntry;
-    free(response_geocoding_geo_json_feature->type);
-    response_geocoding_geometry_free(response_geocoding_geo_json_feature->geometry);
-    response_geocoding_properties_free(response_geocoding_geo_json_feature->properties);
+    if (response_geocoding_geo_json_feature->type) {
+        free(response_geocoding_geo_json_feature->type);
+        response_geocoding_geo_json_feature->type = NULL;
+    }
+    if (response_geocoding_geo_json_feature->geometry) {
+        response_geocoding_geometry_free(response_geocoding_geo_json_feature->geometry);
+        response_geocoding_geo_json_feature->geometry = NULL;
+    }
+    if (response_geocoding_geo_json_feature->properties) {
+        response_geocoding_properties_free(response_geocoding_geo_json_feature->properties);
+        response_geocoding_geo_json_feature->properties = NULL;
+    }
     free(response_geocoding_geo_json_feature);
 }
 
@@ -128,6 +137,14 @@ response_geocoding_geo_json_feature_t *response_geocoding_geo_json_feature_parse
 
     return response_geocoding_geo_json_feature_local_var;
 end:
+    if (geometry_local_nonprim) {
+        response_geocoding_geometry_free(geometry_local_nonprim);
+        geometry_local_nonprim = NULL;
+    }
+    if (properties_local_nonprim) {
+        response_geocoding_properties_free(properties_local_nonprim);
+        properties_local_nonprim = NULL;
+    }
     return NULL;
 
 }

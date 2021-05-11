@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**enabled** | **Boolean** |  | 
-**max_results** | **Integer** |  | 
-**width** | **Integer** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **enabled** | **Boolean** |  |  |
+| **max_results** | **Integer** |  |  |
+| **width** | **Integer** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestRangeFull.new(enabled: null,
-                                 max_results: null,
-                                 width: null)
+instance = OpenapiClient::RequestRangeFull.new(
+  enabled: null,
+  max_results: null,
+  width: null
+)
 ```
-
 

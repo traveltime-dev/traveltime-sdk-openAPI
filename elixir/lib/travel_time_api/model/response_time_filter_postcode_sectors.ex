@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectors do
   ]
 
   @type t :: %__MODULE__{
-    :"results" => [ResponseTimeFilterPostcodeSectorsResult]
+    :"results" => [TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectorsResult.t]
   }
 end
 

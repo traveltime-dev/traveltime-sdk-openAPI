@@ -1,4 +1,4 @@
-# Documentation for TravelTime API 1.2.1 Tizen Client SDK
+# Documentation for TravelTime API 1.2.2 Tizen Client SDK
 
 ## How do I get the doc files?
 First generate source code by running `openapi-generator`
@@ -37,6 +37,7 @@ Check out [Doxygen](https://www.doxygen.org/) for additional information about t
 
 ## I Don't want to run Doxygen. What are the API files for accessing the REST endpoints?
 All URIs are relative to https://api.traveltimeapp.comhttps://api.traveltimeapp.com
+
 
 ### DefaultManager
 Method | HTTP request | Description

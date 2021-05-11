@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**locations** | [**Array&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
-**departure_searches** | [**Array&lt;RequestTimeFilterDepartureSearch&gt;**](RequestTimeFilterDepartureSearch.md) |  | [optional] 
-**arrival_searches** | [**Array&lt;RequestTimeFilterArrivalSearch&gt;**](RequestTimeFilterArrivalSearch.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **locations** | [**Array&lt;RequestLocation&gt;**](RequestLocation.md) |  |  |
+| **departure_searches** | [**Array&lt;RequestTimeFilterDepartureSearch&gt;**](RequestTimeFilterDepartureSearch.md) |  | [optional] |
+| **arrival_searches** | [**Array&lt;RequestTimeFilterArrivalSearch&gt;**](RequestTimeFilterArrivalSearch.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestTimeFilter.new(locations: null,
-                                 departure_searches: null,
-                                 arrival_searches: null)
+instance = OpenapiClient::RequestTimeFilter.new(
+  locations: null,
+  departure_searches: null,
+  arrival_searches: null
+)
 ```
-
 

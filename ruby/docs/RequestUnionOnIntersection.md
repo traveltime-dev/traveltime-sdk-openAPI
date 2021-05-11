@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**search_ids** | **Array&lt;String&gt;** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **search_ids** | **Array&lt;String&gt;** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestUnionOnIntersection.new(id: null,
-                                 search_ids: null)
+instance = OpenapiClient::RequestUnionOnIntersection.new(
+  id: null,
+  search_ids: null
+)
 ```
-
 

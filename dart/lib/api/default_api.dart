@@ -1,693 +1,739 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 
-
 class DefaultApi {
-  final ApiClient apiClient;
-
   DefaultApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  ///  with HTTP info returned
+  final ApiClient apiClient;
+
+  /// Performs an HTTP 'GET /v4/geocoding/reverse' operation and returns the [Response].
+  /// Parameters:
   ///
-  /// 
-  Future<Response> geocodingReverseSearchWithHttpInfo(double lat, double lng, { String withinCountry }) async {
+  /// * [double] lat (required):
+  ///
+  /// * [double] lng (required):
+  ///
+  /// * [String] withinPeriodCountry:
+  Future<Response> geocodingReverseSearchWithHttpInfo(double lat, double lng, { String withinPeriodCountry }) async {
+    // Verify required params are set.
+    if (lat == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: lat');
+    }
+    if (lng == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: lng');
+    }
+
+    final path = r'/v4/geocoding/reverse';
+
     Object postBody;
 
-    // verify required params are set
-    if(lat == null) {
-     throw ApiException(400, "Missing required param: lat");
-    }
-    if(lng == null) {
-     throw ApiException(400, "Missing required param: lng");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/geocoding/reverse".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "lat", lat));
-      queryParams.addAll(_convertParametersForCollectionFormat("", "lng", lng));
-    if(withinCountry != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "within.country", withinCountry));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'lat', lat));
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'lng', lng));
+    if (withinPeriodCountry != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'within.country', withinPeriodCountry));
     }
 
-    List<String> contentTypes = [];
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///double lat  (required):
-  ///    
-  ///double lng  (required):
-  ///    
-  ///String withinCountry :
-  ///    
-  /// 
-  Future<ResponseGeocoding> geocodingReverseSearch(double lat, double lng, { String withinCountry }) async {
-    Response response = await geocodingReverseSearchWithHttpInfo(lat, lng,  withinCountry: withinCountry );
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
-  Future<Response> geocodingSearchWithHttpInfo(String query, { double focusLat, double focusLng, String withinCountry }) async {
+  /// * [double] lat (required):
+  ///
+  /// * [double] lng (required):
+  ///
+  /// * [String] withinPeriodCountry:
+  Future<ResponseGeocoding> geocodingReverseSearch(double lat, double lng, { String withinPeriodCountry }) async {
+    final response = await geocodingReverseSearchWithHttpInfo(lat, lng,  withinPeriodCountry: withinPeriodCountry );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseGeocoding',) as ResponseGeocoding;
+        }
+    return Future<ResponseGeocoding>.value(null);
+  }
+
+  /// Performs an HTTP 'GET /v4/geocoding/search' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [String] query (required):
+  ///
+  /// * [double] focusPeriodLat:
+  ///
+  /// * [double] focusPeriodLng:
+  ///
+  /// * [String] withinPeriodCountry:
+  Future<Response> geocodingSearchWithHttpInfo(String query, { double focusPeriodLat, double focusPeriodLng, String withinPeriodCountry }) async {
+    // Verify required params are set.
+    if (query == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: query');
+    }
+
+    final path = r'/v4/geocoding/search';
+
     Object postBody;
 
-    // verify required params are set
-    if(query == null) {
-     throw ApiException(400, "Missing required param: query");
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'query', query));
+    if (focusPeriodLat != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'focus.lat', focusPeriodLat));
+    }
+    if (focusPeriodLng != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'focus.lng', focusPeriodLng));
+    }
+    if (withinPeriodCountry != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'within.country', withinPeriodCountry));
     }
 
-    // create path and map variables
-    String path = "/v4/geocoding/search".replaceAll("{format}","json");
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
-    if(focusLat != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lat", focusLat));
-    }
-    if(focusLng != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "focus.lng", focusLng));
-    }
-    if(withinCountry != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "within.country", withinCountry));
-    }
-
-    List<String> contentTypes = [];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///String query  (required):
-  ///    
-  ///double focusLat :
-  ///    
-  ///double focusLng :
-  ///    
-  ///String withinCountry :
-  ///    
-  /// 
-  Future<ResponseGeocoding> geocodingSearch(String query, { double focusLat, double focusLng, String withinCountry }) async {
-    Response response = await geocodingSearchWithHttpInfo(query,  focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry );
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseGeocoding') as ResponseGeocoding;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [String] query (required):
+  ///
+  /// * [double] focusPeriodLat:
+  ///
+  /// * [double] focusPeriodLng:
+  ///
+  /// * [String] withinPeriodCountry:
+  Future<ResponseGeocoding> geocodingSearch(String query, { double focusPeriodLat, double focusPeriodLng, String withinPeriodCountry }) async {
+    final response = await geocodingSearchWithHttpInfo(query,  focusPeriodLat: focusPeriodLat, focusPeriodLng: focusPeriodLng, withinPeriodCountry: withinPeriodCountry );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseGeocoding',) as ResponseGeocoding;
+        }
+    return Future<ResponseGeocoding>.value(null);
+  }
+
+  /// Performs an HTTP 'GET /v4/map-info' operation and returns the [Response].
   Future<Response> mapInfoWithHttpInfo() async {
+    final path = r'/v4/map-info';
+
     Object postBody;
 
-    // verify required params are set
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/map-info".replaceAll("{format}","json");
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = [];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  /// 
-  Future<ResponseMapInfo> mapInfo() async {
-    Response response = await mapInfoWithHttpInfo();
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseMapInfo') as ResponseMapInfo;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  Future<ResponseMapInfo> mapInfo() async {
+    final response = await mapInfoWithHttpInfo();
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseMapInfo',) as ResponseMapInfo;
+        }
+    return Future<ResponseMapInfo>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/routes' operation and returns the [Response].
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestRoutes] requestRoutes (required):
   Future<Response> routesWithHttpInfo(RequestRoutes requestRoutes) async {
+    // Verify required params are set.
+    if (requestRoutes == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestRoutes');
+    }
+
+    final path = r'/v4/routes';
+
     Object postBody = requestRoutes;
 
-    // verify required params are set
-    if(requestRoutes == null) {
-     throw ApiException(400, "Missing required param: requestRoutes");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/routes".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestRoutes requestRoutes  (required):
-  ///    
-  /// 
-  Future<ResponseRoutes> routes(RequestRoutes requestRoutes) async {
-    Response response = await routesWithHttpInfo(requestRoutes);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseRoutes') as ResponseRoutes;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestRoutes] requestRoutes (required):
+  Future<ResponseRoutes> routes(RequestRoutes requestRoutes) async {
+    final response = await routesWithHttpInfo(requestRoutes);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseRoutes',) as ResponseRoutes;
+        }
+    return Future<ResponseRoutes>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/supported-locations' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestSupportedLocations] requestSupportedLocations (required):
   Future<Response> supportedLocationsWithHttpInfo(RequestSupportedLocations requestSupportedLocations) async {
+    // Verify required params are set.
+    if (requestSupportedLocations == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestSupportedLocations');
+    }
+
+    final path = r'/v4/supported-locations';
+
     Object postBody = requestSupportedLocations;
 
-    // verify required params are set
-    if(requestSupportedLocations == null) {
-     throw ApiException(400, "Missing required param: requestSupportedLocations");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/supported-locations".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestSupportedLocations requestSupportedLocations  (required):
-  ///    
-  /// 
-  Future<ResponseSupportedLocations> supportedLocations(RequestSupportedLocations requestSupportedLocations) async {
-    Response response = await supportedLocationsWithHttpInfo(requestSupportedLocations);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseSupportedLocations') as ResponseSupportedLocations;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestSupportedLocations] requestSupportedLocations (required):
+  Future<ResponseSupportedLocations> supportedLocations(RequestSupportedLocations requestSupportedLocations) async {
+    final response = await supportedLocationsWithHttpInfo(requestSupportedLocations);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseSupportedLocations',) as ResponseSupportedLocations;
+        }
+    return Future<ResponseSupportedLocations>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-filter' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeFilter] requestTimeFilter (required):
   Future<Response> timeFilterWithHttpInfo(RequestTimeFilter requestTimeFilter) async {
+    // Verify required params are set.
+    if (requestTimeFilter == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeFilter');
+    }
+
+    final path = r'/v4/time-filter';
+
     Object postBody = requestTimeFilter;
 
-    // verify required params are set
-    if(requestTimeFilter == null) {
-     throw ApiException(400, "Missing required param: requestTimeFilter");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-filter".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeFilter requestTimeFilter  (required):
-  ///    
-  /// 
-  Future<ResponseTimeFilter> timeFilter(RequestTimeFilter requestTimeFilter) async {
-    Response response = await timeFilterWithHttpInfo(requestTimeFilter);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilter') as ResponseTimeFilter;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestTimeFilter] requestTimeFilter (required):
+  Future<ResponseTimeFilter> timeFilter(RequestTimeFilter requestTimeFilter) async {
+    final response = await timeFilterWithHttpInfo(requestTimeFilter);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeFilter',) as ResponseTimeFilter;
+        }
+    return Future<ResponseTimeFilter>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-filter/fast' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeFilterFast] requestTimeFilterFast (required):
   Future<Response> timeFilterFastWithHttpInfo(RequestTimeFilterFast requestTimeFilterFast) async {
+    // Verify required params are set.
+    if (requestTimeFilterFast == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeFilterFast');
+    }
+
+    final path = r'/v4/time-filter/fast';
+
     Object postBody = requestTimeFilterFast;
 
-    // verify required params are set
-    if(requestTimeFilterFast == null) {
-     throw ApiException(400, "Missing required param: requestTimeFilterFast");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-filter/fast".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeFilterFast requestTimeFilterFast  (required):
-  ///    
-  /// 
-  Future<ResponseTimeFilterFast> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) async {
-    Response response = await timeFilterFastWithHttpInfo(requestTimeFilterFast);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterFast') as ResponseTimeFilterFast;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestTimeFilterFast] requestTimeFilterFast (required):
+  Future<ResponseTimeFilterFast> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast) async {
+    final response = await timeFilterFastWithHttpInfo(requestTimeFilterFast);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeFilterFast',) as ResponseTimeFilterFast;
+        }
+    return Future<ResponseTimeFilterFast>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-filter/postcode-districts' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeFilterPostcodeDistricts] requestTimeFilterPostcodeDistricts (required):
   Future<Response> timeFilterPostcodeDistrictsWithHttpInfo(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
+    // Verify required params are set.
+    if (requestTimeFilterPostcodeDistricts == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeFilterPostcodeDistricts');
+    }
+
+    final path = r'/v4/time-filter/postcode-districts';
+
     Object postBody = requestTimeFilterPostcodeDistricts;
 
-    // verify required params are set
-    if(requestTimeFilterPostcodeDistricts == null) {
-     throw ApiException(400, "Missing required param: requestTimeFilterPostcodeDistricts");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-filter/postcode-districts".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts  (required):
-  ///    
-  /// 
-  Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
-    Response response = await timeFilterPostcodeDistrictsWithHttpInfo(requestTimeFilterPostcodeDistricts);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeDistricts') as ResponseTimeFilterPostcodeDistricts;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestTimeFilterPostcodeDistricts] requestTimeFilterPostcodeDistricts (required):
+  Future<ResponseTimeFilterPostcodeDistricts> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) async {
+    final response = await timeFilterPostcodeDistrictsWithHttpInfo(requestTimeFilterPostcodeDistricts);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeFilterPostcodeDistricts',) as ResponseTimeFilterPostcodeDistricts;
+        }
+    return Future<ResponseTimeFilterPostcodeDistricts>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-filter/postcode-sectors' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeFilterPostcodeSectors] requestTimeFilterPostcodeSectors (required):
   Future<Response> timeFilterPostcodeSectorsWithHttpInfo(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
+    // Verify required params are set.
+    if (requestTimeFilterPostcodeSectors == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeFilterPostcodeSectors');
+    }
+
+    final path = r'/v4/time-filter/postcode-sectors';
+
     Object postBody = requestTimeFilterPostcodeSectors;
 
-    // verify required params are set
-    if(requestTimeFilterPostcodeSectors == null) {
-     throw ApiException(400, "Missing required param: requestTimeFilterPostcodeSectors");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-filter/postcode-sectors".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors  (required):
-  ///    
-  /// 
-  Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
-    Response response = await timeFilterPostcodeSectorsWithHttpInfo(requestTimeFilterPostcodeSectors);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodeSectors') as ResponseTimeFilterPostcodeSectors;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestTimeFilterPostcodeSectors] requestTimeFilterPostcodeSectors (required):
+  Future<ResponseTimeFilterPostcodeSectors> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) async {
+    final response = await timeFilterPostcodeSectorsWithHttpInfo(requestTimeFilterPostcodeSectors);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeFilterPostcodeSectors',) as ResponseTimeFilterPostcodeSectors;
+        }
+    return Future<ResponseTimeFilterPostcodeSectors>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-filter/postcodes' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeFilterPostcodes] requestTimeFilterPostcodes (required):
   Future<Response> timeFilterPostcodesWithHttpInfo(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
+    // Verify required params are set.
+    if (requestTimeFilterPostcodes == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeFilterPostcodes');
+    }
+
+    final path = r'/v4/time-filter/postcodes';
+
     Object postBody = requestTimeFilterPostcodes;
 
-    // verify required params are set
-    if(requestTimeFilterPostcodes == null) {
-     throw ApiException(400, "Missing required param: requestTimeFilterPostcodes");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-filter/postcodes".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeFilterPostcodes requestTimeFilterPostcodes  (required):
-  ///    
-  /// 
-  Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
-    Response response = await timeFilterPostcodesWithHttpInfo(requestTimeFilterPostcodes);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeFilterPostcodes') as ResponseTimeFilterPostcodes;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
-  ///  with HTTP info returned
+  /// Parameters:
   ///
-  /// 
+  /// * [RequestTimeFilterPostcodes] requestTimeFilterPostcodes (required):
+  Future<ResponseTimeFilterPostcodes> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes) async {
+    final response = await timeFilterPostcodesWithHttpInfo(requestTimeFilterPostcodes);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeFilterPostcodes',) as ResponseTimeFilterPostcodes;
+        }
+    return Future<ResponseTimeFilterPostcodes>.value(null);
+  }
+
+  /// Performs an HTTP 'POST /v4/time-map' operation and returns the [Response].
+  /// Parameters:
+  ///
+  /// * [RequestTimeMap] requestTimeMap (required):
   Future<Response> timeMapWithHttpInfo(RequestTimeMap requestTimeMap) async {
+    // Verify required params are set.
+    if (requestTimeMap == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: requestTimeMap');
+    }
+
+    final path = r'/v4/time-map';
+
     Object postBody = requestTimeMap;
 
-    // verify required params are set
-    if(requestTimeMap == null) {
-     throw ApiException(400, "Missing required param: requestTimeMap");
-    }
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/v4/time-map".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>['ApiKey', 'ApplicationId'];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-
-    List<String> contentTypes = ["application/json"];
-
-    String nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
-    List<String> authNames = ["ApiKey", "ApplicationId"];
-
-    if(nullableContentType != null && nullableContentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             nullableContentType,
-                                             authNames);
-    return response;
-  }
-
-  /// 
-  ///
-  ///RequestTimeMap requestTimeMap  (required):
-  ///    
-  /// 
-  Future<ResponseTimeMap> timeMap(RequestTimeMap requestTimeMap) async {
-    Response response = await timeMapWithHttpInfo(requestTimeMap);
-    if(response.statusCode >= 400) {
-      throw ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ResponseTimeMap') as ResponseTimeMap;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
 
+  /// Parameters:
+  ///
+  /// * [RequestTimeMap] requestTimeMap (required):
+  Future<ResponseTimeMap> timeMap(RequestTimeMap requestTimeMap) async {
+    final response = await timeMapWithHttpInfo(requestTimeMap);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'ResponseTimeMap',) as ResponseTimeMap;
+        }
+    return Future<ResponseTimeMap>.value(null);
+  }
 }

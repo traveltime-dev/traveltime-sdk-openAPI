@@ -17,7 +17,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeMapWktResult do
   @type t :: %__MODULE__{
     :"search_id" => String.t,
     :"shape" => String.t,
-    :"properties" => ResponseTimeMapProperties
+    :"properties" => TravelTimeAPI.Model.ResponseTimeMapProperties.t
   }
 end
 

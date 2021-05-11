@@ -13,6 +13,7 @@ with Swagger.Servers;
 with .Models;
 with .Skeletons;
 package .Servers is
+   pragma Warnings (Off, "*use clause for package*");
    use .Models;
    type Server_Type is limited new .Skeletons.Server_Type with null record;
 

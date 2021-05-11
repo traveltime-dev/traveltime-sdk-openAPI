@@ -12,11 +12,11 @@ import org.openapitools.model.ResponseTimeFilterPostcodesProperties;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2020-07-14T11:27:37.641Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyEapServerCodegen", date = "2021-05-11T08:38:18.755Z[Etc/UTC]")
 public class ResponseTimeFilterPostcode   {
   
 
-  private String code = null;
+  private String code;
 
   private List<ResponseTimeFilterPostcodesProperties> properties = new ArrayList<ResponseTimeFilterPostcodesProperties>();
 

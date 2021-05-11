@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**coords** | [**Coords**](Coords.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **coords** | [**Coords**](Coords.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestLocation.new(id: null,
-                                 coords: null)
+instance = OpenapiClient::RequestLocation.new(
+  id: null,
+  coords: null
+)
 ```
-
 

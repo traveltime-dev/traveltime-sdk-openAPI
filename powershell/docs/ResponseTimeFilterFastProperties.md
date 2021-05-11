@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseTimeFilterFastProperties  -TravelTime null `
+$ResponseTimeFilterFastProperties = Initialize-PSOpenAPIToolsResponseTimeFilterFastProperties  -TravelTime null `
  -Fares null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseTimeFilterFastProperties | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

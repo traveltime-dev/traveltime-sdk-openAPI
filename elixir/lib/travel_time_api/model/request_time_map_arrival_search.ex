@@ -20,12 +20,12 @@ defmodule TravelTimeAPI.Model.RequestTimeMapArrivalSearch do
 
   @type t :: %__MODULE__{
     :"id" => String.t,
-    :"coords" => Coords,
-    :"transportation" => RequestTransportation,
+    :"coords" => TravelTimeAPI.Model.Coords.t,
+    :"transportation" => TravelTimeAPI.Model.RequestTransportation.t,
     :"travel_time" => integer(),
     :"arrival_time" => DateTime.t,
-    :"properties" => [RequestTimeMapProperty] | nil,
-    :"range" => RequestRangeNoMaxResults | nil
+    :"properties" => [TravelTimeAPI.Model.RequestTimeMapProperty.t] | nil,
+    :"range" => TravelTimeAPI.Model.RequestRangeNoMaxResults.t | nil
   }
 end
 

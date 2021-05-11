@@ -132,6 +132,7 @@ DefaultAPI_geocodingReverseSearch(apiClient_t *apiClient, double lat , double ln
     }
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -280,6 +281,7 @@ DefaultAPI_geocodingSearch(apiClient_t *apiClient, char * query , double focus.l
     }
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -340,6 +342,7 @@ DefaultAPI_mapInfo(apiClient_t *apiClient)
     free(localVarPath);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -363,7 +366,7 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes )
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_routes;
+    cJSON *localVarSingleItemJSON_request_routes = NULL;
     if (request_routes != NULL)
     {
         //string
@@ -408,10 +411,14 @@ DefaultAPI_routes(apiClient_t *apiClient, request_routes_t * request_routes )
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_routes);
+    if (localVarSingleItemJSON_request_routes) {
+        cJSON_Delete(localVarSingleItemJSON_request_routes);
+        localVarSingleItemJSON_request_routes = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -435,7 +442,7 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_supported_locations;
+    cJSON *localVarSingleItemJSON_request_supported_locations = NULL;
     if (request_supported_locations != NULL)
     {
         //string
@@ -480,10 +487,14 @@ DefaultAPI_supportedLocations(apiClient_t *apiClient, request_supported_location
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_supported_locations);
+    if (localVarSingleItemJSON_request_supported_locations) {
+        cJSON_Delete(localVarSingleItemJSON_request_supported_locations);
+        localVarSingleItemJSON_request_supported_locations = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -507,7 +518,7 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_ti
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_filter;
+    cJSON *localVarSingleItemJSON_request_time_filter = NULL;
     if (request_time_filter != NULL)
     {
         //string
@@ -552,10 +563,14 @@ DefaultAPI_timeFilter(apiClient_t *apiClient, request_time_filter_t * request_ti
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_filter);
+    if (localVarSingleItemJSON_request_time_filter) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_filter);
+        localVarSingleItemJSON_request_time_filter = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -579,7 +594,7 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * r
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_filter_fast;
+    cJSON *localVarSingleItemJSON_request_time_filter_fast = NULL;
     if (request_time_filter_fast != NULL)
     {
         //string
@@ -624,10 +639,14 @@ DefaultAPI_timeFilterFast(apiClient_t *apiClient, request_time_filter_fast_t * r
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_filter_fast);
+    if (localVarSingleItemJSON_request_time_filter_fast) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_filter_fast);
+        localVarSingleItemJSON_request_time_filter_fast = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -651,7 +670,7 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_filter_postcode_districts;
+    cJSON *localVarSingleItemJSON_request_time_filter_postcode_districts = NULL;
     if (request_time_filter_postcode_districts != NULL)
     {
         //string
@@ -696,10 +715,14 @@ DefaultAPI_timeFilterPostcodeDistricts(apiClient_t *apiClient, request_time_filt
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcode_districts);
+    if (localVarSingleItemJSON_request_time_filter_postcode_districts) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcode_districts);
+        localVarSingleItemJSON_request_time_filter_postcode_districts = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -723,7 +746,7 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_filter_postcode_sectors;
+    cJSON *localVarSingleItemJSON_request_time_filter_postcode_sectors = NULL;
     if (request_time_filter_postcode_sectors != NULL)
     {
         //string
@@ -768,10 +791,14 @@ DefaultAPI_timeFilterPostcodeSectors(apiClient_t *apiClient, request_time_filter
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcode_sectors);
+    if (localVarSingleItemJSON_request_time_filter_postcode_sectors) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcode_sectors);
+        localVarSingleItemJSON_request_time_filter_postcode_sectors = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -795,7 +822,7 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_filter_postcodes;
+    cJSON *localVarSingleItemJSON_request_time_filter_postcodes = NULL;
     if (request_time_filter_postcodes != NULL)
     {
         //string
@@ -840,10 +867,14 @@ DefaultAPI_timeFilterPostcodes(apiClient_t *apiClient, request_time_filter_postc
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcodes);
+    if (localVarSingleItemJSON_request_time_filter_postcodes) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_filter_postcodes);
+        localVarSingleItemJSON_request_time_filter_postcodes = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }
@@ -867,7 +898,7 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map
 
 
     // Body Param
-    cJSON *localVarSingleItemJSON_request_time_map;
+    cJSON *localVarSingleItemJSON_request_time_map = NULL;
     if (request_time_map != NULL)
     {
         //string
@@ -915,10 +946,14 @@ DefaultAPI_timeMap(apiClient_t *apiClient, request_time_map_t * request_time_map
     list_free(localVarHeaderType);
     list_free(localVarContentType);
     free(localVarPath);
-    cJSON_Delete(localVarSingleItemJSON_request_time_map);
+    if (localVarSingleItemJSON_request_time_map) {
+        cJSON_Delete(localVarSingleItemJSON_request_time_map);
+        localVarSingleItemJSON_request_time_map = NULL;
+    }
     free(localVarBodyParameters);
     return elementToReturn;
 end:
+    free(localVarPath);
     return NULL;
 
 }

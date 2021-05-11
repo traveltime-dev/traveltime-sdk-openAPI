@@ -25,11 +25,17 @@ void response_time_filter_postcode_sectors_result_free(response_time_filter_post
         return ;
     }
     listEntry_t *listEntry;
-    free(response_time_filter_postcode_sectors_result->search_id);
-    list_ForEach(listEntry, response_time_filter_postcode_sectors_result->sectors) {
-        response_time_filter_postcode_sector_free(listEntry->data);
+    if (response_time_filter_postcode_sectors_result->search_id) {
+        free(response_time_filter_postcode_sectors_result->search_id);
+        response_time_filter_postcode_sectors_result->search_id = NULL;
     }
-    list_free(response_time_filter_postcode_sectors_result->sectors);
+    if (response_time_filter_postcode_sectors_result->sectors) {
+        list_ForEach(listEntry, response_time_filter_postcode_sectors_result->sectors) {
+            response_time_filter_postcode_sector_free(listEntry->data);
+        }
+        list_free(response_time_filter_postcode_sectors_result->sectors);
+        response_time_filter_postcode_sectors_result->sectors = NULL;
+    }
     free(response_time_filter_postcode_sectors_result);
 }
 

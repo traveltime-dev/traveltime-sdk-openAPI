@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseGeocodingGeometry   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseGeocodingGeometry   {
   
   private @Valid String type;
   private @Valid List<Double> coordinates = new ArrayList<Double>();
@@ -39,7 +39,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setType(String type) {
     this.type = type;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingGeometry coordinates(List<Double> coordinates) {
     this.coordinates = coordinates;
@@ -60,8 +62,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.coordinates = coordinates;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -93,7 +96,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -1,60 +1,76 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseDistanceBreakdownItem {
-  
-  ResponseTransportationMode mode = null;
-  //enum modeEnum {  car,  parking,  boarding,  walk,  bike,  train,  rail_national,  rail_overground,  rail_underground,  rail_dlr,  bus,  cable_car,  plane,  ferry,  coach,  };{
-  
-  int distance = null;
-
+  /// Returns a new [ResponseDistanceBreakdownItem] instance.
   ResponseDistanceBreakdownItem({
-    this.mode,
-    this.distance,
+    @required this.mode,
+    @required this.distance,
   });
 
-  @override
-  String toString() {
-    return 'ResponseDistanceBreakdownItem[mode=$mode, distance=$distance, ]';
-  }
+  ResponseTransportationMode mode;
 
-  ResponseDistanceBreakdownItem.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    mode = (json['mode'] == null) ?
-      null :
-      ResponseTransportationMode.fromJson(json['mode']);
-    distance = json['distance'];
-  }
+  int distance;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseDistanceBreakdownItem &&
+     other.mode == mode &&
+     other.distance == distance;
+
+  @override
+  int get hashCode =>
+    (mode == null ? 0 : mode.hashCode) +
+    (distance == null ? 0 : distance.hashCode);
+
+  @override
+  String toString() => 'ResponseDistanceBreakdownItem[mode=$mode, distance=$distance]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (mode != null)
-      json['mode'] = mode;
-    if (distance != null)
-      json['distance'] = distance;
+    final json = <String, dynamic>{};
+      json[r'mode'] = mode;
+      json[r'distance'] = distance;
     return json;
   }
 
-  static List<ResponseDistanceBreakdownItem> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseDistanceBreakdownItem>() : json.map((value) => ResponseDistanceBreakdownItem.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseDistanceBreakdownItem] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseDistanceBreakdownItem fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseDistanceBreakdownItem(
+        mode: ResponseTransportationMode.fromJson(json[r'mode']),
+        distance: json[r'distance'],
+    );
+
+  static List<ResponseDistanceBreakdownItem> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseDistanceBreakdownItem>[]
+      : json.map((v) => ResponseDistanceBreakdownItem.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseDistanceBreakdownItem> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseDistanceBreakdownItem>();
+    final map = <String, ResponseDistanceBreakdownItem>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseDistanceBreakdownItem.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseDistanceBreakdownItem.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseDistanceBreakdownItem-objects as value to a dart map
-  static Map<String, List<ResponseDistanceBreakdownItem>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseDistanceBreakdownItem>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseDistanceBreakdownItem.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseDistanceBreakdownItem>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseDistanceBreakdownItem>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseDistanceBreakdownItem.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

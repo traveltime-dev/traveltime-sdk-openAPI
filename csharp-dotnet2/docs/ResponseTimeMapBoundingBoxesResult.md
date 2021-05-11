@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseTimeMapBoundingBoxesResult
+
 ## Properties
 
 Name | Type | Description | Notes

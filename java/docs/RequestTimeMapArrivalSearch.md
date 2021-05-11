@@ -2,6 +2,7 @@
 
 # RequestTimeMapArrivalSearch
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,8 +11,8 @@ Name | Type | Description | Notes
 **coords** | [**Coords**](Coords.md) |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **Integer** |  | 
-**arrivalTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**properties** | [**List&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  |  [optional]
+**arrivalTime** | **OffsetDateTime** |  | 
+**properties** | **List&lt;RequestTimeMapProperty&gt;** |  |  [optional]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  |  [optional]
 
 

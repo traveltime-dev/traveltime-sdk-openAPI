@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import AnyCodable
 
 extension Bool: JSONEncodable {
     func encodeToJSON() -> Any { return self as Any }
@@ -49,6 +50,12 @@ private func encodeIfPossible<T>(_ object: T) -> Any {
 extension Array: JSONEncodable {
     func encodeToJSON() -> Any {
         return self.map(encodeIfPossible)
+    }
+}
+
+extension Set: JSONEncodable {
+    func encodeToJSON() -> Any {
+        return Array(self).encodeToJSON()
     }
 }
 
@@ -108,24 +115,24 @@ extension String: CodingKey {
 
 extension KeyedEncodingContainerProtocol {
 
-    public mutating func encodeArray<T>(_ values: [T], forKey key: Self.Key) throws where T : Encodable {
+    public mutating func encodeArray<T>(_ values: [T], forKey key: Self.Key) throws where T: Encodable {
         var arrayContainer = nestedUnkeyedContainer(forKey: key)
         try arrayContainer.encode(contentsOf: values)
     }
 
-    public mutating func encodeArrayIfPresent<T>(_ values: [T]?, forKey key: Self.Key) throws where T : Encodable {
+    public mutating func encodeArrayIfPresent<T>(_ values: [T]?, forKey key: Self.Key) throws where T: Encodable {
         if let values = values {
             try encodeArray(values, forKey: key)
         }
     }
 
-    public mutating func encodeMap<T>(_ pairs: [Self.Key: T]) throws where T : Encodable {
+    public mutating func encodeMap<T>(_ pairs: [Self.Key: T]) throws where T: Encodable {
         for (key, value) in pairs {
             try encode(value, forKey: key)
         }
     }
 
-    public mutating func encodeMapIfPresent<T>(_ pairs: [Self.Key: T]?) throws where T : Encodable {
+    public mutating func encodeMapIfPresent<T>(_ pairs: [Self.Key: T]?) throws where T: Encodable {
         if let pairs = pairs {
             try encodeMap(pairs)
         }
@@ -135,7 +142,7 @@ extension KeyedEncodingContainerProtocol {
 
 extension KeyedDecodingContainerProtocol {
 
-    public func decodeArray<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T] where T : Decodable {
+    public func decodeArray<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T] where T: Decodable {
         var tmpArray = [T]()
 
         var nestedContainer = try nestedUnkeyedContainer(forKey: key)
@@ -147,8 +154,8 @@ extension KeyedDecodingContainerProtocol {
         return tmpArray
     }
 
-    public func decodeArrayIfPresent<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T]? where T : Decodable {
-        var tmpArray: [T]? = nil
+    public func decodeArrayIfPresent<T>(_ type: T.Type, forKey key: Self.Key) throws -> [T]? where T: Decodable {
+        var tmpArray: [T]?
 
         if contains(key) {
             tmpArray = try decodeArray(T.self, forKey: key)
@@ -157,8 +164,8 @@ extension KeyedDecodingContainerProtocol {
         return tmpArray
     }
 
-    public func decodeMap<T>(_ type: T.Type, excludedKeys: Set<Self.Key>) throws -> [Self.Key: T] where T : Decodable {
-        var map: [Self.Key : T] = [:]
+    public func decodeMap<T>(_ type: T.Type, excludedKeys: Set<Self.Key>) throws -> [Self.Key: T] where T: Decodable {
+        var map: [Self.Key: T] = [:]
 
         for key in allKeys {
             if !excludedKeys.contains(key) {
@@ -178,4 +185,43 @@ extension HTTPURLResponse {
     }
 }
 
-
+extension AnyCodable: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        switch value {
+        case let value as Bool:
+            hasher.combine(value)
+        case let value as Int:
+            hasher.combine(value)
+        case let value as Int8:
+            hasher.combine(value)
+        case let value as Int16:
+            hasher.combine(value)
+        case let value as Int32:
+            hasher.combine(value)
+        case let value as Int64:
+            hasher.combine(value)
+        case let value as UInt:
+            hasher.combine(value)
+        case let value as UInt8:
+            hasher.combine(value)
+        case let value as UInt16:
+            hasher.combine(value)
+        case let value as UInt32:
+            hasher.combine(value)
+        case let value as UInt64:
+            hasher.combine(value)
+        case let value as Float:
+            hasher.combine(value)
+        case let value as Double:
+            hasher.combine(value)
+        case let value as String:
+            hasher.combine(value)
+        case let value as [String: AnyCodable]:
+            hasher.combine(value)
+        case let value as [AnyCodable]:
+            hasher.combine(value)
+        default:
+            hasher.combine(0)
+        }
+    }
+}

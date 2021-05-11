@@ -16,8 +16,8 @@ defmodule TravelTimeAPI.Model.ResponseTimeMapBoundingBoxesResult do
 
   @type t :: %__MODULE__{
     :"search_id" => String.t,
-    :"bounding_boxes" => [ResponseBoundingBox],
-    :"properties" => ResponseTimeMapProperties
+    :"bounding_boxes" => [TravelTimeAPI.Model.ResponseBoundingBox.t],
+    :"properties" => TravelTimeAPI.Model.ResponseTimeMapProperties.t
   }
 end
 

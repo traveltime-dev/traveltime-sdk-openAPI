@@ -1,26 +1,27 @@
 # OpenAPI\Client\DefaultApi
 
-All URIs are relative to *https://api.traveltimeapp.com*
+All URIs are relative to https://api.traveltimeapp.com.
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**geocodingReverseSearch**](DefaultApi.md#geocodingReverseSearch) | **GET** /v4/geocoding/reverse | 
-[**geocodingSearch**](DefaultApi.md#geocodingSearch) | **GET** /v4/geocoding/search | 
-[**mapInfo**](DefaultApi.md#mapInfo) | **GET** /v4/map-info | 
-[**routes**](DefaultApi.md#routes) | **POST** /v4/routes | 
-[**supportedLocations**](DefaultApi.md#supportedLocations) | **POST** /v4/supported-locations | 
-[**timeFilter**](DefaultApi.md#timeFilter) | **POST** /v4/time-filter | 
-[**timeFilterFast**](DefaultApi.md#timeFilterFast) | **POST** /v4/time-filter/fast | 
-[**timeFilterPostcodeDistricts**](DefaultApi.md#timeFilterPostcodeDistricts) | **POST** /v4/time-filter/postcode-districts | 
-[**timeFilterPostcodeSectors**](DefaultApi.md#timeFilterPostcodeSectors) | **POST** /v4/time-filter/postcode-sectors | 
-[**timeFilterPostcodes**](DefaultApi.md#timeFilterPostcodes) | **POST** /v4/time-filter/postcodes | 
-[**timeMap**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
+[**geocodingReverseSearch()**](DefaultApi.md#geocodingReverseSearch) | **GET** /v4/geocoding/reverse | 
+[**geocodingSearch()**](DefaultApi.md#geocodingSearch) | **GET** /v4/geocoding/search | 
+[**mapInfo()**](DefaultApi.md#mapInfo) | **GET** /v4/map-info | 
+[**routes()**](DefaultApi.md#routes) | **POST** /v4/routes | 
+[**supportedLocations()**](DefaultApi.md#supportedLocations) | **POST** /v4/supported-locations | 
+[**timeFilter()**](DefaultApi.md#timeFilter) | **POST** /v4/time-filter | 
+[**timeFilterFast()**](DefaultApi.md#timeFilterFast) | **POST** /v4/time-filter/fast | 
+[**timeFilterPostcodeDistricts()**](DefaultApi.md#timeFilterPostcodeDistricts) | **POST** /v4/time-filter/postcode-districts | 
+[**timeFilterPostcodeSectors()**](DefaultApi.md#timeFilterPostcodeSectors) | **POST** /v4/time-filter/postcode-sectors | 
+[**timeFilterPostcodes()**](DefaultApi.md#timeFilterPostcodes) | **POST** /v4/time-filter/postcodes | 
+[**timeMap()**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
 
 
+## `geocodingReverseSearch()`
 
-## geocodingReverseSearch
-
-> \OpenAPI\Client\Model\ResponseGeocoding geocodingReverseSearch($lat, $lng, $within_country)
+```php
+geocodingReverseSearch($lat, $lng, $within_country): \OpenAPI\Client\Model\ResponseGeocoding
+```
 
 
 
@@ -48,9 +49,9 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$lat = 3.4; // double | 
-$lng = 3.4; // double | 
-$within_country = 'within_country_example'; // string | 
+$lat = 3.4; // double
+$lng = 3.4; // double
+$within_country = 'within_country_example'; // string
 
 try {
     $result = $apiInstance->geocodingReverseSearch($lat, $lng, $within_country);
@@ -58,11 +59,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->geocodingReverseSearch: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -81,16 +80,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `geocodingSearch()`
 
-## geocodingSearch
-
-> \OpenAPI\Client\Model\ResponseGeocoding geocodingSearch($query, $focus_lat, $focus_lng, $within_country)
+```php
+geocodingSearch($query, $focus_lat, $focus_lng, $within_country): \OpenAPI\Client\Model\ResponseGeocoding
+```
 
 
 
@@ -118,10 +118,10 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$query = 'query_example'; // string | 
-$focus_lat = 3.4; // double | 
-$focus_lng = 3.4; // double | 
-$within_country = 'within_country_example'; // string | 
+$query = 'query_example'; // string
+$focus_lat = 3.4; // double
+$focus_lng = 3.4; // double
+$within_country = 'within_country_example'; // string
 
 try {
     $result = $apiInstance->geocodingSearch($query, $focus_lat, $focus_lng, $within_country);
@@ -129,11 +129,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->geocodingSearch: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -153,16 +151,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `mapInfo()`
 
-## mapInfo
-
-> \OpenAPI\Client\Model\ResponseMapInfo mapInfo()
+```php
+mapInfo(): \OpenAPI\Client\Model\ResponseMapInfo
+```
 
 
 
@@ -197,7 +196,6 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->mapInfo: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
@@ -215,16 +213,17 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `routes()`
 
-## routes
-
-> \OpenAPI\Client\Model\ResponseRoutes routes($request_routes)
+```php
+routes($request_routes): \OpenAPI\Client\Model\ResponseRoutes
+```
 
 
 
@@ -252,7 +251,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_routes = new \OpenAPI\Client\Model\RequestRoutes(); // \OpenAPI\Client\Model\RequestRoutes | 
+$request_routes = new \OpenAPI\Client\Model\RequestRoutes(); // \OpenAPI\Client\Model\RequestRoutes
 
 try {
     $result = $apiInstance->routes($request_routes);
@@ -260,11 +259,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->routes: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -280,17 +277,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `supportedLocations()`
 
-## supportedLocations
-
-> \OpenAPI\Client\Model\ResponseSupportedLocations supportedLocations($request_supported_locations)
+```php
+supportedLocations($request_supported_locations): \OpenAPI\Client\Model\ResponseSupportedLocations
+```
 
 
 
@@ -318,7 +316,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_supported_locations = new \OpenAPI\Client\Model\RequestSupportedLocations(); // \OpenAPI\Client\Model\RequestSupportedLocations | 
+$request_supported_locations = new \OpenAPI\Client\Model\RequestSupportedLocations(); // \OpenAPI\Client\Model\RequestSupportedLocations
 
 try {
     $result = $apiInstance->supportedLocations($request_supported_locations);
@@ -326,11 +324,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->supportedLocations: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -346,17 +342,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeFilter()`
 
-## timeFilter
-
-> \OpenAPI\Client\Model\ResponseTimeFilter timeFilter($request_time_filter)
+```php
+timeFilter($request_time_filter): \OpenAPI\Client\Model\ResponseTimeFilter
+```
 
 
 
@@ -384,7 +381,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_filter = new \OpenAPI\Client\Model\RequestTimeFilter(); // \OpenAPI\Client\Model\RequestTimeFilter | 
+$request_time_filter = new \OpenAPI\Client\Model\RequestTimeFilter(); // \OpenAPI\Client\Model\RequestTimeFilter
 
 try {
     $result = $apiInstance->timeFilter($request_time_filter);
@@ -392,11 +389,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeFilter: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -412,17 +407,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeFilterFast()`
 
-## timeFilterFast
-
-> \OpenAPI\Client\Model\ResponseTimeFilterFast timeFilterFast($request_time_filter_fast)
+```php
+timeFilterFast($request_time_filter_fast): \OpenAPI\Client\Model\ResponseTimeFilterFast
+```
 
 
 
@@ -450,7 +446,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_filter_fast = new \OpenAPI\Client\Model\RequestTimeFilterFast(); // \OpenAPI\Client\Model\RequestTimeFilterFast | 
+$request_time_filter_fast = new \OpenAPI\Client\Model\RequestTimeFilterFast(); // \OpenAPI\Client\Model\RequestTimeFilterFast
 
 try {
     $result = $apiInstance->timeFilterFast($request_time_filter_fast);
@@ -458,11 +454,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeFilterFast: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -478,17 +472,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeFilterPostcodeDistricts()`
 
-## timeFilterPostcodeDistricts
-
-> \OpenAPI\Client\Model\ResponseTimeFilterPostcodeDistricts timeFilterPostcodeDistricts($request_time_filter_postcode_districts)
+```php
+timeFilterPostcodeDistricts($request_time_filter_postcode_districts): \OpenAPI\Client\Model\ResponseTimeFilterPostcodeDistricts
+```
 
 
 
@@ -516,7 +511,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_filter_postcode_districts = new \OpenAPI\Client\Model\RequestTimeFilterPostcodeDistricts(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodeDistricts | 
+$request_time_filter_postcode_districts = new \OpenAPI\Client\Model\RequestTimeFilterPostcodeDistricts(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodeDistricts
 
 try {
     $result = $apiInstance->timeFilterPostcodeDistricts($request_time_filter_postcode_districts);
@@ -524,11 +519,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeFilterPostcodeDistricts: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -544,17 +537,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeFilterPostcodeSectors()`
 
-## timeFilterPostcodeSectors
-
-> \OpenAPI\Client\Model\ResponseTimeFilterPostcodeSectors timeFilterPostcodeSectors($request_time_filter_postcode_sectors)
+```php
+timeFilterPostcodeSectors($request_time_filter_postcode_sectors): \OpenAPI\Client\Model\ResponseTimeFilterPostcodeSectors
+```
 
 
 
@@ -582,7 +576,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_filter_postcode_sectors = new \OpenAPI\Client\Model\RequestTimeFilterPostcodeSectors(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodeSectors | 
+$request_time_filter_postcode_sectors = new \OpenAPI\Client\Model\RequestTimeFilterPostcodeSectors(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodeSectors
 
 try {
     $result = $apiInstance->timeFilterPostcodeSectors($request_time_filter_postcode_sectors);
@@ -590,11 +584,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeFilterPostcodeSectors: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -610,17 +602,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeFilterPostcodes()`
 
-## timeFilterPostcodes
-
-> \OpenAPI\Client\Model\ResponseTimeFilterPostcodes timeFilterPostcodes($request_time_filter_postcodes)
+```php
+timeFilterPostcodes($request_time_filter_postcodes): \OpenAPI\Client\Model\ResponseTimeFilterPostcodes
+```
 
 
 
@@ -648,7 +641,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_filter_postcodes = new \OpenAPI\Client\Model\RequestTimeFilterPostcodes(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodes | 
+$request_time_filter_postcodes = new \OpenAPI\Client\Model\RequestTimeFilterPostcodes(); // \OpenAPI\Client\Model\RequestTimeFilterPostcodes
 
 try {
     $result = $apiInstance->timeFilterPostcodes($request_time_filter_postcodes);
@@ -656,11 +649,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeFilterPostcodes: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -676,17 +667,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
+## `timeMap()`
 
-## timeMap
-
-> \OpenAPI\Client\Model\ResponseTimeMap timeMap($request_time_map)
+```php
+timeMap($request_time_map): \OpenAPI\Client\Model\ResponseTimeMap
+```
 
 
 
@@ -714,7 +706,7 @@ $apiInstance = new OpenAPI\Client\Api\DefaultApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request_time_map = new \OpenAPI\Client\Model\RequestTimeMap(); // \OpenAPI\Client\Model\RequestTimeMap | 
+$request_time_map = new \OpenAPI\Client\Model\RequestTimeMap(); // \OpenAPI\Client\Model\RequestTimeMap
 
 try {
     $result = $apiInstance->timeMap($request_time_map);
@@ -722,11 +714,9 @@ try {
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->timeMap: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -742,10 +732,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
-- **Accept**: application/json, application/vnd.wkt+json, application/vnd.wkt-no-holes+json, application/vnd.bounding-boxes+json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`, `application/vnd.wkt+json`, `application/vnd.wkt-no-holes+json`, `application/vnd.bounding-boxes+json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
-

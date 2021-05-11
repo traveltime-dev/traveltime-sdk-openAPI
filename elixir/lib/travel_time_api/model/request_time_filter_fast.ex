@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterFast do
   ]
 
   @type t :: %__MODULE__{
-    :"locations" => [RequestLocation],
-    :"arrival_searches" => RequestTimeFilterFastArrivalSearches
+    :"locations" => [TravelTimeAPI.Model.RequestLocation.t],
+    :"arrival_searches" => TravelTimeAPI.Model.RequestTimeFilterFastArrivalSearches.t
   }
 end
 

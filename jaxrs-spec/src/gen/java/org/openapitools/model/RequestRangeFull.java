@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestRangeFull   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestRangeFull   {
   
   private @Valid Boolean enabled;
   private @Valid Integer maxResults;
@@ -38,7 +38,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
-  }/**
+  }
+
+/**
    * minimum: 1
    * maximum: 5
    **/
@@ -59,7 +61,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMaxResults(Integer maxResults) {
     this.maxResults = maxResults;
-  }/**
+  }
+
+/**
    * minimum: 1
    * maximum: 43200
    **/
@@ -82,8 +86,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.width = width;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -117,7 +122,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

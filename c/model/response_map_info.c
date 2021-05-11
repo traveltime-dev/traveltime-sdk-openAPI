@@ -23,10 +23,13 @@ void response_map_info_free(response_map_info_t *response_map_info) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_map_info->maps) {
-        response_map_info_map_free(listEntry->data);
+    if (response_map_info->maps) {
+        list_ForEach(listEntry, response_map_info->maps) {
+            response_map_info_map_free(listEntry->data);
+        }
+        list_free(response_map_info->maps);
+        response_map_info->maps = NULL;
     }
-    list_free(response_map_info->maps);
     free(response_map_info);
 }
 

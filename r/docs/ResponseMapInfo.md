@@ -1,5 +1,6 @@
 # openapi::ResponseMapInfo
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

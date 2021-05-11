@@ -6,31 +6,42 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseError: Codable { 
-
+public struct ResponseError: Codable, Hashable {
 
     public var httpStatus: Int?
     public var errorCode: Int?
     public var description: String?
     public var documentationLink: String?
-    public var additionalInfo: [String:[String]]?
+    public var additionalInfo: [String: [String]]?
 
-    public init(httpStatus: Int? = nil, errorCode: Int? = nil, description: String? = nil, documentationLink: String? = nil, additionalInfo: [String:[String]]? = nil) {
+    public init(httpStatus: Int? = nil, errorCode: Int? = nil, description: String? = nil, documentationLink: String? = nil, additionalInfo: [String: [String]]? = nil) {
         self.httpStatus = httpStatus
         self.errorCode = errorCode
         self.description = description
         self.documentationLink = documentationLink
         self.additionalInfo = additionalInfo
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case httpStatus = "http_status"
         case errorCode = "error_code"
         case description
         case documentationLink = "documentation_link"
         case additionalInfo = "additional_info"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(httpStatus, forKey: .httpStatus)
+        try container.encodeIfPresent(errorCode, forKey: .errorCode)
+        try container.encodeIfPresent(description, forKey: .description)
+        try container.encodeIfPresent(documentationLink, forKey: .documentationLink)
+        try container.encodeIfPresent(additionalInfo, forKey: .additionalInfo)
+    }
+
+
 
 }

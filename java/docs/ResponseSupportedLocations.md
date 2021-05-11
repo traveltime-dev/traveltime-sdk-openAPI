@@ -2,6 +2,7 @@
 
 # ResponseSupportedLocations
 
+
 ## Properties
 
 Name | Type | Description | Notes

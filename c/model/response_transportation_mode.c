@@ -33,9 +33,9 @@ fail:
     return NULL;
 }
 
-response_transportation_mode_response_transportation_mode_e response_transportation_mode_response_transportation_mode_parseFromJSON(cJSON *response_transportation_modeJSON) {
-    response_transportation_mode_response_transportation_mode_e *response_transportation_mode = NULL;
-    response_transportation_mode_response_transportation_mode_e response_transportation_modeVariable;
+traveltime_api_response_transportation_mode__e response_transportation_mode_response_transportation_mode_parseFromJSON(cJSON *response_transportation_modeJSON) {
+    traveltime_api_response_transportation_mode__e *response_transportation_mode = NULL;
+    traveltime_api_response_transportation_mode__e response_transportation_modeVariable;
     cJSON *response_transportation_modeVar = cJSON_GetObjectItemCaseSensitive(response_transportation_modeJSON, "response_transportation_mode");
     if(!cJSON_IsString(response_transportation_modeVar) || (response_transportation_modeVar->valuestring == NULL)){
         goto end;

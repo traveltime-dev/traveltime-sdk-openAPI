@@ -22,10 +22,10 @@ defmodule TravelTimeAPI.Model.RequestRoutesDepartureSearch do
     :"id" => String.t,
     :"departure_location_id" => String.t,
     :"arrival_location_ids" => [String.t],
-    :"transportation" => RequestTransportation,
+    :"transportation" => TravelTimeAPI.Model.RequestTransportation.t,
     :"departure_time" => DateTime.t,
-    :"properties" => [RequestRoutesProperty],
-    :"range" => RequestRangeFull | nil
+    :"properties" => [TravelTimeAPI.Model.RequestRoutesProperty.t],
+    :"range" => TravelTimeAPI.Model.RequestRangeFull.t | nil
   }
 end
 

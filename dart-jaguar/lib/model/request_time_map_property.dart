@@ -8,7 +8,7 @@ class RequestTimeMapProperty {
 
   const RequestTimeMapProperty._internal(this.value);
 
-  static const RequestTimeMapProperty isOnlyWalking_ = const RequestTimeMapProperty._internal("is_only_walking");
+  static const RequestTimeMapProperty isOnlyWalking = const RequestTimeMapProperty._internal('is_only_walking');
 }
 
 class RequestTimeMapPropertyFieldProcessor implements FieldProcessor<RequestTimeMapProperty, String> {
@@ -16,7 +16,7 @@ class RequestTimeMapPropertyFieldProcessor implements FieldProcessor<RequestTime
 
     RequestTimeMapProperty deserialize(String data) {
         switch (data) {
-            case "is_only_walking": return RequestTimeMapProperty.isOnlyWalking_;
+            case 'is_only_walking': return RequestTimeMapProperty.isOnlyWalking;
             default: throw('Unknown enum value to decode: $data');
         }
     }

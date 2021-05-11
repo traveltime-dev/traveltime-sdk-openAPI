@@ -68,17 +68,32 @@ void request_time_filter_fast_arrival_many_to_one_search_free(request_time_filte
         return ;
     }
     listEntry_t *listEntry;
-    free(request_time_filter_fast_arrival_many_to_one_search->id);
-    free(request_time_filter_fast_arrival_many_to_one_search->arrival_location_id);
-    list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
-        free(listEntry->data);
+    if (request_time_filter_fast_arrival_many_to_one_search->id) {
+        free(request_time_filter_fast_arrival_many_to_one_search->id);
+        request_time_filter_fast_arrival_many_to_one_search->id = NULL;
     }
-    list_free(request_time_filter_fast_arrival_many_to_one_search->departure_location_ids);
-    request_transportation_fast_free(request_time_filter_fast_arrival_many_to_one_search->transportation);
-    list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->properties) {
-        request_time_filter_fast_property_free(listEntry->data);
+    if (request_time_filter_fast_arrival_many_to_one_search->arrival_location_id) {
+        free(request_time_filter_fast_arrival_many_to_one_search->arrival_location_id);
+        request_time_filter_fast_arrival_many_to_one_search->arrival_location_id = NULL;
     }
-    list_free(request_time_filter_fast_arrival_many_to_one_search->properties);
+    if (request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
+        list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->departure_location_ids) {
+            free(listEntry->data);
+        }
+        list_free(request_time_filter_fast_arrival_many_to_one_search->departure_location_ids);
+        request_time_filter_fast_arrival_many_to_one_search->departure_location_ids = NULL;
+    }
+    if (request_time_filter_fast_arrival_many_to_one_search->transportation) {
+        request_transportation_fast_free(request_time_filter_fast_arrival_many_to_one_search->transportation);
+        request_time_filter_fast_arrival_many_to_one_search->transportation = NULL;
+    }
+    if (request_time_filter_fast_arrival_many_to_one_search->properties) {
+        list_ForEach(listEntry, request_time_filter_fast_arrival_many_to_one_search->properties) {
+            request_time_filter_fast_property_free(listEntry->data);
+        }
+        list_free(request_time_filter_fast_arrival_many_to_one_search->properties);
+        request_time_filter_fast_arrival_many_to_one_search->properties = NULL;
+    }
     free(request_time_filter_fast_arrival_many_to_one_search);
 }
 
@@ -296,6 +311,10 @@ request_time_filter_fast_arrival_many_to_one_search_t *request_time_filter_fast_
 
     return request_time_filter_fast_arrival_many_to_one_search_local_var;
 end:
+    if (transportation_local_nonprim) {
+        request_transportation_fast_free(transportation_local_nonprim);
+        transportation_local_nonprim = NULL;
+    }
     return NULL;
 
 }

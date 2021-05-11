@@ -1,3 +1,4 @@
+.gitignore
 .openapi-generator-ignore
 README.md
 compile-mono.sh

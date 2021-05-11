@@ -17,7 +17,7 @@ namespace Org.OpenAPITools.Model {
     /// </summary>
     [DataMember(Name="code", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "code")]
-    public String Code { get; set; }
+    public string Code { get; set; }
 
     /// <summary>
     /// Gets or Sets Properties
@@ -45,7 +45,7 @@ namespace Org.OpenAPITools.Model {
     /// </summary>
     /// <returns>JSON string presentation of the object</returns>
     public string ToJson() {
-      return JsonConvert.SerializeObject(this, Formatting.Indented);
+      return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
     }
 
 }

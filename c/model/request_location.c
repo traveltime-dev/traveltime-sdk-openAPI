@@ -25,8 +25,14 @@ void request_location_free(request_location_t *request_location) {
         return ;
     }
     listEntry_t *listEntry;
-    free(request_location->id);
-    coords_free(request_location->coords);
+    if (request_location->id) {
+        free(request_location->id);
+        request_location->id = NULL;
+    }
+    if (request_location->coords) {
+        coords_free(request_location->coords);
+        request_location->coords = NULL;
+    }
     free(request_location);
 }
 
@@ -99,6 +105,10 @@ request_location_t *request_location_parseFromJSON(cJSON *request_locationJSON){
 
     return request_location_local_var;
 end:
+    if (coords_local_nonprim) {
+        coords_free(coords_local_nonprim);
+        coords_local_nonprim = NULL;
+    }
     return NULL;
 
 }

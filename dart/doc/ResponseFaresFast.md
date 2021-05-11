@@ -8,7 +8,7 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ticketsTotal** | [**List&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | [default to []]
+**ticketsTotal** | [**List<ResponseFareTicket>**](ResponseFareTicket.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

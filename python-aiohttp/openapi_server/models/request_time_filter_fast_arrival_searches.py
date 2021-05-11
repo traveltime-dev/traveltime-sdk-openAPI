@@ -62,6 +62,8 @@ class RequestTimeFilterFastArrivalSearches(Model):
         :param many_to_one: The many_to_one of this RequestTimeFilterFastArrivalSearches.
         :type many_to_one: List[RequestTimeFilterFastArrivalManyToOneSearch]
         """
+        if many_to_one is not None and len(many_to_one) > 10:
+            raise ValueError("Invalid value for `many_to_one`, number of items must be less than or equal to `10`")
 
         self._many_to_one = many_to_one
 
@@ -83,5 +85,7 @@ class RequestTimeFilterFastArrivalSearches(Model):
         :param one_to_many: The one_to_many of this RequestTimeFilterFastArrivalSearches.
         :type one_to_many: List[RequestTimeFilterFastArrivalOneToManySearch]
         """
+        if one_to_many is not None and len(one_to_many) > 10:
+            raise ValueError("Invalid value for `one_to_many`, number of items must be less than or equal to `10`")
 
         self._one_to_many = one_to_many

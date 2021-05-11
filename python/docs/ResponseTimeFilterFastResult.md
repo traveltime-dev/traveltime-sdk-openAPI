@@ -1,11 +1,13 @@
 # ResponseTimeFilterFastResult
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **search_id** | **str** |  | 
-**locations** | [**list[ResponseTimeFilterFastLocation]**](ResponseTimeFilterFastLocation.md) |  | 
-**unreachable** | **list[str]** |  | 
+**locations** | [**[ResponseTimeFilterFastLocation]**](ResponseTimeFilterFastLocation.md) |  | 
+**unreachable** | **[str]** |  | 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**envelope** | [**ResponseBox**](ResponseBox.md) |  | 
-**boxes** | [**Array&lt;ResponseBox&gt;**](ResponseBox.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **envelope** | [**ResponseBox**](ResponseBox.md) |  |  |
+| **boxes** | [**Array&lt;ResponseBox&gt;**](ResponseBox.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseBoundingBox.new(envelope: null,
-                                 boxes: null)
+instance = OpenapiClient::ResponseBoundingBox.new(
+  envelope: null,
+  boxes: null
+)
 ```
-
 

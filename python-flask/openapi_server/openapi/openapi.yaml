@@ -5,7 +5,7 @@ info:
     name: API Support
   termsOfService: https://www.traveltime.com/terms-and-conditions
   title: TravelTime API
-  version: 1.2.1
+  version: 1.2.2
 externalDocs:
   url: http://docs.traveltime.com
 servers:
@@ -504,26 +504,33 @@ components:
       properties:
         lat:
           format: double
+          title: lat
           type: number
         lng:
           format: double
+          title: lng
           type: number
       required:
       - lat
       - lng
+      title: Coords
       type: object
     RequestSearchId:
+      title: id
       type: string
     RequestDepartureArrivalLocationOne:
       type: string
     RequestTravelTime:
       maximum: 14400
       minimum: 60
+      title: travel_time
       type: integer
     RequestDepartureArrivalTime:
       format: date-time
+      title: departure_time
       type: string
     ResponseLocalTime:
+      title: departs_at
       type: string
     RequestRoutesProperty:
       enum:
@@ -531,6 +538,7 @@ components:
       - distance
       - fares
       - route
+      title: RequestRoutesProperty
       type: string
     RequestTimeFilterProperty:
       enum:
@@ -539,12 +547,15 @@ components:
       - distance_breakdown
       - fares
       - route
+      title: RequestTimeFilterProperty
       type: string
     RequestRangeEnabled:
+      title: enabled
       type: boolean
     RequestRangeWidth:
       maximum: 43200
       minimum: 1
+      title: width
       type: integer
     RequestRangeFull:
       example:
@@ -553,19 +564,23 @@ components:
         enabled: true
       properties:
         enabled:
+          title: enabled
           type: boolean
         max_results:
           maximum: 5
           minimum: 1
+          title: max_results
           type: integer
         width:
           maximum: 43200
           minimum: 1
+          title: width
           type: integer
       required:
       - enabled
       - max_results
       - width
+      title: RequestRangeFull
       type: object
     RequestRangeNoMaxResults:
       example:
@@ -573,37 +588,45 @@ components:
         enabled: true
       properties:
         enabled:
+          title: enabled
           type: boolean
         width:
           maximum: 43200
           minimum: 1
+          title: width
           type: integer
       required:
       - enabled
       - width
+      title: RequestRangeNoMaxResults
       type: object
     RequestTimeFilterPostcodesProperty:
       enum:
       - travel_time
       - distance
+      title: RequestTimeFilterPostcodesProperty
       type: string
     RequestTimeFilterPostcodeDistrictsReachablePostcodesThreshold:
       format: double
+      title: reachable_postcodes_threshold
       type: number
     RequestTimeFilterPostcodeDistrictsProperty:
       enum:
       - travel_time_reachable
       - travel_time_all
       - coverage
+      title: RequestTimeFilterPostcodeDistrictsProperty
       type: string
     RequestTimeFilterPostcodeSectorsReachablePostcodesThreshold:
       format: double
+      title: reachable_postcodes_threshold
       type: number
     RequestTimeFilterPostcodeSectorsProperty:
       enum:
       - travel_time_reachable
       - travel_time_all
       - coverage
+      title: RequestTimeFilterPostcodeSectorsProperty
       type: string
     RequestTimeFilterPostcodeSectorsDepartureSearch:
       example:
@@ -627,22 +650,27 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         reachable_postcodes_threshold:
           format: double
+          title: reachable_postcodes_threshold
           type: number
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodeSectorsProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -654,6 +682,7 @@ components:
       - reachable_postcodes_threshold
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodeSectorsDepartureSearch
       type: object
     RequestTimeFilterPostcodeSectorsArrivalSearch:
       example:
@@ -677,22 +706,27 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         reachable_postcodes_threshold:
           format: double
+          title: reachable_postcodes_threshold
           type: number
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodeSectorsProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -704,6 +738,7 @@ components:
       - reachable_postcodes_threshold
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodeSectorsArrivalSearch
       type: object
     RequestTimeFilterPostcodeDistrictsDepartureSearch:
       example:
@@ -727,22 +762,27 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         reachable_postcodes_threshold:
           format: double
+          title: reachable_postcodes_threshold
           type: number
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodeDistrictsProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -754,6 +794,7 @@ components:
       - reachable_postcodes_threshold
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodeDistrictsDepartureSearch
       type: object
     RequestTimeFilterPostcodeDistrictsArrivalSearch:
       example:
@@ -777,22 +818,27 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         reachable_postcodes_threshold:
           format: double
+          title: reachable_postcodes_threshold
           type: number
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodeDistrictsProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -804,6 +850,7 @@ components:
       - reachable_postcodes_threshold
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodeDistrictsArrivalSearch
       type: object
     RequestTimeFilterPostcodesDepartureSearch:
       example:
@@ -826,19 +873,23 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodesProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -849,6 +900,7 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodesDepartureSearch
       type: object
     RequestTimeFilterPostcodesArrivalSearch:
       example:
@@ -871,19 +923,23 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterPostcodesProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -894,6 +950,7 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterPostcodesArrivalSearch
       type: object
     RequestTimeFilterDepartureSearch:
       example:
@@ -923,27 +980,33 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         departure_location_id:
+          title: departure_location_id
           type: string
         arrival_location_ids:
           items:
             type: string
           maxItems: 2000
           minItems: 1
+          title: arrival_location_ids
           type: array
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -955,6 +1018,7 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterDepartureSearch
       type: object
     RequestTimeFilterArrivalSearch:
       example:
@@ -984,27 +1048,33 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         departure_location_ids:
           items:
             type: string
           maxItems: 2000
           minItems: 1
+          title: departure_location_ids
           type: array
         arrival_location_id:
+          title: arrival_location_id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -1016,15 +1086,18 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterArrivalSearch
       type: object
     RequestArrivalTimePeriod:
       enum:
       - weekday_morning
+      title: RequestArrivalTimePeriod
       type: string
     RequestTimeFilterFastProperty:
       enum:
       - travel_time
       - fares
+      title: RequestTimeFilterFastProperty
       type: string
     RequestTimeFilterFastArrivalManyToOneSearch:
       example:
@@ -1044,26 +1117,31 @@ components:
           type: public_transport
       properties:
         id:
+          title: id
           type: string
         arrival_location_id:
+          title: arrival_location_id
           type: string
         departure_location_ids:
           items:
             type: string
           maxItems: 100000
           minItems: 1
+          title: departure_location_ids
           type: array
         transportation:
           $ref: '#/components/schemas/RequestTransportationFast'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time_period:
           $ref: '#/components/schemas/RequestArrivalTimePeriod'
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterFastProperty'
+          title: properties
           type: array
       required:
       - arrival_location_id
@@ -1073,6 +1151,7 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterFastArrivalManyToOneSearch
       type: object
     RequestTimeFilterFastArrivalOneToManySearch:
       example:
@@ -1092,26 +1171,31 @@ components:
           type: public_transport
       properties:
         id:
+          title: id
           type: string
         departure_location_id:
+          title: departure_location_id
           type: string
         arrival_location_ids:
           items:
             type: string
           maxItems: 100000
           minItems: 1
+          title: arrival_location_ids
           type: array
         transportation:
           $ref: '#/components/schemas/RequestTransportationFast'
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time_period:
           $ref: '#/components/schemas/RequestArrivalTimePeriod'
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeFilterFastProperty'
+          title: properties
           type: array
       required:
       - arrival_location_ids
@@ -1121,6 +1205,7 @@ components:
       - properties
       - transportation
       - travel_time
+      title: RequestTimeFilterFastArrivalOneToManySearch
       type: object
     RequestTransportationFast:
       example:
@@ -1131,9 +1216,11 @@ components:
           - public_transport
           - driving
           - driving+public_transport
+          title: type
           type: string
       required:
       - type
+      title: RequestTransportationFast
       type: object
     RequestRoutesDepartureSearch:
       example:
@@ -1159,23 +1246,28 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         departure_location_id:
+          title: departure_location_id
           type: string
         arrival_location_ids:
           items:
             type: string
           maxItems: 2
           minItems: 1
+          title: arrival_location_ids
           type: array
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestRoutesProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -1186,6 +1278,7 @@ components:
       - id
       - properties
       - transportation
+      title: RequestRoutesDepartureSearch
       type: object
     RequestRoutesArrivalSearch:
       example:
@@ -1211,23 +1304,28 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         departure_location_ids:
           items:
             type: string
           maxItems: 2
           minItems: 1
+          title: departure_location_ids
           type: array
         arrival_location_id:
+          title: arrival_location_id
           type: string
         transportation:
           $ref: '#/components/schemas/RequestTransportation'
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestRoutesProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeFull'
@@ -1238,6 +1336,7 @@ components:
       - id
       - properties
       - transportation
+      title: RequestRoutesArrivalSearch
       type: object
     RequestTimeFilter:
       example:
@@ -2238,12 +2337,15 @@ components:
           items:
             $ref: '#/components/schemas/RequestTimeFilterFastArrivalManyToOneSearch'
           maxItems: 10
+          title: many_to_one
           type: array
         one_to_many:
           items:
             $ref: '#/components/schemas/RequestTimeFilterFastArrivalOneToManySearch'
           maxItems: 10
+          title: one_to_many
           type: array
+      title: RequestTimeFilterFastArrivalSearches
       type: object
     RequestTimeFilterFast:
       example:
@@ -2646,6 +2748,7 @@ components:
     RequestTimeMapProperty:
       enum:
       - is_only_walking
+      title: RequestTimeMapProperty
       type: string
     RequestUnionOnIntersection:
       example:
@@ -2655,14 +2758,17 @@ components:
         - search_ids
       properties:
         id:
+          title: id
           type: string
         search_ids:
           items:
             type: string
+          title: search_ids
           type: array
       required:
       - id
       - search_ids
+      title: RequestUnionOnIntersection
       type: object
     RequestTimeMapDepartureSearch:
       example:
@@ -2687,6 +2793,7 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         coords:
           $ref: '#/components/schemas/Coords'
@@ -2695,13 +2802,16 @@ components:
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeMapProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeNoMaxResults'
@@ -2711,6 +2821,7 @@ components:
       - id
       - transportation
       - travel_time
+      title: RequestTimeMapDepartureSearch
       type: object
     RequestTimeMapArrivalSearch:
       example:
@@ -2735,6 +2846,7 @@ components:
           parking_time: 5
       properties:
         id:
+          title: id
           type: string
         coords:
           $ref: '#/components/schemas/Coords'
@@ -2743,13 +2855,16 @@ components:
         travel_time:
           maximum: 14400
           minimum: 60
+          title: travel_time
           type: integer
         arrival_time:
           format: date-time
+          title: departure_time
           type: string
         properties:
           items:
             $ref: '#/components/schemas/RequestTimeMapProperty'
+          title: properties
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeNoMaxResults'
@@ -2759,6 +2874,7 @@ components:
       - id
       - transportation
       - travel_time
+      title: RequestTimeMapArrivalSearch
       type: object
     RequestTimeMap:
       example:
@@ -3019,12 +3135,16 @@ components:
           type: array
       type: object
     ResponseSearchId:
+      title: search_id
       type: string
     ResponseLocationId:
+      title: id
       type: string
     ResponseTravelTime:
+      title: travel_time
       type: integer
     ResponseDistance:
+      title: distance
       type: integer
     ResponseTransportationMode:
       enum:
@@ -3043,6 +3163,7 @@ components:
       - plane
       - ferry
       - coach
+      title: ResponseTransportationMode
       type: string
     ResponseDistanceBreakdownItem:
       example:
@@ -3051,10 +3172,12 @@ components:
         mode:
           $ref: '#/components/schemas/ResponseTransportationMode'
         distance:
+          title: distance
           type: integer
       required:
       - distance
       - mode
+      title: ResponseDistanceBreakdownItem
       type: object
     ResponseFareTicket:
       example:
@@ -3068,16 +3191,20 @@ components:
           - week
           - month
           - year
+          title: type
           type: string
         price:
           format: double
+          title: price
           type: number
         currency:
+          title: currency
           type: string
       required:
       - currency
       - price
       - type
+      title: ResponseFareTicket
       type: object
     ResponseFaresBreakdownItem:
       example:
@@ -3098,19 +3225,23 @@ components:
         modes:
           items:
             $ref: '#/components/schemas/ResponseTransportationMode'
+          title: modes
           type: array
         route_part_ids:
           items:
             type: integer
+          title: route_part_ids
           type: array
         tickets:
           items:
             $ref: '#/components/schemas/ResponseFareTicket'
+          title: tickets
           type: array
       required:
       - modes
       - route_part_ids
       - tickets
+      title: ResponseFaresBreakdownItem
       type: object
     ResponseFares:
       example:
@@ -3152,14 +3283,17 @@ components:
         breakdown:
           items:
             $ref: '#/components/schemas/ResponseFaresBreakdownItem'
+          title: breakdown
           type: array
         tickets_total:
           items:
             $ref: '#/components/schemas/ResponseFareTicket'
+          title: tickets_total
           type: array
       required:
       - breakdown
       - tickets_total
+      title: ResponseFares
       type: object
     ResponseFaresFast:
       example:
@@ -3174,9 +3308,11 @@ components:
         tickets_total:
           items:
             $ref: '#/components/schemas/ResponseFareTicket'
+          title: tickets_total
           type: array
       required:
       - tickets_total
+      title: ResponseFaresFast
       type: object
     ResponseRoutePart:
       example:
@@ -3201,6 +3337,7 @@ components:
         direction: direction
       properties:
         id:
+          title: id
           type: string
         type:
           enum:
@@ -3208,36 +3345,50 @@ components:
           - start_end
           - road
           - public_transport
+          title: type
           type: string
         mode:
           $ref: '#/components/schemas/ResponseTransportationMode'
         directions:
+          title: directions
           type: string
         distance:
+          title: distance
           type: integer
         travel_time:
+          title: travel_time
           type: integer
         coords:
           items:
             $ref: '#/components/schemas/Coords'
+          title: coords
           type: array
         direction:
+          title: direction
           type: string
         road:
+          title: road
           type: string
         turn:
+          title: turn
           type: string
         line:
+          title: line
           type: string
         departure_station:
+          title: departure_station
           type: string
         arrival_station:
+          title: arrival_station
           type: string
         departs_at:
+          title: departs_at
           type: string
         arrives_at:
+          title: departs_at
           type: string
         num_stops:
+          title: num_stops
           type: integer
       required:
       - coords
@@ -3247,6 +3398,7 @@ components:
       - mode
       - travel_time
       - type
+      title: ResponseRoutePart
       type: object
     ResponseRoute:
       example:
@@ -3294,18 +3446,22 @@ components:
       properties:
         departure_time:
           format: date-time
+          title: departure_time
           type: string
         arrival_time:
           format: date-time
+          title: arrival_time
           type: string
         parts:
           items:
             $ref: '#/components/schemas/ResponseRoutePart'
+          title: parts
           type: array
       required:
       - arrival_time
       - departure_time
       - parts
+      title: ResponseRoute
       type: object
     ResponseTimeFilterProperties:
       example:
@@ -3393,17 +3549,21 @@ components:
             type: single
       properties:
         travel_time:
+          title: travel_time
           type: integer
         distance:
+          title: distance
           type: integer
         distance_breakdown:
           items:
             $ref: '#/components/schemas/ResponseDistanceBreakdownItem'
+          title: distance_breakdown
           type: array
         fares:
           $ref: '#/components/schemas/ResponseFares'
         route:
           $ref: '#/components/schemas/ResponseRoute'
+      title: ResponseTimeFilterProperties
       type: object
     ResponseTravelTimeStatistics:
       example:
@@ -3413,18 +3573,23 @@ components:
         mean: 1
       properties:
         min:
+          title: min
           type: integer
         max:
+          title: max
           type: integer
         mean:
+          title: mean
           type: integer
         median:
+          title: median
           type: integer
       required:
       - max
       - mean
       - median
       - min
+      title: ResponseTravelTimeStatistics
       type: object
     ResponseTimeFilterPostcodesProperties:
       example:
@@ -3432,9 +3597,12 @@ components:
         travel_time: 0
       properties:
         travel_time:
+          title: travel_time
           type: integer
         distance:
+          title: distance
           type: integer
+      title: ResponseTimeFilterPostcodesProperties
       type: object
     ResponseTimeFilterPostcodeDistrictProperties:
       example:
@@ -3456,7 +3624,9 @@ components:
           $ref: '#/components/schemas/ResponseTravelTimeStatistics'
         coverage:
           format: double
+          title: coverage
           type: number
+      title: ResponseTimeFilterPostcodeDistrictProperties
       type: object
     ResponseTimeFilterPostcodeSectorProperties:
       example:
@@ -3478,7 +3648,9 @@ components:
           $ref: '#/components/schemas/ResponseTravelTimeStatistics'
         coverage:
           format: double
+          title: coverage
           type: number
+      title: ResponseTimeFilterPostcodeSectorProperties
       type: object
     ResponseTimeFilterFastProperties:
       example:
@@ -3493,9 +3665,11 @@ components:
             type: single
       properties:
         travel_time:
+          title: travel_time
           type: integer
         fares:
           $ref: '#/components/schemas/ResponseFaresFast'
+      title: ResponseTimeFilterFastProperties
       type: object
     ResponseRoutesProperties:
       example:
@@ -3580,13 +3754,16 @@ components:
             type: single
       properties:
         travel_time:
+          title: travel_time
           type: integer
         distance:
+          title: distance
           type: integer
         fares:
           $ref: '#/components/schemas/ResponseFares'
         route:
           $ref: '#/components/schemas/ResponseRoute'
+      title: ResponseRoutesProperties
       type: object
     ResponseTimeFilterLocation:
       example:
@@ -3758,14 +3935,17 @@ components:
               type: single
       properties:
         id:
+          title: id
           type: string
         properties:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterProperties'
+          title: properties
           type: array
       required:
       - id
       - properties
+      title: ResponseTimeFilterLocation
       type: object
     ResponseTimeFilterFastLocation:
       example:
@@ -3791,14 +3971,17 @@ components:
               type: single
       properties:
         id:
+          title: id
           type: string
         properties:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterFastProperties'
+          title: properties
           type: array
       required:
       - id
       - properties
+      title: ResponseTimeFilterFastLocation
       type: object
     ResponseRoutesLocation:
       example:
@@ -3964,18 +4147,21 @@ components:
               type: single
       properties:
         id:
+          title: id
           type: string
         properties:
           items:
             $ref: '#/components/schemas/ResponseRoutesProperties'
+          title: properties
           type: array
       required:
       - id
       - properties
+      title: ResponseRoutesLocation
       type: object
     ResponseTimeFilterPostcode:
       example:
-        code: ""
+        code: code
         properties:
         - distance: 6
           travel_time: 0
@@ -3983,18 +4169,21 @@ components:
           travel_time: 0
       properties:
         code:
-          type: String
+          title: code
+          type: string
         properties:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodesProperties'
+          title: properties
           type: array
       required:
       - code
       - properties
+      title: ResponseTimeFilterPostcode
       type: object
     ResponseTimeFilterPostcodeDistrict:
       example:
-        code: ""
+        code: code
         properties:
           coverage: 5.637376656633329
           travel_time_all:
@@ -4009,16 +4198,18 @@ components:
             mean: 1
       properties:
         code:
-          type: String
+          title: code
+          type: string
         properties:
           $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistrictProperties'
       required:
       - code
       - properties
+      title: ResponseTimeFilterPostcodeDistrict
       type: object
     ResponseTimeFilterPostcodeSector:
       example:
-        code: ""
+        code: code
         properties:
           coverage: 0.8008281904610115
           travel_time_all:
@@ -4033,12 +4224,14 @@ components:
             mean: 1
       properties:
         code:
-          type: String
+          title: code
+          type: string
         properties:
           $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectorProperties'
       required:
       - code
       - properties
+      title: ResponseTimeFilterPostcodeSector
       type: object
     ResponseTimeFilterResult:
       example:
@@ -4381,30 +4574,34 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         locations:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterLocation'
+          title: locations
           type: array
         unreachable:
           items:
             type: string
+          title: unreachable
           type: array
       required:
       - locations
       - search_id
       - unreachable
+      title: ResponseTimeFilterResult
       type: object
     ResponseTimeFilterPostcodesResult:
       example:
         postcodes:
-        - code: ""
+        - code: code
           properties:
           - distance: 6
             travel_time: 0
           - distance: 6
             travel_time: 0
-        - code: ""
+        - code: code
           properties:
           - distance: 6
             travel_time: 0
@@ -4413,19 +4610,22 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         postcodes:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcode'
+          title: postcodes
           type: array
       required:
       - postcodes
       - search_id
+      title: ResponseTimeFilterPostcodesResult
       type: object
     ResponseTimeFilterPostcodeDistrictsResult:
       example:
         districts:
-        - code: ""
+        - code: code
           properties:
             coverage: 5.637376656633329
             travel_time_all:
@@ -4438,7 +4638,7 @@ components:
               median: 5
               max: 6
               mean: 1
-        - code: ""
+        - code: code
           properties:
             coverage: 5.637376656633329
             travel_time_all:
@@ -4454,19 +4654,22 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         districts:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistrict'
+          title: districts
           type: array
       required:
       - districts
       - search_id
+      title: ResponseTimeFilterPostcodeDistrictsResult
       type: object
     ResponseTimeFilterPostcodeSectorsResult:
       example:
         sectors:
-        - code: ""
+        - code: code
           properties:
             coverage: 0.8008281904610115
             travel_time_all:
@@ -4479,7 +4682,7 @@ components:
               median: 5
               max: 6
               mean: 1
-        - code: ""
+        - code: code
           properties:
             coverage: 0.8008281904610115
             travel_time_all:
@@ -4495,14 +4698,17 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         sectors:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeSector'
+          title: sectors
           type: array
       required:
       - search_id
       - sectors
+      title: ResponseTimeFilterPostcodeSectorsResult
       type: object
     ResponseTimeFilterFastResult:
       example:
@@ -4553,19 +4759,23 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         locations:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterFastLocation'
+          title: locations
           type: array
         unreachable:
           items:
             type: string
+          title: unreachable
           type: array
       required:
       - locations
       - search_id
       - unreachable
+      title: ResponseTimeFilterFastResult
       type: object
     ResponseRoutesResult:
       example:
@@ -4896,19 +5106,23 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         locations:
           items:
             $ref: '#/components/schemas/ResponseRoutesLocation'
+          title: locations
           type: array
         unreachable:
           items:
             type: string
+          title: unreachable
           type: array
       required:
       - locations
       - search_id
       - unreachable
+      title: ResponseRoutesResult
       type: object
     ResponseTimeFilter:
       example:
@@ -5591,21 +5805,23 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeFilter
       type: object
     ResponseTimeFilterPostcodes:
       example:
         results:
         - postcodes:
-          - code: ""
+          - code: code
             properties:
             - distance: 6
               travel_time: 0
             - distance: 6
               travel_time: 0
-          - code: ""
+          - code: code
             properties:
             - distance: 6
               travel_time: 0
@@ -5613,13 +5829,13 @@ components:
               travel_time: 0
           search_id: search_id
         - postcodes:
-          - code: ""
+          - code: code
             properties:
             - distance: 6
               travel_time: 0
             - distance: 6
               travel_time: 0
-          - code: ""
+          - code: code
             properties:
             - distance: 6
               travel_time: 0
@@ -5630,15 +5846,17 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodesResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeFilterPostcodes
       type: object
     ResponseTimeFilterPostcodeDistricts:
       example:
         results:
         - districts:
-          - code: ""
+          - code: code
             properties:
               coverage: 5.637376656633329
               travel_time_all:
@@ -5651,7 +5869,7 @@ components:
                 median: 5
                 max: 6
                 mean: 1
-          - code: ""
+          - code: code
             properties:
               coverage: 5.637376656633329
               travel_time_all:
@@ -5666,7 +5884,7 @@ components:
                 mean: 1
           search_id: search_id
         - districts:
-          - code: ""
+          - code: code
             properties:
               coverage: 5.637376656633329
               travel_time_all:
@@ -5679,7 +5897,7 @@ components:
                 median: 5
                 max: 6
                 mean: 1
-          - code: ""
+          - code: code
             properties:
               coverage: 5.637376656633329
               travel_time_all:
@@ -5697,15 +5915,17 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeDistrictsResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeFilterPostcodeDistricts
       type: object
     ResponseTimeFilterPostcodeSectors:
       example:
         results:
         - sectors:
-          - code: ""
+          - code: code
             properties:
               coverage: 0.8008281904610115
               travel_time_all:
@@ -5718,7 +5938,7 @@ components:
                 median: 5
                 max: 6
                 mean: 1
-          - code: ""
+          - code: code
             properties:
               coverage: 0.8008281904610115
               travel_time_all:
@@ -5733,7 +5953,7 @@ components:
                 mean: 1
           search_id: search_id
         - sectors:
-          - code: ""
+          - code: code
             properties:
               coverage: 0.8008281904610115
               travel_time_all:
@@ -5746,7 +5966,7 @@ components:
                 median: 5
                 max: 6
                 mean: 1
-          - code: ""
+          - code: code
             properties:
               coverage: 0.8008281904610115
               travel_time_all:
@@ -5764,9 +5984,11 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterPostcodeSectorsResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeFilterPostcodeSectors
       type: object
     ResponseTimeFilterFast:
       example:
@@ -5865,9 +6087,11 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeFilterFastResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeFilterFast
       type: object
     ResponseRoutes:
       example:
@@ -6526,9 +6750,11 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseRoutesResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseRoutes
       type: object
     ResponseShape:
       example:
@@ -6550,36 +6776,44 @@ components:
         shell:
           items:
             $ref: '#/components/schemas/Coords'
+          title: shell
           type: array
         holes:
           items:
             items:
               $ref: '#/components/schemas/Coords'
             type: array
+          title: holes
           type: array
       required:
       - holes
       - shell
+      title: ResponseShape
       type: object
     ResponseBox:
       properties:
         min_lat:
           format: double
+          title: min_lat
           type: number
         max_lat:
           format: double
+          title: max_lat
           type: number
         min_lng:
           format: double
+          title: min_lng
           type: number
         max_lng:
           format: double
+          title: max_lng
           type: number
       required:
       - max_lat
       - max_lng
       - min_lat
       - min_lng
+      title: ResponseBox
       type: object
     ResponseBoundingBox:
       properties:
@@ -6588,19 +6822,24 @@ components:
         boxes:
           items:
             $ref: '#/components/schemas/ResponseBox'
+          title: boxes
           type: array
       required:
       - boxes
       - envelope
+      title: ResponseBoundingBox
       type: object
     ResponseTimeMapProperties:
       example:
         is_only_walking: true
       properties:
         is_only_walking:
+          title: is_only_walking
           type: boolean
+      title: ResponseTimeMapProperties
       type: object
     ResponseWktShape:
+      title: shape
       type: string
     ResponseTimeMapResult:
       example:
@@ -6638,10 +6877,12 @@ components:
         search_id: search_id
       properties:
         search_id:
+          title: search_id
           type: string
         shapes:
           items:
             $ref: '#/components/schemas/ResponseShape'
+          title: shapes
           type: array
         properties:
           $ref: '#/components/schemas/ResponseTimeMapProperties'
@@ -6649,6 +6890,7 @@ components:
       - properties
       - search_id
       - shapes
+      title: ResponseTimeMapResult
       type: object
     ResponseTimeMap:
       example:
@@ -6721,15 +6963,19 @@ components:
         results:
           items:
             $ref: '#/components/schemas/ResponseTimeMapResult'
+          title: results
           type: array
       required:
       - results
+      title: ResponseTimeMap
       type: object
     ResponseTimeMapWktResult:
       properties:
         search_id:
+          title: search_id
           type: string
         shape:
+          title: shape
           type: string
         properties:
           $ref: '#/components/schemas/ResponseTimeMapProperties'
@@ -6737,6 +6983,7 @@ components:
       - properties
       - search_id
       - shape
+      title: ResponseTimeMapWktResult
       type: object
     ResponseTimeMapWkt:
       properties:
@@ -6750,10 +6997,12 @@ components:
     ResponseTimeMapBoundingBoxesResult:
       properties:
         search_id:
+          title: search_id
           type: string
         bounding_boxes:
           items:
             $ref: '#/components/schemas/ResponseBoundingBox'
+          title: bounding_boxes
           type: array
         properties:
           $ref: '#/components/schemas/ResponseTimeMapProperties'
@@ -6761,6 +7010,7 @@ components:
       - bounding_boxes
       - properties
       - search_id
+      title: ResponseTimeMapBoundingBoxesResult
       type: object
     ResponseTimeMapBoundingBoxes:
       properties:
@@ -6793,21 +7043,29 @@ components:
           - ferry
           - driving+ferry
           - cycling+ferry
+          title: type
           type: string
         pt_change_delay:
+          title: pt_change_delay
           type: integer
         walking_time:
+          title: walking_time
           type: integer
         driving_time_to_station:
+          title: driving_time_to_station
           type: integer
         parking_time:
+          title: parking_time
           type: integer
         boarding_time:
+          title: boarding_time
           type: integer
       required:
       - type
+      title: RequestTransportation
       type: object
     RequestLocationId:
+      title: RequestLocationId
       type: string
     ResponseSupportedLocation:
       example:
@@ -6815,12 +7073,15 @@ components:
         id: id
       properties:
         id:
+          title: id
           type: string
         map_name:
+          title: map_name
           type: string
       required:
       - id
       - map_name
+      title: ResponseSupportedLocation
       type: object
     ResponseSupportedLocations:
       example:
@@ -6836,14 +7097,17 @@ components:
         locations:
           items:
             $ref: '#/components/schemas/ResponseSupportedLocation'
+          title: locations
           type: array
         unsupported_locations:
           items:
             type: string
+          title: unsupported_locations
           type: array
       required:
       - locations
       - unsupported_locations
+      title: ResponseSupportedLocations
       type: object
     RequestSupportedLocations:
       example:
@@ -6873,31 +7137,39 @@ components:
           lat: 7.061401241503109
       properties:
         id:
+          title: RequestLocationId
           type: string
         coords:
           $ref: '#/components/schemas/Coords'
       required:
       - coords
       - id
+      title: RequestLocation
       type: object
     ResponseError:
       externalDocs:
         url: http://docs.traveltime.com/reference/error-response
       properties:
         http_status:
+          title: http_status
           type: integer
         error_code:
+          title: error_code
           type: integer
         description:
+          title: description
           type: string
         documentation_link:
+          title: documentation_link
           type: string
         additional_info:
           additionalProperties:
             items:
               type: string
             type: array
+          title: additional_info
           type: object
+      title: ResponseError
       type: object
     ResponseGeocodingGeometry:
       example:
@@ -6907,15 +7179,18 @@ components:
         type: type
       properties:
         type:
+          title: type
           type: string
         coordinates:
           items:
             format: double
             type: number
+          title: coordinates
           type: array
       required:
       - coordinates
       - type
+      title: ResponseGeocodingGeometry
       type: object
     ResponseMapInfoFeaturesPublicTransport:
       example:
@@ -6924,13 +7199,16 @@ components:
       properties:
         date_start:
           format: date-time
+          title: date_start
           type: string
         date_end:
           format: date-time
+          title: date_end
           type: string
       required:
       - date_end
       - date_start
+      title: ResponseMapInfoFeaturesPublicTransport
       type: object
     ResponseMapInfoFeatures:
       example:
@@ -6943,12 +7221,15 @@ components:
         public_transport:
           $ref: '#/components/schemas/ResponseMapInfoFeaturesPublicTransport'
         fares:
+          title: fares
           type: boolean
         postcodes:
+          title: postcodes
           type: boolean
       required:
       - fares
       - postcodes
+      title: ResponseMapInfoFeatures
       type: object
     ResponseGeocodingProperties:
       example:
@@ -6975,41 +7256,57 @@ components:
         region_code: region_code
       properties:
         name:
+          title: name
           type: string
         label:
+          title: label
           type: string
         score:
           format: double
+          title: score
           type: number
         house_number:
+          title: house_number
           type: string
         street:
+          title: street
           type: string
         region:
+          title: region
           type: string
         region_code:
+          title: region_code
           type: string
         neighbourhood:
+          title: neighbourhood
           type: string
         county:
+          title: county
           type: string
         macroregion:
+          title: macroregion
           type: string
         city:
+          title: city
           type: string
         country:
+          title: country
           type: string
         country_code:
+          title: country_code
           type: string
         continent:
+          title: continent
           type: string
         postcode:
+          title: postcode
           type: string
         features:
           $ref: '#/components/schemas/ResponseMapInfoFeatures'
       required:
       - label
       - name
+      title: ResponseGeocodingProperties
       type: object
     ResponseGeocodingGeoJsonFeature:
       example:
@@ -7043,6 +7340,7 @@ components:
           region_code: region_code
       properties:
         type:
+          title: type
           type: string
         geometry:
           $ref: '#/components/schemas/ResponseGeocodingGeometry'
@@ -7052,6 +7350,7 @@ components:
       - geometry
       - properties
       - type
+      title: ResponseGeocodingGeoJsonFeature
       type: object
     ResponseGeocoding:
       example:
@@ -7115,14 +7414,17 @@ components:
         type: type
       properties:
         type:
+          title: type
           type: string
         features:
           items:
             $ref: '#/components/schemas/ResponseGeocodingGeoJsonFeature'
+          title: features
           type: array
       required:
       - features
       - type
+      title: ResponseGeocoding
       type: object
     ResponseMapInfoMap:
       example:
@@ -7135,12 +7437,14 @@ components:
         name: name
       properties:
         name:
+          title: name
           type: string
         features:
           $ref: '#/components/schemas/ResponseMapInfoFeatures'
       required:
       - features
       - name
+      title: ResponseMapInfoMap
       type: object
     ResponseMapInfo:
       example:
@@ -7163,9 +7467,11 @@ components:
         maps:
           items:
             $ref: '#/components/schemas/ResponseMapInfoMap'
+          title: maps
           type: array
       required:
       - maps
+      title: ResponseMapInfo
       type: object
   securitySchemes:
     ApplicationId:

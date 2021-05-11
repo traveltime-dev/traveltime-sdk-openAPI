@@ -35,12 +35,15 @@
         "type": "array",
         "items": "RequestTimeMapProperty"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "range",
       "type": ["null", "model.RequestRangeNoMaxResults"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

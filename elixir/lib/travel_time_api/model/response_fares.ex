@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.ResponseFares do
   ]
 
   @type t :: %__MODULE__{
-    :"breakdown" => [ResponseFaresBreakdownItem],
-    :"tickets_total" => [ResponseFareTicket]
+    :"breakdown" => [TravelTimeAPI.Model.ResponseFaresBreakdownItem.t],
+    :"tickets_total" => [TravelTimeAPI.Model.ResponseFareTicket.t]
   }
 end
 

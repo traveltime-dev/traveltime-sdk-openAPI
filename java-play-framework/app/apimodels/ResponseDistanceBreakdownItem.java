@@ -9,13 +9,18 @@ import javax.validation.constraints.*;
 /**
  * ResponseDistanceBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseDistanceBreakdownItem   {
   @JsonProperty("mode")
+  @NotNull
+@Valid
+
   private ResponseTransportationMode mode;
 
   @JsonProperty("distance")
+  @NotNull
+
   private Integer distance;
 
   public ResponseDistanceBreakdownItem mode(ResponseTransportationMode mode) {
@@ -27,8 +32,6 @@ public class ResponseDistanceBreakdownItem   {
    * Get mode
    * @return mode
   **/
-  @NotNull
-@Valid
   public ResponseTransportationMode getMode() {
     return mode;
   }
@@ -46,7 +49,6 @@ public class ResponseDistanceBreakdownItem   {
    * Get distance
    * @return distance
   **/
-  @NotNull
   public Integer getDistance() {
     return distance;
   }
@@ -57,7 +59,7 @@ public class ResponseDistanceBreakdownItem   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -90,7 +92,7 @@ public class ResponseDistanceBreakdownItem   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -28,24 +28,24 @@ Method | HTTP request | Description
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
+
 # Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
 
 $Lat = 987 # Double | 
 $Lng = 987 # Double | 
 $WithinCountry = "WithinCountry_example" # String |  (optional)
 
 try {
-    ResponseGeocoding $Result = Invoke-GeocodingReverseSearch -Lat $Lat -Lng $Lng -WithinCountry $WithinCountry
+     $Result = Invoke-GeocodingReverseSearch -Lat $Lat -Lng $Lng -WithinCountry $WithinCountry
 } catch {
     Write-Host ("Exception occured when calling Invoke-GeocodingReverseSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGeocoding**](ResponseGeocoding.md)
+[**ResponseGeocoding**](ResponseGeocoding.md) (PSCustomObject)
 
 ### Authorization
 
@@ -87,17 +87,17 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
+
 # Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
 
 $Query = "Query_example" # String | 
 $FocusLat = 987 # Double |  (optional)
@@ -105,7 +105,7 @@ $FocusLng = 987 # Double |  (optional)
 $WithinCountry = "WithinCountry_example" # String |  (optional)
 
 try {
-    ResponseGeocoding $Result = Invoke-GeocodingSearch -Query $Query -FocusLat $FocusLat -FocusLng $FocusLng -WithinCountry $WithinCountry
+     $Result = Invoke-GeocodingSearch -Query $Query -FocusLat $FocusLat -FocusLng $FocusLng -WithinCountry $WithinCountry
 } catch {
     Write-Host ("Exception occured when calling Invoke-GeocodingSearch: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseGeocoding**](ResponseGeocoding.md)
+[**ResponseGeocoding**](ResponseGeocoding.md) (PSCustomObject)
 
 ### Authorization
 
@@ -144,21 +144,21 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
+
 # Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
 
 
 try {
-    ResponseMapInfo $Result = Invoke-MapInfo
+     $Result = Invoke-MapInfo
 } catch {
     Write-Host ("Exception occured when calling Invoke-MapInfo: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -170,7 +170,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**ResponseMapInfo**](ResponseMapInfo.md)
+[**ResponseMapInfo**](ResponseMapInfo.md) (PSCustomObject)
 
 ### Authorization
 
@@ -192,22 +192,22 @@ This endpoint does not need any parameter.
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestRoutes = (Initialize-RequestRoutes-Locations @((Initialize-RequestLocation-Id "Id_example" -Coords (Initialize-Coords-Lat 123 -Lng 123))) -DepartureSearches @((Initialize-RequestRoutesDepartureSearch-Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation (Initialize-RequestTransportation-Type "Type_example" -PtChangeDelay 123 -WalkingTime 123 -DrivingTimeToStation 123 -ParkingTime 123 -BoardingTime 123) -DepartureTime Get-Date -Properties @((Initialize-RequestRoutesProperty)) -Range (Initialize-RequestRangeFull-Enabled $false -MaxResults 123 -Width 123))) -ArrivalSearches @((Initialize-RequestRoutesArrivalSearch-Id "Id_example" -DepartureLocationIds @("DepartureLocationIds_example") -ArrivalLocationId "ArrivalLocationId_example" -Transportation (Initialize-RequestTransportation-Type "Type_example" -PtChangeDelay 123 -WalkingTime 123 -DrivingTimeToStation 123 -ParkingTime 123 -BoardingTime 123) -ArrivalTime Get-Date -Properties @((Initialize-RequestRoutesProperty)) -Range (Initialize-RequestRangeFull-Enabled $false -MaxResults 123 -Width 123)))) # RequestRoutes | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestRoutes = (Initialize-RequestRoutes -Locations @((Initialize-RequestLocation -Id "Id_example" -Coords (Initialize-Coords -Lat 123 -Lng 123))) -DepartureSearches @((Initialize-RequestRoutesDepartureSearch -Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation (Initialize-RequestTransportation -Type "cycling" -PtChangeDelay 123 -WalkingTime 123 -DrivingTimeToStation 123 -ParkingTime 123 -BoardingTime 123) -DepartureTime Get-Date -Properties @((Initialize-RequestRoutesProperty )) -Range (Initialize-RequestRangeFull -Enabled $false -MaxResults 123 -Width 123))) -ArrivalSearches @((Initialize-RequestRoutesArrivalSearch -Id "Id_example" -DepartureLocationIds @("DepartureLocationIds_example") -ArrivalLocationId "ArrivalLocationId_example" -Transportation (Initialize-RequestTransportation -Type "cycling" -PtChangeDelay 123 -WalkingTime 123 -DrivingTimeToStation 123 -ParkingTime 123 -BoardingTime 123) -ArrivalTime Get-Date -Properties @((Initialize-RequestRoutesProperty )) -Range (Initialize-RequestRangeFull -Enabled $false -MaxResults 123 -Width 123)))) # RequestRoutes | 
 
 try {
-    ResponseRoutes $Result = Invoke-Routes -RequestRoutes $RequestRoutes
+     $Result = Invoke-Routes -RequestRoutes $RequestRoutes
 } catch {
     Write-Host ("Exception occured when calling Invoke-Routes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseRoutes**](ResponseRoutes.md)
+[**ResponseRoutes**](ResponseRoutes.md) (PSCustomObject)
 
 ### Authorization
 
@@ -244,22 +244,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestSupportedLocations = (Initialize-RequestSupportedLocations-Locations @((Initialize-RequestLocation-Id "Id_example" -Coords (Initialize-Coords-Lat 123 -Lng 123)))) # RequestSupportedLocations | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestSupportedLocations = (Initialize-RequestSupportedLocations -Locations @((Initialize-RequestLocation -Id "Id_example" -Coords (Initialize-Coords -Lat 123 -Lng 123)))) # RequestSupportedLocations | 
 
 try {
-    ResponseSupportedLocations $Result = Invoke-SupportedLocations -RequestSupportedLocations $RequestSupportedLocations
+     $Result = Invoke-SupportedLocations -RequestSupportedLocations $RequestSupportedLocations
 } catch {
     Write-Host ("Exception occured when calling Invoke-SupportedLocations: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseSupportedLocations**](ResponseSupportedLocations.md)
+[**ResponseSupportedLocations**](ResponseSupportedLocations.md) (PSCustomObject)
 
 ### Authorization
 
@@ -296,22 +296,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeFilter = (Initialize-RequestTimeFilter-Locations @() -DepartureSearches @((Initialize-RequestTimeFilterDepartureSearch-Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeFilterProperty)) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterArrivalSearch-Id "Id_example" -DepartureLocationIds @("DepartureLocationIds_example") -ArrivalLocationId "ArrivalLocationId_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeFilterProperty)) -Range ))) # RequestTimeFilter | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeFilter = (Initialize-RequestTimeFilter -Locations @() -DepartureSearches @((Initialize-RequestTimeFilterDepartureSearch -Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeFilterProperty )) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterArrivalSearch -Id "Id_example" -DepartureLocationIds @("DepartureLocationIds_example") -ArrivalLocationId "ArrivalLocationId_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeFilterProperty )) -Range ))) # RequestTimeFilter | 
 
 try {
-    ResponseTimeFilter $Result = Invoke-TimeFilter -RequestTimeFilter $RequestTimeFilter
+     $Result = Invoke-TimeFilter -RequestTimeFilter $RequestTimeFilter
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeFilter: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -326,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeFilter**](ResponseTimeFilter.md)
+[**ResponseTimeFilter**](ResponseTimeFilter.md) (PSCustomObject)
 
 ### Authorization
 
@@ -348,22 +348,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeFilterFast = (Initialize-RequestTimeFilterFast-Locations @() -ArrivalSearches (Initialize-RequestTimeFilterFastArrivalSearches-ManyToOne @((Initialize-RequestTimeFilterFastArrivalManyToOneSearch-Id "Id_example" -ArrivalLocationId "ArrivalLocationId_example" -DepartureLocationIds @("DepartureLocationIds_example") -Transportation (Initialize-RequestTransportationFast-Type "Type_example") -TravelTime 123 -ArrivalTimePeriod (Initialize-RequestArrivalTimePeriod) -Properties @((Initialize-RequestTimeFilterFastProperty)))) -OneToMany @((Initialize-RequestTimeFilterFastArrivalOneToManySearch-Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation (Initialize-RequestTransportationFast-Type "Type_example") -TravelTime 123 -ArrivalTimePeriod (Initialize-RequestArrivalTimePeriod) -Properties @((Initialize-RequestTimeFilterFastProperty)))))) # RequestTimeFilterFast | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeFilterFast = (Initialize-RequestTimeFilterFast -Locations @() -ArrivalSearches (Initialize-RequestTimeFilterFastArrivalSearches -ManyToOne @((Initialize-RequestTimeFilterFastArrivalManyToOneSearch -Id "Id_example" -ArrivalLocationId "ArrivalLocationId_example" -DepartureLocationIds @("DepartureLocationIds_example") -Transportation (Initialize-RequestTransportationFast -Type "public_transport") -TravelTime 123 -ArrivalTimePeriod (Initialize-RequestArrivalTimePeriod ) -Properties @((Initialize-RequestTimeFilterFastProperty )))) -OneToMany @((Initialize-RequestTimeFilterFastArrivalOneToManySearch -Id "Id_example" -DepartureLocationId "DepartureLocationId_example" -ArrivalLocationIds @("ArrivalLocationIds_example") -Transportation (Initialize-RequestTransportationFast -Type "public_transport") -TravelTime 123 -ArrivalTimePeriod (Initialize-RequestArrivalTimePeriod ) -Properties @((Initialize-RequestTimeFilterFastProperty )))))) # RequestTimeFilterFast | 
 
 try {
-    ResponseTimeFilterFast $Result = Invoke-TimeFilterFast -RequestTimeFilterFast $RequestTimeFilterFast
+     $Result = Invoke-TimeFilterFast -RequestTimeFilterFast $RequestTimeFilterFast
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeFilterFast: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -378,7 +378,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeFilterFast**](ResponseTimeFilterFast.md)
+[**ResponseTimeFilterFast**](ResponseTimeFilterFast.md) (PSCustomObject)
 
 ### Authorization
 
@@ -400,22 +400,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeFilterPostcodeDistricts = (Initialize-RequestTimeFilterPostcodeDistricts-DepartureSearches @((Initialize-RequestTimeFilterPostcodeDistrictsDepartureSearch-Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeDistrictsProperty)) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodeDistrictsArrivalSearch-Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeDistrictsProperty)) -Range ))) # RequestTimeFilterPostcodeDistricts | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeFilterPostcodeDistricts = (Initialize-RequestTimeFilterPostcodeDistricts -DepartureSearches @((Initialize-RequestTimeFilterPostcodeDistrictsDepartureSearch -Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeDistrictsProperty )) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodeDistrictsArrivalSearch -Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeDistrictsProperty )) -Range ))) # RequestTimeFilterPostcodeDistricts | 
 
 try {
-    ResponseTimeFilterPostcodeDistricts $Result = Invoke-TimeFilterPostcodeDistricts -RequestTimeFilterPostcodeDistricts $RequestTimeFilterPostcodeDistricts
+     $Result = Invoke-TimeFilterPostcodeDistricts -RequestTimeFilterPostcodeDistricts $RequestTimeFilterPostcodeDistricts
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeFilterPostcodeDistricts: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -430,7 +430,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeFilterPostcodeDistricts**](ResponseTimeFilterPostcodeDistricts.md)
+[**ResponseTimeFilterPostcodeDistricts**](ResponseTimeFilterPostcodeDistricts.md) (PSCustomObject)
 
 ### Authorization
 
@@ -452,22 +452,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeFilterPostcodeSectors = (Initialize-RequestTimeFilterPostcodeSectors-DepartureSearches @((Initialize-RequestTimeFilterPostcodeSectorsDepartureSearch-Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeSectorsProperty)) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodeSectorsArrivalSearch-Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeSectorsProperty)) -Range ))) # RequestTimeFilterPostcodeSectors | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeFilterPostcodeSectors = (Initialize-RequestTimeFilterPostcodeSectors -DepartureSearches @((Initialize-RequestTimeFilterPostcodeSectorsDepartureSearch -Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeSectorsProperty )) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodeSectorsArrivalSearch -Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -ReachablePostcodesThreshold 123 -Properties @((Initialize-RequestTimeFilterPostcodeSectorsProperty )) -Range ))) # RequestTimeFilterPostcodeSectors | 
 
 try {
-    ResponseTimeFilterPostcodeSectors $Result = Invoke-TimeFilterPostcodeSectors -RequestTimeFilterPostcodeSectors $RequestTimeFilterPostcodeSectors
+     $Result = Invoke-TimeFilterPostcodeSectors -RequestTimeFilterPostcodeSectors $RequestTimeFilterPostcodeSectors
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeFilterPostcodeSectors: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeFilterPostcodeSectors**](ResponseTimeFilterPostcodeSectors.md)
+[**ResponseTimeFilterPostcodeSectors**](ResponseTimeFilterPostcodeSectors.md) (PSCustomObject)
 
 ### Authorization
 
@@ -504,22 +504,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeFilterPostcodes = (Initialize-RequestTimeFilterPostcodes-DepartureSearches @((Initialize-RequestTimeFilterPostcodesDepartureSearch-Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeFilterPostcodesProperty)) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodesArrivalSearch-Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeFilterPostcodesProperty)) -Range ))) # RequestTimeFilterPostcodes | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeFilterPostcodes = (Initialize-RequestTimeFilterPostcodes -DepartureSearches @((Initialize-RequestTimeFilterPostcodesDepartureSearch -Id "Id_example" -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeFilterPostcodesProperty )) -Range )) -ArrivalSearches @((Initialize-RequestTimeFilterPostcodesArrivalSearch -Id "Id_example" -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeFilterPostcodesProperty )) -Range ))) # RequestTimeFilterPostcodes | 
 
 try {
-    ResponseTimeFilterPostcodes $Result = Invoke-TimeFilterPostcodes -RequestTimeFilterPostcodes $RequestTimeFilterPostcodes
+     $Result = Invoke-TimeFilterPostcodes -RequestTimeFilterPostcodes $RequestTimeFilterPostcodes
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeFilterPostcodes: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeFilterPostcodes**](ResponseTimeFilterPostcodes.md)
+[**ResponseTimeFilterPostcodes**](ResponseTimeFilterPostcodes.md) (PSCustomObject)
 
 ### Authorization
 
@@ -556,22 +556,22 @@ Name | Type | Description  | Notes
 
 ### Example
 ```powershell
-Import-Module -Name PSOpenAPITools
-
-$Configuration = Get-PSOpenAPIToolsConfiguration
+# general setting of the PowerShell module, e.g. base URL, authentication, etc
+$Configuration = Get-Configuration
 # Configure API key authorization: ApiKey
-$Configuration["ApiKey"]["X-Api-Key"] = "YOUR_API_KEY"
+$Configuration.ApiKey.X-Api-Key = "YOUR_API_KEY"
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Api-Key"] = "Bearer"
-# Configure API key authorization: ApplicationId
-$Configuration["ApiKey"]["X-Application-Id"] = "YOUR_API_KEY"
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-#$Configuration["ApiKeyPrefix"]["X-Application-Id"] = "Bearer"
+#$Configuration.ApiKeyPrefix.X-Api-Key = "Bearer"
 
-$RequestTimeMap = (Initialize-RequestTimeMap-DepartureSearches @((Initialize-RequestTimeMapDepartureSearch-Id "Id_example" -Coords  -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeMapProperty)) -Range (Initialize-RequestRangeNoMaxResults-Enabled $false -Width 123))) -ArrivalSearches @((Initialize-RequestTimeMapArrivalSearch-Id "Id_example" -Coords  -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeMapProperty)) -Range (Initialize-RequestRangeNoMaxResults-Enabled $false -Width 123))) -Unions @((Initialize-RequestUnionOnIntersection-Id "Id_example" -SearchIds @("SearchIds_example"))) -Intersections @((Initialize-RequestUnionOnIntersection-Id "Id_example" -SearchIds @("SearchIds_example")))) # RequestTimeMap | 
+# Configure API key authorization: ApplicationId
+$Configuration.ApiKey.X-Application-Id = "YOUR_API_KEY"
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+#$Configuration.ApiKeyPrefix.X-Application-Id = "Bearer"
+
+$RequestTimeMap = (Initialize-RequestTimeMap -DepartureSearches @((Initialize-RequestTimeMapDepartureSearch -Id "Id_example" -Coords  -Transportation  -TravelTime 123 -DepartureTime Get-Date -Properties @((Initialize-RequestTimeMapProperty )) -Range (Initialize-RequestRangeNoMaxResults -Enabled $false -Width 123))) -ArrivalSearches @((Initialize-RequestTimeMapArrivalSearch -Id "Id_example" -Coords  -Transportation  -TravelTime 123 -ArrivalTime Get-Date -Properties @((Initialize-RequestTimeMapProperty )) -Range (Initialize-RequestRangeNoMaxResults -Enabled $false -Width 123))) -Unions @((Initialize-RequestUnionOnIntersection -Id "Id_example" -SearchIds @("SearchIds_example"))) -Intersections @((Initialize-RequestUnionOnIntersection -Id "Id_example" -SearchIds @("SearchIds_example")))) # RequestTimeMap | 
 
 try {
-    ResponseTimeMap $Result = Invoke-TimeMap -RequestTimeMap $RequestTimeMap
+     $Result = Invoke-TimeMap -RequestTimeMap $RequestTimeMap
 } catch {
     Write-Host ("Exception occured when calling Invoke-TimeMap: {0}" -f ($_.ErrorDetails | ConvertFrom-Json))
     Write-Host ("Response headers: {0}" -f ($_.Exception.Response.Headers | ConvertTo-Json))
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseTimeMap**](ResponseTimeMap.md)
+[**ResponseTimeMap**](ResponseTimeMap.md) (PSCustomObject)
 
 ### Authorization
 

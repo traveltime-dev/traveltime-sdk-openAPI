@@ -52,19 +52,40 @@ void request_routes_arrival_search_free(request_routes_arrival_search_t *request
         return ;
     }
     listEntry_t *listEntry;
-    free(request_routes_arrival_search->id);
-    list_ForEach(listEntry, request_routes_arrival_search->departure_location_ids) {
-        free(listEntry->data);
+    if (request_routes_arrival_search->id) {
+        free(request_routes_arrival_search->id);
+        request_routes_arrival_search->id = NULL;
     }
-    list_free(request_routes_arrival_search->departure_location_ids);
-    free(request_routes_arrival_search->arrival_location_id);
-    request_transportation_free(request_routes_arrival_search->transportation);
-    free(request_routes_arrival_search->arrival_time);
-    list_ForEach(listEntry, request_routes_arrival_search->properties) {
-        request_routes_property_free(listEntry->data);
+    if (request_routes_arrival_search->departure_location_ids) {
+        list_ForEach(listEntry, request_routes_arrival_search->departure_location_ids) {
+            free(listEntry->data);
+        }
+        list_free(request_routes_arrival_search->departure_location_ids);
+        request_routes_arrival_search->departure_location_ids = NULL;
     }
-    list_free(request_routes_arrival_search->properties);
-    request_range_full_free(request_routes_arrival_search->range);
+    if (request_routes_arrival_search->arrival_location_id) {
+        free(request_routes_arrival_search->arrival_location_id);
+        request_routes_arrival_search->arrival_location_id = NULL;
+    }
+    if (request_routes_arrival_search->transportation) {
+        request_transportation_free(request_routes_arrival_search->transportation);
+        request_routes_arrival_search->transportation = NULL;
+    }
+    if (request_routes_arrival_search->arrival_time) {
+        free(request_routes_arrival_search->arrival_time);
+        request_routes_arrival_search->arrival_time = NULL;
+    }
+    if (request_routes_arrival_search->properties) {
+        list_ForEach(listEntry, request_routes_arrival_search->properties) {
+            request_routes_property_free(listEntry->data);
+        }
+        list_free(request_routes_arrival_search->properties);
+        request_routes_arrival_search->properties = NULL;
+    }
+    if (request_routes_arrival_search->range) {
+        request_range_full_free(request_routes_arrival_search->range);
+        request_routes_arrival_search->range = NULL;
+    }
     free(request_routes_arrival_search);
 }
 
@@ -292,6 +313,14 @@ request_routes_arrival_search_t *request_routes_arrival_search_parseFromJSON(cJS
 
     return request_routes_arrival_search_local_var;
 end:
+    if (transportation_local_nonprim) {
+        request_transportation_free(transportation_local_nonprim);
+        transportation_local_nonprim = NULL;
+    }
+    if (range_local_nonprim) {
+        request_range_full_free(range_local_nonprim);
+        range_local_nonprim = NULL;
+    }
     return NULL;
 
 }

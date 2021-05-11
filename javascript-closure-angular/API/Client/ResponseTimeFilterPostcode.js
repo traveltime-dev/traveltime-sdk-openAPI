@@ -6,7 +6,7 @@ goog.provide('API.Client.ResponseTimeFilterPostcode');
 API.Client.ResponseTimeFilterPostcode = function() {}
 
 /**
- * @type {!API.Client.String}
+ * @type {!string}
  * @export
  */
 API.Client.ResponseTimeFilterPostcode.prototype.code;

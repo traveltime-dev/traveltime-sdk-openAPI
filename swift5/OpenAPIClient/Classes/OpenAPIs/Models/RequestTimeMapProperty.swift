@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import AnyCodable
 
 public enum RequestTimeMapProperty: String, Codable, CaseIterable {
     case isOnlyWalking = "is_only_walking"

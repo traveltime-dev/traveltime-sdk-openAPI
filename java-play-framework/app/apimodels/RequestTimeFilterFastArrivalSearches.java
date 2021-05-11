@@ -12,13 +12,19 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFastArrivalSearches
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterFastArrivalSearches   {
   @JsonProperty("many_to_one")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne = null;
 
   @JsonProperty("one_to_many")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeFilterFastArrivalOneToManySearch> oneToMany = null;
 
   public RequestTimeFilterFastArrivalSearches manyToOne(List<RequestTimeFilterFastArrivalManyToOneSearch> manyToOne) {
@@ -38,8 +44,6 @@ public class RequestTimeFilterFastArrivalSearches   {
    * Get manyToOne
    * @return manyToOne
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeFilterFastArrivalManyToOneSearch> getManyToOne() {
     return manyToOne;
   }
@@ -65,8 +69,6 @@ public class RequestTimeFilterFastArrivalSearches   {
    * Get oneToMany
    * @return oneToMany
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeFilterFastArrivalOneToManySearch> getOneToMany() {
     return oneToMany;
   }
@@ -77,7 +79,7 @@ public class RequestTimeFilterFastArrivalSearches   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -110,7 +112,7 @@ public class RequestTimeFilterFastArrivalSearches   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

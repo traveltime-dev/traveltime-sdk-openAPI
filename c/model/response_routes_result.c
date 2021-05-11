@@ -27,15 +27,24 @@ void response_routes_result_free(response_routes_result_t *response_routes_resul
         return ;
     }
     listEntry_t *listEntry;
-    free(response_routes_result->search_id);
-    list_ForEach(listEntry, response_routes_result->locations) {
-        response_routes_location_free(listEntry->data);
+    if (response_routes_result->search_id) {
+        free(response_routes_result->search_id);
+        response_routes_result->search_id = NULL;
     }
-    list_free(response_routes_result->locations);
-    list_ForEach(listEntry, response_routes_result->unreachable) {
-        free(listEntry->data);
+    if (response_routes_result->locations) {
+        list_ForEach(listEntry, response_routes_result->locations) {
+            response_routes_location_free(listEntry->data);
+        }
+        list_free(response_routes_result->locations);
+        response_routes_result->locations = NULL;
     }
-    list_free(response_routes_result->unreachable);
+    if (response_routes_result->unreachable) {
+        list_ForEach(listEntry, response_routes_result->unreachable) {
+            free(listEntry->data);
+        }
+        list_free(response_routes_result->unreachable);
+        response_routes_result->unreachable = NULL;
+    }
     free(response_routes_result);
 }
 

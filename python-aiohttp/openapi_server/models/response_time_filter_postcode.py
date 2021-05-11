@@ -15,14 +15,14 @@ class ResponseTimeFilterPostcode(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, code: String=None, properties: List[ResponseTimeFilterPostcodesProperties]=None):
+    def __init__(self, code: str=None, properties: List[ResponseTimeFilterPostcodesProperties]=None):
         """ResponseTimeFilterPostcode - a model defined in OpenAPI
 
         :param code: The code of this ResponseTimeFilterPostcode.
         :param properties: The properties of this ResponseTimeFilterPostcode.
         """
         self.openapi_types = {
-            'code': String,
+            'code': str,
             'properties': List[ResponseTimeFilterPostcodesProperties]
         }
 
@@ -49,7 +49,7 @@ class ResponseTimeFilterPostcode(Model):
 
 
         :return: The code of this ResponseTimeFilterPostcode.
-        :rtype: String
+        :rtype: str
         """
         return self._code
 
@@ -59,7 +59,7 @@ class ResponseTimeFilterPostcode(Model):
 
 
         :param code: The code of this ResponseTimeFilterPostcode.
-        :type code: String
+        :type code: str
         """
         if code is None:
             raise ValueError("Invalid value for `code`, must not be `None`")

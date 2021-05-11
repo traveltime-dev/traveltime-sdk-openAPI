@@ -18,8 +18,8 @@ defmodule TravelTimeAPI.Model.ResponseRoutesProperties do
   @type t :: %__MODULE__{
     :"travel_time" => integer() | nil,
     :"distance" => integer() | nil,
-    :"fares" => ResponseFares | nil,
-    :"route" => ResponseRoute | nil
+    :"fares" => TravelTimeAPI.Model.ResponseFares.t | nil,
+    :"route" => TravelTimeAPI.Model.ResponseRoute.t | nil
   }
 end
 

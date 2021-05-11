@@ -10,7 +10,6 @@
 
 #include <string>
 #include "ResponseTimeFilterPostcodesProperties.h"
-#include "String.h"
 #include <list>
 #include "Object.h"
 
@@ -50,11 +49,11 @@ public:
 
 	/*! \brief Get 
 	 */
-	String getCode();
+	std::string getCode();
 
 	/*! \brief Set 
 	 */
-	void setCode(String  code);
+	void setCode(std::string  code);
 	/*! \brief Get 
 	 */
 	std::list<ResponseTimeFilterPostcodesProperties> getProperties();
@@ -64,7 +63,7 @@ public:
 	void setProperties(std::list <ResponseTimeFilterPostcodesProperties> properties);
 
 private:
-	String code;
+	std::string code;
 	std::list <ResponseTimeFilterPostcodesProperties>properties;
 	void __init();
 	void __cleanup();

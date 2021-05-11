@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**locations** | [**List&lt;RequestLocation&gt;**](RequestLocation.md) |  | [default to []]
-**departureSearches** | [**List&lt;RequestRoutesDepartureSearch&gt;**](RequestRoutesDepartureSearch.md) |  | [optional] [default to []]
-**arrivalSearches** | [**List&lt;RequestRoutesArrivalSearch&gt;**](RequestRoutesArrivalSearch.md) |  | [optional] [default to []]
+**locations** | [**List<RequestLocation>**](RequestLocation.md) |  | [default to const []]
+**departureSearches** | [**List<RequestRoutesDepartureSearch>**](RequestRoutesDepartureSearch.md) |  | [optional] [default to const []]
+**arrivalSearches** | [**List<RequestRoutesArrivalSearch>**](RequestRoutesArrivalSearch.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -23,10 +23,13 @@ void response_time_map_bounding_boxes_free(response_time_map_bounding_boxes_t *r
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_time_map_bounding_boxes->results) {
-        response_time_map_bounding_boxes_result_free(listEntry->data);
+    if (response_time_map_bounding_boxes->results) {
+        list_ForEach(listEntry, response_time_map_bounding_boxes->results) {
+            response_time_map_bounding_boxes_result_free(listEntry->data);
+        }
+        list_free(response_time_map_bounding_boxes->results);
+        response_time_map_bounding_boxes->results = NULL;
     }
-    list_free(response_time_map_bounding_boxes->results);
     free(response_time_map_bounding_boxes);
 }
 

@@ -108,6 +108,10 @@ class RequestRoutesArrivalSearch(Model):
         """
         if departure_location_ids is None:
             raise ValueError("Invalid value for `departure_location_ids`, must not be `None`")
+        if departure_location_ids is not None and len(departure_location_ids) > 2:
+            raise ValueError("Invalid value for `departure_location_ids`, number of items must be less than or equal to `2`")
+        if departure_location_ids is not None and len(departure_location_ids) < 1:
+            raise ValueError("Invalid value for `departure_location_ids`, number of items must be greater than or equal to `1`")
 
         self._departure_location_ids = departure_location_ids
 

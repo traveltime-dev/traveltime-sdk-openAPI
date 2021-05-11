@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestUnionOnIntersection: Codable { 
-
+public struct RequestUnionOnIntersection: Codable, Hashable {
 
     public var id: String
     public var searchIds: [String]
@@ -18,10 +17,19 @@ public struct RequestUnionOnIntersection: Codable {
         self.id = id
         self.searchIds = searchIds
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case searchIds = "search_ids"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(searchIds, forKey: .searchIds)
+    }
+
+
 
 }

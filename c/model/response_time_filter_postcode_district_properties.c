@@ -27,8 +27,14 @@ void response_time_filter_postcode_district_properties_free(response_time_filter
         return ;
     }
     listEntry_t *listEntry;
-    response_travel_time_statistics_free(response_time_filter_postcode_district_properties->travel_time_reachable);
-    response_travel_time_statistics_free(response_time_filter_postcode_district_properties->travel_time_all);
+    if (response_time_filter_postcode_district_properties->travel_time_reachable) {
+        response_travel_time_statistics_free(response_time_filter_postcode_district_properties->travel_time_reachable);
+        response_time_filter_postcode_district_properties->travel_time_reachable = NULL;
+    }
+    if (response_time_filter_postcode_district_properties->travel_time_all) {
+        response_travel_time_statistics_free(response_time_filter_postcode_district_properties->travel_time_all);
+        response_time_filter_postcode_district_properties->travel_time_all = NULL;
+    }
     free(response_time_filter_postcode_district_properties);
 }
 
@@ -112,6 +118,14 @@ response_time_filter_postcode_district_properties_t *response_time_filter_postco
 
     return response_time_filter_postcode_district_properties_local_var;
 end:
+    if (travel_time_reachable_local_nonprim) {
+        response_travel_time_statistics_free(travel_time_reachable_local_nonprim);
+        travel_time_reachable_local_nonprim = NULL;
+    }
+    if (travel_time_all_local_nonprim) {
+        response_travel_time_statistics_free(travel_time_all_local_nonprim);
+        travel_time_all_local_nonprim = NULL;
+    }
     return NULL;
 
 }

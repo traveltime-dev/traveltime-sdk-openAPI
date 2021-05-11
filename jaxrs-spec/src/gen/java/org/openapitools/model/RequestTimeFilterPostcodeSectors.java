@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeFilterPostcodeSectors   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestTimeFilterPostcodeSectors   {
   
   private @Valid List<RequestTimeFilterPostcodeSectorsDepartureSearch> departureSearches = new ArrayList<RequestTimeFilterPostcodeSectorsDepartureSearch>();
   private @Valid List<RequestTimeFilterPostcodeSectorsArrivalSearch> arrivalSearches = new ArrayList<RequestTimeFilterPostcodeSectorsArrivalSearch>();
@@ -40,7 +40,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDepartureSearches(List<RequestTimeFilterPostcodeSectorsDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeFilterPostcodeSectors arrivalSearches(List<RequestTimeFilterPostcodeSectorsArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -60,8 +62,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.arrivalSearches = arrivalSearches;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -93,7 +96,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

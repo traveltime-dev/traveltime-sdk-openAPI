@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseGeocodingGeometry: Codable { 
-
+public struct ResponseGeocodingGeometry: Codable, Hashable {
 
     public var type: String
     public var coordinates: [Double]
@@ -18,5 +17,19 @@ public struct ResponseGeocodingGeometry: Codable {
         self.type = type
         self.coordinates = coordinates
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case type
+        case coordinates
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(type, forKey: .type)
+        try container.encode(coordinates, forKey: .coordinates)
+    }
+
+
 
 }

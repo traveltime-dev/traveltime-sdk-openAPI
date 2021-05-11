@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseDistanceBreakdownItem
+
 ## Properties
 
 Name | Type | Description | Notes

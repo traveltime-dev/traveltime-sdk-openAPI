@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -22,8 +23,7 @@ import javax.validation.constraints.Size
  */
 data class RequestTransportation(
 
-    @get:NotNull 
-    @field:JsonProperty("type") val type: RequestTransportation.Type,
+    @field:JsonProperty("type", required = true) val type: RequestTransportation.Type,
 
     @field:JsonProperty("pt_change_delay") val ptChangeDelay: kotlin.Int? = null,
 

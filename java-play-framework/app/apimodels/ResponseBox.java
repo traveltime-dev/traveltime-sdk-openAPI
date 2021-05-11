@@ -8,19 +8,27 @@ import javax.validation.constraints.*;
 /**
  * ResponseBox
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseBox   {
   @JsonProperty("min_lat")
+  @NotNull
+
   private Double minLat;
 
   @JsonProperty("max_lat")
+  @NotNull
+
   private Double maxLat;
 
   @JsonProperty("min_lng")
+  @NotNull
+
   private Double minLng;
 
   @JsonProperty("max_lng")
+  @NotNull
+
   private Double maxLng;
 
   public ResponseBox minLat(Double minLat) {
@@ -32,7 +40,6 @@ public class ResponseBox   {
    * Get minLat
    * @return minLat
   **/
-  @NotNull
   public Double getMinLat() {
     return minLat;
   }
@@ -50,7 +57,6 @@ public class ResponseBox   {
    * Get maxLat
    * @return maxLat
   **/
-  @NotNull
   public Double getMaxLat() {
     return maxLat;
   }
@@ -68,7 +74,6 @@ public class ResponseBox   {
    * Get minLng
    * @return minLng
   **/
-  @NotNull
   public Double getMinLng() {
     return minLng;
   }
@@ -86,7 +91,6 @@ public class ResponseBox   {
    * Get maxLng
    * @return maxLng
   **/
-  @NotNull
   public Double getMaxLng() {
     return maxLng;
   }
@@ -97,7 +101,7 @@ public class ResponseBox   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -134,7 +138,7 @@ public class ResponseBox   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

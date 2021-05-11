@@ -54,47 +54,57 @@
     {
       "name": "direction",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "road",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "turn",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "line",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "departure_station",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrival_station",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "departs_at",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrives_at",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "num_stops",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

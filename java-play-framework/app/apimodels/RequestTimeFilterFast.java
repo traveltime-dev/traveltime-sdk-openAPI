@@ -12,13 +12,20 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterFast   {
   @JsonProperty("locations")
+  @NotNull
+@Size(min=1)
+@Valid
+
   private List<RequestLocation> locations = new ArrayList<>();
 
   @JsonProperty("arrival_searches")
+  @NotNull
+@Valid
+
   private RequestTimeFilterFastArrivalSearches arrivalSearches;
 
   public RequestTimeFilterFast locations(List<RequestLocation> locations) {
@@ -35,9 +42,6 @@ public class RequestTimeFilterFast   {
    * Get locations
    * @return locations
   **/
-  @NotNull
-@Size(min=1)
-@Valid
   public List<RequestLocation> getLocations() {
     return locations;
   }
@@ -55,8 +59,6 @@ public class RequestTimeFilterFast   {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
-  @NotNull
-@Valid
   public RequestTimeFilterFastArrivalSearches getArrivalSearches() {
     return arrivalSearches;
   }
@@ -67,7 +69,7 @@ public class RequestTimeFilterFast   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -100,7 +102,7 @@ public class RequestTimeFilterFast   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

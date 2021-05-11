@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
-**distance** | **Integer** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  |  |
+| **distance** | **Integer** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseDistanceBreakdownItem.new(mode: null,
-                                 distance: null)
+instance = OpenapiClient::ResponseDistanceBreakdownItem.new(
+  mode: null,
+  distance: null
+)
 ```
-
 

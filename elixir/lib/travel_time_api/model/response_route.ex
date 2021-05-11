@@ -17,7 +17,7 @@ defmodule TravelTimeAPI.Model.ResponseRoute do
   @type t :: %__MODULE__{
     :"departure_time" => DateTime.t,
     :"arrival_time" => DateTime.t,
-    :"parts" => [ResponseRoutePart]
+    :"parts" => [TravelTimeAPI.Model.ResponseRoutePart.t]
   }
 end
 

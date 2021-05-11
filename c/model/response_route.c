@@ -27,12 +27,21 @@ void response_route_free(response_route_t *response_route) {
         return ;
     }
     listEntry_t *listEntry;
-    free(response_route->departure_time);
-    free(response_route->arrival_time);
-    list_ForEach(listEntry, response_route->parts) {
-        response_route_part_free(listEntry->data);
+    if (response_route->departure_time) {
+        free(response_route->departure_time);
+        response_route->departure_time = NULL;
     }
-    list_free(response_route->parts);
+    if (response_route->arrival_time) {
+        free(response_route->arrival_time);
+        response_route->arrival_time = NULL;
+    }
+    if (response_route->parts) {
+        list_ForEach(listEntry, response_route->parts) {
+            response_route_part_free(listEntry->data);
+        }
+        list_free(response_route->parts);
+        response_route->parts = NULL;
+    }
     free(response_route);
 }
 

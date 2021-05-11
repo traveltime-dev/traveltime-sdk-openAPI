@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | 
-**features** | [**Array&lt;ResponseGeocodingGeoJsonFeature&gt;**](ResponseGeocodingGeoJsonFeature.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  |  |
+| **features** | [**Array&lt;ResponseGeocodingGeoJsonFeature&gt;**](ResponseGeocodingGeoJsonFeature.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseGeocoding.new(type: null,
-                                 features: null)
+instance = OpenapiClient::ResponseGeocoding.new(
+  type: null,
+  features: null
+)
 ```
-
 

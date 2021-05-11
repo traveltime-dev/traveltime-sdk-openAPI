@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseGeocodingProperties   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseGeocodingProperties   {
   
   private @Valid String name;
   private @Valid String label;
@@ -52,7 +52,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setName(String name) {
     this.name = name;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties label(String label) {
     this.label = label;
@@ -71,7 +73,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setLabel(String label) {
     this.label = label;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties score(Double score) {
     this.score = score;
@@ -89,7 +93,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setScore(Double score) {
     this.score = score;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties houseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
@@ -107,7 +113,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setHouseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties street(String street) {
     this.street = street;
@@ -125,7 +133,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setStreet(String street) {
     this.street = street;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties region(String region) {
     this.region = region;
@@ -143,7 +153,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setRegion(String region) {
     this.region = region;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties regionCode(String regionCode) {
     this.regionCode = regionCode;
@@ -161,7 +173,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setRegionCode(String regionCode) {
     this.regionCode = regionCode;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties neighbourhood(String neighbourhood) {
     this.neighbourhood = neighbourhood;
@@ -179,7 +193,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setNeighbourhood(String neighbourhood) {
     this.neighbourhood = neighbourhood;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties county(String county) {
     this.county = county;
@@ -197,7 +213,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setCounty(String county) {
     this.county = county;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties macroregion(String macroregion) {
     this.macroregion = macroregion;
@@ -215,7 +233,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMacroregion(String macroregion) {
     this.macroregion = macroregion;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties city(String city) {
     this.city = city;
@@ -233,7 +253,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setCity(String city) {
     this.city = city;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties country(String country) {
     this.country = country;
@@ -251,7 +273,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setCountry(String country) {
     this.country = country;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties countryCode(String countryCode) {
     this.countryCode = countryCode;
@@ -269,7 +293,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setCountryCode(String countryCode) {
     this.countryCode = countryCode;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties continent(String continent) {
     this.continent = continent;
@@ -287,7 +313,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setContinent(String continent) {
     this.continent = continent;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties postcode(String postcode) {
     this.postcode = postcode;
@@ -305,7 +333,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setPostcode(String postcode) {
     this.postcode = postcode;
-  }/**
+  }
+
+/**
    **/
   public ResponseGeocodingProperties features(ResponseMapInfoFeatures features) {
     this.features = features;
@@ -325,8 +355,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.features = features;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -386,7 +417,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

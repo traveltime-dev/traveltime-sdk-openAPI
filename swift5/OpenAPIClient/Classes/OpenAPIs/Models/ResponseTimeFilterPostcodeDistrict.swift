@@ -6,17 +6,30 @@
 //
 
 import Foundation
+import AnyCodable
 
+public struct ResponseTimeFilterPostcodeDistrict: Codable, Hashable {
 
-public struct ResponseTimeFilterPostcodeDistrict: Codable { 
-
-
-    public var code: ModelString
+    public var code: String
     public var properties: ResponseTimeFilterPostcodeDistrictProperties
 
-    public init(code: ModelString, properties: ResponseTimeFilterPostcodeDistrictProperties) {
+    public init(code: String, properties: ResponseTimeFilterPostcodeDistrictProperties) {
         self.code = code
         self.properties = properties
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case code
+        case properties
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(code, forKey: .code)
+        try container.encode(properties, forKey: .properties)
+    }
+
+
 
 }

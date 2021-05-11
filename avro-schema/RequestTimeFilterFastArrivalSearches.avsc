@@ -10,7 +10,8 @@
         "type": "array",
         "items": "model.RequestTimeFilterFastArrivalManyToOneSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "one_to_many",
@@ -18,7 +19,9 @@
         "type": "array",
         "items": "model.RequestTimeFilterFastArrivalOneToManySearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

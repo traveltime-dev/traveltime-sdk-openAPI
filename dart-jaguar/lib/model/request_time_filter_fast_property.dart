@@ -8,8 +8,8 @@ class RequestTimeFilterFastProperty {
 
   const RequestTimeFilterFastProperty._internal(this.value);
 
-  static const RequestTimeFilterFastProperty travelTime_ = const RequestTimeFilterFastProperty._internal("travel_time");
-  static const RequestTimeFilterFastProperty fares_ = const RequestTimeFilterFastProperty._internal("fares");
+  static const RequestTimeFilterFastProperty travelTime = const RequestTimeFilterFastProperty._internal('travel_time');
+  static const RequestTimeFilterFastProperty fares = const RequestTimeFilterFastProperty._internal('fares');
 }
 
 class RequestTimeFilterFastPropertyFieldProcessor implements FieldProcessor<RequestTimeFilterFastProperty, String> {
@@ -17,8 +17,8 @@ class RequestTimeFilterFastPropertyFieldProcessor implements FieldProcessor<Requ
 
     RequestTimeFilterFastProperty deserialize(String data) {
         switch (data) {
-            case "travel_time": return RequestTimeFilterFastProperty.travelTime_;
-            case "fares": return RequestTimeFilterFastProperty.fares_;
+            case 'travel_time': return RequestTimeFilterFastProperty.travelTime;
+            case 'fares': return RequestTimeFilterFastProperty.fares;
             default: throw('Unknown enum value to decode: $data');
         }
     }

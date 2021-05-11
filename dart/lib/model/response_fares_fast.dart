@@ -1,53 +1,69 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseFaresFast {
-  
-  List<ResponseFareTicket> ticketsTotal = [];
-
+  /// Returns a new [ResponseFaresFast] instance.
   ResponseFaresFast({
-    this.ticketsTotal,
+    this.ticketsTotal = const [],
   });
 
-  @override
-  String toString() {
-    return 'ResponseFaresFast[ticketsTotal=$ticketsTotal, ]';
-  }
+  List<ResponseFareTicket> ticketsTotal;
 
-  ResponseFaresFast.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    ticketsTotal = (json['tickets_total'] == null) ?
-      null :
-      ResponseFareTicket.listFromJson(json['tickets_total']);
-  }
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseFaresFast &&
+     other.ticketsTotal == ticketsTotal;
+
+  @override
+  int get hashCode =>
+    (ticketsTotal == null ? 0 : ticketsTotal.hashCode);
+
+  @override
+  String toString() => 'ResponseFaresFast[ticketsTotal=$ticketsTotal]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (ticketsTotal != null)
-      json['tickets_total'] = ticketsTotal;
+    final json = <String, dynamic>{};
+      json[r'tickets_total'] = ticketsTotal;
     return json;
   }
 
-  static List<ResponseFaresFast> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseFaresFast>() : json.map((value) => ResponseFaresFast.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseFaresFast] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseFaresFast fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseFaresFast(
+        ticketsTotal: ResponseFareTicket.listFromJson(json[r'tickets_total']),
+    );
+
+  static List<ResponseFaresFast> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseFaresFast>[]
+      : json.map((v) => ResponseFaresFast.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseFaresFast> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseFaresFast>();
+    final map = <String, ResponseFaresFast>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseFaresFast.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseFaresFast.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseFaresFast-objects as value to a dart map
-  static Map<String, List<ResponseFaresFast>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseFaresFast>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseFaresFast.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseFaresFast>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseFaresFast>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseFaresFast.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

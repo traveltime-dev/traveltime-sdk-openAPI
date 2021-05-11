@@ -14,31 +14,53 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterDepartureSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterDepartureSearch   {
   @JsonProperty("id")
+  @NotNull
+
   private String id;
 
   @JsonProperty("departure_location_id")
+  @NotNull
+
   private String departureLocationId;
 
   @JsonProperty("arrival_location_ids")
+  @NotNull
+@Size(min=1,max=2000)
+
   private List<String> arrivalLocationIds = new ArrayList<>();
 
   @JsonProperty("transportation")
+  @NotNull
+@Valid
+
   private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
+  @NotNull
+@Min(60)
+@Max(14400)
+
   private Integer travelTime;
 
   @JsonProperty("departure_time")
+  @NotNull
+@Valid
+
   private OffsetDateTime departureTime;
 
   @JsonProperty("properties")
+  @NotNull
+@Valid
+
   private List<RequestTimeFilterProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
+  @Valid
+
   private RequestRangeFull range;
 
   public RequestTimeFilterDepartureSearch id(String id) {
@@ -50,7 +72,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get id
    * @return id
   **/
-  @NotNull
   public String getId() {
     return id;
   }
@@ -68,7 +89,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get departureLocationId
    * @return departureLocationId
   **/
-  @NotNull
   public String getDepartureLocationId() {
     return departureLocationId;
   }
@@ -91,8 +111,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get arrivalLocationIds
    * @return arrivalLocationIds
   **/
-  @NotNull
-@Size(min=1,max=2000)
   public List<String> getArrivalLocationIds() {
     return arrivalLocationIds;
   }
@@ -110,8 +128,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get transportation
    * @return transportation
   **/
-  @NotNull
-@Valid
   public RequestTransportation getTransportation() {
     return transportation;
   }
@@ -131,9 +147,6 @@ public class RequestTimeFilterDepartureSearch   {
    * maximum: 14400
    * @return travelTime
   **/
-  @NotNull
-@Min(60)
-@Max(14400)
   public Integer getTravelTime() {
     return travelTime;
   }
@@ -151,8 +164,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get departureTime
    * @return departureTime
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getDepartureTime() {
     return departureTime;
   }
@@ -175,8 +186,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get properties
    * @return properties
   **/
-  @NotNull
-@Valid
   public List<RequestTimeFilterProperty> getProperties() {
     return properties;
   }
@@ -194,7 +203,6 @@ public class RequestTimeFilterDepartureSearch   {
    * Get range
    * @return range
   **/
-  @Valid
   public RequestRangeFull getRange() {
     return range;
   }
@@ -205,7 +213,7 @@ public class RequestTimeFilterDepartureSearch   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -250,7 +258,7 @@ public class RequestTimeFilterDepartureSearch   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

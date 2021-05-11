@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import AnyCodable
 
 public enum RequestArrivalTimePeriod: String, Codable, CaseIterable {
     case weekdayMorning = "weekday_morning"

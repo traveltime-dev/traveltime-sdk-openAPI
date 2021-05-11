@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,13 +13,13 @@ part 'request_routes_property.g.dart';
 
 class RequestRoutesProperty extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "travel_time")
+  @BuiltValueEnumConst(wireName: r'travel_time')
   static const RequestRoutesProperty travelTime = _$travelTime;
-  @BuiltValueEnumConst(wireName: "distance")
+  @BuiltValueEnumConst(wireName: r'distance')
   static const RequestRoutesProperty distance = _$distance;
-  @BuiltValueEnumConst(wireName: "fares")
+  @BuiltValueEnumConst(wireName: r'fares')
   static const RequestRoutesProperty fares = _$fares;
-  @BuiltValueEnumConst(wireName: "route")
+  @BuiltValueEnumConst(wireName: r'route')
   static const RequestRoutesProperty route = _$route;
 
   static Serializer<RequestRoutesProperty> get serializer => _$requestRoutesPropertySerializer;

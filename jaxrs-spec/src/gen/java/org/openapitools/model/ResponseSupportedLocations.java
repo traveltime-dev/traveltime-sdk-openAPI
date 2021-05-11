@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseSupportedLocations   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseSupportedLocations   {
   
   private @Valid List<ResponseSupportedLocation> locations = new ArrayList<ResponseSupportedLocation>();
   private @Valid List<String> unsupportedLocations = new ArrayList<String>();
@@ -40,7 +40,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setLocations(List<ResponseSupportedLocation> locations) {
     this.locations = locations;
-  }/**
+  }
+
+/**
    **/
   public ResponseSupportedLocations unsupportedLocations(List<String> unsupportedLocations) {
     this.unsupportedLocations = unsupportedLocations;
@@ -61,8 +63,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.unsupportedLocations = unsupportedLocations;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -94,7 +97,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

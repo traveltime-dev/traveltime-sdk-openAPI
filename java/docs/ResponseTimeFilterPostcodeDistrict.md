@@ -2,6 +2,7 @@
 
 # ResponseTimeFilterPostcodeDistrict
 
+
 ## Properties
 
 Name | Type | Description | Notes

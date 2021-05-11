@@ -1,5 +1,6 @@
 # openapi::RequestTransportation
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -773,7 +773,7 @@ instance Arbitrary ResponseTimeFilterPostcode where
 genResponseTimeFilterPostcode :: Int -> Gen ResponseTimeFilterPostcode
 genResponseTimeFilterPostcode n =
   ResponseTimeFilterPostcode
-    <$> arbitraryReduced n -- responseTimeFilterPostcodeCode :: ModelString
+    <$> arbitrary -- responseTimeFilterPostcodeCode :: Text
     <*> arbitraryReduced n -- responseTimeFilterPostcodeProperties :: [ResponseTimeFilterPostcodesProperties]
   
 instance Arbitrary ResponseTimeFilterPostcodeDistrict where
@@ -782,7 +782,7 @@ instance Arbitrary ResponseTimeFilterPostcodeDistrict where
 genResponseTimeFilterPostcodeDistrict :: Int -> Gen ResponseTimeFilterPostcodeDistrict
 genResponseTimeFilterPostcodeDistrict n =
   ResponseTimeFilterPostcodeDistrict
-    <$> arbitraryReduced n -- responseTimeFilterPostcodeDistrictCode :: ModelString
+    <$> arbitrary -- responseTimeFilterPostcodeDistrictCode :: Text
     <*> arbitraryReduced n -- responseTimeFilterPostcodeDistrictProperties :: ResponseTimeFilterPostcodeDistrictProperties
   
 instance Arbitrary ResponseTimeFilterPostcodeDistrictProperties where
@@ -818,7 +818,7 @@ instance Arbitrary ResponseTimeFilterPostcodeSector where
 genResponseTimeFilterPostcodeSector :: Int -> Gen ResponseTimeFilterPostcodeSector
 genResponseTimeFilterPostcodeSector n =
   ResponseTimeFilterPostcodeSector
-    <$> arbitraryReduced n -- responseTimeFilterPostcodeSectorCode :: ModelString
+    <$> arbitrary -- responseTimeFilterPostcodeSectorCode :: Text
     <*> arbitraryReduced n -- responseTimeFilterPostcodeSectorProperties :: ResponseTimeFilterPostcodeSectorProperties
   
 instance Arbitrary ResponseTimeFilterPostcodeSectorProperties where

@@ -27,18 +27,27 @@ void request_routes_free(request_routes_t *request_routes) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_routes->locations) {
-        request_location_free(listEntry->data);
+    if (request_routes->locations) {
+        list_ForEach(listEntry, request_routes->locations) {
+            request_location_free(listEntry->data);
+        }
+        list_free(request_routes->locations);
+        request_routes->locations = NULL;
     }
-    list_free(request_routes->locations);
-    list_ForEach(listEntry, request_routes->departure_searches) {
-        request_routes_departure_search_free(listEntry->data);
+    if (request_routes->departure_searches) {
+        list_ForEach(listEntry, request_routes->departure_searches) {
+            request_routes_departure_search_free(listEntry->data);
+        }
+        list_free(request_routes->departure_searches);
+        request_routes->departure_searches = NULL;
     }
-    list_free(request_routes->departure_searches);
-    list_ForEach(listEntry, request_routes->arrival_searches) {
-        request_routes_arrival_search_free(listEntry->data);
+    if (request_routes->arrival_searches) {
+        list_ForEach(listEntry, request_routes->arrival_searches) {
+            request_routes_arrival_search_free(listEntry->data);
+        }
+        list_free(request_routes->arrival_searches);
+        request_routes->arrival_searches = NULL;
     }
-    list_free(request_routes->arrival_searches);
     free(request_routes);
 }
 

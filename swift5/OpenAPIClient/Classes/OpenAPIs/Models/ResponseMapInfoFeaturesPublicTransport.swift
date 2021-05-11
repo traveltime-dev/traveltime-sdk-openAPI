@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseMapInfoFeaturesPublicTransport: Codable { 
-
+public struct ResponseMapInfoFeaturesPublicTransport: Codable, Hashable {
 
     public var dateStart: Date
     public var dateEnd: Date
@@ -18,10 +17,19 @@ public struct ResponseMapInfoFeaturesPublicTransport: Codable {
         self.dateStart = dateStart
         self.dateEnd = dateEnd
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case dateStart = "date_start"
         case dateEnd = "date_end"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(dateStart, forKey: .dateStart)
+        try container.encode(dateEnd, forKey: .dateEnd)
+    }
+
+
 
 }

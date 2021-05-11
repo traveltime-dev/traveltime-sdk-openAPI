@@ -9,55 +9,74 @@ import javax.validation.constraints.*;
 /**
  * ResponseGeocodingProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseGeocodingProperties   {
   @JsonProperty("name")
+  @NotNull
+
   private String name;
 
   @JsonProperty("label")
+  @NotNull
+
   private String label;
 
   @JsonProperty("score")
+  
   private Double score;
 
   @JsonProperty("house_number")
+  
   private String houseNumber;
 
   @JsonProperty("street")
+  
   private String street;
 
   @JsonProperty("region")
+  
   private String region;
 
   @JsonProperty("region_code")
+  
   private String regionCode;
 
   @JsonProperty("neighbourhood")
+  
   private String neighbourhood;
 
   @JsonProperty("county")
+  
   private String county;
 
   @JsonProperty("macroregion")
+  
   private String macroregion;
 
   @JsonProperty("city")
+  
   private String city;
 
   @JsonProperty("country")
+  
   private String country;
 
   @JsonProperty("country_code")
+  
   private String countryCode;
 
   @JsonProperty("continent")
+  
   private String continent;
 
   @JsonProperty("postcode")
+  
   private String postcode;
 
   @JsonProperty("features")
+  @Valid
+
   private ResponseMapInfoFeatures features;
 
   public ResponseGeocodingProperties name(String name) {
@@ -69,7 +88,6 @@ public class ResponseGeocodingProperties   {
    * Get name
    * @return name
   **/
-  @NotNull
   public String getName() {
     return name;
   }
@@ -87,7 +105,6 @@ public class ResponseGeocodingProperties   {
    * Get label
    * @return label
   **/
-  @NotNull
   public String getLabel() {
     return label;
   }
@@ -105,7 +122,7 @@ public class ResponseGeocodingProperties   {
    * Get score
    * @return score
   **/
-    public Double getScore() {
+  public Double getScore() {
     return score;
   }
 
@@ -122,7 +139,7 @@ public class ResponseGeocodingProperties   {
    * Get houseNumber
    * @return houseNumber
   **/
-    public String getHouseNumber() {
+  public String getHouseNumber() {
     return houseNumber;
   }
 
@@ -139,7 +156,7 @@ public class ResponseGeocodingProperties   {
    * Get street
    * @return street
   **/
-    public String getStreet() {
+  public String getStreet() {
     return street;
   }
 
@@ -156,7 +173,7 @@ public class ResponseGeocodingProperties   {
    * Get region
    * @return region
   **/
-    public String getRegion() {
+  public String getRegion() {
     return region;
   }
 
@@ -173,7 +190,7 @@ public class ResponseGeocodingProperties   {
    * Get regionCode
    * @return regionCode
   **/
-    public String getRegionCode() {
+  public String getRegionCode() {
     return regionCode;
   }
 
@@ -190,7 +207,7 @@ public class ResponseGeocodingProperties   {
    * Get neighbourhood
    * @return neighbourhood
   **/
-    public String getNeighbourhood() {
+  public String getNeighbourhood() {
     return neighbourhood;
   }
 
@@ -207,7 +224,7 @@ public class ResponseGeocodingProperties   {
    * Get county
    * @return county
   **/
-    public String getCounty() {
+  public String getCounty() {
     return county;
   }
 
@@ -224,7 +241,7 @@ public class ResponseGeocodingProperties   {
    * Get macroregion
    * @return macroregion
   **/
-    public String getMacroregion() {
+  public String getMacroregion() {
     return macroregion;
   }
 
@@ -241,7 +258,7 @@ public class ResponseGeocodingProperties   {
    * Get city
    * @return city
   **/
-    public String getCity() {
+  public String getCity() {
     return city;
   }
 
@@ -258,7 +275,7 @@ public class ResponseGeocodingProperties   {
    * Get country
    * @return country
   **/
-    public String getCountry() {
+  public String getCountry() {
     return country;
   }
 
@@ -275,7 +292,7 @@ public class ResponseGeocodingProperties   {
    * Get countryCode
    * @return countryCode
   **/
-    public String getCountryCode() {
+  public String getCountryCode() {
     return countryCode;
   }
 
@@ -292,7 +309,7 @@ public class ResponseGeocodingProperties   {
    * Get continent
    * @return continent
   **/
-    public String getContinent() {
+  public String getContinent() {
     return continent;
   }
 
@@ -309,7 +326,7 @@ public class ResponseGeocodingProperties   {
    * Get postcode
    * @return postcode
   **/
-    public String getPostcode() {
+  public String getPostcode() {
     return postcode;
   }
 
@@ -326,7 +343,6 @@ public class ResponseGeocodingProperties   {
    * Get features
    * @return features
   **/
-  @Valid
   public ResponseMapInfoFeatures getFeatures() {
     return features;
   }
@@ -337,7 +353,7 @@ public class ResponseGeocodingProperties   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -398,7 +414,7 @@ public class ResponseGeocodingProperties   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

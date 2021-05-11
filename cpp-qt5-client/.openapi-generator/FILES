@@ -1,4 +1,5 @@
 .openapi-generator-ignore
+README.md
 client/CMakeLists.txt
 client/OAICoords.cpp
 client/OAICoords.h
@@ -194,4 +195,6 @@ client/OAIResponseTransportationMode.cpp
 client/OAIResponseTransportationMode.h
 client/OAIResponseTravelTimeStatistics.cpp
 client/OAIResponseTravelTimeStatistics.h
+client/OAIServerConfiguration.h
+client/OAIServerVariable.h
 client/client.pri

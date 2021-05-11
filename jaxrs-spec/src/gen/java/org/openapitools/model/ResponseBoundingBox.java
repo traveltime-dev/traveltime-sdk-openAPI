@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseBoundingBox   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseBoundingBox   {
   
   private @Valid ResponseBox envelope;
   private @Valid List<ResponseBox> boxes = new ArrayList<ResponseBox>();
@@ -40,7 +40,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setEnvelope(ResponseBox envelope) {
     this.envelope = envelope;
-  }/**
+  }
+
+/**
    **/
   public ResponseBoundingBox boxes(List<ResponseBox> boxes) {
     this.boxes = boxes;
@@ -61,8 +63,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.boxes = boxes;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -94,7 +97,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

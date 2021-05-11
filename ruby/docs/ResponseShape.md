@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**shell** | [**Array&lt;Coords&gt;**](Coords.md) |  | 
-**holes** | **Array&lt;Array&lt;Coords&gt;&gt;** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **shell** | [**Array&lt;Coords&gt;**](Coords.md) |  |  |
+| **holes** | **Array&lt;Array&lt;Coords&gt;&gt;** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseShape.new(shell: null,
-                                 holes: null)
+instance = OpenapiClient::ResponseShape.new(
+  shell: null,
+  holes: null
+)
 ```
-
 

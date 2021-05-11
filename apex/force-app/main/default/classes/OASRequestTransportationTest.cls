@@ -73,7 +73,6 @@ private class OASRequestTransportationTest {
     private static void maintainRenamedProperties() {
         OASRequestTransportation requestTransportation = new OASRequestTransportation();
         Map<String, String> x-property-mappings = requestTransportation.getx-property-mappings();
-        System.assertEquals('r_type', x-property-mappings.get('type'));
         System.assertEquals('ptChangeDelay', x-property-mappings.get('pt_change_delay'));
         System.assertEquals('walkingTime', x-property-mappings.get('walking_time'));
         System.assertEquals('drivingTimeToStation', x-property-mappings.get('driving_time_to_station'));

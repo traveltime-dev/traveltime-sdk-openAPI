@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseTimeFilterFastProperties
+
 ## Properties
 
 Name | Type | Description | Notes

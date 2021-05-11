@@ -1,5 +1,6 @@
 # openapi::RequestUnionOnIntersection
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

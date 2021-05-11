@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterFastProperties do
 
   @type t :: %__MODULE__{
     :"travel_time" => integer() | nil,
-    :"fares" => ResponseFaresFast | nil
+    :"fares" => TravelTimeAPI.Model.ResponseFaresFast.t | nil
   }
 end
 

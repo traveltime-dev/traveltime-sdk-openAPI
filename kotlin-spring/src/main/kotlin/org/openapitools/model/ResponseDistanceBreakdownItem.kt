@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,11 +19,10 @@ import javax.validation.constraints.Size
  */
 data class ResponseDistanceBreakdownItem(
 
-    @get:NotNull 
-    @field:JsonProperty("mode") val mode: ResponseTransportationMode,
+    @field:Valid
+    @field:JsonProperty("mode", required = true) val mode: ResponseTransportationMode,
 
-    @get:NotNull 
-    @field:JsonProperty("distance") val distance: kotlin.Int
+    @field:JsonProperty("distance", required = true) val distance: kotlin.Int
 ) {
 
 }

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**modes** | [**Array&lt;ResponseTransportationMode&gt;**](ResponseTransportationMode.md) |  | 
-**route_part_ids** | **Array&lt;Integer&gt;** |  | 
-**tickets** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **modes** | [**Array&lt;ResponseTransportationMode&gt;**](ResponseTransportationMode.md) |  |  |
+| **route_part_ids** | **Array&lt;Integer&gt;** |  |  |
+| **tickets** | [**Array&lt;ResponseFareTicket&gt;**](ResponseFareTicket.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseFaresBreakdownItem.new(modes: null,
-                                 route_part_ids: null,
-                                 tickets: null)
+instance = OpenapiClient::ResponseFaresBreakdownItem.new(
+  modes: null,
+  route_part_ids: null,
+  tickets: null
+)
 ```
-
 

@@ -25,14 +25,20 @@ void response_shape_free(response_shape_t *response_shape) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_shape->shell) {
-        coords_free(listEntry->data);
+    if (response_shape->shell) {
+        list_ForEach(listEntry, response_shape->shell) {
+            coords_free(listEntry->data);
+        }
+        list_free(response_shape->shell);
+        response_shape->shell = NULL;
     }
-    list_free(response_shape->shell);
-    list_ForEach(listEntry, response_shape->holes) {
-        free(listEntry->data);
+    if (response_shape->holes) {
+        list_ForEach(listEntry, response_shape->holes) {
+            free(listEntry->data);
+        }
+        list_free(response_shape->holes);
+        response_shape->holes = NULL;
     }
-    list_free(response_shape->holes);
     free(response_shape);
 }
 

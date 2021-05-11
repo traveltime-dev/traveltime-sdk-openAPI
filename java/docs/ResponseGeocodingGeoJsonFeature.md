@@ -2,6 +2,7 @@
 
 # ResponseGeocodingGeoJsonFeature
 
+
 ## Properties
 
 Name | Type | Description | Notes

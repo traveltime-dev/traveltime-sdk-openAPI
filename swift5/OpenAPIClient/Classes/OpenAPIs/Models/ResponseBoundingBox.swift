@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseBoundingBox: Codable { 
-
+public struct ResponseBoundingBox: Codable, Hashable {
 
     public var envelope: ResponseBox
     public var boxes: [ResponseBox]
@@ -18,5 +17,19 @@ public struct ResponseBoundingBox: Codable {
         self.envelope = envelope
         self.boxes = boxes
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case envelope
+        case boxes
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(envelope, forKey: .envelope)
+        try container.encode(boxes, forKey: .boxes)
+    }
+
+
 
 }

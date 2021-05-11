@@ -25,7 +25,10 @@ void response_time_filter_fast_properties_free(response_time_filter_fast_propert
         return ;
     }
     listEntry_t *listEntry;
-    response_fares_fast_free(response_time_filter_fast_properties->fares);
+    if (response_time_filter_fast_properties->fares) {
+        response_fares_fast_free(response_time_filter_fast_properties->fares);
+        response_time_filter_fast_properties->fares = NULL;
+    }
     free(response_time_filter_fast_properties);
 }
 
@@ -88,6 +91,10 @@ response_time_filter_fast_properties_t *response_time_filter_fast_properties_par
 
     return response_time_filter_fast_properties_local_var;
 end:
+    if (fares_local_nonprim) {
+        response_fares_fast_free(fares_local_nonprim);
+        fares_local_nonprim = NULL;
+    }
     return NULL;
 
 }

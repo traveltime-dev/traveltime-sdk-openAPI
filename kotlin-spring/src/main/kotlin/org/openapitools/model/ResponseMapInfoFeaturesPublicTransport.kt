@@ -9,6 +9,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -17,11 +18,9 @@ import javax.validation.constraints.Size
  */
 data class ResponseMapInfoFeaturesPublicTransport(
 
-    @get:NotNull 
-    @field:JsonProperty("date_start") val dateStart: java.time.OffsetDateTime,
+    @field:JsonProperty("date_start", required = true) val dateStart: java.time.OffsetDateTime,
 
-    @get:NotNull 
-    @field:JsonProperty("date_end") val dateEnd: java.time.OffsetDateTime
+    @field:JsonProperty("date_end", required = true) val dateEnd: java.time.OffsetDateTime
 ) {
 
 }

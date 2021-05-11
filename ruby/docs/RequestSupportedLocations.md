@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**locations** | [**Array&lt;RequestLocation&gt;**](RequestLocation.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **locations** | [**Array&lt;RequestLocation&gt;**](RequestLocation.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestSupportedLocations.new(locations: null)
+instance = OpenapiClient::RequestSupportedLocations.new(
+  locations: null
+)
 ```
-
 

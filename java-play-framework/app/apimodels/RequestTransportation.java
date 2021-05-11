@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 /**
  * RequestTransportation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTransportation   {
   /**
@@ -61,21 +61,28 @@ public class RequestTransportation   {
   }
 
   @JsonProperty("type")
+  @NotNull
+
   private TypeEnum type;
 
   @JsonProperty("pt_change_delay")
+  
   private Integer ptChangeDelay;
 
   @JsonProperty("walking_time")
+  
   private Integer walkingTime;
 
   @JsonProperty("driving_time_to_station")
+  
   private Integer drivingTimeToStation;
 
   @JsonProperty("parking_time")
+  
   private Integer parkingTime;
 
   @JsonProperty("boarding_time")
+  
   private Integer boardingTime;
 
   public RequestTransportation type(TypeEnum type) {
@@ -87,7 +94,6 @@ public class RequestTransportation   {
    * Get type
    * @return type
   **/
-  @NotNull
   public TypeEnum getType() {
     return type;
   }
@@ -105,7 +111,7 @@ public class RequestTransportation   {
    * Get ptChangeDelay
    * @return ptChangeDelay
   **/
-    public Integer getPtChangeDelay() {
+  public Integer getPtChangeDelay() {
     return ptChangeDelay;
   }
 
@@ -122,7 +128,7 @@ public class RequestTransportation   {
    * Get walkingTime
    * @return walkingTime
   **/
-    public Integer getWalkingTime() {
+  public Integer getWalkingTime() {
     return walkingTime;
   }
 
@@ -139,7 +145,7 @@ public class RequestTransportation   {
    * Get drivingTimeToStation
    * @return drivingTimeToStation
   **/
-    public Integer getDrivingTimeToStation() {
+  public Integer getDrivingTimeToStation() {
     return drivingTimeToStation;
   }
 
@@ -156,7 +162,7 @@ public class RequestTransportation   {
    * Get parkingTime
    * @return parkingTime
   **/
-    public Integer getParkingTime() {
+  public Integer getParkingTime() {
     return parkingTime;
   }
 
@@ -173,7 +179,7 @@ public class RequestTransportation   {
    * Get boardingTime
    * @return boardingTime
   **/
-    public Integer getBoardingTime() {
+  public Integer getBoardingTime() {
     return boardingTime;
   }
 
@@ -183,7 +189,7 @@ public class RequestTransportation   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -224,7 +230,7 @@ public class RequestTransportation   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -11,6 +11,7 @@ src/Org.OpenAPITools/Converters/CustomEnumConverter.cs
 src/Org.OpenAPITools/Dockerfile
 src/Org.OpenAPITools/Filters/BasePathFilter.cs
 src/Org.OpenAPITools/Filters/GeneratePathParamsValidationFilter.cs
+src/Org.OpenAPITools/Formatters/InputFormatterStream.cs
 src/Org.OpenAPITools/Models/Coords.cs
 src/Org.OpenAPITools/Models/RequestArrivalTimePeriod.cs
 src/Org.OpenAPITools/Models/RequestLocation.cs
@@ -103,6 +104,7 @@ src/Org.OpenAPITools/Models/ResponseTimeMapWkt.cs
 src/Org.OpenAPITools/Models/ResponseTimeMapWktResult.cs
 src/Org.OpenAPITools/Models/ResponseTransportationMode.cs
 src/Org.OpenAPITools/Models/ResponseTravelTimeStatistics.cs
+src/Org.OpenAPITools/OpenApi/TypeExtensions.cs
 src/Org.OpenAPITools/Org.OpenAPITools.csproj
 src/Org.OpenAPITools/Program.cs
 src/Org.OpenAPITools/Properties/launchSettings.json

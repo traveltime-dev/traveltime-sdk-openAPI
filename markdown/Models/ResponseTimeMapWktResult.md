@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**searchUnderscoreid** | [**String**](string.md) |  | [default to null]
+**search\_id** | [**String**](string.md) |  | [default to null]
 **shape** | [**String**](string.md) |  | [default to null]
 **properties** | [**ResponseTimeMapProperties**](ResponseTimeMapProperties.md) |  | [default to null]
 

@@ -12,16 +12,24 @@ import javax.validation.constraints.*;
 /**
  * ResponseFaresBreakdownItem
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseFaresBreakdownItem   {
   @JsonProperty("modes")
+  @NotNull
+@Valid
+
   private List<ResponseTransportationMode> modes = new ArrayList<>();
 
   @JsonProperty("route_part_ids")
+  @NotNull
+
   private List<Integer> routePartIds = new ArrayList<>();
 
   @JsonProperty("tickets")
+  @NotNull
+@Valid
+
   private List<ResponseFareTicket> tickets = new ArrayList<>();
 
   public ResponseFaresBreakdownItem modes(List<ResponseTransportationMode> modes) {
@@ -38,8 +46,6 @@ public class ResponseFaresBreakdownItem   {
    * Get modes
    * @return modes
   **/
-  @NotNull
-@Valid
   public List<ResponseTransportationMode> getModes() {
     return modes;
   }
@@ -62,7 +68,6 @@ public class ResponseFaresBreakdownItem   {
    * Get routePartIds
    * @return routePartIds
   **/
-  @NotNull
   public List<Integer> getRoutePartIds() {
     return routePartIds;
   }
@@ -85,8 +90,6 @@ public class ResponseFaresBreakdownItem   {
    * Get tickets
    * @return tickets
   **/
-  @NotNull
-@Valid
   public List<ResponseFareTicket> getTickets() {
     return tickets;
   }
@@ -97,7 +100,7 @@ public class ResponseFaresBreakdownItem   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -132,7 +135,7 @@ public class ResponseFaresBreakdownItem   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

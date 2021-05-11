@@ -1,61 +1,76 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class RequestTimeFilterFast {
-  
-  List<RequestLocation> locations = [];
-  
-  RequestTimeFilterFastArrivalSearches arrivalSearches = null;
-
+  /// Returns a new [RequestTimeFilterFast] instance.
   RequestTimeFilterFast({
-    this.locations,
-    this.arrivalSearches,
+    this.locations = const [],
+    @required this.arrivalSearches,
   });
 
-  @override
-  String toString() {
-    return 'RequestTimeFilterFast[locations=$locations, arrivalSearches=$arrivalSearches, ]';
-  }
+  List<RequestLocation> locations;
 
-  RequestTimeFilterFast.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    locations = (json['locations'] == null) ?
-      null :
-      RequestLocation.listFromJson(json['locations']);
-    arrivalSearches = (json['arrival_searches'] == null) ?
-      null :
-      RequestTimeFilterFastArrivalSearches.fromJson(json['arrival_searches']);
-  }
+  RequestTimeFilterFastArrivalSearches arrivalSearches;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is RequestTimeFilterFast &&
+     other.locations == locations &&
+     other.arrivalSearches == arrivalSearches;
+
+  @override
+  int get hashCode =>
+    (locations == null ? 0 : locations.hashCode) +
+    (arrivalSearches == null ? 0 : arrivalSearches.hashCode);
+
+  @override
+  String toString() => 'RequestTimeFilterFast[locations=$locations, arrivalSearches=$arrivalSearches]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (locations != null)
-      json['locations'] = locations;
-    if (arrivalSearches != null)
-      json['arrival_searches'] = arrivalSearches;
+    final json = <String, dynamic>{};
+      json[r'locations'] = locations;
+      json[r'arrival_searches'] = arrivalSearches;
     return json;
   }
 
-  static List<RequestTimeFilterFast> listFromJson(List<dynamic> json) {
-    return json == null ? List<RequestTimeFilterFast>() : json.map((value) => RequestTimeFilterFast.fromJson(value)).toList();
-  }
+  /// Returns a new [RequestTimeFilterFast] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static RequestTimeFilterFast fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : RequestTimeFilterFast(
+        locations: RequestLocation.listFromJson(json[r'locations']),
+        arrivalSearches: RequestTimeFilterFastArrivalSearches.fromJson(json[r'arrival_searches']),
+    );
+
+  static List<RequestTimeFilterFast> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <RequestTimeFilterFast>[]
+      : json.map((v) => RequestTimeFilterFast.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, RequestTimeFilterFast> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, RequestTimeFilterFast>();
+    final map = <String, RequestTimeFilterFast>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = RequestTimeFilterFast.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = RequestTimeFilterFast.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of RequestTimeFilterFast-objects as value to a dart map
-  static Map<String, List<RequestTimeFilterFast>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<RequestTimeFilterFast>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = RequestTimeFilterFast.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<RequestTimeFilterFast>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<RequestTimeFilterFast>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = RequestTimeFilterFast.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

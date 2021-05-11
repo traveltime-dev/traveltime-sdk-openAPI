@@ -23,10 +23,13 @@ void response_time_map_wkt_free(response_time_map_wkt_t *response_time_map_wkt) 
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_time_map_wkt->results) {
-        response_time_map_wkt_result_free(listEntry->data);
+    if (response_time_map_wkt->results) {
+        list_ForEach(listEntry, response_time_map_wkt->results) {
+            response_time_map_wkt_result_free(listEntry->data);
+        }
+        list_free(response_time_map_wkt->results);
+        response_time_map_wkt->results = NULL;
     }
-    list_free(response_time_map_wkt->results);
     free(response_time_map_wkt);
 }
 

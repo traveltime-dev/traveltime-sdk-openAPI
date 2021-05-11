@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestRangeFull: Codable { 
-
+public struct RequestRangeFull: Codable, Hashable {
 
     public var enabled: Bool
     public var maxResults: Int
@@ -20,11 +19,21 @@ public struct RequestRangeFull: Codable {
         self.maxResults = maxResults
         self.width = width
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case enabled
         case maxResults = "max_results"
         case width
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(enabled, forKey: .enabled)
+        try container.encode(maxResults, forKey: .maxResults)
+        try container.encode(width, forKey: .width)
+    }
+
+
 
 }

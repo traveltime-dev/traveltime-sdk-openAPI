@@ -16,7 +16,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterResult do
 
   @type t :: %__MODULE__{
     :"search_id" => String.t,
-    :"locations" => [ResponseTimeFilterLocation],
+    :"locations" => [TravelTimeAPI.Model.ResponseTimeFilterLocation.t],
     :"unreachable" => [String.t]
   }
 end

@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseFaresBreakdownItem  -Modes null `
+$ResponseFaresBreakdownItem = Initialize-PSOpenAPIToolsResponseFaresBreakdownItem  -Modes null `
  -RoutePartIds null `
  -Tickets null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseFaresBreakdownItem | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -18,7 +18,8 @@
         "type": "array",
         "items": "model.RequestTimeFilterDepartureSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrival_searches",
@@ -26,7 +27,9 @@
         "type": "array",
         "items": "model.RequestTimeFilterArrivalSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

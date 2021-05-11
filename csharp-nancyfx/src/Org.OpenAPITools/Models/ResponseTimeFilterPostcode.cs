@@ -15,7 +15,7 @@ namespace Org.OpenAPITools._.Models
         /// <summary>
         /// Code
         /// </summary>
-        public String Code { get; private set; }
+        public string Code { get; private set; }
 
         /// <summary>
         /// Properties
@@ -32,7 +32,7 @@ namespace Org.OpenAPITools._.Models
         {
         }
 
-        private ResponseTimeFilterPostcode(String Code, List<ResponseTimeFilterPostcodesProperties> Properties)
+        private ResponseTimeFilterPostcode(string Code, List<ResponseTimeFilterPostcodesProperties> Properties)
         {
             
             this.Code = Code;
@@ -109,7 +109,7 @@ namespace Org.OpenAPITools._.Models
         /// </summary>
         public sealed class ResponseTimeFilterPostcodeBuilder
         {
-            private String _Code;
+            private string _Code;
             private List<ResponseTimeFilterPostcodesProperties> _Properties;
 
             internal ResponseTimeFilterPostcodeBuilder()
@@ -125,7 +125,7 @@ namespace Org.OpenAPITools._.Models
             /// Sets value for ResponseTimeFilterPostcode.Code property.
             /// </summary>
             /// <param name="value">Code</param>
-            public ResponseTimeFilterPostcodeBuilder Code(String value)
+            public ResponseTimeFilterPostcodeBuilder Code(string value)
             {
                 _Code = value;
                 return this;

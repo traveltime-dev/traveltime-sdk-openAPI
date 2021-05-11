@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseTransportationMode
+
 ## Properties
 
 Name | Type | Description | Notes

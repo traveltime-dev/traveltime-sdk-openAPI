@@ -11,10 +11,13 @@ import javax.validation.constraints.*;
 /**
  * ResponseMapInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseMapInfo   {
   @JsonProperty("maps")
+  @NotNull
+@Valid
+
   private List<ResponseMapInfoMap> maps = new ArrayList<>();
 
   public ResponseMapInfo maps(List<ResponseMapInfoMap> maps) {
@@ -31,8 +34,6 @@ public class ResponseMapInfo   {
    * Get maps
    * @return maps
   **/
-  @NotNull
-@Valid
   public List<ResponseMapInfoMap> getMaps() {
     return maps;
   }
@@ -43,7 +44,7 @@ public class ResponseMapInfo   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +75,7 @@ public class ResponseMapInfo   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

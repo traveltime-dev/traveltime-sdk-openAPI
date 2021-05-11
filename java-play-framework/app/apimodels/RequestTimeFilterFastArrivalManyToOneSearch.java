@@ -13,28 +13,48 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterFastArrivalManyToOneSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterFastArrivalManyToOneSearch   {
   @JsonProperty("id")
+  @NotNull
+
   private String id;
 
   @JsonProperty("arrival_location_id")
+  @NotNull
+
   private String arrivalLocationId;
 
   @JsonProperty("departure_location_ids")
+  @NotNull
+@Size(min=1,max=100000)
+
   private List<String> departureLocationIds = new ArrayList<>();
 
   @JsonProperty("transportation")
+  @NotNull
+@Valid
+
   private RequestTransportationFast transportation;
 
   @JsonProperty("travel_time")
+  @NotNull
+@Min(60)
+@Max(14400)
+
   private Integer travelTime;
 
   @JsonProperty("arrival_time_period")
+  @NotNull
+@Valid
+
   private RequestArrivalTimePeriod arrivalTimePeriod;
 
   @JsonProperty("properties")
+  @NotNull
+@Valid
+
   private List<RequestTimeFilterFastProperty> properties = new ArrayList<>();
 
   public RequestTimeFilterFastArrivalManyToOneSearch id(String id) {
@@ -46,7 +66,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get id
    * @return id
   **/
-  @NotNull
   public String getId() {
     return id;
   }
@@ -64,7 +83,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get arrivalLocationId
    * @return arrivalLocationId
   **/
-  @NotNull
   public String getArrivalLocationId() {
     return arrivalLocationId;
   }
@@ -87,8 +105,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get departureLocationIds
    * @return departureLocationIds
   **/
-  @NotNull
-@Size(min=1,max=100000)
   public List<String> getDepartureLocationIds() {
     return departureLocationIds;
   }
@@ -106,8 +122,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get transportation
    * @return transportation
   **/
-  @NotNull
-@Valid
   public RequestTransportationFast getTransportation() {
     return transportation;
   }
@@ -127,9 +141,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * maximum: 14400
    * @return travelTime
   **/
-  @NotNull
-@Min(60)
-@Max(14400)
   public Integer getTravelTime() {
     return travelTime;
   }
@@ -147,8 +158,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get arrivalTimePeriod
    * @return arrivalTimePeriod
   **/
-  @NotNull
-@Valid
   public RequestArrivalTimePeriod getArrivalTimePeriod() {
     return arrivalTimePeriod;
   }
@@ -171,8 +180,6 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Get properties
    * @return properties
   **/
-  @NotNull
-@Valid
   public List<RequestTimeFilterFastProperty> getProperties() {
     return properties;
   }
@@ -183,7 +190,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -226,7 +233,7 @@ public class RequestTimeFilterFastArrivalManyToOneSearch   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

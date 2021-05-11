@@ -10,7 +10,7 @@ import org.openapitools.model.ResponseFaresFast;
 import javax.validation.constraints.*;
 import io.swagger.annotations.*;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2020-07-14T11:27:35.274Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaResteasyServerCodegen", date = "2021-05-11T08:38:16.330Z[Etc/UTC]")
 public class ResponseTimeFilterFastProperties   {
   
   private Integer travelTime;
@@ -42,7 +42,7 @@ public class ResponseTimeFilterFastProperties   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +74,7 @@ public class ResponseTimeFilterFastProperties   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

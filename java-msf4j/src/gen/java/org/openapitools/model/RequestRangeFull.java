@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * RequestRangeFull
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-07-14T11:27:11.038Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
 public class RequestRangeFull   {
   @JsonProperty("enabled")
   private Boolean enabled;
@@ -80,7 +80,7 @@ public class RequestRangeFull   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -114,7 +114,7 @@ public class RequestRangeFull   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

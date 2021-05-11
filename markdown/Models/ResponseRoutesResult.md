@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**searchUnderscoreid** | [**String**](string.md) |  | [default to null]
+**search\_id** | [**String**](string.md) |  | [default to null]
 **locations** | [**List**](ResponseRoutesLocation.md) |  | [default to null]
 **unreachable** | [**List**](string.md) |  | [default to null]
 

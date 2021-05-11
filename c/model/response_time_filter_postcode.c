@@ -6,6 +6,7 @@
 
 
 response_time_filter_postcode_t *response_time_filter_postcode_create(
+    char *code,
     list_t *properties
     ) {
     response_time_filter_postcode_t *response_time_filter_postcode_local_var = malloc(sizeof(response_time_filter_postcode_t));
@@ -24,10 +25,17 @@ void response_time_filter_postcode_free(response_time_filter_postcode_t *respons
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_time_filter_postcode->properties) {
-        response_time_filter_postcodes_properties_free(listEntry->data);
+    if (response_time_filter_postcode->code) {
+        free(response_time_filter_postcode->code);
+        response_time_filter_postcode->code = NULL;
     }
-    list_free(response_time_filter_postcode->properties);
+    if (response_time_filter_postcode->properties) {
+        list_ForEach(listEntry, response_time_filter_postcode->properties) {
+            response_time_filter_postcodes_properties_free(listEntry->data);
+        }
+        list_free(response_time_filter_postcode->properties);
+        response_time_filter_postcode->properties = NULL;
+    }
     free(response_time_filter_postcode);
 }
 
@@ -39,6 +47,9 @@ cJSON *response_time_filter_postcode_convertToJSON(response_time_filter_postcode
         goto fail;
     }
     
+    if(cJSON_AddStringToObject(item, "code", response_time_filter_postcode->code) == NULL) {
+    goto fail; //String
+    }
 
 
     // response_time_filter_postcode->properties
@@ -80,6 +91,11 @@ response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJS
         goto end;
     }
 
+    
+    if(!cJSON_IsString(code))
+    {
+    goto end; //String
+    }
 
     // response_time_filter_postcode->properties
     cJSON *properties = cJSON_GetObjectItemCaseSensitive(response_time_filter_postcodeJSON, "properties");
@@ -108,6 +124,7 @@ response_time_filter_postcode_t *response_time_filter_postcode_parseFromJSON(cJS
 
 
     response_time_filter_postcode_local_var = response_time_filter_postcode_create (
+        strdup(code->valuestring),
         propertiesList
         );
 

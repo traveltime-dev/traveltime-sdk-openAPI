@@ -20,12 +20,12 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterPostcodeSectorsDepartureSearch do
 
   @type t :: %__MODULE__{
     :"id" => String.t,
-    :"transportation" => RequestTransportation,
+    :"transportation" => TravelTimeAPI.Model.RequestTransportation.t,
     :"travel_time" => integer(),
     :"departure_time" => DateTime.t,
     :"reachable_postcodes_threshold" => float(),
-    :"properties" => [RequestTimeFilterPostcodeSectorsProperty],
-    :"range" => RequestRangeFull | nil
+    :"properties" => [TravelTimeAPI.Model.RequestTimeFilterPostcodeSectorsProperty.t],
+    :"range" => TravelTimeAPI.Model.RequestRangeFull.t | nil
   }
 end
 

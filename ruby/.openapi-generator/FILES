@@ -105,7 +105,6 @@ lib/openapi_client/api/default_api.rb
 lib/openapi_client/api_client.rb
 lib/openapi_client/api_error.rb
 lib/openapi_client/configuration.rb
-lib/openapi_client/configuration.rb
 lib/openapi_client/models/coords.rb
 lib/openapi_client/models/request_arrival_time_period.rb
 lib/openapi_client/models/request_location.rb

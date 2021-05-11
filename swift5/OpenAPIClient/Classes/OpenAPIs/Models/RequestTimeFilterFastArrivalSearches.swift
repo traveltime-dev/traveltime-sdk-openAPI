@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestTimeFilterFastArrivalSearches: Codable { 
-
+public struct RequestTimeFilterFastArrivalSearches: Codable, Hashable {
 
     public var manyToOne: [RequestTimeFilterFastArrivalManyToOneSearch]?
     public var oneToMany: [RequestTimeFilterFastArrivalOneToManySearch]?
@@ -18,10 +17,19 @@ public struct RequestTimeFilterFastArrivalSearches: Codable {
         self.manyToOne = manyToOne
         self.oneToMany = oneToMany
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case manyToOne = "many_to_one"
         case oneToMany = "one_to_many"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(manyToOne, forKey: .manyToOne)
+        try container.encodeIfPresent(oneToMany, forKey: .oneToMany)
+    }
+
+
 
 }

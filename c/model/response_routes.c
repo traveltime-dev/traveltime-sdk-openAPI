@@ -23,10 +23,13 @@ void response_routes_free(response_routes_t *response_routes) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_routes->results) {
-        response_routes_result_free(listEntry->data);
+    if (response_routes->results) {
+        list_ForEach(listEntry, response_routes->results) {
+            response_routes_result_free(listEntry->data);
+        }
+        list_free(response_routes->results);
+        response_routes->results = NULL;
     }
-    list_free(response_routes->results);
     free(response_routes);
 }
 

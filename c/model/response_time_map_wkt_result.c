@@ -27,9 +27,18 @@ void response_time_map_wkt_result_free(response_time_map_wkt_result_t *response_
         return ;
     }
     listEntry_t *listEntry;
-    free(response_time_map_wkt_result->search_id);
-    free(response_time_map_wkt_result->shape);
-    response_time_map_properties_free(response_time_map_wkt_result->properties);
+    if (response_time_map_wkt_result->search_id) {
+        free(response_time_map_wkt_result->search_id);
+        response_time_map_wkt_result->search_id = NULL;
+    }
+    if (response_time_map_wkt_result->shape) {
+        free(response_time_map_wkt_result->shape);
+        response_time_map_wkt_result->shape = NULL;
+    }
+    if (response_time_map_wkt_result->properties) {
+        response_time_map_properties_free(response_time_map_wkt_result->properties);
+        response_time_map_wkt_result->properties = NULL;
+    }
     free(response_time_map_wkt_result);
 }
 
@@ -125,6 +134,10 @@ response_time_map_wkt_result_t *response_time_map_wkt_result_parseFromJSON(cJSON
 
     return response_time_map_wkt_result_local_var;
 end:
+    if (properties_local_nonprim) {
+        response_time_map_properties_free(properties_local_nonprim);
+        properties_local_nonprim = NULL;
+    }
     return NULL;
 
 }

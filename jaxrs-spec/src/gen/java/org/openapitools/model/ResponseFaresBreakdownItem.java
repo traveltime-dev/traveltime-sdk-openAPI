@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseFaresBreakdownItem   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseFaresBreakdownItem   {
   
   private @Valid List<ResponseTransportationMode> modes = new ArrayList<ResponseTransportationMode>();
   private @Valid List<Integer> routePartIds = new ArrayList<Integer>();
@@ -42,7 +42,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setModes(List<ResponseTransportationMode> modes) {
     this.modes = modes;
-  }/**
+  }
+
+/**
    **/
   public ResponseFaresBreakdownItem routePartIds(List<Integer> routePartIds) {
     this.routePartIds = routePartIds;
@@ -61,7 +63,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setRoutePartIds(List<Integer> routePartIds) {
     this.routePartIds = routePartIds;
-  }/**
+  }
+
+/**
    **/
   public ResponseFaresBreakdownItem tickets(List<ResponseFareTicket> tickets) {
     this.tickets = tickets;
@@ -82,8 +86,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.tickets = tickets;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -117,7 +122,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

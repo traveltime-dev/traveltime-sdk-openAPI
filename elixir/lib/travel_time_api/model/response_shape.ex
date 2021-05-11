@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.ResponseShape do
   ]
 
   @type t :: %__MODULE__{
-    :"shell" => [Coords],
-    :"holes" => [[Coords]]
+    :"shell" => [TravelTimeAPI.Model.Coords.t],
+    :"holes" => [[TravelTimeAPI.Model.Coords.t]]
   }
 end
 

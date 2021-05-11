@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseMapInfoFeatures do
   ]
 
   @type t :: %__MODULE__{
-    :"public_transport" => ResponseMapInfoFeaturesPublicTransport | nil,
+    :"public_transport" => TravelTimeAPI.Model.ResponseMapInfoFeaturesPublicTransport.t | nil,
     :"fares" => boolean(),
     :"postcodes" => boolean()
   }

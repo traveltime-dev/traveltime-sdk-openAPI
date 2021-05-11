@@ -10,13 +10,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsResponseTimeFilterPostcodeSector  -Code null `
+$ResponseTimeFilterPostcodeSector = Initialize-PSOpenAPIToolsResponseTimeFilterPostcodeSector  -Code null `
  -Properties null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$ResponseTimeFilterPostcodeSector | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

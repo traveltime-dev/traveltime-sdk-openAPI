@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,35 +13,35 @@ part 'response_transportation_mode.g.dart';
 
 class ResponseTransportationMode extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "car")
+  @BuiltValueEnumConst(wireName: r'car')
   static const ResponseTransportationMode car = _$car;
-  @BuiltValueEnumConst(wireName: "parking")
+  @BuiltValueEnumConst(wireName: r'parking')
   static const ResponseTransportationMode parking = _$parking;
-  @BuiltValueEnumConst(wireName: "boarding")
+  @BuiltValueEnumConst(wireName: r'boarding')
   static const ResponseTransportationMode boarding = _$boarding;
-  @BuiltValueEnumConst(wireName: "walk")
+  @BuiltValueEnumConst(wireName: r'walk')
   static const ResponseTransportationMode walk = _$walk;
-  @BuiltValueEnumConst(wireName: "bike")
+  @BuiltValueEnumConst(wireName: r'bike')
   static const ResponseTransportationMode bike = _$bike;
-  @BuiltValueEnumConst(wireName: "train")
+  @BuiltValueEnumConst(wireName: r'train')
   static const ResponseTransportationMode train = _$train;
-  @BuiltValueEnumConst(wireName: "rail_national")
+  @BuiltValueEnumConst(wireName: r'rail_national')
   static const ResponseTransportationMode railNational = _$railNational;
-  @BuiltValueEnumConst(wireName: "rail_overground")
+  @BuiltValueEnumConst(wireName: r'rail_overground')
   static const ResponseTransportationMode railOverground = _$railOverground;
-  @BuiltValueEnumConst(wireName: "rail_underground")
+  @BuiltValueEnumConst(wireName: r'rail_underground')
   static const ResponseTransportationMode railUnderground = _$railUnderground;
-  @BuiltValueEnumConst(wireName: "rail_dlr")
+  @BuiltValueEnumConst(wireName: r'rail_dlr')
   static const ResponseTransportationMode railDlr = _$railDlr;
-  @BuiltValueEnumConst(wireName: "bus")
+  @BuiltValueEnumConst(wireName: r'bus')
   static const ResponseTransportationMode bus = _$bus;
-  @BuiltValueEnumConst(wireName: "cable_car")
+  @BuiltValueEnumConst(wireName: r'cable_car')
   static const ResponseTransportationMode cableCar = _$cableCar;
-  @BuiltValueEnumConst(wireName: "plane")
+  @BuiltValueEnumConst(wireName: r'plane')
   static const ResponseTransportationMode plane = _$plane;
-  @BuiltValueEnumConst(wireName: "ferry")
+  @BuiltValueEnumConst(wireName: r'ferry')
   static const ResponseTransportationMode ferry = _$ferry;
-  @BuiltValueEnumConst(wireName: "coach")
+  @BuiltValueEnumConst(wireName: r'coach')
   static const ResponseTransportationMode coach = _$coach;
 
   static Serializer<ResponseTransportationMode> get serializer => _$responseTransportationModeSerializer;

@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**results** | [**Array&lt;ResponseTimeMapBoundingBoxesResult&gt;**](ResponseTimeMapBoundingBoxesResult.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **results** | [**Array&lt;ResponseTimeMapBoundingBoxesResult&gt;**](ResponseTimeMapBoundingBoxesResult.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeMapBoundingBoxes.new(results: null)
+instance = OpenapiClient::ResponseTimeMapBoundingBoxes.new(
+  results: null
+)
 ```
-
 

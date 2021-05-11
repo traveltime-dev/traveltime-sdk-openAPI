@@ -22,10 +22,10 @@ defmodule TravelTimeAPI.Api.Default do
     - :within_periodcountry (String.t): 
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseGeocoding{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec geocoding_reverse_search(Tesla.Env.client, float(), float(), keyword()) :: {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} | {:error, Tesla.Env.t}
+  @spec geocoding_reverse_search(Tesla.Env.client, float(), float(), keyword()) :: {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} | {:ok, TravelTimeAPI.Model.ResponseError.t} | {:error, Tesla.Env.t}
   def geocoding_reverse_search(connection, lat, lng, opts \\ []) do
     optional_params = %{
       :"within.country" => :query
@@ -56,10 +56,10 @@ defmodule TravelTimeAPI.Api.Default do
     - :within_periodcountry (String.t): 
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseGeocoding{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec geocoding_search(Tesla.Env.client, String.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} | {:error, Tesla.Env.t}
+  @spec geocoding_search(Tesla.Env.client, String.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseGeocoding.t} | {:ok, TravelTimeAPI.Model.ResponseError.t} | {:error, Tesla.Env.t}
   def geocoding_search(connection, query, opts \\ []) do
     optional_params = %{
       :"focus.lat" => :query,
@@ -87,10 +87,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseMapInfo{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseMapInfo.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec map_info(Tesla.Env.client, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseMapInfo.t} | {:error, Tesla.Env.t}
+  @spec map_info(Tesla.Env.client, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseMapInfo.t} | {:error, Tesla.Env.t}
   def map_info(connection, _opts \\ []) do
     %{}
     |> method(:get)
@@ -112,10 +112,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseRoutes{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseRoutes.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec routes(Tesla.Env.client, TravelTimeAPI.Model.RequestRoutes.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseRoutes.t} | {:error, Tesla.Env.t}
+  @spec routes(Tesla.Env.client, TravelTimeAPI.Model.RequestRoutes.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseRoutes.t} | {:ok, TravelTimeAPI.Model.ResponseError.t} | {:error, Tesla.Env.t}
   def routes(connection, request_routes, _opts \\ []) do
     %{}
     |> method(:post)
@@ -138,10 +138,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseSupportedLocations{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseSupportedLocations.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec supported_locations(Tesla.Env.client, TravelTimeAPI.Model.RequestSupportedLocations.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseSupportedLocations.t} | {:error, Tesla.Env.t}
+  @spec supported_locations(Tesla.Env.client, TravelTimeAPI.Model.RequestSupportedLocations.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseSupportedLocations.t} | {:ok, TravelTimeAPI.Model.ResponseError.t} | {:error, Tesla.Env.t}
   def supported_locations(connection, request_supported_locations, _opts \\ []) do
     %{}
     |> method(:post)
@@ -164,10 +164,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeFilter{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeFilter.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_filter(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilter.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilter.t} | {:error, Tesla.Env.t}
+  @spec time_filter(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilter.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseTimeFilter.t} | {:error, Tesla.Env.t}
   def time_filter(connection, request_time_filter, _opts \\ []) do
     %{}
     |> method(:post)
@@ -190,10 +190,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeFilterFast{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeFilterFast.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_filter_fast(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterFast.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilterFast.t} | {:error, Tesla.Env.t}
+  @spec time_filter_fast(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterFast.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseTimeFilterFast.t} | {:error, Tesla.Env.t}
   def time_filter_fast(connection, request_time_filter_fast, _opts \\ []) do
     %{}
     |> method(:post)
@@ -216,10 +216,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeFilterPostcodeDistricts{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeDistricts.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_filter_postcode_districts(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodeDistricts.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeDistricts.t} | {:error, Tesla.Env.t}
+  @spec time_filter_postcode_districts(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodeDistricts.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeDistricts.t} | {:error, Tesla.Env.t}
   def time_filter_postcode_districts(connection, request_time_filter_postcode_districts, _opts \\ []) do
     %{}
     |> method(:post)
@@ -242,10 +242,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectors{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectors.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_filter_postcode_sectors(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodeSectors.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectors.t} | {:error, Tesla.Env.t}
+  @spec time_filter_postcode_sectors(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodeSectors.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectors.t} | {:error, Tesla.Env.t}
   def time_filter_postcode_sectors(connection, request_time_filter_postcode_sectors, _opts \\ []) do
     %{}
     |> method(:post)
@@ -268,10 +268,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeFilterPostcodes{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodes.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_filter_postcodes(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodes.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodes.t} | {:error, Tesla.Env.t}
+  @spec time_filter_postcodes(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeFilterPostcodes.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeFilterPostcodes.t} | {:ok, TravelTimeAPI.Model.ResponseError.t} | {:error, Tesla.Env.t}
   def time_filter_postcodes(connection, request_time_filter_postcodes, _opts \\ []) do
     %{}
     |> method(:post)
@@ -294,10 +294,10 @@ defmodule TravelTimeAPI.Api.Default do
   - opts (KeywordList): [optional] Optional parameters
   ## Returns
 
-  {:ok, %TravelTimeAPI.Model.ResponseTimeMap{}} on success
-  {:error, info} on failure
+  {:ok, TravelTimeAPI.Model.ResponseTimeMap.t} on success
+  {:error, Tesla.Env.t} on failure
   """
-  @spec time_map(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeMap.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseTimeMap.t} | {:error, Tesla.Env.t}
+  @spec time_map(Tesla.Env.client, TravelTimeAPI.Model.RequestTimeMap.t, keyword()) :: {:ok, TravelTimeAPI.Model.ResponseError.t} | {:ok, TravelTimeAPI.Model.ResponseTimeMap.t} | {:error, Tesla.Env.t}
   def time_map(connection, request_time_map, _opts \\ []) do
     %{}
     |> method(:post)

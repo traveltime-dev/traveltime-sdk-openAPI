@@ -69,6 +69,8 @@ class RequestTimeFilterPostcodeSectors(Model):
         :param departure_searches: The departure_searches of this RequestTimeFilterPostcodeSectors.
         :type departure_searches: List[RequestTimeFilterPostcodeSectorsDepartureSearch]
         """
+        if departure_searches is not None and len(departure_searches) > 10:
+            raise ValueError("Invalid value for `departure_searches`, number of items must be less than or equal to `10`")  # noqa: E501
 
         self._departure_searches = departure_searches
 
@@ -90,5 +92,7 @@ class RequestTimeFilterPostcodeSectors(Model):
         :param arrival_searches: The arrival_searches of this RequestTimeFilterPostcodeSectors.
         :type arrival_searches: List[RequestTimeFilterPostcodeSectorsArrivalSearch]
         """
+        if arrival_searches is not None and len(arrival_searches) > 10:
+            raise ValueError("Invalid value for `arrival_searches`, number of items must be less than or equal to `10`")  # noqa: E501
 
         self._arrival_searches = arrival_searches

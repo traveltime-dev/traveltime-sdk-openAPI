@@ -25,11 +25,17 @@ void response_routes_location_free(response_routes_location_t *response_routes_l
         return ;
     }
     listEntry_t *listEntry;
-    free(response_routes_location->id);
-    list_ForEach(listEntry, response_routes_location->properties) {
-        response_routes_properties_free(listEntry->data);
+    if (response_routes_location->id) {
+        free(response_routes_location->id);
+        response_routes_location->id = NULL;
     }
-    list_free(response_routes_location->properties);
+    if (response_routes_location->properties) {
+        list_ForEach(listEntry, response_routes_location->properties) {
+            response_routes_properties_free(listEntry->data);
+        }
+        list_free(response_routes_location->properties);
+        response_routes_location->properties = NULL;
+    }
     free(response_routes_location);
 }
 

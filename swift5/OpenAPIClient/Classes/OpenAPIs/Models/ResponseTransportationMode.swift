@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import AnyCodable
 
 public enum ResponseTransportationMode: String, Codable, CaseIterable {
     case car = "car"

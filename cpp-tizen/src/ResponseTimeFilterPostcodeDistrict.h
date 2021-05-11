@@ -10,7 +10,6 @@
 
 #include <string>
 #include "ResponseTimeFilterPostcodeDistrictProperties.h"
-#include "String.h"
 #include "Object.h"
 
 /** \defgroup Models Data Structures for API
@@ -49,11 +48,11 @@ public:
 
 	/*! \brief Get 
 	 */
-	String getCode();
+	std::string getCode();
 
 	/*! \brief Set 
 	 */
-	void setCode(String  code);
+	void setCode(std::string  code);
 	/*! \brief Get 
 	 */
 	ResponseTimeFilterPostcodeDistrictProperties getProperties();
@@ -63,7 +62,7 @@ public:
 	void setProperties(ResponseTimeFilterPostcodeDistrictProperties  properties);
 
 private:
-	String code;
+	std::string code;
 	ResponseTimeFilterPostcodeDistrictProperties properties;
 	void __init();
 	void __cleanup();

@@ -12,10 +12,12 @@ import javax.validation.constraints.*;
 /**
  * ResponseRoutePart
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseRoutePart   {
   @JsonProperty("id")
+  @NotNull
+
   private String id;
 
   /**
@@ -54,48 +56,71 @@ public class ResponseRoutePart   {
   }
 
   @JsonProperty("type")
+  @NotNull
+
   private TypeEnum type;
 
   @JsonProperty("mode")
+  @NotNull
+@Valid
+
   private ResponseTransportationMode mode;
 
   @JsonProperty("directions")
+  @NotNull
+
   private String directions;
 
   @JsonProperty("distance")
+  @NotNull
+
   private Integer distance;
 
   @JsonProperty("travel_time")
+  @NotNull
+
   private Integer travelTime;
 
   @JsonProperty("coords")
+  @NotNull
+@Valid
+
   private List<Coords> coords = new ArrayList<>();
 
   @JsonProperty("direction")
+  
   private String direction;
 
   @JsonProperty("road")
+  
   private String road;
 
   @JsonProperty("turn")
+  
   private String turn;
 
   @JsonProperty("line")
+  
   private String line;
 
   @JsonProperty("departure_station")
+  
   private String departureStation;
 
   @JsonProperty("arrival_station")
+  
   private String arrivalStation;
 
   @JsonProperty("departs_at")
+  
   private String departsAt;
 
   @JsonProperty("arrives_at")
+  
   private String arrivesAt;
 
   @JsonProperty("num_stops")
+  
   private Integer numStops;
 
   public ResponseRoutePart id(String id) {
@@ -107,7 +132,6 @@ public class ResponseRoutePart   {
    * Get id
    * @return id
   **/
-  @NotNull
   public String getId() {
     return id;
   }
@@ -125,7 +149,6 @@ public class ResponseRoutePart   {
    * Get type
    * @return type
   **/
-  @NotNull
   public TypeEnum getType() {
     return type;
   }
@@ -143,8 +166,6 @@ public class ResponseRoutePart   {
    * Get mode
    * @return mode
   **/
-  @NotNull
-@Valid
   public ResponseTransportationMode getMode() {
     return mode;
   }
@@ -162,7 +183,6 @@ public class ResponseRoutePart   {
    * Get directions
    * @return directions
   **/
-  @NotNull
   public String getDirections() {
     return directions;
   }
@@ -180,7 +200,6 @@ public class ResponseRoutePart   {
    * Get distance
    * @return distance
   **/
-  @NotNull
   public Integer getDistance() {
     return distance;
   }
@@ -198,7 +217,6 @@ public class ResponseRoutePart   {
    * Get travelTime
    * @return travelTime
   **/
-  @NotNull
   public Integer getTravelTime() {
     return travelTime;
   }
@@ -221,8 +239,6 @@ public class ResponseRoutePart   {
    * Get coords
    * @return coords
   **/
-  @NotNull
-@Valid
   public List<Coords> getCoords() {
     return coords;
   }
@@ -240,7 +256,7 @@ public class ResponseRoutePart   {
    * Get direction
    * @return direction
   **/
-    public String getDirection() {
+  public String getDirection() {
     return direction;
   }
 
@@ -257,7 +273,7 @@ public class ResponseRoutePart   {
    * Get road
    * @return road
   **/
-    public String getRoad() {
+  public String getRoad() {
     return road;
   }
 
@@ -274,7 +290,7 @@ public class ResponseRoutePart   {
    * Get turn
    * @return turn
   **/
-    public String getTurn() {
+  public String getTurn() {
     return turn;
   }
 
@@ -291,7 +307,7 @@ public class ResponseRoutePart   {
    * Get line
    * @return line
   **/
-    public String getLine() {
+  public String getLine() {
     return line;
   }
 
@@ -308,7 +324,7 @@ public class ResponseRoutePart   {
    * Get departureStation
    * @return departureStation
   **/
-    public String getDepartureStation() {
+  public String getDepartureStation() {
     return departureStation;
   }
 
@@ -325,7 +341,7 @@ public class ResponseRoutePart   {
    * Get arrivalStation
    * @return arrivalStation
   **/
-    public String getArrivalStation() {
+  public String getArrivalStation() {
     return arrivalStation;
   }
 
@@ -342,7 +358,7 @@ public class ResponseRoutePart   {
    * Get departsAt
    * @return departsAt
   **/
-    public String getDepartsAt() {
+  public String getDepartsAt() {
     return departsAt;
   }
 
@@ -359,7 +375,7 @@ public class ResponseRoutePart   {
    * Get arrivesAt
    * @return arrivesAt
   **/
-    public String getArrivesAt() {
+  public String getArrivesAt() {
     return arrivesAt;
   }
 
@@ -376,7 +392,7 @@ public class ResponseRoutePart   {
    * Get numStops
    * @return numStops
   **/
-    public Integer getNumStops() {
+  public Integer getNumStops() {
     return numStops;
   }
 
@@ -386,7 +402,7 @@ public class ResponseRoutePart   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -447,7 +463,7 @@ public class ResponseRoutePart   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

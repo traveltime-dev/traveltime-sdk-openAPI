@@ -1,3 +1,4 @@
+.gitignore
 .openapi-generator-ignore
 Org.OpenAPITools.sln
 src/Org.OpenAPITools/Models/Coords.cs

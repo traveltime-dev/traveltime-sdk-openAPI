@@ -15,9 +15,9 @@ defmodule TravelTimeAPI.Model.ResponseFaresBreakdownItem do
   ]
 
   @type t :: %__MODULE__{
-    :"modes" => [ResponseTransportationMode],
+    :"modes" => [TravelTimeAPI.Model.ResponseTransportationMode.t],
     :"route_part_ids" => [integer()],
-    :"tickets" => [ResponseFareTicket]
+    :"tickets" => [TravelTimeAPI.Model.ResponseFareTicket.t]
   }
 end
 

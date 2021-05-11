@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseTravelTimeStatistics: Codable { 
-
+public struct ResponseTravelTimeStatistics: Codable, Hashable {
 
     public var min: Int
     public var max: Int
@@ -22,5 +21,23 @@ public struct ResponseTravelTimeStatistics: Codable {
         self.mean = mean
         self.median = median
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case min
+        case max
+        case mean
+        case median
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(min, forKey: .min)
+        try container.encode(max, forKey: .max)
+        try container.encode(mean, forKey: .mean)
+        try container.encode(median, forKey: .median)
+    }
+
+
 
 }

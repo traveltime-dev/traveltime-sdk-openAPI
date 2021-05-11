@@ -30,11 +30,11 @@ defmodule TravelTimeAPI.Model.ResponseRoutePart do
   @type t :: %__MODULE__{
     :"id" => String.t,
     :"type" => String.t,
-    :"mode" => ResponseTransportationMode,
+    :"mode" => TravelTimeAPI.Model.ResponseTransportationMode.t,
     :"directions" => String.t,
     :"distance" => integer(),
     :"travel_time" => integer(),
-    :"coords" => [Coords],
+    :"coords" => [TravelTimeAPI.Model.Coords.t],
     :"direction" => String.t | nil,
     :"road" => String.t | nil,
     :"turn" => String.t | nil,

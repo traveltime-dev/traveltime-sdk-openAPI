@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ResponseTimeFilterPostcodeDistrict  {
   
   @ApiModelProperty(required = true, value = "")
-  private String code = null;
+  private String code;
 
   @ApiModelProperty(required = true, value = "")
   private ResponseTimeFilterPostcodeDistrictProperties properties;
@@ -71,7 +71,7 @@ public class ResponseTimeFilterPostcodeDistrict  {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private static String toIndentedString(java.lang.Object o) {
+  private static String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

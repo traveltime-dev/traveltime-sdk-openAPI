@@ -10,7 +10,8 @@
         "type": "array",
         "items": "model.RequestTimeMapDepartureSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "arrival_searches",
@@ -18,7 +19,8 @@
         "type": "array",
         "items": "model.RequestTimeMapArrivalSearch"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "unions",
@@ -26,7 +28,8 @@
         "type": "array",
         "items": "model.RequestUnionOnIntersection"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "intersections",
@@ -34,7 +37,9 @@
         "type": "array",
         "items": "model.RequestUnionOnIntersection"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -17,8 +18,8 @@ import javax.validation.constraints.Size
  */
 data class ResponseFaresFast(
 
-    @get:NotNull 
-    @field:JsonProperty("tickets_total") val ticketsTotal: kotlin.collections.List<ResponseFareTicket>
+    @field:Valid
+    @field:JsonProperty("tickets_total", required = true) val ticketsTotal: kotlin.collections.List<ResponseFareTicket>
 ) {
 
 }

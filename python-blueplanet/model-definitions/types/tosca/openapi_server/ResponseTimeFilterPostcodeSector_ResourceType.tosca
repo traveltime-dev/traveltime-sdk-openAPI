@@ -17,7 +17,7 @@ resourceTypes {
     derivedFrom = Root
     properties {
         code {
-          type = String
+          type =  string
           description = ""
           optional = true
         }

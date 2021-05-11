@@ -23,13 +23,13 @@ response_time_filter_postcode_sector_t* instantiate_response_time_filter_postcod
   response_time_filter_postcode_sector_t* response_time_filter_postcode_sector = NULL;
   if (include_optional) {
     response_time_filter_postcode_sector = response_time_filter_postcode_sector_create(
-      null,
+      "0",
        // false, not to have infinite recursion
       instantiate_response_time_filter_postcode_sector_properties(0)
     );
   } else {
     response_time_filter_postcode_sector = response_time_filter_postcode_sector_create(
-      null,
+      "0",
       NULL
     );
   }

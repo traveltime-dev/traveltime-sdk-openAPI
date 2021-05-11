@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**locations** | [**Array&lt;ResponseSupportedLocation&gt;**](ResponseSupportedLocation.md) |  | 
-**unsupported_locations** | **Array&lt;String&gt;** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **locations** | [**Array&lt;ResponseSupportedLocation&gt;**](ResponseSupportedLocation.md) |  |  |
+| **unsupported_locations** | **Array&lt;String&gt;** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseSupportedLocations.new(locations: null,
-                                 unsupported_locations: null)
+instance = OpenapiClient::ResponseSupportedLocations.new(
+  locations: null,
+  unsupported_locations: null
+)
 ```
-
 

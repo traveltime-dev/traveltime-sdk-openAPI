@@ -1328,7 +1328,7 @@ instance ToSchema ResponseTimeFilterLocation where
 
 -- | 
 data ResponseTimeFilterPostcode = ResponseTimeFilterPostcode
-  { responseTimeFilterPostcodeCode :: String -- ^ 
+  { responseTimeFilterPostcodeCode :: Text -- ^ 
   , responseTimeFilterPostcodeProperties :: [ResponseTimeFilterPostcodesProperties] -- ^ 
   } deriving (Show, Eq, Generic, Data)
 
@@ -1344,7 +1344,7 @@ instance ToSchema ResponseTimeFilterPostcode where
 
 -- | 
 data ResponseTimeFilterPostcodeDistrict = ResponseTimeFilterPostcodeDistrict
-  { responseTimeFilterPostcodeDistrictCode :: String -- ^ 
+  { responseTimeFilterPostcodeDistrictCode :: Text -- ^ 
   , responseTimeFilterPostcodeDistrictProperties :: ResponseTimeFilterPostcodeDistrictProperties -- ^ 
   } deriving (Show, Eq, Generic, Data)
 
@@ -1408,7 +1408,7 @@ instance ToSchema ResponseTimeFilterPostcodeDistrictsResult where
 
 -- | 
 data ResponseTimeFilterPostcodeSector = ResponseTimeFilterPostcodeSector
-  { responseTimeFilterPostcodeSectorCode :: String -- ^ 
+  { responseTimeFilterPostcodeSectorCode :: Text -- ^ 
   , responseTimeFilterPostcodeSectorProperties :: ResponseTimeFilterPostcodeSectorProperties -- ^ 
   } deriving (Show, Eq, Generic, Data)
 
@@ -1750,6 +1750,7 @@ removeFieldLabelPrefix forParsing prefix =
       , ("~", "'Tilde")
       , ("?", "'Question_Mark")
       , (">=", "'Greater_Than_Or_Equal_To")
+      , ("~=", "'Tilde_Equal")
       ]
     mkCharReplacement (replaceStr, searchStr) = T.unpack . replacer (T.pack searchStr) (T.pack replaceStr) . T.pack
     replacer =

@@ -9,16 +9,22 @@ import javax.validation.constraints.*;
 /**
  * ResponseMapInfoFeatures
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseMapInfoFeatures   {
   @JsonProperty("public_transport")
+  @Valid
+
   private ResponseMapInfoFeaturesPublicTransport publicTransport;
 
   @JsonProperty("fares")
+  @NotNull
+
   private Boolean fares;
 
   @JsonProperty("postcodes")
+  @NotNull
+
   private Boolean postcodes;
 
   public ResponseMapInfoFeatures publicTransport(ResponseMapInfoFeaturesPublicTransport publicTransport) {
@@ -30,7 +36,6 @@ public class ResponseMapInfoFeatures   {
    * Get publicTransport
    * @return publicTransport
   **/
-  @Valid
   public ResponseMapInfoFeaturesPublicTransport getPublicTransport() {
     return publicTransport;
   }
@@ -48,7 +53,6 @@ public class ResponseMapInfoFeatures   {
    * Get fares
    * @return fares
   **/
-  @NotNull
   public Boolean getFares() {
     return fares;
   }
@@ -66,7 +70,6 @@ public class ResponseMapInfoFeatures   {
    * Get postcodes
    * @return postcodes
   **/
-  @NotNull
   public Boolean getPostcodes() {
     return postcodes;
   }
@@ -77,7 +80,7 @@ public class ResponseMapInfoFeatures   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -112,7 +115,7 @@ public class ResponseMapInfoFeatures   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

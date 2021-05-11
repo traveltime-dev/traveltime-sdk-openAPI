@@ -20,30 +20,53 @@ Method | HTTP request | Description
 
 ## GeocodingReverseSearch
 
-> ResponseGeocoding GeocodingReverseSearch(ctx, lat, lng, optional)
+> ResponseGeocoding GeocodingReverseSearch(ctx).Lat(lat).Lng(lng).WithinCountry(withinCountry).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    lat := float64(1.2) // float64 | 
+    lng := float64(1.2) // float64 | 
+    withinCountry := "withinCountry_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GeocodingReverseSearch(context.Background()).Lat(lat).Lng(lng).WithinCountry(withinCountry).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GeocodingReverseSearch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GeocodingReverseSearch`: ResponseGeocoding
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GeocodingReverseSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGeocodingReverseSearchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**lat** | **float64**|  | 
-**lng** | **float64**|  | 
- **optional** | ***GeocodingReverseSearchOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GeocodingReverseSearchOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **withinCountry** | **optional.String**|  | 
+ **lat** | **float64** |  | 
+ **lng** | **float64** |  | 
+ **withinCountry** | **string** |  | 
 
 ### Return type
 
@@ -65,30 +88,55 @@ Name | Type | Description  | Notes
 
 ## GeocodingSearch
 
-> ResponseGeocoding GeocodingSearch(ctx, query, optional)
+> ResponseGeocoding GeocodingSearch(ctx).Query(query).FocusLat(focusLat).FocusLng(focusLng).WithinCountry(withinCountry).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    query := "query_example" // string | 
+    focusLat := float64(1.2) // float64 |  (optional)
+    focusLng := float64(1.2) // float64 |  (optional)
+    withinCountry := "withinCountry_example" // string |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.GeocodingSearch(context.Background()).Query(query).FocusLat(focusLat).FocusLng(focusLng).WithinCountry(withinCountry).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.GeocodingSearch``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GeocodingSearch`: ResponseGeocoding
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.GeocodingSearch`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGeocodingSearchRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**query** | **string**|  | 
- **optional** | ***GeocodingSearchOpts** | optional parameters | nil if no parameters
-
-### Optional Parameters
-
-Optional parameters are passed through a pointer to a GeocodingSearchOpts struct
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **focusLat** | **optional.Float64**|  | 
- **focusLng** | **optional.Float64**|  | 
- **withinCountry** | **optional.String**|  | 
+ **query** | **string** |  | 
+ **focusLat** | **float64** |  | 
+ **focusLng** | **float64** |  | 
+ **withinCountry** | **string** |  | 
 
 ### Return type
 
@@ -110,13 +158,44 @@ Name | Type | Description  | Notes
 
 ## MapInfo
 
-> ResponseMapInfo MapInfo(ctx, )
+> ResponseMapInfo MapInfo(ctx).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.MapInfo(context.Background()).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.MapInfo``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `MapInfo`: ResponseMapInfo
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.MapInfo`: %v\n", resp)
+}
+```
+
+### Path Parameters
 
 This endpoint does not need any parameter.
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiMapInfoRequest struct via the builder pattern
+
 
 ### Return type
 
@@ -138,17 +217,49 @@ This endpoint does not need any parameter.
 
 ## Routes
 
-> ResponseRoutes Routes(ctx, requestRoutes)
+> ResponseRoutes Routes(ctx).RequestRoutes(requestRoutes).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestRoutes := *openapiclient.NewRequestRoutes([]openapiclient.RequestLocation{*openapiclient.NewRequestLocation("Id_example", *openapiclient.NewCoords(float64(123), float64(123)))}) // RequestRoutes | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.Routes(context.Background()).RequestRoutes(requestRoutes).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.Routes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `Routes`: ResponseRoutes
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.Routes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRoutesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestRoutes** | [**RequestRoutes**](RequestRoutes.md)|  | 
+ **requestRoutes** | [**RequestRoutes**](RequestRoutes.md) |  | 
 
 ### Return type
 
@@ -170,17 +281,49 @@ Name | Type | Description  | Notes
 
 ## SupportedLocations
 
-> ResponseSupportedLocations SupportedLocations(ctx, requestSupportedLocations)
+> ResponseSupportedLocations SupportedLocations(ctx).RequestSupportedLocations(requestSupportedLocations).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestSupportedLocations := *openapiclient.NewRequestSupportedLocations([]openapiclient.RequestLocation{*openapiclient.NewRequestLocation("Id_example", *openapiclient.NewCoords(float64(123), float64(123)))}) // RequestSupportedLocations | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.SupportedLocations(context.Background()).RequestSupportedLocations(requestSupportedLocations).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.SupportedLocations``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SupportedLocations`: ResponseSupportedLocations
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.SupportedLocations`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiSupportedLocationsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestSupportedLocations** | [**RequestSupportedLocations**](RequestSupportedLocations.md)|  | 
+ **requestSupportedLocations** | [**RequestSupportedLocations**](RequestSupportedLocations.md) |  | 
 
 ### Return type
 
@@ -202,17 +345,49 @@ Name | Type | Description  | Notes
 
 ## TimeFilter
 
-> ResponseTimeFilter TimeFilter(ctx, requestTimeFilter)
+> ResponseTimeFilter TimeFilter(ctx).RequestTimeFilter(requestTimeFilter).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeFilter := *openapiclient.NewRequestTimeFilter([]openapiclient.RequestLocation{*openapiclient.NewRequestLocation("Id_example", *openapiclient.NewCoords(float64(123), float64(123)))}) // RequestTimeFilter | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeFilter(context.Background()).RequestTimeFilter(requestTimeFilter).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeFilter``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeFilter`: ResponseTimeFilter
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeFilter`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeFilterRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeFilter** | [**RequestTimeFilter**](RequestTimeFilter.md)|  | 
+ **requestTimeFilter** | [**RequestTimeFilter**](RequestTimeFilter.md) |  | 
 
 ### Return type
 
@@ -234,17 +409,49 @@ Name | Type | Description  | Notes
 
 ## TimeFilterFast
 
-> ResponseTimeFilterFast TimeFilterFast(ctx, requestTimeFilterFast)
+> ResponseTimeFilterFast TimeFilterFast(ctx).RequestTimeFilterFast(requestTimeFilterFast).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeFilterFast := *openapiclient.NewRequestTimeFilterFast([]openapiclient.RequestLocation{*openapiclient.NewRequestLocation("Id_example", *openapiclient.NewCoords(float64(123), float64(123)))}, *openapiclient.NewRequestTimeFilterFastArrivalSearches()) // RequestTimeFilterFast | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeFilterFast(context.Background()).RequestTimeFilterFast(requestTimeFilterFast).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeFilterFast``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeFilterFast`: ResponseTimeFilterFast
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeFilterFast`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeFilterFastRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeFilterFast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md)|  | 
+ **requestTimeFilterFast** | [**RequestTimeFilterFast**](RequestTimeFilterFast.md) |  | 
 
 ### Return type
 
@@ -266,17 +473,49 @@ Name | Type | Description  | Notes
 
 ## TimeFilterPostcodeDistricts
 
-> ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts(ctx, requestTimeFilterPostcodeDistricts)
+> ResponseTimeFilterPostcodeDistricts TimeFilterPostcodeDistricts(ctx).RequestTimeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeFilterPostcodeDistricts := *openapiclient.NewRequestTimeFilterPostcodeDistricts() // RequestTimeFilterPostcodeDistricts | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeFilterPostcodeDistricts(context.Background()).RequestTimeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeFilterPostcodeDistricts``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeFilterPostcodeDistricts`: ResponseTimeFilterPostcodeDistricts
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeFilterPostcodeDistricts`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeFilterPostcodeDistrictsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md)|  | 
+ **requestTimeFilterPostcodeDistricts** | [**RequestTimeFilterPostcodeDistricts**](RequestTimeFilterPostcodeDistricts.md) |  | 
 
 ### Return type
 
@@ -298,17 +537,49 @@ Name | Type | Description  | Notes
 
 ## TimeFilterPostcodeSectors
 
-> ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors(ctx, requestTimeFilterPostcodeSectors)
+> ResponseTimeFilterPostcodeSectors TimeFilterPostcodeSectors(ctx).RequestTimeFilterPostcodeSectors(requestTimeFilterPostcodeSectors).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeFilterPostcodeSectors := *openapiclient.NewRequestTimeFilterPostcodeSectors() // RequestTimeFilterPostcodeSectors | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeFilterPostcodeSectors(context.Background()).RequestTimeFilterPostcodeSectors(requestTimeFilterPostcodeSectors).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeFilterPostcodeSectors``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeFilterPostcodeSectors`: ResponseTimeFilterPostcodeSectors
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeFilterPostcodeSectors`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeFilterPostcodeSectorsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md)|  | 
+ **requestTimeFilterPostcodeSectors** | [**RequestTimeFilterPostcodeSectors**](RequestTimeFilterPostcodeSectors.md) |  | 
 
 ### Return type
 
@@ -330,17 +601,49 @@ Name | Type | Description  | Notes
 
 ## TimeFilterPostcodes
 
-> ResponseTimeFilterPostcodes TimeFilterPostcodes(ctx, requestTimeFilterPostcodes)
+> ResponseTimeFilterPostcodes TimeFilterPostcodes(ctx).RequestTimeFilterPostcodes(requestTimeFilterPostcodes).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeFilterPostcodes := *openapiclient.NewRequestTimeFilterPostcodes() // RequestTimeFilterPostcodes | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeFilterPostcodes(context.Background()).RequestTimeFilterPostcodes(requestTimeFilterPostcodes).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeFilterPostcodes``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeFilterPostcodes`: ResponseTimeFilterPostcodes
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeFilterPostcodes`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeFilterPostcodesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md)|  | 
+ **requestTimeFilterPostcodes** | [**RequestTimeFilterPostcodes**](RequestTimeFilterPostcodes.md) |  | 
 
 ### Return type
 
@@ -362,17 +665,49 @@ Name | Type | Description  | Notes
 
 ## TimeMap
 
-> ResponseTimeMap TimeMap(ctx, requestTimeMap)
+> ResponseTimeMap TimeMap(ctx).RequestTimeMap(requestTimeMap).Execute()
 
 
 
-### Required Parameters
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    requestTimeMap := *openapiclient.NewRequestTimeMap() // RequestTimeMap | 
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.DefaultApi.TimeMap(context.Background()).RequestTimeMap(requestTimeMap).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `DefaultApi.TimeMap``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `TimeMap`: ResponseTimeMap
+    fmt.Fprintf(os.Stdout, "Response from `DefaultApi.TimeMap`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiTimeMapRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**requestTimeMap** | [**RequestTimeMap**](RequestTimeMap.md)|  | 
+ **requestTimeMap** | [**RequestTimeMap**](RequestTimeMap.md) |  | 
 
 ### Return type
 

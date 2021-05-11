@@ -17,72 +17,87 @@
     {
       "name": "score",
       "type": ["null", "double"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "house_number",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "street",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "region",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "region_code",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "neighbourhood",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "county",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "macroregion",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "city",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "country",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "country_code",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "continent",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "postcode",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "features",
       "type": ["null", "model.ResponseMapInfoFeatures"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

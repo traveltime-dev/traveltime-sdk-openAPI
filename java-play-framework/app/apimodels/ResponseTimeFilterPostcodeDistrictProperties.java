@@ -9,16 +9,21 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeDistrictProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeFilterPostcodeDistrictProperties   {
   @JsonProperty("travel_time_reachable")
+  @Valid
+
   private ResponseTravelTimeStatistics travelTimeReachable;
 
   @JsonProperty("travel_time_all")
+  @Valid
+
   private ResponseTravelTimeStatistics travelTimeAll;
 
   @JsonProperty("coverage")
+  
   private Double coverage;
 
   public ResponseTimeFilterPostcodeDistrictProperties travelTimeReachable(ResponseTravelTimeStatistics travelTimeReachable) {
@@ -30,7 +35,6 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
    * Get travelTimeReachable
    * @return travelTimeReachable
   **/
-  @Valid
   public ResponseTravelTimeStatistics getTravelTimeReachable() {
     return travelTimeReachable;
   }
@@ -48,7 +52,6 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
    * Get travelTimeAll
    * @return travelTimeAll
   **/
-  @Valid
   public ResponseTravelTimeStatistics getTravelTimeAll() {
     return travelTimeAll;
   }
@@ -66,7 +69,7 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
    * Get coverage
    * @return coverage
   **/
-    public Double getCoverage() {
+  public Double getCoverage() {
     return coverage;
   }
 
@@ -76,7 +79,7 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -111,7 +114,7 @@ public class ResponseTimeFilterPostcodeDistrictProperties   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

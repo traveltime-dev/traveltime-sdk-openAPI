@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.Coords
+
 ## Properties
 
 Name | Type | Description | Notes

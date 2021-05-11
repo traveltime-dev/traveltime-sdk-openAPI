@@ -14,9 +14,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTimeFilterPostcodeSector   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseTimeFilterPostcodeSector   {
   
-  private @Valid String code = null;
+  private @Valid String code;
   private @Valid ResponseTimeFilterPostcodeSectorProperties properties;
 
   /**
@@ -38,7 +38,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setCode(String code) {
     this.code = code;
-  }/**
+  }
+
+/**
    **/
   public ResponseTimeFilterPostcodeSector properties(ResponseTimeFilterPostcodeSectorProperties properties) {
     this.properties = properties;
@@ -59,8 +61,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.properties = properties;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -92,7 +95,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

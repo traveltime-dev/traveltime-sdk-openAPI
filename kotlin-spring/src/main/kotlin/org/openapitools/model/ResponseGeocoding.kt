@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,11 +19,10 @@ import javax.validation.constraints.Size
  */
 data class ResponseGeocoding(
 
-    @get:NotNull 
-    @field:JsonProperty("type") val type: kotlin.String,
+    @field:JsonProperty("type", required = true) val type: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("features") val features: kotlin.collections.List<ResponseGeocodingGeoJsonFeature>
+    @field:Valid
+    @field:JsonProperty("features", required = true) val features: kotlin.collections.List<ResponseGeocodingGeoJsonFeature>
 ) {
 
 }

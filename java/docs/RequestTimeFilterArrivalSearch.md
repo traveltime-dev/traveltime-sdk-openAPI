@@ -2,6 +2,7 @@
 
 # RequestTimeFilterArrivalSearch
 
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,8 +12,8 @@ Name | Type | Description | Notes
 **arrivalLocationId** | **String** |  | 
 **transportation** | [**RequestTransportation**](RequestTransportation.md) |  | 
 **travelTime** | **Integer** |  | 
-**arrivalTime** | [**OffsetDateTime**](OffsetDateTime.md) |  | 
-**properties** | [**List&lt;RequestTimeFilterProperty&gt;**](RequestTimeFilterProperty.md) |  | 
+**arrivalTime** | **OffsetDateTime** |  | 
+**properties** | **List&lt;RequestTimeFilterProperty&gt;** |  | 
 **range** | [**RequestRangeFull**](RequestRangeFull.md) |  |  [optional]
 
 

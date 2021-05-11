@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseShape: Codable { 
-
+public struct ResponseShape: Codable, Hashable {
 
     public var shell: [Coords]
     public var holes: [[Coords]]
@@ -18,5 +17,19 @@ public struct ResponseShape: Codable {
         self.shell = shell
         self.holes = holes
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case shell
+        case holes
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(shell, forKey: .shell)
+        try container.encode(holes, forKey: .holes)
+    }
+
+
 
 }

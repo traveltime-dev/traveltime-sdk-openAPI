@@ -306,7 +306,8 @@ case $state in
             "timeFilterPostcodeDistricts[]" \
             "timeFilterPostcodeSectors[]" \
             "timeFilterPostcodes[]" \
-            "timeMap[]" 
+            "timeMap[]" \
+
     _arguments "(--help)--help[Print information about operation]"
 
     ret=0

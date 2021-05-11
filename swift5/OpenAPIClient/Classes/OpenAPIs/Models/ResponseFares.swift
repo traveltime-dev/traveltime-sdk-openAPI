@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseFares: Codable { 
-
+public struct ResponseFares: Codable, Hashable {
 
     public var breakdown: [ResponseFaresBreakdownItem]
     public var ticketsTotal: [ResponseFareTicket]
@@ -18,10 +17,19 @@ public struct ResponseFares: Codable {
         self.breakdown = breakdown
         self.ticketsTotal = ticketsTotal
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case breakdown
         case ticketsTotal = "tickets_total"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(breakdown, forKey: .breakdown)
+        try container.encode(ticketsTotal, forKey: .ticketsTotal)
+    }
+
+
 
 }

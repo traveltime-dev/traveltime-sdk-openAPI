@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**date_start** | **DateTime** |  | 
-**date_end** | **DateTime** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **date_start** | **Time** |  |  |
+| **date_end** | **Time** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseMapInfoFeaturesPublicTransport.new(date_start: null,
-                                 date_end: null)
+instance = OpenapiClient::ResponseMapInfoFeaturesPublicTransport.new(
+  date_start: null,
+  date_end: null
+)
 ```
-
 

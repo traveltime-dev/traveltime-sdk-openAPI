@@ -9,21 +9,21 @@ All URIs are relative to *https://api.traveltimeapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**geocodingReverseSearch**](DefaultApi.md#geocodingReverseSearch) | **GET** /v4/geocoding/reverse | 
-[**geocodingSearch**](DefaultApi.md#geocodingSearch) | **GET** /v4/geocoding/search | 
-[**mapInfo**](DefaultApi.md#mapInfo) | **GET** /v4/map-info | 
+[**geocodingReverseSearch**](DefaultApi.md#geocodingreversesearch) | **GET** /v4/geocoding/reverse | 
+[**geocodingSearch**](DefaultApi.md#geocodingsearch) | **GET** /v4/geocoding/search | 
+[**mapInfo**](DefaultApi.md#mapinfo) | **GET** /v4/map-info | 
 [**routes**](DefaultApi.md#routes) | **POST** /v4/routes | 
-[**supportedLocations**](DefaultApi.md#supportedLocations) | **POST** /v4/supported-locations | 
-[**timeFilter**](DefaultApi.md#timeFilter) | **POST** /v4/time-filter | 
-[**timeFilterFast**](DefaultApi.md#timeFilterFast) | **POST** /v4/time-filter/fast | 
-[**timeFilterPostcodeDistricts**](DefaultApi.md#timeFilterPostcodeDistricts) | **POST** /v4/time-filter/postcode-districts | 
-[**timeFilterPostcodeSectors**](DefaultApi.md#timeFilterPostcodeSectors) | **POST** /v4/time-filter/postcode-sectors | 
-[**timeFilterPostcodes**](DefaultApi.md#timeFilterPostcodes) | **POST** /v4/time-filter/postcodes | 
-[**timeMap**](DefaultApi.md#timeMap) | **POST** /v4/time-map | 
+[**supportedLocations**](DefaultApi.md#supportedlocations) | **POST** /v4/supported-locations | 
+[**timeFilter**](DefaultApi.md#timefilter) | **POST** /v4/time-filter | 
+[**timeFilterFast**](DefaultApi.md#timefilterfast) | **POST** /v4/time-filter/fast | 
+[**timeFilterPostcodeDistricts**](DefaultApi.md#timefilterpostcodedistricts) | **POST** /v4/time-filter/postcode-districts | 
+[**timeFilterPostcodeSectors**](DefaultApi.md#timefilterpostcodesectors) | **POST** /v4/time-filter/postcode-sectors | 
+[**timeFilterPostcodes**](DefaultApi.md#timefilterpostcodes) | **POST** /v4/time-filter/postcodes | 
+[**timeMap**](DefaultApi.md#timemap) | **POST** /v4/time-map | 
 
 
 # **geocodingReverseSearch**
-> ResponseGeocoding geocodingReverseSearch(lat, lng, withinCountry)
+> ResponseGeocoding geocodingReverseSearch(lat, lng, withinPeriodCountry)
 
 
 
@@ -39,16 +39,16 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var lat = 1.2; // double | 
-var lng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+final api_instance = DefaultApi();
+final lat = 1.2; // double | 
+final lng = 1.2; // double | 
+final withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingReverseSearch(lat, lng, withinCountry);
+    final result = api_instance.geocodingReverseSearch(lat, lng, withinPeriodCountry);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->geocodingReverseSearch: $e\n");
+    print('Exception when calling DefaultApi->geocodingReverseSearch: $e\n');
 }
 ```
 
@@ -56,9 +56,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lat** | **double**|  | [default to null]
- **lng** | **double**|  | [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **lat** | **double**|  | 
+ **lng** | **double**|  | 
+ **withinPeriodCountry** | **String**|  | [optional] 
 
 ### Return type
 
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **geocodingSearch**
-> ResponseGeocoding geocodingSearch(query, focusLat, focusLng, withinCountry)
+> ResponseGeocoding geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry)
 
 
 
@@ -92,17 +92,17 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var query = query_example; // String | 
-var focusLat = 1.2; // double | 
-var focusLng = 1.2; // double | 
-var withinCountry = withinCountry_example; // String | 
+final api_instance = DefaultApi();
+final query = query_example; // String | 
+final focusPeriodLat = 1.2; // double | 
+final focusPeriodLng = 1.2; // double | 
+final withinPeriodCountry = withinPeriodCountry_example; // String | 
 
 try { 
-    var result = api_instance.geocodingSearch(query, focusLat, focusLng, withinCountry);
+    final result = api_instance.geocodingSearch(query, focusPeriodLat, focusPeriodLng, withinPeriodCountry);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->geocodingSearch: $e\n");
+    print('Exception when calling DefaultApi->geocodingSearch: $e\n');
 }
 ```
 
@@ -110,10 +110,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **query** | **String**|  | [default to null]
- **focusLat** | **double**|  | [optional] [default to null]
- **focusLng** | **double**|  | [optional] [default to null]
- **withinCountry** | **String**|  | [optional] [default to null]
+ **query** | **String**|  | 
+ **focusPeriodLat** | **double**|  | [optional] 
+ **focusPeriodLng** | **double**|  | [optional] 
+ **withinPeriodCountry** | **String**|  | [optional] 
 
 ### Return type
 
@@ -147,13 +147,13 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
+final api_instance = DefaultApi();
 
 try { 
-    var result = api_instance.mapInfo();
+    final result = api_instance.mapInfo();
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->mapInfo: $e\n");
+    print('Exception when calling DefaultApi->mapInfo: $e\n');
 }
 ```
 
@@ -192,14 +192,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestRoutes = RequestRoutes(); // RequestRoutes | 
+final api_instance = DefaultApi();
+final requestRoutes = RequestRoutes(); // RequestRoutes | 
 
 try { 
-    var result = api_instance.routes(requestRoutes);
+    final result = api_instance.routes(requestRoutes);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->routes: $e\n");
+    print('Exception when calling DefaultApi->routes: $e\n');
 }
 ```
 
@@ -241,14 +241,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestSupportedLocations = RequestSupportedLocations(); // RequestSupportedLocations | 
+final api_instance = DefaultApi();
+final requestSupportedLocations = RequestSupportedLocations(); // RequestSupportedLocations | 
 
 try { 
-    var result = api_instance.supportedLocations(requestSupportedLocations);
+    final result = api_instance.supportedLocations(requestSupportedLocations);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->supportedLocations: $e\n");
+    print('Exception when calling DefaultApi->supportedLocations: $e\n');
 }
 ```
 
@@ -290,14 +290,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeFilter = RequestTimeFilter(); // RequestTimeFilter | 
+final api_instance = DefaultApi();
+final requestTimeFilter = RequestTimeFilter(); // RequestTimeFilter | 
 
 try { 
-    var result = api_instance.timeFilter(requestTimeFilter);
+    final result = api_instance.timeFilter(requestTimeFilter);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilter: $e\n");
+    print('Exception when calling DefaultApi->timeFilter: $e\n');
 }
 ```
 
@@ -339,14 +339,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeFilterFast = RequestTimeFilterFast(); // RequestTimeFilterFast | 
+final api_instance = DefaultApi();
+final requestTimeFilterFast = RequestTimeFilterFast(); // RequestTimeFilterFast | 
 
 try { 
-    var result = api_instance.timeFilterFast(requestTimeFilterFast);
+    final result = api_instance.timeFilterFast(requestTimeFilterFast);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterFast: $e\n");
+    print('Exception when calling DefaultApi->timeFilterFast: $e\n');
 }
 ```
 
@@ -388,14 +388,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeFilterPostcodeDistricts = RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
+final api_instance = DefaultApi();
+final requestTimeFilterPostcodeDistricts = RequestTimeFilterPostcodeDistricts(); // RequestTimeFilterPostcodeDistricts | 
 
 try { 
-    var result = api_instance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
+    final result = api_instance.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodeDistricts: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodeDistricts: $e\n');
 }
 ```
 
@@ -437,14 +437,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeFilterPostcodeSectors = RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
+final api_instance = DefaultApi();
+final requestTimeFilterPostcodeSectors = RequestTimeFilterPostcodeSectors(); // RequestTimeFilterPostcodeSectors | 
 
 try { 
-    var result = api_instance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
+    final result = api_instance.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodeSectors: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodeSectors: $e\n');
 }
 ```
 
@@ -486,14 +486,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeFilterPostcodes = RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
+final api_instance = DefaultApi();
+final requestTimeFilterPostcodes = RequestTimeFilterPostcodes(); // RequestTimeFilterPostcodes | 
 
 try { 
-    var result = api_instance.timeFilterPostcodes(requestTimeFilterPostcodes);
+    final result = api_instance.timeFilterPostcodes(requestTimeFilterPostcodes);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeFilterPostcodes: $e\n");
+    print('Exception when calling DefaultApi->timeFilterPostcodes: $e\n');
 }
 ```
 
@@ -535,14 +535,14 @@ import 'package:openapi/api.dart';
 // uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 //defaultApiClient.getAuthentication<ApiKeyAuth>('ApplicationId').apiKeyPrefix = 'Bearer';
 
-var api_instance = DefaultApi();
-var requestTimeMap = RequestTimeMap(); // RequestTimeMap | 
+final api_instance = DefaultApi();
+final requestTimeMap = RequestTimeMap(); // RequestTimeMap | 
 
 try { 
-    var result = api_instance.timeMap(requestTimeMap);
+    final result = api_instance.timeMap(requestTimeMap);
     print(result);
 } catch (e) {
-    print("Exception when calling DefaultApi->timeMap: $e\n");
+    print('Exception when calling DefaultApi->timeMap: $e\n');
 }
 ```
 

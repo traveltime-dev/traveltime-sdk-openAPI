@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | **String** |  | 
-**features** | [**ResponseMapInfoFeatures**](ResponseMapInfoFeatures.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **name** | **String** |  |  |
+| **features** | [**ResponseMapInfoFeatures**](ResponseMapInfoFeatures.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseMapInfoMap.new(name: null,
-                                 features: null)
+instance = OpenapiClient::ResponseMapInfoMap.new(
+  name: null,
+  features: null
+)
 ```
-
 

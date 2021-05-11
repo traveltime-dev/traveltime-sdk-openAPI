@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseMapInfoFeatures
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -2,6 +2,7 @@
 .openapi-generator-ignore
 Org.OpenAPITools.sln
 README.md
+appveyor.yml
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
@@ -206,6 +207,8 @@ src/Org.OpenAPITools/Client/ISynchronousClient.cs
 src/Org.OpenAPITools/Client/Multimap.cs
 src/Org.OpenAPITools/Client/OpenAPIDateConverter.cs
 src/Org.OpenAPITools/Client/RequestOptions.cs
+src/Org.OpenAPITools/Client/RetryConfiguration.cs
+src/Org.OpenAPITools/Model/AbstractOpenAPISchema.cs
 src/Org.OpenAPITools/Model/Coords.cs
 src/Org.OpenAPITools/Model/RequestArrivalTimePeriod.cs
 src/Org.OpenAPITools/Model/RequestLocation.cs

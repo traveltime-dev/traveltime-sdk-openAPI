@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,11 +19,10 @@ import javax.validation.constraints.Size
  */
 data class ResponseTimeFilterLocation(
 
-    @get:NotNull 
-    @field:JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("properties") val properties: kotlin.collections.List<ResponseTimeFilterProperties>
+    @field:Valid
+    @field:JsonProperty("properties", required = true) val properties: kotlin.collections.List<ResponseTimeFilterProperties>
 ) {
 
 }

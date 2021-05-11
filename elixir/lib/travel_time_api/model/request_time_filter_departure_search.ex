@@ -23,11 +23,11 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterDepartureSearch do
     :"id" => String.t,
     :"departure_location_id" => String.t,
     :"arrival_location_ids" => [String.t],
-    :"transportation" => RequestTransportation,
+    :"transportation" => TravelTimeAPI.Model.RequestTransportation.t,
     :"travel_time" => integer(),
     :"departure_time" => DateTime.t,
-    :"properties" => [RequestTimeFilterProperty],
-    :"range" => RequestRangeFull | nil
+    :"properties" => [TravelTimeAPI.Model.RequestTimeFilterProperty.t],
+    :"range" => TravelTimeAPI.Model.RequestRangeFull.t | nil
   }
 end
 

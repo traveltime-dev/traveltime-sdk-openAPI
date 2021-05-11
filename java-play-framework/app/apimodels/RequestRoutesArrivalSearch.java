@@ -14,28 +14,46 @@ import javax.validation.constraints.*;
 /**
  * RequestRoutesArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestRoutesArrivalSearch   {
   @JsonProperty("id")
+  @NotNull
+
   private String id;
 
   @JsonProperty("departure_location_ids")
+  @NotNull
+@Size(min=1,max=2)
+
   private List<String> departureLocationIds = new ArrayList<>();
 
   @JsonProperty("arrival_location_id")
+  @NotNull
+
   private String arrivalLocationId;
 
   @JsonProperty("transportation")
+  @NotNull
+@Valid
+
   private RequestTransportation transportation;
 
   @JsonProperty("arrival_time")
+  @NotNull
+@Valid
+
   private OffsetDateTime arrivalTime;
 
   @JsonProperty("properties")
+  @NotNull
+@Valid
+
   private List<RequestRoutesProperty> properties = new ArrayList<>();
 
   @JsonProperty("range")
+  @Valid
+
   private RequestRangeFull range;
 
   public RequestRoutesArrivalSearch id(String id) {
@@ -47,7 +65,6 @@ public class RequestRoutesArrivalSearch   {
    * Get id
    * @return id
   **/
-  @NotNull
   public String getId() {
     return id;
   }
@@ -70,8 +87,6 @@ public class RequestRoutesArrivalSearch   {
    * Get departureLocationIds
    * @return departureLocationIds
   **/
-  @NotNull
-@Size(min=1,max=2)
   public List<String> getDepartureLocationIds() {
     return departureLocationIds;
   }
@@ -89,7 +104,6 @@ public class RequestRoutesArrivalSearch   {
    * Get arrivalLocationId
    * @return arrivalLocationId
   **/
-  @NotNull
   public String getArrivalLocationId() {
     return arrivalLocationId;
   }
@@ -107,8 +121,6 @@ public class RequestRoutesArrivalSearch   {
    * Get transportation
    * @return transportation
   **/
-  @NotNull
-@Valid
   public RequestTransportation getTransportation() {
     return transportation;
   }
@@ -126,8 +138,6 @@ public class RequestRoutesArrivalSearch   {
    * Get arrivalTime
    * @return arrivalTime
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getArrivalTime() {
     return arrivalTime;
   }
@@ -150,8 +160,6 @@ public class RequestRoutesArrivalSearch   {
    * Get properties
    * @return properties
   **/
-  @NotNull
-@Valid
   public List<RequestRoutesProperty> getProperties() {
     return properties;
   }
@@ -169,7 +177,6 @@ public class RequestRoutesArrivalSearch   {
    * Get range
    * @return range
   **/
-  @Valid
   public RequestRangeFull getRange() {
     return range;
   }
@@ -180,7 +187,7 @@ public class RequestRoutesArrivalSearch   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -223,7 +230,7 @@ public class RequestRoutesArrivalSearch   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

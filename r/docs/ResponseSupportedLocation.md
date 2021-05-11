@@ -1,5 +1,6 @@
 # openapi::ResponseSupportedLocation
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

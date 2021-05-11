@@ -15,7 +15,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterFastLocation do
 
   @type t :: %__MODULE__{
     :"id" => String.t,
-    :"properties" => [ResponseTimeFilterFastProperties]
+    :"properties" => [TravelTimeAPI.Model.ResponseTimeFilterFastProperties.t]
   }
 end
 

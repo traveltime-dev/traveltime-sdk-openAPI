@@ -1,41 +1,79 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
+
 class RequestTimeFilterPostcodeSectorsProperty {
+  /// Instantiate a new enum with the provided [value].
+  const RequestTimeFilterPostcodeSectorsProperty._(this.value);
+
   /// The underlying value of this enum member.
   final String value;
 
-  const RequestTimeFilterPostcodeSectorsProperty._internal(this.value);
+  @override
+  String toString() => value;
 
-  static const RequestTimeFilterPostcodeSectorsProperty travelTimeReachable_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_reachable");
-  static const RequestTimeFilterPostcodeSectorsProperty travelTimeAll_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_all");
-  static const RequestTimeFilterPostcodeSectorsProperty coverage_ = const RequestTimeFilterPostcodeSectorsProperty._internal("coverage");
-  
-  String toJson (){
-    return this.value;
-  }
+  String toJson() => value;
 
-  static RequestTimeFilterPostcodeSectorsProperty fromJson(String value) {
-    return new RequestTimeFilterPostcodeSectorsPropertyTypeTransformer().decode(value);
-  }
-  
-  static List<RequestTimeFilterPostcodeSectorsProperty> listFromJson(List<dynamic> json) {
-    return json == null ? new List<RequestTimeFilterPostcodeSectorsProperty>() : json.map((value) => RequestTimeFilterPostcodeSectorsProperty.fromJson(value)).toList();
-  }
+  static const travelTimeReachable = RequestTimeFilterPostcodeSectorsProperty._(r'travel_time_reachable');
+  static const travelTimeAll = RequestTimeFilterPostcodeSectorsProperty._(r'travel_time_all');
+  static const coverage = RequestTimeFilterPostcodeSectorsProperty._(r'coverage');
+
+  /// List of all possible values in this [enum][RequestTimeFilterPostcodeSectorsProperty].
+  static const values = <RequestTimeFilterPostcodeSectorsProperty>[
+    travelTimeReachable,
+    travelTimeAll,
+    coverage,
+  ];
+
+  static RequestTimeFilterPostcodeSectorsProperty fromJson(dynamic value) =>
+    RequestTimeFilterPostcodeSectorsPropertyTypeTransformer().decode(value);
+
+  static List<RequestTimeFilterPostcodeSectorsProperty> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <RequestTimeFilterPostcodeSectorsProperty>[]
+      : json
+          .map((value) => RequestTimeFilterPostcodeSectorsProperty.fromJson(value))
+          .toList(growable: true == growable);
 }
 
+/// Transformation class that can [encode] an instance of [RequestTimeFilterPostcodeSectorsProperty] to String,
+/// and [decode] dynamic data back to [RequestTimeFilterPostcodeSectorsProperty].
 class RequestTimeFilterPostcodeSectorsPropertyTypeTransformer {
+  const RequestTimeFilterPostcodeSectorsPropertyTypeTransformer._();
 
-  dynamic encode(RequestTimeFilterPostcodeSectorsProperty data) {
-    return data.value;
-  }
+  factory RequestTimeFilterPostcodeSectorsPropertyTypeTransformer() => _instance ??= RequestTimeFilterPostcodeSectorsPropertyTypeTransformer._();
 
-  RequestTimeFilterPostcodeSectorsProperty decode(dynamic data) {
+  String encode(RequestTimeFilterPostcodeSectorsProperty data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a RequestTimeFilterPostcodeSectorsProperty.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  RequestTimeFilterPostcodeSectorsProperty decode(dynamic data, {bool allowNull}) {
     switch (data) {
-      case "travel_time_reachable": return RequestTimeFilterPostcodeSectorsProperty.travelTimeReachable_;
-      case "travel_time_all": return RequestTimeFilterPostcodeSectorsProperty.travelTimeAll_;
-      case "coverage": return RequestTimeFilterPostcodeSectorsProperty.coverage_;
-      default: throw('Unknown enum value to decode: $data');
+      case r'travel_time_reachable': return RequestTimeFilterPostcodeSectorsProperty.travelTimeReachable;
+      case r'travel_time_all': return RequestTimeFilterPostcodeSectorsProperty.travelTimeAll;
+      case r'coverage': return RequestTimeFilterPostcodeSectorsProperty.coverage;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
     }
+    return null;
   }
-}
 
+  /// Singleton [RequestTimeFilterPostcodeSectorsPropertyTypeTransformer] instance.
+  static RequestTimeFilterPostcodeSectorsPropertyTypeTransformer _instance;
+}

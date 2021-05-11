@@ -1,5 +1,6 @@
 # openapi::ResponseTimeMapBoundingBoxes
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -13,10 +13,10 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeSector
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2020-07-14T11:29:24.850Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-11T08:39:43.646Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeSector   {
   @JsonProperty("code")
-  private String code = null;
+  private String code;
 
   @JsonProperty("properties")
   private ResponseTimeFilterPostcodeSectorProperties properties;
@@ -66,7 +66,7 @@ public class ResponseTimeFilterPostcodeSector   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -98,7 +98,7 @@ public class ResponseTimeFilterPostcodeSector   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

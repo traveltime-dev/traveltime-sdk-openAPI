@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | **String** |  | 
+**Code** | **string** |  | 
 **Properties** | [**List&lt;ResponseTimeFilterPostcodesProperties&gt;**](ResponseTimeFilterPostcodesProperties.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

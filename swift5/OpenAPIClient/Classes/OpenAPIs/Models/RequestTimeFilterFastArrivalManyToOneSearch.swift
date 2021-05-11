@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable { 
-
+public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable, Hashable {
 
     public var id: String
     public var arrivalLocationId: String
@@ -28,8 +27,7 @@ public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable {
         self.arrivalTimePeriod = arrivalTimePeriod
         self.properties = properties
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case arrivalLocationId = "arrival_location_id"
         case departureLocationIds = "departure_location_ids"
@@ -38,5 +36,20 @@ public struct RequestTimeFilterFastArrivalManyToOneSearch: Codable {
         case arrivalTimePeriod = "arrival_time_period"
         case properties
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(arrivalLocationId, forKey: .arrivalLocationId)
+        try container.encode(departureLocationIds, forKey: .departureLocationIds)
+        try container.encode(transportation, forKey: .transportation)
+        try container.encode(travelTime, forKey: .travelTime)
+        try container.encode(arrivalTimePeriod, forKey: .arrivalTimePeriod)
+        try container.encode(properties, forKey: .properties)
+    }
+
+
 
 }

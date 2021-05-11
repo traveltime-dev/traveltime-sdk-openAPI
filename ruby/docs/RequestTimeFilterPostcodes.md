@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**departure_searches** | [**Array&lt;RequestTimeFilterPostcodesDepartureSearch&gt;**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] 
-**arrival_searches** | [**Array&lt;RequestTimeFilterPostcodesArrivalSearch&gt;**](RequestTimeFilterPostcodesArrivalSearch.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **departure_searches** | [**Array&lt;RequestTimeFilterPostcodesDepartureSearch&gt;**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] |
+| **arrival_searches** | [**Array&lt;RequestTimeFilterPostcodesArrivalSearch&gt;**](RequestTimeFilterPostcodesArrivalSearch.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::RequestTimeFilterPostcodes.new(departure_searches: null,
-                                 arrival_searches: null)
+instance = OpenapiClient::RequestTimeFilterPostcodes.new(
+  departure_searches: null,
+  arrival_searches: null
+)
 ```
-
 

@@ -12,13 +12,19 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeFilterPostcodes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeFilterPostcodes   {
   @JsonProperty("departure_searches")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeFilterPostcodesDepartureSearch> departureSearches = null;
 
   @JsonProperty("arrival_searches")
+  @Size(max=10)
+@Valid
+
   private List<RequestTimeFilterPostcodesArrivalSearch> arrivalSearches = null;
 
   public RequestTimeFilterPostcodes departureSearches(List<RequestTimeFilterPostcodesDepartureSearch> departureSearches) {
@@ -38,8 +44,6 @@ public class RequestTimeFilterPostcodes   {
    * Get departureSearches
    * @return departureSearches
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeFilterPostcodesDepartureSearch> getDepartureSearches() {
     return departureSearches;
   }
@@ -65,8 +69,6 @@ public class RequestTimeFilterPostcodes   {
    * Get arrivalSearches
    * @return arrivalSearches
   **/
-  @Size(max=10)
-@Valid
   public List<RequestTimeFilterPostcodesArrivalSearch> getArrivalSearches() {
     return arrivalSearches;
   }
@@ -77,7 +79,7 @@ public class RequestTimeFilterPostcodes   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -110,7 +112,7 @@ public class RequestTimeFilterPostcodes   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -1,11 +1,8 @@
 .openapi-generator-ignore
 README.md
 pom.xml
-src/main/java/org/openapitools/vertxweb/server/ApiException.java
 src/main/java/org/openapitools/vertxweb/server/ApiResponse.java
 src/main/java/org/openapitools/vertxweb/server/HttpServerVerticle.java
-src/main/java/org/openapitools/vertxweb/server/MainVerticle.java
-src/main/java/org/openapitools/vertxweb/server/ParameterCast.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApi.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApiHandler.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApiImpl.java

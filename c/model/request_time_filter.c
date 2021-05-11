@@ -27,18 +27,27 @@ void request_time_filter_free(request_time_filter_t *request_time_filter) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_time_filter->locations) {
-        request_location_free(listEntry->data);
+    if (request_time_filter->locations) {
+        list_ForEach(listEntry, request_time_filter->locations) {
+            request_location_free(listEntry->data);
+        }
+        list_free(request_time_filter->locations);
+        request_time_filter->locations = NULL;
     }
-    list_free(request_time_filter->locations);
-    list_ForEach(listEntry, request_time_filter->departure_searches) {
-        request_time_filter_departure_search_free(listEntry->data);
+    if (request_time_filter->departure_searches) {
+        list_ForEach(listEntry, request_time_filter->departure_searches) {
+            request_time_filter_departure_search_free(listEntry->data);
+        }
+        list_free(request_time_filter->departure_searches);
+        request_time_filter->departure_searches = NULL;
     }
-    list_free(request_time_filter->departure_searches);
-    list_ForEach(listEntry, request_time_filter->arrival_searches) {
-        request_time_filter_arrival_search_free(listEntry->data);
+    if (request_time_filter->arrival_searches) {
+        list_ForEach(listEntry, request_time_filter->arrival_searches) {
+            request_time_filter_arrival_search_free(listEntry->data);
+        }
+        list_free(request_time_filter->arrival_searches);
+        request_time_filter->arrival_searches = NULL;
     }
-    list_free(request_time_filter->arrival_searches);
     free(request_time_filter);
 }
 

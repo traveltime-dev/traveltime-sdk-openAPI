@@ -2,13 +2,14 @@
 
 # ResponseRoutePart
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **type** | [**TypeEnum**](#TypeEnum) |  | 
-**mode** | [**ResponseTransportationMode**](ResponseTransportationMode.md) |  | 
+**mode** | **ResponseTransportationMode** |  | 
 **directions** | **String** |  | 
 **distance** | **Integer** |  | 
 **travelTime** | **Integer** |  | 

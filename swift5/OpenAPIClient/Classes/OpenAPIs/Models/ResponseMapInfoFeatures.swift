@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseMapInfoFeatures: Codable { 
-
+public struct ResponseMapInfoFeatures: Codable, Hashable {
 
     public var publicTransport: ResponseMapInfoFeaturesPublicTransport?
     public var fares: Bool
@@ -20,11 +19,21 @@ public struct ResponseMapInfoFeatures: Codable {
         self.fares = fares
         self.postcodes = postcodes
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case publicTransport = "public_transport"
         case fares
         case postcodes
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(publicTransport, forKey: .publicTransport)
+        try container.encode(fares, forKey: .fares)
+        try container.encode(postcodes, forKey: .postcodes)
+    }
+
+
 
 }

@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestTimeFilterPostcodesDepartureSearch
+
 ## Properties
 
 Name | Type | Description | Notes

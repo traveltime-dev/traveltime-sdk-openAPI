@@ -1,5 +1,6 @@
 # openapi::ResponseFares
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -37,10 +37,10 @@ interface DefaultApi  {
     fun init(vertx:Vertx,config:JsonObject)
     /* geocodingReverseSearch
      *  */
-    suspend fun geocodingReverseSearch(lat:kotlin.Double?,lng:kotlin.Double?,withinPeriodCountry:kotlin.String?,context:OperationRequest):Response<ResponseGeocoding>
+    suspend fun geocodingReverseSearch(lat:kotlin.Double?,lng:kotlin.Double?,withinCountry:kotlin.String?,context:OperationRequest):Response<ResponseGeocoding>
     /* geocodingSearch
      *  */
-    suspend fun geocodingSearch(query:kotlin.String?,focusPeriodLat:kotlin.Double?,focusPeriodLng:kotlin.Double?,withinPeriodCountry:kotlin.String?,context:OperationRequest):Response<ResponseGeocoding>
+    suspend fun geocodingSearch(query:kotlin.String?,focusLat:kotlin.Double?,focusLng:kotlin.Double?,withinCountry:kotlin.String?,context:OperationRequest):Response<ResponseGeocoding>
     /* mapInfo
      *  */
     suspend fun mapInfo(context:OperationRequest):Response<ResponseMapInfo>

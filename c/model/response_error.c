@@ -31,14 +31,24 @@ void response_error_free(response_error_t *response_error) {
         return ;
     }
     listEntry_t *listEntry;
-    free(response_error->description);
-    free(response_error->documentation_link);
-    list_ForEach(listEntry, response_error->additional_info) {
-        keyValuePair_t *localKeyValue = (keyValuePair_t*) listEntry->data;
-        free (localKeyValue->key);
-        free (localKeyValue->value);
+    if (response_error->description) {
+        free(response_error->description);
+        response_error->description = NULL;
     }
-    list_free(response_error->additional_info);
+    if (response_error->documentation_link) {
+        free(response_error->documentation_link);
+        response_error->documentation_link = NULL;
+    }
+    if (response_error->additional_info) {
+        list_ForEach(listEntry, response_error->additional_info) {
+            keyValuePair_t *localKeyValue = (keyValuePair_t*) listEntry->data;
+            free (localKeyValue->key);
+            free (localKeyValue->value);
+            keyValuePair_free(localKeyValue);
+        }
+        list_free(response_error->additional_info);
+        response_error->additional_info = NULL;
+    }
     free(response_error);
 }
 

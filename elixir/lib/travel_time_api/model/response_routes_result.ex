@@ -16,7 +16,7 @@ defmodule TravelTimeAPI.Model.ResponseRoutesResult do
 
   @type t :: %__MODULE__{
     :"search_id" => String.t,
-    :"locations" => [ResponseRoutesLocation],
+    :"locations" => [TravelTimeAPI.Model.ResponseRoutesLocation.t],
     :"unreachable" => [String.t]
   }
 end

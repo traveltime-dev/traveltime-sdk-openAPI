@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.ResponseTimeFilterPostcodesProperties
+
 ## Properties
 
 Name | Type | Description | Notes

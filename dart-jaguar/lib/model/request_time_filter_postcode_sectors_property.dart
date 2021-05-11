@@ -8,9 +8,9 @@ class RequestTimeFilterPostcodeSectorsProperty {
 
   const RequestTimeFilterPostcodeSectorsProperty._internal(this.value);
 
-  static const RequestTimeFilterPostcodeSectorsProperty travelTimeReachable_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_reachable");
-  static const RequestTimeFilterPostcodeSectorsProperty travelTimeAll_ = const RequestTimeFilterPostcodeSectorsProperty._internal("travel_time_all");
-  static const RequestTimeFilterPostcodeSectorsProperty coverage_ = const RequestTimeFilterPostcodeSectorsProperty._internal("coverage");
+  static const RequestTimeFilterPostcodeSectorsProperty travelTimeReachable = const RequestTimeFilterPostcodeSectorsProperty._internal('travel_time_reachable');
+  static const RequestTimeFilterPostcodeSectorsProperty travelTimeAll = const RequestTimeFilterPostcodeSectorsProperty._internal('travel_time_all');
+  static const RequestTimeFilterPostcodeSectorsProperty coverage = const RequestTimeFilterPostcodeSectorsProperty._internal('coverage');
 }
 
 class RequestTimeFilterPostcodeSectorsPropertyFieldProcessor implements FieldProcessor<RequestTimeFilterPostcodeSectorsProperty, String> {
@@ -18,9 +18,9 @@ class RequestTimeFilterPostcodeSectorsPropertyFieldProcessor implements FieldPro
 
     RequestTimeFilterPostcodeSectorsProperty deserialize(String data) {
         switch (data) {
-            case "travel_time_reachable": return RequestTimeFilterPostcodeSectorsProperty.travelTimeReachable_;
-            case "travel_time_all": return RequestTimeFilterPostcodeSectorsProperty.travelTimeAll_;
-            case "coverage": return RequestTimeFilterPostcodeSectorsProperty.coverage_;
+            case 'travel_time_reachable': return RequestTimeFilterPostcodeSectorsProperty.travelTimeReachable;
+            case 'travel_time_all': return RequestTimeFilterPostcodeSectorsProperty.travelTimeAll;
+            case 'coverage': return RequestTimeFilterPostcodeSectorsProperty.coverage;
             default: throw('Unknown enum value to decode: $data');
         }
     }

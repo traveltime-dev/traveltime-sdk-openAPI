@@ -1,37 +1,46 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for RequestTransportation
 void main() {
-    var instance = new RequestTransportation();
+  final instance = RequestTransportation();
 
   group('test RequestTransportation', () {
-    // String type (default value: null)
+    // String type
     test('to test the property `type`', () async {
       // TODO
     });
 
-    // int ptChangeDelay (default value: null)
+    // int ptChangeDelay
     test('to test the property `ptChangeDelay`', () async {
       // TODO
     });
 
-    // int walkingTime (default value: null)
+    // int walkingTime
     test('to test the property `walkingTime`', () async {
       // TODO
     });
 
-    // int drivingTimeToStation (default value: null)
+    // int drivingTimeToStation
     test('to test the property `drivingTimeToStation`', () async {
       // TODO
     });
 
-    // int parkingTime (default value: null)
+    // int parkingTime
     test('to test the property `parkingTime`', () async {
       // TODO
     });
 
-    // int boardingTime (default value: null)
+    // int boardingTime
     test('to test the property `boardingTime`', () async {
       // TODO
     });

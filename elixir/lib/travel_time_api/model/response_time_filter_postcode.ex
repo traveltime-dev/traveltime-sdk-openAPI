@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterPostcode do
   ]
 
   @type t :: %__MODULE__{
-    :"code" => String,
-    :"properties" => [ResponseTimeFilterPostcodesProperties]
+    :"code" => String.t,
+    :"properties" => [TravelTimeAPI.Model.ResponseTimeFilterPostcodesProperties.t]
   }
 end
 

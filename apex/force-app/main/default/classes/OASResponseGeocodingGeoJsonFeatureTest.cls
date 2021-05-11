@@ -68,11 +68,4 @@ private class OASResponseGeocodingGeoJsonFeatureTest {
         System.assertEquals(responseGeocodingGeoJsonFeature1.hashCode(), responseGeocodingGeoJsonFeature2.hashCode());
         System.assertEquals(responseGeocodingGeoJsonFeature3.hashCode(), responseGeocodingGeoJsonFeature4.hashCode());
     }
-
-    @isTest
-    private static void maintainRenamedProperties() {
-        OASResponseGeocodingGeoJsonFeature responseGeocodingGeoJsonFeature = new OASResponseGeocodingGeoJsonFeature();
-        Map<String, String> x-property-mappings = responseGeocodingGeoJsonFeature.getx-property-mappings();
-        System.assertEquals('r_type', x-property-mappings.get('type'));
-    }
 }

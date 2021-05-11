@@ -13,7 +13,7 @@ import org.openapitools.model.RequestTimeFilterPostcodeDistrictsDepartureSearch;
 /**
  * RequestTimeFilterPostcodeDistricts
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2020-07-14T11:27:11.038Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
 public class RequestTimeFilterPostcodeDistricts   {
   @JsonProperty("departure_searches")
   private List<RequestTimeFilterPostcodeDistrictsDepartureSearch> departureSearches = null;
@@ -75,7 +75,7 @@ public class RequestTimeFilterPostcodeDistricts   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -107,7 +107,7 @@ public class RequestTimeFilterPostcodeDistricts   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

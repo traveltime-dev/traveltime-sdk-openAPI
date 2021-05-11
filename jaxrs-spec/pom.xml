@@ -4,7 +4,7 @@
   <artifactId>openapi-jaxrs-server</artifactId>
   <packaging>war</packaging>
   <name>openapi-jaxrs-server</name>
-  <version>1.2.1</version>
+  <version>1.2.2</version>
   <build>
     <sourceDirectory>src/main/java</sourceDirectory>
     <plugins>
@@ -114,6 +114,6 @@
   </dependencies>
   <properties>
     <jackson-version>2.9.9</jackson-version>
-    <junit-version>4.8.1</junit-version>
+    <junit-version>4.13.1</junit-version>
   </properties>
 </project>

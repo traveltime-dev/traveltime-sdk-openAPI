@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseGeocodingProperties: Codable { 
-
+public struct ResponseGeocodingProperties: Codable, Hashable {
 
     public var name: String
     public var label: String
@@ -46,8 +45,7 @@ public struct ResponseGeocodingProperties: Codable {
         self.postcode = postcode
         self.features = features
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case label
         case score
@@ -65,5 +63,29 @@ public struct ResponseGeocodingProperties: Codable {
         case postcode
         case features
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(label, forKey: .label)
+        try container.encodeIfPresent(score, forKey: .score)
+        try container.encodeIfPresent(houseNumber, forKey: .houseNumber)
+        try container.encodeIfPresent(street, forKey: .street)
+        try container.encodeIfPresent(region, forKey: .region)
+        try container.encodeIfPresent(regionCode, forKey: .regionCode)
+        try container.encodeIfPresent(neighbourhood, forKey: .neighbourhood)
+        try container.encodeIfPresent(county, forKey: .county)
+        try container.encodeIfPresent(macroregion, forKey: .macroregion)
+        try container.encodeIfPresent(city, forKey: .city)
+        try container.encodeIfPresent(country, forKey: .country)
+        try container.encodeIfPresent(countryCode, forKey: .countryCode)
+        try container.encodeIfPresent(continent, forKey: .continent)
+        try container.encodeIfPresent(postcode, forKey: .postcode)
+        try container.encodeIfPresent(features, forKey: .features)
+    }
+
+
 
 }

@@ -1,22 +1,31 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for ResponseFareTicket
 void main() {
-    var instance = new ResponseFareTicket();
+  final instance = ResponseFareTicket();
 
   group('test ResponseFareTicket', () {
-    // String type (default value: null)
+    // String type
     test('to test the property `type`', () async {
       // TODO
     });
 
-    // double price (default value: null)
+    // double price
     test('to test the property `price`', () async {
       // TODO
     });
 
-    // String currency (default value: null)
+    // String currency
     test('to test the property `currency`', () async {
       // TODO
     });

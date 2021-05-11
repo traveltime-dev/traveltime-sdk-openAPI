@@ -33,9 +33,9 @@ fail:
     return NULL;
 }
 
-request_time_filter_postcodes_property_request_time_filter_postcodes_property_e request_time_filter_postcodes_property_request_time_filter_postcodes_property_parseFromJSON(cJSON *request_time_filter_postcodes_propertyJSON) {
-    request_time_filter_postcodes_property_request_time_filter_postcodes_property_e *request_time_filter_postcodes_property = NULL;
-    request_time_filter_postcodes_property_request_time_filter_postcodes_property_e request_time_filter_postcodes_propertyVariable;
+traveltime_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_property_request_time_filter_postcodes_property_parseFromJSON(cJSON *request_time_filter_postcodes_propertyJSON) {
+    traveltime_api_request_time_filter_postcodes_property__e *request_time_filter_postcodes_property = NULL;
+    traveltime_api_request_time_filter_postcodes_property__e request_time_filter_postcodes_propertyVariable;
     cJSON *request_time_filter_postcodes_propertyVar = cJSON_GetObjectItemCaseSensitive(request_time_filter_postcodes_propertyJSON, "request_time_filter_postcodes_property");
     if(!cJSON_IsString(request_time_filter_postcodes_propertyVar) || (request_time_filter_postcodes_propertyVar->valuestring == NULL)){
         goto end;

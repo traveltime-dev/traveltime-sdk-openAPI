@@ -1,5 +1,6 @@
 # openapi::ResponseTimeFilterPostcodeDistrictsResult
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

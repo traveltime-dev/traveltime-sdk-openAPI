@@ -33,15 +33,17 @@ import javax.validation.Valid;
 
 @Path("/v4")
 @Api(description = "the v4 API")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class V4Api {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class V4Api {
 
     @GET
     @Path("/geocoding/reverse")
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseGeocoding.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
@@ -54,9 +56,11 @@ import javax.validation.Valid;
     @Path("/geocoding/search")
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseGeocoding.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Match a query string to geographic coordinates. [Docs link](http://docs.traveltime.com/reference/geocoding-search/)", response = ResponseGeocoding.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
@@ -69,9 +73,11 @@ import javax.validation.Valid;
     @Path("/map-info")
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseMapInfo.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns information about currently supported countries. [Docs link](http://docs.traveltime.com/reference/map-info/)", response = ResponseMapInfo.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
@@ -85,14 +91,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseRoutes.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Returns routing information between source and destinations. [Docs link](http://docs.traveltime.com/reference/routes/)", response = ResponseRoutes.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response routes(@Valid RequestRoutes requestRoutes) {
+    public Response routes(@Valid @NotNull RequestRoutes requestRoutes) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -101,14 +109,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseSupportedLocations.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Find out what points are supported by our api. [Docs link](http://docs.traveltime.com/reference/supported-locations/)", response = ResponseSupportedLocations.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response supportedLocations(@Valid RequestSupportedLocations requestSupportedLocations) {
+    public Response supportedLocations(@Valid @NotNull RequestSupportedLocations requestSupportedLocations) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -117,14 +127,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeFilter.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Given origin and destination points filter out points that cannot be reached within specified time limit. [Docs link](http://docs.traveltime.com/reference/time-filter)", response = ResponseTimeFilter.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeFilter(@Valid RequestTimeFilter requestTimeFilter) {
+    public Response timeFilter(@Valid @NotNull RequestTimeFilter requestTimeFilter) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -133,14 +145,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeFilterFast.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "A very fast version of Time Filter. [Docs link](http://docs.traveltime.com/reference/time-filter-fast/)", response = ResponseTimeFilterFast.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeFilterFast(@Valid RequestTimeFilterFast requestTimeFilterFast) {
+    public Response timeFilterFast(@Valid @NotNull RequestTimeFilterFast requestTimeFilterFast) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -149,14 +163,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeFilterPostcodeDistricts.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Find districts that have a certain coverage from origin and get statistics about postcodes within such districts. [Docs link](http://docs.traveltime.com/reference/postcode-district-filter/)", response = ResponseTimeFilterPostcodeDistricts.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeFilterPostcodeDistricts(@Valid RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) {
+    public Response timeFilterPostcodeDistricts(@Valid @NotNull RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -165,14 +181,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeFilterPostcodeSectors.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Find sectors that have a certain coverage from origin and get statistics about postcodes within such sectors. [Docs link](http://docs.traveltime.com/reference/postcode-sector-filter/)", response = ResponseTimeFilterPostcodeSectors.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeFilterPostcodeSectors(@Valid RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) {
+    public Response timeFilterPostcodeSectors(@Valid @NotNull RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -181,14 +199,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeFilterPostcodes.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Find reachable postcodes from origin and get statistics about such postcodes. [Docs link](http://docs.traveltime.com/reference/postcode-search/)", response = ResponseTimeFilterPostcodes.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeFilterPostcodes(@Valid RequestTimeFilterPostcodes requestTimeFilterPostcodes) {
+    public Response timeFilterPostcodes(@Valid @NotNull RequestTimeFilterPostcodes requestTimeFilterPostcodes) {
         return Response.ok().entity("magic!").build();
     }
 
@@ -197,14 +217,16 @@ import javax.validation.Valid;
     @Consumes({ "application/json" })
     @Produces({ "application/json", "application/vnd.wkt+json", "application/vnd.wkt-no-holes+json", "application/vnd.bounding-boxes+json" })
     @ApiOperation(value = "", notes = "", response = ResponseTimeMap.class, authorizations = {
+        
         @Authorization(value = "ApiKey"),
+        
         @Authorization(value = "ApplicationId")
-    }, tags={  })
+         }, tags={  })
     @ApiResponses(value = { 
         @ApiResponse(code = 200, message = "Given origin coordinates, find shapes of zones reachable within corresponding travel time. [Docs link](http://docs.traveltime.com/reference/time-map/)", response = ResponseTimeMap.class),
         @ApiResponse(code = 200, message = "The json body returned upon error. [Docs link](http://docs.traveltime.com/reference/error-response)", response = ResponseError.class)
     })
-    public Response timeMap(@Valid RequestTimeMap requestTimeMap) {
+    public Response timeMap(@Valid @NotNull RequestTimeMap requestTimeMap) {
         return Response.ok().entity("magic!").build();
     }
 }

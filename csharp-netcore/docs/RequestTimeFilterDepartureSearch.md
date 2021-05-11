@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestTimeFilterDepartureSearch
+
 ## Properties
 
 Name | Type | Description | Notes

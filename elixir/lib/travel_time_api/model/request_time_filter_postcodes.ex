@@ -14,8 +14,8 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterPostcodes do
   ]
 
   @type t :: %__MODULE__{
-    :"departure_searches" => [RequestTimeFilterPostcodesDepartureSearch] | nil,
-    :"arrival_searches" => [RequestTimeFilterPostcodesArrivalSearch] | nil
+    :"departure_searches" => [TravelTimeAPI.Model.RequestTimeFilterPostcodesDepartureSearch.t] | nil,
+    :"arrival_searches" => [TravelTimeAPI.Model.RequestTimeFilterPostcodesArrivalSearch.t] | nil
   }
 end
 

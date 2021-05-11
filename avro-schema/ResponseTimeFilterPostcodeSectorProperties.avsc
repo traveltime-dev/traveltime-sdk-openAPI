@@ -7,17 +7,21 @@
     {
       "name": "travel_time_reachable",
       "type": ["null", "model.ResponseTravelTimeStatistics"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "travel_time_all",
       "type": ["null", "model.ResponseTravelTimeStatistics"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "coverage",
       "type": ["null", "double"],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

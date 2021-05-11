@@ -6,15 +6,26 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestSupportedLocations: Codable { 
-
+public struct RequestSupportedLocations: Codable, Hashable {
 
     public var locations: [RequestLocation]
 
     public init(locations: [RequestLocation]) {
         self.locations = locations
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case locations
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(locations, forKey: .locations)
+    }
+
+
 
 }

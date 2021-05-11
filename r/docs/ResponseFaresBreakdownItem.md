@@ -1,5 +1,6 @@
 # openapi::ResponseFaresBreakdownItem
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

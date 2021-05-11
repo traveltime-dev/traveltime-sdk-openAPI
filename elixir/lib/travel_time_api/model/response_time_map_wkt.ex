@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseTimeMapWkt do
   ]
 
   @type t :: %__MODULE__{
-    :"results" => [ResponseTimeMapWktResult]
+    :"results" => [TravelTimeAPI.Model.ResponseTimeMapWktResult.t]
   }
 end
 

@@ -11,13 +11,18 @@ import javax.validation.constraints.*;
 /**
  * ResponseGeocoding
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseGeocoding   {
   @JsonProperty("type")
+  @NotNull
+
   private String type;
 
   @JsonProperty("features")
+  @NotNull
+@Valid
+
   private List<ResponseGeocodingGeoJsonFeature> features = new ArrayList<>();
 
   public ResponseGeocoding type(String type) {
@@ -29,7 +34,6 @@ public class ResponseGeocoding   {
    * Get type
    * @return type
   **/
-  @NotNull
   public String getType() {
     return type;
   }
@@ -52,8 +56,6 @@ public class ResponseGeocoding   {
    * Get features
    * @return features
   **/
-  @NotNull
-@Valid
   public List<ResponseGeocodingGeoJsonFeature> getFeatures() {
     return features;
   }
@@ -64,7 +66,7 @@ public class ResponseGeocoding   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -97,7 +99,7 @@ public class ResponseGeocoding   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

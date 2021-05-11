@@ -11,16 +11,23 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterFastResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeFilterFastResult   {
   @JsonProperty("search_id")
+  @NotNull
+
   private String searchId;
 
   @JsonProperty("locations")
+  @NotNull
+@Valid
+
   private List<ResponseTimeFilterFastLocation> locations = new ArrayList<>();
 
   @JsonProperty("unreachable")
+  @NotNull
+
   private List<String> unreachable = new ArrayList<>();
 
   public ResponseTimeFilterFastResult searchId(String searchId) {
@@ -32,7 +39,6 @@ public class ResponseTimeFilterFastResult   {
    * Get searchId
    * @return searchId
   **/
-  @NotNull
   public String getSearchId() {
     return searchId;
   }
@@ -55,8 +61,6 @@ public class ResponseTimeFilterFastResult   {
    * Get locations
    * @return locations
   **/
-  @NotNull
-@Valid
   public List<ResponseTimeFilterFastLocation> getLocations() {
     return locations;
   }
@@ -79,7 +83,6 @@ public class ResponseTimeFilterFastResult   {
    * Get unreachable
    * @return unreachable
   **/
-  @NotNull
   public List<String> getUnreachable() {
     return unreachable;
   }
@@ -90,7 +93,7 @@ public class ResponseTimeFilterFastResult   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -125,7 +128,7 @@ public class ResponseTimeFilterFastResult   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class RequestTimeMap   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestTimeMap   {
   
   private @Valid List<RequestTimeMapDepartureSearch> departureSearches = new ArrayList<RequestTimeMapDepartureSearch>();
   private @Valid List<RequestTimeMapArrivalSearch> arrivalSearches = new ArrayList<RequestTimeMapArrivalSearch>();
@@ -43,7 +43,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDepartureSearches(List<RequestTimeMapDepartureSearch> departureSearches) {
     this.departureSearches = departureSearches;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeMap arrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
@@ -61,7 +63,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setArrivalSearches(List<RequestTimeMapArrivalSearch> arrivalSearches) {
     this.arrivalSearches = arrivalSearches;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeMap unions(List<RequestUnionOnIntersection> unions) {
     this.unions = unions;
@@ -79,7 +83,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setUnions(List<RequestUnionOnIntersection> unions) {
     this.unions = unions;
-  }/**
+  }
+
+/**
    **/
   public RequestTimeMap intersections(List<RequestUnionOnIntersection> intersections) {
     this.intersections = intersections;
@@ -99,8 +105,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.intersections = intersections;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -136,7 +143,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

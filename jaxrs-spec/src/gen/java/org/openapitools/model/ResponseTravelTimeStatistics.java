@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseTravelTimeStatistics   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseTravelTimeStatistics   {
   
   private @Valid Integer min;
   private @Valid Integer max;
@@ -39,7 +39,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMin(Integer min) {
     this.min = min;
-  }/**
+  }
+
+/**
    **/
   public ResponseTravelTimeStatistics max(Integer max) {
     this.max = max;
@@ -58,7 +60,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMax(Integer max) {
     this.max = max;
-  }/**
+  }
+
+/**
    **/
   public ResponseTravelTimeStatistics mean(Integer mean) {
     this.mean = mean;
@@ -77,7 +81,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setMean(Integer mean) {
     this.mean = mean;
-  }/**
+  }
+
+/**
    **/
   public ResponseTravelTimeStatistics median(Integer median) {
     this.median = median;
@@ -98,8 +104,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.median = median;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -135,7 +142,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

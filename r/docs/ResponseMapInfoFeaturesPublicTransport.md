@@ -1,5 +1,6 @@
 # openapi::ResponseMapInfoFeaturesPublicTransport
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

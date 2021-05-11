@@ -25,8 +25,14 @@ void response_map_info_features_public_transport_free(response_map_info_features
         return ;
     }
     listEntry_t *listEntry;
-    free(response_map_info_features_public_transport->date_start);
-    free(response_map_info_features_public_transport->date_end);
+    if (response_map_info_features_public_transport->date_start) {
+        free(response_map_info_features_public_transport->date_start);
+        response_map_info_features_public_transport->date_start = NULL;
+    }
+    if (response_map_info_features_public_transport->date_end) {
+        free(response_map_info_features_public_transport->date_end);
+        response_map_info_features_public_transport->date_end = NULL;
+    }
     free(response_map_info_features_public_transport);
 }
 

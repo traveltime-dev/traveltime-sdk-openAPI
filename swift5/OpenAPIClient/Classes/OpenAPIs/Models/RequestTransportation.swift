@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestTransportation: Codable { 
-
+public struct RequestTransportation: Codable, Hashable {
 
     public enum ModelType: String, Codable, CaseIterable {
         case cycling = "cycling"
@@ -39,8 +38,7 @@ public struct RequestTransportation: Codable {
         self.parkingTime = parkingTime
         self.boardingTime = boardingTime
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
         case ptChangeDelay = "pt_change_delay"
         case walkingTime = "walking_time"
@@ -48,5 +46,19 @@ public struct RequestTransportation: Codable {
         case parkingTime = "parking_time"
         case boardingTime = "boarding_time"
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(type, forKey: .type)
+        try container.encodeIfPresent(ptChangeDelay, forKey: .ptChangeDelay)
+        try container.encodeIfPresent(walkingTime, forKey: .walkingTime)
+        try container.encodeIfPresent(drivingTimeToStation, forKey: .drivingTimeToStation)
+        try container.encodeIfPresent(parkingTime, forKey: .parkingTime)
+        try container.encodeIfPresent(boardingTime, forKey: .boardingTime)
+    }
+
+
 
 }

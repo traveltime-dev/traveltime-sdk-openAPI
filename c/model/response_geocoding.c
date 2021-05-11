@@ -25,11 +25,17 @@ void response_geocoding_free(response_geocoding_t *response_geocoding) {
         return ;
     }
     listEntry_t *listEntry;
-    free(response_geocoding->type);
-    list_ForEach(listEntry, response_geocoding->features) {
-        response_geocoding_geo_json_feature_free(listEntry->data);
+    if (response_geocoding->type) {
+        free(response_geocoding->type);
+        response_geocoding->type = NULL;
     }
-    list_free(response_geocoding->features);
+    if (response_geocoding->features) {
+        list_ForEach(listEntry, response_geocoding->features) {
+            response_geocoding_geo_json_feature_free(listEntry->data);
+        }
+        list_free(response_geocoding->features);
+        response_geocoding->features = NULL;
+    }
     free(response_geocoding);
 }
 

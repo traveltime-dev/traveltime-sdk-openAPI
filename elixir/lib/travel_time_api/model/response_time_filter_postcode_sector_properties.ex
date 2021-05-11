@@ -15,8 +15,8 @@ defmodule TravelTimeAPI.Model.ResponseTimeFilterPostcodeSectorProperties do
   ]
 
   @type t :: %__MODULE__{
-    :"travel_time_reachable" => ResponseTravelTimeStatistics | nil,
-    :"travel_time_all" => ResponseTravelTimeStatistics | nil,
+    :"travel_time_reachable" => TravelTimeAPI.Model.ResponseTravelTimeStatistics.t | nil,
+    :"travel_time_all" => TravelTimeAPI.Model.ResponseTravelTimeStatistics.t | nil,
     :"coverage" => float() | nil
   }
 end

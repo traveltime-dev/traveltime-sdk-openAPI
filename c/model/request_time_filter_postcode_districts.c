@@ -25,14 +25,20 @@ void request_time_filter_postcode_districts_free(request_time_filter_postcode_di
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, request_time_filter_postcode_districts->departure_searches) {
-        request_time_filter_postcode_districts_departure_search_free(listEntry->data);
+    if (request_time_filter_postcode_districts->departure_searches) {
+        list_ForEach(listEntry, request_time_filter_postcode_districts->departure_searches) {
+            request_time_filter_postcode_districts_departure_search_free(listEntry->data);
+        }
+        list_free(request_time_filter_postcode_districts->departure_searches);
+        request_time_filter_postcode_districts->departure_searches = NULL;
     }
-    list_free(request_time_filter_postcode_districts->departure_searches);
-    list_ForEach(listEntry, request_time_filter_postcode_districts->arrival_searches) {
-        request_time_filter_postcode_districts_arrival_search_free(listEntry->data);
+    if (request_time_filter_postcode_districts->arrival_searches) {
+        list_ForEach(listEntry, request_time_filter_postcode_districts->arrival_searches) {
+            request_time_filter_postcode_districts_arrival_search_free(listEntry->data);
+        }
+        list_free(request_time_filter_postcode_districts->arrival_searches);
+        request_time_filter_postcode_districts->arrival_searches = NULL;
     }
-    list_free(request_time_filter_postcode_districts->arrival_searches);
     free(request_time_filter_postcode_districts);
 }
 

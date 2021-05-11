@@ -22,10 +22,10 @@ defmodule TravelTimeAPI.Model.RequestTimeFilterFastArrivalManyToOneSearch do
     :"id" => String.t,
     :"arrival_location_id" => String.t,
     :"departure_location_ids" => [String.t],
-    :"transportation" => RequestTransportationFast,
+    :"transportation" => TravelTimeAPI.Model.RequestTransportationFast.t,
     :"travel_time" => integer(),
-    :"arrival_time_period" => RequestArrivalTimePeriod,
-    :"properties" => [RequestTimeFilterFastProperty]
+    :"arrival_time_period" => TravelTimeAPI.Model.RequestArrivalTimePeriod.t,
+    :"properties" => [TravelTimeAPI.Model.RequestTimeFilterFastProperty.t]
   }
 end
 

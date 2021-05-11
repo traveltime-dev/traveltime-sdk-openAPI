@@ -15,28 +15,47 @@ import javax.validation.constraints.*;
 /**
  * RequestTimeMapArrivalSearch
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class RequestTimeMapArrivalSearch   {
   @JsonProperty("id")
+  @NotNull
+
   private String id;
 
   @JsonProperty("coords")
+  @NotNull
+@Valid
+
   private Coords coords;
 
   @JsonProperty("transportation")
+  @NotNull
+@Valid
+
   private RequestTransportation transportation;
 
   @JsonProperty("travel_time")
+  @NotNull
+@Min(60)
+@Max(14400)
+
   private Integer travelTime;
 
   @JsonProperty("arrival_time")
+  @NotNull
+@Valid
+
   private OffsetDateTime arrivalTime;
 
   @JsonProperty("properties")
+  @Valid
+
   private List<RequestTimeMapProperty> properties = null;
 
   @JsonProperty("range")
+  @Valid
+
   private RequestRangeNoMaxResults range;
 
   public RequestTimeMapArrivalSearch id(String id) {
@@ -48,7 +67,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get id
    * @return id
   **/
-  @NotNull
   public String getId() {
     return id;
   }
@@ -66,8 +84,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get coords
    * @return coords
   **/
-  @NotNull
-@Valid
   public Coords getCoords() {
     return coords;
   }
@@ -85,8 +101,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get transportation
    * @return transportation
   **/
-  @NotNull
-@Valid
   public RequestTransportation getTransportation() {
     return transportation;
   }
@@ -106,9 +120,6 @@ public class RequestTimeMapArrivalSearch   {
    * maximum: 14400
    * @return travelTime
   **/
-  @NotNull
-@Min(60)
-@Max(14400)
   public Integer getTravelTime() {
     return travelTime;
   }
@@ -126,8 +137,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get arrivalTime
    * @return arrivalTime
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getArrivalTime() {
     return arrivalTime;
   }
@@ -153,7 +162,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get properties
    * @return properties
   **/
-  @Valid
   public List<RequestTimeMapProperty> getProperties() {
     return properties;
   }
@@ -171,7 +179,6 @@ public class RequestTimeMapArrivalSearch   {
    * Get range
    * @return range
   **/
-  @Valid
   public RequestRangeNoMaxResults getRange() {
     return range;
   }
@@ -182,7 +189,7 @@ public class RequestTimeMapArrivalSearch   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -225,7 +232,7 @@ public class RequestTimeMapArrivalSearch   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

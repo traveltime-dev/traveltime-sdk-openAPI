@@ -8,19 +8,27 @@ import javax.validation.constraints.*;
 /**
  * ResponseTravelTimeStatistics
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTravelTimeStatistics   {
   @JsonProperty("min")
+  @NotNull
+
   private Integer min;
 
   @JsonProperty("max")
+  @NotNull
+
   private Integer max;
 
   @JsonProperty("mean")
+  @NotNull
+
   private Integer mean;
 
   @JsonProperty("median")
+  @NotNull
+
   private Integer median;
 
   public ResponseTravelTimeStatistics min(Integer min) {
@@ -32,7 +40,6 @@ public class ResponseTravelTimeStatistics   {
    * Get min
    * @return min
   **/
-  @NotNull
   public Integer getMin() {
     return min;
   }
@@ -50,7 +57,6 @@ public class ResponseTravelTimeStatistics   {
    * Get max
    * @return max
   **/
-  @NotNull
   public Integer getMax() {
     return max;
   }
@@ -68,7 +74,6 @@ public class ResponseTravelTimeStatistics   {
    * Get mean
    * @return mean
   **/
-  @NotNull
   public Integer getMean() {
     return mean;
   }
@@ -86,7 +91,6 @@ public class ResponseTravelTimeStatistics   {
    * Get median
    * @return median
   **/
-  @NotNull
   public Integer getMedian() {
     return median;
   }
@@ -97,7 +101,7 @@ public class ResponseTravelTimeStatistics   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -134,7 +138,7 @@ public class ResponseTravelTimeStatistics   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

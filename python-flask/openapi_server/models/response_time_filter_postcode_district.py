@@ -21,12 +21,12 @@ class ResponseTimeFilterPostcodeDistrict(Model):
         """ResponseTimeFilterPostcodeDistrict - a model defined in OpenAPI
 
         :param code: The code of this ResponseTimeFilterPostcodeDistrict.  # noqa: E501
-        :type code: String
+        :type code: str
         :param properties: The properties of this ResponseTimeFilterPostcodeDistrict.  # noqa: E501
         :type properties: ResponseTimeFilterPostcodeDistrictProperties
         """
         self.openapi_types = {
-            'code': String,
+            'code': str,
             'properties': ResponseTimeFilterPostcodeDistrictProperties
         }
 
@@ -55,7 +55,7 @@ class ResponseTimeFilterPostcodeDistrict(Model):
 
 
         :return: The code of this ResponseTimeFilterPostcodeDistrict.
-        :rtype: String
+        :rtype: str
         """
         return self._code
 
@@ -65,7 +65,7 @@ class ResponseTimeFilterPostcodeDistrict(Model):
 
 
         :param code: The code of this ResponseTimeFilterPostcodeDistrict.
-        :type code: String
+        :type code: str
         """
         if code is None:
             raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501

@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,7 +13,7 @@ part 'request_time_map_property.g.dart';
 
 class RequestTimeMapProperty extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "is_only_walking")
+  @BuiltValueEnumConst(wireName: r'is_only_walking')
   static const RequestTimeMapProperty isOnlyWalking = _$isOnlyWalking;
 
   static Serializer<RequestTimeMapProperty> get serializer => _$requestTimeMapPropertySerializer;

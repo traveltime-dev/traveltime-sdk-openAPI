@@ -144,6 +144,10 @@ class RequestTimeFilterFastArrivalManyToOneSearch(Model):
         """
         if departure_location_ids is None:
             raise ValueError("Invalid value for `departure_location_ids`, must not be `None`")  # noqa: E501
+        if departure_location_ids is not None and len(departure_location_ids) > 100000:
+            raise ValueError("Invalid value for `departure_location_ids`, number of items must be less than or equal to `100000`")  # noqa: E501
+        if departure_location_ids is not None and len(departure_location_ids) < 1:
+            raise ValueError("Invalid value for `departure_location_ids`, number of items must be greater than or equal to `1`")  # noqa: E501
 
         self._departure_location_ids = departure_location_ids
 

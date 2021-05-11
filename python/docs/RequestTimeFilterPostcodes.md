@@ -1,10 +1,12 @@
 # RequestTimeFilterPostcodes
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**departure_searches** | [**list[RequestTimeFilterPostcodesDepartureSearch]**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] 
-**arrival_searches** | [**list[RequestTimeFilterPostcodesArrivalSearch]**](RequestTimeFilterPostcodesArrivalSearch.md) |  | [optional] 
+**departure_searches** | [**[RequestTimeFilterPostcodesDepartureSearch]**](RequestTimeFilterPostcodesDepartureSearch.md) |  | [optional] 
+**arrival_searches** | [**[RequestTimeFilterPostcodesArrivalSearch]**](RequestTimeFilterPostcodesArrivalSearch.md) |  | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

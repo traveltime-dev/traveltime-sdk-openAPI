@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -18,11 +19,10 @@ import javax.validation.constraints.Size
  */
 data class ResponseSupportedLocations(
 
-    @get:NotNull 
-    @field:JsonProperty("locations") val locations: kotlin.collections.List<ResponseSupportedLocation>,
+    @field:Valid
+    @field:JsonProperty("locations", required = true) val locations: kotlin.collections.List<ResponseSupportedLocation>,
 
-    @get:NotNull 
-    @field:JsonProperty("unsupported_locations") val unsupportedLocations: kotlin.collections.List<kotlin.String>
+    @field:JsonProperty("unsupported_locations", required = true) val unsupportedLocations: kotlin.collections.List<kotlin.String>
 ) {
 
 }

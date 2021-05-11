@@ -12,6 +12,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -34,26 +35,21 @@ import javax.validation.constraints.Size
  */
 data class ResponseRoutePart(
 
-    @get:NotNull 
-    @field:JsonProperty("id") val id: kotlin.String,
+    @field:JsonProperty("id", required = true) val id: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("type") val type: ResponseRoutePart.Type,
+    @field:JsonProperty("type", required = true) val type: ResponseRoutePart.Type,
 
-    @get:NotNull 
-    @field:JsonProperty("mode") val mode: ResponseTransportationMode,
+    @field:Valid
+    @field:JsonProperty("mode", required = true) val mode: ResponseTransportationMode,
 
-    @get:NotNull 
-    @field:JsonProperty("directions") val directions: kotlin.String,
+    @field:JsonProperty("directions", required = true) val directions: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("distance") val distance: kotlin.Int,
+    @field:JsonProperty("distance", required = true) val distance: kotlin.Int,
 
-    @get:NotNull 
-    @field:JsonProperty("travel_time") val travelTime: kotlin.Int,
+    @field:JsonProperty("travel_time", required = true) val travelTime: kotlin.Int,
 
-    @get:NotNull 
-    @field:JsonProperty("coords") val coords: kotlin.collections.List<Coords>,
+    @field:Valid
+    @field:JsonProperty("coords", required = true) val coords: kotlin.collections.List<Coords>,
 
     @field:JsonProperty("direction") val direction: kotlin.String? = null,
 

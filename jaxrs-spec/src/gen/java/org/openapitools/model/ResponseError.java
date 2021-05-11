@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseError   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseError   {
   
   private @Valid Integer httpStatus;
   private @Valid Integer errorCode;
@@ -42,7 +42,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setHttpStatus(Integer httpStatus) {
     this.httpStatus = httpStatus;
-  }/**
+  }
+
+/**
    **/
   public ResponseError errorCode(Integer errorCode) {
     this.errorCode = errorCode;
@@ -60,7 +62,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setErrorCode(Integer errorCode) {
     this.errorCode = errorCode;
-  }/**
+  }
+
+/**
    **/
   public ResponseError description(String description) {
     this.description = description;
@@ -78,7 +82,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDescription(String description) {
     this.description = description;
-  }/**
+  }
+
+/**
    **/
   public ResponseError documentationLink(String documentationLink) {
     this.documentationLink = documentationLink;
@@ -96,7 +102,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
   public void setDocumentationLink(String documentationLink) {
     this.documentationLink = documentationLink;
-  }/**
+  }
+
+/**
    **/
   public ResponseError additionalInfo(Map<String, List<String>> additionalInfo) {
     this.additionalInfo = additionalInfo;
@@ -116,8 +124,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.additionalInfo = additionalInfo;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -155,7 +164,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

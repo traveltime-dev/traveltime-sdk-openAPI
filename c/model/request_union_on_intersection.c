@@ -25,11 +25,17 @@ void request_union_on_intersection_free(request_union_on_intersection_t *request
         return ;
     }
     listEntry_t *listEntry;
-    free(request_union_on_intersection->id);
-    list_ForEach(listEntry, request_union_on_intersection->search_ids) {
-        free(listEntry->data);
+    if (request_union_on_intersection->id) {
+        free(request_union_on_intersection->id);
+        request_union_on_intersection->id = NULL;
     }
-    list_free(request_union_on_intersection->search_ids);
+    if (request_union_on_intersection->search_ids) {
+        list_ForEach(listEntry, request_union_on_intersection->search_ids) {
+            free(listEntry->data);
+        }
+        list_free(request_union_on_intersection->search_ids);
+        request_union_on_intersection->search_ids = NULL;
+    }
     free(request_union_on_intersection);
 }
 

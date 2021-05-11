@@ -1,4 +1,11 @@
-        import 'package:built_collection/built_collection.dart';
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.7
+
+// ignore_for_file: unused_import
+
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -6,7 +13,7 @@ part 'request_arrival_time_period.g.dart';
 
 class RequestArrivalTimePeriod extends EnumClass {
 
-  @BuiltValueEnumConst(wireName: "weekday_morning")
+  @BuiltValueEnumConst(wireName: r'weekday_morning')
   static const RequestArrivalTimePeriod weekdayMorning = _$weekdayMorning;
 
   static Serializer<RequestArrivalTimePeriod> get serializer => _$requestArrivalTimePeriodSerializer;

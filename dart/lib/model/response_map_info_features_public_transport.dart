@@ -1,61 +1,80 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseMapInfoFeaturesPublicTransport {
-  
-  DateTime dateStart = null;
-  
-  DateTime dateEnd = null;
-
+  /// Returns a new [ResponseMapInfoFeaturesPublicTransport] instance.
   ResponseMapInfoFeaturesPublicTransport({
-    this.dateStart,
-    this.dateEnd,
+    @required this.dateStart,
+    @required this.dateEnd,
   });
 
-  @override
-  String toString() {
-    return 'ResponseMapInfoFeaturesPublicTransport[dateStart=$dateStart, dateEnd=$dateEnd, ]';
-  }
+  DateTime dateStart;
 
-  ResponseMapInfoFeaturesPublicTransport.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    dateStart = (json['date_start'] == null) ?
-      null :
-      DateTime.parse(json['date_start']);
-    dateEnd = (json['date_end'] == null) ?
-      null :
-      DateTime.parse(json['date_end']);
-  }
+  DateTime dateEnd;
+
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseMapInfoFeaturesPublicTransport &&
+     other.dateStart == dateStart &&
+     other.dateEnd == dateEnd;
+
+  @override
+  int get hashCode =>
+    (dateStart == null ? 0 : dateStart.hashCode) +
+    (dateEnd == null ? 0 : dateEnd.hashCode);
+
+  @override
+  String toString() => 'ResponseMapInfoFeaturesPublicTransport[dateStart=$dateStart, dateEnd=$dateEnd]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (dateStart != null)
-      json['date_start'] = dateStart == null ? null : dateStart.toUtc().toIso8601String();
-    if (dateEnd != null)
-      json['date_end'] = dateEnd == null ? null : dateEnd.toUtc().toIso8601String();
+    final json = <String, dynamic>{};
+      json[r'date_start'] = dateStart.toUtc().toIso8601String();
+      json[r'date_end'] = dateEnd.toUtc().toIso8601String();
     return json;
   }
 
-  static List<ResponseMapInfoFeaturesPublicTransport> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseMapInfoFeaturesPublicTransport>() : json.map((value) => ResponseMapInfoFeaturesPublicTransport.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseMapInfoFeaturesPublicTransport] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseMapInfoFeaturesPublicTransport fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseMapInfoFeaturesPublicTransport(
+        dateStart: json[r'date_start'] == null
+          ? null
+          : DateTime.parse(json[r'date_start']),
+        dateEnd: json[r'date_end'] == null
+          ? null
+          : DateTime.parse(json[r'date_end']),
+    );
+
+  static List<ResponseMapInfoFeaturesPublicTransport> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseMapInfoFeaturesPublicTransport>[]
+      : json.map((v) => ResponseMapInfoFeaturesPublicTransport.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseMapInfoFeaturesPublicTransport> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseMapInfoFeaturesPublicTransport>();
+    final map = <String, ResponseMapInfoFeaturesPublicTransport>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfoFeaturesPublicTransport.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseMapInfoFeaturesPublicTransport.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseMapInfoFeaturesPublicTransport-objects as value to a dart map
-  static Map<String, List<ResponseMapInfoFeaturesPublicTransport>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseMapInfoFeaturesPublicTransport>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseMapInfoFeaturesPublicTransport.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseMapInfoFeaturesPublicTransport>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseMapInfoFeaturesPublicTransport>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseMapInfoFeaturesPublicTransport.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

@@ -9,13 +9,19 @@ import javax.validation.constraints.*;
 /**
  * ResponseMapInfoFeaturesPublicTransport
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseMapInfoFeaturesPublicTransport   {
   @JsonProperty("date_start")
+  @NotNull
+@Valid
+
   private OffsetDateTime dateStart;
 
   @JsonProperty("date_end")
+  @NotNull
+@Valid
+
   private OffsetDateTime dateEnd;
 
   public ResponseMapInfoFeaturesPublicTransport dateStart(OffsetDateTime dateStart) {
@@ -27,8 +33,6 @@ public class ResponseMapInfoFeaturesPublicTransport   {
    * Get dateStart
    * @return dateStart
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getDateStart() {
     return dateStart;
   }
@@ -46,8 +50,6 @@ public class ResponseMapInfoFeaturesPublicTransport   {
    * Get dateEnd
    * @return dateEnd
   **/
-  @NotNull
-@Valid
   public OffsetDateTime getDateEnd() {
     return dateEnd;
   }
@@ -58,7 +60,7 @@ public class ResponseMapInfoFeaturesPublicTransport   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -91,7 +93,7 @@ public class ResponseMapInfoFeaturesPublicTransport   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

@@ -1,17 +1,26 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 // tests for ResponseSupportedLocations
 void main() {
-    var instance = new ResponseSupportedLocations();
+  final instance = ResponseSupportedLocations();
 
   group('test ResponseSupportedLocations', () {
-    // List<ResponseSupportedLocation> locations (default value: [])
+    // List<ResponseSupportedLocation> locations (default value: const [])
     test('to test the property `locations`', () async {
       // TODO
     });
 
-    // List<String> unsupportedLocations (default value: [])
+    // List<String> unsupportedLocations (default value: const [])
     test('to test the property `unsupportedLocations`', () async {
       // TODO
     });

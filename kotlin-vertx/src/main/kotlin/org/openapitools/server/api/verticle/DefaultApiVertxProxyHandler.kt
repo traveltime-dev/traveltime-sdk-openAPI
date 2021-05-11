@@ -92,9 +92,9 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
                     if(lng == null){
                         throw IllegalArgumentException("lng is required")
                     }
-                    val withinPeriodCountry = ApiHandlerUtils.searchStringInJson(params,"within.country")
+                    val withinCountry = ApiHandlerUtils.searchStringInJson(params,"within.country")
                     GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.geocodingReverseSearch(lat,lng,withinPeriodCountry,context)
+                        val result = service.geocodingReverseSearch(lat,lng,withinCountry,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())
@@ -109,11 +109,11 @@ class DefaultApiVertxProxyHandler(private val vertx: Vertx, private val service:
                     if(query == null){
                         throw IllegalArgumentException("query is required")
                     }
-                    val focusPeriodLat = ApiHandlerUtils.searchDoubleInJson(params,"focus.lat")
-                    val focusPeriodLng = ApiHandlerUtils.searchDoubleInJson(params,"focus.lng")
-                    val withinPeriodCountry = ApiHandlerUtils.searchStringInJson(params,"within.country")
+                    val focusLat = ApiHandlerUtils.searchDoubleInJson(params,"focus.lat")
+                    val focusLng = ApiHandlerUtils.searchDoubleInJson(params,"focus.lng")
+                    val withinCountry = ApiHandlerUtils.searchStringInJson(params,"within.country")
                     GlobalScope.launch(vertx.dispatcher()){
-                        val result = service.geocodingSearch(query,focusPeriodLat,focusPeriodLng,withinPeriodCountry,context)
+                        val result = service.geocodingSearch(query,focusLat,focusLng,withinCountry,context)
                         val payload = JsonObject(Json.encode(result.payload)).toBuffer()
                         val res = OperationResponse(result.statusCode,result.statusMessage,payload,result.headers)
                         msg.reply(res.toJson())

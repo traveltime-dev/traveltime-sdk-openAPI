@@ -9,6 +9,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,17 +20,13 @@ import javax.validation.constraints.Size
  */
 data class ResponseBox(
 
-    @get:NotNull 
-    @field:JsonProperty("min_lat") val minLat: kotlin.Double,
+    @field:JsonProperty("min_lat", required = true) val minLat: kotlin.Double,
 
-    @get:NotNull 
-    @field:JsonProperty("max_lat") val maxLat: kotlin.Double,
+    @field:JsonProperty("max_lat", required = true) val maxLat: kotlin.Double,
 
-    @get:NotNull 
-    @field:JsonProperty("min_lng") val minLng: kotlin.Double,
+    @field:JsonProperty("min_lng", required = true) val minLng: kotlin.Double,
 
-    @get:NotNull 
-    @field:JsonProperty("max_lng") val maxLng: kotlin.Double
+    @field:JsonProperty("max_lng", required = true) val maxLng: kotlin.Double
 ) {
 
 }

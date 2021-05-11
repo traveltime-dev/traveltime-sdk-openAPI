@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.RequestSupportedLocations do
   ]
 
   @type t :: %__MODULE__{
-    :"locations" => [RequestLocation]
+    :"locations" => [TravelTimeAPI.Model.RequestLocation.t]
   }
 end
 

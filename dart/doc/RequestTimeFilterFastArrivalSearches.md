@@ -8,8 +8,8 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**manyToOne** | [**List&lt;RequestTimeFilterFastArrivalManyToOneSearch&gt;**](RequestTimeFilterFastArrivalManyToOneSearch.md) |  | [optional] [default to []]
-**oneToMany** | [**List&lt;RequestTimeFilterFastArrivalOneToManySearch&gt;**](RequestTimeFilterFastArrivalOneToManySearch.md) |  | [optional] [default to []]
+**manyToOne** | [**List<RequestTimeFilterFastArrivalManyToOneSearch>**](RequestTimeFilterFastArrivalManyToOneSearch.md) |  | [optional] [default to const []]
+**oneToMany** | [**List<RequestTimeFilterFastArrivalOneToManySearch>**](RequestTimeFilterFastArrivalOneToManySearch.md) |  | [optional] [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

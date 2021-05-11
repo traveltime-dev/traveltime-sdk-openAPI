@@ -2,22 +2,23 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**travel_time** | **Integer** |  | [optional] 
-**distance** | **Integer** |  | [optional] 
-**fares** | [**ResponseFares**](ResponseFares.md) |  | [optional] 
-**route** | [**ResponseRoute**](ResponseRoute.md) |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **travel_time** | **Integer** |  | [optional] |
+| **distance** | **Integer** |  | [optional] |
+| **fares** | [**ResponseFares**](ResponseFares.md) |  | [optional] |
+| **route** | [**ResponseRoute**](ResponseRoute.md) |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseRoutesProperties.new(travel_time: null,
-                                 distance: null,
-                                 fares: null,
-                                 route: null)
+instance = OpenapiClient::ResponseRoutesProperties.new(
+  travel_time: null,
+  distance: null,
+  fares: null,
+  route: null
+)
 ```
-
 

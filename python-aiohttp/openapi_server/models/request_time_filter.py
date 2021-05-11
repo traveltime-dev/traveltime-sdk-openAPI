@@ -69,6 +69,8 @@ class RequestTimeFilter(Model):
         """
         if locations is None:
             raise ValueError("Invalid value for `locations`, must not be `None`")
+        if locations is not None and len(locations) < 1:
+            raise ValueError("Invalid value for `locations`, number of items must be greater than or equal to `1`")
 
         self._locations = locations
 
@@ -90,6 +92,8 @@ class RequestTimeFilter(Model):
         :param departure_searches: The departure_searches of this RequestTimeFilter.
         :type departure_searches: List[RequestTimeFilterDepartureSearch]
         """
+        if departure_searches is not None and len(departure_searches) > 10:
+            raise ValueError("Invalid value for `departure_searches`, number of items must be less than or equal to `10`")
 
         self._departure_searches = departure_searches
 
@@ -111,5 +115,7 @@ class RequestTimeFilter(Model):
         :param arrival_searches: The arrival_searches of this RequestTimeFilter.
         :type arrival_searches: List[RequestTimeFilterArrivalSearch]
         """
+        if arrival_searches is not None and len(arrival_searches) > 10:
+            raise ValueError("Invalid value for `arrival_searches`, number of items must be less than or equal to `10`")
 
         self._arrival_searches = arrival_searches

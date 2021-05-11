@@ -7,7 +7,8 @@
     {
       "name": "public_transport",
       "type": ["null", "model.ResponseMapInfoFeaturesPublicTransport"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "fares",
@@ -20,4 +21,5 @@
       "doc": ""
     }
   ]
+
 }

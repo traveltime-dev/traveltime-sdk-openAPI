@@ -20,18 +20,16 @@ import org.openapitools.vertxweb.server.model.ResponseTimeFilterPostcodeSectors;
 import org.openapitools.vertxweb.server.model.ResponseTimeFilterPostcodes;
 import org.openapitools.vertxweb.server.model.ResponseTimeMap;
 
-import org.openapitools.vertxweb.server.ParameterCast;
-import org.openapitools.vertxweb.server.ApiException;
-
 import com.fasterxml.jackson.core.type.TypeReference;
-import io.vertx.core.json.Json;
-import io.vertx.core.Handler;
-import io.vertx.core.http.HttpServerResponse;
+import io.vertx.core.json.jackson.DatabindCodec;
+import io.vertx.ext.web.openapi.RouterBuilder;
+import io.vertx.ext.web.validation.RequestParameters;
+import io.vertx.ext.web.validation.RequestParameter;
+import io.vertx.ext.web.validation.ValidationHandler;
 import io.vertx.ext.web.RoutingContext;
+import io.vertx.core.json.JsonObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import io.reactivex.Single;
 
 import java.util.List;
 import java.util.Map;
@@ -39,310 +37,288 @@ import java.util.Map;
 public class DefaultApiHandler {
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultApiHandler.class);
-    private DefaultApi apiImpl = new DefaultApiImpl();
 
-    public DefaultApiHandler(Map<String, Handler<RoutingContext>> operationHandlers) {
-        operationHandlers.put("geocodingReverseSearch", this::geocodingReverseSearch);
-        operationHandlers.put("geocodingSearch", this::geocodingSearch);
-        operationHandlers.put("mapInfo", this::mapInfo);
-        operationHandlers.put("routes", this::routes);
-        operationHandlers.put("supportedLocations", this::supportedLocations);
-        operationHandlers.put("timeFilter", this::timeFilter);
-        operationHandlers.put("timeFilterFast", this::timeFilterFast);
-        operationHandlers.put("timeFilterPostcodeDistricts", this::timeFilterPostcodeDistricts);
-        operationHandlers.put("timeFilterPostcodeSectors", this::timeFilterPostcodeSectors);
-        operationHandlers.put("timeFilterPostcodes", this::timeFilterPostcodes);
-        operationHandlers.put("timeMap", this::timeMap);
+    private final DefaultApi api;
+
+    public DefaultApiHandler(DefaultApi api) {
+        this.api = api;
+    }
+
+    @Deprecated
+    public DefaultApiHandler() {
+        this(new DefaultApiImpl());
+    }
+
+    public void mount(RouterBuilder builder) {
+        builder.operation("geocodingReverseSearch").handler(this::geocodingReverseSearch);
+        builder.operation("geocodingSearch").handler(this::geocodingSearch);
+        builder.operation("mapInfo").handler(this::mapInfo);
+        builder.operation("routes").handler(this::routes);
+        builder.operation("supportedLocations").handler(this::supportedLocations);
+        builder.operation("timeFilter").handler(this::timeFilter);
+        builder.operation("timeFilterFast").handler(this::timeFilterFast);
+        builder.operation("timeFilterPostcodeDistricts").handler(this::timeFilterPostcodeDistricts);
+        builder.operation("timeFilterPostcodeSectors").handler(this::timeFilterPostcodeSectors);
+        builder.operation("timeFilterPostcodes").handler(this::timeFilterPostcodes);
+        builder.operation("timeMap").handler(this::timeMap);
     }
 
     private void geocodingReverseSearch(RoutingContext routingContext) {
         logger.info("geocodingReverseSearch()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
-            Double lat = ParameterCast.toDouble(routingContext.queryParams().get("lat"));
-            Double lng = ParameterCast.toDouble(routingContext.queryParams().get("lng"));
-            String withinCountry = ParameterCast.toString(routingContext.queryParams().get("within.country"));
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            logger.info("Parameter lat is {}", lat);
-            logger.info("Parameter lng is {}", lng);
-            logger.info("Parameter withinCountry is {}", withinCountry);
-            return apiImpl.geocodingReverseSearch(lat, lng, withinCountry);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        Double lat = requestParameters.queryParameter("lat") != null ? requestParameters.queryParameter("lat").getDouble() : null;
+        Double lng = requestParameters.queryParameter("lng") != null ? requestParameters.queryParameter("lng").getDouble() : null;
+        String withinCountry = requestParameters.queryParameter("within.country") != null ? requestParameters.queryParameter("within.country").getString() : null;
+
+        logger.debug("Parameter lat is {}", lat);
+        logger.debug("Parameter lng is {}", lng);
+        logger.debug("Parameter withinCountry is {}", withinCountry);
+
+        api.geocodingReverseSearch(lat, lng, withinCountry)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void geocodingSearch(RoutingContext routingContext) {
         logger.info("geocodingSearch()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
-            String query = ParameterCast.toString(routingContext.queryParams().get("query"));
-            Double focusLat = ParameterCast.toDouble(routingContext.queryParams().get("focus.lat"));
-            Double focusLng = ParameterCast.toDouble(routingContext.queryParams().get("focus.lng"));
-            String withinCountry = ParameterCast.toString(routingContext.queryParams().get("within.country"));
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            logger.info("Parameter query is {}", query);
-            logger.info("Parameter focusLat is {}", focusLat);
-            logger.info("Parameter focusLng is {}", focusLng);
-            logger.info("Parameter withinCountry is {}", withinCountry);
-            return apiImpl.geocodingSearch(query, focusLat, focusLng, withinCountry);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        String query = requestParameters.queryParameter("query") != null ? requestParameters.queryParameter("query").getString() : null;
+        Double focusLat = requestParameters.queryParameter("focus.lat") != null ? requestParameters.queryParameter("focus.lat").getDouble() : null;
+        Double focusLng = requestParameters.queryParameter("focus.lng") != null ? requestParameters.queryParameter("focus.lng").getDouble() : null;
+        String withinCountry = requestParameters.queryParameter("within.country") != null ? requestParameters.queryParameter("within.country").getString() : null;
+
+        logger.debug("Parameter query is {}", query);
+        logger.debug("Parameter focusLat is {}", focusLat);
+        logger.debug("Parameter focusLng is {}", focusLng);
+        logger.debug("Parameter withinCountry is {}", withinCountry);
+
+        api.geocodingSearch(query, focusLat, focusLng, withinCountry)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void mapInfo(RoutingContext routingContext) {
         logger.info("mapInfo()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            return apiImpl.mapInfo();
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+
+
+        api.mapInfo()
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void routes(RoutingContext routingContext) {
         logger.info("routes()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestRoutes requestRoutes = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestRoutes>(){});
-            logger.info("Parameter requestRoutes is {}", requestRoutes);
-            return apiImpl.routes(requestRoutes);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestRoutes requestRoutes = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestRoutes>(){}) : null;
+
+        logger.debug("Parameter requestRoutes is {}", requestRoutes);
+
+        api.routes(requestRoutes)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void supportedLocations(RoutingContext routingContext) {
         logger.info("supportedLocations()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestSupportedLocations requestSupportedLocations = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestSupportedLocations>(){});
-            logger.info("Parameter requestSupportedLocations is {}", requestSupportedLocations);
-            return apiImpl.supportedLocations(requestSupportedLocations);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestSupportedLocations requestSupportedLocations = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestSupportedLocations>(){}) : null;
+
+        logger.debug("Parameter requestSupportedLocations is {}", requestSupportedLocations);
+
+        api.supportedLocations(requestSupportedLocations)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeFilter(RoutingContext routingContext) {
         logger.info("timeFilter()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeFilter requestTimeFilter = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeFilter>(){});
-            logger.info("Parameter requestTimeFilter is {}", requestTimeFilter);
-            return apiImpl.timeFilter(requestTimeFilter);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeFilter requestTimeFilter = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeFilter>(){}) : null;
+
+        logger.debug("Parameter requestTimeFilter is {}", requestTimeFilter);
+
+        api.timeFilter(requestTimeFilter)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeFilterFast(RoutingContext routingContext) {
         logger.info("timeFilterFast()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeFilterFast requestTimeFilterFast = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeFilterFast>(){});
-            logger.info("Parameter requestTimeFilterFast is {}", requestTimeFilterFast);
-            return apiImpl.timeFilterFast(requestTimeFilterFast);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeFilterFast requestTimeFilterFast = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeFilterFast>(){}) : null;
+
+        logger.debug("Parameter requestTimeFilterFast is {}", requestTimeFilterFast);
+
+        api.timeFilterFast(requestTimeFilterFast)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeFilterPostcodeDistricts(RoutingContext routingContext) {
         logger.info("timeFilterPostcodeDistricts()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeFilterPostcodeDistricts>(){});
-            logger.info("Parameter requestTimeFilterPostcodeDistricts is {}", requestTimeFilterPostcodeDistricts);
-            return apiImpl.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeFilterPostcodeDistricts>(){}) : null;
+
+        logger.debug("Parameter requestTimeFilterPostcodeDistricts is {}", requestTimeFilterPostcodeDistricts);
+
+        api.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeFilterPostcodeSectors(RoutingContext routingContext) {
         logger.info("timeFilterPostcodeSectors()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeFilterPostcodeSectors>(){});
-            logger.info("Parameter requestTimeFilterPostcodeSectors is {}", requestTimeFilterPostcodeSectors);
-            return apiImpl.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeFilterPostcodeSectors>(){}) : null;
+
+        logger.debug("Parameter requestTimeFilterPostcodeSectors is {}", requestTimeFilterPostcodeSectors);
+
+        api.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeFilterPostcodes(RoutingContext routingContext) {
         logger.info("timeFilterPostcodes()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeFilterPostcodes requestTimeFilterPostcodes = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeFilterPostcodes>(){});
-            logger.info("Parameter requestTimeFilterPostcodes is {}", requestTimeFilterPostcodes);
-            return apiImpl.timeFilterPostcodes(requestTimeFilterPostcodes);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeFilterPostcodes requestTimeFilterPostcodes = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeFilterPostcodes>(){}) : null;
+
+        logger.debug("Parameter requestTimeFilterPostcodes is {}", requestTimeFilterPostcodes);
+
+        api.timeFilterPostcodes(requestTimeFilterPostcodes)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
-
 
     private void timeMap(RoutingContext routingContext) {
         logger.info("timeMap()");
-        HttpServerResponse response = routingContext.response();
 
-        Single.defer( () -> {
+        // Param extraction
+        RequestParameters requestParameters = routingContext.get(ValidationHandler.REQUEST_CONTEXT_KEY);
 
-            String jsonString = routingContext.getBodyAsString();
-            RequestTimeMap requestTimeMap = jsonString == null ? null : Json.decodeValue(jsonString, new TypeReference<RequestTimeMap>(){});
-            logger.info("Parameter requestTimeMap is {}", requestTimeMap);
-            return apiImpl.timeMap(requestTimeMap);
-        })
-        .subscribe(
-            apiResponse -> {
-                response.setStatusCode(apiResponse.getStatusCode())
-                        .end(Json.encodePrettily(apiResponse.getData()));
-            }, error -> {
-                if (error instanceof ApiException) {
-                    ApiException apiException = (ApiException) error;
-                    response.setStatusCode(apiException.getStatusCode()).end(apiException.getMessage());
+        RequestParameter body = requestParameters.body();
+        RequestTimeMap requestTimeMap = body != null ? DatabindCodec.mapper().convertValue(body.get(), new TypeReference<RequestTimeMap>(){}) : null;
+
+        logger.debug("Parameter requestTimeMap is {}", requestTimeMap);
+
+        api.timeMap(requestTimeMap)
+            .onSuccess(apiResponse -> {
+                routingContext.response().setStatusCode(apiResponse.getStatusCode());
+                if (apiResponse.hasData()) {
+                    routingContext.json(apiResponse.getData());
                 } else {
-                    response.setStatusCode(500).end(error.getMessage());
+                    routingContext.response().end();
                 }
-            }).dispose();
+            })
+            .onFailure(routingContext::fail);
     }
 
 }

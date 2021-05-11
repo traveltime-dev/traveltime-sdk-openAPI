@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseTimeFilterPostcodeDistrictProperties: Codable { 
-
+public struct ResponseTimeFilterPostcodeDistrictProperties: Codable, Hashable {
 
     public var travelTimeReachable: ResponseTravelTimeStatistics?
     public var travelTimeAll: ResponseTravelTimeStatistics?
@@ -20,11 +19,21 @@ public struct ResponseTimeFilterPostcodeDistrictProperties: Codable {
         self.travelTimeAll = travelTimeAll
         self.coverage = coverage
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case travelTimeReachable = "travel_time_reachable"
         case travelTimeAll = "travel_time_all"
         case coverage
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(travelTimeReachable, forKey: .travelTimeReachable)
+        try container.encodeIfPresent(travelTimeAll, forKey: .travelTimeAll)
+        try container.encodeIfPresent(coverage, forKey: .coverage)
+    }
+
+
 
 }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 open class DefaultAPI {
     /**
 
@@ -18,7 +16,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func geocodingReverseSearch(lat: Double, lng: Double, withinCountry: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
+    open class func geocodingReverseSearch(lat: Double, lng: Double, withinCountry: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseGeocoding?, _ error: Error?) -> Void)) {
         geocodingReverseSearchWithRequestBuilder(lat: lat, lng: lng, withinCountry: withinCountry).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -49,18 +47,24 @@ open class DefaultAPI {
     open class func geocodingReverseSearchWithRequestBuilder(lat: Double, lng: Double, withinCountry: String? = nil) -> RequestBuilder<ResponseGeocoding> {
         let path = "/v4/geocoding/reverse"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "lat": lat.encodeToJSON(), 
-            "lng": lng.encodeToJSON(), 
-            "within.country": withinCountry?.encodeToJSON()
+        let parameters: [String: Any]? = nil
+
+        var urlComponents = URLComponents(string: URLString)
+        urlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "lat": lat.encodeToJSON(),
+            "lng": lng.encodeToJSON(),
+            "within.country": withinCountry?.encodeToJSON(),
         ])
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseGeocoding>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -72,7 +76,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func geocodingSearch(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseGeocoding?,_ error: Error?) -> Void)) {
+    open class func geocodingSearch(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseGeocoding?, _ error: Error?) -> Void)) {
         geocodingSearchWithRequestBuilder(query: query, focusLat: focusLat, focusLng: focusLng, withinCountry: withinCountry).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -104,19 +108,25 @@ open class DefaultAPI {
     open class func geocodingSearchWithRequestBuilder(query: String, focusLat: Double? = nil, focusLng: Double? = nil, withinCountry: String? = nil) -> RequestBuilder<ResponseGeocoding> {
         let path = "/v4/geocoding/search"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        var url = URLComponents(string: URLString)
-        url?.queryItems = APIHelper.mapValuesToQueryItems([
-            "query": query.encodeToJSON(), 
-            "focus.lat": focusLat?.encodeToJSON(), 
-            "focus.lng": focusLng?.encodeToJSON(), 
-            "within.country": withinCountry?.encodeToJSON()
+        let parameters: [String: Any]? = nil
+
+        var urlComponents = URLComponents(string: URLString)
+        urlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
+            "query": query.encodeToJSON(),
+            "focus.lat": focusLat?.encodeToJSON(),
+            "focus.lng": focusLng?.encodeToJSON(),
+            "within.country": withinCountry?.encodeToJSON(),
         ])
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseGeocoding>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -124,7 +134,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func mapInfo(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseMapInfo?,_ error: Error?) -> Void)) {
+    open class func mapInfo(apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseMapInfo?, _ error: Error?) -> Void)) {
         mapInfoWithRequestBuilder().execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -152,13 +162,19 @@ open class DefaultAPI {
     open class func mapInfoWithRequestBuilder() -> RequestBuilder<ResponseMapInfo> {
         let path = "/v4/map-info"
         let URLString = OpenAPIClientAPI.basePath + path
-        let parameters: [String:Any]? = nil
-        
-        let url = URLComponents(string: URLString)
+        let parameters: [String: Any]? = nil
+
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseMapInfo>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+        return requestBuilder.init(method: "GET", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -167,7 +183,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func routes(requestRoutes: RequestRoutes, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseRoutes?,_ error: Error?) -> Void)) {
+    open class func routes(requestRoutes: RequestRoutes, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseRoutes?, _ error: Error?) -> Void)) {
         routesWithRequestBuilder(requestRoutes: requestRoutes).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -198,11 +214,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestRoutes)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseRoutes>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -211,7 +233,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func supportedLocations(requestSupportedLocations: RequestSupportedLocations, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseSupportedLocations?,_ error: Error?) -> Void)) {
+    open class func supportedLocations(requestSupportedLocations: RequestSupportedLocations, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseSupportedLocations?, _ error: Error?) -> Void)) {
         supportedLocationsWithRequestBuilder(requestSupportedLocations: requestSupportedLocations).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -242,11 +264,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestSupportedLocations)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseSupportedLocations>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -255,7 +283,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeFilter(requestTimeFilter: RequestTimeFilter, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilter?,_ error: Error?) -> Void)) {
+    open class func timeFilter(requestTimeFilter: RequestTimeFilter, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilter?, _ error: Error?) -> Void)) {
         timeFilterWithRequestBuilder(requestTimeFilter: requestTimeFilter).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -286,11 +314,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeFilter)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeFilter>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -299,7 +333,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterFast?,_ error: Error?) -> Void)) {
+    open class func timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterFast?, _ error: Error?) -> Void)) {
         timeFilterFastWithRequestBuilder(requestTimeFilterFast: requestTimeFilterFast).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -330,11 +364,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeFilterFast)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeFilterFast>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -343,7 +383,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodeDistricts?,_ error: Error?) -> Void)) {
+    open class func timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodeDistricts?, _ error: Error?) -> Void)) {
         timeFilterPostcodeDistrictsWithRequestBuilder(requestTimeFilterPostcodeDistricts: requestTimeFilterPostcodeDistricts).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -374,11 +414,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeFilterPostcodeDistricts)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeFilterPostcodeDistricts>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -387,7 +433,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodeSectors?,_ error: Error?) -> Void)) {
+    open class func timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodeSectors?, _ error: Error?) -> Void)) {
         timeFilterPostcodeSectorsWithRequestBuilder(requestTimeFilterPostcodeSectors: requestTimeFilterPostcodeSectors).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -418,11 +464,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeFilterPostcodeSectors)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeFilterPostcodeSectors>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -431,7 +483,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodes?,_ error: Error?) -> Void)) {
+    open class func timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeFilterPostcodes?, _ error: Error?) -> Void)) {
         timeFilterPostcodesWithRequestBuilder(requestTimeFilterPostcodes: requestTimeFilterPostcodes).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -462,11 +514,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeFilterPostcodes)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeFilterPostcodes>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
     /**
@@ -475,7 +533,7 @@ open class DefaultAPI {
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func timeMap(requestTimeMap: RequestTimeMap, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeMap?,_ error: Error?) -> Void)) {
+    open class func timeMap(requestTimeMap: RequestTimeMap, apiResponseQueue: DispatchQueue = OpenAPIClientAPI.apiResponseQueue, completion: @escaping ((_ data: ResponseTimeMap?, _ error: Error?) -> Void)) {
         timeMapWithRequestBuilder(requestTimeMap: requestTimeMap).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
@@ -506,11 +564,17 @@ open class DefaultAPI {
         let URLString = OpenAPIClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: requestTimeMap)
 
-        let url = URLComponents(string: URLString)
+        let urlComponents = URLComponents(string: URLString)
+
+        let nillableHeaders: [String: Any?] = [
+            :
+        ]
+
+        let headerParameters = APIHelper.rejectNilHeaders(nillableHeaders)
 
         let requestBuilder: RequestBuilder<ResponseTimeMap>.Type = OpenAPIClientAPI.requestBuilderFactory.getBuilder()
 
-        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+        return requestBuilder.init(method: "POST", URLString: (urlComponents?.string ?? URLString), parameters: parameters, headers: headerParameters)
     }
 
 }

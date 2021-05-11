@@ -251,7 +251,7 @@ url_escape() {
        -e 's/(/%28/g' \
        -e 's/)/%29/g' \
        -e 's/:/%3A/g' \
-       -e 's/\t/%09/g' \
+       -e 's/\\t/%09/g' \
        -e 's/?/%3F/g' <<<"$raw_url");
 
     echo "$value"
@@ -515,7 +515,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}TravelTime API command line client (API version 1.2.1)${OFF}
+${BOLD}${WHITE}TravelTime API command line client (API version 1.2.2)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -593,7 +593,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://api.traveltimeapp.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}TravelTime API command line client (API version 1.2.1)${OFF}"
+    echo -e "${BOLD}${WHITE}TravelTime API command line client (API version 1.2.2)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: support@igeolise.com"
@@ -613,7 +613,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}TravelTime API command line client (API version 1.2.1)${OFF}"
+    echo -e "${BOLD}TravelTime API command line client (API version 1.2.2)${OFF}"
     echo ""
 }
 
@@ -1715,7 +1715,7 @@ case $key in
         body_parameters[${body_key}]=${body_value}
     fi
     ;;
-    +\([^=]\):*)
+    +([^=]):*)
     # Parse header arguments and convert them into curl
     # only after the operation argument
     if [[ "$operation" ]]; then

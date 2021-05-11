@@ -1,5 +1,6 @@
 # openapi::ResponseFaresFast
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

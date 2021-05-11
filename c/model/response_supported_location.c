@@ -25,8 +25,14 @@ void response_supported_location_free(response_supported_location_t *response_su
         return ;
     }
     listEntry_t *listEntry;
-    free(response_supported_location->id);
-    free(response_supported_location->map_name);
+    if (response_supported_location->id) {
+        free(response_supported_location->id);
+        response_supported_location->id = NULL;
+    }
+    if (response_supported_location->map_name) {
+        free(response_supported_location->map_name);
+        response_supported_location->map_name = NULL;
+    }
     free(response_supported_location);
 }
 

@@ -33,9 +33,9 @@ fail:
     return NULL;
 }
 
-request_time_map_property_request_time_map_property_e request_time_map_property_request_time_map_property_parseFromJSON(cJSON *request_time_map_propertyJSON) {
-    request_time_map_property_request_time_map_property_e *request_time_map_property = NULL;
-    request_time_map_property_request_time_map_property_e request_time_map_propertyVariable;
+traveltime_api_request_time_map_property__e request_time_map_property_request_time_map_property_parseFromJSON(cJSON *request_time_map_propertyJSON) {
+    traveltime_api_request_time_map_property__e *request_time_map_property = NULL;
+    traveltime_api_request_time_map_property__e request_time_map_propertyVariable;
     cJSON *request_time_map_propertyVar = cJSON_GetObjectItemCaseSensitive(request_time_map_propertyJSON, "request_time_map_property");
     if(!cJSON_IsString(request_time_map_propertyVar) || (request_time_map_propertyVar->valuestring == NULL)){
         goto end;

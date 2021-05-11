@@ -1,53 +1,69 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
 part of openapi.api;
 
 class ResponseMapInfo {
-  
-  List<ResponseMapInfoMap> maps = [];
-
+  /// Returns a new [ResponseMapInfo] instance.
   ResponseMapInfo({
-    this.maps,
+    this.maps = const [],
   });
 
-  @override
-  String toString() {
-    return 'ResponseMapInfo[maps=$maps, ]';
-  }
+  List<ResponseMapInfoMap> maps;
 
-  ResponseMapInfo.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    maps = (json['maps'] == null) ?
-      null :
-      ResponseMapInfoMap.listFromJson(json['maps']);
-  }
+  @override
+  bool operator ==(Object other) => identical(this, other) || other is ResponseMapInfo &&
+     other.maps == maps;
+
+  @override
+  int get hashCode =>
+    (maps == null ? 0 : maps.hashCode);
+
+  @override
+  String toString() => 'ResponseMapInfo[maps=$maps]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (maps != null)
-      json['maps'] = maps;
+    final json = <String, dynamic>{};
+      json[r'maps'] = maps;
     return json;
   }
 
-  static List<ResponseMapInfo> listFromJson(List<dynamic> json) {
-    return json == null ? List<ResponseMapInfo>() : json.map((value) => ResponseMapInfo.fromJson(value)).toList();
-  }
+  /// Returns a new [ResponseMapInfo] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static ResponseMapInfo fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : ResponseMapInfo(
+        maps: ResponseMapInfoMap.listFromJson(json[r'maps']),
+    );
+
+  static List<ResponseMapInfo> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <ResponseMapInfo>[]
+      : json.map((v) => ResponseMapInfo.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, ResponseMapInfo> mapFromJson(Map<String, dynamic> json) {
-    var map = Map<String, ResponseMapInfo>();
+    final map = <String, ResponseMapInfo>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = ResponseMapInfo.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = ResponseMapInfo.fromJson(v));
     }
     return map;
   }
 
   // maps a json object with a list of ResponseMapInfo-objects as value to a dart map
-  static Map<String, List<ResponseMapInfo>> mapListFromJson(Map<String, dynamic> json) {
-    var map = Map<String, List<ResponseMapInfo>>();
-     if (json != null && json.isNotEmpty) {
-       json.forEach((String key, dynamic value) {
-         map[key] = ResponseMapInfo.listFromJson(value);
-       });
-     }
-     return map;
+  static Map<String, List<ResponseMapInfo>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<ResponseMapInfo>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = ResponseMapInfo.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
   }
 }
 

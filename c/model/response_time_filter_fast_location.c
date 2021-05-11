@@ -25,11 +25,17 @@ void response_time_filter_fast_location_free(response_time_filter_fast_location_
         return ;
     }
     listEntry_t *listEntry;
-    free(response_time_filter_fast_location->id);
-    list_ForEach(listEntry, response_time_filter_fast_location->properties) {
-        response_time_filter_fast_properties_free(listEntry->data);
+    if (response_time_filter_fast_location->id) {
+        free(response_time_filter_fast_location->id);
+        response_time_filter_fast_location->id = NULL;
     }
-    list_free(response_time_filter_fast_location->properties);
+    if (response_time_filter_fast_location->properties) {
+        list_ForEach(listEntry, response_time_filter_fast_location->properties) {
+            response_time_filter_fast_properties_free(listEntry->data);
+        }
+        list_free(response_time_filter_fast_location->properties);
+        response_time_filter_fast_location->properties = NULL;
+    }
     free(response_time_filter_fast_location);
 }
 

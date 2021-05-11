@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct RequestRangeNoMaxResults: Codable { 
-
+public struct RequestRangeNoMaxResults: Codable, Hashable {
 
     public var enabled: Bool
     public var width: Int
@@ -18,5 +17,19 @@ public struct RequestRangeNoMaxResults: Codable {
         self.enabled = enabled
         self.width = width
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case enabled
+        case width
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(enabled, forKey: .enabled)
+        try container.encode(width, forKey: .width)
+    }
+
+
 
 }

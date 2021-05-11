@@ -10,7 +10,7 @@ import org.openapitools.vertxweb.server.model.ResponseTimeFilterPostcodesPropert
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseTimeFilterPostcode   {
   
-  private String code = null;
+  private String code;
   private List<ResponseTimeFilterPostcodesProperties> properties = new ArrayList<>();
 
   public ResponseTimeFilterPostcode () {

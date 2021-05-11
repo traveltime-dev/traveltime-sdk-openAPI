@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseRoutesProperties: Codable { 
-
+public struct ResponseRoutesProperties: Codable, Hashable {
 
     public var travelTime: Int?
     public var distance: Int?
@@ -22,12 +21,23 @@ public struct ResponseRoutesProperties: Codable {
         self.fares = fares
         self.route = route
     }
-
-    public enum CodingKeys: String, CodingKey, CaseIterable { 
+    public enum CodingKeys: String, CodingKey, CaseIterable {
         case travelTime = "travel_time"
         case distance
         case fares
         case route
     }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(travelTime, forKey: .travelTime)
+        try container.encodeIfPresent(distance, forKey: .distance)
+        try container.encodeIfPresent(fares, forKey: .fares)
+        try container.encodeIfPresent(route, forKey: .route)
+    }
+
+
 
 }

@@ -2,20 +2,21 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**search_id** | **String** |  | 
-**locations** | [**Array&lt;ResponseTimeFilterLocation&gt;**](ResponseTimeFilterLocation.md) |  | 
-**unreachable** | **Array&lt;String&gt;** |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **search_id** | **String** |  |  |
+| **locations** | [**Array&lt;ResponseTimeFilterLocation&gt;**](ResponseTimeFilterLocation.md) |  |  |
+| **unreachable** | **Array&lt;String&gt;** |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeFilterResult.new(search_id: null,
-                                 locations: null,
-                                 unreachable: null)
+instance = OpenapiClient::ResponseTimeFilterResult.new(
+  search_id: null,
+  locations: null,
+  unreachable: null
+)
 ```
-
 

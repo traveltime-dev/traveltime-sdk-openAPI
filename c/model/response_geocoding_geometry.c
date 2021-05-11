@@ -25,11 +25,17 @@ void response_geocoding_geometry_free(response_geocoding_geometry_t *response_ge
         return ;
     }
     listEntry_t *listEntry;
-    free(response_geocoding_geometry->type);
-    list_ForEach(listEntry, response_geocoding_geometry->coordinates) {
-        free(listEntry->data);
+    if (response_geocoding_geometry->type) {
+        free(response_geocoding_geometry->type);
+        response_geocoding_geometry->type = NULL;
     }
-    list_free(response_geocoding_geometry->coordinates);
+    if (response_geocoding_geometry->coordinates) {
+        list_ForEach(listEntry, response_geocoding_geometry->coordinates) {
+            free(listEntry->data);
+        }
+        list_free(response_geocoding_geometry->coordinates);
+        response_geocoding_geometry->coordinates = NULL;
+    }
     free(response_geocoding_geometry);
 }
 

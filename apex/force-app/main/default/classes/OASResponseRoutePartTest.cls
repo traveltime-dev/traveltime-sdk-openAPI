@@ -73,7 +73,6 @@ private class OASResponseRoutePartTest {
     private static void maintainRenamedProperties() {
         OASResponseRoutePart responseRoutePart = new OASResponseRoutePart();
         Map<String, String> x-property-mappings = responseRoutePart.getx-property-mappings();
-        System.assertEquals('r_type', x-property-mappings.get('type'));
         System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
         System.assertEquals('departureStation', x-property-mappings.get('departure_station'));
         System.assertEquals('arrivalStation', x-property-mappings.get('arrival_station'));
@@ -87,7 +86,7 @@ private class OASResponseRoutePartTest {
         OASResponseRoutePart responseRoutePart = new OASResponseRoutePart();
         System.assertEquals(new List<OASCoords>(), responseRoutePart.coords);
         System.assertEquals(null, responseRoutePart.id);
-        System.assertEquals(null, responseRoutePart.r_type);
+        System.assertEquals(null, responseRoutePart.type);
         System.assertEquals(null, responseRoutePart.mode);
         System.assertEquals(null, responseRoutePart.directions);
         System.assertEquals(null, responseRoutePart.distance);

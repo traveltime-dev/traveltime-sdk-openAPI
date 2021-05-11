@@ -7,22 +7,26 @@
     {
       "name": "http_status",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "error_code",
       "type": ["null", "int"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "description",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "documentation_link",
       "type": ["null", "string"],
-      "doc": ""
+      "doc": "",
+      "default": null
     },
     {
       "name": "additional_info",
@@ -30,7 +34,9 @@
         "type": "map",
         "items": "array"
       }],
-      "doc": ""
+      "doc": "",
+      "default": null
     }
   ]
+
 }

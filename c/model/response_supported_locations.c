@@ -25,14 +25,20 @@ void response_supported_locations_free(response_supported_locations_t *response_
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_supported_locations->locations) {
-        response_supported_location_free(listEntry->data);
+    if (response_supported_locations->locations) {
+        list_ForEach(listEntry, response_supported_locations->locations) {
+            response_supported_location_free(listEntry->data);
+        }
+        list_free(response_supported_locations->locations);
+        response_supported_locations->locations = NULL;
     }
-    list_free(response_supported_locations->locations);
-    list_ForEach(listEntry, response_supported_locations->unsupported_locations) {
-        free(listEntry->data);
+    if (response_supported_locations->unsupported_locations) {
+        list_ForEach(listEntry, response_supported_locations->unsupported_locations) {
+            free(listEntry->data);
+        }
+        list_free(response_supported_locations->unsupported_locations);
+        response_supported_locations->unsupported_locations = NULL;
     }
-    list_free(response_supported_locations->unsupported_locations);
     free(response_supported_locations);
 }
 

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-Initialize-PSOpenAPIToolsRequestTransportation  -Type null `
+$RequestTransportation = Initialize-PSOpenAPIToolsRequestTransportation  -Type null `
  -PtChangeDelay null `
  -WalkingTime null `
  -DrivingTimeToStation null `
@@ -24,7 +24,7 @@ Initialize-PSOpenAPIToolsRequestTransportation  -Type null `
 
 - Convert the resource to JSON
 ```powershell
-$ | Convert-ToJSON
+$RequestTransportation | ConvertTo-JSON
 ```
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

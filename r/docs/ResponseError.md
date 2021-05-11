@@ -1,5 +1,6 @@
 # openapi::ResponseError
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

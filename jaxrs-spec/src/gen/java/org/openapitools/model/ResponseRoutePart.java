@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2020-07-14T11:27:39.949Z[Etc/UTC]")public class ResponseRoutePart   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class ResponseRoutePart   {
   
   private @Valid String id;
 
@@ -88,7 +88,9 @@ public enum TypeEnum {
 
   public void setId(String id) {
     this.id = id;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart type(TypeEnum type) {
     this.type = type;
@@ -107,7 +109,9 @@ public enum TypeEnum {
 
   public void setType(TypeEnum type) {
     this.type = type;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart mode(ResponseTransportationMode mode) {
     this.mode = mode;
@@ -126,7 +130,9 @@ public enum TypeEnum {
 
   public void setMode(ResponseTransportationMode mode) {
     this.mode = mode;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart directions(String directions) {
     this.directions = directions;
@@ -145,7 +151,9 @@ public enum TypeEnum {
 
   public void setDirections(String directions) {
     this.directions = directions;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart distance(Integer distance) {
     this.distance = distance;
@@ -164,7 +172,9 @@ public enum TypeEnum {
 
   public void setDistance(Integer distance) {
     this.distance = distance;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart travelTime(Integer travelTime) {
     this.travelTime = travelTime;
@@ -183,7 +193,9 @@ public enum TypeEnum {
 
   public void setTravelTime(Integer travelTime) {
     this.travelTime = travelTime;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart coords(List<Coords> coords) {
     this.coords = coords;
@@ -202,7 +214,9 @@ public enum TypeEnum {
 
   public void setCoords(List<Coords> coords) {
     this.coords = coords;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart direction(String direction) {
     this.direction = direction;
@@ -220,7 +234,9 @@ public enum TypeEnum {
 
   public void setDirection(String direction) {
     this.direction = direction;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart road(String road) {
     this.road = road;
@@ -238,7 +254,9 @@ public enum TypeEnum {
 
   public void setRoad(String road) {
     this.road = road;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart turn(String turn) {
     this.turn = turn;
@@ -256,7 +274,9 @@ public enum TypeEnum {
 
   public void setTurn(String turn) {
     this.turn = turn;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart line(String line) {
     this.line = line;
@@ -274,7 +294,9 @@ public enum TypeEnum {
 
   public void setLine(String line) {
     this.line = line;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart departureStation(String departureStation) {
     this.departureStation = departureStation;
@@ -292,7 +314,9 @@ public enum TypeEnum {
 
   public void setDepartureStation(String departureStation) {
     this.departureStation = departureStation;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart arrivalStation(String arrivalStation) {
     this.arrivalStation = arrivalStation;
@@ -310,7 +334,9 @@ public enum TypeEnum {
 
   public void setArrivalStation(String arrivalStation) {
     this.arrivalStation = arrivalStation;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart departsAt(String departsAt) {
     this.departsAt = departsAt;
@@ -328,7 +354,9 @@ public enum TypeEnum {
 
   public void setDepartsAt(String departsAt) {
     this.departsAt = departsAt;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart arrivesAt(String arrivesAt) {
     this.arrivesAt = arrivesAt;
@@ -346,7 +374,9 @@ public enum TypeEnum {
 
   public void setArrivesAt(String arrivesAt) {
     this.arrivesAt = arrivesAt;
-  }/**
+  }
+
+/**
    **/
   public ResponseRoutePart numStops(Integer numStops) {
     this.numStops = numStops;
@@ -366,8 +396,9 @@ public enum TypeEnum {
     this.numStops = numStops;
   }
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -427,7 +458,7 @@ public enum TypeEnum {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

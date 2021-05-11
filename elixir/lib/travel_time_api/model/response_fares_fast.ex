@@ -13,7 +13,7 @@ defmodule TravelTimeAPI.Model.ResponseFaresFast do
   ]
 
   @type t :: %__MODULE__{
-    :"tickets_total" => [ResponseFareTicket]
+    :"tickets_total" => [TravelTimeAPI.Model.ResponseFareTicket.t]
   }
 end
 

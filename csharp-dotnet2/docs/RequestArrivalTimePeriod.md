@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestArrivalTimePeriod
+
 ## Properties
 
 Name | Type | Description | Notes

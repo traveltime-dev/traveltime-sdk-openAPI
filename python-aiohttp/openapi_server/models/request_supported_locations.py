@@ -59,5 +59,7 @@ class RequestSupportedLocations(Model):
         """
         if locations is None:
             raise ValueError("Invalid value for `locations`, must not be `None`")
+        if locations is not None and len(locations) < 1:
+            raise ValueError("Invalid value for `locations`, number of items must be greater than or equal to `1`")
 
         self._locations = locations

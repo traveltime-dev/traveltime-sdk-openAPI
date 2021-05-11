@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**properties** | [**Array&lt;ResponseTimeFilterFastProperties&gt;**](ResponseTimeFilterFastProperties.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **id** | **String** |  |  |
+| **properties** | [**Array&lt;ResponseTimeFilterFastProperties&gt;**](ResponseTimeFilterFastProperties.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeFilterFastLocation.new(id: null,
-                                 properties: null)
+instance = OpenapiClient::ResponseTimeFilterFastLocation.new(
+  id: null,
+  properties: null
+)
 ```
-
 

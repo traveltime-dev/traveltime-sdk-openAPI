@@ -195,3 +195,4 @@ model_response_time_map_wkt_result.go
 model_response_transportation_mode.go
 model_response_travel_time_statistics.go
 response.go
+utils.go

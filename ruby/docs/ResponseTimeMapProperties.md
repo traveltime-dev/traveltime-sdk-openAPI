@@ -2,16 +2,17 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**is_only_walking** | **Boolean** |  | [optional] 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **is_only_walking** | **Boolean** |  | [optional] |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeMapProperties.new(is_only_walking: null)
+instance = OpenapiClient::ResponseTimeMapProperties.new(
+  is_only_walking: null
+)
 ```
-
 

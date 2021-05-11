@@ -22,21 +22,22 @@ import org.openapitools.vertxweb.server.model.ResponseTimeMap;
 
 import org.openapitools.vertxweb.server.ApiResponse;
 
-import io.reactivex.Single;
+import io.vertx.core.Future;
+import io.vertx.core.json.JsonObject;
 
 import java.util.List;
 import java.util.Map;
 
 public interface DefaultApi  {
-    Single<ApiResponse<ResponseGeocoding>> geocodingReverseSearch(Double lat,Double lng,String withinCountry);
-    Single<ApiResponse<ResponseGeocoding>> geocodingSearch(String query,Double focusLat,Double focusLng,String withinCountry);
-    Single<ApiResponse<ResponseMapInfo>> mapInfo();
-    Single<ApiResponse<ResponseRoutes>> routes(RequestRoutes requestRoutes);
-    Single<ApiResponse<ResponseSupportedLocations>> supportedLocations(RequestSupportedLocations requestSupportedLocations);
-    Single<ApiResponse<ResponseTimeFilter>> timeFilter(RequestTimeFilter requestTimeFilter);
-    Single<ApiResponse<ResponseTimeFilterFast>> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast);
-    Single<ApiResponse<ResponseTimeFilterPostcodeDistricts>> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts);
-    Single<ApiResponse<ResponseTimeFilterPostcodeSectors>> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors);
-    Single<ApiResponse<ResponseTimeFilterPostcodes>> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes);
-    Single<ApiResponse<ResponseTimeMap>> timeMap(RequestTimeMap requestTimeMap);
+    Future<ApiResponse<ResponseGeocoding>> geocodingReverseSearch(Double lat, Double lng, String withinCountry);
+    Future<ApiResponse<ResponseGeocoding>> geocodingSearch(String query, Double focusLat, Double focusLng, String withinCountry);
+    Future<ApiResponse<ResponseMapInfo>> mapInfo();
+    Future<ApiResponse<ResponseRoutes>> routes(RequestRoutes requestRoutes);
+    Future<ApiResponse<ResponseSupportedLocations>> supportedLocations(RequestSupportedLocations requestSupportedLocations);
+    Future<ApiResponse<ResponseTimeFilter>> timeFilter(RequestTimeFilter requestTimeFilter);
+    Future<ApiResponse<ResponseTimeFilterFast>> timeFilterFast(RequestTimeFilterFast requestTimeFilterFast);
+    Future<ApiResponse<ResponseTimeFilterPostcodeDistricts>> timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts requestTimeFilterPostcodeDistricts);
+    Future<ApiResponse<ResponseTimeFilterPostcodeSectors>> timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors requestTimeFilterPostcodeSectors);
+    Future<ApiResponse<ResponseTimeFilterPostcodes>> timeFilterPostcodes(RequestTimeFilterPostcodes requestTimeFilterPostcodes);
+    Future<ApiResponse<ResponseTimeMap>> timeMap(RequestTimeMap requestTimeMap);
 }

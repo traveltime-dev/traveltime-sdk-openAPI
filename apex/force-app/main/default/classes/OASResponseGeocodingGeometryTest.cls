@@ -70,16 +70,9 @@ private class OASResponseGeocodingGeometryTest {
     }
 
     @isTest
-    private static void maintainRenamedProperties() {
-        OASResponseGeocodingGeometry responseGeocodingGeometry = new OASResponseGeocodingGeometry();
-        Map<String, String> x-property-mappings = responseGeocodingGeometry.getx-property-mappings();
-        System.assertEquals('r_type', x-property-mappings.get('type'));
-    }
-
-    @isTest
     private static void defaultValuesPopulated() {
         OASResponseGeocodingGeometry responseGeocodingGeometry = new OASResponseGeocodingGeometry();
         System.assertEquals(new List<Double>(), responseGeocodingGeometry.coordinates);
-        System.assertEquals(null, responseGeocodingGeometry.r_type);
+        System.assertEquals(null, responseGeocodingGeometry.type);
     }
 }

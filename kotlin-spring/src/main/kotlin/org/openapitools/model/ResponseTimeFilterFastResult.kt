@@ -10,6 +10,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.Pattern
 import javax.validation.constraints.Size
+import javax.validation.Valid
 
 /**
  * 
@@ -19,14 +20,12 @@ import javax.validation.constraints.Size
  */
 data class ResponseTimeFilterFastResult(
 
-    @get:NotNull 
-    @field:JsonProperty("search_id") val searchId: kotlin.String,
+    @field:JsonProperty("search_id", required = true) val searchId: kotlin.String,
 
-    @get:NotNull 
-    @field:JsonProperty("locations") val locations: kotlin.collections.List<ResponseTimeFilterFastLocation>,
+    @field:Valid
+    @field:JsonProperty("locations", required = true) val locations: kotlin.collections.List<ResponseTimeFilterFastLocation>,
 
-    @get:NotNull 
-    @field:JsonProperty("unreachable") val unreachable: kotlin.collections.List<kotlin.String>
+    @field:JsonProperty("unreachable", required = true) val unreachable: kotlin.collections.List<kotlin.String>
 ) {
 
 }

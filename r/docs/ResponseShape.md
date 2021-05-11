@@ -1,5 +1,6 @@
 # openapi::ResponseShape
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

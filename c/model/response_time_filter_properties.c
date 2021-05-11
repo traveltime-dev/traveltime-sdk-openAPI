@@ -31,12 +31,21 @@ void response_time_filter_properties_free(response_time_filter_properties_t *res
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_time_filter_properties->distance_breakdown) {
-        response_distance_breakdown_item_free(listEntry->data);
+    if (response_time_filter_properties->distance_breakdown) {
+        list_ForEach(listEntry, response_time_filter_properties->distance_breakdown) {
+            response_distance_breakdown_item_free(listEntry->data);
+        }
+        list_free(response_time_filter_properties->distance_breakdown);
+        response_time_filter_properties->distance_breakdown = NULL;
     }
-    list_free(response_time_filter_properties->distance_breakdown);
-    response_fares_free(response_time_filter_properties->fares);
-    response_route_free(response_time_filter_properties->route);
+    if (response_time_filter_properties->fares) {
+        response_fares_free(response_time_filter_properties->fares);
+        response_time_filter_properties->fares = NULL;
+    }
+    if (response_time_filter_properties->route) {
+        response_route_free(response_time_filter_properties->route);
+        response_time_filter_properties->route = NULL;
+    }
     free(response_time_filter_properties);
 }
 
@@ -181,6 +190,14 @@ response_time_filter_properties_t *response_time_filter_properties_parseFromJSON
 
     return response_time_filter_properties_local_var;
 end:
+    if (fares_local_nonprim) {
+        response_fares_free(fares_local_nonprim);
+        fares_local_nonprim = NULL;
+    }
+    if (route_local_nonprim) {
+        response_route_free(route_local_nonprim);
+        route_local_nonprim = NULL;
+    }
     return NULL;
 
 }

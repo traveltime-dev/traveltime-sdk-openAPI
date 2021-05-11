@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import AnyCodable
 
-
-public struct ResponseDistanceBreakdownItem: Codable { 
-
+public struct ResponseDistanceBreakdownItem: Codable, Hashable {
 
     public var mode: ResponseTransportationMode
     public var distance: Int
@@ -18,5 +17,19 @@ public struct ResponseDistanceBreakdownItem: Codable {
         self.mode = mode
         self.distance = distance
     }
+    public enum CodingKeys: String, CodingKey, CaseIterable {
+        case mode
+        case distance
+    }
+
+    // Encodable protocol methods
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(mode, forKey: .mode)
+        try container.encode(distance, forKey: .distance)
+    }
+
+
 
 }

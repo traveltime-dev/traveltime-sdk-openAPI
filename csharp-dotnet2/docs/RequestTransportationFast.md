@@ -1,4 +1,5 @@
 # Org.OpenAPITools.Model.RequestTransportationFast
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -9,13 +9,16 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterFastProperties
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseTimeFilterFastProperties   {
   @JsonProperty("travel_time")
+  
   private Integer travelTime;
 
   @JsonProperty("fares")
+  @Valid
+
   private ResponseFaresFast fares;
 
   public ResponseTimeFilterFastProperties travelTime(Integer travelTime) {
@@ -27,7 +30,7 @@ public class ResponseTimeFilterFastProperties   {
    * Get travelTime
    * @return travelTime
   **/
-    public Integer getTravelTime() {
+  public Integer getTravelTime() {
     return travelTime;
   }
 
@@ -44,7 +47,6 @@ public class ResponseTimeFilterFastProperties   {
    * Get fares
    * @return fares
   **/
-  @Valid
   public ResponseFaresFast getFares() {
     return fares;
   }
@@ -55,7 +57,7 @@ public class ResponseTimeFilterFastProperties   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -88,7 +90,7 @@ public class ResponseTimeFilterFastProperties   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

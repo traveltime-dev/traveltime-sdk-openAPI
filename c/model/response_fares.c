@@ -25,14 +25,20 @@ void response_fares_free(response_fares_t *response_fares) {
         return ;
     }
     listEntry_t *listEntry;
-    list_ForEach(listEntry, response_fares->breakdown) {
-        response_fares_breakdown_item_free(listEntry->data);
+    if (response_fares->breakdown) {
+        list_ForEach(listEntry, response_fares->breakdown) {
+            response_fares_breakdown_item_free(listEntry->data);
+        }
+        list_free(response_fares->breakdown);
+        response_fares->breakdown = NULL;
     }
-    list_free(response_fares->breakdown);
-    list_ForEach(listEntry, response_fares->tickets_total) {
-        response_fare_ticket_free(listEntry->data);
+    if (response_fares->tickets_total) {
+        list_ForEach(listEntry, response_fares->tickets_total) {
+            response_fare_ticket_free(listEntry->data);
+        }
+        list_free(response_fares->tickets_total);
+        response_fares->tickets_total = NULL;
     }
-    list_free(response_fares->tickets_total);
     free(response_fares);
 }
 

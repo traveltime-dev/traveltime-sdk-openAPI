@@ -11,10 +11,13 @@ import javax.validation.constraints.*;
 /**
  * ResponseFaresFast
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2020-07-14T11:27:15.847Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
 @SuppressWarnings({"UnusedReturnValue", "WeakerAccess"})
 public class ResponseFaresFast   {
   @JsonProperty("tickets_total")
+  @NotNull
+@Valid
+
   private List<ResponseFareTicket> ticketsTotal = new ArrayList<>();
 
   public ResponseFaresFast ticketsTotal(List<ResponseFareTicket> ticketsTotal) {
@@ -31,8 +34,6 @@ public class ResponseFaresFast   {
    * Get ticketsTotal
    * @return ticketsTotal
   **/
-  @NotNull
-@Valid
   public List<ResponseFareTicket> getTicketsTotal() {
     return ticketsTotal;
   }
@@ -43,7 +44,7 @@ public class ResponseFaresFast   {
 
 
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -74,7 +75,7 @@ public class ResponseFaresFast   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }

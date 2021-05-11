@@ -2,18 +2,19 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**code** | **String** |  | 
-**properties** | [**ResponseTimeFilterPostcodeDistrictProperties**](ResponseTimeFilterPostcodeDistrictProperties.md) |  | 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **code** | **String** |  |  |
+| **properties** | [**ResponseTimeFilterPostcodeDistrictProperties**](ResponseTimeFilterPostcodeDistrictProperties.md) |  |  |
 
-## Code Sample
+## Example
 
 ```ruby
-require 'OpenapiClient'
+require 'openapi_client'
 
-instance = OpenapiClient::ResponseTimeFilterPostcodeDistrict.new(code: null,
-                                 properties: null)
+instance = OpenapiClient::ResponseTimeFilterPostcodeDistrict.new(
+  code: null,
+  properties: null
+)
 ```
-
 

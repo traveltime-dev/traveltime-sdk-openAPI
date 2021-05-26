@@ -13,6 +13,7 @@ src/main/java/com/prokarma/pkmst/controller/DefaultApiController.java
 src/main/java/com/prokarma/pkmst/logging/HttpLoggingFilter.java
 src/main/java/com/prokarma/pkmst/model/Coords.java
 src/main/java/com/prokarma/pkmst/model/RequestArrivalTimePeriod.java
+src/main/java/com/prokarma/pkmst/model/RequestLevelOfDetail.java
 src/main/java/com/prokarma/pkmst/model/RequestLocation.java
 src/main/java/com/prokarma/pkmst/model/RequestRangeFull.java
 src/main/java/com/prokarma/pkmst/model/RequestRangeNoMaxResults.java

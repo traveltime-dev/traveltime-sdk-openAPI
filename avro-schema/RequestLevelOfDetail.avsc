@@ -1,0 +1,35 @@
+{
+  "namespace": "model",
+  "type": "record",
+  "doc": "",
+  "name": "RequestLevelOfDetail",
+  "fields": [
+    {
+      "name": "scale_type",
+      "type": {
+        "type": "enum",
+        "name": "RequestLevelOfDetail_scaleUnderscoretype",
+        "symbols": [
+          "simple"
+        ]
+      },
+      "doc": ""
+    },
+    {
+      "name": "level",
+      "type": {
+        "type": "enum",
+        "name": "RequestLevelOfDetail_level",
+        "symbols": [
+          "lowest",
+          "low",
+          "medium",
+          "high",
+          "highest"
+        ]
+      },
+      "doc": ""
+    }
+  ]
+
+}

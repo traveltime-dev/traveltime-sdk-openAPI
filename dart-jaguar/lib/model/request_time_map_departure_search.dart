@@ -7,6 +7,8 @@ import 'package:openapi/model/request_time_map_property.dart';
 
 import 'package:openapi/model/request_transportation.dart';
 
+import 'package:openapi/model/request_level_of_detail.dart';
+
 import 'package:openapi/model/coords.dart';
 
 part 'request_time_map_departure_search.jser.dart';
@@ -34,6 +36,9 @@ class RequestTimeMapDepartureSearch {
   @Alias('range', isNullable: false,  )
   final RequestRangeNoMaxResults range;
   
+  @Alias('level_of_detail', isNullable: false,  )
+  final RequestLevelOfDetail levelOfDetail;
+  
 
   RequestTimeMapDepartureSearch(
       
@@ -45,14 +50,15 @@ class RequestTimeMapDepartureSearch {
      this.transportation = null,  
      this.travelTime = null,  
      this.departureTime = null,   this.properties = const [],  
-     this.range = null 
+     this.range = null,  
+     this.levelOfDetail = null 
     
     }
   );
 
   @override
   String toString() {
-    return 'RequestTimeMapDepartureSearch[id=$id, coords=$coords, transportation=$transportation, travelTime=$travelTime, departureTime=$departureTime, properties=$properties, range=$range, ]';
+    return 'RequestTimeMapDepartureSearch[id=$id, coords=$coords, transportation=$transportation, travelTime=$travelTime, departureTime=$departureTime, properties=$properties, range=$range, levelOfDetail=$levelOfDetail, ]';
   }
 }
 

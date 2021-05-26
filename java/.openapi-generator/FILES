@@ -8,6 +8,7 @@ build.sbt
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -127,6 +128,7 @@ src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/auth/HttpBearerAuth.java
 src/main/java/org/openapitools/client/model/Coords.java
 src/main/java/org/openapitools/client/model/RequestArrivalTimePeriod.java
+src/main/java/org/openapitools/client/model/RequestLevelOfDetail.java
 src/main/java/org/openapitools/client/model/RequestLocation.java
 src/main/java/org/openapitools/client/model/RequestRangeFull.java
 src/main/java/org/openapitools/client/model/RequestRangeNoMaxResults.java
@@ -220,6 +222,7 @@ src/main/java/org/openapitools/client/model/ResponseTravelTimeStatistics.java
 src/test/java/org/openapitools/client/api/DefaultApiTest.java
 src/test/java/org/openapitools/client/model/CoordsTest.java
 src/test/java/org/openapitools/client/model/RequestArrivalTimePeriodTest.java
+src/test/java/org/openapitools/client/model/RequestLevelOfDetailTest.java
 src/test/java/org/openapitools/client/model/RequestLocationTest.java
 src/test/java/org/openapitools/client/model/RequestRangeFullTest.java
 src/test/java/org/openapitools/client/model/RequestRangeNoMaxResultsTest.java

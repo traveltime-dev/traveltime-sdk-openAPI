@@ -8,6 +8,7 @@ IHttpClient.ts
 api/default.service.ts
 model/coords.ts
 model/requestArrivalTimePeriod.ts
+model/requestLevelOfDetail.ts
 model/requestLocation.ts
 model/requestRangeFull.ts
 model/requestRangeNoMaxResults.ts

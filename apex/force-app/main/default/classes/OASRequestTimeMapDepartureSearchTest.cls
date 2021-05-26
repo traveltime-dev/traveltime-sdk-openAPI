@@ -75,6 +75,7 @@ private class OASRequestTimeMapDepartureSearchTest {
         Map<String, String> x-property-mappings = requestTimeMapDepartureSearch.getx-property-mappings();
         System.assertEquals('travelTime', x-property-mappings.get('travel_time'));
         System.assertEquals('departureTime', x-property-mappings.get('departure_time'));
+        System.assertEquals('levelOfDetail', x-property-mappings.get('level_of_detail'));
     }
 
     @isTest
@@ -87,5 +88,6 @@ private class OASRequestTimeMapDepartureSearchTest {
         System.assertEquals(null, requestTimeMapDepartureSearch.travelTime);
         System.assertEquals(null, requestTimeMapDepartureSearch.departureTime);
         System.assertEquals(null, requestTimeMapDepartureSearch.range);
+        System.assertEquals(null, requestTimeMapDepartureSearch.levelOfDetail);
     }
 }

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseRoutesResult: Codable, Hashable {
 
@@ -19,6 +21,7 @@ public struct ResponseRoutesResult: Codable, Hashable {
         self.locations = locations
         self.unreachable = unreachable
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case searchId = "search_id"
         case locations
@@ -33,7 +36,4 @@ public struct ResponseRoutesResult: Codable, Hashable {
         try container.encode(locations, forKey: .locations)
         try container.encode(unreachable, forKey: .unreachable)
     }
-
-
-
 }

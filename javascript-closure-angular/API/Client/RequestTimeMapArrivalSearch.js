@@ -47,3 +47,9 @@ API.Client.RequestTimeMapArrivalSearch.prototype.properties;
  */
 API.Client.RequestTimeMapArrivalSearch.prototype.range;
 
+/**
+ * @type {!API.Client.RequestLevelOfDetail}
+ * @export
+ */
+API.Client.RequestTimeMapArrivalSearch.prototype.levelOfDetail;
+

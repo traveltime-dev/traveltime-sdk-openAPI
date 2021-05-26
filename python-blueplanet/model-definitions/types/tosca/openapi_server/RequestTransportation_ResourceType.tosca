@@ -21,6 +21,11 @@ resourceTypes {
           enum = ["cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry"]
           optional = true
         }
+        disable_border_crossing {
+          type =  boolean
+          description = ""
+          optional = false
+        }
         pt_change_delay {
           type =  integer
           description = ""
@@ -32,6 +37,11 @@ resourceTypes {
           optional = false
         }
         driving_time_to_station {
+          type =  integer
+          description = ""
+          optional = false
+        }
+        cycling_time_to_station {
           type =  integer
           description = ""
           optional = false

@@ -9,9 +9,11 @@ use WWW::OpenAPIClient::Object::RequestTransportation;
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  | 
+**disable_border_crossing** | **boolean** |  | [optional] 
 **pt_change_delay** | **int** |  | [optional] 
 **walking_time** | **int** |  | [optional] 
 **driving_time_to_station** | **int** |  | [optional] 
+**cycling_time_to_station** | **int** |  | [optional] 
 **parking_time** | **int** |  | [optional] 
 **boarding_time** | **int** |  | [optional] 
 

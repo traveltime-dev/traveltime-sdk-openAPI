@@ -18,6 +18,11 @@ namespace Org.OpenAPITools._.Models
         public TypeEnum? Type { get; private set; }
 
         /// <summary>
+        /// DisableBorderCrossing
+        /// </summary>
+        public bool? DisableBorderCrossing { get; private set; }
+
+        /// <summary>
         /// PtChangeDelay
         /// </summary>
         public int? PtChangeDelay { get; private set; }
@@ -31,6 +36,11 @@ namespace Org.OpenAPITools._.Models
         /// DrivingTimeToStation
         /// </summary>
         public int? DrivingTimeToStation { get; private set; }
+
+        /// <summary>
+        /// CyclingTimeToStation
+        /// </summary>
+        public int? CyclingTimeToStation { get; private set; }
 
         /// <summary>
         /// ParkingTime
@@ -52,16 +62,20 @@ namespace Org.OpenAPITools._.Models
         {
         }
 
-        private RequestTransportation(TypeEnum? Type, int? PtChangeDelay, int? WalkingTime, int? DrivingTimeToStation, int? ParkingTime, int? BoardingTime)
+        private RequestTransportation(TypeEnum? Type, bool? DisableBorderCrossing, int? PtChangeDelay, int? WalkingTime, int? DrivingTimeToStation, int? CyclingTimeToStation, int? ParkingTime, int? BoardingTime)
         {
             
             this.Type = Type;
+            
+            this.DisableBorderCrossing = DisableBorderCrossing;
             
             this.PtChangeDelay = PtChangeDelay;
             
             this.WalkingTime = WalkingTime;
             
             this.DrivingTimeToStation = DrivingTimeToStation;
+            
+            this.CyclingTimeToStation = CyclingTimeToStation;
             
             this.ParkingTime = ParkingTime;
             
@@ -87,9 +101,11 @@ namespace Org.OpenAPITools._.Models
         {
             return Builder()
                 .Type(Type)
+                .DisableBorderCrossing(DisableBorderCrossing)
                 .PtChangeDelay(PtChangeDelay)
                 .WalkingTime(WalkingTime)
                 .DrivingTimeToStation(DrivingTimeToStation)
+                .CyclingTimeToStation(CyclingTimeToStation)
                 .ParkingTime(ParkingTime)
                 .BoardingTime(BoardingTime);
         }
@@ -142,9 +158,11 @@ namespace Org.OpenAPITools._.Models
         public sealed class RequestTransportationBuilder
         {
             private TypeEnum? _Type;
+            private bool? _DisableBorderCrossing;
             private int? _PtChangeDelay;
             private int? _WalkingTime;
             private int? _DrivingTimeToStation;
+            private int? _CyclingTimeToStation;
             private int? _ParkingTime;
             private int? _BoardingTime;
 
@@ -164,6 +182,16 @@ namespace Org.OpenAPITools._.Models
             public RequestTransportationBuilder Type(TypeEnum? value)
             {
                 _Type = value;
+                return this;
+            }
+
+            /// <summary>
+            /// Sets value for RequestTransportation.DisableBorderCrossing property.
+            /// </summary>
+            /// <param name="value">DisableBorderCrossing</param>
+            public RequestTransportationBuilder DisableBorderCrossing(bool? value)
+            {
+                _DisableBorderCrossing = value;
                 return this;
             }
 
@@ -198,6 +226,16 @@ namespace Org.OpenAPITools._.Models
             }
 
             /// <summary>
+            /// Sets value for RequestTransportation.CyclingTimeToStation property.
+            /// </summary>
+            /// <param name="value">CyclingTimeToStation</param>
+            public RequestTransportationBuilder CyclingTimeToStation(int? value)
+            {
+                _CyclingTimeToStation = value;
+                return this;
+            }
+
+            /// <summary>
             /// Sets value for RequestTransportation.ParkingTime property.
             /// </summary>
             /// <param name="value">ParkingTime</param>
@@ -227,9 +265,11 @@ namespace Org.OpenAPITools._.Models
                 Validate();
                 return new RequestTransportation(
                     Type: _Type,
+                    DisableBorderCrossing: _DisableBorderCrossing,
                     PtChangeDelay: _PtChangeDelay,
                     WalkingTime: _WalkingTime,
                     DrivingTimeToStation: _DrivingTimeToStation,
+                    CyclingTimeToStation: _CyclingTimeToStation,
                     ParkingTime: _ParkingTime,
                     BoardingTime: _BoardingTime
                 );

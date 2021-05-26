@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **NSString*** |  | 
+**disableBorderCrossing** | **NSNumber*** |  | [optional] 
 **ptChangeDelay** | **NSNumber*** |  | [optional] 
 **walkingTime** | **NSNumber*** |  | [optional] 
 **drivingTimeToStation** | **NSNumber*** |  | [optional] 
+**cyclingTimeToStation** | **NSNumber*** |  | [optional] 
 **parkingTime** | **NSNumber*** |  | [optional] 
 **boardingTime** | **NSNumber*** |  | [optional] 
 

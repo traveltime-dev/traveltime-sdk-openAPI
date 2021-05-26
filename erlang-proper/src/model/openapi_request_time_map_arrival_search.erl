@@ -16,6 +16,7 @@
   | {'arrival_time', datetime() }
   | {'properties', list(openapi_request_time_map_property:openapi_request_time_map_property()) }
   | {'range', openapi_request_range_no_max_results:openapi_request_range_no_max_results() }
+  | {'level_of_detail', openapi_request_level_of_detail:openapi_request_level_of_detail() }
   ].
 
 
@@ -30,6 +31,7 @@ openapi_request_time_map_arrival_search(Fields) ->
             , {'arrival_time', datetime() }
             , {'properties', list(openapi_request_time_map_property:openapi_request_time_map_property()) }
             , {'range', openapi_request_range_no_max_results:openapi_request_range_no_max_results() }
+            , {'level_of_detail', openapi_request_level_of_detail:openapi_request_level_of_detail() }
             ],
   lists:ukeymerge(1, lists:sort(Fields), lists:sort(Default)).
 

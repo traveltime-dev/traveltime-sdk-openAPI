@@ -1,5 +1,6 @@
 export * from './Coords';
 export * from './RequestArrivalTimePeriod';
+export * from './RequestLevelOfDetail';
 export * from './RequestLocation';
 export * from './RequestRangeFull';
 export * from './RequestRangeNoMaxResults';
@@ -93,6 +94,7 @@ export * from './ResponseTravelTimeStatistics';
 
 import { Coords } from './Coords';
 import { RequestArrivalTimePeriod } from './RequestArrivalTimePeriod';
+import { RequestLevelOfDetail, RequestLevelOfDetailScaleTypeEnum  , RequestLevelOfDetailLevelEnum   } from './RequestLevelOfDetail';
 import { RequestLocation } from './RequestLocation';
 import { RequestRangeFull } from './RequestRangeFull';
 import { RequestRangeNoMaxResults } from './RequestRangeNoMaxResults';
@@ -126,7 +128,7 @@ import { RequestTimeMap } from './RequestTimeMap';
 import { RequestTimeMapArrivalSearch } from './RequestTimeMapArrivalSearch';
 import { RequestTimeMapDepartureSearch } from './RequestTimeMapDepartureSearch';
 import { RequestTimeMapProperty } from './RequestTimeMapProperty';
-import { RequestTransportation, RequestTransportationTypeEnum        } from './RequestTransportation';
+import { RequestTransportation, RequestTransportationTypeEnum          } from './RequestTransportation';
 import { RequestTransportationFast, RequestTransportationFastTypeEnum   } from './RequestTransportationFast';
 import { RequestUnionOnIntersection } from './RequestUnionOnIntersection';
 import { ResponseBoundingBox } from './ResponseBoundingBox';
@@ -204,6 +206,8 @@ const supportedMediaTypes: { [mediaType: string]: number } = {
                  
 let enumsMap: Set<string> = new Set<string>([
     "RequestArrivalTimePeriod",
+    "RequestLevelOfDetailScaleTypeEnum",
+    "RequestLevelOfDetailLevelEnum",
     "RequestRoutesProperty",
     "RequestTimeFilterFastProperty",
     "RequestTimeFilterPostcodeDistrictsProperty",
@@ -220,6 +224,7 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "Coords": Coords,
+    "RequestLevelOfDetail": RequestLevelOfDetail,
     "RequestLocation": RequestLocation,
     "RequestRangeFull": RequestRangeFull,
     "RequestRangeNoMaxResults": RequestRangeNoMaxResults,

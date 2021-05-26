@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 docs/Coords.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -98,6 +99,7 @@ openapi3graphql-server/api/default_api.graphql
 openapi3graphql-server/api/default_api_resolver.js
 openapi3graphql-server/model/coords.graphql
 openapi3graphql-server/model/request_arrival_time_period.graphql
+openapi3graphql-server/model/request_level_of_detail.graphql
 openapi3graphql-server/model/request_location.graphql
 openapi3graphql-server/model/request_range_full.graphql
 openapi3graphql-server/model/request_range_no_max_results.graphql

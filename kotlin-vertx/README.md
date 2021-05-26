@@ -44,6 +44,7 @@ This runs all tests and packages the library.
 
          - [org.openapitools.server.api.model.Coords](docs/Coords.md)
          - [org.openapitools.server.api.model.RequestArrivalTimePeriod](docs/RequestArrivalTimePeriod.md)
+         - [org.openapitools.server.api.model.RequestLevelOfDetail](docs/RequestLevelOfDetail.md)
          - [org.openapitools.server.api.model.RequestLocation](docs/RequestLocation.md)
          - [org.openapitools.server.api.model.RequestRangeFull](docs/RequestRangeFull.md)
          - [org.openapitools.server.api.model.RequestRangeNoMaxResults](docs/RequestRangeNoMaxResults.md)

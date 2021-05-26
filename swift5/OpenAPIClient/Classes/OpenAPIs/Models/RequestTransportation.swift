@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTransportation: Codable, Hashable {
 
@@ -24,25 +26,32 @@ public struct RequestTransportation: Codable, Hashable {
         case cycling+ferry = "cycling+ferry"
     }
     public var type: ModelType
+    public var disableBorderCrossing: Bool?
     public var ptChangeDelay: Int?
     public var walkingTime: Int?
     public var drivingTimeToStation: Int?
+    public var cyclingTimeToStation: Int?
     public var parkingTime: Int?
     public var boardingTime: Int?
 
-    public init(type: ModelType, ptChangeDelay: Int? = nil, walkingTime: Int? = nil, drivingTimeToStation: Int? = nil, parkingTime: Int? = nil, boardingTime: Int? = nil) {
+    public init(type: ModelType, disableBorderCrossing: Bool? = nil, ptChangeDelay: Int? = nil, walkingTime: Int? = nil, drivingTimeToStation: Int? = nil, cyclingTimeToStation: Int? = nil, parkingTime: Int? = nil, boardingTime: Int? = nil) {
         self.type = type
+        self.disableBorderCrossing = disableBorderCrossing
         self.ptChangeDelay = ptChangeDelay
         self.walkingTime = walkingTime
         self.drivingTimeToStation = drivingTimeToStation
+        self.cyclingTimeToStation = cyclingTimeToStation
         self.parkingTime = parkingTime
         self.boardingTime = boardingTime
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
+        case disableBorderCrossing = "disable_border_crossing"
         case ptChangeDelay = "pt_change_delay"
         case walkingTime = "walking_time"
         case drivingTimeToStation = "driving_time_to_station"
+        case cyclingTimeToStation = "cycling_time_to_station"
         case parkingTime = "parking_time"
         case boardingTime = "boarding_time"
     }
@@ -52,13 +61,12 @@ public struct RequestTransportation: Codable, Hashable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
+        try container.encodeIfPresent(disableBorderCrossing, forKey: .disableBorderCrossing)
         try container.encodeIfPresent(ptChangeDelay, forKey: .ptChangeDelay)
         try container.encodeIfPresent(walkingTime, forKey: .walkingTime)
         try container.encodeIfPresent(drivingTimeToStation, forKey: .drivingTimeToStation)
+        try container.encodeIfPresent(cyclingTimeToStation, forKey: .cyclingTimeToStation)
         try container.encodeIfPresent(parkingTime, forKey: .parkingTime)
         try container.encodeIfPresent(boardingTime, forKey: .boardingTime)
     }
-
-
-
 }

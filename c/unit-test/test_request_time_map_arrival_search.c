@@ -19,6 +19,7 @@ request_time_map_arrival_search_t* instantiate_request_time_map_arrival_search(i
 #include "test_coords.c"
 #include "test_request_transportation.c"
 #include "test_request_range_no_max_results.c"
+#include "test_request_level_of_detail.c"
 
 
 request_time_map_arrival_search_t* instantiate_request_time_map_arrival_search(int include_optional) {
@@ -34,7 +35,9 @@ request_time_map_arrival_search_t* instantiate_request_time_map_arrival_search(i
       "2013-10-20T19:20:30+01:00",
       list_create(),
        // false, not to have infinite recursion
-      instantiate_request_range_no_max_results(0)
+      instantiate_request_range_no_max_results(0),
+       // false, not to have infinite recursion
+      instantiate_request_level_of_detail(0)
     );
   } else {
     request_time_map_arrival_search = request_time_map_arrival_search_create(
@@ -44,6 +47,7 @@ request_time_map_arrival_search_t* instantiate_request_time_map_arrival_search(i
       60,
       "2013-10-20T19:20:30+01:00",
       list_create(),
+      NULL,
       NULL
     );
   }

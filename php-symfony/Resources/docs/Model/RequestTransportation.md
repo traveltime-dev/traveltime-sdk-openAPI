@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **string** |  | 
+**disableBorderCrossing** | **bool** |  | [optional] 
 **ptChangeDelay** | **int** |  | [optional] 
 **walkingTime** | **int** |  | [optional] 
 **drivingTimeToStation** | **int** |  | [optional] 
+**cyclingTimeToStation** | **int** |  | [optional] 
 **parkingTime** | **int** |  | [optional] 
 **boardingTime** | **int** |  | [optional] 
 

@@ -198,6 +198,8 @@ class ApiClient {
         case 'RequestArrivalTimePeriod':
           return RequestArrivalTimePeriodTypeTransformer().decode(value);
           
+        case 'RequestLevelOfDetail':
+          return RequestLevelOfDetail.fromJson(value);
         case 'RequestLocation':
           return RequestLocation.fromJson(value);
         case 'RequestRangeFull':

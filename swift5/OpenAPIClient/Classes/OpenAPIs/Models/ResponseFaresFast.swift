@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseFaresFast: Codable, Hashable {
 
@@ -15,6 +17,7 @@ public struct ResponseFaresFast: Codable, Hashable {
     public init(ticketsTotal: [ResponseFareTicket]) {
         self.ticketsTotal = ticketsTotal
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case ticketsTotal = "tickets_total"
     }
@@ -25,7 +28,4 @@ public struct ResponseFaresFast: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(ticketsTotal, forKey: .ticketsTotal)
     }
-
-
-
 }

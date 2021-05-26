@@ -18,6 +18,10 @@ abstract class RequestTransportation implements Built<RequestTransportation, Req
     // enum typeEnum {  cycling,  driving,  driving+train,  public_transport,  walking,  coach,  bus,  train,  ferry,  driving+ferry,  cycling+ferry,  };
 
     @nullable
+    @BuiltValueField(wireName: r'disable_border_crossing')
+    bool get disableBorderCrossing;
+
+    @nullable
     @BuiltValueField(wireName: r'pt_change_delay')
     int get ptChangeDelay;
 
@@ -28,6 +32,10 @@ abstract class RequestTransportation implements Built<RequestTransportation, Req
     @nullable
     @BuiltValueField(wireName: r'driving_time_to_station')
     int get drivingTimeToStation;
+
+    @nullable
+    @BuiltValueField(wireName: r'cycling_time_to_station')
+    int get cyclingTimeToStation;
 
     @nullable
     @BuiltValueField(wireName: r'parking_time')
@@ -62,6 +70,12 @@ class _$RequestTransportationSerializer implements StructuredSerializer<RequestT
             ..add(r'type')
             ..add(serializers.serialize(object.type,
                 specifiedType: const FullType(RequestTransportationTypeEnum)));
+        if (object.disableBorderCrossing != null) {
+            result
+                ..add(r'disable_border_crossing')
+                ..add(serializers.serialize(object.disableBorderCrossing,
+                    specifiedType: const FullType(bool)));
+        }
         if (object.ptChangeDelay != null) {
             result
                 ..add(r'pt_change_delay')
@@ -78,6 +92,12 @@ class _$RequestTransportationSerializer implements StructuredSerializer<RequestT
             result
                 ..add(r'driving_time_to_station')
                 ..add(serializers.serialize(object.drivingTimeToStation,
+                    specifiedType: const FullType(int)));
+        }
+        if (object.cyclingTimeToStation != null) {
+            result
+                ..add(r'cycling_time_to_station')
+                ..add(serializers.serialize(object.cyclingTimeToStation,
                     specifiedType: const FullType(int)));
         }
         if (object.parkingTime != null) {
@@ -110,6 +130,10 @@ class _$RequestTransportationSerializer implements StructuredSerializer<RequestT
                     result.type = serializers.deserialize(value,
                         specifiedType: const FullType(RequestTransportationTypeEnum)) as RequestTransportationTypeEnum;
                     break;
+                case r'disable_border_crossing':
+                    result.disableBorderCrossing = serializers.deserialize(value,
+                        specifiedType: const FullType(bool)) as bool;
+                    break;
                 case r'pt_change_delay':
                     result.ptChangeDelay = serializers.deserialize(value,
                         specifiedType: const FullType(int)) as int;
@@ -120,6 +144,10 @@ class _$RequestTransportationSerializer implements StructuredSerializer<RequestT
                     break;
                 case r'driving_time_to_station':
                     result.drivingTimeToStation = serializers.deserialize(value,
+                        specifiedType: const FullType(int)) as int;
+                    break;
+                case r'cycling_time_to_station':
+                    result.cyclingTimeToStation = serializers.deserialize(value,
                         specifiedType: const FullType(int)) as int;
                     break;
                 case r'parking_time':

@@ -9,6 +9,7 @@ configuration.go
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -104,6 +105,7 @@ go.mod
 go.sum
 model_coords.go
 model_request_arrival_time_period.go
+model_request_level_of_detail.go
 model_request_location.go
 model_request_range_full.go
 model_request_range_no_max_results.go

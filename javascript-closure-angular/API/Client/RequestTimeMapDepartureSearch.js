@@ -47,3 +47,9 @@ API.Client.RequestTimeMapDepartureSearch.prototype.properties;
  */
 API.Client.RequestTimeMapDepartureSearch.prototype.range;
 
+/**
+ * @type {!API.Client.RequestLevelOfDetail}
+ * @export
+ */
+API.Client.RequestTimeMapDepartureSearch.prototype.levelOfDetail;
+

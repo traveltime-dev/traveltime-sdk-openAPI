@@ -5,6 +5,7 @@ apis/index.ts
 index.ts
 models/Coords.ts
 models/RequestArrivalTimePeriod.ts
+models/RequestLevelOfDetail.ts
 models/RequestLocation.ts
 models/RequestRangeFull.ts
 models/RequestRangeNoMaxResults.ts

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeMapResult: Codable, Hashable {
 
@@ -19,6 +21,7 @@ public struct ResponseTimeMapResult: Codable, Hashable {
         self.shapes = shapes
         self.properties = properties
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case searchId = "search_id"
         case shapes
@@ -33,7 +36,4 @@ public struct ResponseTimeMapResult: Codable, Hashable {
         try container.encode(shapes, forKey: .shapes)
         try container.encode(properties, forKey: .properties)
     }
-
-
-
 }

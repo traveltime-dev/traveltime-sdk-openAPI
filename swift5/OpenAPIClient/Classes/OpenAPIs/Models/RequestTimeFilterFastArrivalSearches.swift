@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTimeFilterFastArrivalSearches: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct RequestTimeFilterFastArrivalSearches: Codable, Hashable {
         self.manyToOne = manyToOne
         self.oneToMany = oneToMany
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case manyToOne = "many_to_one"
         case oneToMany = "one_to_many"
@@ -29,7 +32,4 @@ public struct RequestTimeFilterFastArrivalSearches: Codable, Hashable {
         try container.encodeIfPresent(manyToOne, forKey: .manyToOne)
         try container.encodeIfPresent(oneToMany, forKey: .oneToMany)
     }
-
-
-
 }

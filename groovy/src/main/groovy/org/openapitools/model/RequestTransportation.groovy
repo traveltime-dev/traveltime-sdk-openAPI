@@ -9,11 +9,15 @@ class RequestTransportation {
     
     String type
     
+    Boolean disableBorderCrossing
+    
     Integer ptChangeDelay
     
     Integer walkingTime
     
     Integer drivingTimeToStation
+    
+    Integer cyclingTimeToStation
     
     Integer parkingTime
     

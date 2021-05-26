@@ -7,6 +7,7 @@ from typing import List, Dict  # noqa: F401
 
 from app.openapi_server.models.base_model_ import Model
 from app.openapi_server.models.coords import Coords  # noqa: F401,E501
+from app.openapi_server.models.request_level_of_detail import RequestLevelOfDetail  # noqa: F401,E501
 from app.openapi_server.models.request_range_no_max_results import RequestRangeNoMaxResults  # noqa: F401,E501
 from app.openapi_server.models.request_time_map_property import RequestTimeMapProperty  # noqa: F401,E501
 from app.openapi_server.models.request_transportation import RequestTransportation  # noqa: F401,E501
@@ -19,7 +20,7 @@ class RequestTimeMapArrivalSearch(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: str=None, coords: Coords=None, transportation: RequestTransportation=None, travel_time: int=None, arrival_time: datetime=None, properties: List[RequestTimeMapProperty]=None, range: RequestRangeNoMaxResults=None):  # noqa: E501
+    def __init__(self, id: str=None, coords: Coords=None, transportation: RequestTransportation=None, travel_time: int=None, arrival_time: datetime=None, properties: List[RequestTimeMapProperty]=None, range: RequestRangeNoMaxResults=None, level_of_detail: RequestLevelOfDetail=None):  # noqa: E501
         """RequestTimeMapArrivalSearch - a model defined in Swagger
 
         :param id: The id of this RequestTimeMapArrivalSearch.  # noqa: E501
@@ -36,6 +37,8 @@ class RequestTimeMapArrivalSearch(Model):
         :type properties: List[RequestTimeMapProperty]
         :param range: The range of this RequestTimeMapArrivalSearch.  # noqa: E501
         :type range: RequestRangeNoMaxResults
+        :param level_of_detail: The level_of_detail of this RequestTimeMapArrivalSearch.  # noqa: E501
+        :type level_of_detail: RequestLevelOfDetail
         """
         self.swagger_types = {
             'id': str,
@@ -44,7 +47,8 @@ class RequestTimeMapArrivalSearch(Model):
             'travel_time': int,
             'arrival_time': datetime,
             'properties': List[RequestTimeMapProperty],
-            'range': RequestRangeNoMaxResults
+            'range': RequestRangeNoMaxResults,
+            'level_of_detail': RequestLevelOfDetail
         }
 
         self.attribute_map = {
@@ -54,7 +58,8 @@ class RequestTimeMapArrivalSearch(Model):
             'travel_time': 'travel_time',
             'arrival_time': 'arrival_time',
             'properties': 'properties',
-            'range': 'range'
+            'range': 'range',
+            'level_of_detail': 'level_of_detail'
         }
 
         self._id = id
@@ -64,6 +69,7 @@ class RequestTimeMapArrivalSearch(Model):
         self._arrival_time = arrival_time
         self._properties = properties
         self._range = range
+        self._level_of_detail = level_of_detail
 
     @classmethod
     def from_dict(cls, dikt) -> 'RequestTimeMapArrivalSearch':
@@ -236,3 +242,24 @@ class RequestTimeMapArrivalSearch(Model):
         """
 
         self._range = range
+
+    @property
+    def level_of_detail(self) -> RequestLevelOfDetail:
+        """Gets the level_of_detail of this RequestTimeMapArrivalSearch.
+
+
+        :return: The level_of_detail of this RequestTimeMapArrivalSearch.
+        :rtype: RequestLevelOfDetail
+        """
+        return self._level_of_detail
+
+    @level_of_detail.setter
+    def level_of_detail(self, level_of_detail: RequestLevelOfDetail):
+        """Sets the level_of_detail of this RequestTimeMapArrivalSearch.
+
+
+        :param level_of_detail: The level_of_detail of this RequestTimeMapArrivalSearch.
+        :type level_of_detail: RequestLevelOfDetail
+        """
+
+        self._level_of_detail = level_of_detail

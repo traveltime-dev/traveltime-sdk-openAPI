@@ -7,7 +7,7 @@
     },
     "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
     "title" : "TravelTime API",
-    "version" : "1.2.2"
+    "version" : "1.2.3"
   },
   "externalDocs" : {
     "url" : "http://docs.traveltime.com"
@@ -1391,6 +1391,20 @@
         "enum" : [ "is_only_walking" ],
         "type" : "string"
       },
+      "RequestLevelOfDetail" : {
+        "properties" : {
+          "scale_type" : {
+            "enum" : [ "simple" ],
+            "type" : "string"
+          },
+          "level" : {
+            "enum" : [ "lowest", "low", "medium", "high", "highest" ],
+            "type" : "string"
+          }
+        },
+        "required" : [ "level", "scale_type" ],
+        "type" : "object"
+      },
       "RequestUnionOnIntersection" : {
         "properties" : {
           "id" : {
@@ -1431,6 +1445,9 @@
           },
           "range" : {
             "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          },
+          "level_of_detail" : {
+            "$ref" : "#/components/schemas/RequestLevelOfDetail"
           }
         },
         "required" : [ "coords", "departure_time", "id", "transportation", "travel_time" ],
@@ -1461,6 +1478,9 @@
           },
           "range" : {
             "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          },
+          "level_of_detail" : {
+            "$ref" : "#/components/schemas/RequestLevelOfDetail"
           }
         },
         "required" : [ "arrival_time", "coords", "id", "transportation", "travel_time" ],
@@ -2212,6 +2232,9 @@
             "enum" : [ "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" ],
             "type" : "string"
           },
+          "disable_border_crossing" : {
+            "type" : "boolean"
+          },
           "pt_change_delay" : {
             "type" : "integer"
           },
@@ -2219,6 +2242,9 @@
             "type" : "integer"
           },
           "driving_time_to_station" : {
+            "type" : "integer"
+          },
+          "cycling_time_to_station" : {
             "type" : "integer"
           },
           "parking_time" : {

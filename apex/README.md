@@ -84,6 +84,7 @@ Class | Method | HTTP request | Description
 
  - [OASCoords](OASCoords.md)
  - [OASRequestArrivalTimePeriod](OASRequestArrivalTimePeriod.md)
+ - [OASRequestLevelOfDetail](OASRequestLevelOfDetail.md)
  - [OASRequestLocation](OASRequestLocation.md)
  - [OASRequestRangeFull](OASRequestRangeFull.md)
  - [OASRequestRangeNoMaxResults](OASRequestRangeNoMaxResults.md)

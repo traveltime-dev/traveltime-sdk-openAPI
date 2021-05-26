@@ -150,6 +150,7 @@ Class | Method | HTTP request | Description
 
 * OpenAPIServer\Model\Coords
 * OpenAPIServer\Model\RequestArrivalTimePeriod
+* OpenAPIServer\Model\RequestLevelOfDetail
 * OpenAPIServer\Model\RequestLocation
 * OpenAPIServer\Model\RequestRangeFull
 * OpenAPIServer\Model\RequestRangeNoMaxResults

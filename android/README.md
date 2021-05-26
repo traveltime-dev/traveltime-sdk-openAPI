@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 
  - [Coords](docs/Coords.md)
  - [RequestArrivalTimePeriod](docs/RequestArrivalTimePeriod.md)
+ - [RequestLevelOfDetail](docs/RequestLevelOfDetail.md)
  - [RequestLocation](docs/RequestLocation.md)
  - [RequestRangeFull](docs/RequestRangeFull.md)
  - [RequestRangeNoMaxResults](docs/RequestRangeNoMaxResults.md)

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **arrivalUnderscoretime** | **string** |  | [default to null]
 **properties** | [**array[RequestTimeMapProperty]**](RequestTimeMapProperty.md) |  | [optional] [default to null]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] [default to null]
+**levelUnderscoreofUnderscoredetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -20,6 +20,13 @@ namespace Org.OpenAPITools.Model {
     public string Type { get; set; }
 
     /// <summary>
+    /// Gets or Sets DisableBorderCrossing
+    /// </summary>
+    [DataMember(Name="disable_border_crossing", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "disable_border_crossing")]
+    public bool? DisableBorderCrossing { get; set; }
+
+    /// <summary>
     /// Gets or Sets PtChangeDelay
     /// </summary>
     [DataMember(Name="pt_change_delay", EmitDefaultValue=false)]
@@ -39,6 +46,13 @@ namespace Org.OpenAPITools.Model {
     [DataMember(Name="driving_time_to_station", EmitDefaultValue=false)]
     [JsonProperty(PropertyName = "driving_time_to_station")]
     public int? DrivingTimeToStation { get; set; }
+
+    /// <summary>
+    /// Gets or Sets CyclingTimeToStation
+    /// </summary>
+    [DataMember(Name="cycling_time_to_station", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "cycling_time_to_station")]
+    public int? CyclingTimeToStation { get; set; }
 
     /// <summary>
     /// Gets or Sets ParkingTime
@@ -63,9 +77,11 @@ namespace Org.OpenAPITools.Model {
       var sb = new StringBuilder();
       sb.Append("class RequestTransportation {\n");
       sb.Append("  Type: ").Append(Type).Append("\n");
+      sb.Append("  DisableBorderCrossing: ").Append(DisableBorderCrossing).Append("\n");
       sb.Append("  PtChangeDelay: ").Append(PtChangeDelay).Append("\n");
       sb.Append("  WalkingTime: ").Append(WalkingTime).Append("\n");
       sb.Append("  DrivingTimeToStation: ").Append(DrivingTimeToStation).Append("\n");
+      sb.Append("  CyclingTimeToStation: ").Append(CyclingTimeToStation).Append("\n");
       sb.Append("  ParkingTime: ").Append(ParkingTime).Append("\n");
       sb.Append("  BoardingTime: ").Append(BoardingTime).Append("\n");
       sb.Append("}\n");

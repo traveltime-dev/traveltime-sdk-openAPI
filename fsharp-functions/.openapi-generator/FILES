@@ -9,6 +9,7 @@ OpenAPI/src/api/DefaultApiServiceInterface.fs
 OpenAPI/src/impl/DefaultApiService.fs
 OpenAPI/src/model/Coords.fs
 OpenAPI/src/model/RequestArrivalTimePeriod.fs
+OpenAPI/src/model/RequestLevelOfDetail.fs
 OpenAPI/src/model/RequestLocation.fs
 OpenAPI/src/model/RequestRangeFull.fs
 OpenAPI/src/model/RequestRangeNoMaxResults.fs

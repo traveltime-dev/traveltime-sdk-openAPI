@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseMapInfoFeaturesPublicTransport: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseMapInfoFeaturesPublicTransport: Codable, Hashable {
         self.dateStart = dateStart
         self.dateEnd = dateEnd
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case dateStart = "date_start"
         case dateEnd = "date_end"
@@ -29,7 +32,4 @@ public struct ResponseMapInfoFeaturesPublicTransport: Codable, Hashable {
         try container.encode(dateStart, forKey: .dateStart)
         try container.encode(dateEnd, forKey: .dateEnd)
     }
-
-
-
 }

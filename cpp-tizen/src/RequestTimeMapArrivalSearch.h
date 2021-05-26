@@ -10,6 +10,7 @@
 
 #include <string>
 #include "Coords.h"
+#include "RequestLevelOfDetail.h"
 #include "RequestRangeNoMaxResults.h"
 #include "RequestTimeMapProperty.h"
 #include "RequestTransportation.h"
@@ -99,6 +100,13 @@ public:
 	/*! \brief Set 
 	 */
 	void setRange(RequestRangeNoMaxResults  range);
+	/*! \brief Get 
+	 */
+	RequestLevelOfDetail getLevelOfDetail();
+
+	/*! \brief Set 
+	 */
+	void setLevelOfDetail(RequestLevelOfDetail  level_of_detail);
 
 private:
 	std::string id;
@@ -108,6 +116,7 @@ private:
 	std::string arrival_time;
 	std::list <RequestTimeMapProperty>properties;
 	RequestRangeNoMaxResults range;
+	RequestLevelOfDetail level_of_detail;
 	void __init();
 	void __cleanup();
 

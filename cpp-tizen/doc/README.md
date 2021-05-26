@@ -1,4 +1,4 @@
-# Documentation for TravelTime API 1.2.2 Tizen Client SDK
+# Documentation for TravelTime API 1.2.3 Tizen Client SDK
 
 ## How do I get the doc files?
 First generate source code by running `openapi-generator`
@@ -71,6 +71,7 @@ Class | Description
 ------------- | -------------
  *Coords* | 
  *RequestArrivalTimePeriod* | 
+ *RequestLevelOfDetail* | 
  *RequestLocation* | 
  *RequestRangeFull* | 
  *RequestRangeNoMaxResults* | 

@@ -54,3 +54,10 @@ test_that("range", {
   #expect_equal(model.instance$`range`, "EXPECTED_RESULT")
 })
 
+test_that("level_of_detail", {
+  # tests for the property `level_of_detail` (RequestLevelOfDetail)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`level_of_detail`, "EXPECTED_RESULT")
+})
+

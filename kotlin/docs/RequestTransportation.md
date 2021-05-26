@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**inline**](#TypeEnum) |  | 
+**disableBorderCrossing** | **kotlin.Boolean** |  |  [optional]
 **ptChangeDelay** | **kotlin.Int** |  |  [optional]
 **walkingTime** | **kotlin.Int** |  |  [optional]
 **drivingTimeToStation** | **kotlin.Int** |  |  [optional]
+**cyclingTimeToStation** | **kotlin.Int** |  |  [optional]
 **parkingTime** | **kotlin.Int** |  |  [optional]
 **boardingTime** | **kotlin.Int** |  |  [optional]
 

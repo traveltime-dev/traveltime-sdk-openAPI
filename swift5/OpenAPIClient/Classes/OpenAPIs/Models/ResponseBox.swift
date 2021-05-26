@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseBox: Codable, Hashable {
 
@@ -21,6 +23,7 @@ public struct ResponseBox: Codable, Hashable {
         self.minLng = minLng
         self.maxLng = maxLng
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case minLat = "min_lat"
         case maxLat = "max_lat"
@@ -37,7 +40,4 @@ public struct ResponseBox: Codable, Hashable {
         try container.encode(minLng, forKey: .minLng)
         try container.encode(maxLng, forKey: .maxLng)
     }
-
-
-
 }

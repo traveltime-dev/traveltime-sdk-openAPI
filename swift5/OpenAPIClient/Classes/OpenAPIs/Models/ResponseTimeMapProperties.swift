@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeMapProperties: Codable, Hashable {
 
@@ -15,6 +17,7 @@ public struct ResponseTimeMapProperties: Codable, Hashable {
     public init(isOnlyWalking: Bool? = nil) {
         self.isOnlyWalking = isOnlyWalking
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case isOnlyWalking = "is_only_walking"
     }
@@ -25,7 +28,4 @@ public struct ResponseTimeMapProperties: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(isOnlyWalking, forKey: .isOnlyWalking)
     }
-
-
-
 }

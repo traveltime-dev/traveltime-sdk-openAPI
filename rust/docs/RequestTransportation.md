@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **_type** | **String** |  | 
+**disable_border_crossing** | Option<**bool**> |  | [optional]
 **pt_change_delay** | Option<**i32**> |  | [optional]
 **walking_time** | Option<**i32**> |  | [optional]
 **driving_time_to_station** | Option<**i32**> |  | [optional]
+**cycling_time_to_station** | Option<**i32**> |  | [optional]
 **parking_time** | Option<**i32**> |  | [optional]
 **boarding_time** | Option<**i32**> |  | [optional]
 

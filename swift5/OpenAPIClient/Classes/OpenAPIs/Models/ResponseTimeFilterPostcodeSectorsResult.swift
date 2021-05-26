@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeFilterPostcodeSectorsResult: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseTimeFilterPostcodeSectorsResult: Codable, Hashable {
         self.searchId = searchId
         self.sectors = sectors
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case searchId = "search_id"
         case sectors
@@ -29,7 +32,4 @@ public struct ResponseTimeFilterPostcodeSectorsResult: Codable, Hashable {
         try container.encode(searchId, forKey: .searchId)
         try container.encode(sectors, forKey: .sectors)
     }
-
-
-
 }

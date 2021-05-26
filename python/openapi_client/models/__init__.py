@@ -11,6 +11,7 @@
 
 from openapi_client.model.coords import Coords
 from openapi_client.model.request_arrival_time_period import RequestArrivalTimePeriod
+from openapi_client.model.request_level_of_detail import RequestLevelOfDetail
 from openapi_client.model.request_location import RequestLocation
 from openapi_client.model.request_range_full import RequestRangeFull
 from openapi_client.model.request_range_no_max_results import RequestRangeNoMaxResults

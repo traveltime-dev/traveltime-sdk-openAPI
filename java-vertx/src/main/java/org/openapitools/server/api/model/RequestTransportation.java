@@ -37,9 +37,11 @@ public class RequestTransportation   {
   }
 
   private TypeEnum type;
+  private Boolean disableBorderCrossing;
   private Integer ptChangeDelay;
   private Integer walkingTime;
   private Integer drivingTimeToStation;
+  private Integer cyclingTimeToStation;
   private Integer parkingTime;
   private Integer boardingTime;
 
@@ -47,11 +49,13 @@ public class RequestTransportation   {
 
   }
 
-  public RequestTransportation (TypeEnum type, Integer ptChangeDelay, Integer walkingTime, Integer drivingTimeToStation, Integer parkingTime, Integer boardingTime) {
+  public RequestTransportation (TypeEnum type, Boolean disableBorderCrossing, Integer ptChangeDelay, Integer walkingTime, Integer drivingTimeToStation, Integer cyclingTimeToStation, Integer parkingTime, Integer boardingTime) {
     this.type = type;
+    this.disableBorderCrossing = disableBorderCrossing;
     this.ptChangeDelay = ptChangeDelay;
     this.walkingTime = walkingTime;
     this.drivingTimeToStation = drivingTimeToStation;
+    this.cyclingTimeToStation = cyclingTimeToStation;
     this.parkingTime = parkingTime;
     this.boardingTime = boardingTime;
   }
@@ -63,6 +67,15 @@ public class RequestTransportation   {
   }
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+    
+  @JsonProperty("disable_border_crossing")
+  public Boolean getDisableBorderCrossing() {
+    return disableBorderCrossing;
+  }
+  public void setDisableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
   }
 
     
@@ -90,6 +103,15 @@ public class RequestTransportation   {
   }
   public void setDrivingTimeToStation(Integer drivingTimeToStation) {
     this.drivingTimeToStation = drivingTimeToStation;
+  }
+
+    
+  @JsonProperty("cycling_time_to_station")
+  public Integer getCyclingTimeToStation() {
+    return cyclingTimeToStation;
+  }
+  public void setCyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
   }
 
     
@@ -121,16 +143,18 @@ public class RequestTransportation   {
     }
     RequestTransportation requestTransportation = (RequestTransportation) o;
     return Objects.equals(type, requestTransportation.type) &&
+        Objects.equals(disableBorderCrossing, requestTransportation.disableBorderCrossing) &&
         Objects.equals(ptChangeDelay, requestTransportation.ptChangeDelay) &&
         Objects.equals(walkingTime, requestTransportation.walkingTime) &&
         Objects.equals(drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
+        Objects.equals(cyclingTimeToStation, requestTransportation.cyclingTimeToStation) &&
         Objects.equals(parkingTime, requestTransportation.parkingTime) &&
         Objects.equals(boardingTime, requestTransportation.boardingTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, ptChangeDelay, walkingTime, drivingTimeToStation, parkingTime, boardingTime);
+    return Objects.hash(type, disableBorderCrossing, ptChangeDelay, walkingTime, drivingTimeToStation, cyclingTimeToStation, parkingTime, boardingTime);
   }
 
   @Override
@@ -139,9 +163,11 @@ public class RequestTransportation   {
     sb.append("class RequestTransportation {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    disableBorderCrossing: ").append(toIndentedString(disableBorderCrossing)).append("\n");
     sb.append("    ptChangeDelay: ").append(toIndentedString(ptChangeDelay)).append("\n");
     sb.append("    walkingTime: ").append(toIndentedString(walkingTime)).append("\n");
     sb.append("    drivingTimeToStation: ").append(toIndentedString(drivingTimeToStation)).append("\n");
+    sb.append("    cyclingTimeToStation: ").append(toIndentedString(cyclingTimeToStation)).append("\n");
     sb.append("    parkingTime: ").append(toIndentedString(parkingTime)).append("\n");
     sb.append("    boardingTime: ").append(toIndentedString(boardingTime)).append("\n");
     sb.append("}");

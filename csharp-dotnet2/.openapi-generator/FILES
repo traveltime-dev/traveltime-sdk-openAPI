@@ -5,6 +5,7 @@ compile-mono.sh
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -101,6 +102,7 @@ src/main/CsharpDotNet2/Org/OpenAPITools/Client/ApiException.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Client/Configuration.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Model/Coords.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Model/RequestArrivalTimePeriod.cs
+src/main/CsharpDotNet2/Org/OpenAPITools/Model/RequestLevelOfDetail.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Model/RequestLocation.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Model/RequestRangeFull.cs
 src/main/CsharpDotNet2/Org/OpenAPITools/Model/RequestRangeNoMaxResults.cs

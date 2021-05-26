@@ -23,6 +23,8 @@ request_transportation_t* instantiate_request_transportation(int include_optiona
   if (include_optional) {
     request_transportation = request_transportation_create(
       traveltime_api_request_transportation_TYPE_cycling,
+      1,
+      56,
       56,
       56,
       56,
@@ -32,6 +34,8 @@ request_transportation_t* instantiate_request_transportation(int include_optiona
   } else {
     request_transportation = request_transportation_create(
       traveltime_api_request_transportation_TYPE_cycling,
+      1,
+      56,
       56,
       56,
       56,

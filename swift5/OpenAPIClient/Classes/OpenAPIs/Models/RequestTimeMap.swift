@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTimeMap: Codable, Hashable {
 
@@ -21,6 +23,7 @@ public struct RequestTimeMap: Codable, Hashable {
         self.unions = unions
         self.intersections = intersections
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case departureSearches = "departure_searches"
         case arrivalSearches = "arrival_searches"
@@ -37,7 +40,4 @@ public struct RequestTimeMap: Codable, Hashable {
         try container.encodeIfPresent(unions, forKey: .unions)
         try container.encodeIfPresent(intersections, forKey: .intersections)
     }
-
-
-
 }

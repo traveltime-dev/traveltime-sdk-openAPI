@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTimeFilterPostcodeDistrictsDepartureSearch: Codable, Hashable {
 
@@ -27,6 +29,7 @@ public struct RequestTimeFilterPostcodeDistrictsDepartureSearch: Codable, Hashab
         self.properties = properties
         self.range = range
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case transportation
@@ -49,7 +52,4 @@ public struct RequestTimeFilterPostcodeDistrictsDepartureSearch: Codable, Hashab
         try container.encode(properties, forKey: .properties)
         try container.encodeIfPresent(range, forKey: .range)
     }
-
-
-
 }

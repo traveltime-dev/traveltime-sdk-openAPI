@@ -12,9 +12,11 @@
     "model": "properties",
     "children": [
       {"model": "type" },
+      {"model": "disable_border_crossing" },
       {"model": "pt_change_delay" },
       {"model": "walking_time" },
       {"model": "driving_time_to_station" },
+      {"model": "cycling_time_to_station" },
       {"model": "parking_time" },
       {"model": "boarding_time" },
     ]

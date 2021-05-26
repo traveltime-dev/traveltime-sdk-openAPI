@@ -6,6 +6,7 @@
 module TravelTime.Types (
   Coords (..),
   RequestArrivalTimePeriod (..),
+  RequestLevelOfDetail (..),
   RequestLocation (..),
   RequestRangeFull (..),
   RequestRangeNoMaxResults (..),
@@ -145,6 +146,22 @@ instance ToSchema RequestArrivalTimePeriod where
   declareNamedSchema = Swagger.genericDeclareNamedSchema
     $ Swagger.fromAesonOptions
     $ removeFieldLabelPrefix False "requestArrivalTimePeriod"
+
+
+-- | 
+data RequestLevelOfDetail = RequestLevelOfDetail
+  { requestLevelOfDetailScaleUnderscoretype :: Text -- ^ 
+  , requestLevelOfDetailLevel :: Text -- ^ 
+  } deriving (Show, Eq, Generic, Data)
+
+instance FromJSON RequestLevelOfDetail where
+  parseJSON = genericParseJSON (removeFieldLabelPrefix True "requestLevelOfDetail")
+instance ToJSON RequestLevelOfDetail where
+  toJSON = genericToJSON (removeFieldLabelPrefix False "requestLevelOfDetail")
+instance ToSchema RequestLevelOfDetail where
+  declareNamedSchema = Swagger.genericDeclareNamedSchema
+    $ Swagger.fromAesonOptions
+    $ removeFieldLabelPrefix False "requestLevelOfDetail"
 
 
 -- | 
@@ -694,6 +711,7 @@ data RequestTimeMapArrivalSearch = RequestTimeMapArrivalSearch
   , requestTimeMapArrivalSearchArrivalUnderscoretime :: UTCTime -- ^ 
   , requestTimeMapArrivalSearchProperties :: Maybe [RequestTimeMapProperty] -- ^ 
   , requestTimeMapArrivalSearchRange :: Maybe RequestRangeNoMaxResults -- ^ 
+  , requestTimeMapArrivalSearchLevelUnderscoreofUnderscoredetail :: Maybe RequestLevelOfDetail -- ^ 
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON RequestTimeMapArrivalSearch where
@@ -715,6 +733,7 @@ data RequestTimeMapDepartureSearch = RequestTimeMapDepartureSearch
   , requestTimeMapDepartureSearchDepartureUnderscoretime :: UTCTime -- ^ 
   , requestTimeMapDepartureSearchProperties :: Maybe [RequestTimeMapProperty] -- ^ 
   , requestTimeMapDepartureSearchRange :: Maybe RequestRangeNoMaxResults -- ^ 
+  , requestTimeMapDepartureSearchLevelUnderscoreofUnderscoredetail :: Maybe RequestLevelOfDetail -- ^ 
   } deriving (Show, Eq, Generic, Data)
 
 instance FromJSON RequestTimeMapDepartureSearch where
@@ -745,9 +764,11 @@ instance ToSchema RequestTimeMapProperty where
 -- | 
 data RequestTransportation = RequestTransportation
   { requestTransportationType :: Text -- ^ 
+  , requestTransportationDisableUnderscoreborderUnderscorecrossing :: Maybe Bool -- ^ 
   , requestTransportationPtUnderscorechangeUnderscoredelay :: Maybe Int -- ^ 
   , requestTransportationWalkingUnderscoretime :: Maybe Int -- ^ 
   , requestTransportationDrivingUnderscoretimeUnderscoretoUnderscorestation :: Maybe Int -- ^ 
+  , requestTransportationCyclingUnderscoretimeUnderscoretoUnderscorestation :: Maybe Int -- ^ 
   , requestTransportationParkingUnderscoretime :: Maybe Int -- ^ 
   , requestTransportationBoardingUnderscoretime :: Maybe Int -- ^ 
   } deriving (Show, Eq, Generic, Data)

@@ -10,18 +10,22 @@ defmodule TravelTimeAPI.Model.RequestTransportation do
   @derive [Poison.Encoder]
   defstruct [
     :"type",
+    :"disable_border_crossing",
     :"pt_change_delay",
     :"walking_time",
     :"driving_time_to_station",
+    :"cycling_time_to_station",
     :"parking_time",
     :"boarding_time"
   ]
 
   @type t :: %__MODULE__{
     :"type" => String.t,
+    :"disable_border_crossing" => boolean() | nil,
     :"pt_change_delay" => integer() | nil,
     :"walking_time" => integer() | nil,
     :"driving_time_to_station" => integer() | nil,
+    :"cycling_time_to_station" => integer() | nil,
     :"parking_time" => integer() | nil,
     :"boarding_time" => integer() | nil
   }

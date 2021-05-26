@@ -8,6 +8,7 @@ build.sh
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -103,6 +104,7 @@ mono_nunit_test.sh
 src/Org.OpenAPITools.Test/Api/DefaultApiTests.cs
 src/Org.OpenAPITools.Test/Model/CoordsTests.cs
 src/Org.OpenAPITools.Test/Model/RequestArrivalTimePeriodTests.cs
+src/Org.OpenAPITools.Test/Model/RequestLevelOfDetailTests.cs
 src/Org.OpenAPITools.Test/Model/RequestLocationTests.cs
 src/Org.OpenAPITools.Test/Model/RequestRangeFullTests.cs
 src/Org.OpenAPITools.Test/Model/RequestRangeNoMaxResultsTests.cs
@@ -207,6 +209,7 @@ src/Org.OpenAPITools/Client/IReadableConfiguration.cs
 src/Org.OpenAPITools/Client/OpenAPIDateConverter.cs
 src/Org.OpenAPITools/Model/Coords.cs
 src/Org.OpenAPITools/Model/RequestArrivalTimePeriod.cs
+src/Org.OpenAPITools/Model/RequestLevelOfDetail.cs
 src/Org.OpenAPITools/Model/RequestLocation.cs
 src/Org.OpenAPITools/Model/RequestRangeFull.cs
 src/Org.OpenAPITools/Model/RequestRangeNoMaxResults.cs

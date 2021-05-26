@@ -5,6 +5,7 @@ openapiclient-1.0.0-1.rockspec
 openapiclient/api/default_api.lua
 openapiclient/model/coords.lua
 openapiclient/model/request_arrival_time_period.lua
+openapiclient/model/request_level_of_detail.lua
 openapiclient/model/request_location.lua
 openapiclient/model/request_range_full.lua
 openapiclient/model/request_range_no_max_results.lua
@@ -98,6 +99,7 @@ openapiclient/model/response_travel_time_statistics.lua
 spec/coords_spec.lua
 spec/default_api_spec.lua
 spec/request_arrival_time_period_spec.lua
+spec/request_level_of_detail_spec.lua
 spec/request_location_spec.lua
 spec/request_range_full_spec.lua
 spec/request_range_no_max_results_spec.lua

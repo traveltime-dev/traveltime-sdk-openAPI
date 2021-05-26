@@ -11,6 +11,11 @@ void main() {
       // TODO
     });
 
+    // bool disableBorderCrossing (default value: null)
+    test('to test the property `disableBorderCrossing`', () async {
+      // TODO
+    });
+
     // int ptChangeDelay (default value: null)
     test('to test the property `ptChangeDelay`', () async {
       // TODO
@@ -23,6 +28,11 @@ void main() {
 
     // int drivingTimeToStation (default value: null)
     test('to test the property `drivingTimeToStation`', () async {
+      // TODO
+    });
+
+    // int cyclingTimeToStation (default value: null)
+    test('to test the property `cyclingTimeToStation`', () async {
       // TODO
     });
 

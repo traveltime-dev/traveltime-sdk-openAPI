@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -20,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestTimeMapArrivalSearch   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-26T18:50:31.276Z[Etc/UTC]")public class RequestTimeMapArrivalSearch   {
   
   private @Valid String id;
   private @Valid Coords coords;
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
   private @Valid Date arrivalTime;
   private @Valid List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>();
   private @Valid RequestRangeNoMaxResults range;
+  private @Valid RequestLevelOfDetail levelOfDetail;
 
   /**
    **/
@@ -177,6 +179,26 @@ import com.fasterxml.jackson.annotation.JsonValue;
     this.range = range;
   }
 
+/**
+   **/
+  public RequestTimeMapArrivalSearch levelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+    return this;
+  }
+
+  
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("level_of_detail")
+  public RequestLevelOfDetail getLevelOfDetail() {
+    return levelOfDetail;
+  }
+
+  public void setLevelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -193,12 +215,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
         Objects.equals(this.travelTime, requestTimeMapArrivalSearch.travelTime) &&
         Objects.equals(this.arrivalTime, requestTimeMapArrivalSearch.arrivalTime) &&
         Objects.equals(this.properties, requestTimeMapArrivalSearch.properties) &&
-        Objects.equals(this.range, requestTimeMapArrivalSearch.range);
+        Objects.equals(this.range, requestTimeMapArrivalSearch.range) &&
+        Objects.equals(this.levelOfDetail, requestTimeMapArrivalSearch.levelOfDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, coords, transportation, travelTime, arrivalTime, properties, range);
+    return Objects.hash(id, coords, transportation, travelTime, arrivalTime, properties, range, levelOfDetail);
   }
 
   @Override
@@ -213,6 +236,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
     sb.append("    arrivalTime: ").append(toIndentedString(arrivalTime)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    levelOfDetail: ").append(toIndentedString(levelOfDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

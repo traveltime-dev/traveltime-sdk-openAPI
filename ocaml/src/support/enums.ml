@@ -15,17 +15,6 @@ let requestarrivaltimeperiod_to_yojson e =
     | `List [json] -> json
     | json -> json
 
-type requesttimefilterfastproperty = [
-| `Travel_time [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time"] [@name "travel_time"]
-| `Fares [@printer fun fmt _ -> Format.pp_print_string fmt "fares"] [@name "fares"]
-] [@@deriving yojson, show { with_path = false }];;
-
-let requesttimefilterfastproperty_of_yojson json = requesttimefilterfastproperty_of_yojson (`List [json])
-let requesttimefilterfastproperty_to_yojson e =
-    match requesttimefilterfastproperty_to_yojson e with
-    | `List [json] -> json
-    | json -> json
-
 type responseroutepart_type = [
 | `Basic [@printer fun fmt _ -> Format.pp_print_string fmt "basic"] [@name "basic"]
 | `Start_end [@printer fun fmt _ -> Format.pp_print_string fmt "start_end"] [@name "start_end"]
@@ -51,17 +40,6 @@ let requesttransportationfast_type_to_yojson e =
     | `List [json] -> json
     | json -> json
 
-type requesttimefilterpostcodesproperty = [
-| `Travel_time [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time"] [@name "travel_time"]
-| `Distance [@printer fun fmt _ -> Format.pp_print_string fmt "distance"] [@name "distance"]
-] [@@deriving yojson, show { with_path = false }];;
-
-let requesttimefilterpostcodesproperty_of_yojson json = requesttimefilterpostcodesproperty_of_yojson (`List [json])
-let requesttimefilterpostcodesproperty_to_yojson e =
-    match requesttimefilterpostcodesproperty_to_yojson e with
-    | `List [json] -> json
-    | json -> json
-
 type requesttimemapproperty = [
 | `Is_only_walking [@printer fun fmt _ -> Format.pp_print_string fmt "is_only_walking"] [@name "is_only_walking"]
 ] [@@deriving yojson, show { with_path = false }];;
@@ -72,16 +50,17 @@ let requesttimemapproperty_to_yojson e =
     | `List [json] -> json
     | json -> json
 
-type responsefareticket_type = [
-| `Single [@printer fun fmt _ -> Format.pp_print_string fmt "single"] [@name "single"]
-| `Week [@printer fun fmt _ -> Format.pp_print_string fmt "week"] [@name "week"]
-| `Month [@printer fun fmt _ -> Format.pp_print_string fmt "month"] [@name "month"]
-| `Year [@printer fun fmt _ -> Format.pp_print_string fmt "year"] [@name "year"]
+type level = [
+| `Lowest [@printer fun fmt _ -> Format.pp_print_string fmt "lowest"] [@name "lowest"]
+| `Low [@printer fun fmt _ -> Format.pp_print_string fmt "low"] [@name "low"]
+| `Medium [@printer fun fmt _ -> Format.pp_print_string fmt "medium"] [@name "medium"]
+| `High [@printer fun fmt _ -> Format.pp_print_string fmt "high"] [@name "high"]
+| `Highest [@printer fun fmt _ -> Format.pp_print_string fmt "highest"] [@name "highest"]
 ] [@@deriving yojson, show { with_path = false }];;
 
-let responsefareticket_type_of_yojson json = responsefareticket_type_of_yojson (`List [json])
-let responsefareticket_type_to_yojson e =
-    match responsefareticket_type_to_yojson e with
+let level_of_yojson json = level_of_yojson (`List [json])
+let level_to_yojson e =
+    match level_to_yojson e with
     | `List [json] -> json
     | json -> json
 
@@ -99,6 +78,16 @@ let requesttimefilterproperty_to_yojson e =
     | `List [json] -> json
     | json -> json
 
+type scale_type = [
+| `Simple [@printer fun fmt _ -> Format.pp_print_string fmt "simple"] [@name "simple"]
+] [@@deriving yojson, show { with_path = false }];;
+
+let scale_type_of_yojson json = scale_type_of_yojson (`List [json])
+let scale_type_to_yojson e =
+    match scale_type_to_yojson e with
+    | `List [json] -> json
+    | json -> json
+
 type requestroutesproperty = [
 | `Travel_time [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time"] [@name "travel_time"]
 | `Distance [@printer fun fmt _ -> Format.pp_print_string fmt "distance"] [@name "distance"]
@@ -109,6 +98,53 @@ type requestroutesproperty = [
 let requestroutesproperty_of_yojson json = requestroutesproperty_of_yojson (`List [json])
 let requestroutesproperty_to_yojson e =
     match requestroutesproperty_to_yojson e with
+    | `List [json] -> json
+    | json -> json
+
+type requesttimefilterpostcodedistrictsproperty = [
+| `Travel_time_reachable [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time_reachable"] [@name "travel_time_reachable"]
+| `Travel_time_all [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time_all"] [@name "travel_time_all"]
+| `Coverage [@printer fun fmt _ -> Format.pp_print_string fmt "coverage"] [@name "coverage"]
+] [@@deriving yojson, show { with_path = false }];;
+
+let requesttimefilterpostcodedistrictsproperty_of_yojson json = requesttimefilterpostcodedistrictsproperty_of_yojson (`List [json])
+let requesttimefilterpostcodedistrictsproperty_to_yojson e =
+    match requesttimefilterpostcodedistrictsproperty_to_yojson e with
+    | `List [json] -> json
+    | json -> json
+
+type requesttimefilterfastproperty = [
+| `Travel_time [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time"] [@name "travel_time"]
+| `Fares [@printer fun fmt _ -> Format.pp_print_string fmt "fares"] [@name "fares"]
+] [@@deriving yojson, show { with_path = false }];;
+
+let requesttimefilterfastproperty_of_yojson json = requesttimefilterfastproperty_of_yojson (`List [json])
+let requesttimefilterfastproperty_to_yojson e =
+    match requesttimefilterfastproperty_to_yojson e with
+    | `List [json] -> json
+    | json -> json
+
+type requesttimefilterpostcodesproperty = [
+| `Travel_time [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time"] [@name "travel_time"]
+| `Distance [@printer fun fmt _ -> Format.pp_print_string fmt "distance"] [@name "distance"]
+] [@@deriving yojson, show { with_path = false }];;
+
+let requesttimefilterpostcodesproperty_of_yojson json = requesttimefilterpostcodesproperty_of_yojson (`List [json])
+let requesttimefilterpostcodesproperty_to_yojson e =
+    match requesttimefilterpostcodesproperty_to_yojson e with
+    | `List [json] -> json
+    | json -> json
+
+type responsefareticket_type = [
+| `Single [@printer fun fmt _ -> Format.pp_print_string fmt "single"] [@name "single"]
+| `Week [@printer fun fmt _ -> Format.pp_print_string fmt "week"] [@name "week"]
+| `Month [@printer fun fmt _ -> Format.pp_print_string fmt "month"] [@name "month"]
+| `Year [@printer fun fmt _ -> Format.pp_print_string fmt "year"] [@name "year"]
+] [@@deriving yojson, show { with_path = false }];;
+
+let responsefareticket_type_of_yojson json = responsefareticket_type_of_yojson (`List [json])
+let responsefareticket_type_to_yojson e =
+    match responsefareticket_type_to_yojson e with
     | `List [json] -> json
     | json -> json
 
@@ -153,17 +189,5 @@ type requesttransportation_type = [
 let requesttransportation_type_of_yojson json = requesttransportation_type_of_yojson (`List [json])
 let requesttransportation_type_to_yojson e =
     match requesttransportation_type_to_yojson e with
-    | `List [json] -> json
-    | json -> json
-
-type requesttimefilterpostcodedistrictsproperty = [
-| `Travel_time_reachable [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time_reachable"] [@name "travel_time_reachable"]
-| `Travel_time_all [@printer fun fmt _ -> Format.pp_print_string fmt "travel_time_all"] [@name "travel_time_all"]
-| `Coverage [@printer fun fmt _ -> Format.pp_print_string fmt "coverage"] [@name "coverage"]
-] [@@deriving yojson, show { with_path = false }];;
-
-let requesttimefilterpostcodedistrictsproperty_of_yojson json = requesttimefilterpostcodedistrictsproperty_of_yojson (`List [json])
-let requesttimefilterpostcodedistrictsproperty_to_yojson e =
-    match requesttimefilterpostcodedistrictsproperty_to_yojson e with
     | `List [json] -> json
     | json -> json

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestRangeFull: Codable, Hashable {
 
@@ -19,6 +21,7 @@ public struct RequestRangeFull: Codable, Hashable {
         self.maxResults = maxResults
         self.width = width
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case enabled
         case maxResults = "max_results"
@@ -33,7 +36,4 @@ public struct RequestRangeFull: Codable, Hashable {
         try container.encode(maxResults, forKey: .maxResults)
         try container.encode(width, forKey: .width)
     }
-
-
-
 }

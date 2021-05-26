@@ -19,6 +19,7 @@ class RequestTimeMapDepartureSearch {
     @required this.departureTime,
     this.properties = const [],
     this.range,
+    this.levelOfDetail,
   });
 
   String id;
@@ -37,6 +38,8 @@ class RequestTimeMapDepartureSearch {
 
   RequestRangeNoMaxResults range;
 
+  RequestLevelOfDetail levelOfDetail;
+
   @override
   bool operator ==(Object other) => identical(this, other) || other is RequestTimeMapDepartureSearch &&
      other.id == id &&
@@ -45,7 +48,8 @@ class RequestTimeMapDepartureSearch {
      other.travelTime == travelTime &&
      other.departureTime == departureTime &&
      other.properties == properties &&
-     other.range == range;
+     other.range == range &&
+     other.levelOfDetail == levelOfDetail;
 
   @override
   int get hashCode =>
@@ -55,10 +59,11 @@ class RequestTimeMapDepartureSearch {
     (travelTime == null ? 0 : travelTime.hashCode) +
     (departureTime == null ? 0 : departureTime.hashCode) +
     (properties == null ? 0 : properties.hashCode) +
-    (range == null ? 0 : range.hashCode);
+    (range == null ? 0 : range.hashCode) +
+    (levelOfDetail == null ? 0 : levelOfDetail.hashCode);
 
   @override
-  String toString() => 'RequestTimeMapDepartureSearch[id=$id, coords=$coords, transportation=$transportation, travelTime=$travelTime, departureTime=$departureTime, properties=$properties, range=$range]';
+  String toString() => 'RequestTimeMapDepartureSearch[id=$id, coords=$coords, transportation=$transportation, travelTime=$travelTime, departureTime=$departureTime, properties=$properties, range=$range, levelOfDetail=$levelOfDetail]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -72,6 +77,9 @@ class RequestTimeMapDepartureSearch {
     }
     if (range != null) {
       json[r'range'] = range;
+    }
+    if (levelOfDetail != null) {
+      json[r'level_of_detail'] = levelOfDetail;
     }
     return json;
   }
@@ -90,6 +98,7 @@ class RequestTimeMapDepartureSearch {
           : DateTime.parse(json[r'departure_time']),
         properties: RequestTimeMapProperty.listFromJson(json[r'properties']),
         range: RequestRangeNoMaxResults.fromJson(json[r'range']),
+        levelOfDetail: RequestLevelOfDetail.fromJson(json[r'level_of_detail']),
     );
 
   static List<RequestTimeMapDepartureSearch> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>

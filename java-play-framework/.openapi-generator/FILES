@@ -4,6 +4,7 @@ README
 app/Module.java
 app/apimodels/Coords.java
 app/apimodels/RequestArrivalTimePeriod.java
+app/apimodels/RequestLevelOfDetail.java
 app/apimodels/RequestLocation.java
 app/apimodels/RequestRangeFull.java
 app/apimodels/RequestRangeNoMaxResults.java

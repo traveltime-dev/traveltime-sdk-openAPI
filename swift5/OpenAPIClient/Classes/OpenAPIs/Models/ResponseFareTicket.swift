@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseFareTicket: Codable, Hashable {
 
@@ -25,6 +27,7 @@ public struct ResponseFareTicket: Codable, Hashable {
         self.price = price
         self.currency = currency
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
         case price
@@ -39,7 +42,4 @@ public struct ResponseFareTicket: Codable, Hashable {
         try container.encode(price, forKey: .price)
         try container.encode(currency, forKey: .currency)
     }
-
-
-
 }

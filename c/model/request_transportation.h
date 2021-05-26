@@ -28,9 +28,11 @@ traveltime_api_request_transportation_TYPE_e request_transportation_type_FromStr
 
 typedef struct request_transportation_t {
     traveltime_api_request_transportation_TYPE_e type; //enum
+    int disable_border_crossing; //boolean
     int pt_change_delay; //numeric
     int walking_time; //numeric
     int driving_time_to_station; //numeric
+    int cycling_time_to_station; //numeric
     int parking_time; //numeric
     int boarding_time; //numeric
 
@@ -38,9 +40,11 @@ typedef struct request_transportation_t {
 
 request_transportation_t *request_transportation_create(
     traveltime_api_request_transportation_TYPE_e type,
+    int disable_border_crossing,
     int pt_change_delay,
     int walking_time,
     int driving_time_to_station,
+    int cycling_time_to_station,
     int parking_time,
     int boarding_time
 );

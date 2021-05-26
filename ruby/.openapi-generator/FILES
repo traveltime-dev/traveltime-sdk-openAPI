@@ -9,6 +9,7 @@ Rakefile
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -107,6 +108,7 @@ lib/openapi_client/api_error.rb
 lib/openapi_client/configuration.rb
 lib/openapi_client/models/coords.rb
 lib/openapi_client/models/request_arrival_time_period.rb
+lib/openapi_client/models/request_level_of_detail.rb
 lib/openapi_client/models/request_location.rb
 lib/openapi_client/models/request_range_full.rb
 lib/openapi_client/models/request_range_no_max_results.rb
@@ -204,6 +206,7 @@ spec/api_client_spec.rb
 spec/configuration_spec.rb
 spec/models/coords_spec.rb
 spec/models/request_arrival_time_period_spec.rb
+spec/models/request_level_of_detail_spec.rb
 spec/models/request_location_spec.rb
 spec/models/request_range_full_spec.rb
 spec/models/request_range_no_max_results_spec.rb

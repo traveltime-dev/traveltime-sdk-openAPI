@@ -1,4 +1,4 @@
-(defproject travel-time-api "1.2.2"
+(defproject travel-time-api "1.2.3"
   :description "Client library of travel-time-api"
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [metosin/spec-tools "0.7.0"]

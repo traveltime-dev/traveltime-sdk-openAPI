@@ -12,6 +12,7 @@ app/mailers/application_mailer.rb
 app/models/application_record.rb
 app/models/coords.rb
 app/models/request_arrival_time_period.rb
+app/models/request_level_of_detail.rb
 app/models/request_location.rb
 app/models/request_range_full.rb
 app/models/request_range_no_max_results.rb

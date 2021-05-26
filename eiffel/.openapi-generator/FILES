@@ -5,6 +5,7 @@ api_client.ecf
 docs/COORDS.md
 docs/DEFAULT_API.md
 docs/REQUEST_ARRIVAL_TIME_PERIOD.md
+docs/REQUEST_LEVEL_OF_DETAIL.md
 docs/REQUEST_LOCATION.md
 docs/REQUEST_RANGE_FULL.md
 docs/REQUEST_RANGE_NO_MAX_RESULTS.md
@@ -99,6 +100,7 @@ src/api/default_api.e
 src/api_client.e
 src/domain/coords.e
 src/domain/request_arrival_time_period.e
+src/domain/request_level_of_detail.e
 src/domain/request_location.e
 src/domain/request_range_full.e
 src/domain/request_range_no_max_results.e

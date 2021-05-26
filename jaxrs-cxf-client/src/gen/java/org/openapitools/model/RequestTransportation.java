@@ -49,6 +49,9 @@ public enum TypeEnum {
   private TypeEnum type;
 
   @ApiModelProperty(value = "")
+  private Boolean disableBorderCrossing;
+
+  @ApiModelProperty(value = "")
   private Integer ptChangeDelay;
 
   @ApiModelProperty(value = "")
@@ -56,6 +59,9 @@ public enum TypeEnum {
 
   @ApiModelProperty(value = "")
   private Integer drivingTimeToStation;
+
+  @ApiModelProperty(value = "")
+  private Integer cyclingTimeToStation;
 
   @ApiModelProperty(value = "")
   private Integer parkingTime;
@@ -80,6 +86,24 @@ public enum TypeEnum {
 
   public RequestTransportation type(TypeEnum type) {
     this.type = type;
+    return this;
+  }
+
+ /**
+   * Get disableBorderCrossing
+   * @return disableBorderCrossing
+  **/
+  @JsonProperty("disable_border_crossing")
+  public Boolean getDisableBorderCrossing() {
+    return disableBorderCrossing;
+  }
+
+  public void setDisableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
+  }
+
+  public RequestTransportation disableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
     return this;
   }
 
@@ -138,6 +162,24 @@ public enum TypeEnum {
   }
 
  /**
+   * Get cyclingTimeToStation
+   * @return cyclingTimeToStation
+  **/
+  @JsonProperty("cycling_time_to_station")
+  public Integer getCyclingTimeToStation() {
+    return cyclingTimeToStation;
+  }
+
+  public void setCyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+  }
+
+  public RequestTransportation cyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+    return this;
+  }
+
+ /**
    * Get parkingTime
    * @return parkingTime
   **/
@@ -180,9 +222,11 @@ public enum TypeEnum {
     sb.append("class RequestTransportation {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    disableBorderCrossing: ").append(toIndentedString(disableBorderCrossing)).append("\n");
     sb.append("    ptChangeDelay: ").append(toIndentedString(ptChangeDelay)).append("\n");
     sb.append("    walkingTime: ").append(toIndentedString(walkingTime)).append("\n");
     sb.append("    drivingTimeToStation: ").append(toIndentedString(drivingTimeToStation)).append("\n");
+    sb.append("    cyclingTimeToStation: ").append(toIndentedString(cyclingTimeToStation)).append("\n");
     sb.append("    parkingTime: ").append(toIndentedString(parkingTime)).append("\n");
     sb.append("    boardingTime: ").append(toIndentedString(boardingTime)).append("\n");
     sb.append("}");

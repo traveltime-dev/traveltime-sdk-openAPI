@@ -54,6 +54,13 @@ public:
 	void setType(std::string  type);
 	/*! \brief Get 
 	 */
+	bool getDisableBorderCrossing();
+
+	/*! \brief Set 
+	 */
+	void setDisableBorderCrossing(bool  disable_border_crossing);
+	/*! \brief Get 
+	 */
 	int getPtChangeDelay();
 
 	/*! \brief Set 
@@ -75,6 +82,13 @@ public:
 	void setDrivingTimeToStation(int  driving_time_to_station);
 	/*! \brief Get 
 	 */
+	int getCyclingTimeToStation();
+
+	/*! \brief Set 
+	 */
+	void setCyclingTimeToStation(int  cycling_time_to_station);
+	/*! \brief Get 
+	 */
 	int getParkingTime();
 
 	/*! \brief Set 
@@ -90,9 +104,11 @@ public:
 
 private:
 	std::string type;
+	bool disable_border_crossing;
 	int pt_change_delay;
 	int walking_time;
 	int driving_time_to_station;
+	int cycling_time_to_station;
 	int parking_time;
 	int boarding_time;
 	void __init();

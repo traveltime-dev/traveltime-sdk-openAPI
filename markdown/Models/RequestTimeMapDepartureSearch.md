@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **departure\_time** | [**Date**](DateTime.md) |  | [default to null]
 **properties** | [**List**](RequestTimeMapProperty.md) |  | [optional] [default to null]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] [default to null]
+**level\_of\_detail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

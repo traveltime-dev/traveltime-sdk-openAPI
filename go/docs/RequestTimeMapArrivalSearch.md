@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ArrivalTime** | **time.Time** |  | 
 **Properties** | Pointer to [**[]RequestTimeMapProperty**](RequestTimeMapProperty.md) |  | [optional] 
 **Range** | Pointer to [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**LevelOfDetail** | Pointer to [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 ## Methods
 
@@ -180,6 +181,31 @@ SetRange sets Range field to given value.
 `func (o *RequestTimeMapArrivalSearch) HasRange() bool`
 
 HasRange returns a boolean if a field has been set.
+
+### GetLevelOfDetail
+
+`func (o *RequestTimeMapArrivalSearch) GetLevelOfDetail() RequestLevelOfDetail`
+
+GetLevelOfDetail returns the LevelOfDetail field if non-nil, zero value otherwise.
+
+### GetLevelOfDetailOk
+
+`func (o *RequestTimeMapArrivalSearch) GetLevelOfDetailOk() (*RequestLevelOfDetail, bool)`
+
+GetLevelOfDetailOk returns a tuple with the LevelOfDetail field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLevelOfDetail
+
+`func (o *RequestTimeMapArrivalSearch) SetLevelOfDetail(v RequestLevelOfDetail)`
+
+SetLevelOfDetail sets LevelOfDetail field to given value.
+
+### HasLevelOfDetail
+
+`func (o *RequestTimeMapArrivalSearch) HasLevelOfDetail() bool`
+
+HasLevelOfDetail returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

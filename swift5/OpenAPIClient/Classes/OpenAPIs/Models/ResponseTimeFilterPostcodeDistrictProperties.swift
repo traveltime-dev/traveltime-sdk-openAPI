@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeFilterPostcodeDistrictProperties: Codable, Hashable {
 
@@ -19,6 +21,7 @@ public struct ResponseTimeFilterPostcodeDistrictProperties: Codable, Hashable {
         self.travelTimeAll = travelTimeAll
         self.coverage = coverage
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case travelTimeReachable = "travel_time_reachable"
         case travelTimeAll = "travel_time_all"
@@ -33,7 +36,4 @@ public struct ResponseTimeFilterPostcodeDistrictProperties: Codable, Hashable {
         try container.encodeIfPresent(travelTimeAll, forKey: .travelTimeAll)
         try container.encodeIfPresent(coverage, forKey: .coverage)
     }
-
-
-
 }

@@ -22,6 +22,7 @@ main =
       pure ()
       propMimeEq MimeJSON (Proxy :: Proxy Coords)
       propMimeEq MimeJSON (Proxy :: Proxy RequestArrivalTimePeriod)
+      propMimeEq MimeJSON (Proxy :: Proxy RequestLevelOfDetail)
       propMimeEq MimeJSON (Proxy :: Proxy RequestLocation)
       propMimeEq MimeJSON (Proxy :: Proxy RequestRangeFull)
       propMimeEq MimeJSON (Proxy :: Proxy RequestRangeNoMaxResults)

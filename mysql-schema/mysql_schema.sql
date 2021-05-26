@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS `Coords` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Table structure for table `RequestLevelOfDetail` generated from model 'RequestLevelOfDetail'
+--
+
+CREATE TABLE IF NOT EXISTS `RequestLevelOfDetail` (
+  `scale_type` ENUM('simple') NOT NULL,
+  `level` ENUM('lowest', 'low', 'medium', 'high', 'highest') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
 -- Table structure for table `RequestLocation` generated from model 'RequestLocation'
 --
 
@@ -305,7 +314,8 @@ CREATE TABLE IF NOT EXISTS `RequestTimeMapArrivalSearch` (
   `travel_time` SMALLINT UNSIGNED NOT NULL,
   `arrival_time` DATETIME NOT NULL,
   `properties` JSON DEFAULT NULL,
-  `range` TEXT DEFAULT NULL
+  `range` TEXT DEFAULT NULL,
+  `level_of_detail` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -319,7 +329,8 @@ CREATE TABLE IF NOT EXISTS `RequestTimeMapDepartureSearch` (
   `travel_time` SMALLINT UNSIGNED NOT NULL,
   `departure_time` DATETIME NOT NULL,
   `properties` JSON DEFAULT NULL,
-  `range` TEXT DEFAULT NULL
+  `range` TEXT DEFAULT NULL,
+  `level_of_detail` TEXT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -328,9 +339,11 @@ CREATE TABLE IF NOT EXISTS `RequestTimeMapDepartureSearch` (
 
 CREATE TABLE IF NOT EXISTS `RequestTransportation` (
   `type` ENUM('cycling', 'driving', 'driving+train', 'public_transport', 'walking', 'coach', 'bus', 'train', 'ferry', 'driving+ferry', 'cycling+ferry') NOT NULL,
+  `disable_border_crossing` TINYINT(1) DEFAULT NULL,
   `pt_change_delay` INT DEFAULT NULL,
   `walking_time` INT DEFAULT NULL,
   `driving_time_to_station` INT DEFAULT NULL,
+  `cycling_time_to_station` INT DEFAULT NULL,
   `parking_time` INT DEFAULT NULL,
   `boarding_time` INT DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

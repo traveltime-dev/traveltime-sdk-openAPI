@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseGeocodingProperties: Codable, Hashable {
 
@@ -45,6 +47,7 @@ public struct ResponseGeocodingProperties: Codable, Hashable {
         self.postcode = postcode
         self.features = features
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case label
@@ -85,7 +88,4 @@ public struct ResponseGeocodingProperties: Codable, Hashable {
         try container.encodeIfPresent(postcode, forKey: .postcode)
         try container.encodeIfPresent(features, forKey: .features)
     }
-
-
-
 }

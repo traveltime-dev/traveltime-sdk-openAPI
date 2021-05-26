@@ -4,6 +4,7 @@ README.md
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -102,6 +103,7 @@ src/api/DefaultApi.js
 src/index.js
 src/model/Coords.js
 src/model/RequestArrivalTimePeriod.js
+src/model/RequestLevelOfDetail.js
 src/model/RequestLocation.js
 src/model/RequestRangeFull.js
 src/model/RequestRangeNoMaxResults.js
@@ -195,6 +197,7 @@ src/model/ResponseTravelTimeStatistics.js
 test/api/DefaultApi.spec.js
 test/model/Coords.spec.js
 test/model/RequestArrivalTimePeriod.spec.js
+test/model/RequestLevelOfDetail.spec.js
 test/model/RequestLocation.spec.js
 test/model/RequestRangeFull.spec.js
 test/model/RequestRangeNoMaxResults.spec.js

@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **arrivalTime** | **Date** |  | 
 **properties** | [**[RequestTimeMapProperty]**](RequestTimeMapProperty.md) |  | [optional] 
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**levelOfDetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 

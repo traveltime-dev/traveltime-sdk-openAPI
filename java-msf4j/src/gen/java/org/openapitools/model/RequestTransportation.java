@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * RequestTransportation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-26T18:50:02.407Z[Etc/UTC]")
 public class RequestTransportation   {
   /**
    * Gets or Sets type
@@ -64,6 +64,9 @@ public class RequestTransportation   {
   @JsonProperty("type")
   private TypeEnum type;
 
+  @JsonProperty("disable_border_crossing")
+  private Boolean disableBorderCrossing;
+
   @JsonProperty("pt_change_delay")
   private Integer ptChangeDelay;
 
@@ -72,6 +75,9 @@ public class RequestTransportation   {
 
   @JsonProperty("driving_time_to_station")
   private Integer drivingTimeToStation;
+
+  @JsonProperty("cycling_time_to_station")
+  private Integer cyclingTimeToStation;
 
   @JsonProperty("parking_time")
   private Integer parkingTime;
@@ -95,6 +101,24 @@ public class RequestTransportation   {
 
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+  public RequestTransportation disableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
+    return this;
+  }
+
+   /**
+   * Get disableBorderCrossing
+   * @return disableBorderCrossing
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getDisableBorderCrossing() {
+    return disableBorderCrossing;
+  }
+
+  public void setDisableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
   }
 
   public RequestTransportation ptChangeDelay(Integer ptChangeDelay) {
@@ -151,6 +175,24 @@ public class RequestTransportation   {
     this.drivingTimeToStation = drivingTimeToStation;
   }
 
+  public RequestTransportation cyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+    return this;
+  }
+
+   /**
+   * Get cyclingTimeToStation
+   * @return cyclingTimeToStation
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getCyclingTimeToStation() {
+    return cyclingTimeToStation;
+  }
+
+  public void setCyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+  }
+
   public RequestTransportation parkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
     return this;
@@ -198,16 +240,18 @@ public class RequestTransportation   {
     }
     RequestTransportation requestTransportation = (RequestTransportation) o;
     return Objects.equals(this.type, requestTransportation.type) &&
+        Objects.equals(this.disableBorderCrossing, requestTransportation.disableBorderCrossing) &&
         Objects.equals(this.ptChangeDelay, requestTransportation.ptChangeDelay) &&
         Objects.equals(this.walkingTime, requestTransportation.walkingTime) &&
         Objects.equals(this.drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
+        Objects.equals(this.cyclingTimeToStation, requestTransportation.cyclingTimeToStation) &&
         Objects.equals(this.parkingTime, requestTransportation.parkingTime) &&
         Objects.equals(this.boardingTime, requestTransportation.boardingTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, ptChangeDelay, walkingTime, drivingTimeToStation, parkingTime, boardingTime);
+    return Objects.hash(type, disableBorderCrossing, ptChangeDelay, walkingTime, drivingTimeToStation, cyclingTimeToStation, parkingTime, boardingTime);
   }
 
   @Override
@@ -216,9 +260,11 @@ public class RequestTransportation   {
     sb.append("class RequestTransportation {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    disableBorderCrossing: ").append(toIndentedString(disableBorderCrossing)).append("\n");
     sb.append("    ptChangeDelay: ").append(toIndentedString(ptChangeDelay)).append("\n");
     sb.append("    walkingTime: ").append(toIndentedString(walkingTime)).append("\n");
     sb.append("    drivingTimeToStation: ").append(toIndentedString(drivingTimeToStation)).append("\n");
+    sb.append("    cyclingTimeToStation: ").append(toIndentedString(cyclingTimeToStation)).append("\n");
     sb.append("    parkingTime: ").append(toIndentedString(parkingTime)).append("\n");
     sb.append("    boardingTime: ").append(toIndentedString(boardingTime)).append("\n");
     sb.append("}");

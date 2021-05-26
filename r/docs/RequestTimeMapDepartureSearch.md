@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **departure_time** | **character** |  | 
 **properties** | [**array[RequestTimeMapProperty]**](RequestTimeMapProperty.md) |  | [optional] 
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**level_of_detail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 

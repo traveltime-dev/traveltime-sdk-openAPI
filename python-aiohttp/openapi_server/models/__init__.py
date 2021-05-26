@@ -3,6 +3,7 @@
 # import models into model package
 from openapi_server.models.coords import Coords
 from openapi_server.models.request_arrival_time_period import RequestArrivalTimePeriod
+from openapi_server.models.request_level_of_detail import RequestLevelOfDetail
 from openapi_server.models.request_location import RequestLocation
 from openapi_server.models.request_range_full import RequestRangeFull
 from openapi_server.models.request_range_no_max_results import RequestRangeNoMaxResults

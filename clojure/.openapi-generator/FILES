@@ -6,6 +6,7 @@ src/travel_time_api/api/default.clj
 src/travel_time_api/core.clj
 src/travel_time_api/specs/coords.clj
 src/travel_time_api/specs/request_arrival_time_period.clj
+src/travel_time_api/specs/request_level_of_detail.clj
 src/travel_time_api/specs/request_location.clj
 src/travel_time_api/specs/request_range_full.clj
 src/travel_time_api/specs/request_range_no_max_results.clj

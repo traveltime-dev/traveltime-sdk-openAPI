@@ -7,7 +7,7 @@
     },
     "termsOfService" : "https://www.traveltime.com/terms-and-conditions",
     "title" : "TravelTime API",
-    "version" : "1.2.2"
+    "version" : "1.2.3"
   },
   "externalDocs" : {
     "url" : "http://docs.traveltime.com"
@@ -790,8 +790,8 @@
       },
       "RequestRangeFull" : {
         "example" : {
-          "width" : 40182,
-          "max_results" : 3,
+          "width" : 15622,
+          "max_results" : 4,
           "enabled" : true
         },
         "properties" : {
@@ -853,8 +853,8 @@
       "RequestTimeFilterPostcodeSectorsDepartureSearch" : {
         "example" : {
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -864,8 +864,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -908,8 +910,8 @@
         "example" : {
           "arrival_time" : "2000-01-23T04:56:07.000+00:00",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -918,8 +920,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -961,8 +965,8 @@
       "RequestTimeFilterPostcodeDistrictsDepartureSearch" : {
         "example" : {
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -972,8 +976,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1016,8 +1022,8 @@
         "example" : {
           "arrival_time" : "2000-01-23T04:56:07.000+00:00",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -1026,8 +1032,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1069,8 +1077,8 @@
       "RequestTimeFilterPostcodesDepartureSearch" : {
         "example" : {
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -1079,8 +1087,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1119,8 +1129,8 @@
         "example" : {
           "arrival_time" : "2000-01-23T04:56:07.000+00:00",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -1128,8 +1138,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1169,18 +1181,20 @@
           "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
           "departure_location_id" : "departure_location_id",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
-          "travel_time" : 3361,
+          "travel_time" : 10186,
           "departure_time" : "2000-01-23T04:56:07.000+00:00",
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1232,17 +1246,19 @@
           "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
           "arrival_location_id" : "arrival_location_id",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
-          "travel_time" : 5245,
+          "travel_time" : 2966,
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1408,8 +1424,8 @@
           "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
           "departure_location_id" : "departure_location_id",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
@@ -1417,8 +1433,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1465,16 +1483,18 @@
           "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
           "arrival_location_id" : "arrival_location_id",
           "range" : {
-            "width" : 40182,
-            "max_results" : 3,
+            "width" : 15622,
+            "max_results" : 4,
             "enabled" : true
           },
           "id" : "id",
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -1522,17 +1542,19 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 5245,
+            "travel_time" : 2966,
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1542,17 +1564,19 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 5245,
+            "travel_time" : 2966,
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1562,17 +1586,19 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 5245,
+            "travel_time" : 2966,
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1582,17 +1608,19 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 5245,
+            "travel_time" : 2966,
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1602,17 +1630,19 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 5245,
+            "travel_time" : 2966,
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1622,18 +1652,20 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 3361,
+            "travel_time" : 10186,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1642,18 +1674,20 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 3361,
+            "travel_time" : 10186,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1662,18 +1696,20 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 3361,
+            "travel_time" : 10186,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1682,18 +1718,20 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 3361,
+            "travel_time" : 10186,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1702,18 +1740,20 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
-            "travel_time" : 3361,
+            "travel_time" : 10186,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1764,8 +1804,8 @@
           "arrival_searches" : [ {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1773,8 +1813,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1782,8 +1824,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1791,8 +1833,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1800,8 +1844,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1809,8 +1853,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1818,8 +1864,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1827,8 +1873,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1836,8 +1884,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1845,8 +1893,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1854,8 +1904,8 @@
           } ],
           "departure_searches" : [ {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1864,16 +1914,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1882,16 +1934,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1900,16 +1954,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1918,16 +1974,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1936,8 +1994,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1967,8 +2027,8 @@
           "arrival_searches" : [ {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1977,8 +2037,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -1986,8 +2048,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -1996,8 +2058,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2005,8 +2069,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2015,8 +2079,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2024,8 +2090,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2034,8 +2100,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2043,8 +2111,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2053,8 +2121,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2062,8 +2132,8 @@
           } ],
           "departure_searches" : [ {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2073,16 +2143,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2092,16 +2164,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2111,16 +2185,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2130,16 +2206,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2149,8 +2227,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2180,8 +2260,8 @@
           "arrival_searches" : [ {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2190,8 +2270,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2199,8 +2281,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2209,8 +2291,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2218,8 +2302,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2228,8 +2312,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2237,8 +2323,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2247,8 +2333,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2256,8 +2344,8 @@
           }, {
             "arrival_time" : "2000-01-23T04:56:07.000+00:00",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2266,8 +2354,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2275,8 +2365,8 @@
           } ],
           "departure_searches" : [ {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2286,16 +2376,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2305,16 +2397,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2324,16 +2418,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2343,16 +2439,18 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
             }
           }, {
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2362,8 +2460,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2633,16 +2733,18 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2652,16 +2754,18 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2671,16 +2775,18 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2690,16 +2796,18 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2709,16 +2817,18 @@
             "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
             "arrival_location_id" : "arrival_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2728,8 +2838,8 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2737,8 +2847,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2747,8 +2859,8 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2756,8 +2868,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2766,8 +2880,8 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2775,8 +2889,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2785,8 +2901,8 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2794,8 +2910,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2804,8 +2922,8 @@
             "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
             "departure_location_id" : "departure_location_id",
             "range" : {
-              "width" : 40182,
-              "max_results" : 3,
+              "width" : 15622,
+              "max_results" : 4,
               "enabled" : true
             },
             "id" : "id",
@@ -2813,8 +2931,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -2864,6 +2984,24 @@
         "enum" : [ "is_only_walking" ],
         "type" : "string"
       },
+      "RequestLevelOfDetail" : {
+        "example" : {
+          "level" : "lowest",
+          "scale_type" : "simple"
+        },
+        "properties" : {
+          "scale_type" : {
+            "enum" : [ "simple" ],
+            "type" : "string"
+          },
+          "level" : {
+            "enum" : [ "lowest", "low", "medium", "high", "highest" ],
+            "type" : "string"
+          }
+        },
+        "required" : [ "level", "scale_type" ],
+        "type" : "object"
+      },
       "RequestUnionOnIntersection" : {
         "example" : {
           "id" : "id",
@@ -2889,6 +3027,10 @@
             "width" : 26039,
             "enabled" : true
           },
+          "level_of_detail" : {
+            "level" : "lowest",
+            "scale_type" : "simple"
+          },
           "id" : "id",
           "travel_time" : 1208,
           "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -2899,8 +3041,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -2933,6 +3077,9 @@
           },
           "range" : {
             "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          },
+          "level_of_detail" : {
+            "$ref" : "#/components/schemas/RequestLevelOfDetail"
           }
         },
         "required" : [ "coords", "departure_time", "id", "transportation", "travel_time" ],
@@ -2945,6 +3092,10 @@
             "width" : 26039,
             "enabled" : true
           },
+          "level_of_detail" : {
+            "level" : "lowest",
+            "scale_type" : "simple"
+          },
           "id" : "id",
           "travel_time" : 2161,
           "coords" : {
@@ -2954,8 +3105,10 @@
           "properties" : [ null, null ],
           "transportation" : {
             "pt_change_delay" : 0,
-            "boarding_time" : 5,
+            "boarding_time" : 2,
             "driving_time_to_station" : 1,
+            "disable_border_crossing" : true,
+            "cycling_time_to_station" : 5,
             "type" : "cycling",
             "walking_time" : 6,
             "parking_time" : 5
@@ -2988,6 +3141,9 @@
           },
           "range" : {
             "$ref" : "#/components/schemas/RequestRangeNoMaxResults"
+          },
+          "level_of_detail" : {
+            "$ref" : "#/components/schemas/RequestLevelOfDetail"
           }
         },
         "required" : [ "arrival_time", "coords", "id", "transportation", "travel_time" ],
@@ -3001,6 +3157,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 2161,
             "coords" : {
@@ -3010,8 +3170,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3022,6 +3184,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 2161,
             "coords" : {
@@ -3031,8 +3197,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3043,6 +3211,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 2161,
             "coords" : {
@@ -3052,8 +3224,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3064,6 +3238,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 2161,
             "coords" : {
@@ -3073,8 +3251,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3085,6 +3265,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 2161,
             "coords" : {
@@ -3094,8 +3278,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3122,6 +3308,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 1208,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -3132,8 +3322,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3143,6 +3335,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 1208,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -3153,8 +3349,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3164,6 +3362,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 1208,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -3174,8 +3376,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3185,6 +3389,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 1208,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -3195,8 +3403,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -3206,6 +3416,10 @@
               "width" : 26039,
               "enabled" : true
             },
+            "level_of_detail" : {
+              "level" : "lowest",
+              "scale_type" : "simple"
+            },
             "id" : "id",
             "travel_time" : 1208,
             "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -3216,8 +3430,10 @@
             "properties" : [ null, null ],
             "transportation" : {
               "pt_change_delay" : 0,
-              "boarding_time" : 5,
+              "boarding_time" : 2,
               "driving_time_to_station" : 1,
+              "disable_border_crossing" : true,
+              "cycling_time_to_station" : 5,
               "type" : "cycling",
               "walking_time" : 6,
               "parking_time" : 5
@@ -7705,8 +7921,10 @@
       "RequestTransportation" : {
         "example" : {
           "pt_change_delay" : 0,
-          "boarding_time" : 5,
+          "boarding_time" : 2,
           "driving_time_to_station" : 1,
+          "disable_border_crossing" : true,
+          "cycling_time_to_station" : 5,
           "type" : "cycling",
           "walking_time" : 6,
           "parking_time" : 5
@@ -7716,6 +7934,9 @@
             "enum" : [ "cycling", "driving", "driving+train", "public_transport", "walking", "coach", "bus", "train", "ferry", "driving+ferry", "cycling+ferry" ],
             "type" : "string"
           },
+          "disable_border_crossing" : {
+            "type" : "boolean"
+          },
           "pt_change_delay" : {
             "type" : "integer"
           },
@@ -7723,6 +7944,9 @@
             "type" : "integer"
           },
           "driving_time_to_station" : {
+            "type" : "integer"
+          },
+          "cycling_time_to_station" : {
             "type" : "integer"
           },
           "parking_time" : {

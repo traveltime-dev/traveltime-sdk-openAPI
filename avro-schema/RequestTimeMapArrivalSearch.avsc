@@ -43,6 +43,12 @@
       "type": ["null", "model.RequestRangeNoMaxResults"],
       "doc": "",
       "default": null
+    },
+    {
+      "name": "level_of_detail",
+      "type": ["null", "model.RequestLevelOfDetail"],
+      "doc": "",
+      "default": null
     }
   ]
 

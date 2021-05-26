@@ -6,6 +6,7 @@
 // ignore_for_file: unused_import
 
 import 'package:openapi/model/coords.dart';
+import 'package:openapi/model/request_level_of_detail.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:openapi/model/request_range_no_max_results.dart';
 import 'package:openapi/model/request_time_map_property.dart';
@@ -39,6 +40,10 @@ abstract class RequestTimeMapArrivalSearch implements Built<RequestTimeMapArriva
     @nullable
     @BuiltValueField(wireName: r'range')
     RequestRangeNoMaxResults get range;
+
+    @nullable
+    @BuiltValueField(wireName: r'level_of_detail')
+    RequestLevelOfDetail get levelOfDetail;
 
     RequestTimeMapArrivalSearch._();
 
@@ -93,6 +98,12 @@ class _$RequestTimeMapArrivalSearchSerializer implements StructuredSerializer<Re
                 ..add(serializers.serialize(object.range,
                     specifiedType: const FullType(RequestRangeNoMaxResults)));
         }
+        if (object.levelOfDetail != null) {
+            result
+                ..add(r'level_of_detail')
+                ..add(serializers.serialize(object.levelOfDetail,
+                    specifiedType: const FullType(RequestLevelOfDetail)));
+        }
         return result;
     }
 
@@ -134,6 +145,10 @@ class _$RequestTimeMapArrivalSearchSerializer implements StructuredSerializer<Re
                 case r'range':
                     result.range.replace(serializers.deserialize(value,
                         specifiedType: const FullType(RequestRangeNoMaxResults)) as RequestRangeNoMaxResults);
+                    break;
+                case r'level_of_detail':
+                    result.levelOfDetail.replace(serializers.deserialize(value,
+                        specifiedType: const FullType(RequestLevelOfDetail)) as RequestLevelOfDetail);
                     break;
             }
         }

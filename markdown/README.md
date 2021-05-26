@@ -25,6 +25,7 @@ Class | Method | HTTP request | Description
 
  - [Coords](./Models/Coords.md)
  - [RequestArrivalTimePeriod](./Models/RequestArrivalTimePeriod.md)
+ - [RequestLevelOfDetail](./Models/RequestLevelOfDetail.md)
  - [RequestLocation](./Models/RequestLocation.md)
  - [RequestRangeFull](./Models/RequestRangeFull.md)
  - [RequestRangeNoMaxResults](./Models/RequestRangeNoMaxResults.md)

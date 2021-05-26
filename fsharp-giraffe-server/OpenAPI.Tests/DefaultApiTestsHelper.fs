@@ -33,16 +33,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -52,16 +54,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -71,16 +75,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -90,16 +96,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -109,16 +117,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -128,8 +138,8 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -137,8 +147,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -147,8 +159,8 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -156,8 +168,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -166,8 +180,8 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -175,8 +189,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -185,8 +201,8 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -194,8 +210,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -204,8 +222,8 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -213,8 +231,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -273,17 +293,19 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 5245,
+    &quot;travel_time&quot; : 2966,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -293,17 +315,19 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 5245,
+    &quot;travel_time&quot; : 2966,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -313,17 +337,19 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 5245,
+    &quot;travel_time&quot; : 2966,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -333,17 +359,19 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 5245,
+    &quot;travel_time&quot; : 2966,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -353,17 +381,19 @@ module DefaultApiHandlerTestsHelper =
     &quot;departure_location_ids&quot; : [ &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot;, &quot;departure_location_ids&quot; ],
     &quot;arrival_location_id&quot; : &quot;arrival_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 5245,
+    &quot;travel_time&quot; : 2966,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -373,18 +403,20 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 3361,
+    &quot;travel_time&quot; : 10186,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -393,18 +425,20 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 3361,
+    &quot;travel_time&quot; : 10186,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -413,18 +447,20 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 3361,
+    &quot;travel_time&quot; : 10186,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -433,18 +469,20 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 3361,
+    &quot;travel_time&quot; : 10186,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -453,18 +491,20 @@ module DefaultApiHandlerTestsHelper =
     &quot;arrival_location_ids&quot; : [ &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot;, &quot;arrival_location_ids&quot; ],
     &quot;departure_location_id&quot; : &quot;departure_location_id&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
-    &quot;travel_time&quot; : 3361,
+    &quot;travel_time&quot; : 10186,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -615,8 +655,8 @@ module DefaultApiHandlerTestsHelper =
   &quot;arrival_searches&quot; : [ {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -625,8 +665,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -634,8 +676,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -644,8 +686,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -653,8 +697,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -663,8 +707,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -672,8 +718,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -682,8 +728,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -691,8 +739,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -701,8 +749,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -710,8 +760,8 @@ module DefaultApiHandlerTestsHelper =
   } ],
   &quot;departure_searches&quot; : [ {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -721,16 +771,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -740,16 +792,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -759,16 +813,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -778,16 +834,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -797,8 +855,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -818,8 +878,8 @@ module DefaultApiHandlerTestsHelper =
   &quot;arrival_searches&quot; : [ {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -828,8 +888,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -837,8 +899,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -847,8 +909,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -856,8 +920,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -866,8 +930,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -875,8 +941,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -885,8 +951,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -894,8 +962,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -904,8 +972,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -913,8 +983,8 @@ module DefaultApiHandlerTestsHelper =
   } ],
   &quot;departure_searches&quot; : [ {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -924,16 +994,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -943,16 +1015,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -962,16 +1036,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -981,16 +1057,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1000,8 +1078,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1021,8 +1101,8 @@ module DefaultApiHandlerTestsHelper =
   &quot;arrival_searches&quot; : [ {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1030,8 +1110,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1039,8 +1121,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1048,8 +1130,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1057,8 +1141,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1066,8 +1150,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1075,8 +1161,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1084,8 +1170,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1093,8 +1181,8 @@ module DefaultApiHandlerTestsHelper =
   }, {
     &quot;arrival_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1102,8 +1190,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1111,8 +1201,8 @@ module DefaultApiHandlerTestsHelper =
   } ],
   &quot;departure_searches&quot; : [ {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1121,16 +1211,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1139,16 +1231,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1157,16 +1251,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1175,16 +1271,18 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
     }
   }, {
     &quot;range&quot; : {
-      &quot;width&quot; : 40182,
-      &quot;max_results&quot; : 3,
+      &quot;width&quot; : 15622,
+      &quot;max_results&quot; : 4,
       &quot;enabled&quot; : true
     },
     &quot;id&quot; : &quot;id&quot;,
@@ -1193,8 +1291,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1217,6 +1317,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 2161,
     &quot;coords&quot; : {
@@ -1226,8 +1330,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1238,6 +1344,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 2161,
     &quot;coords&quot; : {
@@ -1247,8 +1357,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1259,6 +1371,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 2161,
     &quot;coords&quot; : {
@@ -1268,8 +1384,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1280,6 +1398,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 2161,
     &quot;coords&quot; : {
@@ -1289,8 +1411,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1301,6 +1425,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 2161,
     &quot;coords&quot; : {
@@ -1310,8 +1438,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1338,6 +1468,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 1208,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
@@ -1348,8 +1482,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1359,6 +1495,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 1208,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
@@ -1369,8 +1509,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1380,6 +1522,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 1208,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
@@ -1390,8 +1536,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1401,6 +1549,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 1208,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
@@ -1411,8 +1563,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5
@@ -1422,6 +1576,10 @@ module DefaultApiHandlerTestsHelper =
       &quot;width&quot; : 26039,
       &quot;enabled&quot; : true
     },
+    &quot;level_of_detail&quot; : {
+      &quot;level&quot; : &quot;lowest&quot;,
+      &quot;scale_type&quot; : &quot;simple&quot;
+    },
     &quot;id&quot; : &quot;id&quot;,
     &quot;travel_time&quot; : 1208,
     &quot;departure_time&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
@@ -1432,8 +1590,10 @@ module DefaultApiHandlerTestsHelper =
     &quot;properties&quot; : [ null, null ],
     &quot;transportation&quot; : {
       &quot;pt_change_delay&quot; : 0,
-      &quot;boarding_time&quot; : 5,
+      &quot;boarding_time&quot; : 2,
       &quot;driving_time_to_station&quot; : 1,
+      &quot;disable_border_crossing&quot; : true,
+      &quot;cycling_time_to_station&quot; : 5,
       &quot;type&quot; : &quot;cycling&quot;,
       &quot;walking_time&quot; : 6,
       &quot;parking_time&quot; : 5

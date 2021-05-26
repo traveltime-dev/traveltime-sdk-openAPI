@@ -6,6 +6,7 @@ README.md
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -109,6 +110,7 @@ openapi_client/exceptions.py
 openapi_client/model/__init__.py
 openapi_client/model/coords.py
 openapi_client/model/request_arrival_time_period.py
+openapi_client/model/request_level_of_detail.py
 openapi_client/model/request_location.py
 openapi_client/model/request_range_full.py
 openapi_client/model/request_range_no_max_results.py
@@ -212,6 +214,7 @@ test/__init__.py
 test/test_coords.py
 test/test_default_api.py
 test/test_request_arrival_time_period.py
+test/test_request_level_of_detail.py
 test/test_request_location.py
 test/test_request_range_full.py
 test/test_request_range_no_max_results.py

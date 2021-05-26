@@ -8,6 +8,7 @@ authors     = ["F. Bar (foo@bar.baz)"]
 imports {
   Root = tosca.resourceTypes.Root
   Coords = openapi_server.resourceTypes.Coords
+  RequestLevelOfDetail = openapi_server.resourceTypes.RequestLevelOfDetail
   RequestRangeNoMaxResults = openapi_server.resourceTypes.RequestRangeNoMaxResults
   RequestTimeMapProperty = openapi_server.resourceTypes.RequestTimeMapProperty
   RequestTransportation = openapi_server.resourceTypes.RequestTransportation
@@ -52,6 +53,11 @@ resourceTypes {
         }
         range {
           type = RequestRangeNoMaxResults
+          description = ""
+          optional = false
+        }
+        level_of_detail {
+          type = RequestLevelOfDetail
           description = ""
           optional = false
         }

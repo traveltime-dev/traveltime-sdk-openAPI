@@ -1,5 +1,6 @@
 export * from './Coords'
 export * from './RequestArrivalTimePeriod'
+export * from './RequestLevelOfDetail'
 export * from './RequestLocation'
 export * from './RequestRangeFull'
 export * from './RequestRangeNoMaxResults'

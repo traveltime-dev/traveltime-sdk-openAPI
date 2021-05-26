@@ -6,6 +6,7 @@ from typing import List, Dict, Type
 
 from openapi_server.models.base_model_ import Model
 from openapi_server.models.coords import Coords
+from openapi_server.models.request_level_of_detail import RequestLevelOfDetail
 from openapi_server.models.request_range_no_max_results import RequestRangeNoMaxResults
 from openapi_server.models.request_time_map_property import RequestTimeMapProperty
 from openapi_server.models.request_transportation import RequestTransportation
@@ -18,7 +19,7 @@ class RequestTimeMapDepartureSearch(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, id: str=None, coords: Coords=None, transportation: RequestTransportation=None, travel_time: int=None, departure_time: datetime=None, properties: List[RequestTimeMapProperty]=None, range: RequestRangeNoMaxResults=None):
+    def __init__(self, id: str=None, coords: Coords=None, transportation: RequestTransportation=None, travel_time: int=None, departure_time: datetime=None, properties: List[RequestTimeMapProperty]=None, range: RequestRangeNoMaxResults=None, level_of_detail: RequestLevelOfDetail=None):
         """RequestTimeMapDepartureSearch - a model defined in OpenAPI
 
         :param id: The id of this RequestTimeMapDepartureSearch.
@@ -28,6 +29,7 @@ class RequestTimeMapDepartureSearch(Model):
         :param departure_time: The departure_time of this RequestTimeMapDepartureSearch.
         :param properties: The properties of this RequestTimeMapDepartureSearch.
         :param range: The range of this RequestTimeMapDepartureSearch.
+        :param level_of_detail: The level_of_detail of this RequestTimeMapDepartureSearch.
         """
         self.openapi_types = {
             'id': str,
@@ -36,7 +38,8 @@ class RequestTimeMapDepartureSearch(Model):
             'travel_time': int,
             'departure_time': datetime,
             'properties': List[RequestTimeMapProperty],
-            'range': RequestRangeNoMaxResults
+            'range': RequestRangeNoMaxResults,
+            'level_of_detail': RequestLevelOfDetail
         }
 
         self.attribute_map = {
@@ -46,7 +49,8 @@ class RequestTimeMapDepartureSearch(Model):
             'travel_time': 'travel_time',
             'departure_time': 'departure_time',
             'properties': 'properties',
-            'range': 'range'
+            'range': 'range',
+            'level_of_detail': 'level_of_detail'
         }
 
         self._id = id
@@ -56,6 +60,7 @@ class RequestTimeMapDepartureSearch(Model):
         self._departure_time = departure_time
         self._properties = properties
         self._range = range
+        self._level_of_detail = level_of_detail
 
     @classmethod
     def from_dict(cls, dikt: dict) -> 'RequestTimeMapDepartureSearch':
@@ -226,3 +231,24 @@ class RequestTimeMapDepartureSearch(Model):
         """
 
         self._range = range
+
+    @property
+    def level_of_detail(self):
+        """Gets the level_of_detail of this RequestTimeMapDepartureSearch.
+
+
+        :return: The level_of_detail of this RequestTimeMapDepartureSearch.
+        :rtype: RequestLevelOfDetail
+        """
+        return self._level_of_detail
+
+    @level_of_detail.setter
+    def level_of_detail(self, level_of_detail):
+        """Sets the level_of_detail of this RequestTimeMapDepartureSearch.
+
+
+        :param level_of_detail: The level_of_detail of this RequestTimeMapDepartureSearch.
+        :type level_of_detail: RequestLevelOfDetail
+        """
+
+        self._level_of_detail = level_of_detail

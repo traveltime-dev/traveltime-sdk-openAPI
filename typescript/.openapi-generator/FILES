@@ -14,6 +14,7 @@ middleware.ts
 models/Coords.ts
 models/ObjectSerializer.ts
 models/RequestArrivalTimePeriod.ts
+models/RequestLevelOfDetail.ts
 models/RequestLocation.ts
 models/RequestRangeFull.ts
 models/RequestRangeNoMaxResults.ts

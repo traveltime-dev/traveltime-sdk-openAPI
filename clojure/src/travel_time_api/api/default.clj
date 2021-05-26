@@ -22,6 +22,7 @@
             [travel-time-api.specs.request-time-filter-fast :refer :all]
             [travel-time-api.specs.response-fare-ticket :refer :all]
             [travel-time-api.specs.request-time-filter-postcode-districts-property :refer :all]
+            [travel-time-api.specs.request-level-of-detail :refer :all]
             [travel-time-api.specs.request-time-filter-fast-arrival-one-to-many-search :refer :all]
             [travel-time-api.specs.request-routes :refer :all]
             [travel-time-api.specs.response-search-id :refer :all]

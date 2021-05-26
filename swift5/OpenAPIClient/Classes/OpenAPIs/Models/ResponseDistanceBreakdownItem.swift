@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseDistanceBreakdownItem: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseDistanceBreakdownItem: Codable, Hashable {
         self.mode = mode
         self.distance = distance
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case mode
         case distance
@@ -29,7 +32,4 @@ public struct ResponseDistanceBreakdownItem: Codable, Hashable {
         try container.encode(mode, forKey: .mode)
         try container.encode(distance, forKey: .distance)
     }
-
-
-
 }

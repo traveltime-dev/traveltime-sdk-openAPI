@@ -10,6 +10,7 @@ openapi_server/models/__init__.py
 openapi_server/models/base_model_.py
 openapi_server/models/coords.py
 openapi_server/models/request_arrival_time_period.py
+openapi_server/models/request_level_of_detail.py
 openapi_server/models/request_location.py
 openapi_server/models/request_range_full.py
 openapi_server/models/request_range_no_max_results.py

@@ -5,6 +5,7 @@ go/README.md
 go/api_default.go
 go/model_coords.go
 go/model_request_arrival_time_period.go
+go/model_request_level_of_detail.go
 go/model_request_location.go
 go/model_request_range_full.go
 go/model_request_range_no_max_results.go

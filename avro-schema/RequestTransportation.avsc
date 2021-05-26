@@ -26,6 +26,12 @@
       "doc": ""
     },
     {
+      "name": "disable_border_crossing",
+      "type": ["null", "boolean"],
+      "doc": "",
+      "default": null
+    },
+    {
       "name": "pt_change_delay",
       "type": ["null", "int"],
       "doc": "",
@@ -39,6 +45,12 @@
     },
     {
       "name": "driving_time_to_station",
+      "type": ["null", "int"],
+      "doc": "",
+      "default": null
+    },
+    {
+      "name": "cycling_time_to_station",
       "type": ["null", "int"],
       "doc": "",
       "default": null

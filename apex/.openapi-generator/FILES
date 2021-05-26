@@ -17,6 +17,10 @@ force-app/main/default/classes/OASRequestArrivalTimePeriod.cls
 force-app/main/default/classes/OASRequestArrivalTimePeriod.cls-meta.xml
 force-app/main/default/classes/OASRequestArrivalTimePeriodTest.cls
 force-app/main/default/classes/OASRequestArrivalTimePeriodTest.cls-meta.xml
+force-app/main/default/classes/OASRequestLevelOfDetail.cls
+force-app/main/default/classes/OASRequestLevelOfDetail.cls-meta.xml
+force-app/main/default/classes/OASRequestLevelOfDetailTest.cls
+force-app/main/default/classes/OASRequestLevelOfDetailTest.cls-meta.xml
 force-app/main/default/classes/OASRequestLocation.cls
 force-app/main/default/classes/OASRequestLocation.cls-meta.xml
 force-app/main/default/classes/OASRequestLocationTest.cls

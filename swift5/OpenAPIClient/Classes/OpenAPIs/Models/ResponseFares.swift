@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseFares: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseFares: Codable, Hashable {
         self.breakdown = breakdown
         self.ticketsTotal = ticketsTotal
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case breakdown
         case ticketsTotal = "tickets_total"
@@ -29,7 +32,4 @@ public struct ResponseFares: Codable, Hashable {
         try container.encode(breakdown, forKey: .breakdown)
         try container.encode(ticketsTotal, forKey: .ticketsTotal)
     }
-
-
-
 }

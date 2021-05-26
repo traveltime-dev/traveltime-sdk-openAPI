@@ -50,11 +50,15 @@ public enum TypeEnum {
 
   private TypeEnum type;
 
+  private Boolean disableBorderCrossing;
+
   private Integer ptChangeDelay;
 
   private Integer walkingTime;
 
   private Integer drivingTimeToStation;
+
+  private Integer cyclingTimeToStation;
 
   private Integer parkingTime;
 
@@ -77,6 +81,24 @@ public enum TypeEnum {
   }
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+
+  /**
+   **/
+  public RequestTransportation disableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("disable_border_crossing")
+  public Boolean getDisableBorderCrossing() {
+    return disableBorderCrossing;
+  }
+  public void setDisableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
   }
 
 
@@ -136,6 +158,24 @@ public enum TypeEnum {
 
   /**
    **/
+  public RequestTransportation cyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("cycling_time_to_station")
+  public Integer getCyclingTimeToStation() {
+    return cyclingTimeToStation;
+  }
+  public void setCyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+  }
+
+
+  /**
+   **/
   public RequestTransportation parkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
     return this;
@@ -181,16 +221,18 @@ public enum TypeEnum {
     }
     RequestTransportation requestTransportation = (RequestTransportation) o;
     return Objects.equals(type, requestTransportation.type) &&
+        Objects.equals(disableBorderCrossing, requestTransportation.disableBorderCrossing) &&
         Objects.equals(ptChangeDelay, requestTransportation.ptChangeDelay) &&
         Objects.equals(walkingTime, requestTransportation.walkingTime) &&
         Objects.equals(drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
+        Objects.equals(cyclingTimeToStation, requestTransportation.cyclingTimeToStation) &&
         Objects.equals(parkingTime, requestTransportation.parkingTime) &&
         Objects.equals(boardingTime, requestTransportation.boardingTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, ptChangeDelay, walkingTime, drivingTimeToStation, parkingTime, boardingTime);
+    return Objects.hash(type, disableBorderCrossing, ptChangeDelay, walkingTime, drivingTimeToStation, cyclingTimeToStation, parkingTime, boardingTime);
   }
 
   @Override
@@ -199,9 +241,11 @@ public enum TypeEnum {
     sb.append("class RequestTransportation {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    disableBorderCrossing: ").append(toIndentedString(disableBorderCrossing)).append("\n");
     sb.append("    ptChangeDelay: ").append(toIndentedString(ptChangeDelay)).append("\n");
     sb.append("    walkingTime: ").append(toIndentedString(walkingTime)).append("\n");
     sb.append("    drivingTimeToStation: ").append(toIndentedString(drivingTimeToStation)).append("\n");
+    sb.append("    cyclingTimeToStation: ").append(toIndentedString(cyclingTimeToStation)).append("\n");
     sb.append("    parkingTime: ").append(toIndentedString(parkingTime)).append("\n");
     sb.append("    boardingTime: ").append(toIndentedString(boardingTime)).append("\n");
     sb.append("}");

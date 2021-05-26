@@ -26,6 +26,7 @@ app/openapi_server/models/base_model_.py
 app/openapi_server/models/base_model_.py
 app/openapi_server/models/coords.py
 app/openapi_server/models/request_arrival_time_period.py
+app/openapi_server/models/request_level_of_detail.py
 app/openapi_server/models/request_location.py
 app/openapi_server/models/request_range_full.py
 app/openapi_server/models/request_range_no_max_results.py
@@ -139,6 +140,9 @@ model-definitions/types/ddui-views/openapi_server.resourceTypes.Coords/low.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestArrivalTimePeriod/create.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestArrivalTimePeriod/high.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestArrivalTimePeriod/low.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLevelOfDetail/create.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLevelOfDetail/high.json
+model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLevelOfDetail/low.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLocation/create.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLocation/high.json
 model-definitions/types/ddui-views/openapi_server.resourceTypes.RequestLocation/low.json
@@ -411,6 +415,7 @@ model-definitions/types/ddui-views/openapi_server.resourceTypes.ResponseTravelTi
 model-definitions/types/ddui-views/openapi_server.resourceTypes.ResponseTravelTimeStatistics/low.json
 model-definitions/types/tosca/openapi_server/Coords_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/RequestArrivalTimePeriod_ResourceType.tosca
+model-definitions/types/tosca/openapi_server/RequestLevelOfDetail_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/RequestLocation_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/RequestRangeFull_ResourceType.tosca
 model-definitions/types/tosca/openapi_server/RequestRangeNoMaxResults_ResourceType.tosca

@@ -30,6 +30,7 @@ RequestTimeMapArrivalSearch::__init()
 	//arrival_time = null;
 	//new std::list()std::list> properties;
 	//range = new RequestRangeNoMaxResults();
+	//level_of_detail = new RequestLevelOfDetail();
 }
 
 void
@@ -69,6 +70,11 @@ RequestTimeMapArrivalSearch::__cleanup()
 	//
 	//delete range;
 	//range = NULL;
+	//}
+	//if(level_of_detail != NULL) {
+	//
+	//delete level_of_detail;
+	//level_of_detail = NULL;
 	//}
 	//
 }
@@ -173,6 +179,20 @@ RequestTimeMapArrivalSearch::fromJson(char* jsonStr)
 		} else {
 			
 			RequestRangeNoMaxResults* obj = static_cast<RequestRangeNoMaxResults*> (&range);
+			obj->fromJson(json_to_string(node, false));
+			
+		}
+	}
+	const gchar *level_of_detailKey = "level_of_detail";
+	node = json_object_get_member(pJsonObject, level_of_detailKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("RequestLevelOfDetail")) {
+			jsonToValue(&level_of_detail, node, "RequestLevelOfDetail", "RequestLevelOfDetail");
+		} else {
+			
+			RequestLevelOfDetail* obj = static_cast<RequestLevelOfDetail*> (&level_of_detail);
 			obj->fromJson(json_to_string(node, false));
 			
 		}
@@ -283,6 +303,20 @@ RequestTimeMapArrivalSearch::toJson()
 	}
 	const gchar *rangeKey = "range";
 	json_object_set_member(pJsonObject, rangeKey, node);
+	if (isprimitive("RequestLevelOfDetail")) {
+		RequestLevelOfDetail obj = getLevelOfDetail();
+		node = converttoJson(&obj, "RequestLevelOfDetail", "");
+	}
+	else {
+		
+		RequestLevelOfDetail obj = static_cast<RequestLevelOfDetail> (getLevelOfDetail());
+		GError *mygerror;
+		mygerror = NULL;
+		node = json_from_string(obj.toJson(), &mygerror);
+		
+	}
+	const gchar *level_of_detailKey = "level_of_detail";
+	json_object_set_member(pJsonObject, level_of_detailKey, node);
 	node = json_node_alloc();
 	json_node_init(node, JSON_NODE_OBJECT);
 	json_node_take_object(node, pJsonObject);
@@ -373,6 +407,18 @@ void
 RequestTimeMapArrivalSearch::setRange(RequestRangeNoMaxResults  range)
 {
 	this->range = range;
+}
+
+RequestLevelOfDetail
+RequestTimeMapArrivalSearch::getLevelOfDetail()
+{
+	return level_of_detail;
+}
+
+void
+RequestTimeMapArrivalSearch::setLevelOfDetail(RequestLevelOfDetail  level_of_detail)
+{
+	this->level_of_detail = level_of_detail;
 }
 
 

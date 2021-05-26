@@ -4,6 +4,7 @@ build.gradle
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -115,9 +116,11 @@ src/main/kotlin/org/openapitools/client/infrastructure/RequestConfig.kt
 src/main/kotlin/org/openapitools/client/infrastructure/RequestMethod.kt
 src/main/kotlin/org/openapitools/client/infrastructure/ResponseExtensions.kt
 src/main/kotlin/org/openapitools/client/infrastructure/Serializer.kt
+src/main/kotlin/org/openapitools/client/infrastructure/URIAdapter.kt
 src/main/kotlin/org/openapitools/client/infrastructure/UUIDAdapter.kt
 src/main/kotlin/org/openapitools/client/models/Coords.kt
 src/main/kotlin/org/openapitools/client/models/RequestArrivalTimePeriod.kt
+src/main/kotlin/org/openapitools/client/models/RequestLevelOfDetail.kt
 src/main/kotlin/org/openapitools/client/models/RequestLocation.kt
 src/main/kotlin/org/openapitools/client/models/RequestRangeFull.kt
 src/main/kotlin/org/openapitools/client/models/RequestRangeNoMaxResults.kt

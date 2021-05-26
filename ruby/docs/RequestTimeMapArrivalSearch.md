@@ -11,6 +11,7 @@
 | **arrival_time** | **Time** |  |  |
 | **properties** | [**Array&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  | [optional] |
 | **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] |
+| **level_of_detail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = OpenapiClient::RequestTimeMapArrivalSearch.new(
   travel_time: null,
   arrival_time: null,
   properties: null,
-  range: null
+  range: null,
+  level_of_detail: null
 )
 ```
 

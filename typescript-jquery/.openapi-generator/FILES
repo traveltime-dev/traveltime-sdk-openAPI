@@ -6,6 +6,7 @@ git_push.sh
 index.ts
 model/Coords.ts
 model/RequestArrivalTimePeriod.ts
+model/RequestLevelOfDetail.ts
 model/RequestLocation.ts
 model/RequestRangeFull.ts
 model/RequestRangeNoMaxResults.ts

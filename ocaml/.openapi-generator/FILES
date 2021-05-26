@@ -6,6 +6,7 @@ openapi.opam
 src/apis/default_api.ml
 src/apis/default_api.mli
 src/models/coords.ml
+src/models/request_level_of_detail.ml
 src/models/request_location.ml
 src/models/request_range_full.ml
 src/models/request_range_no_max_results.ml

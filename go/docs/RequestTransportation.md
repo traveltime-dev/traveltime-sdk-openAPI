@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
+**DisableBorderCrossing** | Pointer to **bool** |  | [optional] 
 **PtChangeDelay** | Pointer to **int32** |  | [optional] 
 **WalkingTime** | Pointer to **int32** |  | [optional] 
 **DrivingTimeToStation** | Pointer to **int32** |  | [optional] 
+**CyclingTimeToStation** | Pointer to **int32** |  | [optional] 
 **ParkingTime** | Pointer to **int32** |  | [optional] 
 **BoardingTime** | Pointer to **int32** |  | [optional] 
 
@@ -49,6 +51,31 @@ and a boolean to check if the value has been set.
 
 SetType sets Type field to given value.
 
+
+### GetDisableBorderCrossing
+
+`func (o *RequestTransportation) GetDisableBorderCrossing() bool`
+
+GetDisableBorderCrossing returns the DisableBorderCrossing field if non-nil, zero value otherwise.
+
+### GetDisableBorderCrossingOk
+
+`func (o *RequestTransportation) GetDisableBorderCrossingOk() (*bool, bool)`
+
+GetDisableBorderCrossingOk returns a tuple with the DisableBorderCrossing field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDisableBorderCrossing
+
+`func (o *RequestTransportation) SetDisableBorderCrossing(v bool)`
+
+SetDisableBorderCrossing sets DisableBorderCrossing field to given value.
+
+### HasDisableBorderCrossing
+
+`func (o *RequestTransportation) HasDisableBorderCrossing() bool`
+
+HasDisableBorderCrossing returns a boolean if a field has been set.
 
 ### GetPtChangeDelay
 
@@ -124,6 +151,31 @@ SetDrivingTimeToStation sets DrivingTimeToStation field to given value.
 `func (o *RequestTransportation) HasDrivingTimeToStation() bool`
 
 HasDrivingTimeToStation returns a boolean if a field has been set.
+
+### GetCyclingTimeToStation
+
+`func (o *RequestTransportation) GetCyclingTimeToStation() int32`
+
+GetCyclingTimeToStation returns the CyclingTimeToStation field if non-nil, zero value otherwise.
+
+### GetCyclingTimeToStationOk
+
+`func (o *RequestTransportation) GetCyclingTimeToStationOk() (*int32, bool)`
+
+GetCyclingTimeToStationOk returns a tuple with the CyclingTimeToStation field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCyclingTimeToStation
+
+`func (o *RequestTransportation) SetCyclingTimeToStation(v int32)`
+
+SetCyclingTimeToStation sets CyclingTimeToStation field to given value.
+
+### HasCyclingTimeToStation
+
+`func (o *RequestTransportation) HasCyclingTimeToStation() bool`
+
+HasCyclingTimeToStation returns a boolean if a field has been set.
 
 ### GetParkingTime
 

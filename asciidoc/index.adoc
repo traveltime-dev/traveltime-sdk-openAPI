@@ -1,6 +1,6 @@
 = TravelTime API
 support@igeolise.com
-1.2.2
+1.2.3
 :toc: left
 :numbered:
 :toclevels: 3
@@ -1050,6 +1050,31 @@ endif::internal-generation[]
 [cols="2,1,2,4,1"]
 |===         
 | Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#RequestLevelOfDetail]
+=== _RequestLevelOfDetail_ 
+
+
+
+[.fields-RequestLevelOfDetail]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| scale_type 
+| X 
+| String  
+| 
+|  _Enum:_ simple, 
+
+| level 
+| X 
+| String  
+| 
+|  _Enum:_ lowest, low, medium, high, highest, 
 
 |===
 
@@ -2168,6 +2193,12 @@ endif::internal-generation[]
 | 
 |  
 
+| level_of_detail 
+|  
+| RequestLevelOfDetail  
+| 
+|  
+
 |===
 
 
@@ -2223,6 +2254,12 @@ endif::internal-generation[]
 | 
 |  
 
+| level_of_detail 
+|  
+| RequestLevelOfDetail  
+| 
+|  
+
 |===
 
 
@@ -2255,6 +2292,12 @@ endif::internal-generation[]
 | 
 |  _Enum:_ cycling, driving, driving+train, public_transport, walking, coach, bus, train, ferry, driving+ferry, cycling+ferry, 
 
+| disable_border_crossing 
+|  
+| Boolean  
+| 
+|  
+
 | pt_change_delay 
 |  
 | Integer  
@@ -2268,6 +2311,12 @@ endif::internal-generation[]
 |  
 
 | driving_time_to_station 
+|  
+| Integer  
+| 
+|  
+
+| cycling_time_to_station 
 |  
 | Integer  
 | 

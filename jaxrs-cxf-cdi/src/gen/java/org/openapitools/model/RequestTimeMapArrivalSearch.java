@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -34,6 +35,8 @@ public class RequestTimeMapArrivalSearch   {
   private List<RequestTimeMapProperty> properties = null;
 
   private RequestRangeNoMaxResults range;
+
+  private RequestLevelOfDetail levelOfDetail;
 
 
   /**
@@ -177,6 +180,24 @@ public class RequestTimeMapArrivalSearch   {
   }
 
 
+  /**
+   **/
+  public RequestTimeMapArrivalSearch levelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("level_of_detail")
+  public RequestLevelOfDetail getLevelOfDetail() {
+    return levelOfDetail;
+  }
+  public void setLevelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -193,12 +214,13 @@ public class RequestTimeMapArrivalSearch   {
         Objects.equals(travelTime, requestTimeMapArrivalSearch.travelTime) &&
         Objects.equals(arrivalTime, requestTimeMapArrivalSearch.arrivalTime) &&
         Objects.equals(properties, requestTimeMapArrivalSearch.properties) &&
-        Objects.equals(range, requestTimeMapArrivalSearch.range);
+        Objects.equals(range, requestTimeMapArrivalSearch.range) &&
+        Objects.equals(levelOfDetail, requestTimeMapArrivalSearch.levelOfDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, coords, transportation, travelTime, arrivalTime, properties, range);
+    return Objects.hash(id, coords, transportation, travelTime, arrivalTime, properties, range, levelOfDetail);
   }
 
   @Override
@@ -213,6 +235,7 @@ public class RequestTimeMapArrivalSearch   {
     sb.append("    arrivalTime: ").append(toIndentedString(arrivalTime)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    levelOfDetail: ").append(toIndentedString(levelOfDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

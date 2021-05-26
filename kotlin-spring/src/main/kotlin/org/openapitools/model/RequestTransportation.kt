@@ -15,9 +15,11 @@ import javax.validation.Valid
 /**
  * 
  * @param type 
+ * @param disableBorderCrossing 
  * @param ptChangeDelay 
  * @param walkingTime 
  * @param drivingTimeToStation 
+ * @param cyclingTimeToStation 
  * @param parkingTime 
  * @param boardingTime 
  */
@@ -25,11 +27,15 @@ data class RequestTransportation(
 
     @field:JsonProperty("type", required = true) val type: RequestTransportation.Type,
 
+    @field:JsonProperty("disable_border_crossing") val disableBorderCrossing: kotlin.Boolean? = null,
+
     @field:JsonProperty("pt_change_delay") val ptChangeDelay: kotlin.Int? = null,
 
     @field:JsonProperty("walking_time") val walkingTime: kotlin.Int? = null,
 
     @field:JsonProperty("driving_time_to_station") val drivingTimeToStation: kotlin.Int? = null,
+
+    @field:JsonProperty("cycling_time_to_station") val cyclingTimeToStation: kotlin.Int? = null,
 
     @field:JsonProperty("parking_time") val parkingTime: kotlin.Int? = null,
 

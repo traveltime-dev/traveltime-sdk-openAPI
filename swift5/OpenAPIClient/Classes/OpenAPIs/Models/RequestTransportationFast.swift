@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTransportationFast: Codable, Hashable {
 
@@ -20,6 +22,7 @@ public struct RequestTransportationFast: Codable, Hashable {
     public init(type: ModelType) {
         self.type = type
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
     }
@@ -30,7 +33,4 @@ public struct RequestTransportationFast: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
     }
-
-
-
 }

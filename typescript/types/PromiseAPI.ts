@@ -4,6 +4,7 @@ import { Configuration} from '../configuration'
 
 import { Coords } from '../models/Coords';
 import { RequestArrivalTimePeriod } from '../models/RequestArrivalTimePeriod';
+import { RequestLevelOfDetail } from '../models/RequestLevelOfDetail';
 import { RequestLocation } from '../models/RequestLocation';
 import { RequestRangeFull } from '../models/RequestRangeFull';
 import { RequestRangeNoMaxResults } from '../models/RequestRangeNoMaxResults';
@@ -111,92 +112,92 @@ export class PromiseDefaultApi {
     /**
      * @param lat 
      * @param lng 
-     * @param within_country 
+     * @param withinCountry 
      */
-    public geocodingReverseSearch(lat: number, lng: number, within_country?: string, options?: Configuration): Promise<ResponseGeocoding> {
-        const result = this.api.geocodingReverseSearch(lat, lng, within_country, options);
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, _options?: Configuration): Promise<ResponseGeocoding> {
+        const result = this.api.geocodingReverseSearch(lat, lng, withinCountry, _options);
         return result.toPromise();
     }
 
     /**
      * @param query 
-     * @param focus_lat 
-     * @param focus_lng 
-     * @param within_country 
+     * @param focusLat 
+     * @param focusLng 
+     * @param withinCountry 
      */
-    public geocodingSearch(query: string, focus_lat?: number, focus_lng?: number, within_country?: string, options?: Configuration): Promise<ResponseGeocoding> {
-        const result = this.api.geocodingSearch(query, focus_lat, focus_lng, within_country, options);
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, _options?: Configuration): Promise<ResponseGeocoding> {
+        const result = this.api.geocodingSearch(query, focusLat, focusLng, withinCountry, _options);
         return result.toPromise();
     }
 
     /**
      */
-    public mapInfo(options?: Configuration): Promise<ResponseMapInfo> {
-        const result = this.api.mapInfo(options);
+    public mapInfo(_options?: Configuration): Promise<ResponseMapInfo> {
+        const result = this.api.mapInfo(_options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestRoutes 
+     * @param requestRoutes 
      */
-    public routes(RequestRoutes: RequestRoutes, options?: Configuration): Promise<ResponseRoutes> {
-        const result = this.api.routes(RequestRoutes, options);
+    public routes(requestRoutes: RequestRoutes, _options?: Configuration): Promise<ResponseRoutes> {
+        const result = this.api.routes(requestRoutes, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestSupportedLocations 
+     * @param requestSupportedLocations 
      */
-    public supportedLocations(RequestSupportedLocations: RequestSupportedLocations, options?: Configuration): Promise<ResponseSupportedLocations> {
-        const result = this.api.supportedLocations(RequestSupportedLocations, options);
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, _options?: Configuration): Promise<ResponseSupportedLocations> {
+        const result = this.api.supportedLocations(requestSupportedLocations, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeFilter 
+     * @param requestTimeFilter 
      */
-    public timeFilter(RequestTimeFilter: RequestTimeFilter, options?: Configuration): Promise<ResponseTimeFilter> {
-        const result = this.api.timeFilter(RequestTimeFilter, options);
+    public timeFilter(requestTimeFilter: RequestTimeFilter, _options?: Configuration): Promise<ResponseTimeFilter> {
+        const result = this.api.timeFilter(requestTimeFilter, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeFilterFast 
+     * @param requestTimeFilterFast 
      */
-    public timeFilterFast(RequestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Promise<ResponseTimeFilterFast> {
-        const result = this.api.timeFilterFast(RequestTimeFilterFast, options);
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, _options?: Configuration): Promise<ResponseTimeFilterFast> {
+        const result = this.api.timeFilterFast(requestTimeFilterFast, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeFilterPostcodeDistricts 
+     * @param requestTimeFilterPostcodeDistricts 
      */
-    public timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Promise<ResponseTimeFilterPostcodeDistricts> {
-        const result = this.api.timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts, options);
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, _options?: Configuration): Promise<ResponseTimeFilterPostcodeDistricts> {
+        const result = this.api.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeFilterPostcodeSectors 
+     * @param requestTimeFilterPostcodeSectors 
      */
-    public timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Promise<ResponseTimeFilterPostcodeSectors> {
-        const result = this.api.timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors, options);
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, _options?: Configuration): Promise<ResponseTimeFilterPostcodeSectors> {
+        const result = this.api.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeFilterPostcodes 
+     * @param requestTimeFilterPostcodes 
      */
-    public timeFilterPostcodes(RequestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Promise<ResponseTimeFilterPostcodes> {
-        const result = this.api.timeFilterPostcodes(RequestTimeFilterPostcodes, options);
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, _options?: Configuration): Promise<ResponseTimeFilterPostcodes> {
+        const result = this.api.timeFilterPostcodes(requestTimeFilterPostcodes, _options);
         return result.toPromise();
     }
 
     /**
-     * @param RequestTimeMap 
+     * @param requestTimeMap 
      */
-    public timeMap(RequestTimeMap: RequestTimeMap, options?: Configuration): Promise<ResponseTimeMap> {
-        const result = this.api.timeMap(RequestTimeMap, options);
+    public timeMap(requestTimeMap: RequestTimeMap, _options?: Configuration): Promise<ResponseTimeMap> {
+        const result = this.api.timeMap(requestTimeMap, _options);
         return result.toPromise();
     }
 

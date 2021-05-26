@@ -13,20 +13,26 @@ class RequestTransportation {
   /// Returns a new [RequestTransportation] instance.
   RequestTransportation({
     @required this.type,
+    this.disableBorderCrossing,
     this.ptChangeDelay,
     this.walkingTime,
     this.drivingTimeToStation,
+    this.cyclingTimeToStation,
     this.parkingTime,
     this.boardingTime,
   });
 
   RequestTransportationTypeEnum type;
 
+  bool disableBorderCrossing;
+
   int ptChangeDelay;
 
   int walkingTime;
 
   int drivingTimeToStation;
+
+  int cyclingTimeToStation;
 
   int parkingTime;
 
@@ -35,27 +41,34 @@ class RequestTransportation {
   @override
   bool operator ==(Object other) => identical(this, other) || other is RequestTransportation &&
      other.type == type &&
+     other.disableBorderCrossing == disableBorderCrossing &&
      other.ptChangeDelay == ptChangeDelay &&
      other.walkingTime == walkingTime &&
      other.drivingTimeToStation == drivingTimeToStation &&
+     other.cyclingTimeToStation == cyclingTimeToStation &&
      other.parkingTime == parkingTime &&
      other.boardingTime == boardingTime;
 
   @override
   int get hashCode =>
     (type == null ? 0 : type.hashCode) +
+    (disableBorderCrossing == null ? 0 : disableBorderCrossing.hashCode) +
     (ptChangeDelay == null ? 0 : ptChangeDelay.hashCode) +
     (walkingTime == null ? 0 : walkingTime.hashCode) +
     (drivingTimeToStation == null ? 0 : drivingTimeToStation.hashCode) +
+    (cyclingTimeToStation == null ? 0 : cyclingTimeToStation.hashCode) +
     (parkingTime == null ? 0 : parkingTime.hashCode) +
     (boardingTime == null ? 0 : boardingTime.hashCode);
 
   @override
-  String toString() => 'RequestTransportation[type=$type, ptChangeDelay=$ptChangeDelay, walkingTime=$walkingTime, drivingTimeToStation=$drivingTimeToStation, parkingTime=$parkingTime, boardingTime=$boardingTime]';
+  String toString() => 'RequestTransportation[type=$type, disableBorderCrossing=$disableBorderCrossing, ptChangeDelay=$ptChangeDelay, walkingTime=$walkingTime, drivingTimeToStation=$drivingTimeToStation, cyclingTimeToStation=$cyclingTimeToStation, parkingTime=$parkingTime, boardingTime=$boardingTime]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
       json[r'type'] = type;
+    if (disableBorderCrossing != null) {
+      json[r'disable_border_crossing'] = disableBorderCrossing;
+    }
     if (ptChangeDelay != null) {
       json[r'pt_change_delay'] = ptChangeDelay;
     }
@@ -64,6 +77,9 @@ class RequestTransportation {
     }
     if (drivingTimeToStation != null) {
       json[r'driving_time_to_station'] = drivingTimeToStation;
+    }
+    if (cyclingTimeToStation != null) {
+      json[r'cycling_time_to_station'] = cyclingTimeToStation;
     }
     if (parkingTime != null) {
       json[r'parking_time'] = parkingTime;
@@ -80,9 +96,11 @@ class RequestTransportation {
     ? null
     : RequestTransportation(
         type: RequestTransportationTypeEnum.fromJson(json[r'type']),
+        disableBorderCrossing: json[r'disable_border_crossing'],
         ptChangeDelay: json[r'pt_change_delay'],
         walkingTime: json[r'walking_time'],
         drivingTimeToStation: json[r'driving_time_to_station'],
+        cyclingTimeToStation: json[r'cycling_time_to_station'],
         parkingTime: json[r'parking_time'],
         boardingTime: json[r'boarding_time'],
     );

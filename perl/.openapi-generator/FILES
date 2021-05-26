@@ -6,6 +6,7 @@ bin/autodoc
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -103,6 +104,7 @@ lib/WWW/OpenAPIClient/Configuration.pm
 lib/WWW/OpenAPIClient/DefaultApi.pm
 lib/WWW/OpenAPIClient/Object/Coords.pm
 lib/WWW/OpenAPIClient/Object/RequestArrivalTimePeriod.pm
+lib/WWW/OpenAPIClient/Object/RequestLevelOfDetail.pm
 lib/WWW/OpenAPIClient/Object/RequestLocation.pm
 lib/WWW/OpenAPIClient/Object/RequestRangeFull.pm
 lib/WWW/OpenAPIClient/Object/RequestRangeNoMaxResults.pm
@@ -198,6 +200,7 @@ lib/WWW/OpenAPIClient/Role/AutoDoc.pm
 t/CoordsTest.t
 t/DefaultApiTest.t
 t/RequestArrivalTimePeriodTest.t
+t/RequestLevelOfDetailTest.t
 t/RequestLocationTest.t
 t/RequestRangeFullTest.t
 t/RequestRangeNoMaxResultsTest.t

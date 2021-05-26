@@ -113,6 +113,15 @@ genCoords n =
     <$> arbitrary -- coordsLat :: Double
     <*> arbitrary -- coordsLng :: Double
   
+instance Arbitrary RequestLevelOfDetail where
+  arbitrary = sized genRequestLevelOfDetail
+
+genRequestLevelOfDetail :: Int -> Gen RequestLevelOfDetail
+genRequestLevelOfDetail n =
+  RequestLevelOfDetail
+    <$> arbitrary -- requestLevelOfDetailScaleType :: E'ScaleType
+    <*> arbitrary -- requestLevelOfDetailLevel :: E'Level
+  
 instance Arbitrary RequestLocation where
   arbitrary = sized genRequestLocation
 
@@ -406,6 +415,7 @@ genRequestTimeMapArrivalSearch n =
     <*> arbitraryReduced n -- requestTimeMapArrivalSearchArrivalTime :: DateTime
     <*> arbitraryReducedMaybe n -- requestTimeMapArrivalSearchProperties :: Maybe [RequestTimeMapProperty]
     <*> arbitraryReducedMaybe n -- requestTimeMapArrivalSearchRange :: Maybe RequestRangeNoMaxResults
+    <*> arbitraryReducedMaybe n -- requestTimeMapArrivalSearchLevelOfDetail :: Maybe RequestLevelOfDetail
   
 instance Arbitrary RequestTimeMapDepartureSearch where
   arbitrary = sized genRequestTimeMapDepartureSearch
@@ -420,6 +430,7 @@ genRequestTimeMapDepartureSearch n =
     <*> arbitraryReduced n -- requestTimeMapDepartureSearchDepartureTime :: DateTime
     <*> arbitraryReducedMaybe n -- requestTimeMapDepartureSearchProperties :: Maybe [RequestTimeMapProperty]
     <*> arbitraryReducedMaybe n -- requestTimeMapDepartureSearchRange :: Maybe RequestRangeNoMaxResults
+    <*> arbitraryReducedMaybe n -- requestTimeMapDepartureSearchLevelOfDetail :: Maybe RequestLevelOfDetail
   
 instance Arbitrary RequestTransportation where
   arbitrary = sized genRequestTransportation
@@ -428,9 +439,11 @@ genRequestTransportation :: Int -> Gen RequestTransportation
 genRequestTransportation n =
   RequestTransportation
     <$> arbitrary -- requestTransportationType :: E'Type4
+    <*> arbitraryReducedMaybe n -- requestTransportationDisableBorderCrossing :: Maybe Bool
     <*> arbitraryReducedMaybe n -- requestTransportationPtChangeDelay :: Maybe Int
     <*> arbitraryReducedMaybe n -- requestTransportationWalkingTime :: Maybe Int
     <*> arbitraryReducedMaybe n -- requestTransportationDrivingTimeToStation :: Maybe Int
+    <*> arbitraryReducedMaybe n -- requestTransportationCyclingTimeToStation :: Maybe Int
     <*> arbitraryReducedMaybe n -- requestTransportationParkingTime :: Maybe Int
     <*> arbitraryReducedMaybe n -- requestTransportationBoardingTime :: Maybe Int
   
@@ -971,6 +984,12 @@ genResponseTravelTimeStatistics n =
   
 
 
+
+instance Arbitrary E'Level where
+  arbitrary = arbitraryBoundedEnum
+
+instance Arbitrary E'ScaleType where
+  arbitrary = arbitraryBoundedEnum
 
 instance Arbitrary E'Type where
   arbitrary = arbitraryBoundedEnum

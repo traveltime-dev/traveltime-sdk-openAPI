@@ -15,7 +15,8 @@ defmodule TravelTimeAPI.Model.RequestTimeMapDepartureSearch do
     :"travel_time",
     :"departure_time",
     :"properties",
-    :"range"
+    :"range",
+    :"level_of_detail"
   ]
 
   @type t :: %__MODULE__{
@@ -25,7 +26,8 @@ defmodule TravelTimeAPI.Model.RequestTimeMapDepartureSearch do
     :"travel_time" => integer(),
     :"departure_time" => DateTime.t,
     :"properties" => [TravelTimeAPI.Model.RequestTimeMapProperty.t] | nil,
-    :"range" => TravelTimeAPI.Model.RequestRangeNoMaxResults.t | nil
+    :"range" => TravelTimeAPI.Model.RequestRangeNoMaxResults.t | nil,
+    :"level_of_detail" => TravelTimeAPI.Model.RequestLevelOfDetail.t | nil
   }
 end
 
@@ -37,6 +39,7 @@ defimpl Poison.Decoder, for: TravelTimeAPI.Model.RequestTimeMapDepartureSearch d
     |> deserialize(:"transportation", :struct, TravelTimeAPI.Model.RequestTransportation, options)
     |> deserialize(:"properties", :list, TravelTimeAPI.Model.RequestTimeMapProperty, options)
     |> deserialize(:"range", :struct, TravelTimeAPI.Model.RequestRangeNoMaxResults, options)
+    |> deserialize(:"level_of_detail", :struct, TravelTimeAPI.Model.RequestLevelOfDetail, options)
   end
 end
 

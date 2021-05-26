@@ -28,7 +28,7 @@ import java.util.LinkedHashSet;
 import java.io.FileInputStream;
 import play.libs.Files.TemporaryFile;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-11T08:37:59.786Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaPlayFrameworkCodegen", date = "2021-05-26T18:50:07.636Z[Etc/UTC]")
 public class DefaultApiControllerImp extends DefaultApiControllerImpInterface {
     @Override
     public ResponseGeocoding geocodingReverseSearch(Http.Request request, @NotNull Double lat, @NotNull Double lng, String withinCountry) throws Exception {

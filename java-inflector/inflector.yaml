@@ -6,6 +6,7 @@ modelMappings:
   DefinitionFromSwaggerSpecification: fully.qualified.path.to.Model
   Coords : org.openapitools.model.Coords
 RequestArrivalTimePeriod : org.openapitools.model.RequestArrivalTimePeriod
+RequestLevelOfDetail : org.openapitools.model.RequestLevelOfDetail
 RequestLocation : org.openapitools.model.RequestLocation
 RequestRangeFull : org.openapitools.model.RequestRangeFull
 RequestRangeNoMaxResults : org.openapitools.model.RequestRangeNoMaxResults

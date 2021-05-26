@@ -5,9 +5,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** |  | 
+**DisableBorderCrossing** | **bool?** |  | [optional] 
 **PtChangeDelay** | **int?** |  | [optional] 
 **WalkingTime** | **int?** |  | [optional] 
 **DrivingTimeToStation** | **int?** |  | [optional] 
+**CyclingTimeToStation** | **int?** |  | [optional] 
 **ParkingTime** | **int?** |  | [optional] 
 **BoardingTime** | **int?** |  | [optional] 
 

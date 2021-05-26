@@ -8,6 +8,7 @@ src/main/java/org/openapitools/vertxweb/server/api/DefaultApiHandler.java
 src/main/java/org/openapitools/vertxweb/server/api/DefaultApiImpl.java
 src/main/java/org/openapitools/vertxweb/server/model/Coords.java
 src/main/java/org/openapitools/vertxweb/server/model/RequestArrivalTimePeriod.java
+src/main/java/org/openapitools/vertxweb/server/model/RequestLevelOfDetail.java
 src/main/java/org/openapitools/vertxweb/server/model/RequestLocation.java
 src/main/java/org/openapitools/vertxweb/server/model/RequestRangeFull.java
 src/main/java/org/openapitools/vertxweb/server/model/RequestRangeNoMaxResults.java

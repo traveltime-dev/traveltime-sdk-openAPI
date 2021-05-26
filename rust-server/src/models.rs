@@ -233,6 +233,131 @@ impl std::ops::DerefMut for RequestDepartureArrivalTime {
 
 #[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
 #[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
+pub struct RequestLevelOfDetail {
+    // Note: inline enums are not fully supported by openapi-generator
+    #[serde(rename = "scale_type")]
+    pub scale_type: String,
+
+    // Note: inline enums are not fully supported by openapi-generator
+    #[serde(rename = "level")]
+    pub level: String,
+
+}
+
+impl RequestLevelOfDetail {
+    pub fn new(scale_type: String, level: String, ) -> RequestLevelOfDetail {
+        RequestLevelOfDetail {
+            scale_type: scale_type,
+            level: level,
+        }
+    }
+}
+
+/// Converts the RequestLevelOfDetail value to the Query Parameters representation (style=form, explode=false)
+/// specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde serializer
+impl std::string::ToString for RequestLevelOfDetail {
+    fn to_string(&self) -> String {
+        let mut params: Vec<String> = vec![];
+
+        params.push("scale_type".to_string());
+        params.push(self.scale_type.to_string());
+
+
+        params.push("level".to_string());
+        params.push(self.level.to_string());
+
+        params.join(",").to_string()
+    }
+}
+
+/// Converts Query Parameters representation (style=form, explode=false) to a RequestLevelOfDetail value
+/// as specified in https://swagger.io/docs/specification/serialization/
+/// Should be implemented in a serde deserializer
+impl std::str::FromStr for RequestLevelOfDetail {
+    type Err = String;
+
+    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+        #[derive(Default)]
+        // An intermediate representation of the struct to use for parsing.
+        struct IntermediateRep {
+            pub scale_type: Vec<String>,
+            pub level: Vec<String>,
+        }
+
+        let mut intermediate_rep = IntermediateRep::default();
+
+        // Parse into intermediate representation
+        let mut string_iter = s.split(',').into_iter();
+        let mut key_result = string_iter.next();
+
+        while key_result.is_some() {
+            let val = match string_iter.next() {
+                Some(x) => x,
+                None => return std::result::Result::Err("Missing value while parsing RequestLevelOfDetail".to_string())
+            };
+
+            if let Some(key) = key_result {
+                match key {
+                    "scale_type" => intermediate_rep.scale_type.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "level" => intermediate_rep.level.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    _ => return std::result::Result::Err("Unexpected key while parsing RequestLevelOfDetail".to_string())
+                }
+            }
+
+            // Get the next key
+            key_result = string_iter.next();
+        }
+
+        // Use the intermediate representation to return the struct
+        std::result::Result::Ok(RequestLevelOfDetail {
+            scale_type: intermediate_rep.scale_type.into_iter().next().ok_or("scale_type missing in RequestLevelOfDetail".to_string())?,
+            level: intermediate_rep.level.into_iter().next().ok_or("level missing in RequestLevelOfDetail".to_string())?,
+        })
+    }
+}
+
+// Methods for converting between header::IntoHeaderValue<RequestLevelOfDetail> and hyper::header::HeaderValue
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<header::IntoHeaderValue<RequestLevelOfDetail>> for hyper::header::HeaderValue {
+    type Error = String;
+
+    fn try_from(hdr_value: header::IntoHeaderValue<RequestLevelOfDetail>) -> std::result::Result<Self, Self::Error> {
+        let hdr_value = hdr_value.to_string();
+        match hyper::header::HeaderValue::from_str(&hdr_value) {
+             std::result::Result::Ok(value) => std::result::Result::Ok(value),
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Invalid header value for RequestLevelOfDetail - value: {} is invalid {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+#[cfg(any(feature = "client", feature = "server"))]
+impl std::convert::TryFrom<hyper::header::HeaderValue> for header::IntoHeaderValue<RequestLevelOfDetail> {
+    type Error = String;
+
+    fn try_from(hdr_value: hyper::header::HeaderValue) -> std::result::Result<Self, Self::Error> {
+        match hdr_value.to_str() {
+             std::result::Result::Ok(value) => {
+                    match <RequestLevelOfDetail as std::str::FromStr>::from_str(value) {
+                        std::result::Result::Ok(value) => std::result::Result::Ok(header::IntoHeaderValue(value)),
+                        std::result::Result::Err(err) => std::result::Result::Err(
+                            format!("Unable to convert header value '{}' into RequestLevelOfDetail - {}",
+                                value, err))
+                    }
+             },
+             std::result::Result::Err(e) => std::result::Result::Err(
+                 format!("Unable to convert header: {:?} to string: {}",
+                     hdr_value, e))
+        }
+    }
+}
+
+
+#[derive(Debug, Clone, PartialEq, serde::Serialize, serde::Deserialize)]
+#[cfg_attr(feature = "conversion", derive(frunk::LabelledGeneric))]
 pub struct RequestLocation {
     #[serde(rename = "id")]
     pub id: String,
@@ -4247,6 +4372,10 @@ pub struct RequestTimeMapArrivalSearch {
     #[serde(skip_serializing_if="Option::is_none")]
     pub range: Option<models::RequestRangeNoMaxResults>,
 
+    #[serde(rename = "level_of_detail")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub level_of_detail: Option<models::RequestLevelOfDetail>,
+
 }
 
 impl RequestTimeMapArrivalSearch {
@@ -4259,6 +4388,7 @@ impl RequestTimeMapArrivalSearch {
             arrival_time: arrival_time,
             properties: None,
             range: None,
+            level_of_detail: None,
         }
     }
 }
@@ -4287,6 +4417,8 @@ impl std::string::ToString for RequestTimeMapArrivalSearch {
 
         // Skipping range in query parameter serialization
 
+        // Skipping level_of_detail in query parameter serialization
+
         params.join(",").to_string()
     }
 }
@@ -4308,6 +4440,7 @@ impl std::str::FromStr for RequestTimeMapArrivalSearch {
             pub arrival_time: Vec<chrono::DateTime::<chrono::Utc>>,
             pub properties: Vec<Vec<models::RequestTimeMapProperty>>,
             pub range: Vec<models::RequestRangeNoMaxResults>,
+            pub level_of_detail: Vec<models::RequestLevelOfDetail>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -4331,6 +4464,7 @@ impl std::str::FromStr for RequestTimeMapArrivalSearch {
                     "arrival_time" => intermediate_rep.arrival_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeMapArrivalSearch".to_string()),
                     "range" => intermediate_rep.range.push(<models::RequestRangeNoMaxResults as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "level_of_detail" => intermediate_rep.level_of_detail.push(<models::RequestLevelOfDetail as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeMapArrivalSearch".to_string())
                 }
             }
@@ -4348,6 +4482,7 @@ impl std::str::FromStr for RequestTimeMapArrivalSearch {
             arrival_time: intermediate_rep.arrival_time.into_iter().next().ok_or("arrival_time missing in RequestTimeMapArrivalSearch".to_string())?,
             properties: intermediate_rep.properties.into_iter().next(),
             range: intermediate_rep.range.into_iter().next(),
+            level_of_detail: intermediate_rep.level_of_detail.into_iter().next(),
         })
     }
 }
@@ -4417,6 +4552,10 @@ pub struct RequestTimeMapDepartureSearch {
     #[serde(skip_serializing_if="Option::is_none")]
     pub range: Option<models::RequestRangeNoMaxResults>,
 
+    #[serde(rename = "level_of_detail")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub level_of_detail: Option<models::RequestLevelOfDetail>,
+
 }
 
 impl RequestTimeMapDepartureSearch {
@@ -4429,6 +4568,7 @@ impl RequestTimeMapDepartureSearch {
             departure_time: departure_time,
             properties: None,
             range: None,
+            level_of_detail: None,
         }
     }
 }
@@ -4457,6 +4597,8 @@ impl std::string::ToString for RequestTimeMapDepartureSearch {
 
         // Skipping range in query parameter serialization
 
+        // Skipping level_of_detail in query parameter serialization
+
         params.join(",").to_string()
     }
 }
@@ -4478,6 +4620,7 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
             pub departure_time: Vec<chrono::DateTime::<chrono::Utc>>,
             pub properties: Vec<Vec<models::RequestTimeMapProperty>>,
             pub range: Vec<models::RequestRangeNoMaxResults>,
+            pub level_of_detail: Vec<models::RequestLevelOfDetail>,
         }
 
         let mut intermediate_rep = IntermediateRep::default();
@@ -4501,6 +4644,7 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
                     "departure_time" => intermediate_rep.departure_time.push(<chrono::DateTime::<chrono::Utc> as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "properties" => return std::result::Result::Err("Parsing a container in this style is not supported in RequestTimeMapDepartureSearch".to_string()),
                     "range" => intermediate_rep.range.push(<models::RequestRangeNoMaxResults as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "level_of_detail" => intermediate_rep.level_of_detail.push(<models::RequestLevelOfDetail as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTimeMapDepartureSearch".to_string())
                 }
             }
@@ -4518,6 +4662,7 @@ impl std::str::FromStr for RequestTimeMapDepartureSearch {
             departure_time: intermediate_rep.departure_time.into_iter().next().ok_or("departure_time missing in RequestTimeMapDepartureSearch".to_string())?,
             properties: intermediate_rep.properties.into_iter().next(),
             range: intermediate_rep.range.into_iter().next(),
+            level_of_detail: intermediate_rep.level_of_detail.into_iter().next(),
         })
     }
 }
@@ -4599,6 +4744,10 @@ pub struct RequestTransportation {
     #[serde(rename = "type")]
     pub type_: String,
 
+    #[serde(rename = "disable_border_crossing")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub disable_border_crossing: Option<bool>,
+
     #[serde(rename = "pt_change_delay")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub pt_change_delay: Option<isize>,
@@ -4610,6 +4759,10 @@ pub struct RequestTransportation {
     #[serde(rename = "driving_time_to_station")]
     #[serde(skip_serializing_if="Option::is_none")]
     pub driving_time_to_station: Option<isize>,
+
+    #[serde(rename = "cycling_time_to_station")]
+    #[serde(skip_serializing_if="Option::is_none")]
+    pub cycling_time_to_station: Option<isize>,
 
     #[serde(rename = "parking_time")]
     #[serde(skip_serializing_if="Option::is_none")]
@@ -4625,9 +4778,11 @@ impl RequestTransportation {
     pub fn new(type_: String, ) -> RequestTransportation {
         RequestTransportation {
             type_: type_,
+            disable_border_crossing: None,
             pt_change_delay: None,
             walking_time: None,
             driving_time_to_station: None,
+            cycling_time_to_station: None,
             parking_time: None,
             boarding_time: None,
         }
@@ -4645,6 +4800,12 @@ impl std::string::ToString for RequestTransportation {
         params.push(self.type_.to_string());
 
 
+        if let Some(ref disable_border_crossing) = self.disable_border_crossing {
+            params.push("disable_border_crossing".to_string());
+            params.push(disable_border_crossing.to_string());
+        }
+
+
         if let Some(ref pt_change_delay) = self.pt_change_delay {
             params.push("pt_change_delay".to_string());
             params.push(pt_change_delay.to_string());
@@ -4660,6 +4821,12 @@ impl std::string::ToString for RequestTransportation {
         if let Some(ref driving_time_to_station) = self.driving_time_to_station {
             params.push("driving_time_to_station".to_string());
             params.push(driving_time_to_station.to_string());
+        }
+
+
+        if let Some(ref cycling_time_to_station) = self.cycling_time_to_station {
+            params.push("cycling_time_to_station".to_string());
+            params.push(cycling_time_to_station.to_string());
         }
 
 
@@ -4689,9 +4856,11 @@ impl std::str::FromStr for RequestTransportation {
         // An intermediate representation of the struct to use for parsing.
         struct IntermediateRep {
             pub type_: Vec<String>,
+            pub disable_border_crossing: Vec<bool>,
             pub pt_change_delay: Vec<isize>,
             pub walking_time: Vec<isize>,
             pub driving_time_to_station: Vec<isize>,
+            pub cycling_time_to_station: Vec<isize>,
             pub parking_time: Vec<isize>,
             pub boarding_time: Vec<isize>,
         }
@@ -4711,9 +4880,11 @@ impl std::str::FromStr for RequestTransportation {
             if let Some(key) = key_result {
                 match key {
                     "type" => intermediate_rep.type_.push(<String as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "disable_border_crossing" => intermediate_rep.disable_border_crossing.push(<bool as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "pt_change_delay" => intermediate_rep.pt_change_delay.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "walking_time" => intermediate_rep.walking_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "driving_time_to_station" => intermediate_rep.driving_time_to_station.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
+                    "cycling_time_to_station" => intermediate_rep.cycling_time_to_station.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "parking_time" => intermediate_rep.parking_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     "boarding_time" => intermediate_rep.boarding_time.push(<isize as std::str::FromStr>::from_str(val).map_err(|x| format!("{}", x))?),
                     _ => return std::result::Result::Err("Unexpected key while parsing RequestTransportation".to_string())
@@ -4727,9 +4898,11 @@ impl std::str::FromStr for RequestTransportation {
         // Use the intermediate representation to return the struct
         std::result::Result::Ok(RequestTransportation {
             type_: intermediate_rep.type_.into_iter().next().ok_or("type missing in RequestTransportation".to_string())?,
+            disable_border_crossing: intermediate_rep.disable_border_crossing.into_iter().next(),
             pt_change_delay: intermediate_rep.pt_change_delay.into_iter().next(),
             walking_time: intermediate_rep.walking_time.into_iter().next(),
             driving_time_to_station: intermediate_rep.driving_time_to_station.into_iter().next(),
+            cycling_time_to_station: intermediate_rep.cycling_time_to_station.into_iter().next(),
             parking_time: intermediate_rep.parking_time.into_iter().next(),
             boarding_time: intermediate_rep.boarding_time.into_iter().next(),
         })

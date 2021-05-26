@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ArrivalTime** | **System.DateTime** |  | 
 **Properties** | [**RequestTimeMapProperty[]**](RequestTimeMapProperty.md) |  | [optional] 
 **Range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**LevelOfDetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 ## Examples
 
@@ -21,7 +22,8 @@ $RequestTimeMapArrivalSearch = Initialize-PSOpenAPIToolsRequestTimeMapArrivalSea
  -TravelTime null `
  -ArrivalTime null `
  -Properties null `
- -Range null
+ -Range null `
+ -LevelOfDetail null
 ```
 
 - Convert the resource to JSON

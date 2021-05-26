@@ -15,6 +15,7 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'package:openapi/model/coords.dart';
 import 'package:openapi/model/request_arrival_time_period.dart';
+import 'package:openapi/model/request_level_of_detail.dart';
 import 'package:openapi/model/request_location.dart';
 import 'package:openapi/model/request_range_full.dart';
 import 'package:openapi/model/request_range_no_max_results.dart';
@@ -111,6 +112,7 @@ part 'serializers.g.dart';
 @SerializersFor(const [
   Coords,
   RequestArrivalTimePeriod,
+  RequestLevelOfDetail,
   RequestLocation,
   RequestRangeFull,
   RequestRangeNoMaxResults,

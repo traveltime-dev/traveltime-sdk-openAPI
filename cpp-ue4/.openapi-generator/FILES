@@ -8,6 +8,7 @@ Private/OpenAPIHelpers.cpp
 Private/OpenAPIModule.cpp
 Private/OpenAPIModule.h
 Private/OpenAPIRequestArrivalTimePeriod.cpp
+Private/OpenAPIRequestLevelOfDetail.cpp
 Private/OpenAPIRequestLocation.cpp
 Private/OpenAPIRequestRangeFull.cpp
 Private/OpenAPIRequestRangeNoMaxResults.cpp
@@ -104,6 +105,7 @@ Public/OpenAPIDefaultApi.h
 Public/OpenAPIDefaultApiOperations.h
 Public/OpenAPIHelpers.h
 Public/OpenAPIRequestArrivalTimePeriod.h
+Public/OpenAPIRequestLevelOfDetail.h
 Public/OpenAPIRequestLocation.h
 Public/OpenAPIRequestRangeFull.h
 Public/OpenAPIRequestRangeNoMaxResults.h

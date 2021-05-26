@@ -16,6 +16,8 @@ src/Object.h
 src/RequestArrivalTimePeriod.cpp
 src/RequestArrivalTimePeriod.h
 src/RequestInfo.h
+src/RequestLevelOfDetail.cpp
+src/RequestLevelOfDetail.h
 src/RequestLocation.cpp
 src/RequestLocation.h
 src/RequestRangeFull.cpp

@@ -3,6 +3,7 @@ README.md
 pom.xml
 src/main/kotlin/org/openapitools/server/api/model/Coords.kt
 src/main/kotlin/org/openapitools/server/api/model/RequestArrivalTimePeriod.kt
+src/main/kotlin/org/openapitools/server/api/model/RequestLevelOfDetail.kt
 src/main/kotlin/org/openapitools/server/api/model/RequestLocation.kt
 src/main/kotlin/org/openapitools/server/api/model/RequestRangeFull.kt
 src/main/kotlin/org/openapitools/server/api/model/RequestRangeNoMaxResults.kt

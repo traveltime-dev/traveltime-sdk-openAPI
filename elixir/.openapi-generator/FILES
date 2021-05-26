@@ -7,6 +7,7 @@ lib/travel_time_api/connection.ex
 lib/travel_time_api/deserializer.ex
 lib/travel_time_api/model/coords.ex
 lib/travel_time_api/model/request_arrival_time_period.ex
+lib/travel_time_api/model/request_level_of_detail.ex
 lib/travel_time_api/model/request_location.ex
 lib/travel_time_api/model/request_range_full.ex
 lib/travel_time_api/model/request_range_no_max_results.ex

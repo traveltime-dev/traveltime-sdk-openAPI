@@ -5,6 +5,7 @@ src/main/java/org/openapitools/server/api/MainApiException.java
 src/main/java/org/openapitools/server/api/MainApiVerticle.java
 src/main/java/org/openapitools/server/api/model/Coords.java
 src/main/java/org/openapitools/server/api/model/RequestArrivalTimePeriod.java
+src/main/java/org/openapitools/server/api/model/RequestLevelOfDetail.java
 src/main/java/org/openapitools/server/api/model/RequestLocation.java
 src/main/java/org/openapitools/server/api/model/RequestRangeFull.java
 src/main/java/org/openapitools/server/api/model/RequestRangeNoMaxResults.java

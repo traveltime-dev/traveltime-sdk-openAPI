@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -34,6 +35,8 @@ public class RequestTimeMapDepartureSearch   {
   private List<RequestTimeMapProperty> properties = null;
 
   private RequestRangeNoMaxResults range;
+
+  private RequestLevelOfDetail levelOfDetail;
 
 
   /**
@@ -177,6 +180,24 @@ public class RequestTimeMapDepartureSearch   {
   }
 
 
+  /**
+   **/
+  public RequestTimeMapDepartureSearch levelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("level_of_detail")
+  public RequestLevelOfDetail getLevelOfDetail() {
+    return levelOfDetail;
+  }
+  public void setLevelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -193,12 +214,13 @@ public class RequestTimeMapDepartureSearch   {
         Objects.equals(travelTime, requestTimeMapDepartureSearch.travelTime) &&
         Objects.equals(departureTime, requestTimeMapDepartureSearch.departureTime) &&
         Objects.equals(properties, requestTimeMapDepartureSearch.properties) &&
-        Objects.equals(range, requestTimeMapDepartureSearch.range);
+        Objects.equals(range, requestTimeMapDepartureSearch.range) &&
+        Objects.equals(levelOfDetail, requestTimeMapDepartureSearch.levelOfDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, coords, transportation, travelTime, departureTime, properties, range);
+    return Objects.hash(id, coords, transportation, travelTime, departureTime, properties, range, levelOfDetail);
   }
 
   @Override
@@ -213,6 +235,7 @@ public class RequestTimeMapDepartureSearch   {
     sb.append("    departureTime: ").append(toIndentedString(departureTime)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    levelOfDetail: ").append(toIndentedString(levelOfDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

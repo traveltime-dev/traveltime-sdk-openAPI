@@ -9,6 +9,7 @@ R/api_response.R
 R/coords.R
 R/default_api.R
 R/request_arrival_time_period.R
+R/request_level_of_detail.R
 R/request_location.R
 R/request_range_full.R
 R/request_range_no_max_results.R
@@ -103,6 +104,7 @@ README.md
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -198,6 +200,7 @@ tests/testthat.R
 tests/testthat/test_coords.R
 tests/testthat/test_default_api.R
 tests/testthat/test_request_arrival_time_period.R
+tests/testthat/test_request_level_of_detail.R
 tests/testthat/test_request_location.R
 tests/testthat/test_request_range_full.R
 tests/testthat/test_request_range_no_max_results.R

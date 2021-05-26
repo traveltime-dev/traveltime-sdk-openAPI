@@ -5,6 +5,7 @@ from __future__ import absolute_import
 # import models into model package
 from app.openapi_server.models.coords import Coords
 from app.openapi_server.models.request_arrival_time_period import RequestArrivalTimePeriod
+from app.openapi_server.models.request_level_of_detail import RequestLevelOfDetail
 from app.openapi_server.models.request_location import RequestLocation
 from app.openapi_server.models.request_range_full import RequestRangeFull
 from app.openapi_server.models.request_range_no_max_results import RequestRangeNoMaxResults

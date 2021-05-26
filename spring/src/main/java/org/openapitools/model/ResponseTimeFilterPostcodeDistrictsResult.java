@@ -15,7 +15,7 @@ import javax.validation.constraints.*;
 /**
  * ResponseTimeFilterPostcodeDistrictsResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-11T08:39:43.646Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2021-05-26T18:51:56.918Z[Etc/UTC]")
 public class ResponseTimeFilterPostcodeDistrictsResult   {
   @JsonProperty("search_id")
   private String searchId;

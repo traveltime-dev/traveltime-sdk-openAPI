@@ -2,6 +2,7 @@
 API/Client/Coords.js
 API/Client/DefaultApi.js
 API/Client/RequestArrivalTimePeriod.js
+API/Client/RequestLevelOfDetail.js
 API/Client/RequestLocation.js
 API/Client/RequestRangeFull.js
 API/Client/RequestRangeNoMaxResults.js

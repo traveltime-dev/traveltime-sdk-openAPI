@@ -4,6 +4,7 @@ open System
 open System.Collections.Generic
 open Newtonsoft.Json
 open OpenAPI.Model.Coords
+open OpenAPI.Model.RequestLevelOfDetail
 open OpenAPI.Model.RequestRangeNoMaxResults
 open OpenAPI.Model.RequestTimeMapProperty
 open OpenAPI.Model.RequestTransportation
@@ -28,6 +29,8 @@ module RequestTimeMapDepartureSearch =
     Properties : RequestTimeMapProperty[];
     [<JsonProperty(PropertyName = "range")>]
     Range : RequestRangeNoMaxResults;
+    [<JsonProperty(PropertyName = "level_of_detail")>]
+    LevelOfDetail : RequestLevelOfDetail;
   }
   
   //#endregion

@@ -30,4 +30,7 @@ class RequestTimeMapDepartureSearch {
     /** @var \app\Models\RequestRangeNoMaxResults $range */
     private $range;
 
+    /** @var \app\Models\RequestLevelOfDetail $levelOfDetail */
+    private $levelOfDetail;
+
 }

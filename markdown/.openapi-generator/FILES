@@ -2,6 +2,7 @@
 Apis/DefaultApi.md
 Models/Coords.md
 Models/RequestArrivalTimePeriod.md
+Models/RequestLevelOfDetail.md
 Models/RequestLocation.md
 Models/RequestRangeFull.md
 Models/RequestRangeNoMaxResults.md

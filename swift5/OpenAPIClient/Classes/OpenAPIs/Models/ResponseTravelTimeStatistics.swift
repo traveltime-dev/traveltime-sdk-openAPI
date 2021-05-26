@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTravelTimeStatistics: Codable, Hashable {
 
@@ -21,6 +23,7 @@ public struct ResponseTravelTimeStatistics: Codable, Hashable {
         self.mean = mean
         self.median = median
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case min
         case max
@@ -37,7 +40,4 @@ public struct ResponseTravelTimeStatistics: Codable, Hashable {
         try container.encode(mean, forKey: .mean)
         try container.encode(median, forKey: .median)
     }
-
-
-
 }

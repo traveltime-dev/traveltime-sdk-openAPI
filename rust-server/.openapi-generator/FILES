@@ -8,6 +8,7 @@ docs/Coords.md
 docs/RequestArrivalTimePeriod.md
 docs/RequestDepartureArrivalLocationOne.md
 docs/RequestDepartureArrivalTime.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestLocationId.md
 docs/RequestRangeEnabled.md

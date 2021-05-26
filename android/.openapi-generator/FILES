@@ -5,6 +5,7 @@ build.gradle
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -112,6 +113,7 @@ src/main/java/org/openapitools/client/auth/Authentication.java
 src/main/java/org/openapitools/client/auth/HttpBasicAuth.java
 src/main/java/org/openapitools/client/model/Coords.java
 src/main/java/org/openapitools/client/model/RequestArrivalTimePeriod.java
+src/main/java/org/openapitools/client/model/RequestLevelOfDetail.java
 src/main/java/org/openapitools/client/model/RequestLocation.java
 src/main/java/org/openapitools/client/model/RequestRangeFull.java
 src/main/java/org/openapitools/client/model/RequestRangeNoMaxResults.java

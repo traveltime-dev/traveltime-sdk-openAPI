@@ -5,6 +5,7 @@ src/main/groovy/org/openapitools/api/ApiUtils.groovy
 src/main/groovy/org/openapitools/api/DefaultApi.groovy
 src/main/groovy/org/openapitools/model/Coords.groovy
 src/main/groovy/org/openapitools/model/RequestArrivalTimePeriod.groovy
+src/main/groovy/org/openapitools/model/RequestLevelOfDetail.groovy
 src/main/groovy/org/openapitools/model/RequestLocation.groovy
 src/main/groovy/org/openapitools/model/RequestRangeFull.groovy
 src/main/groovy/org/openapitools/model/RequestRangeNoMaxResults.groovy

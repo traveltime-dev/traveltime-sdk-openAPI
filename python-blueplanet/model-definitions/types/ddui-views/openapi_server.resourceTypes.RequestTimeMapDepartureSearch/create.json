@@ -18,6 +18,7 @@
       {"model": "departure_time" },
       {"model": "properties" },
       {"model": "range" },
+      {"model": "level_of_detail" },
     ]
   }]
 }

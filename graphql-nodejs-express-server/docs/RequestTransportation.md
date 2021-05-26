@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type_** | **String!** |  | [default to null]
+**disableBorderCrossing** | **Boolean!** |  | [optional] [default to null]
 **ptChangeDelay** | **Int!** |  | [optional] [default to null]
 **walkingTime** | **Int!** |  | [optional] [default to null]
 **drivingTimeToStation** | **Int!** |  | [optional] [default to null]
+**cyclingTimeToStation** | **Int!** |  | [optional] [default to null]
 **parkingTime** | **Int!** |  | [optional] [default to null]
 **boardingTime** | **Int!** |  | [optional] [default to null]
 

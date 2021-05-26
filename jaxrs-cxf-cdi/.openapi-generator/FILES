@@ -4,6 +4,7 @@ src/gen/java/org/openapitools/api/V4Api.java
 src/gen/java/org/openapitools/api/V4ApiService.java
 src/gen/java/org/openapitools/model/Coords.java
 src/gen/java/org/openapitools/model/RequestArrivalTimePeriod.java
+src/gen/java/org/openapitools/model/RequestLevelOfDetail.java
 src/gen/java/org/openapitools/model/RequestLocation.java
 src/gen/java/org/openapitools/model/RequestRangeFull.java
 src/gen/java/org/openapitools/model/RequestRangeNoMaxResults.java

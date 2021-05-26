@@ -14,6 +14,7 @@ src/Org.OpenAPITools/Filters/GeneratePathParamsValidationFilter.cs
 src/Org.OpenAPITools/Formatters/InputFormatterStream.cs
 src/Org.OpenAPITools/Models/Coords.cs
 src/Org.OpenAPITools/Models/RequestArrivalTimePeriod.cs
+src/Org.OpenAPITools/Models/RequestLevelOfDetail.cs
 src/Org.OpenAPITools/Models/RequestLocation.cs
 src/Org.OpenAPITools/Models/RequestRangeFull.cs
 src/Org.OpenAPITools/Models/RequestRangeNoMaxResults.cs

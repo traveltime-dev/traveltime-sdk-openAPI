@@ -9,6 +9,7 @@ src/main/kotlin/org/openapitools/api/Exceptions.kt
 src/main/kotlin/org/openapitools/api/V4Api.kt
 src/main/kotlin/org/openapitools/model/Coords.kt
 src/main/kotlin/org/openapitools/model/RequestArrivalTimePeriod.kt
+src/main/kotlin/org/openapitools/model/RequestLevelOfDetail.kt
 src/main/kotlin/org/openapitools/model/RequestLocation.kt
 src/main/kotlin/org/openapitools/model/RequestRangeFull.kt
 src/main/kotlin/org/openapitools/model/RequestRangeNoMaxResults.kt

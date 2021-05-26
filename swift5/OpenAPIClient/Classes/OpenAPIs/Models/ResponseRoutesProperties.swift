@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseRoutesProperties: Codable, Hashable {
 
@@ -21,6 +23,7 @@ public struct ResponseRoutesProperties: Codable, Hashable {
         self.fares = fares
         self.route = route
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case travelTime = "travel_time"
         case distance
@@ -37,7 +40,4 @@ public struct ResponseRoutesProperties: Codable, Hashable {
         try container.encodeIfPresent(fares, forKey: .fares)
         try container.encodeIfPresent(route, forKey: .route)
     }
-
-
-
 }

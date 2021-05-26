@@ -29,7 +29,8 @@ request_time_map_arrival_search_t *request_time_map_arrival_search_create(
     int travel_time,
     char *arrival_time,
     list_t *properties,
-    request_range_no_max_results_t *range
+    request_range_no_max_results_t *range,
+    request_level_of_detail_t *level_of_detail
     ) {
     request_time_map_arrival_search_t *request_time_map_arrival_search_local_var = malloc(sizeof(request_time_map_arrival_search_t));
     if (!request_time_map_arrival_search_local_var) {
@@ -42,6 +43,7 @@ request_time_map_arrival_search_t *request_time_map_arrival_search_create(
     request_time_map_arrival_search_local_var->arrival_time = arrival_time;
     request_time_map_arrival_search_local_var->properties = properties;
     request_time_map_arrival_search_local_var->range = range;
+    request_time_map_arrival_search_local_var->level_of_detail = level_of_detail;
 
     return request_time_map_arrival_search_local_var;
 }
@@ -78,6 +80,10 @@ void request_time_map_arrival_search_free(request_time_map_arrival_search_t *req
     if (request_time_map_arrival_search->range) {
         request_range_no_max_results_free(request_time_map_arrival_search->range);
         request_time_map_arrival_search->range = NULL;
+    }
+    if (request_time_map_arrival_search->level_of_detail) {
+        request_level_of_detail_free(request_time_map_arrival_search->level_of_detail);
+        request_time_map_arrival_search->level_of_detail = NULL;
     }
     free(request_time_map_arrival_search);
 }
@@ -172,6 +178,19 @@ cJSON *request_time_map_arrival_search_convertToJSON(request_time_map_arrival_se
     goto fail; //model
     }
     cJSON_AddItemToObject(item, "range", range_local_JSON);
+    if(item->child == NULL) {
+    goto fail;
+    }
+     } 
+
+
+    // request_time_map_arrival_search->level_of_detail
+    if(request_time_map_arrival_search->level_of_detail) { 
+    cJSON *level_of_detail_local_JSON = request_level_of_detail_convertToJSON(request_time_map_arrival_search->level_of_detail);
+    if(level_of_detail_local_JSON == NULL) {
+    goto fail; //model
+    }
+    cJSON_AddItemToObject(item, "level_of_detail", level_of_detail_local_JSON);
     if(item->child == NULL) {
     goto fail;
     }
@@ -274,6 +293,13 @@ request_time_map_arrival_search_t *request_time_map_arrival_search_parseFromJSON
     range_local_nonprim = request_range_no_max_results_parseFromJSON(range); //nonprimitive
     }
 
+    // request_time_map_arrival_search->level_of_detail
+    cJSON *level_of_detail = cJSON_GetObjectItemCaseSensitive(request_time_map_arrival_searchJSON, "level_of_detail");
+    request_level_of_detail_t *level_of_detail_local_nonprim = NULL;
+    if (level_of_detail) { 
+    level_of_detail_local_nonprim = request_level_of_detail_parseFromJSON(level_of_detail); //nonprimitive
+    }
+
 
     request_time_map_arrival_search_local_var = request_time_map_arrival_search_create (
         strdup(id->valuestring),
@@ -282,7 +308,8 @@ request_time_map_arrival_search_t *request_time_map_arrival_search_parseFromJSON
         travel_time->valuedouble,
         strdup(arrival_time->valuestring),
         properties ? propertiesList : NULL,
-        range ? range_local_nonprim : NULL
+        range ? range_local_nonprim : NULL,
+        level_of_detail ? level_of_detail_local_nonprim : NULL
         );
 
     return request_time_map_arrival_search_local_var;
@@ -298,6 +325,10 @@ end:
     if (range_local_nonprim) {
         request_range_no_max_results_free(range_local_nonprim);
         range_local_nonprim = NULL;
+    }
+    if (level_of_detail_local_nonprim) {
+        request_level_of_detail_free(level_of_detail_local_nonprim);
+        level_of_detail_local_nonprim = NULL;
     }
     return NULL;
 

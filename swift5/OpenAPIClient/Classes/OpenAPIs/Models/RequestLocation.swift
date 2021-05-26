@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestLocation: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct RequestLocation: Codable, Hashable {
         self.id = id
         self.coords = coords
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case coords
@@ -29,7 +32,4 @@ public struct RequestLocation: Codable, Hashable {
         try container.encode(id, forKey: .id)
         try container.encode(coords, forKey: .coords)
     }
-
-
-
 }

@@ -5,6 +5,7 @@ openapiclient.nim
 openapiclient/apis/api_default.nim
 openapiclient/models/model_coords.nim
 openapiclient/models/model_request_arrival_time_period.nim
+openapiclient/models/model_request_level_of_detail.nim
 openapiclient/models/model_request_location.nim
 openapiclient/models/model_request_range_full.nim
 openapiclient/models/model_request_range_no_max_results.nim

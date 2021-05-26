@@ -11,6 +11,7 @@ src/main/kotlin/org/openapitools/server/apis/DefaultApi.kt
 src/main/kotlin/org/openapitools/server/infrastructure/ApiKeyAuth.kt
 src/main/kotlin/org/openapitools/server/models/Coords.kt
 src/main/kotlin/org/openapitools/server/models/RequestArrivalTimePeriod.kt
+src/main/kotlin/org/openapitools/server/models/RequestLevelOfDetail.kt
 src/main/kotlin/org/openapitools/server/models/RequestLocation.kt
 src/main/kotlin/org/openapitools/server/models/RequestRangeFull.kt
 src/main/kotlin/org/openapitools/server/models/RequestRangeNoMaxResults.kt

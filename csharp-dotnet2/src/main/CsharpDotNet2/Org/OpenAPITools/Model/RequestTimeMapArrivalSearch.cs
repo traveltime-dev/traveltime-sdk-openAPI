@@ -61,6 +61,13 @@ namespace Org.OpenAPITools.Model {
     [JsonProperty(PropertyName = "range")]
     public RequestRangeNoMaxResults Range { get; set; }
 
+    /// <summary>
+    /// Gets or Sets LevelOfDetail
+    /// </summary>
+    [DataMember(Name="level_of_detail", EmitDefaultValue=false)]
+    [JsonProperty(PropertyName = "level_of_detail")]
+    public RequestLevelOfDetail LevelOfDetail { get; set; }
+
 
     /// <summary>
     /// Get the string presentation of the object
@@ -76,6 +83,7 @@ namespace Org.OpenAPITools.Model {
       sb.Append("  ArrivalTime: ").Append(ArrivalTime).Append("\n");
       sb.Append("  Properties: ").Append(Properties).Append("\n");
       sb.Append("  Range: ").Append(Range).Append("\n");
+      sb.Append("  LevelOfDetail: ").Append(LevelOfDetail).Append("\n");
       sb.Append("}\n");
       return sb.ToString();
     }

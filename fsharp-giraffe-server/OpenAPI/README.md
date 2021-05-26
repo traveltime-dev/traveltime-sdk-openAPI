@@ -65,8 +65,8 @@ The following models have been auto-generated from the provided OpenAPI schema:
 - model/RequestTransportationModel.fs
 - model/RequestTimeMapPropertyModel.fs
 - model/ResponseRoutesModel.fs
+- model/RequestLevelOfDetailModel.fs
 - model/RequestRangeNoMaxResultsModel.fs
-- model/RequestTimeMapDepartureSearchModel.fs
 - model/RequestTimeFilterPropertyModel.fs
 - model/RequestTimeFilterPostcodesPropertyModel.fs
 - model/RequestRangeFullModel.fs
@@ -87,15 +87,16 @@ The following models have been auto-generated from the provided OpenAPI schema:
 - model/RequestTimeFilterFastArrivalSearchesModel.fs
 - model/RequestTimeFilterPostcodeDistrictsModel.fs
 - model/RequestTimeFilterDepartureSearchModel.fs
-- model/RequestTimeMapArrivalSearchModel.fs
+- model/RequestTimeMapDepartureSearchModel.fs
 - model/RequestLocationModel.fs
 - model/RequestRoutesPropertyModel.fs
 - model/RequestTimeFilterArrivalSearchModel.fs
 - model/RequestRoutesDepartureSearchModel.fs
 - model/RequestTimeFilterModel.fs
-- model/RequestTimeMapModel.fs
+- model/RequestTimeMapArrivalSearchModel.fs
 - model/RequestRoutesArrivalSearchModel.fs
 - model/RequestSupportedLocationsModel.fs
+- model/RequestTimeMapModel.fs
 - model/RequestTimeFilterFastModel.fs
 - model/RequestRoutesModel.fs
 

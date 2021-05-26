@@ -11,6 +11,7 @@ DependencyInjection/Compiler/OpenAPIServerApiPass.php
 DependencyInjection/OpenAPIServerExtension.php
 Model/Coords.php
 Model/RequestArrivalTimePeriod.php
+Model/RequestLevelOfDetail.php
 Model/RequestLocation.php
 Model/RequestRangeFull.php
 Model/RequestRangeNoMaxResults.php
@@ -108,6 +109,7 @@ Resources/config/services.yml
 Resources/docs/Api/DefaultApiInterface.md
 Resources/docs/Model/Coords.md
 Resources/docs/Model/RequestArrivalTimePeriod.md
+Resources/docs/Model/RequestLevelOfDetail.md
 Resources/docs/Model/RequestLocation.md
 Resources/docs/Model/RequestRangeFull.md
 Resources/docs/Model/RequestRangeNoMaxResults.md
@@ -209,6 +211,7 @@ Tests/AppKernel.php
 Tests/Controller/ControllerTest.php
 Tests/Model/CoordsTest.php
 Tests/Model/RequestArrivalTimePeriodTest.php
+Tests/Model/RequestLevelOfDetailTest.php
 Tests/Model/RequestLocationTest.php
 Tests/Model/RequestRangeFullTest.php
 Tests/Model/RequestRangeNoMaxResultsTest.php

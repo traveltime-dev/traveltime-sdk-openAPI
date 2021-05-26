@@ -10,6 +10,11 @@ entity Coords {
 entity RequestArrivalTimePeriod { 
 }
 
+entity RequestLevelOfDetail { 
+    * scale_type: String
+    * level: String
+}
+
 entity RequestLocation { 
     * id: String
     * coords: Coords
@@ -220,6 +225,7 @@ entity RequestTimeMapArrivalSearch {
     * arrival_time: Date
     properties: List<RequestTimeMapProperty>
     range: RequestRangeNoMaxResults
+    level_of_detail: RequestLevelOfDetail
 }
 
 entity RequestTimeMapDepartureSearch { 
@@ -230,6 +236,7 @@ entity RequestTimeMapDepartureSearch {
     * departure_time: Date
     properties: List<RequestTimeMapProperty>
     range: RequestRangeNoMaxResults
+    level_of_detail: RequestLevelOfDetail
 }
 
 entity RequestTimeMapProperty { 
@@ -237,9 +244,11 @@ entity RequestTimeMapProperty {
 
 entity RequestTransportation { 
     * type: String
+    disable_border_crossing: Boolean
     pt_change_delay: Integer
     walking_time: Integer
     driving_time_to_station: Integer
+    cycling_time_to_station: Integer
     parking_time: Integer
     boarding_time: Integer
 }
@@ -573,6 +582,7 @@ RequestRoutesDepartureSearch -- RequestRangeFull : range
 RequestTimeMapArrivalSearch -- Coords : coords
 RequestTimeMapArrivalSearch -- RequestTransportation : transportation
 RequestTimeMapArrivalSearch -- RequestRangeNoMaxResults : range
+RequestTimeMapArrivalSearch -- RequestLevelOfDetail : level_of_detail
 RequestTimeFilterFastArrivalOneToManySearch -- RequestTransportationFast : transportation
 ResponseTimeFilterPostcodeDistrictsResult -- "0..*" ResponseTimeFilterPostcodeDistrict : districts
 ResponseGeocodingProperties -- ResponseMapInfoFeatures : features
@@ -614,6 +624,7 @@ ResponseTimeFilterFastLocation -- "0..*" ResponseTimeFilterFastProperties : prop
 RequestTimeMapDepartureSearch -- Coords : coords
 RequestTimeMapDepartureSearch -- RequestTransportation : transportation
 RequestTimeMapDepartureSearch -- RequestRangeNoMaxResults : range
+RequestTimeMapDepartureSearch -- RequestLevelOfDetail : level_of_detail
 ResponseTimeFilterPostcodeSectors -- "0..*" ResponseTimeFilterPostcodeSectorsResult : results
 RequestTimeFilterFastArrivalSearches -- "0..*" RequestTimeFilterFastArrivalManyToOneSearch : many_to_one
 RequestTimeFilterFastArrivalSearches -- "0..*" RequestTimeFilterFastArrivalOneToManySearch : one_to_many

@@ -47,6 +47,11 @@ namespace Org.OpenAPITools._.Models
         /// </summary>
         public RequestRangeNoMaxResults Range { get; private set; }
 
+        /// <summary>
+        /// LevelOfDetail
+        /// </summary>
+        public RequestLevelOfDetail LevelOfDetail { get; private set; }
+
 
         /// <summary>
         /// Empty constructor required by some serializers.
@@ -57,7 +62,7 @@ namespace Org.OpenAPITools._.Models
         {
         }
 
-        private RequestTimeMapDepartureSearch(string Id, Coords Coords, RequestTransportation Transportation, int? TravelTime, DateTime? DepartureTime, List<RequestTimeMapProperty> Properties, RequestRangeNoMaxResults Range)
+        private RequestTimeMapDepartureSearch(string Id, Coords Coords, RequestTransportation Transportation, int? TravelTime, DateTime? DepartureTime, List<RequestTimeMapProperty> Properties, RequestRangeNoMaxResults Range, RequestLevelOfDetail LevelOfDetail)
         {
             
             this.Id = Id;
@@ -73,6 +78,8 @@ namespace Org.OpenAPITools._.Models
             this.Properties = Properties;
             
             this.Range = Range;
+            
+            this.LevelOfDetail = LevelOfDetail;
             
         }
 
@@ -99,7 +106,8 @@ namespace Org.OpenAPITools._.Models
                 .TravelTime(TravelTime)
                 .DepartureTime(DepartureTime)
                 .Properties(Properties)
-                .Range(Range);
+                .Range(Range)
+                .LevelOfDetail(LevelOfDetail);
         }
 
         public override string ToString()
@@ -156,6 +164,7 @@ namespace Org.OpenAPITools._.Models
             private DateTime? _DepartureTime;
             private List<RequestTimeMapProperty> _Properties;
             private RequestRangeNoMaxResults _Range;
+            private RequestLevelOfDetail _LevelOfDetail;
 
             internal RequestTimeMapDepartureSearchBuilder()
             {
@@ -236,6 +245,16 @@ namespace Org.OpenAPITools._.Models
                 return this;
             }
 
+            /// <summary>
+            /// Sets value for RequestTimeMapDepartureSearch.LevelOfDetail property.
+            /// </summary>
+            /// <param name="value">LevelOfDetail</param>
+            public RequestTimeMapDepartureSearchBuilder LevelOfDetail(RequestLevelOfDetail value)
+            {
+                _LevelOfDetail = value;
+                return this;
+            }
+
 
             /// <summary>
             /// Builds instance of RequestTimeMapDepartureSearch.
@@ -251,7 +270,8 @@ namespace Org.OpenAPITools._.Models
                     TravelTime: _TravelTime,
                     DepartureTime: _DepartureTime,
                     Properties: _Properties,
-                    Range: _Range
+                    Range: _Range,
+                    LevelOfDetail: _LevelOfDetail
                 );
             }
 

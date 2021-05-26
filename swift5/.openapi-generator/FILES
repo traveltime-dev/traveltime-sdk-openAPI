@@ -13,6 +13,7 @@ OpenAPIClient/Classes/OpenAPIs/JSONEncodingHelper.swift
 OpenAPIClient/Classes/OpenAPIs/Models.swift
 OpenAPIClient/Classes/OpenAPIs/Models/Coords.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RequestArrivalTimePeriod.swift
+OpenAPIClient/Classes/OpenAPIs/Models/RequestLevelOfDetail.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RequestLocation.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RequestRangeFull.swift
 OpenAPIClient/Classes/OpenAPIs/Models/RequestRangeNoMaxResults.swift
@@ -111,6 +112,7 @@ README.md
 docs/Coords.md
 docs/DefaultAPI.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md

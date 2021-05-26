@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseGeocoding: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseGeocoding: Codable, Hashable {
         self.type = type
         self.features = features
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
         case features
@@ -29,7 +32,4 @@ public struct ResponseGeocoding: Codable, Hashable {
         try container.encode(type, forKey: .type)
         try container.encode(features, forKey: .features)
     }
-
-
-
 }

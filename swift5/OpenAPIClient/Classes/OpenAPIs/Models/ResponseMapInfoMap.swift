@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseMapInfoMap: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseMapInfoMap: Codable, Hashable {
         self.name = name
         self.features = features
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case name
         case features
@@ -29,7 +32,4 @@ public struct ResponseMapInfoMap: Codable, Hashable {
         try container.encode(name, forKey: .name)
         try container.encode(features, forKey: .features)
     }
-
-
-
 }

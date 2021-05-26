@@ -12,7 +12,7 @@ import org.openapitools.model.ResponseRoutesResult;
 /**
  * ResponseRoutes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-26T18:50:02.407Z[Etc/UTC]")
 public class ResponseRoutes   {
   @JsonProperty("results")
   private List<ResponseRoutesResult> results = new ArrayList<ResponseRoutesResult>();

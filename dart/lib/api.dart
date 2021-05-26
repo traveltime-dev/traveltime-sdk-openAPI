@@ -30,6 +30,7 @@ part 'api/default_api.dart';
 
 part 'model/coords.dart';
 part 'model/request_arrival_time_period.dart';
+part 'model/request_level_of_detail.dart';
 part 'model/request_location.dart';
 part 'model/request_range_full.dart';
 part 'model/request_range_no_max_results.dart';

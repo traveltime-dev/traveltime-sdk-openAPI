@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -26,4 +27,6 @@ class RequestTimeMapArrivalSearch {
     List<RequestTimeMapProperty> properties = new ArrayList<RequestTimeMapProperty>()
     
     RequestRangeNoMaxResults range
+    
+    RequestLevelOfDetail levelOfDetail
 }

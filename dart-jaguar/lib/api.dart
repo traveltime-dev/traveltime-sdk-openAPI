@@ -12,6 +12,7 @@ import 'package:openapi/api/default_api.dart';
 
 import 'package:openapi/model/coords.dart';
 import 'package:openapi/model/request_arrival_time_period.dart';
+import 'package:openapi/model/request_level_of_detail.dart';
 import 'package:openapi/model/request_location.dart';
 import 'package:openapi/model/request_range_full.dart';
 import 'package:openapi/model/request_range_no_max_results.dart';
@@ -108,6 +109,7 @@ import 'package:openapi/model/response_travel_time_statistics.dart';
 final _jsonJaguarRepo = JsonRepo()
 ..add(CoordsSerializer())
 
+..add(RequestLevelOfDetailSerializer())
 ..add(RequestLocationSerializer())
 ..add(RequestRangeFullSerializer())
 ..add(RequestRangeNoMaxResultsSerializer())

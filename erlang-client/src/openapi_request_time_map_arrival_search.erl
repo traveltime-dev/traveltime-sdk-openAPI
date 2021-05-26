@@ -11,7 +11,8 @@
        'travel_time' := integer(),
        'arrival_time' := openapi_date_time:openapi_date_time(),
        'properties' => list(),
-       'range' => openapi_request_range_no_max_results:openapi_request_range_no_max_results()
+       'range' => openapi_request_range_no_max_results:openapi_request_range_no_max_results(),
+       'level_of_detail' => openapi_request_level_of_detail:openapi_request_level_of_detail()
      }.
 
 encode(#{ 'id' := Id,
@@ -20,7 +21,8 @@ encode(#{ 'id' := Id,
           'travel_time' := TravelTime,
           'arrival_time' := ArrivalTime,
           'properties' := Properties,
-          'range' := Range
+          'range' := Range,
+          'level_of_detail' := LevelOfDetail
         }) ->
     #{ 'id' => Id,
        'coords' => Coords,
@@ -28,5 +30,6 @@ encode(#{ 'id' := Id,
        'travel_time' => TravelTime,
        'arrival_time' => ArrivalTime,
        'properties' => Properties,
-       'range' => Range
+       'range' => Range,
+       'level_of_detail' => LevelOfDetail
      }.

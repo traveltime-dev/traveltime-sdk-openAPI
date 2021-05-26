@@ -14,7 +14,7 @@ import org.openapitools.model.RequestUnionOnIntersection;
 /**
  * RequestTimeMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-11T08:37:55.137Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaMSF4JServerCodegen", date = "2021-05-26T18:50:02.407Z[Etc/UTC]")
 public class RequestTimeMap   {
   @JsonProperty("departure_searches")
   private List<RequestTimeMapDepartureSearch> departureSearches = null;

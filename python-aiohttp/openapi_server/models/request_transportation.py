@@ -14,38 +14,46 @@ class RequestTransportation(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, type: str=None, pt_change_delay: int=None, walking_time: int=None, driving_time_to_station: int=None, parking_time: int=None, boarding_time: int=None):
+    def __init__(self, type: str=None, disable_border_crossing: bool=None, pt_change_delay: int=None, walking_time: int=None, driving_time_to_station: int=None, cycling_time_to_station: int=None, parking_time: int=None, boarding_time: int=None):
         """RequestTransportation - a model defined in OpenAPI
 
         :param type: The type of this RequestTransportation.
+        :param disable_border_crossing: The disable_border_crossing of this RequestTransportation.
         :param pt_change_delay: The pt_change_delay of this RequestTransportation.
         :param walking_time: The walking_time of this RequestTransportation.
         :param driving_time_to_station: The driving_time_to_station of this RequestTransportation.
+        :param cycling_time_to_station: The cycling_time_to_station of this RequestTransportation.
         :param parking_time: The parking_time of this RequestTransportation.
         :param boarding_time: The boarding_time of this RequestTransportation.
         """
         self.openapi_types = {
             'type': str,
+            'disable_border_crossing': bool,
             'pt_change_delay': int,
             'walking_time': int,
             'driving_time_to_station': int,
+            'cycling_time_to_station': int,
             'parking_time': int,
             'boarding_time': int
         }
 
         self.attribute_map = {
             'type': 'type',
+            'disable_border_crossing': 'disable_border_crossing',
             'pt_change_delay': 'pt_change_delay',
             'walking_time': 'walking_time',
             'driving_time_to_station': 'driving_time_to_station',
+            'cycling_time_to_station': 'cycling_time_to_station',
             'parking_time': 'parking_time',
             'boarding_time': 'boarding_time'
         }
 
         self._type = type
+        self._disable_border_crossing = disable_border_crossing
         self._pt_change_delay = pt_change_delay
         self._walking_time = walking_time
         self._driving_time_to_station = driving_time_to_station
+        self._cycling_time_to_station = cycling_time_to_station
         self._parking_time = parking_time
         self._boarding_time = boarding_time
 
@@ -84,6 +92,27 @@ class RequestTransportation(Model):
             )
 
         self._type = type
+
+    @property
+    def disable_border_crossing(self):
+        """Gets the disable_border_crossing of this RequestTransportation.
+
+
+        :return: The disable_border_crossing of this RequestTransportation.
+        :rtype: bool
+        """
+        return self._disable_border_crossing
+
+    @disable_border_crossing.setter
+    def disable_border_crossing(self, disable_border_crossing):
+        """Sets the disable_border_crossing of this RequestTransportation.
+
+
+        :param disable_border_crossing: The disable_border_crossing of this RequestTransportation.
+        :type disable_border_crossing: bool
+        """
+
+        self._disable_border_crossing = disable_border_crossing
 
     @property
     def pt_change_delay(self):
@@ -147,6 +176,27 @@ class RequestTransportation(Model):
         """
 
         self._driving_time_to_station = driving_time_to_station
+
+    @property
+    def cycling_time_to_station(self):
+        """Gets the cycling_time_to_station of this RequestTransportation.
+
+
+        :return: The cycling_time_to_station of this RequestTransportation.
+        :rtype: int
+        """
+        return self._cycling_time_to_station
+
+    @cycling_time_to_station.setter
+    def cycling_time_to_station(self, cycling_time_to_station):
+        """Sets the cycling_time_to_station of this RequestTransportation.
+
+
+        :param cycling_time_to_station: The cycling_time_to_station of this RequestTransportation.
+        :type cycling_time_to_station: int
+        """
+
+        self._cycling_time_to_station = cycling_time_to_station
 
     @property
     def parking_time(self):

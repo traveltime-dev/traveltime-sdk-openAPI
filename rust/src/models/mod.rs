@@ -2,6 +2,8 @@ pub mod coords;
 pub use self::coords::Coords;
 pub mod request_arrival_time_period;
 pub use self::request_arrival_time_period::RequestArrivalTimePeriod;
+pub mod request_level_of_detail;
+pub use self::request_level_of_detail::RequestLevelOfDetail;
 pub mod request_location;
 pub use self::request_location::RequestLocation;
 pub mod request_range_full;

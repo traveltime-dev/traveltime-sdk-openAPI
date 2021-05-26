@@ -1,0 +1,42 @@
+"$schema"   = "http://cyaninc.com/json-schemas/tosca-lite-v1/definition-module#"
+title       = "openapi_server RequestLevelOfDetail"
+package     = openapi_server
+version     = "1.0"
+description = "Defines a RequestLevelOfDetail"
+authors     = ["F. Bar (foo@bar.baz)"]
+
+imports {
+  Root = tosca.resourceTypes.Root
+}
+resourceTypes {
+
+  RequestLevelOfDetail {
+    title = RequestLevelOfDetail
+    description = RequestLevelOfDetail
+    derivedFrom = Root
+    properties {
+        scale_type {
+          type =  string
+          description = ""
+          enum = ["simple"]
+          optional = true
+        }
+        level {
+          type =  string
+          description = ""
+          enum = ["lowest", "low", "medium", "high", "highest"]
+          optional = true
+        }
+    }
+  }
+}
+
+serviceTemplates {
+
+  RequestLevelOfDetail {
+    title = RequestLevelOfDetail
+    description = RequestLevelOfDetail
+    implements = openapi_server.resourceTypes.RequestLevelOfDetail
+
+  }
+}

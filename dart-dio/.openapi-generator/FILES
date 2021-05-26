@@ -5,6 +5,7 @@ analysis_options.yaml
 doc/Coords.md
 doc/DefaultApi.md
 doc/RequestArrivalTimePeriod.md
+doc/RequestLevelOfDetail.md
 doc/RequestLocation.md
 doc/RequestRangeFull.md
 doc/RequestRangeNoMaxResults.md
@@ -104,6 +105,7 @@ lib/auth/basic_auth.dart
 lib/auth/oauth.dart
 lib/model/coords.dart
 lib/model/request_arrival_time_period.dart
+lib/model/request_level_of_detail.dart
 lib/model/request_location.dart
 lib/model/request_range_full.dart
 lib/model/request_range_no_max_results.dart
@@ -199,6 +201,7 @@ pubspec.yaml
 test/coords_test.dart
 test/default_api_test.dart
 test/request_arrival_time_period_test.dart
+test/request_level_of_detail_test.dart
 test/request_location_test.dart
 test/request_range_full_test.dart
 test/request_range_no_max_results_test.dart

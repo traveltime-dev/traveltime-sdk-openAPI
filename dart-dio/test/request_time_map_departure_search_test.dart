@@ -49,6 +49,11 @@ void main() {
       // TODO
     });
 
+    // RequestLevelOfDetail levelOfDetail
+    test('to test the property `levelOfDetail`', () async {
+      // TODO
+    });
+
 
   });
 

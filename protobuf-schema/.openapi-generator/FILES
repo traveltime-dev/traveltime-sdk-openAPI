@@ -2,6 +2,7 @@
 README.md
 models/coords.proto
 models/request_arrival_time_period.proto
+models/request_level_of_detail.proto
 models/request_location.proto
 models/request_range_full.proto
 models/request_range_no_max_results.proto

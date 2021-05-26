@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **DepartureTime** | **DateTime** |  | 
 **Properties** | [**List&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  | [optional] 
 **Range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**LevelOfDetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

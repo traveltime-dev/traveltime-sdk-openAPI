@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**STRING_32**](STRING_32.md) |  | [default to null]
+**disable_border_crossing** | **BOOLEAN** |  | [optional] [default to null]
 **pt_change_delay** | **INTEGER_32** |  | [optional] [default to null]
 **walking_time** | **INTEGER_32** |  | [optional] [default to null]
 **driving_time_to_station** | **INTEGER_32** |  | [optional] [default to null]
+**cycling_time_to_station** | **INTEGER_32** |  | [optional] [default to null]
 **parking_time** | **INTEGER_32** |  | [optional] [default to null]
 **boarding_time** | **INTEGER_32** |  | [optional] [default to null]
 

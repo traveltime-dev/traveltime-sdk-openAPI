@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **arrivalTime** | [**java.time.OffsetDateTime**](java.time.OffsetDateTime.md) |  | 
 **properties** | [**kotlin.collections.List&lt;RequestTimeMapProperty&gt;**](RequestTimeMapProperty.md) |  |  [optional]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  |  [optional]
+**levelOfDetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  |  [optional]
 
 
 

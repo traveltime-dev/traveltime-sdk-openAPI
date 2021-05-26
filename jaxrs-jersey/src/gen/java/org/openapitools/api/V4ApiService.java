@@ -33,7 +33,7 @@ import java.io.InputStream;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import javax.validation.constraints.*;
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2021-05-11T08:38:13.963Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJerseyServerCodegen", date = "2021-05-26T18:50:23.522Z[Etc/UTC]")
 public abstract class V4ApiService {
     public abstract Response geocodingReverseSearch( @NotNull Double lat, @NotNull Double lng,String withinCountry,SecurityContext securityContext) throws NotFoundException;
     public abstract Response geocodingSearch( @NotNull String query,Double focusLat,Double focusLng,String withinCountry,SecurityContext securityContext) throws NotFoundException;

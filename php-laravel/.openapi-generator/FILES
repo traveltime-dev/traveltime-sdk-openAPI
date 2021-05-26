@@ -19,6 +19,7 @@ lib/app/Http/Middleware/TrustProxies.php
 lib/app/Http/Middleware/VerifyCsrfToken.php
 lib/app/Models/Coords.php
 lib/app/Models/RequestArrivalTimePeriod.php
+lib/app/Models/RequestLevelOfDetail.php
 lib/app/Models/RequestLocation.php
 lib/app/Models/RequestRangeFull.php
 lib/app/Models/RequestRangeNoMaxResults.php

@@ -40,6 +40,7 @@ set(SRCS
     model/object.c
     model/coords.c
     model/request_arrival_time_period.c
+    model/request_level_of_detail.c
     model/request_location.c
     model/request_range_full.c
     model/request_range_no_max_results.c
@@ -143,6 +144,7 @@ set(HDRS
     model/object.h
     model/coords.h
     model/request_arrival_time_period.h
+    model/request_level_of_detail.h
     model/request_location.h
     model/request_range_full.h
     model/request_range_no_max_results.h

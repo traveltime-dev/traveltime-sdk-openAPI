@@ -5,6 +5,7 @@ appveyor.yml
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -99,6 +100,7 @@ src/PSOpenAPITools/Api/DefaultApi.ps1
 src/PSOpenAPITools/Client/Configuration.ps1
 src/PSOpenAPITools/Model/Coords.ps1
 src/PSOpenAPITools/Model/RequestArrivalTimePeriod.ps1
+src/PSOpenAPITools/Model/RequestLevelOfDetail.ps1
 src/PSOpenAPITools/Model/RequestLocation.ps1
 src/PSOpenAPITools/Model/RequestRangeFull.ps1
 src/PSOpenAPITools/Model/RequestRangeNoMaxResults.ps1
@@ -199,6 +201,7 @@ src/PSOpenAPITools/en-US/about_PSOpenAPITools.help.txt
 tests/Api/DefaultApi.Tests.ps1
 tests/Model/Coords.Tests.ps1
 tests/Model/RequestArrivalTimePeriod.Tests.ps1
+tests/Model/RequestLevelOfDetail.Tests.ps1
 tests/Model/RequestLocation.Tests.ps1
 tests/Model/RequestRangeFull.Tests.ps1
 tests/Model/RequestRangeNoMaxResults.Tests.ps1

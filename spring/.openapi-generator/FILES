@@ -10,6 +10,7 @@ src/main/java/org/openapitools/configuration/HomeController.java
 src/main/java/org/openapitools/configuration/OpenAPIDocumentationConfig.java
 src/main/java/org/openapitools/model/Coords.java
 src/main/java/org/openapitools/model/RequestArrivalTimePeriod.java
+src/main/java/org/openapitools/model/RequestLevelOfDetail.java
 src/main/java/org/openapitools/model/RequestLocation.java
 src/main/java/org/openapitools/model/RequestRangeFull.java
 src/main/java/org/openapitools/model/RequestRangeNoMaxResults.java

@@ -4,7 +4,7 @@ val swaggerCodegenVersion = "master" //5.2.0-SNAPSHOT
 lazy val toolsDir = pwd/"tools"
 lazy val codegenDir = toolsDir/"openapi-generator"
 lazy val sdkOut = codegenDir/"out"
-lazy val defaultSpecLocation = "https://raw.githubusercontent.com/traveltime-dev/traveltime-openapi-specification/v1.2.2/traveltime-spec.yml"
+lazy val defaultSpecLocation = "https://raw.githubusercontent.com/traveltime-dev/traveltime-openapi-specification/v1.2.3/traveltime-spec.yml"
 
 val languages = List(
   "ada",
@@ -19,8 +19,8 @@ val languages = List(
   "c",
   "clojure",
   "cwiki",
-  "cpp-qt5-client",
-  "cpp-qt5-qhttpengine-server",
+  "cpp-qt-client",
+  "cpp-qt-qhttpengine-server",
   "cpp-pistache-server",
   "cpp-restbed-server",
   "cpp-restsdk",

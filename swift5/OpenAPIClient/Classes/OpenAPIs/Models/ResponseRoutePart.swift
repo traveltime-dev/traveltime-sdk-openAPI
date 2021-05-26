@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseRoutePart: Codable, Hashable {
 
@@ -51,6 +53,7 @@ public struct ResponseRoutePart: Codable, Hashable {
         self.arrivesAt = arrivesAt
         self.numStops = numStops
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case type
@@ -91,7 +94,4 @@ public struct ResponseRoutePart: Codable, Hashable {
         try container.encodeIfPresent(arrivesAt, forKey: .arrivesAt)
         try container.encodeIfPresent(numStops, forKey: .numStops)
     }
-
-
-
 }

@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTimeFilterFastArrivalOneToManySearch: Codable, Hashable {
 
@@ -27,6 +29,7 @@ public struct RequestTimeFilterFastArrivalOneToManySearch: Codable, Hashable {
         self.arrivalTimePeriod = arrivalTimePeriod
         self.properties = properties
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case departureLocationId = "departure_location_id"
@@ -49,7 +52,4 @@ public struct RequestTimeFilterFastArrivalOneToManySearch: Codable, Hashable {
         try container.encode(arrivalTimePeriod, forKey: .arrivalTimePeriod)
         try container.encode(properties, forKey: .properties)
     }
-
-
-
 }

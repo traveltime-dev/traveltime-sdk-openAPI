@@ -8,6 +8,7 @@ export(ApiResponse)
 # Models
 export(Coords)
 export(RequestArrivalTimePeriod)
+export(RequestLevelOfDetail)
 export(RequestLocation)
 export(RequestRangeFull)
 export(RequestRangeNoMaxResults)

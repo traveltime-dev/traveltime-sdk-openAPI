@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **arrival_time** | **DateTime** |  | 
 **properties** | [**ARRAY[RequestTimeMapProperty]**](RequestTimeMapProperty.md) |  | [optional] 
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  | [optional] 
+**level_of_detail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

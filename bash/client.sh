@@ -515,7 +515,7 @@ build_request_path() {
 print_help() {
 cat <<EOF
 
-${BOLD}${WHITE}TravelTime API command line client (API version 1.2.2)${OFF}
+${BOLD}${WHITE}TravelTime API command line client (API version 1.2.3)${OFF}
 
 ${BOLD}${WHITE}Usage${OFF}
 
@@ -593,7 +593,7 @@ echo -e "              \\t\\t\\t\\t(e.g. 'https://api.traveltimeapp.com')"
 ##############################################################################
 print_about() {
     echo ""
-    echo -e "${BOLD}${WHITE}TravelTime API command line client (API version 1.2.2)${OFF}"
+    echo -e "${BOLD}${WHITE}TravelTime API command line client (API version 1.2.3)${OFF}"
     echo ""
     echo -e "License: "
     echo -e "Contact: support@igeolise.com"
@@ -613,7 +613,7 @@ echo "$appdescription" | paste -sd' ' | fold -sw 80
 ##############################################################################
 print_version() {
     echo ""
-    echo -e "${BOLD}TravelTime API command line client (API version 1.2.2)${OFF}"
+    echo -e "${BOLD}TravelTime API command line client (API version 1.2.3)${OFF}"
     echo ""
 }
 

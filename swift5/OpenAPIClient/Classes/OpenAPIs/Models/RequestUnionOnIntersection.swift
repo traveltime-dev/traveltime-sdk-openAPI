@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestUnionOnIntersection: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct RequestUnionOnIntersection: Codable, Hashable {
         self.id = id
         self.searchIds = searchIds
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case searchIds = "search_ids"
@@ -29,7 +32,4 @@ public struct RequestUnionOnIntersection: Codable, Hashable {
         try container.encode(id, forKey: .id)
         try container.encode(searchIds, forKey: .searchIds)
     }
-
-
-
 }

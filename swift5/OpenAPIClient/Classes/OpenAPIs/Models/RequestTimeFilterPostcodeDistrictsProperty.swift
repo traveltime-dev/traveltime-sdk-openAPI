@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public enum RequestTimeFilterPostcodeDistrictsProperty: String, Codable, CaseIterable {
     case travelTimeReachable = "travel_time_reachable"

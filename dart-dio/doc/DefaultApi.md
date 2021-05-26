@@ -9,17 +9,17 @@ All URIs are relative to *https://api.traveltimeapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**geocodingReverseSearch**](DefaultApi.md#geocodingreversesearch) | **get** /v4/geocoding/reverse | 
-[**geocodingSearch**](DefaultApi.md#geocodingsearch) | **get** /v4/geocoding/search | 
-[**mapInfo**](DefaultApi.md#mapinfo) | **get** /v4/map-info | 
-[**routes**](DefaultApi.md#routes) | **post** /v4/routes | 
-[**supportedLocations**](DefaultApi.md#supportedlocations) | **post** /v4/supported-locations | 
-[**timeFilter**](DefaultApi.md#timefilter) | **post** /v4/time-filter | 
-[**timeFilterFast**](DefaultApi.md#timefilterfast) | **post** /v4/time-filter/fast | 
-[**timeFilterPostcodeDistricts**](DefaultApi.md#timefilterpostcodedistricts) | **post** /v4/time-filter/postcode-districts | 
-[**timeFilterPostcodeSectors**](DefaultApi.md#timefilterpostcodesectors) | **post** /v4/time-filter/postcode-sectors | 
-[**timeFilterPostcodes**](DefaultApi.md#timefilterpostcodes) | **post** /v4/time-filter/postcodes | 
-[**timeMap**](DefaultApi.md#timemap) | **post** /v4/time-map | 
+[**geocodingReverseSearch**](DefaultApi.md#geocodingreversesearch) | **GET** /v4/geocoding/reverse | 
+[**geocodingSearch**](DefaultApi.md#geocodingsearch) | **GET** /v4/geocoding/search | 
+[**mapInfo**](DefaultApi.md#mapinfo) | **GET** /v4/map-info | 
+[**routes**](DefaultApi.md#routes) | **POST** /v4/routes | 
+[**supportedLocations**](DefaultApi.md#supportedlocations) | **POST** /v4/supported-locations | 
+[**timeFilter**](DefaultApi.md#timefilter) | **POST** /v4/time-filter | 
+[**timeFilterFast**](DefaultApi.md#timefilterfast) | **POST** /v4/time-filter/fast | 
+[**timeFilterPostcodeDistricts**](DefaultApi.md#timefilterpostcodedistricts) | **POST** /v4/time-filter/postcode-districts | 
+[**timeFilterPostcodeSectors**](DefaultApi.md#timefilterpostcodesectors) | **POST** /v4/time-filter/postcode-sectors | 
+[**timeFilterPostcodes**](DefaultApi.md#timefilterpostcodes) | **POST** /v4/time-filter/postcodes | 
+[**timeMap**](DefaultApi.md#timemap) | **POST** /v4/time-map | 
 
 
 # **geocodingReverseSearch**

@@ -5,7 +5,7 @@ info:
     name: API Support
   termsOfService: https://www.traveltime.com/terms-and-conditions
   title: TravelTime API
-  version: 1.2.2
+  version: 1.2.3
 externalDocs:
   url: http://docs.traveltime.com
 servers:
@@ -559,8 +559,8 @@ components:
       type: integer
     RequestRangeFull:
       example:
-        width: 30505
-        max_results: 1
+        width: 40182
+        max_results: 3
         enabled: true
       properties:
         enabled:
@@ -631,8 +631,8 @@ components:
     RequestTimeFilterPostcodeSectorsDepartureSearch:
       example:
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 1208
@@ -643,8 +643,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -688,8 +690,8 @@ components:
       example:
         arrival_time: 2000-01-23T04:56:07.000+00:00
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 2161
@@ -699,8 +701,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -743,8 +747,8 @@ components:
     RequestTimeFilterPostcodeDistrictsDepartureSearch:
       example:
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 1208
@@ -755,8 +759,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -800,8 +806,8 @@ components:
       example:
         arrival_time: 2000-01-23T04:56:07.000+00:00
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 2161
@@ -811,8 +817,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -855,8 +863,8 @@ components:
     RequestTimeFilterPostcodesDepartureSearch:
       example:
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 1208
@@ -866,8 +874,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -906,8 +916,8 @@ components:
       example:
         arrival_time: 2000-01-23T04:56:07.000+00:00
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 8703
@@ -916,8 +926,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -962,8 +974,8 @@ components:
         - arrival_location_ids
         departure_location_id: departure_location_id
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 1208
@@ -973,8 +985,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -1031,8 +1045,8 @@ components:
         - departure_location_ids
         arrival_location_id: arrival_location_id
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         travel_time: 8703
@@ -1041,8 +1055,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -1229,8 +1245,8 @@ components:
         - arrival_location_ids
         departure_location_id: departure_location_id
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         departure_time: 2000-01-23T04:56:07.000+00:00
@@ -1239,8 +1255,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -1288,8 +1306,8 @@ components:
         - departure_location_ids
         arrival_location_id: arrival_location_id
         range:
-          width: 30505
-          max_results: 1
+          width: 40182
+          max_results: 3
           enabled: true
         id: id
         properties:
@@ -1297,8 +1315,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -1350,8 +1370,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1360,8 +1380,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1374,8 +1396,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1384,8 +1406,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1398,8 +1422,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1408,8 +1432,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1422,8 +1448,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1432,8 +1458,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1446,8 +1474,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1456,8 +1484,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1470,8 +1500,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1481,8 +1511,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1494,8 +1526,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1505,8 +1537,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1518,8 +1552,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1529,8 +1563,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1542,8 +1578,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1553,8 +1589,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1566,8 +1604,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1577,8 +1615,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1615,8 +1655,8 @@ components:
         arrival_searches:
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1625,15 +1665,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1642,15 +1684,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1659,15 +1703,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1676,15 +1722,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 8703
@@ -1693,15 +1741,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         departure_searches:
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1711,14 +1761,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1728,14 +1780,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1745,14 +1799,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1762,14 +1818,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1779,8 +1837,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1801,8 +1861,8 @@ components:
         arrival_searches:
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -1812,15 +1872,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -1830,15 +1892,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -1848,15 +1912,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -1866,15 +1932,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -1884,15 +1952,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         departure_searches:
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1903,14 +1973,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1921,14 +1993,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1939,14 +2013,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1957,14 +2033,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -1975,8 +2053,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -1997,8 +2077,8 @@ components:
         arrival_searches:
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -2008,15 +2088,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -2026,15 +2108,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -2044,15 +2128,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -2062,15 +2148,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - arrival_time: 2000-01-23T04:56:07.000+00:00
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 2161
@@ -2080,15 +2168,17 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         departure_searches:
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -2099,14 +2189,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -2117,14 +2209,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -2135,14 +2229,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -2153,14 +2249,16 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           travel_time: 1208
@@ -2171,8 +2269,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2522,8 +2622,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           properties:
@@ -2531,8 +2631,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2542,8 +2644,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           properties:
@@ -2551,8 +2653,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2562,8 +2666,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           properties:
@@ -2571,8 +2675,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2582,8 +2688,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           properties:
@@ -2591,8 +2697,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2602,8 +2710,8 @@ components:
           - departure_location_ids
           arrival_location_id: arrival_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           properties:
@@ -2611,8 +2719,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2622,8 +2732,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2632,8 +2742,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2642,8 +2754,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2652,8 +2764,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2662,8 +2776,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2672,8 +2786,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2682,8 +2798,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2692,8 +2808,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2702,8 +2820,8 @@ components:
           - arrival_location_ids
           departure_location_id: departure_location_id
           range:
-            width: 30505
-            max_results: 1
+            width: 40182
+            max_results: 3
             enabled: true
           id: id
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2712,8 +2830,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2750,6 +2870,30 @@ components:
       - is_only_walking
       title: RequestTimeMapProperty
       type: string
+    RequestLevelOfDetail:
+      example:
+        level: lowest
+        scale_type: simple
+      properties:
+        scale_type:
+          enum:
+          - simple
+          title: scale_type
+          type: string
+        level:
+          enum:
+          - lowest
+          - low
+          - medium
+          - high
+          - highest
+          title: level
+          type: string
+      required:
+      - level
+      - scale_type
+      title: RequestLevelOfDetail
+      type: object
     RequestUnionOnIntersection:
       example:
         id: id
@@ -2775,6 +2919,9 @@ components:
         range:
           width: 26039
           enabled: true
+        level_of_detail:
+          level: lowest
+          scale_type: simple
         id: id
         travel_time: 1208
         departure_time: 2000-01-23T04:56:07.000+00:00
@@ -2786,8 +2933,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -2815,6 +2964,8 @@ components:
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeNoMaxResults'
+        level_of_detail:
+          $ref: '#/components/schemas/RequestLevelOfDetail'
       required:
       - coords
       - departure_time
@@ -2829,6 +2980,9 @@ components:
         range:
           width: 26039
           enabled: true
+        level_of_detail:
+          level: lowest
+          scale_type: simple
         id: id
         travel_time: 2161
         coords:
@@ -2839,8 +2993,10 @@ components:
         - null
         transportation:
           pt_change_delay: 0
-          boarding_time: 5
+          boarding_time: 2
           driving_time_to_station: 1
+          disable_border_crossing: true
+          cycling_time_to_station: 5
           type: cycling
           walking_time: 6
           parking_time: 5
@@ -2868,6 +3024,8 @@ components:
           type: array
         range:
           $ref: '#/components/schemas/RequestRangeNoMaxResults'
+        level_of_detail:
+          $ref: '#/components/schemas/RequestLevelOfDetail'
       required:
       - arrival_time
       - coords
@@ -2883,6 +3041,9 @@ components:
           range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 2161
           coords:
@@ -2893,8 +3054,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2902,6 +3065,9 @@ components:
           range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 2161
           coords:
@@ -2912,8 +3078,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2921,6 +3089,9 @@ components:
           range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 2161
           coords:
@@ -2931,8 +3102,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2940,6 +3113,9 @@ components:
           range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 2161
           coords:
@@ -2950,8 +3126,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2959,6 +3137,9 @@ components:
           range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 2161
           coords:
@@ -2969,8 +3150,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -2999,6 +3182,9 @@ components:
         - range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 1208
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -3010,14 +3196,19 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 1208
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -3029,14 +3220,19 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 1208
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -3048,14 +3244,19 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 1208
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -3067,14 +3268,19 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
         - range:
             width: 26039
             enabled: true
+          level_of_detail:
+            level: lowest
+            scale_type: simple
           id: id
           travel_time: 1208
           departure_time: 2000-01-23T04:56:07.000+00:00
@@ -3086,8 +3292,10 @@ components:
           - null
           transportation:
             pt_change_delay: 0
-            boarding_time: 5
+            boarding_time: 2
             driving_time_to_station: 1
+            disable_border_crossing: true
+            cycling_time_to_station: 5
             type: cycling
             walking_time: 6
             parking_time: 5
@@ -7024,8 +7232,10 @@ components:
     RequestTransportation:
       example:
         pt_change_delay: 0
-        boarding_time: 5
+        boarding_time: 2
         driving_time_to_station: 1
+        disable_border_crossing: true
+        cycling_time_to_station: 5
         type: cycling
         walking_time: 6
         parking_time: 5
@@ -7045,6 +7255,9 @@ components:
           - cycling+ferry
           title: type
           type: string
+        disable_border_crossing:
+          title: disable_border_crossing
+          type: boolean
         pt_change_delay:
           title: pt_change_delay
           type: integer
@@ -7053,6 +7266,9 @@ components:
           type: integer
         driving_time_to_station:
           title: driving_time_to_station
+          type: integer
+        cycling_time_to_station:
+          title: cycling_time_to_station
           type: integer
         parking_time:
           title: parking_time

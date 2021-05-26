@@ -5,6 +5,7 @@ src/openapi.app.src
 src/openapi_coords.erl
 src/openapi_default_api.erl
 src/openapi_request_arrival_time_period.erl
+src/openapi_request_level_of_detail.erl
 src/openapi_request_location.erl
 src/openapi_request_range_full.erl
 src/openapi_request_range_no_max_results.erl

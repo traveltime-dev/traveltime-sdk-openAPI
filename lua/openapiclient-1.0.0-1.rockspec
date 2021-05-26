@@ -26,6 +26,7 @@ build = {
 		["openapiclient.api.default_api"] = "openapiclient/api/default_api.lua";
 		["openapiclient.model.coords"] = "openapiclient/model/coords.lua";
 		["openapiclient.model.request_arrival_time_period"] = "openapiclient/model/request_arrival_time_period.lua";
+		["openapiclient.model.request_level_of_detail"] = "openapiclient/model/request_level_of_detail.lua";
 		["openapiclient.model.request_location"] = "openapiclient/model/request_location.lua";
 		["openapiclient.model.request_range_full"] = "openapiclient/model/request_range_full.lua";
 		["openapiclient.model.request_range_no_max_results"] = "openapiclient/model/request_range_no_max_results.lua";

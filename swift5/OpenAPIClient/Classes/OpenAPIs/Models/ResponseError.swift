@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseError: Codable, Hashable {
 
@@ -23,6 +25,7 @@ public struct ResponseError: Codable, Hashable {
         self.documentationLink = documentationLink
         self.additionalInfo = additionalInfo
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case httpStatus = "http_status"
         case errorCode = "error_code"
@@ -41,7 +44,4 @@ public struct ResponseError: Codable, Hashable {
         try container.encodeIfPresent(documentationLink, forKey: .documentationLink)
         try container.encodeIfPresent(additionalInfo, forKey: .additionalInfo)
     }
-
-
-
 }

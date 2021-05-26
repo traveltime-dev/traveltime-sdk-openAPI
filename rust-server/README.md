@@ -13,8 +13,8 @@ To see how to make this your own, look here:
 
 [README]((https://openapi-generator.tech))
 
-- API version: 1.2.2
-- Build date: 2021-05-11T08:39:41.227Z[Etc/UTC]
+- API version: 1.2.3
+- Build date: 2021-05-26T18:51:54.324Z[Etc/UTC]
 
 
 
@@ -116,6 +116,7 @@ Method | HTTP request | Description
  - [RequestArrivalTimePeriod](docs/RequestArrivalTimePeriod.md)
  - [RequestDepartureArrivalLocationOne](docs/RequestDepartureArrivalLocationOne.md)
  - [RequestDepartureArrivalTime](docs/RequestDepartureArrivalTime.md)
+ - [RequestLevelOfDetail](docs/RequestLevelOfDetail.md)
  - [RequestLocation](docs/RequestLocation.md)
  - [RequestLocationId](docs/RequestLocationId.md)
  - [RequestRangeEnabled](docs/RequestRangeEnabled.md)

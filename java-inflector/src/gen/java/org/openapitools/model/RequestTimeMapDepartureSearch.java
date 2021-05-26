@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -17,7 +18,7 @@ import org.openapitools.model.RequestTransportation;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2021-05-11T08:37:52.749Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaInflectorServerCodegen", date = "2021-05-26T18:49:59.858Z[Etc/UTC]")
 public class RequestTimeMapDepartureSearch   {
   @JsonProperty("id")
   private String id;
@@ -39,6 +40,9 @@ public class RequestTimeMapDepartureSearch   {
 
   @JsonProperty("range")
   private RequestRangeNoMaxResults range;
+
+  @JsonProperty("level_of_detail")
+  private RequestLevelOfDetail levelOfDetail;
 
   /**
    **/
@@ -161,6 +165,23 @@ public class RequestTimeMapDepartureSearch   {
     this.range = range;
   }
 
+  /**
+   **/
+  public RequestTimeMapDepartureSearch levelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+    return this;
+  }
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("level_of_detail")
+  public RequestLevelOfDetail getLevelOfDetail() {
+    return levelOfDetail;
+  }
+  public void setLevelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+  }
+
 
   @Override
   public boolean equals(Object o) {
@@ -177,12 +198,13 @@ public class RequestTimeMapDepartureSearch   {
         Objects.equals(travelTime, requestTimeMapDepartureSearch.travelTime) &&
         Objects.equals(departureTime, requestTimeMapDepartureSearch.departureTime) &&
         Objects.equals(properties, requestTimeMapDepartureSearch.properties) &&
-        Objects.equals(range, requestTimeMapDepartureSearch.range);
+        Objects.equals(range, requestTimeMapDepartureSearch.range) &&
+        Objects.equals(levelOfDetail, requestTimeMapDepartureSearch.levelOfDetail);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, coords, transportation, travelTime, departureTime, properties, range);
+    return Objects.hash(id, coords, transportation, travelTime, departureTime, properties, range, levelOfDetail);
   }
 
   @Override
@@ -197,6 +219,7 @@ public class RequestTimeMapDepartureSearch   {
     sb.append("    departureTime: ").append(toIndentedString(departureTime)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    levelOfDetail: ").append(toIndentedString(levelOfDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

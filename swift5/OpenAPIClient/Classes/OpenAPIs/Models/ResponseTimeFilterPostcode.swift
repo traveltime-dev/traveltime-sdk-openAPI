@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeFilterPostcode: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseTimeFilterPostcode: Codable, Hashable {
         self.code = code
         self.properties = properties
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case code
         case properties
@@ -29,7 +32,4 @@ public struct ResponseTimeFilterPostcode: Codable, Hashable {
         try container.encode(code, forKey: .code)
         try container.encode(properties, forKey: .properties)
     }
-
-
-
 }

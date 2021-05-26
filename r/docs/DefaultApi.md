@@ -167,7 +167,7 @@ This endpoint does not need any parameter.
 ```R
 library(openapi)
 
-var.request.routes <- RequestRoutes$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestRoutesDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("cycling", 123, 123, 123, 123, 123), "departure_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestRoutesArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), "arrival_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestRoutes | 
+var.request.routes <- RequestRoutes$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestRoutesDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), "departure_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestRoutesArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), "arrival_time_example", list(RequestRoutesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestRoutes | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 ```R
 library(openapi)
 
-var.request.time.filter <- RequestTimeFilter$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestTimeFilterDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilter | 
+var.request.time.filter <- RequestTimeFilter$new(list(RequestLocation$new("id_example", Coords$new(123, 123))), list(RequestTimeFilterDepartureSearch$new("id_example", "departure_location_id_example", list("arrival_location_ids_example"), RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterArrivalSearch$new("id_example", list("departure_location_ids_example"), "arrival_location_id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilter | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 ```R
 library(openapi)
 
-var.request.time.filter.postcode.districts <- RequestTimeFilterPostcodeDistricts$new(list(RequestTimeFilterPostcodeDistrictsDepartureSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeDistrictsArrivalSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeDistricts | 
+var.request.time.filter.postcode.districts <- RequestTimeFilterPostcodeDistricts$new(list(RequestTimeFilterPostcodeDistrictsDepartureSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeDistrictsArrivalSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeDistrictsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeDistricts | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 ```R
 library(openapi)
 
-var.request.time.filter.postcode.sectors <- RequestTimeFilterPostcodeSectors$new(list(RequestTimeFilterPostcodeSectorsDepartureSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeSectorsArrivalSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeSectors | 
+var.request.time.filter.postcode.sectors <- RequestTimeFilterPostcodeSectors$new(list(RequestTimeFilterPostcodeSectorsDepartureSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "departure_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodeSectorsArrivalSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "arrival_time_example", 123, list(RequestTimeFilterPostcodeSectorsProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodeSectors | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 ```R
 library(openapi)
 
-var.request.time.filter.postcodes <- RequestTimeFilterPostcodes$new(list(RequestTimeFilterPostcodesDepartureSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodesArrivalSearch$new("id_example", RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodes | 
+var.request.time.filter.postcodes <- RequestTimeFilterPostcodes$new(list(RequestTimeFilterPostcodesDepartureSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123))), list(RequestTimeFilterPostcodesArrivalSearch$new("id_example", RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeFilterPostcodesProperty$new()), RequestRangeFull$new("enabled_example", 123, 123)))) # RequestTimeFilterPostcodes | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey
@@ -482,7 +482,7 @@ Name | Type | Description  | Notes
 ```R
 library(openapi)
 
-var.request.time.map <- RequestTimeMap$new(list(RequestTimeMapDepartureSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123))), list(RequestTimeMapArrivalSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("cycling", 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example"))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example")))) # RequestTimeMap | 
+var.request.time.map <- RequestTimeMap$new(list(RequestTimeMapDepartureSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "departure_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123), RequestLevelOfDetail$new("simple", "lowest"))), list(RequestTimeMapArrivalSearch$new("id_example", Coords$new(123, 123), RequestTransportation$new("cycling", "disable_border_crossing_example", 123, 123, 123, 123, 123, 123), 123, "arrival_time_example", list(RequestTimeMapProperty$new()), RequestRangeNoMaxResults$new("enabled_example", 123), RequestLevelOfDetail$new("simple", "lowest"))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example"))), list(RequestUnionOnIntersection$new("id_example", list("search_ids_example")))) # RequestTimeMap | 
 
 api.instance <- DefaultApi$new()
 # Configure API key authorization: ApiKey

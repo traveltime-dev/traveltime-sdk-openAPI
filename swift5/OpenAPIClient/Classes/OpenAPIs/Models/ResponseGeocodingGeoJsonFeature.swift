@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseGeocodingGeoJsonFeature: Codable, Hashable {
 
@@ -19,6 +21,7 @@ public struct ResponseGeocodingGeoJsonFeature: Codable, Hashable {
         self.geometry = geometry
         self.properties = properties
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case type
         case geometry
@@ -33,7 +36,4 @@ public struct ResponseGeocodingGeoJsonFeature: Codable, Hashable {
         try container.encode(geometry, forKey: .geometry)
         try container.encode(properties, forKey: .properties)
     }
-
-
-
 }

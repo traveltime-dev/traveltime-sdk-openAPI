@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseTimeFilterFast: Codable, Hashable {
 
@@ -15,6 +17,7 @@ public struct ResponseTimeFilterFast: Codable, Hashable {
     public init(results: [ResponseTimeFilterFastResult]) {
         self.results = results
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case results
     }
@@ -25,7 +28,4 @@ public struct ResponseTimeFilterFast: Codable, Hashable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(results, forKey: .results)
     }
-
-
-
 }

@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 Coords.avsc
 RequestArrivalTimePeriod.avsc
+RequestLevelOfDetail.avsc
 RequestLocation.avsc
 RequestRangeFull.avsc
 RequestRangeNoMaxResults.avsc

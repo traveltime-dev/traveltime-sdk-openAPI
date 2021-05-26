@@ -24,6 +24,7 @@ lib/BaseModel.php
 lib/Middleware/JsonBodyParserMiddleware.php
 lib/Model/Coords.php
 lib/Model/RequestArrivalTimePeriod.php
+lib/Model/RequestLevelOfDetail.php
 lib/Model/RequestLocation.php
 lib/Model/RequestRangeFull.php
 lib/Model/RequestRangeNoMaxResults.php
@@ -121,6 +122,7 @@ test/Api/DefaultApiTest.php
 test/BaseModelTest.php
 test/Model/CoordsTest.php
 test/Model/RequestArrivalTimePeriodTest.php
+test/Model/RequestLevelOfDetailTest.php
 test/Model/RequestLocationTest.php
 test/Model/RequestRangeFullTest.php
 test/Model/RequestRangeNoMaxResultsTest.php

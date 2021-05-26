@@ -53,6 +53,7 @@ Class | Method | HTTP request | Description
 
  - [org.openapitools.client.models.Coords](docs/Coords.md)
  - [org.openapitools.client.models.RequestArrivalTimePeriod](docs/RequestArrivalTimePeriod.md)
+ - [org.openapitools.client.models.RequestLevelOfDetail](docs/RequestLevelOfDetail.md)
  - [org.openapitools.client.models.RequestLocation](docs/RequestLocation.md)
  - [org.openapitools.client.models.RequestRangeFull](docs/RequestRangeFull.md)
  - [org.openapitools.client.models.RequestRangeNoMaxResults](docs/RequestRangeNoMaxResults.md)

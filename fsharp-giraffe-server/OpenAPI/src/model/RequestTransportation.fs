@@ -13,9 +13,11 @@ module RequestTransportation =
 
   type RequestTransportation = {
     Type : TypeEnum;
+    DisableBorderCrossing : bool;
     PtChangeDelay : int;
     WalkingTime : int;
     DrivingTimeToStation : int;
+    CyclingTimeToStation : int;
     ParkingTime : int;
     BoardingTime : int;
   }

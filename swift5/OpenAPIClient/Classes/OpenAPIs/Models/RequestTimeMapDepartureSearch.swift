@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct RequestTimeMapDepartureSearch: Codable, Hashable {
 
@@ -17,8 +19,9 @@ public struct RequestTimeMapDepartureSearch: Codable, Hashable {
     public var departureTime: Date
     public var properties: [RequestTimeMapProperty]?
     public var range: RequestRangeNoMaxResults?
+    public var levelOfDetail: RequestLevelOfDetail?
 
-    public init(id: String, coords: Coords, transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeMapProperty]? = nil, range: RequestRangeNoMaxResults? = nil) {
+    public init(id: String, coords: Coords, transportation: RequestTransportation, travelTime: Int, departureTime: Date, properties: [RequestTimeMapProperty]? = nil, range: RequestRangeNoMaxResults? = nil, levelOfDetail: RequestLevelOfDetail? = nil) {
         self.id = id
         self.coords = coords
         self.transportation = transportation
@@ -26,7 +29,9 @@ public struct RequestTimeMapDepartureSearch: Codable, Hashable {
         self.departureTime = departureTime
         self.properties = properties
         self.range = range
+        self.levelOfDetail = levelOfDetail
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case id
         case coords
@@ -35,6 +40,7 @@ public struct RequestTimeMapDepartureSearch: Codable, Hashable {
         case departureTime = "departure_time"
         case properties
         case range
+        case levelOfDetail = "level_of_detail"
     }
 
     // Encodable protocol methods
@@ -48,8 +54,6 @@ public struct RequestTimeMapDepartureSearch: Codable, Hashable {
         try container.encode(departureTime, forKey: .departureTime)
         try container.encodeIfPresent(properties, forKey: .properties)
         try container.encodeIfPresent(range, forKey: .range)
+        try container.encodeIfPresent(levelOfDetail, forKey: .levelOfDetail)
     }
-
-
-
 }

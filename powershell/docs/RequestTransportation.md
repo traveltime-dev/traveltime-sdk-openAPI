@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **String** |  | 
+**DisableBorderCrossing** | **Boolean** |  | [optional] 
 **PtChangeDelay** | **Int32** |  | [optional] 
 **WalkingTime** | **Int32** |  | [optional] 
 **DrivingTimeToStation** | **Int32** |  | [optional] 
+**CyclingTimeToStation** | **Int32** |  | [optional] 
 **ParkingTime** | **Int32** |  | [optional] 
 **BoardingTime** | **Int32** |  | [optional] 
 
@@ -15,9 +17,11 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $RequestTransportation = Initialize-PSOpenAPIToolsRequestTransportation  -Type null `
+ -DisableBorderCrossing null `
  -PtChangeDelay null `
  -WalkingTime null `
  -DrivingTimeToStation null `
+ -CyclingTimeToStation null `
  -ParkingTime null `
  -BoardingTime null
 ```

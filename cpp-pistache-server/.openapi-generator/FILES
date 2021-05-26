@@ -12,6 +12,8 @@ model/Helpers.cpp
 model/Helpers.h
 model/RequestArrivalTimePeriod.cpp
 model/RequestArrivalTimePeriod.h
+model/RequestLevelOfDetail.cpp
+model/RequestLevelOfDetail.h
 model/RequestLocation.cpp
 model/RequestLocation.h
 model/RequestRangeFull.cpp

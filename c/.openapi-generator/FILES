@@ -6,6 +6,7 @@ api/DefaultAPI.h
 docs/DefaultAPI.md
 docs/coords.md
 docs/request_arrival_time_period.md
+docs/request_level_of_detail.md
 docs/request_location.md
 docs/request_range_full.md
 docs/request_range_no_max_results.md
@@ -110,6 +111,8 @@ model/object.c
 model/object.h
 model/request_arrival_time_period.c
 model/request_arrival_time_period.h
+model/request_level_of_detail.c
+model/request_level_of_detail.h
 model/request_location.c
 model/request_location.h
 model/request_range_full.c
@@ -297,6 +300,7 @@ src/list.c
 uncrustify-rules.cfg
 unit-test/test_coords.c
 unit-test/test_request_arrival_time_period.c
+unit-test/test_request_level_of_detail.c
 unit-test/test_request_location.c
 unit-test/test_request_range_full.c
 unit-test/test_request_range_no_max_results.c

@@ -6,6 +6,7 @@ README.md
 docs/Coords.md
 docs/DefaultApi.md
 docs/RequestArrivalTimePeriod.md
+docs/RequestLevelOfDetail.md
 docs/RequestLocation.md
 docs/RequestRangeFull.md
 docs/RequestRangeNoMaxResults.md
@@ -104,6 +105,7 @@ src/lib.rs
 src/models/coords.rs
 src/models/mod.rs
 src/models/request_arrival_time_period.rs
+src/models/request_level_of_detail.rs
 src/models/request_location.rs
 src/models/request_range_full.rs
 src/models/request_range_no_max_results.rs

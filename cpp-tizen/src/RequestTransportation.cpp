@@ -24,9 +24,11 @@ void
 RequestTransportation::__init()
 {
 	//type = std::string();
+	//disable_border_crossing = bool(false);
 	//pt_change_delay = int(0);
 	//walking_time = int(0);
 	//driving_time_to_station = int(0);
+	//cycling_time_to_station = int(0);
 	//parking_time = int(0);
 	//boarding_time = int(0);
 }
@@ -38,6 +40,11 @@ RequestTransportation::__cleanup()
 	//
 	//delete type;
 	//type = NULL;
+	//}
+	//if(disable_border_crossing != NULL) {
+	//
+	//delete disable_border_crossing;
+	//disable_border_crossing = NULL;
 	//}
 	//if(pt_change_delay != NULL) {
 	//
@@ -53,6 +60,11 @@ RequestTransportation::__cleanup()
 	//
 	//delete driving_time_to_station;
 	//driving_time_to_station = NULL;
+	//}
+	//if(cycling_time_to_station != NULL) {
+	//
+	//delete cycling_time_to_station;
+	//cycling_time_to_station = NULL;
 	//}
 	//if(parking_time != NULL) {
 	//
@@ -79,6 +91,17 @@ RequestTransportation::fromJson(char* jsonStr)
 
 		if (isprimitive("std::string")) {
 			jsonToValue(&type, node, "std::string", "");
+		} else {
+			
+		}
+	}
+	const gchar *disable_border_crossingKey = "disable_border_crossing";
+	node = json_object_get_member(pJsonObject, disable_border_crossingKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("bool")) {
+			jsonToValue(&disable_border_crossing, node, "bool", "");
 		} else {
 			
 		}
@@ -112,6 +135,17 @@ RequestTransportation::fromJson(char* jsonStr)
 
 		if (isprimitive("int")) {
 			jsonToValue(&driving_time_to_station, node, "int", "");
+		} else {
+			
+		}
+	}
+	const gchar *cycling_time_to_stationKey = "cycling_time_to_station";
+	node = json_object_get_member(pJsonObject, cycling_time_to_stationKey);
+	if (node !=NULL) {
+	
+
+		if (isprimitive("int")) {
+			jsonToValue(&cycling_time_to_station, node, "int", "");
 		} else {
 			
 		}
@@ -159,6 +193,15 @@ RequestTransportation::toJson()
 	}
 	const gchar *typeKey = "type";
 	json_object_set_member(pJsonObject, typeKey, node);
+	if (isprimitive("bool")) {
+		bool obj = getDisableBorderCrossing();
+		node = converttoJson(&obj, "bool", "");
+	}
+	else {
+		
+	}
+	const gchar *disable_border_crossingKey = "disable_border_crossing";
+	json_object_set_member(pJsonObject, disable_border_crossingKey, node);
 	if (isprimitive("int")) {
 		int obj = getPtChangeDelay();
 		node = converttoJson(&obj, "int", "");
@@ -186,6 +229,15 @@ RequestTransportation::toJson()
 	}
 	const gchar *driving_time_to_stationKey = "driving_time_to_station";
 	json_object_set_member(pJsonObject, driving_time_to_stationKey, node);
+	if (isprimitive("int")) {
+		int obj = getCyclingTimeToStation();
+		node = converttoJson(&obj, "int", "");
+	}
+	else {
+		
+	}
+	const gchar *cycling_time_to_stationKey = "cycling_time_to_station";
+	json_object_set_member(pJsonObject, cycling_time_to_stationKey, node);
 	if (isprimitive("int")) {
 		int obj = getParkingTime();
 		node = converttoJson(&obj, "int", "");
@@ -224,6 +276,18 @@ RequestTransportation::setType(std::string  type)
 	this->type = type;
 }
 
+bool
+RequestTransportation::getDisableBorderCrossing()
+{
+	return disable_border_crossing;
+}
+
+void
+RequestTransportation::setDisableBorderCrossing(bool  disable_border_crossing)
+{
+	this->disable_border_crossing = disable_border_crossing;
+}
+
 int
 RequestTransportation::getPtChangeDelay()
 {
@@ -258,6 +322,18 @@ void
 RequestTransportation::setDrivingTimeToStation(int  driving_time_to_station)
 {
 	this->driving_time_to_station = driving_time_to_station;
+}
+
+int
+RequestTransportation::getCyclingTimeToStation()
+{
+	return cycling_time_to_station;
+}
+
+void
+RequestTransportation::setCyclingTimeToStation(int  cycling_time_to_station)
+{
+	this->cycling_time_to_station = cycling_time_to_station;
 }
 
 int

@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **departureTime** | **OffsetDateTime** |  | 
 **properties** | **List&lt;RequestTimeMapProperty&gt;** |  |  [optional]
 **range** | [**RequestRangeNoMaxResults**](RequestRangeNoMaxResults.md) |  |  [optional]
+**levelOfDetail** | [**RequestLevelOfDetail**](RequestLevelOfDetail.md) |  |  [optional]
 
 
 

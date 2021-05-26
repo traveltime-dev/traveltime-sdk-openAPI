@@ -9,6 +9,7 @@ docs/assets/js/main.js
 docs/index.html
 docs/models/Coords.html
 docs/models/RequestArrivalTimePeriod.html
+docs/models/RequestLevelOfDetail.html
 docs/models/RequestLocation.html
 docs/models/RequestRangeFull.html
 docs/models/RequestRangeNoMaxResults.html

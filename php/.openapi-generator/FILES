@@ -7,6 +7,7 @@ composer.json
 docs/Api/DefaultApi.md
 docs/Model/Coords.md
 docs/Model/RequestArrivalTimePeriod.md
+docs/Model/RequestLevelOfDetail.md
 docs/Model/RequestLocation.md
 docs/Model/RequestRangeFull.md
 docs/Model/RequestRangeNoMaxResults.md
@@ -105,6 +106,7 @@ lib/HeaderSelector.php
 lib/Model/Coords.php
 lib/Model/ModelInterface.php
 lib/Model/RequestArrivalTimePeriod.php
+lib/Model/RequestLevelOfDetail.php
 lib/Model/RequestLocation.php
 lib/Model/RequestRangeFull.php
 lib/Model/RequestRangeNoMaxResults.php
@@ -200,6 +202,7 @@ phpunit.xml.dist
 test/Api/DefaultApiTest.php
 test/Model/CoordsTest.php
 test/Model/RequestArrivalTimePeriodTest.php
+test/Model/RequestLevelOfDetailTest.php
 test/Model/RequestLocationTest.php
 test/Model/RequestRangeFullTest.php
 test/Model/RequestRangeNoMaxResultsTest.php

@@ -34,10 +34,10 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param lat 
      * @param lng 
-     * @param within_country 
+     * @param withinCountry 
      */
-    public async geocodingReverseSearch(lat: number, lng: number, within_country?: string, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
         // verify required parameter 'lat' is not null or undefined
         if (lat === null || lat === undefined) {
@@ -56,7 +56,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/geocoding/reverse';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -66,8 +66,8 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         if (lng !== undefined) {
             requestContext.setQueryParam("lng", ObjectSerializer.serialize(lng, "number", "double"));
         }
-        if (within_country !== undefined) {
-            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(within_country, "string", ""));
+        if (withinCountry !== undefined) {
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
         }
 
         // Header Params
@@ -79,11 +79,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -93,12 +93,12 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * @param query 
-     * @param focus_lat 
-     * @param focus_lng 
-     * @param within_country 
+     * @param focusLat 
+     * @param focusLng 
+     * @param withinCountry 
      */
-    public async geocodingSearch(query: string, focus_lat?: number, focus_lng?: number, within_country?: string, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
         // verify required parameter 'query' is not null or undefined
         if (query === null || query === undefined) {
@@ -113,21 +113,21 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/geocoding/search';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
         if (query !== undefined) {
             requestContext.setQueryParam("query", ObjectSerializer.serialize(query, "string", ""));
         }
-        if (focus_lat !== undefined) {
-            requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focus_lat, "number", "double"));
+        if (focusLat !== undefined) {
+            requestContext.setQueryParam("focus.lat", ObjectSerializer.serialize(focusLat, "number", "double"));
         }
-        if (focus_lng !== undefined) {
-            requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focus_lng, "number", "double"));
+        if (focusLng !== undefined) {
+            requestContext.setQueryParam("focus.lng", ObjectSerializer.serialize(focusLng, "number", "double"));
         }
-        if (within_country !== undefined) {
-            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(within_country, "string", ""));
+        if (withinCountry !== undefined) {
+            requestContext.setQueryParam("within.country", ObjectSerializer.serialize(withinCountry, "string", ""));
         }
 
         // Header Params
@@ -139,11 +139,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -153,14 +153,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      */
-    public async mapInfo(options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async mapInfo(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
         // Path Params
         const localVarPath = '/v4/map-info';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -174,11 +174,11 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -187,14 +187,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestRoutes 
+     * @param requestRoutes 
      */
-    public async routes(RequestRoutes: RequestRoutes, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async routes(requestRoutes: RequestRoutes, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestRoutes' is not null or undefined
-        if (RequestRoutes === null || RequestRoutes === undefined) {
-            throw new RequiredError('Required parameter RequestRoutes was null or undefined when calling routes.');
+        // verify required parameter 'requestRoutes' is not null or undefined
+        if (requestRoutes === null || requestRoutes === undefined) {
+            throw new RequiredError('Required parameter requestRoutes was null or undefined when calling routes.');
         }
 
 
@@ -202,7 +202,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/routes';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -218,18 +218,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestRoutes, "RequestRoutes", ""),
+            ObjectSerializer.serialize(requestRoutes, "RequestRoutes", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -238,14 +238,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestSupportedLocations 
+     * @param requestSupportedLocations 
      */
-    public async supportedLocations(RequestSupportedLocations: RequestSupportedLocations, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async supportedLocations(requestSupportedLocations: RequestSupportedLocations, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestSupportedLocations' is not null or undefined
-        if (RequestSupportedLocations === null || RequestSupportedLocations === undefined) {
-            throw new RequiredError('Required parameter RequestSupportedLocations was null or undefined when calling supportedLocations.');
+        // verify required parameter 'requestSupportedLocations' is not null or undefined
+        if (requestSupportedLocations === null || requestSupportedLocations === undefined) {
+            throw new RequiredError('Required parameter requestSupportedLocations was null or undefined when calling supportedLocations.');
         }
 
 
@@ -253,7 +253,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/supported-locations';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -269,18 +269,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestSupportedLocations, "RequestSupportedLocations", ""),
+            ObjectSerializer.serialize(requestSupportedLocations, "RequestSupportedLocations", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -289,14 +289,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeFilter 
+     * @param requestTimeFilter 
      */
-    public async timeFilter(RequestTimeFilter: RequestTimeFilter, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeFilter(requestTimeFilter: RequestTimeFilter, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeFilter' is not null or undefined
-        if (RequestTimeFilter === null || RequestTimeFilter === undefined) {
-            throw new RequiredError('Required parameter RequestTimeFilter was null or undefined when calling timeFilter.');
+        // verify required parameter 'requestTimeFilter' is not null or undefined
+        if (requestTimeFilter === null || requestTimeFilter === undefined) {
+            throw new RequiredError('Required parameter requestTimeFilter was null or undefined when calling timeFilter.');
         }
 
 
@@ -304,7 +304,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-filter';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -320,18 +320,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeFilter, "RequestTimeFilter", ""),
+            ObjectSerializer.serialize(requestTimeFilter, "RequestTimeFilter", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -340,14 +340,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeFilterFast 
+     * @param requestTimeFilterFast 
      */
-    public async timeFilterFast(RequestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeFilterFast' is not null or undefined
-        if (RequestTimeFilterFast === null || RequestTimeFilterFast === undefined) {
-            throw new RequiredError('Required parameter RequestTimeFilterFast was null or undefined when calling timeFilterFast.');
+        // verify required parameter 'requestTimeFilterFast' is not null or undefined
+        if (requestTimeFilterFast === null || requestTimeFilterFast === undefined) {
+            throw new RequiredError('Required parameter requestTimeFilterFast was null or undefined when calling timeFilterFast.');
         }
 
 
@@ -355,7 +355,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-filter/fast';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -371,18 +371,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeFilterFast, "RequestTimeFilterFast", ""),
+            ObjectSerializer.serialize(requestTimeFilterFast, "RequestTimeFilterFast", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -391,14 +391,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeFilterPostcodeDistricts 
+     * @param requestTimeFilterPostcodeDistricts 
      */
-    public async timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeFilterPostcodeDistricts' is not null or undefined
-        if (RequestTimeFilterPostcodeDistricts === null || RequestTimeFilterPostcodeDistricts === undefined) {
-            throw new RequiredError('Required parameter RequestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
+        // verify required parameter 'requestTimeFilterPostcodeDistricts' is not null or undefined
+        if (requestTimeFilterPostcodeDistricts === null || requestTimeFilterPostcodeDistricts === undefined) {
+            throw new RequiredError('Required parameter requestTimeFilterPostcodeDistricts was null or undefined when calling timeFilterPostcodeDistricts.');
         }
 
 
@@ -406,7 +406,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-filter/postcode-districts';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -422,18 +422,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeFilterPostcodeDistricts, "RequestTimeFilterPostcodeDistricts", ""),
+            ObjectSerializer.serialize(requestTimeFilterPostcodeDistricts, "RequestTimeFilterPostcodeDistricts", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -442,14 +442,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeFilterPostcodeSectors 
+     * @param requestTimeFilterPostcodeSectors 
      */
-    public async timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeFilterPostcodeSectors' is not null or undefined
-        if (RequestTimeFilterPostcodeSectors === null || RequestTimeFilterPostcodeSectors === undefined) {
-            throw new RequiredError('Required parameter RequestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
+        // verify required parameter 'requestTimeFilterPostcodeSectors' is not null or undefined
+        if (requestTimeFilterPostcodeSectors === null || requestTimeFilterPostcodeSectors === undefined) {
+            throw new RequiredError('Required parameter requestTimeFilterPostcodeSectors was null or undefined when calling timeFilterPostcodeSectors.');
         }
 
 
@@ -457,7 +457,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-filter/postcode-sectors';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -473,18 +473,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeFilterPostcodeSectors, "RequestTimeFilterPostcodeSectors", ""),
+            ObjectSerializer.serialize(requestTimeFilterPostcodeSectors, "RequestTimeFilterPostcodeSectors", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -493,14 +493,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeFilterPostcodes 
+     * @param requestTimeFilterPostcodes 
      */
-    public async timeFilterPostcodes(RequestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeFilterPostcodes' is not null or undefined
-        if (RequestTimeFilterPostcodes === null || RequestTimeFilterPostcodes === undefined) {
-            throw new RequiredError('Required parameter RequestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
+        // verify required parameter 'requestTimeFilterPostcodes' is not null or undefined
+        if (requestTimeFilterPostcodes === null || requestTimeFilterPostcodes === undefined) {
+            throw new RequiredError('Required parameter requestTimeFilterPostcodes was null or undefined when calling timeFilterPostcodes.');
         }
 
 
@@ -508,7 +508,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-filter/postcodes';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -524,18 +524,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeFilterPostcodes, "RequestTimeFilterPostcodes", ""),
+            ObjectSerializer.serialize(requestTimeFilterPostcodes, "RequestTimeFilterPostcodes", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
@@ -544,14 +544,14 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param RequestTimeMap 
+     * @param requestTimeMap 
      */
-    public async timeMap(RequestTimeMap: RequestTimeMap, options?: Configuration): Promise<RequestContext> {
-        let config = options || this.configuration;
+    public async timeMap(requestTimeMap: RequestTimeMap, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
 
-        // verify required parameter 'RequestTimeMap' is not null or undefined
-        if (RequestTimeMap === null || RequestTimeMap === undefined) {
-            throw new RequiredError('Required parameter RequestTimeMap was null or undefined when calling timeMap.');
+        // verify required parameter 'requestTimeMap' is not null or undefined
+        if (requestTimeMap === null || requestTimeMap === undefined) {
+            throw new RequiredError('Required parameter requestTimeMap was null or undefined when calling timeMap.');
         }
 
 
@@ -559,7 +559,7 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v4/time-map';
 
         // Make Request Context
-        const requestContext = config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -575,18 +575,18 @@ export class DefaultApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(RequestTimeMap, "RequestTimeMap", ""),
+            ObjectSerializer.serialize(requestTimeMap, "RequestTimeMap", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
 
         let authMethod = null;
         // Apply auth methods
-        authMethod = config.authMethods["ApiKey"]
+        authMethod = _config.authMethods["ApiKey"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }
-        authMethod = config.authMethods["ApplicationId"]
+        authMethod = _config.authMethods["ApplicationId"]
         if (authMethod) {
             await authMethod.applySecurityAuthentication(requestContext);
         }

@@ -4,9 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**String**](string.md) |  | [default to null]
+**disable\_border\_crossing** | [**Boolean**](boolean.md) |  | [optional] [default to null]
 **pt\_change\_delay** | [**Integer**](integer.md) |  | [optional] [default to null]
 **walking\_time** | [**Integer**](integer.md) |  | [optional] [default to null]
 **driving\_time\_to\_station** | [**Integer**](integer.md) |  | [optional] [default to null]
+**cycling\_time\_to\_station** | [**Integer**](integer.md) |  | [optional] [default to null]
 **parking\_time** | [**Integer**](integer.md) |  | [optional] [default to null]
 **boarding\_time** | [**Integer**](integer.md) |  | [optional] [default to null]
 

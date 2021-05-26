@@ -5,6 +5,7 @@ import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
 import { Coords } from '../models/Coords';
 import { RequestArrivalTimePeriod } from '../models/RequestArrivalTimePeriod';
+import { RequestLevelOfDetail } from '../models/RequestLevelOfDetail';
 import { RequestLocation } from '../models/RequestLocation';
 import { RequestRangeFull } from '../models/RequestRangeFull';
 import { RequestRangeNoMaxResults } from '../models/RequestRangeNoMaxResults';
@@ -115,10 +116,10 @@ export class ObservableDefaultApi {
     /**
      * @param lat 
      * @param lng 
-     * @param within_country 
+     * @param withinCountry 
      */
-    public geocodingReverseSearch(lat: number, lng: number, within_country?: string, options?: Configuration): Observable<ResponseGeocoding> {
-        const requestContextPromise = this.requestFactory.geocodingReverseSearch(lat, lng, within_country, options);
+    public geocodingReverseSearch(lat: number, lng: number, withinCountry?: string, _options?: Configuration): Observable<ResponseGeocoding> {
+        const requestContextPromise = this.requestFactory.geocodingReverseSearch(lat, lng, withinCountry, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -138,12 +139,12 @@ export class ObservableDefaultApi {
  
     /**
      * @param query 
-     * @param focus_lat 
-     * @param focus_lng 
-     * @param within_country 
+     * @param focusLat 
+     * @param focusLng 
+     * @param withinCountry 
      */
-    public geocodingSearch(query: string, focus_lat?: number, focus_lng?: number, within_country?: string, options?: Configuration): Observable<ResponseGeocoding> {
-        const requestContextPromise = this.requestFactory.geocodingSearch(query, focus_lat, focus_lng, within_country, options);
+    public geocodingSearch(query: string, focusLat?: number, focusLng?: number, withinCountry?: string, _options?: Configuration): Observable<ResponseGeocoding> {
+        const requestContextPromise = this.requestFactory.geocodingSearch(query, focusLat, focusLng, withinCountry, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -163,8 +164,8 @@ export class ObservableDefaultApi {
  
     /**
      */
-    public mapInfo(options?: Configuration): Observable<ResponseMapInfo> {
-        const requestContextPromise = this.requestFactory.mapInfo(options);
+    public mapInfo(_options?: Configuration): Observable<ResponseMapInfo> {
+        const requestContextPromise = this.requestFactory.mapInfo(_options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -183,10 +184,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestRoutes 
+     * @param requestRoutes 
      */
-    public routes(RequestRoutes: RequestRoutes, options?: Configuration): Observable<ResponseRoutes> {
-        const requestContextPromise = this.requestFactory.routes(RequestRoutes, options);
+    public routes(requestRoutes: RequestRoutes, _options?: Configuration): Observable<ResponseRoutes> {
+        const requestContextPromise = this.requestFactory.routes(requestRoutes, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -205,10 +206,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestSupportedLocations 
+     * @param requestSupportedLocations 
      */
-    public supportedLocations(RequestSupportedLocations: RequestSupportedLocations, options?: Configuration): Observable<ResponseSupportedLocations> {
-        const requestContextPromise = this.requestFactory.supportedLocations(RequestSupportedLocations, options);
+    public supportedLocations(requestSupportedLocations: RequestSupportedLocations, _options?: Configuration): Observable<ResponseSupportedLocations> {
+        const requestContextPromise = this.requestFactory.supportedLocations(requestSupportedLocations, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -227,10 +228,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeFilter 
+     * @param requestTimeFilter 
      */
-    public timeFilter(RequestTimeFilter: RequestTimeFilter, options?: Configuration): Observable<ResponseTimeFilter> {
-        const requestContextPromise = this.requestFactory.timeFilter(RequestTimeFilter, options);
+    public timeFilter(requestTimeFilter: RequestTimeFilter, _options?: Configuration): Observable<ResponseTimeFilter> {
+        const requestContextPromise = this.requestFactory.timeFilter(requestTimeFilter, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -249,10 +250,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeFilterFast 
+     * @param requestTimeFilterFast 
      */
-    public timeFilterFast(RequestTimeFilterFast: RequestTimeFilterFast, options?: Configuration): Observable<ResponseTimeFilterFast> {
-        const requestContextPromise = this.requestFactory.timeFilterFast(RequestTimeFilterFast, options);
+    public timeFilterFast(requestTimeFilterFast: RequestTimeFilterFast, _options?: Configuration): Observable<ResponseTimeFilterFast> {
+        const requestContextPromise = this.requestFactory.timeFilterFast(requestTimeFilterFast, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -271,10 +272,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeFilterPostcodeDistricts 
+     * @param requestTimeFilterPostcodeDistricts 
      */
-    public timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, options?: Configuration): Observable<ResponseTimeFilterPostcodeDistricts> {
-        const requestContextPromise = this.requestFactory.timeFilterPostcodeDistricts(RequestTimeFilterPostcodeDistricts, options);
+    public timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts: RequestTimeFilterPostcodeDistricts, _options?: Configuration): Observable<ResponseTimeFilterPostcodeDistricts> {
+        const requestContextPromise = this.requestFactory.timeFilterPostcodeDistricts(requestTimeFilterPostcodeDistricts, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -293,10 +294,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeFilterPostcodeSectors 
+     * @param requestTimeFilterPostcodeSectors 
      */
-    public timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, options?: Configuration): Observable<ResponseTimeFilterPostcodeSectors> {
-        const requestContextPromise = this.requestFactory.timeFilterPostcodeSectors(RequestTimeFilterPostcodeSectors, options);
+    public timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors: RequestTimeFilterPostcodeSectors, _options?: Configuration): Observable<ResponseTimeFilterPostcodeSectors> {
+        const requestContextPromise = this.requestFactory.timeFilterPostcodeSectors(requestTimeFilterPostcodeSectors, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -315,10 +316,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeFilterPostcodes 
+     * @param requestTimeFilterPostcodes 
      */
-    public timeFilterPostcodes(RequestTimeFilterPostcodes: RequestTimeFilterPostcodes, options?: Configuration): Observable<ResponseTimeFilterPostcodes> {
-        const requestContextPromise = this.requestFactory.timeFilterPostcodes(RequestTimeFilterPostcodes, options);
+    public timeFilterPostcodes(requestTimeFilterPostcodes: RequestTimeFilterPostcodes, _options?: Configuration): Observable<ResponseTimeFilterPostcodes> {
+        const requestContextPromise = this.requestFactory.timeFilterPostcodes(requestTimeFilterPostcodes, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -337,10 +338,10 @@ export class ObservableDefaultApi {
     }
  
     /**
-     * @param RequestTimeMap 
+     * @param requestTimeMap 
      */
-    public timeMap(RequestTimeMap: RequestTimeMap, options?: Configuration): Observable<ResponseTimeMap> {
-        const requestContextPromise = this.requestFactory.timeMap(RequestTimeMap, options);
+    public timeMap(requestTimeMap: RequestTimeMap, _options?: Configuration): Observable<ResponseTimeMap> {
+        const requestContextPromise = this.requestFactory.timeMap(requestTimeMap, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);

@@ -91,6 +91,7 @@ Method | HTTP request | Description
 
  - [.Models.Coords_Type](Coords_Type.md)
  - [.Models.RequestArrivalTimePeriod_Type](RequestArrivalTimePeriod_Type.md)
+ - [.Models.RequestLevelOfDetail_Type](RequestLevelOfDetail_Type.md)
  - [.Models.RequestLocation_Type](RequestLocation_Type.md)
  - [.Models.RequestRangeFull_Type](RequestRangeFull_Type.md)
  - [.Models.RequestRangeNoMaxResults_Type](RequestRangeNoMaxResults_Type.md)

@@ -3,6 +3,7 @@ README.md
 rebar.config
 src/model/openapi_coords.erl
 src/model/openapi_request_arrival_time_period.erl
+src/model/openapi_request_level_of_detail.erl
 src/model/openapi_request_location.erl
 src/model/openapi_request_range_full.erl
 src/model/openapi_request_range_no_max_results.erl

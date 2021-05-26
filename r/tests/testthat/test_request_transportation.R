@@ -12,6 +12,13 @@ test_that("type", {
   #expect_equal(model.instance$`type`, "EXPECTED_RESULT")
 })
 
+test_that("disable_border_crossing", {
+  # tests for the property `disable_border_crossing` (character)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`disable_border_crossing`, "EXPECTED_RESULT")
+})
+
 test_that("pt_change_delay", {
   # tests for the property `pt_change_delay` (integer)
 
@@ -31,6 +38,13 @@ test_that("driving_time_to_station", {
 
   # uncomment below to test the property 
   #expect_equal(model.instance$`driving_time_to_station`, "EXPECTED_RESULT")
+})
+
+test_that("cycling_time_to_station", {
+  # tests for the property `cycling_time_to_station` (integer)
+
+  # uncomment below to test the property 
+  #expect_equal(model.instance$`cycling_time_to_station`, "EXPECTED_RESULT")
 })
 
 test_that("parking_time", {

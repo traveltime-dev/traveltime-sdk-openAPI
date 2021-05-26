@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-11T08:38:21.168Z[Etc/UTC]")public class RequestTransportation   {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen", date = "2021-05-26T18:50:31.276Z[Etc/UTC]")public class RequestTransportation   {
   
 
 public enum TypeEnum {
@@ -49,9 +49,11 @@ public enum TypeEnum {
 }
 
   private @Valid TypeEnum type;
+  private @Valid Boolean disableBorderCrossing;
   private @Valid Integer ptChangeDelay;
   private @Valid Integer walkingTime;
   private @Valid Integer drivingTimeToStation;
+  private @Valid Integer cyclingTimeToStation;
   private @Valid Integer parkingTime;
   private @Valid Integer boardingTime;
 
@@ -74,6 +76,26 @@ public enum TypeEnum {
 
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+/**
+   **/
+  public RequestTransportation disableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
+    return this;
+  }
+
+  
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("disable_border_crossing")
+  public Boolean getDisableBorderCrossing() {
+    return disableBorderCrossing;
+  }
+
+  public void setDisableBorderCrossing(Boolean disableBorderCrossing) {
+    this.disableBorderCrossing = disableBorderCrossing;
   }
 
 /**
@@ -138,6 +160,26 @@ public enum TypeEnum {
 
 /**
    **/
+  public RequestTransportation cyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+    return this;
+  }
+
+  
+
+  
+  @ApiModelProperty(value = "")
+  @JsonProperty("cycling_time_to_station")
+  public Integer getCyclingTimeToStation() {
+    return cyclingTimeToStation;
+  }
+
+  public void setCyclingTimeToStation(Integer cyclingTimeToStation) {
+    this.cyclingTimeToStation = cyclingTimeToStation;
+  }
+
+/**
+   **/
   public RequestTransportation parkingTime(Integer parkingTime) {
     this.parkingTime = parkingTime;
     return this;
@@ -187,16 +229,18 @@ public enum TypeEnum {
     }
     RequestTransportation requestTransportation = (RequestTransportation) o;
     return Objects.equals(this.type, requestTransportation.type) &&
+        Objects.equals(this.disableBorderCrossing, requestTransportation.disableBorderCrossing) &&
         Objects.equals(this.ptChangeDelay, requestTransportation.ptChangeDelay) &&
         Objects.equals(this.walkingTime, requestTransportation.walkingTime) &&
         Objects.equals(this.drivingTimeToStation, requestTransportation.drivingTimeToStation) &&
+        Objects.equals(this.cyclingTimeToStation, requestTransportation.cyclingTimeToStation) &&
         Objects.equals(this.parkingTime, requestTransportation.parkingTime) &&
         Objects.equals(this.boardingTime, requestTransportation.boardingTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, ptChangeDelay, walkingTime, drivingTimeToStation, parkingTime, boardingTime);
+    return Objects.hash(type, disableBorderCrossing, ptChangeDelay, walkingTime, drivingTimeToStation, cyclingTimeToStation, parkingTime, boardingTime);
   }
 
   @Override
@@ -205,9 +249,11 @@ public enum TypeEnum {
     sb.append("class RequestTransportation {\n");
     
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    disableBorderCrossing: ").append(toIndentedString(disableBorderCrossing)).append("\n");
     sb.append("    ptChangeDelay: ").append(toIndentedString(ptChangeDelay)).append("\n");
     sb.append("    walkingTime: ").append(toIndentedString(walkingTime)).append("\n");
     sb.append("    drivingTimeToStation: ").append(toIndentedString(drivingTimeToStation)).append("\n");
+    sb.append("    cyclingTimeToStation: ").append(toIndentedString(cyclingTimeToStation)).append("\n");
     sb.append("    parkingTime: ").append(toIndentedString(parkingTime)).append("\n");
     sb.append("    boardingTime: ").append(toIndentedString(boardingTime)).append("\n");
     sb.append("}");

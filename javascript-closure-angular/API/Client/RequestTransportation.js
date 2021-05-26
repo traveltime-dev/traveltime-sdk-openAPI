@@ -12,6 +12,12 @@ API.Client.RequestTransportation = function() {}
 API.Client.RequestTransportation.prototype.type;
 
 /**
+ * @type {!boolean}
+ * @export
+ */
+API.Client.RequestTransportation.prototype.disableBorderCrossing;
+
+/**
  * @type {!number}
  * @export
  */
@@ -28,6 +34,12 @@ API.Client.RequestTransportation.prototype.walkingTime;
  * @export
  */
 API.Client.RequestTransportation.prototype.drivingTimeToStation;
+
+/**
+ * @type {!number}
+ * @export
+ */
+API.Client.RequestTransportation.prototype.cyclingTimeToStation;
 
 /**
  * @type {!number}

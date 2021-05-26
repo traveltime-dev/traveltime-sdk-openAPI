@@ -29,6 +29,8 @@ OpenAPIClient/Model/OAICoords.h
 OpenAPIClient/Model/OAICoords.m
 OpenAPIClient/Model/OAIRequestArrivalTimePeriod.h
 OpenAPIClient/Model/OAIRequestArrivalTimePeriod.m
+OpenAPIClient/Model/OAIRequestLevelOfDetail.h
+OpenAPIClient/Model/OAIRequestLevelOfDetail.m
 OpenAPIClient/Model/OAIRequestLocation.h
 OpenAPIClient/Model/OAIRequestLocation.m
 OpenAPIClient/Model/OAIRequestRangeFull.h
@@ -213,6 +215,7 @@ README.md
 docs/OAICoords.md
 docs/OAIDefaultApi.md
 docs/OAIRequestArrivalTimePeriod.md
+docs/OAIRequestLevelOfDetail.md
 docs/OAIRequestLocation.md
 docs/OAIRequestRangeFull.md
 docs/OAIRequestRangeNoMaxResults.md

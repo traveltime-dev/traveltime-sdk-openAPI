@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.openapitools.model.Coords;
+import org.openapitools.model.RequestLevelOfDetail;
 import org.openapitools.model.RequestRangeNoMaxResults;
 import org.openapitools.model.RequestTimeMapProperty;
 import org.openapitools.model.RequestTransportation;
@@ -46,6 +47,10 @@ public class RequestTimeMapDepartureSearch  {
   @ApiModelProperty(value = "")
   @Valid
   private RequestRangeNoMaxResults range;
+
+  @ApiModelProperty(value = "")
+  @Valid
+  private RequestLevelOfDetail levelOfDetail;
  /**
    * Get id
    * @return id
@@ -184,6 +189,24 @@ public class RequestTimeMapDepartureSearch  {
     return this;
   }
 
+ /**
+   * Get levelOfDetail
+   * @return levelOfDetail
+  **/
+  @JsonProperty("level_of_detail")
+  public RequestLevelOfDetail getLevelOfDetail() {
+    return levelOfDetail;
+  }
+
+  public void setLevelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+  }
+
+  public RequestTimeMapDepartureSearch levelOfDetail(RequestLevelOfDetail levelOfDetail) {
+    this.levelOfDetail = levelOfDetail;
+    return this;
+  }
+
 
   @Override
   public String toString() {
@@ -197,6 +220,7 @@ public class RequestTimeMapDepartureSearch  {
     sb.append("    departureTime: ").append(toIndentedString(departureTime)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
     sb.append("    range: ").append(toIndentedString(range)).append("\n");
+    sb.append("    levelOfDetail: ").append(toIndentedString(levelOfDetail)).append("\n");
     sb.append("}");
     return sb.toString();
   }

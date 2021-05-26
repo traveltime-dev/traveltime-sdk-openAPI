@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 Model/Coords.sql
 Model/RequestArrivalTimePeriod.sql
+Model/RequestLevelOfDetail.sql
 Model/RequestLocation.sql
 Model/RequestRangeFull.sql
 Model/RequestRangeNoMaxResults.sql

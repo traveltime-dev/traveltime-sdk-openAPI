@@ -2,6 +2,7 @@
 openapi2graphql/api/default_api.graphql
 openapi2graphql/model/coords.graphql
 openapi2graphql/model/request_arrival_time_period.graphql
+openapi2graphql/model/request_level_of_detail.graphql
 openapi2graphql/model/request_location.graphql
 openapi2graphql/model/request_range_full.graphql
 openapi2graphql/model/request_range_no_max_results.graphql

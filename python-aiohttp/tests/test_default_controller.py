@@ -99,16 +99,18 @@ async def test_routes(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -118,16 +120,18 @@ async def test_routes(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -137,16 +141,18 @@ async def test_routes(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -156,16 +162,18 @@ async def test_routes(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -175,16 +183,18 @@ async def test_routes(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -194,8 +204,8 @@ async def test_routes(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -203,8 +213,10 @@ async def test_routes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -213,8 +225,8 @@ async def test_routes(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -222,8 +234,10 @@ async def test_routes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -232,8 +246,8 @@ async def test_routes(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -241,8 +255,10 @@ async def test_routes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -251,8 +267,8 @@ async def test_routes(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -260,8 +276,10 @@ async def test_routes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -270,8 +288,8 @@ async def test_routes(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -279,8 +297,10 @@ async def test_routes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -361,8 +381,8 @@ async def test_time_filter(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -370,8 +390,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -381,8 +403,8 @@ async def test_time_filter(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -390,8 +412,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -401,8 +425,8 @@ async def test_time_filter(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -410,8 +434,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -421,8 +447,8 @@ async def test_time_filter(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -430,8 +456,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -441,8 +469,8 @@ async def test_time_filter(client):
     "departure_location_ids" : [ "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids", "departure_location_ids" ],
     "arrival_location_id" : "arrival_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -450,8 +478,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -461,8 +491,8 @@ async def test_time_filter(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -471,8 +501,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -481,8 +513,8 @@ async def test_time_filter(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -491,8 +523,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -501,8 +535,8 @@ async def test_time_filter(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -511,8 +545,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -521,8 +557,8 @@ async def test_time_filter(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -531,8 +567,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -541,8 +579,8 @@ async def test_time_filter(client):
     "arrival_location_ids" : [ "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids", "arrival_location_ids" ],
     "departure_location_id" : "departure_location_id",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -551,8 +589,10 @@ async def test_time_filter(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -725,8 +765,8 @@ async def test_time_filter_postcode_districts(client):
   "arrival_searches" : [ {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -735,8 +775,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -744,8 +786,8 @@ async def test_time_filter_postcode_districts(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -754,8 +796,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -763,8 +807,8 @@ async def test_time_filter_postcode_districts(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -773,8 +817,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -782,8 +828,8 @@ async def test_time_filter_postcode_districts(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -792,8 +838,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -801,8 +849,8 @@ async def test_time_filter_postcode_districts(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -811,8 +859,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -820,8 +870,8 @@ async def test_time_filter_postcode_districts(client):
   } ],
   "departure_searches" : [ {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -831,16 +881,18 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -850,16 +902,18 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -869,16 +923,18 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -888,16 +944,18 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -907,8 +965,10 @@ async def test_time_filter_postcode_districts(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -939,8 +999,8 @@ async def test_time_filter_postcode_sectors(client):
   "arrival_searches" : [ {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -949,8 +1009,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -958,8 +1020,8 @@ async def test_time_filter_postcode_sectors(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -968,8 +1030,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -977,8 +1041,8 @@ async def test_time_filter_postcode_sectors(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -987,8 +1051,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -996,8 +1062,8 @@ async def test_time_filter_postcode_sectors(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1006,8 +1072,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1015,8 +1083,8 @@ async def test_time_filter_postcode_sectors(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1025,8 +1093,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1034,8 +1104,8 @@ async def test_time_filter_postcode_sectors(client):
   } ],
   "departure_searches" : [ {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1045,16 +1115,18 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1064,16 +1136,18 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1083,16 +1157,18 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1102,16 +1178,18 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1121,8 +1199,10 @@ async def test_time_filter_postcode_sectors(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1153,8 +1233,8 @@ async def test_time_filter_postcodes(client):
   "arrival_searches" : [ {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1162,8 +1242,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1171,8 +1253,8 @@ async def test_time_filter_postcodes(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1180,8 +1262,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1189,8 +1273,8 @@ async def test_time_filter_postcodes(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1198,8 +1282,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1207,8 +1293,8 @@ async def test_time_filter_postcodes(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1216,8 +1302,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1225,8 +1313,8 @@ async def test_time_filter_postcodes(client):
   }, {
     "arrival_time" : "2000-01-23T04:56:07.000+00:00",
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1234,8 +1322,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1243,8 +1333,8 @@ async def test_time_filter_postcodes(client):
   } ],
   "departure_searches" : [ {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1253,16 +1343,18 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1271,16 +1363,18 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1289,16 +1383,18 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1307,16 +1403,18 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
     }
   }, {
     "range" : {
-      "width" : 30505,
-      "max_results" : 1,
+      "width" : 40182,
+      "max_results" : 3,
       "enabled" : true
     },
     "id" : "id",
@@ -1325,8 +1423,10 @@ async def test_time_filter_postcodes(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1360,6 +1460,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 2161,
     "coords" : {
@@ -1369,8 +1473,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1381,6 +1487,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 2161,
     "coords" : {
@@ -1390,8 +1500,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1402,6 +1514,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 2161,
     "coords" : {
@@ -1411,8 +1527,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1423,6 +1541,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 2161,
     "coords" : {
@@ -1432,8 +1554,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1444,6 +1568,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 2161,
     "coords" : {
@@ -1453,8 +1581,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1481,6 +1611,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 1208,
     "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -1491,8 +1625,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1502,6 +1638,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 1208,
     "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -1512,8 +1652,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1523,6 +1665,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 1208,
     "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -1533,8 +1679,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1544,6 +1692,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 1208,
     "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -1554,8 +1706,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5
@@ -1565,6 +1719,10 @@ async def test_time_map(client):
       "width" : 26039,
       "enabled" : true
     },
+    "level_of_detail" : {
+      "level" : "lowest",
+      "scale_type" : "simple"
+    },
     "id" : "id",
     "travel_time" : 1208,
     "departure_time" : "2000-01-23T04:56:07.000+00:00",
@@ -1575,8 +1733,10 @@ async def test_time_map(client):
     "properties" : [ null, null ],
     "transportation" : {
       "pt_change_delay" : 0,
-      "boarding_time" : 5,
+      "boarding_time" : 2,
       "driving_time_to_station" : 1,
+      "disable_border_crossing" : true,
+      "cycling_time_to_station" : 5,
       "type" : "cycling",
       "walking_time" : 6,
       "parking_time" : 5

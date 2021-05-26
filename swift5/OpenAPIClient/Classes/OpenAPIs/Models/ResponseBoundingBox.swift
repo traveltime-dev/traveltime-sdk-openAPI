@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(AnyCodable)
 import AnyCodable
+#endif
 
 public struct ResponseBoundingBox: Codable, Hashable {
 
@@ -17,6 +19,7 @@ public struct ResponseBoundingBox: Codable, Hashable {
         self.envelope = envelope
         self.boxes = boxes
     }
+
     public enum CodingKeys: String, CodingKey, CaseIterable {
         case envelope
         case boxes
@@ -29,7 +32,4 @@ public struct ResponseBoundingBox: Codable, Hashable {
         try container.encode(envelope, forKey: .envelope)
         try container.encode(boxes, forKey: .boxes)
     }
-
-
-
 }

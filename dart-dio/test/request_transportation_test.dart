@@ -19,6 +19,11 @@ void main() {
       // TODO
     });
 
+    // bool disableBorderCrossing
+    test('to test the property `disableBorderCrossing`', () async {
+      // TODO
+    });
+
     // int ptChangeDelay
     test('to test the property `ptChangeDelay`', () async {
       // TODO
@@ -31,6 +36,11 @@ void main() {
 
     // int drivingTimeToStation
     test('to test the property `drivingTimeToStation`', () async {
+      // TODO
+    });
+
+    // int cyclingTimeToStation
+    test('to test the property `cyclingTimeToStation`', () async {
       // TODO
     });
 

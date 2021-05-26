@@ -2,6 +2,7 @@ import localVarRequest from 'request';
 
 export * from './coords';
 export * from './requestArrivalTimePeriod';
+export * from './requestLevelOfDetail';
 export * from './requestLocation';
 export * from './requestRangeFull';
 export * from './requestRangeNoMaxResults';
@@ -108,6 +109,7 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 import { Coords } from './coords';
 import { RequestArrivalTimePeriod } from './requestArrivalTimePeriod';
+import { RequestLevelOfDetail } from './requestLevelOfDetail';
 import { RequestLocation } from './requestLocation';
 import { RequestRangeFull } from './requestRangeFull';
 import { RequestRangeNoMaxResults } from './requestRangeNoMaxResults';
@@ -213,6 +215,8 @@ let primitives = [
 
 let enumsMap: {[index: string]: any} = {
         "RequestArrivalTimePeriod": RequestArrivalTimePeriod,
+        "RequestLevelOfDetail.ScaleTypeEnum": RequestLevelOfDetail.ScaleTypeEnum,
+        "RequestLevelOfDetail.LevelEnum": RequestLevelOfDetail.LevelEnum,
         "RequestRoutesProperty": RequestRoutesProperty,
         "RequestTimeFilterFastProperty": RequestTimeFilterFastProperty,
         "RequestTimeFilterPostcodeDistrictsProperty": RequestTimeFilterPostcodeDistrictsProperty,
@@ -229,6 +233,7 @@ let enumsMap: {[index: string]: any} = {
 
 let typeMap: {[index: string]: any} = {
     "Coords": Coords,
+    "RequestLevelOfDetail": RequestLevelOfDetail,
     "RequestLocation": RequestLocation,
     "RequestRangeFull": RequestRangeFull,
     "RequestRangeNoMaxResults": RequestRangeNoMaxResults,

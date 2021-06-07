@@ -212,7 +212,7 @@
     <jetty-version>9.2.9.v20150224</jetty-version>
     <beanvalidation-version>1.1.0.Final</beanvalidation-version>
     <junit-version>4.13</junit-version>
-    <logback-version>1.1.7</logback-version>
+    <logback-version>1.2.0</logback-version>
     <cxf-version>3.3.0</cxf-version>
     <jackson-jaxrs-version>2.9.9</jackson-jaxrs-version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
